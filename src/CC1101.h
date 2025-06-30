@@ -378,6 +378,7 @@ public:
 	 */
 	void setModulation(uint8_t modulation);
 
+	//TODO @Goldfor Надо Дописать документацию для всего недостающего
 	void setPA(int p);
 	void setMHZ(float mhz);
 	void setClb(uint8_t b, uint8_t s, uint8_t e);

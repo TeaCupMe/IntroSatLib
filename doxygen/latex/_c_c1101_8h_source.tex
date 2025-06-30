@@ -349,128 +349,129 @@
 \DoxyCodeLine{00373\ }
 \DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_aedac5916dbd33a1b731ea0ec414956e7}{setModulation}}(uint8\_t\ modulation);}
 \DoxyCodeLine{00380\ }
-\DoxyCodeLine{00381\ \ \ \ \ \textcolor{keywordtype}{void}\ setPA(\textcolor{keywordtype}{int}\ p);}
-\DoxyCodeLine{00382\ \ \ \ \ \textcolor{keywordtype}{void}\ setMHZ(\textcolor{keywordtype}{float}\ mhz);}
-\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordtype}{void}\ setClb(uint8\_t\ b,\ uint8\_t\ s,\ uint8\_t\ e);}
-\DoxyCodeLine{00384\ \ \ \ \ uint8\_t\ getCC1101();}
-\DoxyCodeLine{00385\ }
-\DoxyCodeLine{00386\ \ \ \ \ State\ getMode()\ \{\ \textcolor{keywordflow}{return}\ \_trxstate;\ \}}
-\DoxyCodeLine{00387\ \ \ \ \ \textcolor{keywordtype}{void}\ setSyncWord(uint8\_t\ sh,\ uint8\_t\ sl);}
-\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordtype}{void}\ setAddr(uint8\_t\ v);}
-\DoxyCodeLine{00389\ }
-\DoxyCodeLine{00390\ \ \ \ \ \textcolor{comment}{//\ PKTCTRL1}}
-\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keywordtype}{void}\ setPQT(uint8\_t\ v);}
-\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordtype}{void}\ setCRC\_AF(uint8\_t\ v);}
-\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordtype}{void}\ setAppendStatus(uint8\_t\ v);}
-\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keywordtype}{void}\ setAdrChk(uint8\_t\ v);}
-\DoxyCodeLine{00395\ \ \ \ \ \textcolor{comment}{//\ PKTCTRL0}}
-\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keywordtype}{void}\ setWhiteData(uint8\_t\ v);}
-\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keywordtype}{void}\ setPktFormat(uint8\_t\ v);}
-\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordtype}{void}\ setCrc(uint8\_t\ v);}
-\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keywordtype}{void}\ setLengthConfig(uint8\_t\ v);}
-\DoxyCodeLine{00400\ \ \ \ \ \textcolor{comment}{//\ MDMCFG4}}
-\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keywordtype}{void}\ setRxBW(\textcolor{keywordtype}{float}\ f);}
-\DoxyCodeLine{00402\ \ \ \ \ \textcolor{comment}{//\ MDMCFG4\ +\ MDMCFG3}}
-\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setDRate(\textcolor{keywordtype}{float}\ kD);}
-\DoxyCodeLine{00404\ \ \ \ \ \textcolor{comment}{//\ MDMCFG2}}
-\DoxyCodeLine{00405\ \ \ \ \ \textcolor{keywordtype}{void}\ setDcFilterOff(uint8\_t\ v);}
-\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordtype}{void}\ setManchester(uint8\_t\ v);}
-\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keywordtype}{void}\ setSyncMode(uint8\_t\ v);}
-\DoxyCodeLine{00408\ \ \ \ \ \textcolor{comment}{//\ MDMCFG1}}
-\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordtype}{void}\ setFEC(uint8\_t\ v);}
-\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keywordtype}{void}\ setPRE(uint8\_t\ v);}
-\DoxyCodeLine{00411\ \ \ \ \ \textcolor{comment}{//\ MDMCFG1\ +\ MDMCFG0}}
-\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordtype}{void}\ setChsp(\textcolor{keywordtype}{float}\ f);}
-\DoxyCodeLine{00413\ }
-\DoxyCodeLine{00414\ \ \ \ \ \textcolor{keywordtype}{void}\ setDeviation(\textcolor{keywordtype}{float}\ d);}
-\DoxyCodeLine{00415\ }
-\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_PKTCTRL1();}
-\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_PKTCTRL0();}
-\DoxyCodeLine{00418\ }
-\DoxyCodeLine{00419\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_MDMCFG4();}
-\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_MDMCFG2();}
-\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_MDMCFG1();}
-\DoxyCodeLine{00422\ }
-\DoxyCodeLine{00423\ \ \ \ \ \textcolor{keywordtype}{void}\ SetTx();}
-\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordtype}{void}\ SetRx();}
-\DoxyCodeLine{00425\ }
-\DoxyCodeLine{00426\ \ \ \ \ \textcolor{keywordtype}{void}\ SetTx(\textcolor{keywordtype}{float}\ mhz);}
-\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keywordtype}{void}\ SetRx(\textcolor{keywordtype}{float}\ mhz);}
-\DoxyCodeLine{00428\ }
-\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keywordtype}{int}\ getRssi();}
-\DoxyCodeLine{00430\ \ \ \ \ uint8\_t\ getLqi();}
-\DoxyCodeLine{00431\ \ \ \ \ \textcolor{keywordtype}{void}\ setSres();}
-\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordtype}{void}\ setSidle();}
-\DoxyCodeLine{00433\ }
-\DoxyCodeLine{00434\ \ \ \ \ \textcolor{keywordtype}{void}\ goSleep();}
-\DoxyCodeLine{00435\ }
-\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keywordtype}{void}\ SendData(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *txchar);}
-\DoxyCodeLine{00437\ \ \ \ \ \textcolor{keywordtype}{void}\ SendData(uint8\_t\ *txBuffer,\ uint8\_t\ size);}
-\DoxyCodeLine{00438\ }
-\DoxyCodeLine{00439\ \ \ \ \ uint8\_t\ CheckCRC();}
-\DoxyCodeLine{00440\ }
-\DoxyCodeLine{00441\ \};}
-\DoxyCodeLine{00442\ }
-\DoxyCodeLine{00443\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_with_delay}{CC1101WithDelay}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101}{CC1101}}}
-\DoxyCodeLine{00444\ \{}
-\DoxyCodeLine{00445\ }
-\DoxyCodeLine{00446\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ getTimeoutK(\textcolor{keywordtype}{float}\ kD)}
-\DoxyCodeLine{00447\ \ \ \ \ \{}
-\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (1.66f\ +\ 0.6f\ *\ (log10f(kD)\ +\ 3))\ /\ kD;}
-\DoxyCodeLine{00449\ \ \ \ \ \}}
-\DoxyCodeLine{00450\ }
-\DoxyCodeLine{00451\ \ \ \ \ \textcolor{keywordtype}{float}\ timeoutK\ =\ getTimeoutK(99.97f);}
-\DoxyCodeLine{00452\ }
-\DoxyCodeLine{00453\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00454\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_with_delay}{CC1101WithDelay}}(}
-\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_s_p_i}{intefaces::SPI}}\ \&spi,}
-\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&scl,}
-\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&mosi,}
-\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&miso,}
-\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&reset}
-\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ ):\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_aa6f513ab3e24211756505055565d7de8}{CC1101}}(spi,\ scl,\ mosi,\ miso,\ reset)\ \{\ \}}
-\DoxyCodeLine{00461\ }
-\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keywordtype}{void}\ await(uint8\_t\ len)\textcolor{keyword}{\ override}}
-\DoxyCodeLine{00463\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ uint32\_t\ timeout\ =\ ceilf((\textcolor{keywordtype}{float})len\ *\ timeoutK\ *\ 8);}
-\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ HAL\_Delay(timeout);}
-\DoxyCodeLine{00466\ \ \ \ \ \}}
-\DoxyCodeLine{00467\ }
-\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keywordtype}{void}\ setDRate(\textcolor{keywordtype}{float}\ kD)\textcolor{keyword}{\ override}}
-\DoxyCodeLine{00469\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ CC1101::setDRate(kD);}
-\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ timeoutK\ =\ getTimeoutK(kD);}
-\DoxyCodeLine{00472\ \ \ \ \ \};}
-\DoxyCodeLine{00473\ \};}
-\DoxyCodeLine{00474\ }
-\DoxyCodeLine{00475\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_with_g_d0}{CC1101WithGD0}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101}{CC1101}}}
-\DoxyCodeLine{00476\ \{}
-\DoxyCodeLine{00477\ }
-\DoxyCodeLine{00478\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&\_gd0;}
-\DoxyCodeLine{00479\ }
-\DoxyCodeLine{00480\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00481\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_with_g_d0}{CC1101WithGD0}}(}
-\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_s_p_i}{intefaces::SPI}}\ \&spi,}
-\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&scl,}
-\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&mosi,}
-\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&miso,}
-\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&reset,}
-\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&gd0}
-\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ ):\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_aa6f513ab3e24211756505055565d7de8}{CC1101}}(spi,\ scl,\ mosi,\ miso,\ reset),\ \_gd0(gd0)\ \{\ \}}
-\DoxyCodeLine{00489\ }
-\DoxyCodeLine{00490\ \ \ \ \ \textcolor{keywordtype}{void}\ await(uint8\_t\ len)\textcolor{keyword}{\ override}}
-\DoxyCodeLine{00491\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ logText(\textcolor{stringliteral}{"{}wait\ set\(\backslash\)n"{}});}
-\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \_gd0.waitSet();}
-\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ logText(\textcolor{stringliteral}{"{}wait\ reset\(\backslash\)n"{}});}
-\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \_gd0.waitReset();}
-\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ HAL\_Delay(10);}
-\DoxyCodeLine{00497\ \ \ \ \ \}}
-\DoxyCodeLine{00498\ }
-\DoxyCodeLine{00499\ \};}
-\DoxyCodeLine{00500\ }
-\DoxyCodeLine{00501\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
-\DoxyCodeLine{00502\ }
-\DoxyCodeLine{00503\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CC1101\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00381\ \ \ \ \ \textcolor{comment}{//TODO\ @Goldfor\ Надо\ Дописать\ документацию\ для\ всего\ недостающего}}
+\DoxyCodeLine{00382\ \ \ \ \ \textcolor{keywordtype}{void}\ setPA(\textcolor{keywordtype}{int}\ p);}
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordtype}{void}\ setMHZ(\textcolor{keywordtype}{float}\ mhz);}
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keywordtype}{void}\ setClb(uint8\_t\ b,\ uint8\_t\ s,\ uint8\_t\ e);}
+\DoxyCodeLine{00385\ \ \ \ \ uint8\_t\ getCC1101();}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ State\ getMode()\ \{\ \textcolor{keywordflow}{return}\ \_trxstate;\ \}}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordtype}{void}\ setSyncWord(uint8\_t\ sh,\ uint8\_t\ sl);}
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keywordtype}{void}\ setAddr(uint8\_t\ v);}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{comment}{//\ PKTCTRL1}}
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordtype}{void}\ setPQT(uint8\_t\ v);}
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordtype}{void}\ setCRC\_AF(uint8\_t\ v);}
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keywordtype}{void}\ setAppendStatus(uint8\_t\ v);}
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keywordtype}{void}\ setAdrChk(uint8\_t\ v);}
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{comment}{//\ PKTCTRL0}}
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keywordtype}{void}\ setWhiteData(uint8\_t\ v);}
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordtype}{void}\ setPktFormat(uint8\_t\ v);}
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keywordtype}{void}\ setCrc(uint8\_t\ v);}
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordtype}{void}\ setLengthConfig(uint8\_t\ v);}
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{comment}{//\ MDMCFG4}}
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keywordtype}{void}\ setRxBW(\textcolor{keywordtype}{float}\ f);}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{comment}{//\ MDMCFG4\ +\ MDMCFG3}}
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setDRate(\textcolor{keywordtype}{float}\ kD);}
+\DoxyCodeLine{00405\ \ \ \ \ \textcolor{comment}{//\ MDMCFG2}}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordtype}{void}\ setDcFilterOff(uint8\_t\ v);}
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keywordtype}{void}\ setManchester(uint8\_t\ v);}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordtype}{void}\ setSyncMode(uint8\_t\ v);}
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{comment}{//\ MDMCFG1}}
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keywordtype}{void}\ setFEC(uint8\_t\ v);}
+\DoxyCodeLine{00411\ \ \ \ \ \textcolor{keywordtype}{void}\ setPRE(uint8\_t\ v);}
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{comment}{//\ MDMCFG1\ +\ MDMCFG0}}
+\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keywordtype}{void}\ setChsp(\textcolor{keywordtype}{float}\ f);}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ \ \ \ \ \textcolor{keywordtype}{void}\ setDeviation(\textcolor{keywordtype}{float}\ d);}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_PKTCTRL1();}
+\DoxyCodeLine{00418\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_PKTCTRL0();}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_MDMCFG4();}
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_MDMCFG2();}
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_MDMCFG1();}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordtype}{void}\ SetTx();}
+\DoxyCodeLine{00425\ \ \ \ \ \textcolor{keywordtype}{void}\ SetRx();}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keywordtype}{void}\ SetTx(\textcolor{keywordtype}{float}\ mhz);}
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keywordtype}{void}\ SetRx(\textcolor{keywordtype}{float}\ mhz);}
+\DoxyCodeLine{00429\ }
+\DoxyCodeLine{00430\ \ \ \ \ \textcolor{keywordtype}{int}\ getRssi();}
+\DoxyCodeLine{00431\ \ \ \ \ uint8\_t\ getLqi();}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordtype}{void}\ setSres();}
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordtype}{void}\ setSidle();}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keywordtype}{void}\ goSleep();}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \ \ \ \ \textcolor{keywordtype}{void}\ SendData(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *txchar);}
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keywordtype}{void}\ SendData(uint8\_t\ *txBuffer,\ uint8\_t\ size);}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00440\ \ \ \ \ uint8\_t\ CheckCRC();}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ \};}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_with_delay}{CC1101WithDelay}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101}{CC1101}}}
+\DoxyCodeLine{00445\ \{}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ getTimeoutK(\textcolor{keywordtype}{float}\ kD)}
+\DoxyCodeLine{00448\ \ \ \ \ \{}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (1.66f\ +\ 0.6f\ *\ (log10f(kD)\ +\ 3))\ /\ kD;}
+\DoxyCodeLine{00450\ \ \ \ \ \}}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00452\ \ \ \ \ \textcolor{keywordtype}{float}\ timeoutK\ =\ getTimeoutK(99.97f);}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00455\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_with_delay}{CC1101WithDelay}}(}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_s_p_i}{intefaces::SPI}}\ \&spi,}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&scl,}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&mosi,}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&miso,}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&reset}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ ):\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_aa6f513ab3e24211756505055565d7de8}{CC1101}}(spi,\ scl,\ mosi,\ miso,\ reset)\ \{\ \}}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keywordtype}{void}\ await(uint8\_t\ len)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00464\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ uint32\_t\ timeout\ =\ ceilf((\textcolor{keywordtype}{float})len\ *\ timeoutK\ *\ 8);}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ HAL\_Delay(timeout);}
+\DoxyCodeLine{00467\ \ \ \ \ \}}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00469\ \ \ \ \ \textcolor{keywordtype}{void}\ setDRate(\textcolor{keywordtype}{float}\ kD)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00470\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ CC1101::setDRate(kD);}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ timeoutK\ =\ getTimeoutK(kD);}
+\DoxyCodeLine{00473\ \ \ \ \ \};}
+\DoxyCodeLine{00474\ \};}
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00476\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_with_g_d0}{CC1101WithGD0}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101}{CC1101}}}
+\DoxyCodeLine{00477\ \{}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&\_gd0;}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00481\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00482\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_with_g_d0}{CC1101WithGD0}}(}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_s_p_i}{intefaces::SPI}}\ \&spi,}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&scl,}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&mosi,}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&miso,}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&reset,}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&gd0}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ ):\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_aa6f513ab3e24211756505055565d7de8}{CC1101}}(spi,\ scl,\ mosi,\ miso,\ reset),\ \_gd0(gd0)\ \{\ \}}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \ \ \ \ \textcolor{keywordtype}{void}\ await(uint8\_t\ len)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00492\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ logText(\textcolor{stringliteral}{"{}wait\ set\(\backslash\)n"{}});}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \_gd0.waitSet();}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ logText(\textcolor{stringliteral}{"{}wait\ reset\(\backslash\)n"{}});}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \_gd0.waitReset();}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ HAL\_Delay(10);}
+\DoxyCodeLine{00498\ \ \ \ \ \}}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \};}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00502\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00504\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CC1101\_H\_\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

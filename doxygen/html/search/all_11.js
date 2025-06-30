@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['unreal_0',['unreal',['../class_intro_sat_lib_1_1_quaternion.html#abbcc8d856b30c6ccbd8a4688ede6cbb6',1,'IntroSatLib::Quaternion']]],
-  ['unreal_5fnorm_5fsquared_1',['unreal_norm_squared',['../class_intro_sat_lib_1_1_quaternion.html#af6442ffe1e05b7b4af6aee48471b27dc',1,'IntroSatLib::Quaternion']]],
-  ['useforcereset_2',['useForceReset',['../class_intro_sat_lib_1_1_i_r_camera.html#a7346c3d20d5a22ebe12afb57de31ac9e',1,'IntroSatLib::IRCamera']]],
-  ['usemirrored_3',['useMirrored',['../class_intro_sat_lib_1_1_i_r_camera.html#a53d5a93a40408726632323f59c009bd6',1,'IntroSatLib::IRCamera']]],
-  ['usenotmirrored_4',['useNotMirrored',['../class_intro_sat_lib_1_1_i_r_camera.html#ade5050b97643e2d5d8e0d35162351137',1,'IntroSatLib::IRCamera']]]
+  ['temp_0',['Temp',['../class_intro_sat_lib_1_1_accelerometer_v2.html#a18ae0f243bfcf304aaef06255df0590a',1,'IntroSatLib::AccelerometerV2']]],
+  ['to_5farray_1',['to_array',['../class_intro_sat_lib_1_1_quaternion.html#af17e6ee80f3dc8dd7bd5c9d193c64025',1,'IntroSatLib::Quaternion']]],
+  ['twog_2',['twoG',['../class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3a61cc588c17dbae97513b1b6e8cc23f7b',1,'IntroSatLib::Accelerometer::twoG'],['../class_intro_sat_lib_1_1_accelerometer_v2.html#aa4558f57b486ed9a7fa260fc6e694e6faf865b46a57087bb80188ad48a807ad22',1,'IntroSatLib::AccelerometerV2::twoG']]]
 ];

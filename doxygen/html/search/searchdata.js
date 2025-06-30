@@ -1,11 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "abcdefghilmnoqrstuvwxyz",
+  0: "abcdefghilmnopqrstuvwxyzо",
   1: "abcghilmqs",
   2: "abcegilmnoqrstuwxyz",
   3: "v",
   4: "dfs",
-  5: "defgost"
+  5: "defgost",
+  6: "i"
 };
 
 var indexSectionNames =
@@ -15,7 +16,8 @@ var indexSectionNames =
   2: "functions",
   3: "typedefs",
   4: "enums",
-  5: "enumvalues"
+  5: "enumvalues",
+  6: "pages"
 };
 
 var indexSectionLabels =
@@ -25,6 +27,7 @@ var indexSectionLabels =
   2: "Функции",
   3: "Определения типов",
   4: "Перечисления",
-  5: "Элементы перечислений"
+  5: "Элементы перечислений",
+  6: "Страницы"
 };
 
