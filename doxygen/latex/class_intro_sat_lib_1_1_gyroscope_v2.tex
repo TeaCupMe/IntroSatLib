@@ -1,0 +1,577 @@
+\doxysection{Класс Intro\+Sat\+Lib\+::Gyroscope\+V2}
+\hypertarget{class_intro_sat_lib_1_1_gyroscope_v2}{}\label{class_intro_sat_lib_1_1_gyroscope_v2}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+Граф наследования\+:Intro\+Sat\+Lib\+::Gyroscope\+V2\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_intro_sat_lib_1_1_gyroscope_v2}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776}{Data\+Rate}} \{ \newline
+\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a233aa0268f4b5697cbe03d195bc63edb}{OFF}}
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a4496a5345b9d078b1a3cc7f478af5e88}{F\+\_\+13\+\_\+\+Hz}}
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a64ef558a170750e4504f53aa81a0b9c6}{F\+\_\+26\+\_\+\+Hz}}
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776afc66624b147ae4f9010ecb34da16dbff}{F\+\_\+52\+\_\+\+Hz}}
+, \newline
+\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776abdc899b99c6041ddaac011e9509384dd}{F\+\_\+104\+\_\+\+Hz}}
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a98b89f819d2f837ddf7677c482e1d643}{F\+\_\+208\+\_\+\+Hz}}
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a554bdf6dabb1cef0715cd3af5474bf8b}{F\+\_\+416\+\_\+\+Hz}}
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776af1b042c80a89c842a048abba952f09f0}{F\+\_\+833\+\_\+\+Hz}}
+, \newline
+\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a99a2b1c87b4b80a35301f87ae7d0c434}{F\+\_\+1666\+\_\+\+Hz}}
+ \}
+\begin{DoxyCompactList}\small\item\em Скорость обновления данных \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Scale}} \{ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cdaa619e830702605019f7c31eb9ccc73c4}{DPS0250}} = 0
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cdacfcadb1487edc5b5b698d24cc389f064}{DPS0500}}
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cda9e3681f18954a25ab273f4cd41023fc3}{DPS1000}}
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cdaed1f53527e36fef9697c498a232bc5f7}{DPS2000}}
+ \}
+\begin{DoxyCompactList}\small\item\em Диапазон измерения \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a743dcf6d8383216a7d35c8345fa364e7}{Gyroscope\+V2}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c, uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Конструктор объекта гироскопа. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_afd7683a1b542fec53885e1ebb479157c}{Gyroscope\+V2}} (Two\+Wire \&hi2c, uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Конструктор объекта гироскопа \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_ae63fedd9b638a1646837290ed7fc0429}{Gyroscope\+V2}} (uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Конструктор объекта гироскопа на {\bfseries{I2\+C1}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a877cfbf3ed7b06d8da45bfc4ecfbb8b2}{Gyroscope\+V2}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{Gyroscope\+V2}} \&other)
+\begin{DoxyCompactList}\small\item\em Конструктор объекта гироскопа как копии другого объекта гироскопа \end{DoxyCompactList}\item 
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a288506d8e32bc731240ce18d43ab16e0}\label{class_intro_sat_lib_1_1_gyroscope_v2_a288506d8e32bc731240ce18d43ab16e0} 
+{\bfseries Gyroscope\+V2} (\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{Gyroscope\+V2}} \&\&other)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a273c688553a7705f7f5c06b74e4a1eed}\label{class_intro_sat_lib_1_1_gyroscope_v2_a273c688553a7705f7f5c06b74e4a1eed} 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{Gyroscope\+V2}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{Gyroscope\+V2}} \&other)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a92f14b8b97527ea523024fa29354d8b3}\label{class_intro_sat_lib_1_1_gyroscope_v2_a92f14b8b97527ea523024fa29354d8b3} 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{Gyroscope\+V2}} \& {\bfseries operator=} (\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{Gyroscope\+V2}} \&\&other)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a5a3e7eba099d6fb9e5bd4fbd610b7dee}{Init}} () override
+\begin{DoxyCompactList}\small\item\em Инициализация гироскопа с параметрами по умолчанию\+: \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776abdc899b99c6041ddaac011e9509384dd}{Data\+Rate\+::\+F\+\_\+104\+\_\+\+Hz}, \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cdaa619e830702605019f7c31eb9ccc73c4}{Scale\+::\+DPS0250}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a91babf8ef768f2cd8893c814e37074c3}{Init}} (\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Scale}} sensitivity)
+\begin{DoxyCompactList}\small\item\em Инициализация гироскопа с заданным диапазоном измерения \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_add2bfefc574504f849d6996b6186737a}{Init}} (\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Scale}} sensitivity, \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776}{Data\+Rate}} data\+Rate)
+\begin{DoxyCompactList}\small\item\em Инициализация гироскопа с заданным диапазоном измерения \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_aacd274ab97a0d95225e8781efa895f6b}{Set\+Scale}} (\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Scale}} sensitivity)
+\begin{DoxyCompactList}\small\item\em Установка диапазона измерения \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a5ac00bc18fdda1cde017437f34f5f098}{Set\+Data\+Rate}} (\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776}{Data\+Rate}} data\+Rate)
+\begin{DoxyCompactList}\small\item\em Установка скорости обновления данных \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_aeb342c38d639cba5e64f63d633309a3d}{RawX}} ()
+\begin{DoxyCompactList}\small\item\em Получение {\bfseries{необработанного}} значения ускорения по оси X. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a636e1f39da7f2219a283f52a6948c65a}{RawY}} ()
+\begin{DoxyCompactList}\small\item\em Получение {\bfseries{необработанного}} значения ускорения по оси Y. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a5d3fbac3b7a704d9830d211e91285424}{RawZ}} ()
+\begin{DoxyCompactList}\small\item\em Получение {\bfseries{необработанного}} значения ускорения по оси Z. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_af7a7092c963b98a77db17942e4953414}{X}} ()
+\begin{DoxyCompactList}\small\item\em Получение значения ускорения вокруг оси X. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a0368d477229930df0ef58640bc2d527e}{Y}} ()
+\begin{DoxyCompactList}\small\item\em Получение значения ускорения вокруг оси Y. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a9bbefccd5288b1491702445b179dcc67}{Z}} ()
+\begin{DoxyCompactList}\small\item\em Получение значения ускорения вокруг оси Z. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a634e6a3601b57696f531eb1a60944cd3}{integrationX}} ()
+\begin{DoxyCompactList}\small\item\em Получение углового перемещения вокруг оси X с момента предыдущего вызова \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a634e6a3601b57696f531eb1a60944cd3}{integration\+X()} \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a9bcbe61f3524fecab135727b5a5af393}{integrationY}} ()
+\begin{DoxyCompactList}\small\item\em Получение углового перемещения вокруг оси Y с момента предыдущего вызова \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a9bcbe61f3524fecab135727b5a5af393}{integration\+Y()} \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_aa439dc1798a1faa31092576432b3c670}{integrationZ}} ()
+\begin{DoxyCompactList}\small\item\em Получение углового перемещения вокруг оси Z с момента предыдущего вызова \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_aa439dc1798a1faa31092576432b3c670}{integration\+Z()} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a5996a9118399e22af1144b7b926e2460}{Set\+Min\+CutX}} (float x)
+\begin{DoxyCompactList}\small\item\em Установка порогового значения по оси X. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_abd6f7b8b36f2646b34af3f95bf4232ff}{Set\+Min\+CutY}} (float y)
+\begin{DoxyCompactList}\small\item\em Установка порогового значения по оси Y. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a2a0aea7800ccf7ec64f22f35038b68d6}{Set\+Min\+CutZ}} (float z)
+\begin{DoxyCompactList}\small\item\em Установка порогового значения по оси Z. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ float $>$ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a88e863335a2f0e2dd7848d3a5ca02fbf}{Get\+Quaternion}} ()
+\begin{DoxyCompactList}\small\item\em Получение изменения углового положения в виде набора кватернионов \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a631104c6cd77fb82326aa3e8140fc60d}{Base\+Device}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c, uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта {\bfseries{@ref}}  \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a86bf0b41f10cc79d6271930ef61be7d5}{Base\+Device}} (Two\+Wire \&hi2c, uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a82a1cb1576068b9802ad25342c74a462}{Base\+Device}} (uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device} на {\bfseries{I2\+C1}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_abf11ffaf569aa5d7f19990da9b4afb7f}{Base\+Device}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&other)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device} как копии другого объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+{\bfseries Base\+Device} (\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&\&other)
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&other)
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \& {\bfseries operator=} (\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&\&other)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Защищенные члены унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ac3d81df953423b66b238f8113306d214}{Get\+Register}} (uint8\+\_\+t reg)
+\begin{DoxyCompactList}\small\item\em Чтение значения из регистра устройства \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a417cad1072ec9b537f7b1b6a3e79841e}{Set\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Запись значения в регистр устройства \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ae33eb53f04bd78500b1a5183e9640db7}{Set\+Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ac672694bd65c5ea6b54b733073f4fa4d}{Reset\+Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ae000696da9dc4f5d7d6978f9b2348c24}{Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение по условию value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2\+CDevice}} \& {\bfseries \+\_\+i2c}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Перечисления}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!DataRate@{DataRate}}
+\index{DataRate@{DataRate}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{DataRate}{DataRate}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776} 
+enum \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776}{Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Data\+Rate}}}
+
+
+
+Скорость обновления данных 
+
+\begin{DoxyEnumFields}[2]{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OFF@{OFF}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!OFF@{OFF}}}\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a233aa0268f4b5697cbe03d195bc63edb}\label{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776} 
+OFF&Автоматическое определение \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\_13\_Hz@{F\_13\_Hz}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!F\_13\_Hz@{F\_13\_Hz}}}\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a4496a5345b9d078b1a3cc7f478af5e88}\label{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776} 
+F\+\_\+13\+\_\+\+Hz&13 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\_26\_Hz@{F\_26\_Hz}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!F\_26\_Hz@{F\_26\_Hz}}}\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a64ef558a170750e4504f53aa81a0b9c6}\label{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776} 
+F\+\_\+26\+\_\+\+Hz&26 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\_52\_Hz@{F\_52\_Hz}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!F\_52\_Hz@{F\_52\_Hz}}}\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776afc66624b147ae4f9010ecb34da16dbff}\label{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776} 
+F\+\_\+52\+\_\+\+Hz&52 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\_104\_Hz@{F\_104\_Hz}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!F\_104\_Hz@{F\_104\_Hz}}}\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776abdc899b99c6041ddaac011e9509384dd}\label{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776} 
+F\+\_\+104\+\_\+\+Hz&104 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\_208\_Hz@{F\_208\_Hz}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!F\_208\_Hz@{F\_208\_Hz}}}\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a98b89f819d2f837ddf7677c482e1d643}\label{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776} 
+F\+\_\+208\+\_\+\+Hz&208 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\_416\_Hz@{F\_416\_Hz}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!F\_416\_Hz@{F\_416\_Hz}}}\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a554bdf6dabb1cef0715cd3af5474bf8b}\label{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776} 
+F\+\_\+416\+\_\+\+Hz&416 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\_833\_Hz@{F\_833\_Hz}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!F\_833\_Hz@{F\_833\_Hz}}}\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776af1b042c80a89c842a048abba952f09f0}\label{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776} 
+F\+\_\+833\+\_\+\+Hz&833 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\_1666\_Hz@{F\_1666\_Hz}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!F\_1666\_Hz@{F\_1666\_Hz}}}\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a99a2b1c87b4b80a35301f87ae7d0c434}\label{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776} 
+F\+\_\+1666\+\_\+\+Hz&1666 Гц \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!Scale@{Scale}}
+\index{Scale@{Scale}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{Scale}{Scale}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd} 
+enum \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Scale}}}
+
+
+
+Диапазон измерения 
+
+\begin{DoxyEnumFields}[2]{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DPS0250@{DPS0250}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!DPS0250@{DPS0250}}}\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cdaa619e830702605019f7c31eb9ccc73c4}\label{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd} 
+DPS0250&Диапазон {$\pm$}250 град/с \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DPS0500@{DPS0500}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!DPS0500@{DPS0500}}}\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cdacfcadb1487edc5b5b698d24cc389f064}\label{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd} 
+DPS0500&Диапазон {$\pm$}500 град/с \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DPS1000@{DPS1000}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!DPS1000@{DPS1000}}}\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cda9e3681f18954a25ab273f4cd41023fc3}\label{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd} 
+DPS1000&Диапазон {$\pm$}1000 град/с \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DPS2000@{DPS2000}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!DPS2000@{DPS2000}}}\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cdaed1f53527e36fef9697c498a232bc5f7}\label{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd} 
+DPS2000&Диапазон {$\pm$}2000 град/с \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a743dcf6d8383216a7d35c8345fa364e7}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!GyroscopeV2@{GyroscopeV2}}
+\index{GyroscopeV2@{GyroscopeV2}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{GyroscopeV2()}{GyroscopeV2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a743dcf6d8383216a7d35c8345fa364e7} 
+Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Gyroscope\+V2 (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hi2c}{, }\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Конструктор объекта гироскопа. 
+
+\begin{DoxyNote}{Заметки}
+Только в STM32\+Cube\+IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em hi2c} & объект {\bfseries{I2\+C\+\_\+\+Handle\+Type\+Def}} \\
+\hline
+{\em address} & адрес гироскопа на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_afd7683a1b542fec53885e1ebb479157c}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!GyroscopeV2@{GyroscopeV2}}
+\index{GyroscopeV2@{GyroscopeV2}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{GyroscopeV2()}{GyroscopeV2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_afd7683a1b542fec53885e1ebb479157c} 
+Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Gyroscope\+V2 (\begin{DoxyParamCaption}\item[{Two\+Wire \&}]{hi2c}{, }\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Конструктор объекта гироскопа 
+
+\begin{DoxyNote}{Заметки}
+Только в Arduino IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em hi2c} & объект {\bfseries{Two\+Wire}} или {\bfseries{Wire}} \\
+\hline
+{\em address} & адрес гироскопа на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_ae63fedd9b638a1646837290ed7fc0429}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!GyroscopeV2@{GyroscopeV2}}
+\index{GyroscopeV2@{GyroscopeV2}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{GyroscopeV2()}{GyroscopeV2()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_ae63fedd9b638a1646837290ed7fc0429} 
+Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Gyroscope\+V2 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Конструктор объекта гироскопа на {\bfseries{I2\+C1}}. 
+
+\begin{DoxyNote}{Заметки}
+Только в Arduino IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em address} & адрес гироскопа на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a877cfbf3ed7b06d8da45bfc4ecfbb8b2}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!GyroscopeV2@{GyroscopeV2}}
+\index{GyroscopeV2@{GyroscopeV2}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{GyroscopeV2()}{GyroscopeV2()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a877cfbf3ed7b06d8da45bfc4ecfbb8b2} 
+Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Gyroscope\+V2 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{Gyroscope\+V2}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Конструктор объекта гироскопа как копии другого объекта гироскопа 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em other} & исходный объект для копирования \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a88e863335a2f0e2dd7848d3a5ca02fbf}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!GetQuaternion@{GetQuaternion}}
+\index{GetQuaternion@{GetQuaternion}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{GetQuaternion()}{GetQuaternion()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a88e863335a2f0e2dd7848d3a5ca02fbf} 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ float $>$ Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Get\+Quaternion (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение изменения углового положения в виде набора кватернионов 
+
+\begin{DoxyNote}{Заметки}
+Метод использует Integration\+X(), Integration\+Y() и Integration\+Z(). В связи с этим, для получения достоверных данных необходимо вызывать достаточно часто. 
+\end{DoxyNote}
+\begin{DoxyRemark}{Прим.}
+Только в STM32\+Cube\+IDE 
+\end{DoxyRemark}
+\begin{DoxyReturn}{Возвращает}
+Набор кваретнионов, описывающий изменение углового положения 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a5a3e7eba099d6fb9e5bd4fbd610b7dee}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!Init@{Init}}
+\index{Init@{Init}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a5a3e7eba099d6fb9e5bd4fbd610b7dee} 
+uint8\+\_\+t Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Инициализация гироскопа с параметрами по умолчанию\+: \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776abdc899b99c6041ddaac011e9509384dd}{Data\+Rate\+::\+F\+\_\+104\+\_\+\+Hz}, \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cdaa619e830702605019f7c31eb9ccc73c4}{Scale\+::\+DPS0250}. 
+
+\begin{DoxyReturn}{Возвращает}
+0, если инициализация завершена успешно 
+
+1, если при инициализации возникла ошибка 
+\end{DoxyReturn}
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_aed46bf6b65b16efcad1f5c5d3e36aaff}{Intro\+Sat\+Lib\+::\+Base\+Device}}.
+
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a91babf8ef768f2cd8893c814e37074c3}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!Init@{Init}}
+\index{Init@{Init}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a91babf8ef768f2cd8893c814e37074c3} 
+uint8\+\_\+t Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Scale}}}]{sensitivity}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация гироскопа с заданным диапазоном измерения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sensitivity} & Значение чуствительности \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Scale} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если инициализация завершена успешно 
+
+1, если при инициализации возникла ошибка 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_add2bfefc574504f849d6996b6186737a}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!Init@{Init}}
+\index{Init@{Init}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_add2bfefc574504f849d6996b6186737a} 
+uint8\+\_\+t Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Scale}}}]{sensitivity}{, }\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776}{Data\+Rate}}}]{data\+Rate}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация гироскопа с заданным диапазоном измерения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sensitivity} & Значение чуствительности \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Scale} \\
+\hline
+{\em datarate} & Значение скорости обновления данных \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776}{Data\+Rate} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если инициализация завершена успешно 
+
+1, если при инициализации возникла ошибка 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a634e6a3601b57696f531eb1a60944cd3}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!integrationX@{integrationX}}
+\index{integrationX@{integrationX}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{integrationX()}{integrationX()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a634e6a3601b57696f531eb1a60944cd3} 
+float Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::integrationX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение углового перемещения вокруг оси X с момента предыдущего вызова \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a634e6a3601b57696f531eb1a60944cd3}{integration\+X()} 
+
+\begin{DoxyNote}{Заметки}
+Метод учитывает только два измерения угловой скорости\+: одно, сделанное в момент вызова этого метода, и второе -\/ предыдущее. Если время между измерениями велико и угловая скорость успела нелинейно измениться -\/ результат будет некорректным.
+\end{DoxyNote}
+\begin{DoxyReturn}{Возвращает}
+Угловое перемещение в градусах. 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a9bcbe61f3524fecab135727b5a5af393}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!integrationY@{integrationY}}
+\index{integrationY@{integrationY}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{integrationY()}{integrationY()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a9bcbe61f3524fecab135727b5a5af393} 
+float Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::integrationY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение углового перемещения вокруг оси Y с момента предыдущего вызова \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a9bcbe61f3524fecab135727b5a5af393}{integration\+Y()} 
+
+\begin{DoxyNote}{Заметки}
+Метод учитывает только два измерения угловой скорости\+: одно, сделанное в момент вызова этого метода, и второе -\/ предыдущее. Если время между измерениями велико и угловая скорость успела нелинейно измениться -\/ результат будет некорректным.
+\end{DoxyNote}
+\begin{DoxyReturn}{Возвращает}
+Угловое перемещение в градусах. 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_aa439dc1798a1faa31092576432b3c670}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!integrationZ@{integrationZ}}
+\index{integrationZ@{integrationZ}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{integrationZ()}{integrationZ()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_aa439dc1798a1faa31092576432b3c670} 
+float Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::integrationZ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение углового перемещения вокруг оси Z с момента предыдущего вызова \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_aa439dc1798a1faa31092576432b3c670}{integration\+Z()} 
+
+\begin{DoxyNote}{Заметки}
+Метод учитывает только два измерения угловой скорости\+: одно, сделанное в момент вызова этого метода, и второе -\/ предыдущее. Если время между измерениями велико и угловая скорость успела нелинейно измениться -\/ результат будет некорректным.
+\end{DoxyNote}
+\begin{DoxyReturn}{Возвращает}
+Угловое перемещение в градусах. 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_aeb342c38d639cba5e64f63d633309a3d}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!RawX@{RawX}}
+\index{RawX@{RawX}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{RawX()}{RawX()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_aeb342c38d639cba5e64f63d633309a3d} 
+int16\+\_\+t Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+RawX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение {\bfseries{необработанного}} значения ускорения по оси X. 
+
+\begin{DoxyReturn}{Возвращает}
+Ускорение по оси в условных единицах 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a636e1f39da7f2219a283f52a6948c65a}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!RawY@{RawY}}
+\index{RawY@{RawY}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{RawY()}{RawY()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a636e1f39da7f2219a283f52a6948c65a} 
+int16\+\_\+t Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+RawY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение {\bfseries{необработанного}} значения ускорения по оси Y. 
+
+\begin{DoxyReturn}{Возвращает}
+Ускорение по оси в условных единицах 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a5d3fbac3b7a704d9830d211e91285424}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!RawZ@{RawZ}}
+\index{RawZ@{RawZ}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{RawZ()}{RawZ()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a5d3fbac3b7a704d9830d211e91285424} 
+int16\+\_\+t Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+RawZ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение {\bfseries{необработанного}} значения ускорения по оси Z. 
+
+\begin{DoxyReturn}{Возвращает}
+Ускорение по оси в условных единицах 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a5ac00bc18fdda1cde017437f34f5f098}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!SetDataRate@{SetDataRate}}
+\index{SetDataRate@{SetDataRate}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{SetDataRate()}{SetDataRate()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a5ac00bc18fdda1cde017437f34f5f098} 
+void Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Set\+Data\+Rate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776}{Data\+Rate}}}]{data\+Rate}{}\end{DoxyParamCaption})}
+
+
+
+Установка скорости обновления данных 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em datarate} & Значение скорости обновления данных \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776}{Data\+Rate} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a5996a9118399e22af1144b7b926e2460}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!SetMinCutX@{SetMinCutX}}
+\index{SetMinCutX@{SetMinCutX}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{SetMinCutX()}{SetMinCutX()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a5996a9118399e22af1144b7b926e2460} 
+void Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Set\+Min\+CutX (\begin{DoxyParamCaption}\item[{float}]{x}{}\end{DoxyParamCaption})}
+
+
+
+Установка порогового значения по оси X. 
+
+\begin{DoxyNote}{Заметки}
+Если угловая скорость, полученная с датчика, меньше этого числа, метод \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_af7a7092c963b98a77db17942e4953414}{X()} вернёт 0. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em x} & Пороговое значение \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_abd6f7b8b36f2646b34af3f95bf4232ff}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!SetMinCutY@{SetMinCutY}}
+\index{SetMinCutY@{SetMinCutY}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{SetMinCutY()}{SetMinCutY()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_abd6f7b8b36f2646b34af3f95bf4232ff} 
+void Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Set\+Min\+CutY (\begin{DoxyParamCaption}\item[{float}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Установка порогового значения по оси Y. 
+
+\begin{DoxyNote}{Заметки}
+Если угловая скорость, полученная с датчика, меньше этого числа, метод \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a0368d477229930df0ef58640bc2d527e}{Y()} вернёт 0. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em y} & Пороговое значение \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a2a0aea7800ccf7ec64f22f35038b68d6}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!SetMinCutZ@{SetMinCutZ}}
+\index{SetMinCutZ@{SetMinCutZ}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{SetMinCutZ()}{SetMinCutZ()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a2a0aea7800ccf7ec64f22f35038b68d6} 
+void Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Set\+Min\+CutZ (\begin{DoxyParamCaption}\item[{float}]{z}{}\end{DoxyParamCaption})}
+
+
+
+Установка порогового значения по оси Z. 
+
+\begin{DoxyNote}{Заметки}
+Если угловая скорость, полученная с датчика, меньше этого числа, метод \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a9bbefccd5288b1491702445b179dcc67}{Z()} вернёт 0. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em z} & Пороговое значение \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_aacd274ab97a0d95225e8781efa895f6b}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!SetScale@{SetScale}}
+\index{SetScale@{SetScale}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{SetScale()}{SetScale()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_aacd274ab97a0d95225e8781efa895f6b} 
+void Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::\+Set\+Scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Scale}}}]{sensitivity}{}\end{DoxyParamCaption})}
+
+
+
+Установка диапазона измерения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sensitivity} & Значение чуствительности \doxylink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Scale} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_af7a7092c963b98a77db17942e4953414}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!X@{X}}
+\index{X@{X}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{X()}{X()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_af7a7092c963b98a77db17942e4953414} 
+float Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::X (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение значения ускорения вокруг оси X. 
+
+\begin{DoxyReturn}{Возвращает}
+Ускорение по оси в м/с\textsuperscript{2} 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a0368d477229930df0ef58640bc2d527e}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!Y@{Y}}
+\index{Y@{Y}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{Y()}{Y()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a0368d477229930df0ef58640bc2d527e} 
+float Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::Y (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение значения ускорения вокруг оси Y. 
+
+\begin{DoxyReturn}{Возвращает}
+Ускорение по оси в м/с\textsuperscript{2} 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_gyroscope_v2_a9bbefccd5288b1491702445b179dcc67}\index{IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}!Z@{Z}}
+\index{Z@{Z}!IntroSatLib::GyroscopeV2@{IntroSatLib::GyroscopeV2}}
+\doxysubsubsection{\texorpdfstring{Z()}{Z()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_gyroscope_v2_a9bbefccd5288b1491702445b179dcc67} 
+float Intro\+Sat\+Lib\+::\+Gyroscope\+V2\+::Z (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение значения ускорения вокруг оси Z. 
+
+\begin{DoxyReturn}{Возвращает}
+Ускорение по оси в м/с\textsuperscript{2} 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/Gyroscope\+V2.\+h\item 
+src/Gyroscope\+V2.\+cpp\end{DoxyCompactItemize}

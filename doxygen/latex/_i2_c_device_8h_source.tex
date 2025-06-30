@@ -1,0 +1,71 @@
+\doxysection{I2\+CDevice.\+h}
+\hypertarget{_i2_c_device_8h_source}{}\label{_i2_c_device_8h_source}\index{src/I2CDevice.h@{src/I2CDevice.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ I2CDEVICE\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ I2CDEVICE\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifdef\ ARDUINO}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}Arduino.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}Wire.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \#if\ \_\_has\_include\ ("{}stm32f4xx\_hal.h"{})}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f4xx\_hal.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f4xx\_hal\_i2c.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ \#if\ \_\_has\_include\ ("{}stm32f1xx\_hal.h"{})}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f1xx\_hal.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f1xx\_hal\_i2c.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{enum\ class}\ I2CSpeed}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ Standard\ =\ 0,}
+\DoxyCodeLine{00027\ \ \ \ \ Fast\ =\ 1}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2CDevice}}\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ I2CSpeed\ \_speed\ =\ I2CSpeed::Standard;}
+\DoxyCodeLine{00033\ \ \ \ \ uint8\_t\ \_address\ =\ 0;}
+\DoxyCodeLine{00034\ \ \ \ \ I2C\_HandleTypeDef\ *\_hi2c\ =\ 0;}
+\DoxyCodeLine{00035\ \ \ \ \ HAL\_StatusTypeDef\ innerIsReady();}
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a76a52f702c3a9dedceb80da0279aef01}{I2CDevice}}(I2C\_HandleTypeDef\ *hi2c,\ uint8\_t\ address);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a76a52f702c3a9dedceb80da0279aef01}{I2CDevice}}(I2C\_HandleTypeDef\ *hi2c,\ uint8\_t\ address,\ I2CSpeed\ speed);}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a76a52f702c3a9dedceb80da0279aef01}{I2CDevice}}(TwoWire\ \&hi2c,\ uint8\_t\ address);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a76a52f702c3a9dedceb80da0279aef01}{I2CDevice}}(TwoWire\ \&hi2c,\ uint8\_t\ address,\ I2CSpeed\ speed);}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a76a52f702c3a9dedceb80da0279aef01}{I2CDevice}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2CDevice}}\&\ other);}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a76a52f702c3a9dedceb80da0279aef01}{I2CDevice}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2CDevice}}\&\&\ other);}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2CDevice}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2CDevice}}\&\ other);}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2CDevice}}\&\ operator=(\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2CDevice}}\&\&\ other);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00088\ \ \ \ \ HAL\_StatusTypeDef\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a443fa6b5967e4f6f2b32068e7cc5d25a}{isReady}}(uint8\_t\ waitIsReady\ =\ 0);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00097\ \ \ \ \ HAL\_StatusTypeDef\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a2b677f59a1c1a13d8c1da4126c6de93c}{read}}(uint8\_t*\ Data,\ uint8\_t\ Nbytes);}
+\DoxyCodeLine{00098\ \ \ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ HAL\_StatusTypeDef\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a2b677f59a1c1a13d8c1da4126c6de93c}{read}}(uint8\_t\ Register,\ uint8\_t*\ Data,\ uint8\_t\ Nbytes);}
+\DoxyCodeLine{00108\ \ \ \ \ }
+\DoxyCodeLine{00116\ \ \ \ \ HAL\_StatusTypeDef\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_acebc8d2df529364bbb8e46dab8930614}{write}}(uint8\_t*\ Data,\ uint8\_t\ Nbytes);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00126\ \ \ \ \ HAL\_StatusTypeDef\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_acebc8d2df529364bbb8e46dab8930614}{write}}(uint8\_t\ Register,\ uint8\_t*\ Data,\ uint8\_t\ Nbytes);}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{\string~I2CDevice}}();}
+\DoxyCodeLine{00128\ \};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ I2CDEVICE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

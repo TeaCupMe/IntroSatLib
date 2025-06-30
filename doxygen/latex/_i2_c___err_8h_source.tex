@@ -1,0 +1,143 @@
+\doxysection{I2\+C\+\_\+\+Err.\+h}
+\hypertarget{_i2_c___err_8h_source}{}\label{_i2_c___err_8h_source}\index{src/I2C\_Err.h@{src/I2C\_Err.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ i2c\_er.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ May\ 13,\ 2025}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Author:\ matve}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \#ifndef\ I2C\_ER\_H\_}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \#define\ I2C\_ER\_H\_}}
+\DoxyCodeLine{00011\ \ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \#define\ SCL\_PIN\ \ \ \ \ GPIO\_PIN\_6}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\ \#define\ SCL\_PORT\ \ \ \ GPIOB}}
+\DoxyCodeLine{00014\ \ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \#define\ SDA\_PIN\ \ \ \ \ GPIO\_PIN\_7}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \#define\ SDA\_PORT\ \ \ \ GPIOB}}
+\DoxyCodeLine{00017\ \ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\ \#define\ I2C\_TIMEOUTERR\ 50}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \#define\ I2C\_TIMEOUT\_ERRATUM\ 200}}
+\DoxyCodeLine{00020\ \ }
+\DoxyCodeLine{00021\ \ }
+\DoxyCodeLine{00022\ \ \textcolor{keyword}{static}\ uint8\_t\ wait\_for\_gpio\_state\_timeout(GPIO\_TypeDef\ *port,\ uint16\_t\ pin,\ GPIO\_PinState\ state,\ uint32\_t\ timeout)}
+\DoxyCodeLine{00023\ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ uint32\_t\ Tickstart\ =\ HAL\_GetTick();}
+\DoxyCodeLine{00025\ \ \ \ \ \ uint8\_t\ ret\ =\ 1;}
+\DoxyCodeLine{00026\ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \textcolor{keywordflow}{for}(;(state\ !=\ HAL\_GPIO\_ReadPin(port,\ pin))\ \&\&\ (1\ ==\ ret);)\ \textcolor{comment}{//\ Wait\ until\ flag\ is\ set}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(timeout\ !=\ HAL\_MAX\_DELAY)\ \textcolor{comment}{//\ Check\ for\ the\ timeout}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((timeout\ ==\ 0U)\ ||\ ((HAL\_GetTick()\ -\/\ Tickstart)\ >\ timeout))\ ret\ =\ 0;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{asm}(\textcolor{stringliteral}{"{}nop"{}});}
+\DoxyCodeLine{00035\ \ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00037\ \ \}}
+\DoxyCodeLine{00038\ \ }
+\DoxyCodeLine{00039\ \ }
+\DoxyCodeLine{00040\ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ I2C\_ClearBusyFlagErratum(I2C\_HandleTypeDef\ *hi2c,\ uint32\_t\ timeout)}
+\DoxyCodeLine{00041\ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ GPIO\_InitTypeDef\ GPIO\_InitStructure\ =\ \{0\};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ 1.\ Clear\ PE\ bit.}}
+\DoxyCodeLine{00045\ \ \ \ \ CLEAR\_BIT(hi2c-\/>Instance-\/>CR1,\ I2C\_CR1\_PE);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ \ 2.\ Configure\ the\ SCL\ and\ SDA\ I/Os\ as\ General\ Purpose\ Output\ Open-\/Drain,\ High\ level\ (Write\ 1\ to\ GPIOx\_ODR).}}
+\DoxyCodeLine{00048\ \ \ \ \ HAL\_I2C\_DeInit(hi2c);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ GPIO\_InitStructure.Mode\ =\ GPIO\_MODE\_OUTPUT\_OD;}
+\DoxyCodeLine{00051\ \ \ \ \ GPIO\_InitStructure.Pull\ =\ GPIO\_NOPULL;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ GPIO\_InitStructure.Pin\ =\ SCL\_PIN;}
+\DoxyCodeLine{00054\ \ \ \ \ HAL\_GPIO\_Init(SCL\_PORT,\ \&GPIO\_InitStructure);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ GPIO\_InitStructure.Pin\ =\ SDA\_PIN;}
+\DoxyCodeLine{00057\ \ \ \ \ HAL\_GPIO\_Init(SDA\_PORT,\ \&GPIO\_InitStructure);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ 3.\ Check\ SCL\ and\ SDA\ High\ level\ in\ GPIOx\_IDR.}}
+\DoxyCodeLine{00060\ \ \ \ \ HAL\_GPIO\_WritePin(SDA\_PORT,\ SDA\_PIN,\ GPIO\_PIN\_SET);}
+\DoxyCodeLine{00061\ \ \ \ \ HAL\_GPIO\_WritePin(SCL\_PORT,\ SCL\_PIN,\ GPIO\_PIN\_SET);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ wait\_for\_gpio\_state\_timeout(SCL\_PORT,\ SCL\_PIN,\ GPIO\_PIN\_SET,\ timeout);}
+\DoxyCodeLine{00064\ \ \ \ \ wait\_for\_gpio\_state\_timeout(SDA\_PORT,\ SDA\_PIN,\ GPIO\_PIN\_SET,\ timeout);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ 4.\ Configure\ the\ SDA\ I/O\ as\ General\ Purpose\ Output\ Open-\/Drain,\ Low\ level\ (Write\ 0\ to\ GPIOx\_ODR).}}
+\DoxyCodeLine{00067\ \ \ \ \ HAL\_GPIO\_WritePin(SDA\_PORT,\ SDA\_PIN,\ GPIO\_PIN\_RESET);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ 5.\ Check\ SDA\ Low\ level\ in\ GPIOx\_IDR.}}
+\DoxyCodeLine{00070\ \ \ \ \ wait\_for\_gpio\_state\_timeout(SDA\_PORT,\ SDA\_PIN,\ GPIO\_PIN\_RESET,\ timeout);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ 6.\ Configure\ the\ SCL\ I/O\ as\ General\ Purpose\ Output\ Open-\/Drain,\ Low\ level\ (Write\ 0\ to\ GPIOx\_ODR).}}
+\DoxyCodeLine{00073\ \ \ \ \ HAL\_GPIO\_WritePin(SCL\_PORT,\ SCL\_PIN,\ GPIO\_PIN\_RESET);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ 7.\ Check\ SCL\ Low\ level\ in\ GPIOx\_IDR.}}
+\DoxyCodeLine{00076\ \ \ \ \ wait\_for\_gpio\_state\_timeout(SCL\_PORT,\ SCL\_PIN,\ GPIO\_PIN\_RESET,\ timeout);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ 8.\ Configure\ the\ SCL\ I/O\ as\ General\ Purpose\ Output\ Open-\/Drain,\ High\ level\ (Write\ 1\ to\ GPIOx\_ODR).}}
+\DoxyCodeLine{00079\ \ \ \ \ HAL\_GPIO\_WritePin(SCL\_PORT,\ SCL\_PIN,\ GPIO\_PIN\_SET);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ 9.\ Check\ SCL\ High\ level\ in\ GPIOx\_IDR.}}
+\DoxyCodeLine{00082\ \ \ \ \ wait\_for\_gpio\_state\_timeout(SCL\_PORT,\ SCL\_PIN,\ GPIO\_PIN\_SET,\ timeout);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ 10.\ Configure\ the\ SDA\ I/O\ as\ General\ Purpose\ Output\ Open-\/Drain\ ,\ High\ level\ (Write\ 1\ to\ GPIOx\_ODR).}}
+\DoxyCodeLine{00085\ \ \ \ \ HAL\_GPIO\_WritePin(SDA\_PORT,\ SDA\_PIN,\ GPIO\_PIN\_SET);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ 11.\ Check\ SDA\ High\ level\ in\ GPIOx\_IDR.}}
+\DoxyCodeLine{00088\ \ \ \ \ wait\_for\_gpio\_state\_timeout(SDA\_PORT,\ SDA\_PIN,\ GPIO\_PIN\_SET,\ timeout);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ 12.\ Configure\ the\ SCL\ and\ SDA\ I/Os\ as\ Alternate\ function\ Open-\/Drain.}}
+\DoxyCodeLine{00091\ \ \ \ \ GPIO\_InitStructure.Mode\ =\ GPIO\_MODE\_AF\_OD;}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//GPIO\_InitStructure.Alternate\ =\ GPIO\_AF4\_I2C2;\ //\ F4}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ GPIO\_InitStructure.Pin\ =\ SCL\_PIN;}
+\DoxyCodeLine{00095\ \ \ \ \ HAL\_GPIO\_Init(SCL\_PORT,\ \&GPIO\_InitStructure);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ GPIO\_InitStructure.Pin\ =\ SDA\_PIN;}
+\DoxyCodeLine{00098\ \ \ \ \ HAL\_GPIO\_Init(SDA\_PORT,\ \&GPIO\_InitStructure);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ HAL\_Delay(timeout);}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ 13.\ Set\ SWRST\ bit\ in\ I2Cx\_CR1\ register.}}
+\DoxyCodeLine{00102\ \ \ \ \ SET\_BIT(hi2c-\/>Instance-\/>CR1,\ I2C\_CR1\_SWRST);}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{asm}(\textcolor{stringliteral}{"{}nop"{}});}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{asm}(\textcolor{stringliteral}{"{}nop"{}});}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{asm}(\textcolor{stringliteral}{"{}nop"{}});}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{/*\ 14.\ Clear\ SWRST\ bit\ in\ I2Cx\_CR1\ register.\ */}}
+\DoxyCodeLine{00108\ \ \ \ \ CLEAR\_BIT(hi2c-\/>Instance-\/>CR1,\ I2C\_CR1\_SWRST);}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{asm}(\textcolor{stringliteral}{"{}nop"{}});}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{asm}(\textcolor{stringliteral}{"{}nop"{}});}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{asm}(\textcolor{stringliteral}{"{}nop"{}});}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{/*\ 15.\ Enable\ the\ I2C\ peripheral\ by\ setting\ the\ PE\ bit\ in\ I2Cx\_CR1\ register\ */}}
+\DoxyCodeLine{00114\ \ \ \ \ SET\_BIT(hi2c-\/>Instance-\/>CR1,\ I2C\_CR1\_PE);}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{asm}(\textcolor{stringliteral}{"{}nop"{}});}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{asm}(\textcolor{stringliteral}{"{}nop"{}});}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{asm}(\textcolor{stringliteral}{"{}nop"{}});}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ Call\ initialization\ function.}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ ARDUINO}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ Wire.begin();}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ HAL\_I2C\_Init(hi2c);}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ I2C\_ErrorAnalyzer(I2C\_HandleTypeDef\ *hi2c)\ \{}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ когда-\/нибудь\ здесь\ будет\ полноценная\ обработка\ ошибок...}}
+\DoxyCodeLine{00133\ \ \ \ \ I2C\_ClearBusyFlagErratum(hi2c,\ I2C\_TIMEOUT\_ERRATUM);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \}}
+\DoxyCodeLine{00136\ \ }
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\ \#endif\ }\textcolor{comment}{/*\ I2C\_ER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

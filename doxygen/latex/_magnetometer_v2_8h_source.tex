@@ -1,0 +1,100 @@
+\doxysection{Magnetometer\+V2.\+h}
+\hypertarget{_magnetometer_v2_8h_source}{}\label{_magnetometer_v2_8h_source}\index{src/MagnetometerV2.h@{src/MagnetometerV2.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MAGNETOMETER\_V2\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAGNETOMETER\_V2\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}I2CDevice.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}BaseDevice.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Quaternion/Quaternion.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }IntroSatLib}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{MagnetometerV2}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ BASE\_ADDRESS\ =\ 0x1E;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \_rawg\ =\ 27386.0f\ /\ 4.0f;\ \textcolor{comment}{//\ Gauss}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ RegisterMap}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ CTRL\_REG1\ =\ 0x20,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ CTRL\_REG2,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ CTRL\_REG3,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ CTRL\_REG4,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ CTRL\_REG5,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ STATUS\_REG\ =\ 0x27,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ OUT\_X\_L,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ OUT\_X\_H,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ OUT\_Y\_L,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ OUT\_Y\_H,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ OUT\_Z\_L,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ OUT\_Z\_H,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ uint16\_t\ \_x\ =\ 0;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ uint16\_t\ \_y\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ uint16\_t\ \_z\ =\ 0;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ uint8\_t\ \_sensitivity\ =\ 0;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a}{Scale}}\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20aac199186658563d6b475808b9692baf22}{G4}}\ =\ 1,\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20aa91237f835ba96db2fca6e21e75b9be1a}{G8}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20aaf5c2b19081768d56b3027249ee2bfd9e}{G12}},\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20aaa2b72be2415ce192541e6caa08f14eef}{G16}}\ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \};\ \ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_aa1b9fd980d6179904d6b7b142e5ff982}{MagnetometerV2}}(I2C\_HandleTypeDef\ *hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_aa1b9fd980d6179904d6b7b142e5ff982}{MagnetometerV2}}(TwoWire\ \&hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_aa1b9fd980d6179904d6b7b142e5ff982}{MagnetometerV2}}(uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_aa1b9fd980d6179904d6b7b142e5ff982}{MagnetometerV2}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{MagnetometerV2}}\ \&other);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{MagnetometerV2}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{MagnetometerV2}}\ \&other);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_aa1b9fd980d6179904d6b7b142e5ff982}{MagnetometerV2}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{MagnetometerV2}}\ \&\&other);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{MagnetometerV2}}\ \&operator=(\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{MagnetometerV2}}\ \&\&other);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a677fcc96807576904ab90fe33cf682c9}{Init}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a677fcc96807576904ab90fe33cf682c9}{Init}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a}{Scale}}\ sensitivity);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_aca6403bd63d890bc17c93b7277dd4e11}{SetScale}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a}{Scale}}\ sensitivity);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a5feb9f766236b7e1b985b9ff3d65da48}{Read}}();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ int16\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_ae360a4e2af6ff62acfbed160c41cc4db}{RawX}}();}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ int16\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a2dc810500c4fd738b51d6d47e50bfb3f}{RawY}}();}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ int16\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a6c248b532384d5c3df294be8ee8893ad}{RawZ}}();}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a3f897c560c60e9b8797085b48ca3d74c}{X}}();}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a95bfe17a02c519a8a1c8370e8b9bd0b3}{Y}}();}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_acad4280bc59f8aa5ae6d9557cff9bd26}{Z}}();}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#ifndef\ ARDUINO\ }}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ @Goldfor\ @TeaCupMe\ Что\ тут\ получаем?}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion<float>}}\ GetQuaternion();}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{\string~MagnetometerV2}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00183\ \ \ \ \ \};}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MAGNETOMETER\_V2\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

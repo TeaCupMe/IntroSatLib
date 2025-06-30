@@ -325,6 +325,16 @@ private:
 	}
 
 public:
+	/**
+	 * @brief Создание объекта CC1101
+	 * 
+	 * @param spi Интерфейс SPI @ref interfaces::SPI
+	 * @param scl Контакт scl @ref interfaces::GPIO
+	 * @param mosi Контакт mosi @ref interfaces::GPIO
+	 * @param miso Контакт miso @ref interfaces::GPIO
+	 * @param reset Контакт reset @ref interfaces::GPIO
+	 */
+	// TODO @Goldfor для соответствия стандартным названиям может переименовать scl в sck?
 	CC1101(
 		intefaces::SPI &spi,
 		intefaces::GPIO &scl,
@@ -334,11 +344,38 @@ public:
 	): _spi(spi), _scl(scl), _mosi(mosi), _miso(miso),  _reset(reset)
 	{ }
 
+	/**
+	 * @brief Инициализация CC1101
+	 * 
+	 */
 	void Init();
 
+	/**
+	 * @brief Выбора канала
+	 * 
+	 * @param ch Номер канала
+	 */
 	void setChannel(uint8_t ch);
+	
+	/**
+	 * @brief Установка длины пакета
+	 * 
+	 * @param v Длина пакета в байтах
+	 */
 	void setPacketLength(uint8_t v);
+
+	/**
+	 * @brief 
+	 * 
+	 * @param ccmode 
+	 */
 	void setCCMode(uint8_t ccmode);
+
+	/**
+	 * @brief Выбор модуляции 
+	 * 
+	 * @param modulation 
+	 */
 	void setModulation(uint8_t modulation);
 
 	void setPA(int p);

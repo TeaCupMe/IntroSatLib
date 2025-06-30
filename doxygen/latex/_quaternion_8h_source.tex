@@ -1,0 +1,1015 @@
+\doxysection{Quaternion.\+h}
+\hypertarget{_quaternion_8h_source}{}\label{_quaternion_8h_source}\index{src/Quaternion/Quaternion.h@{src/Quaternion/Quaternion.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ QUATERNIONS\_QUATERNION\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ QUATERNIONS\_QUATERNION\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <math.h>}\ \textcolor{comment}{//\ for\ atan2,\ which\ handles\ signs\ for\ us\ properly}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <complex>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <iterator>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <Quaternion/Utils.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\ =\ \textcolor{keywordtype}{float}>}
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a2a22c5d6bacfdc0c18de6353bbcd97d6}{value\_type}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{static\_assert}(std::is\_same<T,\ bool>()}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ std::is\_same<T,\ int>()}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ std::is\_same<T,\ long>()}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ std::is\_same<T,\ long\ long>()}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ std::is\_same<T,\ float>()}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ std::is\_same<T,\ double>()}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ std::is\_same<T,\ long\ double>(),}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Invalid\ scalar\ type\ for\ Quaternion"{}});}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_ac1cb942740d19d5462ce927670649267}{Quaternion}}(T\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}\ =\ 0,\ T\ b\ =\ 0,\ T\ c\ =\ 0,\ T\ d\ =\ 0)}
+\DoxyCodeLine{00061\ \ \ :\ \_a(\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}),\ \_b(b),\ \_c(c),\ \_d(d)\ \{\ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1,\ IS\_CONVERTIBLE(T1,T)>}
+\DoxyCodeLine{00070\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a26c0f2ea76926fc0b3f402733c700636}{Quaternion}}(T1\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}\ =\ 0,\ T1\ b\ =\ 0,\ T1\ c\ =\ 0,\ T1\ d\ =\ 0)}
+\DoxyCodeLine{00071\ \ \ :\ \_a(\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}),\ \_b(b),\ \_c(c),\ \_d(d)\ \{\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{00077\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_ab9ba7b257d85534ef52847dd44a31fbb}{Quaternion}}(\textcolor{keyword}{const}\ std::complex<T1>\&\ x,\ \textcolor{keyword}{const}\ std::complex<T1>\&\ y\ =\ std::complex<T1>(0,\ 0))}
+\DoxyCodeLine{00078\ \ \ :\ \_a(x.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a68b92d21aafd9fc7f38c704fbd4416f4}{real}}()),\ \_b(x.imag()),\ \_c(y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a68b92d21aafd9fc7f38c704fbd4416f4}{real}}()),\ \_d(y.imag())\ \{\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ It,\ IS\_ITERATOR(It)>}
+\DoxyCodeLine{00086\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a23a6b80921e5176361b09bac916b6fac}{Quaternion}}(It\ it)}
+\DoxyCodeLine{00087\ \ \ :\ \_a(*it),\ \_b(*++it),\ \_c(*++it),\ \_d(*++it)\ \{\ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00092\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{00093\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_af5b4e370d51677626bd86c55c80295c6}{Quaternion}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion<T1>}}\&\ y)}
+\DoxyCodeLine{00094\ \ \ :\ \_a(y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()),\ \_b(y.b()),\ \_c(y.c()),\ \_d(y.d())\ \{\ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{00100\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\&\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a07644b6645eefebbb62f21ba85e5af8f}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion<T1>}}\&\ other)\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \_a\ =\ other.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}();}
+\DoxyCodeLine{00102\ \ \ \ \ \_b\ =\ other.b();}
+\DoxyCodeLine{00103\ \ \ \ \ \_c\ =\ other.c();}
+\DoxyCodeLine{00104\ \ \ \ \ \_d\ =\ other.d();}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00106\ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00111\ \ \ T\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_a;\ \}}
+\DoxyCodeLine{00112\ \ \ T\ b()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_b;\ \}}
+\DoxyCodeLine{00113\ \ \ T\ c()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_c;\ \}}
+\DoxyCodeLine{00114\ \ \ T\ d()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_d;\ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00119\ \ \ std::complex<T>\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a1d104f7674162ec98c184a4a2aff8584}{c1}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \{\_a,\ \_b\};\ \}}
+\DoxyCodeLine{00120\ \ \ std::complex<T>\ c2()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \{\_c,\ \_d\};\ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ std::array<T,\ 4>\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_af17e6ee80f3dc8dd7bd5c9d193c64025}{to\_array}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\{\_a,\ \_b,\ \_c,\ \_d\}\};}
+\DoxyCodeLine{00127\ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00132\ \ \ T\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a68b92d21aafd9fc7f38c704fbd4416f4}{real}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_a;\ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00137\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_abbcc8d856b30c6ccbd8a4688ede6cbb6}{unreal}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \{0,\ \_b,\ \_c,\ \_d\};\ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00143\ \ \ T\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a1f53667772c7a87536db7cc736e60f84}{norm\_squared}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{return}\ \_a\ *\ \_a\ +\ \_b\ *\ \_b\ +\ \_c\ *\ \_c\ +\ \_d\ *\ \_d;}
+\DoxyCodeLine{00145\ \ \ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00150\ \ \ T\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a642406a575fb7e1dd55ad8b33e68146b}{abs}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{return}\ std::sqrt(\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a1f53667772c7a87536db7cc736e60f84}{norm\_squared}}());}
+\DoxyCodeLine{00152\ \ \ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00158\ \ \ T\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_af6442ffe1e05b7b4af6aee48471b27dc}{unreal\_norm\_squared}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{return}\ \_b\ *\ \_b\ +\ \_c\ *\ \_c\ +\ \_d\ *\ \_d;}
+\DoxyCodeLine{00160\ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00165\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T1\ =T>}
+\DoxyCodeLine{00166\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_ac8d29edf533375c957d35becbef14186}{is\_zero}}(T1\ eps\ =\ 0)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{return}\ is\_scalar\_zero(\_a,\ eps)}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \&\&\ is\_scalar\_zero(\_b,\ eps)}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \&\&\ is\_scalar\_zero(\_c,\ eps)}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \&\&\ is\_scalar\_zero(\_d,\ eps);}
+\DoxyCodeLine{00171\ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00176\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T1\ =T>}
+\DoxyCodeLine{00177\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a89266579f5716cf304fcaac90ee51e1d}{is\_non\_zero}}(T1\ eps\ =\ 0)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{return}\ !\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_ac8d29edf533375c957d35becbef14186}{is\_zero}}(eps);}
+\DoxyCodeLine{00179\ \ \ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00185\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_ad3a0fd98a213c99446cf435016b552ed}{is\_nan}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordflow}{return}\ std::isnan(\_a)\ ||\ std::isnan(\_b)\ ||\ std::isnan(\_c)\ ||\ std::isnan(\_d);}
+\DoxyCodeLine{00187\ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00192\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a966d262c6bcf2b6e58d512d67cb6c666}{is\_inf}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordflow}{return}\ std::isinf(\_a)\ ||\ std::isinf(\_b)\ ||\ std::isinf(\_c)\ ||\ std::isinf(\_d);}
+\DoxyCodeLine{00194\ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00199\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_af1dcc67b0745dcec88e6458989504151}{is\_finite}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordflow}{return}\ std::isfinite(\_a)\ \&\&\ std::isfinite(\_b)\ \&\&\ std::isfinite(\_c)\ \&\&\ std::isfinite(\_d);}
+\DoxyCodeLine{00201\ \ \ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00206\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1\ =T>}
+\DoxyCodeLine{00207\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a0505ace56d6a3991c2059676d1671123}{is\_unit}}(T1\ eps\ =\ 0)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordflow}{return}\ is\_scalar\_zero(\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a1f53667772c7a87536db7cc736e60f84}{norm\_squared}}()\ -\/\ T(1),\ eps);}
+\DoxyCodeLine{00209\ \ \ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00214\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1\ =T>}
+\DoxyCodeLine{00215\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_aa8bdbdab62a86de6d0a623b14eb93a6d}{is\_real}}(T1\ eps\ =\ 0)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordflow}{return}\ is\_scalar\_zero(\_b,\ eps)}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \&\&\ is\_scalar\_zero(\_c,\ eps)}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \&\&\ is\_scalar\_zero(\_d,\ eps);}
+\DoxyCodeLine{00219\ \ \ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00224\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1\ =T>}
+\DoxyCodeLine{00225\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a395e7b495b9e59a46302b198678c65c6}{is\_complex}}(T1\ eps\ =\ 0)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordflow}{return}\ is\_scalar\_zero(\_c,\ eps)\ \&\&\ is\_scalar\_zero(\_d,\ eps);}
+\DoxyCodeLine{00227\ \ \ \}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00232\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1\ =T>}
+\DoxyCodeLine{00233\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_afc29b6e5ec84cf4ad8448314510cddda}{is\_unreal}}(T1\ eps\ =\ 0)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordflow}{return}\ is\_scalar\_zero(\_a,\ eps)}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \&\&\ !(is\_scalar\_zero(\_b,\ eps)}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ is\_scalar\_zero(\_c,\ eps)}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ is\_scalar\_zero(\_d,\ eps));}
+\DoxyCodeLine{00238\ \ \ \}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00243\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a5f7fa60222d6e935c677dfad883dd855}{operator+}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00245\ \ \ \}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00250\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a1d316a1d784b0a027e92d906326ef939}{operator-\/}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordflow}{return}\ \{-\/\_a,\ -\/\_b,\ -\/\_c,\ -\/\_d\};}
+\DoxyCodeLine{00252\ \ \ \}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00257\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_af779304937e5d8b2a2b5f3223e369e6e}{operator+=}}(T\ y)\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \_a\ +=\ y;}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00260\ \ \ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00265\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a3a5eeb4576834ac9749c4910a29c703b}{operator-\/=}}(T\ y)\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \_a\ -\/=\ y;}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00268\ \ \ \}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00273\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a46f221f6482764b60c3e1845b3d753c4}{operator*=}}(T\ k)\ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \_a\ =\ k\ *\ \_a;}
+\DoxyCodeLine{00275\ \ \ \ \ \_b\ =\ k\ *\ \_b;}
+\DoxyCodeLine{00276\ \ \ \ \ \_c\ =\ k\ *\ \_c;}
+\DoxyCodeLine{00277\ \ \ \ \ \_d\ =\ k\ *\ \_d;}
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00279\ \ \ \}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00284\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a26252d95cce2fbb1917416536f25e302}{operator/=}}(T\ k)\ \{}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \ \ \_a\ /=\ k;}
+\DoxyCodeLine{00287\ \ \ \ \ \_b\ /=\ k;}
+\DoxyCodeLine{00288\ \ \ \ \ \_c\ /=\ k;}
+\DoxyCodeLine{00289\ \ \ \ \ \_d\ /=\ k;}
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00291\ \ \ \}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00296\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{00297\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a79c932524f9b17e3d4805d1cabda425a}{operator+=}}(\textcolor{keyword}{const}\ std::complex<T1>\&\ y)\ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \_a\ +=\ y.real();}
+\DoxyCodeLine{00299\ \ \ \ \ \_b\ +=\ y.imag();}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00301\ \ \ \}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00306\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{00307\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a351ea6f86f347b2aaf797d082104022b}{operator-\/=}}(\textcolor{keyword}{const}\ std::complex<T1>\&\ y)\ \{}
+\DoxyCodeLine{00308\ \ \ \ \ \_a\ -\/=\ y.real();}
+\DoxyCodeLine{00309\ \ \ \ \ \_b\ -\/=\ y.imag();}
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00311\ \ \ \}}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00316\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{00317\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_adc204bc78aef365c122a6d0bddcb8e11}{operator*=}}(\textcolor{keyword}{const}\ std::complex<T1>\&\ y)\ \{}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ T\ at\ =\ \_a\ *\ y.real()\ -\/\ \_b\ *\ y.imag();}
+\DoxyCodeLine{00320\ \ \ \ \ T\ bt\ =\ \_a\ *\ y.imag()\ +\ \_b\ *\ y.real();}
+\DoxyCodeLine{00321\ \ \ \ \ T\ ct\ =\ \_c\ *\ y.real()\ +\ \_d\ *\ y.imag();}
+\DoxyCodeLine{00322\ \ \ \ \ T\ dt\ =\ -\/\_c\ *\ y.imag()\ +\ \_d\ *\ y.real();}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \ \ \ \ \_a\ =\ at;}
+\DoxyCodeLine{00325\ \ \ \ \ \_b\ =\ bt;}
+\DoxyCodeLine{00326\ \ \ \ \ \_c\ =\ ct;}
+\DoxyCodeLine{00327\ \ \ \ \ \_d\ =\ dt;}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00330\ \ \ \}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00335\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{00336\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a8cd226fe19ee5c4b9093074e51d1a477}{operator/=}}(\textcolor{keyword}{const}\ std::complex<T1>\&\ y)\ \{}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ T\ n2\ =\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a68b92d21aafd9fc7f38c704fbd4416f4}{real}}()\ *\ y.real()\ +\ y.imag()\ *\ y.imag();}
+\DoxyCodeLine{00339\ \ \ \ \ T\ at\ =\ \_a\ *\ y.real()\ +\ \_b\ *\ y.imag();}
+\DoxyCodeLine{00340\ \ \ \ \ T\ bt\ =\ -\/\_a\ *\ y.imag()\ +\ \_b\ *\ y.real();}
+\DoxyCodeLine{00341\ \ \ \ \ T\ ct\ =\ \_c\ *\ y.real()\ -\/\ \_d\ *\ y.imag();}
+\DoxyCodeLine{00342\ \ \ \ \ T\ dt\ =\ \_c\ *\ y.imag()\ +\ \_d\ *\ y.real();}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \ \ \ \ \_a\ =\ at\ /\ n2;}
+\DoxyCodeLine{00345\ \ \ \ \ \_b\ =\ bt\ /\ n2;}
+\DoxyCodeLine{00346\ \ \ \ \ \_c\ =\ ct\ /\ n2;}
+\DoxyCodeLine{00347\ \ \ \ \ \_d\ =\ dt\ /\ n2;}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00350\ \ \ \}}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00355\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{00356\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a5b3a445cf390dfc29915bdbebdaa0419}{operator+=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion<T1>}}\&\ y)\ \{}
+\DoxyCodeLine{00357\ \ \ \ \ \_a\ +=\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}();}
+\DoxyCodeLine{00358\ \ \ \ \ \_b\ +=\ y.b();}
+\DoxyCodeLine{00359\ \ \ \ \ \_c\ +=\ y.c();}
+\DoxyCodeLine{00360\ \ \ \ \ \_d\ +=\ y.d();}
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00362\ \ \ \}}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00367\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{00368\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a1a00415186450b20bed8d25821d270da}{operator-\/=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion<T1>}}\&\ y)\ \{}
+\DoxyCodeLine{00369\ \ \ \ \ \_a\ -\/=\ y.\_a;}
+\DoxyCodeLine{00370\ \ \ \ \ \_b\ -\/=\ y.\_b;}
+\DoxyCodeLine{00371\ \ \ \ \ \_c\ -\/=\ y.\_c;}
+\DoxyCodeLine{00372\ \ \ \ \ \_d\ -\/=\ y.\_d;}
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00374\ \ \ \}}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00380\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{00381\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_af3bf07a853b7135a1ad72ceabcb4d209}{operator*=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion<T1>}}\&\ y)\ \{}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \ \ \ \ T\ at\ =\ \_a\ *\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()\ -\/\ \_b\ *\ y.b()\ -\/\ \_c\ *\ y.c()\ -\/\ \_d\ *\ y.d();}
+\DoxyCodeLine{00384\ \ \ \ \ T\ bt\ =\ \_a\ *\ y.b()\ +\ \_b\ *\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()\ +\ \_c\ *\ y.d()\ -\/\ \_d\ *\ y.c();}
+\DoxyCodeLine{00385\ \ \ \ \ T\ ct\ =\ \_a\ *\ y.c()\ -\/\ \_b\ *\ y.d()\ +\ \_c\ *\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()\ +\ \_d\ *\ y.b();}
+\DoxyCodeLine{00386\ \ \ \ \ T\ dt\ =\ \_a\ *\ y.d()\ +\ \_b\ *\ y.c()\ -\/\ \_c\ *\ y.b()\ +\ \_d\ *\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}();}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \ \ \ \ \_a\ =\ at;}
+\DoxyCodeLine{00389\ \ \ \ \ \_b\ =\ bt;}
+\DoxyCodeLine{00390\ \ \ \ \ \_c\ =\ ct;}
+\DoxyCodeLine{00391\ \ \ \ \ \_d\ =\ dt;}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00394\ \ \ \}}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00402\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{00403\ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a1a19be2f7471223a998c6909fae051d7}{operator/=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion<T1>}}\&\ y)\ \{}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ T\ n2\ =\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a1f53667772c7a87536db7cc736e60f84}{norm\_squared}}();}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \ \ \ \ T\ at\ =\ \_a\ *\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()\ +\ \_b\ *\ y.b()\ +\ \_c\ *\ y.c()\ +\ \_d\ *\ y.d();}
+\DoxyCodeLine{00408\ \ \ \ \ T\ bt\ =\ -\/\_a\ *\ y.b()\ +\ \_b\ *\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()\ -\/\ \_c\ *\ y.d()\ +\ \_d\ *\ y.c();}
+\DoxyCodeLine{00409\ \ \ \ \ T\ ct\ =\ -\/\_a\ *\ y.c()\ +\ \_b\ *\ y.d()\ +\ \_c\ *\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()\ -\/\ \_d\ *\ y.b();}
+\DoxyCodeLine{00410\ \ \ \ \ T\ dt\ =\ -\/\_a\ *\ y.d()\ -\/\ \_b\ *\ y.c()\ +\ \_c\ *\ y.b()\ +\ \_d\ *\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}();}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \ \ \_a\ =\ at\ /\ n2;}
+\DoxyCodeLine{00413\ \ \ \ \ \_b\ =\ bt\ /\ n2;}
+\DoxyCodeLine{00414\ \ \ \ \ \_c\ =\ ct\ /\ n2;}
+\DoxyCodeLine{00415\ \ \ \ \ \_d\ =\ dt\ /\ n2;}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00418\ \ \ \}}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00421\ \ \ T\ \_a,\ \_b,\ \_c,\ \_d;\ \textcolor{comment}{//\ the\ full\ state\ for\ a\ Quaternion}}
+\DoxyCodeLine{00422\ \};}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00427\ \textcolor{keyword}{typedef}\ Quaternion<float>\ Qf;}
+\DoxyCodeLine{00428\ \textcolor{keyword}{const}\ Qf\ Qf\_0;}
+\DoxyCodeLine{00429\ \textcolor{keyword}{const}\ Qf\ Qf\_1(1);}
+\DoxyCodeLine{00430\ \textcolor{keyword}{const}\ Qf\ Qf\_i(0,\ 1);}
+\DoxyCodeLine{00431\ \textcolor{keyword}{const}\ Qf\ Qf\_j(0,\ 0,\ 1);}
+\DoxyCodeLine{00432\ \textcolor{keyword}{const}\ Qf\ Qf\_k(0,\ 0,\ 0,\ 1);}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00437\ \textcolor{keyword}{typedef}\ Quaternion<double>\ Qd;}
+\DoxyCodeLine{00438\ \textcolor{keyword}{const}\ Qd\ Qd\_0;}
+\DoxyCodeLine{00439\ \textcolor{keyword}{const}\ Qd\ Qd\_1(1);}
+\DoxyCodeLine{00440\ \textcolor{keyword}{const}\ Qd\ Qd\_i(0,\ 1);}
+\DoxyCodeLine{00441\ \textcolor{keyword}{const}\ Qd\ Qd\_j(0,\ 0,\ 1);}
+\DoxyCodeLine{00442\ \textcolor{keyword}{const}\ Qd\ Qd\_k(0,\ 0,\ 0,\ 1);}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00447\ \textcolor{keyword}{typedef}\ Quaternion<long\ double>\ Qld;}
+\DoxyCodeLine{00448\ \textcolor{keyword}{const}\ Qld\ Qld\_0;}
+\DoxyCodeLine{00449\ \textcolor{keyword}{const}\ Qld\ Qld\_1(1);}
+\DoxyCodeLine{00450\ \textcolor{keyword}{const}\ Qld\ Qld\_i(0,\ 1);}
+\DoxyCodeLine{00451\ \textcolor{keyword}{const}\ Qld\ Qld\_j(0,\ 0,\ 1);}
+\DoxyCodeLine{00452\ \textcolor{keyword}{const}\ Qld\ Qld\_k(0,\ 0,\ 0,\ 1);}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00455\ \textcolor{keyword}{inline}\ Quaternion<T>\ spherical(T\ rho,\ T\ theta,\ T\ phi1,\ T\ phi2)\ \{}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \ \ T\ d\ =\ std::sin(phi2);}
+\DoxyCodeLine{00458\ \ \ T\ cr\ =\ std::cos(phi2);}
+\DoxyCodeLine{00459\ \ \ T\ c\ =\ cr\ *\ std::sin(phi1);}
+\DoxyCodeLine{00460\ \ \ cr\ *=\ std::cos(phi1);}
+\DoxyCodeLine{00461\ \ \ T\ b\ =\ cr\ *\ std::sin(theta);}
+\DoxyCodeLine{00462\ \ \ T\ a\ =\ cr\ *\ std::cos(theta);}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00464\ \ \ \textcolor{keywordflow}{return}\ \{rho\ *\ a,\ rho\ *\ b,\ rho\ *\ c,\ rho\ *\ d\};}
+\DoxyCodeLine{00465\ \}}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00468\ \textcolor{keyword}{inline}\ Quaternion<T>\ semipolar(T\ rho,\ T\ alpha,\ T\ theta1,\ T\ theta2)\ \{}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00470\ \ \ T\ ca\ =\ std::cos(alpha);}
+\DoxyCodeLine{00471\ \ \ T\ sa\ =\ std::sin(alpha);}
+\DoxyCodeLine{00472\ \ \ T\ a\ =\ ca\ *\ std::cos(theta1);}
+\DoxyCodeLine{00473\ \ \ T\ b\ =\ ca\ *\ std::sin(theta1);}
+\DoxyCodeLine{00474\ \ \ T\ c\ =\ sa\ *\ std::cos(theta2);}
+\DoxyCodeLine{00475\ \ \ T\ d\ =\ sa\ *\ std::sin(theta2);}
+\DoxyCodeLine{00476\ }
+\DoxyCodeLine{00477\ \ \ \textcolor{keywordflow}{return}\ \{rho\ *\ a,\ rho\ *\ b,\ rho\ *\ c,\ rho\ *\ d\};}
+\DoxyCodeLine{00478\ \}}
+\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00480\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00481\ \textcolor{keyword}{inline}\ Quaternion<T>\ multipolar(T\ rho1,\ T\ theta1,\ T\ rho2,\ T\ theta2)\ \{}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \ \ T\ a\ =\ rho1\ *\ std::cos(theta1);}
+\DoxyCodeLine{00484\ \ \ T\ b\ =\ rho1\ *\ std::sin(theta1);}
+\DoxyCodeLine{00485\ \ \ T\ c\ =\ rho2\ *\ std::cos(theta2);}
+\DoxyCodeLine{00486\ \ \ T\ d\ =\ rho2\ *\ std::sin(theta2);}
+\DoxyCodeLine{00487\ }
+\DoxyCodeLine{00488\ \ \ \textcolor{keywordflow}{return}\ \{a,\ b,\ c,\ d\};}
+\DoxyCodeLine{00489\ \}}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00492\ \textcolor{keyword}{inline}\ Quaternion<T>\ cylindrospherical(T\ t,\ T\ radius,\ T\ longitude,\ T\ latitude)\ \{}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00494\ \ \ T\ cl\ =\ std::cos(latitude);}
+\DoxyCodeLine{00495\ \ \ T\ b\ =\ radius\ *\ cl\ *\ std::cos(longitude);}
+\DoxyCodeLine{00496\ \ \ T\ c\ =\ radius\ *\ cl\ *\ std::sin(longitude);}
+\DoxyCodeLine{00497\ \ \ T\ d\ =\ radius\ *\ std::sin(latitude);}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00499\ \ \ \textcolor{keywordflow}{return}\ \{t,\ b,\ c,\ d\};}
+\DoxyCodeLine{00500\ \}}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00502\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00503\ \textcolor{keyword}{inline}\ Quaternion<T>\ cylindrical(T\ r,\ T\ angle,\ T\ h1,\ T\ h2)\ \{}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00505\ \ \ T\ a\ =\ r\ *\ std::cos(angle);}
+\DoxyCodeLine{00506\ \ \ T\ b\ =\ r\ *\ std::sin(angle);}
+\DoxyCodeLine{00507\ }
+\DoxyCodeLine{00508\ \ \ \textcolor{keywordflow}{return}\ \{a,\ b,\ h1,\ h2\};}
+\DoxyCodeLine{00509\ \}}
+\DoxyCodeLine{00510\ }
+\DoxyCodeLine{00514\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00515\ \textcolor{keyword}{using\ }polar\_representation\ =\ std::array<T,\ 5>;}
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00524\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00525\ \textcolor{keyword}{inline}\ polar\_representation<T>\ to\_polar\_representation(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00526\ \ \ T\ nu\ =\ x.unreal\_norm\_squared();}
+\DoxyCodeLine{00527\ \ \ T\ n\ =\ std::sqrt(nu\ +\ x.a()\ *\ x.a());}
+\DoxyCodeLine{00528\ \ \ assert(nu\ >=\ 0);}
+\DoxyCodeLine{00529\ \ \ \textcolor{keywordflow}{if}\ (nu\ >\ 0)\ \{}
+\DoxyCodeLine{00530\ \ \ \ \ T\ theta\ =\ std::acos(x.a()\ /\ n);}
+\DoxyCodeLine{00531\ \ \ \ \ T\ ns\ =\ sqrt(nu);}
+\DoxyCodeLine{00532\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\{n,\ theta,\ x.b()\ /\ ns,\ x.c()\ /\ ns,\ x.d()\ /\ ns\}\};}
+\DoxyCodeLine{00533\ \ \ \}}
+\DoxyCodeLine{00534\ \ \ \textcolor{keyword}{const}\ T\ pi\ =\ std::atan2(+0.,\ -\/0.);}
+\DoxyCodeLine{00535\ \ \ \textcolor{comment}{//\ theta\ =\ 0\ or\ pi,\ because\ n\ =\ +/-\/\ a().}}
+\DoxyCodeLine{00536\ \ \ \textcolor{keywordflow}{return}\ \{\{n,\ n\ ==\ x.a()\ ?\ 0\ :\ pi,\ 0,\ 0,\ 0\}\};}
+\DoxyCodeLine{00537\ \}}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00542\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00543\ \textcolor{keyword}{using\ }complex\_matrix\_2d\ =\ std::array<std::array<std::complex<T>,\ 2>,\ 2>;}
+\DoxyCodeLine{00544\ }
+\DoxyCodeLine{00550\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00551\ \textcolor{keyword}{inline}\ complex\_matrix\_2d<T>\ to\_complex\_matrix\_2d(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00552\ \ \ complex\_matrix\_2d<T>\ cm;}
+\DoxyCodeLine{00553\ \ \ cm[0][0]\ =\ \{x.a(),\ x.b()\};\ cm[0][1]\ =\ \{x.c(),\ x.d()\};}
+\DoxyCodeLine{00554\ \ \ cm[1][0]\ =\ -\/conj(cm[0][1]);\ cm[1][1]\ =\ conj(cm[0][0]);}
+\DoxyCodeLine{00555\ \ \ \textcolor{keywordflow}{return}\ cm;}
+\DoxyCodeLine{00556\ \}}
+\DoxyCodeLine{00557\ }
+\DoxyCodeLine{00563\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00564\ \textcolor{keyword}{inline}\ Quaternion<T>\ from\_complex\_matrix\_2d(\textcolor{keyword}{const}\ complex\_matrix\_2d<T>\&\ cm)\ \{}
+\DoxyCodeLine{00565\ \ \ assert(cm[1][1]\ ==\ conj(cm[0][0])\ \&\&\ cm[1][0]\ ==\ -\/conj(cm[0][1]));}
+\DoxyCodeLine{00566\ \ \ \textcolor{keywordflow}{return}\ \{cm[0][0].real(),\ cm[0][0].imag(),\ cm[0][1].real(),\ cm[0][1].imag()\};}
+\DoxyCodeLine{00567\ \}}
+\DoxyCodeLine{00568\ }
+\DoxyCodeLine{00572\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00573\ \textcolor{keyword}{using\ }real\_matrix\_4d\ =\ std::array<std::array<T,4>,4>;}
+\DoxyCodeLine{00574\ }
+\DoxyCodeLine{00582\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00583\ \textcolor{keyword}{inline}\ real\_matrix\_4d<T>\ to\_real\_matrix\_4d(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00584\ \ \ real\_matrix\_4d<T>\ rm;}
+\DoxyCodeLine{00585\ \ \ rm[0]\ =\ \{\{x.a(),\ x.b(),\ x.c(),\ x.d()\}\};}
+\DoxyCodeLine{00586\ \ \ rm[1]\ =\ \{\{-\/x.b(),\ x.a(),\ -\/x.d(),\ x.c()\}\};}
+\DoxyCodeLine{00587\ \ \ rm[2]\ =\ \{\{-\/x.c(),\ x.d(),\ x.a(),\ -\/x.b()\}\};}
+\DoxyCodeLine{00588\ \ \ rm[3]\ =\ \{\{-\/x.d(),\ -\/x.c(),\ x.b(),\ x.a()\}\};}
+\DoxyCodeLine{00589\ \ \ \textcolor{keywordflow}{return}\ rm;}
+\DoxyCodeLine{00590\ \}}
+\DoxyCodeLine{00591\ }
+\DoxyCodeLine{00599\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00600\ \textcolor{keyword}{inline}\ Quaternion<T>\ from\_real\_matrix\_4d(\textcolor{keyword}{const}\ real\_matrix\_4d<T>\&\ rm)\ \{}
+\DoxyCodeLine{00601\ \ \ \textcolor{comment}{//\ TODO:\ asserts?}}
+\DoxyCodeLine{00602\ \ \ \textcolor{keywordflow}{return}\ \{rm[0][0],rm[0][1],rm[0][2],rm[0][3]\};}
+\DoxyCodeLine{00603\ \}}
+\DoxyCodeLine{00604\ }
+\DoxyCodeLine{00608\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00609\ \textcolor{keyword}{using\ }rotation\_matrix\ =\ std::array<std::array<T,\ 3>,\ 3>;}
+\DoxyCodeLine{00610\ }
+\DoxyCodeLine{00616\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00617\ \textcolor{keyword}{inline}\ rotation\_matrix<T>\ to\_rotation\_matrix(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00618\ \ \ \textcolor{comment}{//\ 21\ operations?}}
+\DoxyCodeLine{00619\ \ \ T\ a2\ =\ x.a()\ *\ x.a(),\ b2\ =\ x.b()\ *\ x.b(),\ c2\ =\ x.c()\ *\ x.c(),\ d2\ =\ x.d()\ *\ x.d();}
+\DoxyCodeLine{00620\ \ \ T\ ab\ =\ x.a()\ *\ x.b(),\ ac\ =\ x.a()\ *\ x.c(),\ ad\ =\ x.a()\ *\ x.d();}
+\DoxyCodeLine{00621\ \ \ T\ bc\ =\ x.b()\ *\ x.c(),\ bd\ =\ x.b()\ *\ x.d();}
+\DoxyCodeLine{00622\ \ \ T\ cd\ =\ x.c()\ *\ x.d();}
+\DoxyCodeLine{00623\ \ \ std::array<T,\ 3>\ r0\{\{a2\ +\ b2\ -\/\ c2\ -\/\ d2,\ 2\ *\ (bc\ -\/\ ad),\ 2\ *\ (bd\ +\ ac)\}\};}
+\DoxyCodeLine{00624\ \ \ std::array<T,\ 3>\ r1\{\{2\ *\ (bc\ +\ ad),\ a2\ -\/\ b2\ +\ c2\ -\/\ d2,\ 2\ *\ (cd\ -\/\ ab)\}\};}
+\DoxyCodeLine{00625\ \ \ std::array<T,\ 3>\ r2\{\{2\ *\ (bd\ -\/\ ac),\ 2\ *\ (cd\ +\ ab),\ a2\ -\/\ b2\ -\/\ c2\ +\ d2\}\};}
+\DoxyCodeLine{00626\ \ \ \textcolor{keywordflow}{return}\ \{\{r0,\ r1,\ r2\}\};}
+\DoxyCodeLine{00627\ \}}
+\DoxyCodeLine{00628\ }
+\DoxyCodeLine{00629\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00630\ \textcolor{keyword}{inline}\ Quaternion<T>\ from\_rotation\_matrix(\textcolor{keyword}{const}\ rotation\_matrix<T>\&\ rm)\ \{}
+\DoxyCodeLine{00631\ \ \ T\ t\ =\ rm[0][0]\ +\ rm[1][1]\ +\ rm[2][2];}
+\DoxyCodeLine{00632\ \ \ \textcolor{keywordflow}{if}\ (t\ >\ 0)\ \{}
+\DoxyCodeLine{00633\ \ \ \ \ T\ s\ =\ 0.5\ /\ std::sqrt(t\ +\ 1);}
+\DoxyCodeLine{00634\ \ \ \ \ \textcolor{keywordflow}{return}\ \{0.25\ /\ s,}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \ \ \ \ (rm[2][1]\ -\/\ rm[1][2])\ *\ s,}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \ \ \ \ (rm[0][2]\ -\/\ rm[2][0])\ *\ s,}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \ \ \ \ (rm[1][0]\ -\/\ rm[0][1])\ *\ s\};}
+\DoxyCodeLine{00638\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00639\ \ \ \ \ \textcolor{keywordflow}{if}\ (rm[0][0]\ >\ rm[1][1]\ \&\&\ rm[0][0]\ >\ rm[2][2])\ \{}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ T\ s\ =\ 2.0\ *\ std::sqrt(1.0\ +\ rm[0][0]\ -\/\ rm[1][1]\ -\/\ rm[2][2]);}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{(rm[2][1]\ -\/\ rm[1][2])\ /\ s,}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.25\ *\ s,}
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (rm[0][1]\ +\ rm[1][0])\ /\ s,}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (rm[0][2]\ +\ rm[2][0])\ /\ s\};}
+\DoxyCodeLine{00645\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (rm[1][1]\ >\ rm[2][2])\ \{}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ T\ s\ =\ 2.0\ *\ std::sqrt(1.0\ +\ rm[1][1]\ -\/\ rm[0][0]\ -\/\ rm[2][2]);}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{(rm[0][2]\ -\/\ rm[2][0])\ /\ s,}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (rm[0][1]\ +\ rm[1][0])\ /\ s,}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.25\ *\ s,}
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (rm[1][2]\ +\ rm[2][1])\ /\ s\};}
+\DoxyCodeLine{00651\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ T\ s\ =\ 2.0\ *\ std::sqrt(1.0\ +\ rm[2][2]\ -\/\ rm[0][0]\ -\/\ rm[1][1]);}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{(rm[1][0]\ -\/\ rm[0][1])\ /\ s,}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (rm[0][2]\ +\ rm[2][0])\ /\ s,}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (rm[1][2]\ +\ rm[2][1])\ /\ s,}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.25\ *\ s\};}
+\DoxyCodeLine{00657\ \ \ \ \ \}}
+\DoxyCodeLine{00658\ \ \ \}}
+\DoxyCodeLine{00659\ \}}
+\DoxyCodeLine{00660\ }
+\DoxyCodeLine{00667\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00668\ \textcolor{keyword}{inline}\ std::array<T,\ 3>\ to\_euler(\textcolor{keyword}{const}\ Quaternion<T>\&\ q)\ \{}
+\DoxyCodeLine{00669\ \ \ \ \ \textcolor{comment}{//\ roll\ (x-\/axis\ rotation)}}
+\DoxyCodeLine{00670\ \ \ \ \ T\ sinr\_cosp\ =\ 2\ *\ (q.a()\ *\ q.b()\ +\ q.c()\ *\ q.d());}
+\DoxyCodeLine{00671\ \ \ \ \ T\ cosr\_cosp\ =\ 1\ -\/\ 2\ *\ (q.b()\ *\ q.b()\ +\ q.c()\ *\ q.c());}
+\DoxyCodeLine{00672\ \ \ \ \ T\ roll\ =\ std::atan2(sinr\_cosp,\ cosr\_cosp);}
+\DoxyCodeLine{00673\ }
+\DoxyCodeLine{00674\ \ \ \ \ \textcolor{comment}{//\ pitch\ (y-\/axis\ rotation)}}
+\DoxyCodeLine{00675\ \ \ \ \ T\ sinp\ =\ std::sqrt(1\ +\ 2\ *\ (q.a()\ *\ q.c()\ -\/\ q.b()\ *\ q.d()));}
+\DoxyCodeLine{00676\ \ \ \ \ T\ cosp\ =\ std::sqrt(1\ -\/\ 2\ *\ (q.a()\ *\ q.c()\ -\/\ q.b()\ *\ q.d()));}
+\DoxyCodeLine{00677\ \ \ \ \ T\ pitch\ =\ 2\ *\ std::atan2(sinp,\ cosp)\ -\/\ M\_PI\ /\ 2;}
+\DoxyCodeLine{00678\ }
+\DoxyCodeLine{00679\ \ \ \ \ \textcolor{comment}{//\ yaw\ (z-\/axis\ rotation)}}
+\DoxyCodeLine{00680\ \ \ \ \ T\ siny\_cosp\ =\ 2\ *\ (q.a()\ *\ q.d()\ +\ q.b()\ *\ q.c());}
+\DoxyCodeLine{00681\ \ \ \ \ T\ cosy\_cosp\ =\ 1\ -\/\ 2\ *\ (q.c()\ *\ q.c()\ +\ q.d()\ *\ q.d());}
+\DoxyCodeLine{00682\ \ \ \ \ T\ yaw\ =\ std::atan2(siny\_cosp,\ cosy\_cosp);}
+\DoxyCodeLine{00683\ \ \ \ \ \textcolor{keywordflow}{return}\ \{roll,\ pitch,\ yaw\};}
+\DoxyCodeLine{00684\ \}}
+\DoxyCodeLine{00685\ }
+\DoxyCodeLine{00691\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00692\ \textcolor{keyword}{inline}\ Quaternion<T>\ from\_euler(\textcolor{keyword}{const}\ std::array<T,\ 3>\&\ x)\ \{}
+\DoxyCodeLine{00693\ \ \ \ \ T\ cr\ =\ std::cos(x[0]\ *\ 0.5);}
+\DoxyCodeLine{00694\ \ \ \ \ T\ sr\ =\ std::sin(x[0]\ *\ 0.5);}
+\DoxyCodeLine{00695\ \ \ \ \ T\ cp\ =\ std::cos(x[1]\ *\ 0.5);}
+\DoxyCodeLine{00696\ \ \ \ \ T\ sp\ =\ std::sin(x[1]\ *\ 0.5);}
+\DoxyCodeLine{00697\ \ \ \ \ T\ cy\ =\ std::cos(x[2]\ *\ 0.5);}
+\DoxyCodeLine{00698\ \ \ \ \ T\ sy\ =\ std::sin(x[2]\ *\ 0.5);}
+\DoxyCodeLine{00699\ \ \ \textcolor{keywordflow}{return}\ \{}
+\DoxyCodeLine{00700\ \ \ \ \ \ \ cr\ *\ cp\ *\ cy\ +\ sr\ *\ sp\ *\ sy,}
+\DoxyCodeLine{00701\ \ \ \ \ \ \ sr\ *\ cp\ *\ cy\ -\/\ cr\ *\ sp\ *\ sy,}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ cr\ *\ sp\ *\ cy\ +\ sr\ *\ cp\ *\ sy,}
+\DoxyCodeLine{00703\ \ \ \ \ \ \ cr\ *\ cp\ *\ sy\ -\/\ sr\ *\ sp\ *\ cy}
+\DoxyCodeLine{00704\ \ \ \};}
+\DoxyCodeLine{00705\ \}}
+\DoxyCodeLine{00706\ }
+\DoxyCodeLine{00717\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00718\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_intro_sat_lib_1_1hash}{hash}}\ :\ \textcolor{keyword}{public}\ std::unary\_function<Quaternion<T>,\ size\_t>\ \{}
+\DoxyCodeLine{00719\ }
+\DoxyCodeLine{00720\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{size\_t}\ operator()(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion<T>}}\&\ x)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00721\ }
+\DoxyCodeLine{00722\ \ \ \ \ \textcolor{keyword}{auto}\ mix\ =\ [](uint64\_t\ h)\ \{}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ (h)\ \string^=\ (h)\ >>\ 23;}
+\DoxyCodeLine{00724\ \ \ \ \ \ \ (h)\ *=\ 0x2127599bf4325c37ULL;}
+\DoxyCodeLine{00725\ \ \ \ \ \ \ (h)\ \string^=\ (h)\ >>\ 47;}
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ h;}
+\DoxyCodeLine{00727\ \ \ \ \ \};}
+\DoxyCodeLine{00728\ }
+\DoxyCodeLine{00729\ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ len\ =\ 4\ *\ \textcolor{keyword}{sizeof}(T);\ \textcolor{comment}{//\ in\ bytes,\ Qf\ is\ 4*4,\ Qd\ is\ 4*8,\ and\ Qld\ 4*16}}
+\DoxyCodeLine{00730\ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ m\ =\ 0x880355f21e6d1965ULL;}
+\DoxyCodeLine{00731\ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ *pos\ =\ (\textcolor{keyword}{const}\ uint64\_t\ *)\ \&x;}
+\DoxyCodeLine{00732\ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ *end\ =\ pos\ +\ (len\ /\ 8);}
+\DoxyCodeLine{00733\ \ \ \ \ uint64\_t\ h\ =\ 31\ \string^(len\ *\ m);}
+\DoxyCodeLine{00734\ \ \ \ \ uint64\_t\ v;}
+\DoxyCodeLine{00735\ }
+\DoxyCodeLine{00736\ \ \ \ \ \textcolor{keywordflow}{while}\ (pos\ !=\ end)\ \{}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ v\ =\ *pos++;}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ h\ \string^=\ mix(v);}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ h\ *=\ m;}
+\DoxyCodeLine{00740\ \ \ \ \ \}}
+\DoxyCodeLine{00741\ }
+\DoxyCodeLine{00742\ \ \ \ \ \textcolor{keywordflow}{return}\ mix(h);}
+\DoxyCodeLine{00743\ \ \ \}}
+\DoxyCodeLine{00744\ \};}
+\DoxyCodeLine{00745\ }
+\DoxyCodeLine{00750\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00751\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_intro_sat_lib_1_1lexicographic__order}{lexicographic\_order}}\ :\ std::binary\_function<Quaternion<T>,\ Quaternion<T>,\ bool>\ \{}
+\DoxyCodeLine{00752\ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ operator()(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion<T>}}\&\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion<T>}}\&\ y)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00753\ \ \ \ \ \textcolor{keywordflow}{return}\ x.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()\ <\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()}
+\DoxyCodeLine{00754\ \ \ \ \ ||\ (x.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()\ ==\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()\ \&\&\ x.b()\ <\ y.b())}
+\DoxyCodeLine{00755\ \ \ \ \ ||\ (x.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()\ ==\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()\ \&\&\ x.b()\ ==\ y.b()\ \&\&\ x.c()\ <\ y.c())}
+\DoxyCodeLine{00756\ \ \ \ \ ||\ (x.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()\ ==\ y.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}()\ \&\&\ x.b()\ ==\ y.b()\ \&\&\ x.c()\ ==\ y.c()\ \&\&\ x.d()\ <\ y.d());}
+\DoxyCodeLine{00757\ \ \ \}}
+\DoxyCodeLine{00758\ \};}
+\DoxyCodeLine{00759\ }
+\DoxyCodeLine{00763\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00764\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion<T>}}\ conj(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion<T>}}\&\ x)\ \{}
+\DoxyCodeLine{00765\ \ \ \textcolor{keywordflow}{return}\ \{x.\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}(),\ -\/x.b(),\ -\/x.c(),\ -\/x.d()\};}
+\DoxyCodeLine{00766\ \}}
+\DoxyCodeLine{00767\ }
+\DoxyCodeLine{00771\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00772\ \textcolor{keyword}{inline}\ T\ norm\_squared(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00773\ \ \ \textcolor{keywordflow}{return}\ x.norm\_squared();}
+\DoxyCodeLine{00774\ \}}
+\DoxyCodeLine{00775\ }
+\DoxyCodeLine{00776\ \textcolor{comment}{//\ abs\ =\ l2\ norm\ =\ euclidean\ norm}}
+\DoxyCodeLine{00777\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00778\ \textcolor{keyword}{inline}\ T\ abs(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00779\ \ \ \textcolor{keywordflow}{return}\ x.abs();}
+\DoxyCodeLine{00780\ \}}
+\DoxyCodeLine{00781\ }
+\DoxyCodeLine{00782\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00783\ \textcolor{keyword}{inline}\ T\ unreal\_norm\_squared(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00784\ \ \ \textcolor{keywordflow}{return}\ x.unreal\_norm\_squared();}
+\DoxyCodeLine{00785\ \}}
+\DoxyCodeLine{00786\ }
+\DoxyCodeLine{00787\ \textcolor{comment}{//\ Hamming}}
+\DoxyCodeLine{00788\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00789\ \textcolor{keyword}{inline}\ T\ norm\_l0(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00790\ \ \ \textcolor{keywordflow}{return}\ (x.a()\ !=\ 0)\ +\ (x.b()\ !=\ 0)\ +\ (x.c()\ !=\ 0)\ +\ (x.d()\ !=\ 0);}
+\DoxyCodeLine{00791\ \}}
+\DoxyCodeLine{00792\ }
+\DoxyCodeLine{00793\ \textcolor{comment}{//\ l1\ norm\ =\ taxicab\ =\ manhattan}}
+\DoxyCodeLine{00794\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00795\ \textcolor{keyword}{inline}\ T\ norm\_l1(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00796\ \ \ \textcolor{keywordflow}{return}\ std::abs(x.a())\ +\ std::abs(x.b())\ +\ std::abs(x.c())\ +\ std::abs(x.d());}
+\DoxyCodeLine{00797\ \}}
+\DoxyCodeLine{00798\ }
+\DoxyCodeLine{00799\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{00800\ \textcolor{keyword}{inline}\ T\ norm\_lk(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T1\ k)\ \{}
+\DoxyCodeLine{00801\ \ \ \textcolor{keywordflow}{return}\ std::pow(std::pow(std::abs(x.a()),\ k)}
+\DoxyCodeLine{00802\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ std::pow(std::abs(x.b()),\ k)}
+\DoxyCodeLine{00803\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ std::pow(std::abs(x.c()),\ k)}
+\DoxyCodeLine{00804\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ std::pow(std::abs(x.d()),\ k),\ 1.0\ /\ k);}
+\DoxyCodeLine{00805\ \}}
+\DoxyCodeLine{00806\ }
+\DoxyCodeLine{00807\ \textcolor{comment}{//\ norm\ sup\ =\ max\ norm\ =\ norm\ inf}}
+\DoxyCodeLine{00808\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00809\ \textcolor{keyword}{inline}\ T\ norm\_sup(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00810\ \ \ \textcolor{keywordflow}{return}\ std::max(std::max(std::abs(x.a()),\ std::abs(x.b())),}
+\DoxyCodeLine{00811\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::max(std::abs(x.c()),\ std::abs(x.d())));}
+\DoxyCodeLine{00812\ \}}
+\DoxyCodeLine{00813\ }
+\DoxyCodeLine{00818\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1\ =T>}
+\DoxyCodeLine{00819\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_zero(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T1\ eps\ =\ 0)\ \{}
+\DoxyCodeLine{00820\ \ \ \textcolor{keywordflow}{return}\ x.is\_zero(eps);}
+\DoxyCodeLine{00821\ \}}
+\DoxyCodeLine{00822\ }
+\DoxyCodeLine{00823\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1\ =T>}
+\DoxyCodeLine{00824\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_non\_zero(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T1\ eps\ =\ 0)\ \{}
+\DoxyCodeLine{00825\ \ \ \textcolor{keywordflow}{return}\ x.is\_non\_zero(eps);}
+\DoxyCodeLine{00826\ \}}
+\DoxyCodeLine{00827\ }
+\DoxyCodeLine{00828\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00829\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_nan(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00830\ \ \ \textcolor{keywordflow}{return}\ x.is\_nan();}
+\DoxyCodeLine{00831\ \}}
+\DoxyCodeLine{00832\ }
+\DoxyCodeLine{00833\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00834\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_inf(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00835\ \ \ \textcolor{keywordflow}{return}\ x.is\_inf();}
+\DoxyCodeLine{00836\ \}}
+\DoxyCodeLine{00837\ }
+\DoxyCodeLine{00838\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00839\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_finite(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00840\ \ \ \textcolor{keywordflow}{return}\ x.is\_finite();}
+\DoxyCodeLine{00841\ \}}
+\DoxyCodeLine{00842\ }
+\DoxyCodeLine{00843\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1\ =T>}
+\DoxyCodeLine{00844\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_unit(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T1\ eps\ =\ 0)\ \{}
+\DoxyCodeLine{00845\ \ \ \textcolor{keywordflow}{return}\ x.is\_unit(eps);}
+\DoxyCodeLine{00846\ \}}
+\DoxyCodeLine{00847\ }
+\DoxyCodeLine{00848\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1\ =T>}
+\DoxyCodeLine{00849\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_real(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T1\ eps\ =\ 0)\ \{}
+\DoxyCodeLine{00850\ \ \ \textcolor{keywordflow}{return}\ x.is\_real(eps);}
+\DoxyCodeLine{00851\ \}}
+\DoxyCodeLine{00852\ }
+\DoxyCodeLine{00853\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1\ =T>}
+\DoxyCodeLine{00854\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_complex(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T1\ eps\ =\ 0)\ \{}
+\DoxyCodeLine{00855\ \ \ \textcolor{keywordflow}{return}\ x.is\_complex(eps);}
+\DoxyCodeLine{00856\ \}}
+\DoxyCodeLine{00857\ }
+\DoxyCodeLine{00858\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1\ =T>}
+\DoxyCodeLine{00859\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_unreal(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T1\ eps\ =\ 0)\ \{}
+\DoxyCodeLine{00860\ \ \ \textcolor{keywordflow}{return}\ x.is\_unreal(eps);}
+\DoxyCodeLine{00861\ \}}
+\DoxyCodeLine{00862\ }
+\DoxyCodeLine{00882\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T2,\ IS\_CONVERTIBLE(T2,\ T)>}
+\DoxyCodeLine{00883\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T2\ y)\ \{}
+\DoxyCodeLine{00884\ \ \ \textcolor{keywordflow}{return}\ x.is\_real()\ \&\&\ x.a()\ ==\ y;}
+\DoxyCodeLine{00885\ \}}
+\DoxyCodeLine{00886\ }
+\DoxyCodeLine{00887\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T2,\ IS\_CONVERTIBLE(T2,\ T)>}
+\DoxyCodeLine{00888\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator==(T2\ y,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00889\ \ \ \textcolor{keywordflow}{return}\ x\ ==\ y;}
+\DoxyCodeLine{00890\ \}}
+\DoxyCodeLine{00891\ }
+\DoxyCodeLine{00892\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T2,\ IS\_CONVERTIBLE(T2,\ T)>}
+\DoxyCodeLine{00893\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T2\ y)\ \{}
+\DoxyCodeLine{00894\ \ \ \textcolor{keywordflow}{return}\ !(x\ ==\ y);}
+\DoxyCodeLine{00895\ \}}
+\DoxyCodeLine{00896\ }
+\DoxyCodeLine{00897\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T2,\ IS\_CONVERTIBLE(T2,\ T)>}
+\DoxyCodeLine{00898\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator!=(T2\ y,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00899\ \ \ \textcolor{keywordflow}{return}\ !(x\ ==\ y);}
+\DoxyCodeLine{00900\ \}}
+\DoxyCodeLine{00901\ }
+\DoxyCodeLine{00902\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ IS\_CONVERTIBLE(T2,\ T),\ IS\_CONVERTIBLE(T3,T)>}
+\DoxyCodeLine{00903\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ nearly\_equal(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T2\ y,\ T3\ eps)\ \{}
+\DoxyCodeLine{00904\ \ \ \textcolor{keywordflow}{return}\ x.is\_real()\ \&\&\ is\_nearly\_equal(x.a(),\ y,\ eps);}
+\DoxyCodeLine{00905\ \}}
+\DoxyCodeLine{00906\ }
+\DoxyCodeLine{00907\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ IS\_CONVERTIBLE(T2,\ T),\ IS\_CONVERTIBLE(T3,T)>}
+\DoxyCodeLine{00908\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ nearly\_equal(T2\ y,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T3\ eps)\ \{}
+\DoxyCodeLine{00909\ \ \ \textcolor{keywordflow}{return}\ x.is\_real()\ \&\&\ is\_nearly\_equal(x.a(),\ y,\ eps);}
+\DoxyCodeLine{00910\ \}}
+\DoxyCodeLine{00911\ }
+\DoxyCodeLine{00917\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T2,\ IS\_CONVERTIBLE(T2,T)>}
+\DoxyCodeLine{00918\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ \textcolor{keyword}{const}\ std::complex<T2>\&\ y)\ \{}
+\DoxyCodeLine{00919\ \ \ \textcolor{keywordflow}{return}\ is\_complex(x)\ \&\&\ x.a()\ ==\ y.real()\ \&\&\ x.b()\ ==\ y.imag();}
+\DoxyCodeLine{00920\ \}}
+\DoxyCodeLine{00921\ }
+\DoxyCodeLine{00922\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T2,\ IS\_CONVERTIBLE(T2,T)>}
+\DoxyCodeLine{00923\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ \textcolor{keyword}{const}\ std::complex<T2>\&\ y)\ \{}
+\DoxyCodeLine{00924\ \ \ \textcolor{keywordflow}{return}\ !(x\ ==\ y);}
+\DoxyCodeLine{00925\ \}}
+\DoxyCodeLine{00926\ }
+\DoxyCodeLine{00927\ \textcolor{comment}{//\ Same,\ swapping\ the\ lhs\ and\ rhs.}}
+\DoxyCodeLine{00928\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T2,\ IS\_CONVERTIBLE(T2,T)>}
+\DoxyCodeLine{00929\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ std::complex<T2>\&\ y,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00930\ \ \ \textcolor{keywordflow}{return}\ x\ ==\ y;}
+\DoxyCodeLine{00931\ \}}
+\DoxyCodeLine{00932\ }
+\DoxyCodeLine{00933\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T2,\ IS\_CONVERTIBLE(T2,T)>}
+\DoxyCodeLine{00934\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ std::complex<T2>\&\ y,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00935\ \ \ \textcolor{keywordflow}{return}\ x\ !=\ y;}
+\DoxyCodeLine{00936\ \}}
+\DoxyCodeLine{00937\ }
+\DoxyCodeLine{00938\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ IS\_CONVERTIBLE(T2,\ T),\ IS\_CONVERTIBLE(T3,T)>}
+\DoxyCodeLine{00939\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ nearly\_equal(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ \textcolor{keyword}{const}\ std::complex<T2>\&\ y,\ T3\ eps)\ \{}
+\DoxyCodeLine{00940\ \ \ \textcolor{keywordflow}{return}\ is\_complex(x,\ eps)}
+\DoxyCodeLine{00941\ \ \ \ \ \ \ \ \ \ \&\&\ is\_nearly\_equal(x.a(),\ y.real(),\ eps)}
+\DoxyCodeLine{00942\ \ \ \ \ \ \ \ \ \ \&\&\ is\_nearly\_equal(x.b(),\ y.imag(),\ eps);}
+\DoxyCodeLine{00943\ \}}
+\DoxyCodeLine{00944\ }
+\DoxyCodeLine{00945\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ IS\_CONVERTIBLE(T2,\ T),\ IS\_CONVERTIBLE(T3,T)>}
+\DoxyCodeLine{00946\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ nearly\_equal(\textcolor{keyword}{const}\ std::complex<T2>\&\ y,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T3\ eps)\ \{}
+\DoxyCodeLine{00947\ \ \ \textcolor{keywordflow}{return}\ nearly\_equal(x,\ y,\ eps);}
+\DoxyCodeLine{00948\ \}}
+\DoxyCodeLine{00949\ }
+\DoxyCodeLine{00953\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2>}
+\DoxyCodeLine{00954\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ Quaternion<T1>\&\ x,\ \textcolor{keyword}{const}\ Quaternion<T2>\&\ y)\ \{}
+\DoxyCodeLine{00955\ \ \ \textcolor{keywordflow}{return}\ x.a()\ ==\ y.a()\ \&\&\ x.b()\ ==\ y.b()\ \&\&\ x.c()\ ==\ y.c()\ \&\&\ x.d()\ ==\ y.d();}
+\DoxyCodeLine{00956\ \}}
+\DoxyCodeLine{00957\ }
+\DoxyCodeLine{00958\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00959\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ y)\ \{}
+\DoxyCodeLine{00960\ \ \ \textcolor{keywordflow}{return}\ !(x\ ==\ y);}
+\DoxyCodeLine{00961\ \}}
+\DoxyCodeLine{00962\ }
+\DoxyCodeLine{00963\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3>}
+\DoxyCodeLine{00964\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ nearly\_equal(\textcolor{keyword}{const}\ Quaternion<T1>\&\ x,\ \textcolor{keyword}{const}\ Quaternion<T2>\&\ y,\ T3\ eps)\ \{}
+\DoxyCodeLine{00965\ \ \ \textcolor{keywordflow}{return}\ is\_nearly\_equal(x.a(),\ y.a(),\ eps)}
+\DoxyCodeLine{00966\ \ \ \ \ \ \ \ \ \ \&\&\ is\_nearly\_equal(x.b(),\ y.b(),\ eps)}
+\DoxyCodeLine{00967\ \ \ \ \ \ \ \ \ \ \&\&\ is\_nearly\_equal(x.c(),\ y.c(),\ eps)}
+\DoxyCodeLine{00968\ \ \ \ \ \ \ \ \ \ \&\&\ is\_nearly\_equal(x.d(),\ y.d(),\ eps);}
+\DoxyCodeLine{00969\ \}}
+\DoxyCodeLine{00970\ }
+\DoxyCodeLine{00971\ \textcolor{comment}{//\ TODO:\ equality\ of\ Quaternion\ and\ complex,\ of\ Quaternion\ and\ array/container}}
+\DoxyCodeLine{00972\ \textcolor{comment}{//\ TODO:\ y\ by\ const\ ref?}}
+\DoxyCodeLine{00973\ }
+\DoxyCodeLine{00974\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{00975\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator+(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T1\ y)\ \{}
+\DoxyCodeLine{00976\ \ \ \textcolor{keywordflow}{return}\ Quaternion<T>(x)\ +=\ y;}
+\DoxyCodeLine{00977\ \}}
+\DoxyCodeLine{00978\ }
+\DoxyCodeLine{00979\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{00980\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator+(T1\ y,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00981\ \ \ \textcolor{keywordflow}{return}\ x\ +\ y;}
+\DoxyCodeLine{00982\ \}}
+\DoxyCodeLine{00983\ }
+\DoxyCodeLine{00984\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00985\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator+(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ std::complex<T>\&\ y)\ \{}
+\DoxyCodeLine{00986\ \ \ \textcolor{keywordflow}{return}\ Quaternion<T>(x)\ +=\ y;}
+\DoxyCodeLine{00987\ \}}
+\DoxyCodeLine{00988\ }
+\DoxyCodeLine{00989\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00990\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator+(std::complex<T>\&\ y,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{00991\ \ \ \textcolor{keywordflow}{return}\ x\ +\ y;}
+\DoxyCodeLine{00992\ \}}
+\DoxyCodeLine{00993\ }
+\DoxyCodeLine{00994\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00995\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator+(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ y)\ \{}
+\DoxyCodeLine{00996\ \ \ \textcolor{keywordflow}{return}\ Quaternion<T>(x)\ +=\ y;}
+\DoxyCodeLine{00997\ \}}
+\DoxyCodeLine{00998\ }
+\DoxyCodeLine{00999\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{01000\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator-\/(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T1\ y)\ \{}
+\DoxyCodeLine{01001\ \ \ \textcolor{keywordflow}{return}\ Quaternion<T>(x)\ -\/=\ y;}
+\DoxyCodeLine{01002\ \}}
+\DoxyCodeLine{01003\ }
+\DoxyCodeLine{01004\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{01005\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator-\/(T1\ y,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01006\ \ \ \textcolor{keywordflow}{return}\ Quaternion<T>(x)\ +=\ -\/y;}
+\DoxyCodeLine{01007\ \}}
+\DoxyCodeLine{01008\ }
+\DoxyCodeLine{01009\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01010\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator-\/(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ std::complex<T>\&\ y)\ \{}
+\DoxyCodeLine{01011\ \ \ \textcolor{keywordflow}{return}\ Quaternion<T>(x)\ -\/=\ y;}
+\DoxyCodeLine{01012\ \}}
+\DoxyCodeLine{01013\ }
+\DoxyCodeLine{01014\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01015\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator-\/(std::complex<T>\&\ y,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01016\ \ \ \textcolor{keywordflow}{return}\ x\ +\ (-\/y);}
+\DoxyCodeLine{01017\ \}}
+\DoxyCodeLine{01018\ }
+\DoxyCodeLine{01019\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01020\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator-\/(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ y)\ \{}
+\DoxyCodeLine{01021\ \ \ \textcolor{keywordflow}{return}\ Quaternion<T>(x)\ -\/=\ y;}
+\DoxyCodeLine{01022\ \}}
+\DoxyCodeLine{01023\ }
+\DoxyCodeLine{01028\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{01029\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator*(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T1\ y)\ \{}
+\DoxyCodeLine{01030\ \ \ \textcolor{keywordflow}{return}\ Quaternion<T>(x)\ *=\ y;}
+\DoxyCodeLine{01031\ \}}
+\DoxyCodeLine{01032\ }
+\DoxyCodeLine{01033\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{01034\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator*(T1\ y,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01035\ \ \ \textcolor{keywordflow}{return}\ x\ *\ y;}
+\DoxyCodeLine{01036\ \}}
+\DoxyCodeLine{01037\ }
+\DoxyCodeLine{01038\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01039\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator*(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ std::complex<T>\&\ y)\ \{}
+\DoxyCodeLine{01040\ \ \ \textcolor{keywordflow}{return}\ Quaternion<T>(x)\ *=\ y;}
+\DoxyCodeLine{01041\ \}}
+\DoxyCodeLine{01042\ }
+\DoxyCodeLine{01043\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01044\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator*(std::complex<T>\&\ y,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01045\ \ \ \textcolor{keywordflow}{return}\ x\ *\ y;}
+\DoxyCodeLine{01046\ \}}
+\DoxyCodeLine{01047\ }
+\DoxyCodeLine{01048\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01049\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator*(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ y)\ \{}
+\DoxyCodeLine{01050\ \ \ \textcolor{keywordflow}{return}\ Quaternion<T>(x)\ *=\ y;}
+\DoxyCodeLine{01051\ \}}
+\DoxyCodeLine{01052\ }
+\DoxyCodeLine{01053\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01054\ \textcolor{keyword}{inline}\ Quaternion<T>\ inverse(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01055\ \ \ \textcolor{keywordflow}{return}\ conj(x)\ /\ norm\_squared(x);}
+\DoxyCodeLine{01056\ \}}
+\DoxyCodeLine{01057\ }
+\DoxyCodeLine{01058\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{01059\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator/(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T1\ y)\ \{}
+\DoxyCodeLine{01060\ \ \ \textcolor{keywordflow}{return}\ Quaternion<T>(x)\ /=\ y;}
+\DoxyCodeLine{01061\ \}}
+\DoxyCodeLine{01062\ }
+\DoxyCodeLine{01063\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1>}
+\DoxyCodeLine{01064\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator/(T1\ y,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01065\ \ \ \textcolor{keywordflow}{return}\ y\ *\ inverse(x);}
+\DoxyCodeLine{01066\ \}}
+\DoxyCodeLine{01067\ }
+\DoxyCodeLine{01068\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01069\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator/(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ std::complex<T>\&\ y)\ \{}
+\DoxyCodeLine{01070\ \ \ \textcolor{keywordflow}{return}\ Quaternion<T>(x)\ /=\ y;}
+\DoxyCodeLine{01071\ \}}
+\DoxyCodeLine{01072\ }
+\DoxyCodeLine{01073\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01074\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator/(std::complex<T>\&\ y,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01075\ \ \ \textcolor{keywordflow}{return}\ y\ *\ inverse(x);}
+\DoxyCodeLine{01076\ \}}
+\DoxyCodeLine{01077\ }
+\DoxyCodeLine{01078\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01079\ \textcolor{keyword}{inline}\ Quaternion<T>\ operator/(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ y)\ \{}
+\DoxyCodeLine{01080\ \ \ \textcolor{keywordflow}{return}\ x\ *\ inverse(y);}
+\DoxyCodeLine{01081\ \}}
+\DoxyCodeLine{01082\ }
+\DoxyCodeLine{01083\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01084\ \textcolor{keyword}{inline}\ T\ dot(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ y)\ \{}
+\DoxyCodeLine{01085\ \ \ \textcolor{keywordflow}{return}\ x.a()\ *\ y.a()\ +\ x.b()\ *\ y.b()\ +\ x.c()\ *\ y.c()\ +\ x.d()\ *\ y.d();}
+\DoxyCodeLine{01086\ \}}
+\DoxyCodeLine{01087\ }
+\DoxyCodeLine{01091\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01092\ \textcolor{keyword}{inline}\ Quaternion<T>\ cross(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ y)\ \{}
+\DoxyCodeLine{01093\ \ \ \textcolor{keywordflow}{return}\ \{0,}
+\DoxyCodeLine{01094\ \ \ \ \ \ \ \ \ \ \ x.c()\ *\ y.d()\ -\/\ x.d()\ *\ y.c(),}
+\DoxyCodeLine{01095\ \ \ \ \ \ \ \ \ \ \ x.d()\ *\ y.b()\ -\/\ x.b()\ *\ y.d(),}
+\DoxyCodeLine{01096\ \ \ \ \ \ \ \ \ \ \ x.b()\ *\ y.c()\ -\/\ x.c()\ *\ y.b()\};}
+\DoxyCodeLine{01097\ \}}
+\DoxyCodeLine{01098\ }
+\DoxyCodeLine{01099\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01100\ \textcolor{keyword}{inline}\ Quaternion<T>\ commutator(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ y)\ \{}
+\DoxyCodeLine{01101\ \ \ \textcolor{keywordflow}{return}\ x\ *\ y\ -\/\ y\ *\ x;}
+\DoxyCodeLine{01102\ \}}
+\DoxyCodeLine{01103\ }
+\DoxyCodeLine{01104\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01105\ \textcolor{keyword}{inline}\ Quaternion<T>\ normalize(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01106\ \ \ assert(abs(x)\ >\ 0);\ \textcolor{comment}{//\ or\ this\ is\ not\ normalizable}}
+\DoxyCodeLine{01107\ \ \ \textcolor{keywordflow}{return}\ x\ /\ abs(x);}
+\DoxyCodeLine{01108\ \}}
+\DoxyCodeLine{01109\ }
+\DoxyCodeLine{01121\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01122\ \textcolor{keyword}{inline}\ Quaternion<T>\ exp(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01123\ \ \ T\ un\ =\ x.unreal\_norm\_squared();}
+\DoxyCodeLine{01124\ \ \ \textcolor{keywordflow}{if}\ (un\ ==\ 0)}
+\DoxyCodeLine{01125\ \ \ \ \ \textcolor{keywordflow}{return}\ \{std::exp(x.a())\};}
+\DoxyCodeLine{01126\ \ \ T\ n1\ =\ std::sqrt(un);}
+\DoxyCodeLine{01127\ \ \ T\ ea\ =\ std::exp(x.a());}
+\DoxyCodeLine{01128\ \ \ T\ n2\ =\ ea\ *\ std::sin(n1)\ /\ n1;\ \textcolor{comment}{//\ TODO:\ this\ needs\ speed-\/up\ (compared\ to\ boost)}}
+\DoxyCodeLine{01129\ \ \ \textcolor{keywordflow}{return}\ \{ea\ *\ std::cos(n1),\ n2\ *\ x.b(),\ n2\ *\ x.c(),\ n2\ *\ x.d()\};}
+\DoxyCodeLine{01130\ \}}
+\DoxyCodeLine{01131\ }
+\DoxyCodeLine{01139\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01140\ \textcolor{keyword}{inline}\ Quaternion<T>\ log(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01141\ \ \ T\ nu2\ =\ x.unreal\_norm\_squared();}
+\DoxyCodeLine{01142\ \ \ \textcolor{keywordflow}{if}\ (nu2\ ==\ 0)\ \{}
+\DoxyCodeLine{01143\ \ \ \ \ \textcolor{keywordflow}{if}\ (x.a()\ >\ 0)}
+\DoxyCodeLine{01144\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{std::log(x.a())\};}
+\DoxyCodeLine{01145\ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ TODO:\ reduce\ number\ of\ instructions}}
+\DoxyCodeLine{01146\ \ \ \ \ \ \ std::complex<T>\ l\ =\ log(std::complex<T>(x.a(),\ 0));\ \textcolor{comment}{//\ TODO:\ is\ that\ correct?}}
+\DoxyCodeLine{01147\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{l.real(),\ l.imag()\};}
+\DoxyCodeLine{01148\ \ \ \ \ \}}
+\DoxyCodeLine{01149\ \ \ \}}
+\DoxyCodeLine{01150\ \ \ T\ a\ =\ x.a();}
+\DoxyCodeLine{01151\ \ \ assert(nu2\ >\ 0);}
+\DoxyCodeLine{01152\ \ \ T\ n\ =\ std::sqrt(a\ *\ a\ +\ nu2);\ \textcolor{comment}{//\ n\ >\ 0}}
+\DoxyCodeLine{01153\ \ \ T\ th\ =\ std::acos(a\ /\ n)\ /\ std::sqrt(nu2);\ \textcolor{comment}{//\ -\/a\ <=\ a/n\ <=\ 1}}
+\DoxyCodeLine{01154\ \ \ \textcolor{keywordflow}{return}\ \{std::log(n),\ th\ *\ x.b(),\ th\ *\ x.c(),\ th\ *\ x.d()\};\ \textcolor{comment}{//\ n\ >\ 0}}
+\DoxyCodeLine{01155\ \}}
+\DoxyCodeLine{01156\ }
+\DoxyCodeLine{01157\ \textcolor{comment}{//\ TODO:\ log2,\ log10}}
+\DoxyCodeLine{01158\ }
+\DoxyCodeLine{01166\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01167\ \textcolor{keyword}{inline}\ Quaternion<T>\ pow2(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01168\ \ \ T\ aa\ =\ 2\ *\ x.a();}
+\DoxyCodeLine{01169\ \ \ \textcolor{keywordflow}{return}\ \{x.a()\ *\ x.a()\ -\/\ x.unreal\_norm\_squared(),}
+\DoxyCodeLine{01170\ \ \ \ \ \ \ \ \ \ \ aa\ *\ x.b(),}
+\DoxyCodeLine{01171\ \ \ \ \ \ \ \ \ \ \ aa\ *\ x.c(),}
+\DoxyCodeLine{01172\ \ \ \ \ \ \ \ \ \ \ aa\ *\ x.d()\};}
+\DoxyCodeLine{01173\ \}}
+\DoxyCodeLine{01174\ }
+\DoxyCodeLine{01182\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01183\ \textcolor{keyword}{inline}\ Quaternion<T>\ pow3(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01184\ \ \ T\ a2\ =\ x.a()\ *\ x.a();}
+\DoxyCodeLine{01185\ \ \ T\ n1\ =\ x.unreal\_norm\_squared();}
+\DoxyCodeLine{01186\ \ \ T\ n2\ =\ 3\ *\ a2\ -\/\ n1;}
+\DoxyCodeLine{01187\ \ \ \textcolor{keywordflow}{return}\ \{x.a()\ *\ (a2\ -\/\ 3\ *\ n1),}
+\DoxyCodeLine{01188\ \ \ \ \ \ \ \ \ \ \ x.b()\ *\ n2,}
+\DoxyCodeLine{01189\ \ \ \ \ \ \ \ \ \ \ x.c()\ *\ n2,}
+\DoxyCodeLine{01190\ \ \ \ \ \ \ \ \ \ \ x.d()\ *\ n2\};}
+\DoxyCodeLine{01191\ \}}
+\DoxyCodeLine{01192\ }
+\DoxyCodeLine{01200\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01201\ \textcolor{keyword}{inline}\ Quaternion<T>\ pow4(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01202\ \ \ T\ a2\ =\ x.a()\ *\ x.a();}
+\DoxyCodeLine{01203\ \ \ T\ n1\ =\ x.unreal\_norm\_squared();}
+\DoxyCodeLine{01204\ \ \ T\ n2\ =\ 4\ *\ x.a()\ *\ (a2\ -\/\ n1);}
+\DoxyCodeLine{01205\ \ \ \textcolor{keywordflow}{return}\ \{a2\ *\ a2\ -\/\ 6\ *\ a2\ *\ n1\ +\ n1\ *\ n1,}
+\DoxyCodeLine{01206\ \ \ \ \ \ \ \ \ \ \ x.b()\ *\ n2,}
+\DoxyCodeLine{01207\ \ \ \ \ \ \ \ \ \ \ x.c()\ *\ n2,}
+\DoxyCodeLine{01208\ \ \ \ \ \ \ \ \ \ \ x.d()\ *\ n2\};}
+\DoxyCodeLine{01209\ \}}
+\DoxyCodeLine{01210\ }
+\DoxyCodeLine{01211\ \textcolor{comment}{//\ TODO:\ this\ needs\ to\ be\ redone,\ with\ powi,\ powf,\ and\ a\ switcher\ on\ type\ like\ std::pow}}
+\DoxyCodeLine{01220\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01221\ \textcolor{keyword}{inline}\ Quaternion<T>\ pow(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ \textcolor{keywordtype}{int}\ expt)\ \{}
+\DoxyCodeLine{01222\ }
+\DoxyCodeLine{01223\ \ \ \textcolor{keywordflow}{if}\ (expt\ <\ 0)}
+\DoxyCodeLine{01224\ \ \ \ \ \textcolor{keywordflow}{return}\ inverse(pow(x,\ -\/expt));}
+\DoxyCodeLine{01225\ \ \ \textcolor{keywordflow}{if}\ (expt\ ==\ 0)}
+\DoxyCodeLine{01226\ \ \ \ \ \textcolor{keywordflow}{return}\ \{1\};}
+\DoxyCodeLine{01227\ \ \ \textcolor{keywordflow}{if}\ (expt\ ==\ 1)}
+\DoxyCodeLine{01228\ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{01229\ \ \ \textcolor{keywordflow}{if}\ (expt\ ==\ 2)}
+\DoxyCodeLine{01230\ \ \ \ \ \textcolor{keywordflow}{return}\ pow2(x);}
+\DoxyCodeLine{01231\ \ \ \textcolor{keywordflow}{if}\ (expt\ ==\ 3)}
+\DoxyCodeLine{01232\ \ \ \ \ \textcolor{keywordflow}{return}\ pow3(x);}
+\DoxyCodeLine{01233\ \ \ \textcolor{keywordflow}{if}\ (expt\ ==\ 4)}
+\DoxyCodeLine{01234\ \ \ \ \ \textcolor{keywordflow}{return}\ pow4(x);}
+\DoxyCodeLine{01235\ }
+\DoxyCodeLine{01236\ \ \ Quaternion<T>\ x4\ =\ pow4(x),\ y\ =\ x4;}
+\DoxyCodeLine{01237\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ expt\ /\ 4;\ ++i)}
+\DoxyCodeLine{01238\ \ \ \ \ y\ *=\ x4;}
+\DoxyCodeLine{01239\ \ \ \textcolor{keywordflow}{if}\ (expt\ \%\ 4\ ==\ 3)}
+\DoxyCodeLine{01240\ \ \ \ \ y\ *=\ pow3(x);}
+\DoxyCodeLine{01241\ \ \ \textcolor{keywordflow}{if}\ (expt\ \%\ 4\ ==\ 2)}
+\DoxyCodeLine{01242\ \ \ \ \ y\ *=\ pow2(x);}
+\DoxyCodeLine{01243\ \ \ \textcolor{keywordflow}{if}\ (expt\ \%\ 4\ ==\ 1)}
+\DoxyCodeLine{01244\ \ \ \ \ y\ *=\ x;}
+\DoxyCodeLine{01245\ \ \ \textcolor{keywordflow}{return}\ y;}
+\DoxyCodeLine{01246\ \}}
+\DoxyCodeLine{01247\ }
+\DoxyCodeLine{01251\ template\ <typename\ T,\ typename\ T1,\ typename\ std::enable\_if<!std::is\_same<T1,\ int>()>::type*\ =\ \textcolor{keyword}{nullptr}>}
+\DoxyCodeLine{01252\ \textcolor{keyword}{inline}\ Quaternion<typename\ std::common\_type<T,T1>::type>\ pow(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ T1\ a)\ \{}
+\DoxyCodeLine{01253\ \ \ Quaternion<typename\ std::common\_type<T,T1>::type>\ xx(x);\ \textcolor{comment}{//\ TODO:\ needed?}}
+\DoxyCodeLine{01254\ \ \ \textcolor{keywordflow}{if}\ (std::floor(a)\ ==\ a)}
+\DoxyCodeLine{01255\ \ \ \ \ \textcolor{keywordflow}{return}\ pow(x,\ (\textcolor{keywordtype}{int})\ a);\ \textcolor{comment}{//\ KEEP,\ really\ helps\ with\ numerical\ accuracy\ for\ e.g.\ pow(Q,Q)}}
+\DoxyCodeLine{01256\ \ \ \textcolor{keywordflow}{return}\ exp(a\ *\ log(xx));}
+\DoxyCodeLine{01257\ \}}
+\DoxyCodeLine{01258\ }
+\DoxyCodeLine{01264\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01265\ \textcolor{keyword}{inline}\ Quaternion<T>\ pow(\textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ a)\ \{}
+\DoxyCodeLine{01266\ \ \ \textcolor{keywordflow}{if}\ (a.is\_real())}
+\DoxyCodeLine{01267\ \ \ \ \ \textcolor{keywordflow}{return}\ pow(x,\ a.a());}
+\DoxyCodeLine{01268\ \ \ \textcolor{keywordflow}{return}\ exp(a\ *\ log(x));}
+\DoxyCodeLine{01269\ \}}
+\DoxyCodeLine{01270\ }
+\DoxyCodeLine{01271\ \textcolor{comment}{//\ TODO:\ sqrt}}
+\DoxyCodeLine{01272\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01273\ \textcolor{keyword}{inline}\ Quaternion<T>\ cos(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01274\ \ \ T\ z\ =\ x.unreal\_norm\_squared();}
+\DoxyCodeLine{01275\ \ \ \textcolor{keywordflow}{if}\ (z\ ==\ 0)}
+\DoxyCodeLine{01276\ \ \ \ \ \textcolor{keywordflow}{return}\ \{std::cos(x.a())\};}
+\DoxyCodeLine{01277\ \ \ \textcolor{comment}{//\ if\ (x.real()\ ==\ 0)\ return\ \{1\};}}
+\DoxyCodeLine{01278\ \ \ z\ =\ std::sqrt(z);}
+\DoxyCodeLine{01279\ \ \ T\ w\ =\ -\/std::sin(x.real())\ *\ std::sinh(z)\ /\ z;\ \textcolor{comment}{//\ z\ >\ 0\ by\ construction}}
+\DoxyCodeLine{01280\ \ \ \textcolor{keywordflow}{return}\ \{std::cos(x.real())\ *\ std::cosh(z),\ w\ *\ x.b(),\ w\ *\ x.c(),\ w\ *\ x.d()\};}
+\DoxyCodeLine{01281\ \}}
+\DoxyCodeLine{01282\ }
+\DoxyCodeLine{01283\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01284\ \textcolor{keyword}{inline}\ Quaternion<T>\ sin(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01285\ \ \ T\ z\ =\ x.unreal\_norm\_squared();}
+\DoxyCodeLine{01286\ \ \ \textcolor{keywordflow}{if}\ (z\ ==\ 0)}
+\DoxyCodeLine{01287\ \ \ \ \ \textcolor{keywordflow}{return}\ \{std::sin(x.a())\};}
+\DoxyCodeLine{01288\ \ \ \textcolor{comment}{//\ if\ (x.real()\ ==\ 0)\ return\ \{0\};}}
+\DoxyCodeLine{01289\ \ \ z\ =\ std::sqrt(z);}
+\DoxyCodeLine{01290\ \ \ T\ w\ =\ std::cos(x.real())\ *\ std::sinh(z)\ /\ z;\ \textcolor{comment}{//\ z\ >\ 0\ by\ construction}}
+\DoxyCodeLine{01291\ \ \ \textcolor{keywordflow}{return}\ \{std::sin(x.real())\ *\ std::cosh(z),\ w\ *\ x.b(),\ w\ *\ x.c(),\ w\ *\ x.d()\};}
+\DoxyCodeLine{01292\ \}}
+\DoxyCodeLine{01293\ }
+\DoxyCodeLine{01299\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01300\ \textcolor{keyword}{inline}\ Quaternion<T>\ tan(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01301\ \ \ T\ z\ =\ x.unreal\_norm\_squared();}
+\DoxyCodeLine{01302\ \ \ \textcolor{keywordflow}{if}\ (z\ ==\ 0)}
+\DoxyCodeLine{01303\ \ \ \ \ \textcolor{keywordflow}{return}\ \{std::tan(x.a())\};}
+\DoxyCodeLine{01304\ \ \ z\ =\ std::sqrt(z);}
+\DoxyCodeLine{01305\ \ \ T\ n\ =\ std::sinh(2\ *\ z);}
+\DoxyCodeLine{01306\ \ \ T\ d\ =\ std::cos(2\ *\ x.a())\ +\ std::cosh(2\ *\ z);\ \textcolor{comment}{//\ hmmm,\ I\ couldn't\ find\ a\ case\ with\ real\ a\ that\ would\ yield\ d\ =\ 0}}
+\DoxyCodeLine{01307\ \ \ T\ r\ =\ n\ /\ (z\ *\ d);}
+\DoxyCodeLine{01308\ \ \ \textcolor{keywordflow}{return}\ \{std::sin(2\ *\ x.a())\ /\ d,\ r\ *\ x.b(),\ r\ *\ x.c(),\ r\ *\ x.d()\};}
+\DoxyCodeLine{01309\ \}}
+\DoxyCodeLine{01310\ }
+\DoxyCodeLine{01311\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01312\ \textcolor{keyword}{inline}\ Quaternion<T>\ cosh(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01313\ \ \ \textcolor{keywordflow}{return}\ (exp(x)\ +\ exp(-\/x))\ /\ 2;}
+\DoxyCodeLine{01314\ \}}
+\DoxyCodeLine{01315\ }
+\DoxyCodeLine{01316\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01317\ \textcolor{keyword}{inline}\ Quaternion<T>\ sinh(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01318\ \ \ \textcolor{keywordflow}{return}\ (exp(x)\ -\/\ exp(-\/x))\ /\ 2;}
+\DoxyCodeLine{01319\ \}}
+\DoxyCodeLine{01320\ }
+\DoxyCodeLine{01321\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{01322\ \textcolor{keyword}{inline}\ Quaternion<T>\ tanh(\textcolor{keyword}{const}\ Quaternion<T>\&\ x)\ \{}
+\DoxyCodeLine{01323\ \ \ \textcolor{keywordflow}{return}\ sinh(x)\ /\ cosh(x);\ \textcolor{comment}{//\ TODO:\ cosh\ never\ zero\ for\ quaternions\ too?}}
+\DoxyCodeLine{01324\ \}}
+\DoxyCodeLine{01325\ }
+\DoxyCodeLine{01330\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ K>}
+\DoxyCodeLine{01331\ \textcolor{keyword}{inline}\ Quaternion<T>\ axby(K\ k1,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ x,\ K\ k2,\ \textcolor{keyword}{const}\ Quaternion<T>\&\ y)\ \{}
+\DoxyCodeLine{01332\ }
+\DoxyCodeLine{01333\ \ \ T\ a\ =\ k1\ *\ x.a()\ +\ k2\ *\ y.a();}
+\DoxyCodeLine{01334\ \ \ T\ b\ =\ k1\ *\ x.b()\ +\ k2\ *\ y.b();}
+\DoxyCodeLine{01335\ \ \ T\ c\ =\ k1\ *\ x.c()\ +\ k2\ *\ y.c();}
+\DoxyCodeLine{01336\ \ \ T\ d\ =\ k1\ *\ x.d()\ +\ k2\ *\ y.d();}
+\DoxyCodeLine{01337\ }
+\DoxyCodeLine{01338\ \ \ \textcolor{keywordflow}{return}\ \{a,\ b,\ c,\ d\};}
+\DoxyCodeLine{01339\ \}}
+\DoxyCodeLine{01340\ }
+\DoxyCodeLine{01341\ \textcolor{comment}{//\ TODO:\ operator<<\ and\ operator>>}}
+\DoxyCodeLine{01342\ \}\ \textcolor{comment}{//\ end\ namespace\ IntroSatLib}}
+\DoxyCodeLine{01343\ }
+\DoxyCodeLine{01344\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//QUATERNIONS\_QUATERNION\_H}}
+\DoxyCodeLine{01345\ }
+\DoxyCodeLine{01346\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

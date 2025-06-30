@@ -1,0 +1,96 @@
+\doxysection{IRCamera.\+h}
+\hypertarget{_i_r_camera_8h_source}{}\label{_i_r_camera_8h_source}\index{src/IRCamera.h@{src/IRCamera.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ IRCAMERA\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ IRCAMERA\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}I2CDevice.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}BaseDevice.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{IRCamera}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ BASE\_ADDRESS\ =\ 0x68;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \_rawdeg\ =\ 0.25f;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{enum}\ RegisterMap}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ AMG88xx\_PCTL\ =\ 0x00,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ AMG88xx\_RST\ =\ 0x01,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ AMG88xx\_FPSC\ =\ 0x02,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ AMG88xx\_INTC\ =\ 0x03,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ AMG88xx\_STAT\ =\ 0x04,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ AMG88xx\_SCLR\ =\ 0x05,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \textcolor{comment}{//\ 0x06\ reserved}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ AMG88xx\_AVE\ =\ 0x07,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ AMG88xx\_INTHL\ =\ 0x08,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ AMG88xx\_INTHH\ =\ 0x09,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ AMG88xx\_INTLL\ =\ 0x0A,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ AMG88xx\_INTLH\ =\ 0x0B,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ AMG88xx\_IHYSL\ =\ 0x0C,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ AMG88xx\_IHYSH\ =\ 0x0D,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ AMG88xx\_TTHL\ =\ 0x0E,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ AMG88xx\_TTHH\ =\ 0x0F,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ AMG88xx\_INT\_OFFSET\ =\ 0x010,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ AMG88xx\_PIXEL\_OFFSET\ =\ 0x80}
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ uint8\_t\ \_framrate\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ uint8\_t\ \_mirror\ =\ 0;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ GPIO\_TypeDef*\ \_resetPort\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \ \ uint16\_t\ \_resetPin\ =\ 0;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ int16\_t\ \_buffer[64]\ =\ \{0\};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ tryReset();}
+\DoxyCodeLine{00047\ \ \ \ \ int16\_t\ int12ToInt16(uint16\_t\ val);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeaf}{Framerate}}}
+\DoxyCodeLine{00055\ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e}{FPS\_10}}\ =\ 0,\ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeafa81c8ccc55fb696606bbda356baa21d8d}{FPS\_1}}\ =\ 1\ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a2a0f6527d04256bbed09b6095d3db9ce}{IRCamera}}(I2C\_HandleTypeDef\ *hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a2a0f6527d04256bbed09b6095d3db9ce}{IRCamera}}(TwoWire\ \&hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a2a0f6527d04256bbed09b6095d3db9ce}{IRCamera}}(uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a2a0f6527d04256bbed09b6095d3db9ce}{IRCamera}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{IRCamera}}\ \&other);}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a2a0f6527d04256bbed09b6095d3db9ce}{IRCamera}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{IRCamera}}\ \&\&other);}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{IRCamera}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{IRCamera}}\ \&other);}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{IRCamera}}\&\ operator=(\mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{IRCamera}}\ \&\&other);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a7346c3d20d5a22ebe12afb57de31ac9e}{useForceReset}}(GPIO\_TypeDef*\ resetPort,\ uint16\_t\ resetPin);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a53d5a93a40408726632323f59c009bd6}{useMirrored}}();}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_ade5050b97643e2d5d8e0d35162351137}{useNotMirrored}}();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00123\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a6a97093c3ad3dd193dcf8018847a49ae}{Init}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ TODO\ @TeaCupMe\ @Goldfor\ исправить\ опечатку\ framrate\ на\ framerate}}
+\DoxyCodeLine{00133\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a6a97093c3ad3dd193dcf8018847a49ae}{Init}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeaf}{Framerate}}\ framrate);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00141\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a65cf6e91d4c6db8635094486b51a5846}{Read}}();}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00150\ \ \ \ \ int16\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a35dc23801eb348de678b74b3cf5d94b0}{getPixelRaw}}(uint8\_t\ x,\ uint8\_t\ y);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a440c56a2f0f37442887191e6ae823d72}{getPixel}}(uint8\_t\ x,\ uint8\_t\ y);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{\string~IRCamera}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00162\ \};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ IRCAMERA\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

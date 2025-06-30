@@ -1,0 +1,133 @@
+\doxysection{Класс Intro\+Sat\+Lib\+::CC1101\+With\+GD0}
+\hypertarget{class_intro_sat_lib_1_1_c_c1101_with_g_d0}{}\label{class_intro_sat_lib_1_1_c_c1101_with_g_d0}\index{IntroSatLib::CC1101WithGD0@{IntroSatLib::CC1101WithGD0}}
+Граф наследования\+:Intro\+Sat\+Lib\+::CC1101\+With\+GD0\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_intro_sat_lib_1_1_c_c1101_with_g_d0}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_with_g_d0_a93bd22b4378a03739c879deb837a7925}\label{class_intro_sat_lib_1_1_c_c1101_with_g_d0_a93bd22b4378a03739c879deb837a7925} 
+{\bfseries CC1101\+With\+GD0} (\mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_s_p_i}{intefaces\+::\+SPI}} \&spi, \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&scl, \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&mosi, \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&miso, \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&reset, \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&gd0)
+\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_with_g_d0_aeae0bd8cb1ac9a8cc00747f3cfc154a3}{await}} (uint8\+\_\+t len) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101}{Intro\+Sat\+Lib\+::\+CC1101}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_aa6f513ab3e24211756505055565d7de8}{CC1101}} (\mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_s_p_i}{intefaces\+::\+SPI}} \&spi, \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&scl, \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&mosi, \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&miso, \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&reset)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_c_c1101}{CC1101}. \end{DoxyCompactList}\item 
+void {\bfseries Init} ()
+\begin{DoxyCompactList}\small\item\em Инициализация \doxylink{class_intro_sat_lib_1_1_c_c1101}{CC1101}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_ab96bc2a7664531b796090cb1397e7506}{set\+Channel}} (uint8\+\_\+t ch)
+\begin{DoxyCompactList}\small\item\em Выбора канала \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_a63fd6892fcd1b8a1b04b3cfbc387cb35}{set\+Packet\+Length}} (uint8\+\_\+t v)
+\begin{DoxyCompactList}\small\item\em Установка длины пакета \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_a5ab8e87f6c3b1a1fddcf0d7ff05f77a4}{set\+CCMode}} (uint8\+\_\+t ccmode)
+\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_aedac5916dbd33a1b731ea0ec414956e7}{set\+Modulation}} (uint8\+\_\+t modulation)
+\begin{DoxyCompactList}\small\item\em Выбор модуляции \end{DoxyCompactList}\item 
+void {\bfseries set\+PA} (int p)
+\item 
+void {\bfseries set\+MHZ} (float mhz)
+\item 
+void {\bfseries set\+Clb} (uint8\+\_\+t b, uint8\+\_\+t s, uint8\+\_\+t e)
+\item 
+uint8\+\_\+t {\bfseries get\+CC1101} ()
+\item 
+State {\bfseries get\+Mode} ()
+\item 
+void {\bfseries set\+Sync\+Word} (uint8\+\_\+t sh, uint8\+\_\+t sl)
+\item 
+void {\bfseries set\+Addr} (uint8\+\_\+t v)
+\item 
+void {\bfseries set\+PQT} (uint8\+\_\+t v)
+\item 
+void {\bfseries set\+CRC\+\_\+\+AF} (uint8\+\_\+t v)
+\item 
+void {\bfseries set\+Append\+Status} (uint8\+\_\+t v)
+\item 
+void {\bfseries set\+Adr\+Chk} (uint8\+\_\+t v)
+\item 
+void {\bfseries set\+White\+Data} (uint8\+\_\+t v)
+\item 
+void {\bfseries set\+Pkt\+Format} (uint8\+\_\+t v)
+\item 
+void {\bfseries set\+Crc} (uint8\+\_\+t v)
+\item 
+void {\bfseries set\+Length\+Config} (uint8\+\_\+t v)
+\item 
+void {\bfseries set\+Rx\+BW} (float f)
+\item 
+virtual void {\bfseries set\+DRate} (float kD)
+\item 
+void {\bfseries set\+Dc\+Filter\+Off} (uint8\+\_\+t v)
+\item 
+void {\bfseries set\+Manchester} (uint8\+\_\+t v)
+\item 
+void {\bfseries set\+Sync\+Mode} (uint8\+\_\+t v)
+\item 
+void {\bfseries set\+FEC} (uint8\+\_\+t v)
+\item 
+void {\bfseries set\+PRE} (uint8\+\_\+t v)
+\item 
+void {\bfseries set\+Chsp} (float f)
+\item 
+void {\bfseries set\+Deviation} (float d)
+\item 
+void {\bfseries Split\+\_\+\+PKTCTRL1} ()
+\item 
+void {\bfseries Split\+\_\+\+PKTCTRL0} ()
+\item 
+void {\bfseries Split\+\_\+\+MDMCFG4} ()
+\item 
+void {\bfseries Split\+\_\+\+MDMCFG2} ()
+\item 
+void {\bfseries Split\+\_\+\+MDMCFG1} ()
+\item 
+void {\bfseries Set\+Tx} ()
+\item 
+void {\bfseries Set\+Rx} ()
+\item 
+void {\bfseries Set\+Tx} (float mhz)
+\item 
+void {\bfseries Set\+Rx} (float mhz)
+\item 
+int {\bfseries get\+Rssi} ()
+\item 
+uint8\+\_\+t {\bfseries get\+Lqi} ()
+\item 
+void {\bfseries set\+Sres} ()
+\item 
+void {\bfseries set\+Sidle} ()
+\item 
+void {\bfseries go\+Sleep} ()
+\item 
+void {\bfseries Send\+Data} (const char \texorpdfstring{$\ast$}{*}txchar)
+\item 
+void {\bfseries Send\+Data} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}tx\+Buffer, uint8\+\_\+t size)
+\item 
+uint8\+\_\+t {\bfseries Check\+CRC} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Защищенные члены унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101}{Intro\+Sat\+Lib\+::\+CC1101}}}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_with_g_d0_aeae0bd8cb1ac9a8cc00747f3cfc154a3}\index{IntroSatLib::CC1101WithGD0@{IntroSatLib::CC1101WithGD0}!await@{await}}
+\index{await@{await}!IntroSatLib::CC1101WithGD0@{IntroSatLib::CC1101WithGD0}}
+\doxysubsubsection{\texorpdfstring{await()}{await()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_c_c1101_with_g_d0_aeae0bd8cb1ac9a8cc00747f3cfc154a3} 
+void Intro\+Sat\+Lib\+::\+CC1101\+With\+GD0\+::await (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{len}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Замещает \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101}{Intro\+Sat\+Lib\+::\+CC1101}}.
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+src/CC1101.\+h\end{DoxyCompactItemize}

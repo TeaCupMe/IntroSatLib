@@ -1,0 +1,408 @@
+\doxysection{Шаблон класса Intro\+Sat\+Lib\+::Quaternion\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}}
+\hypertarget{class_intro_sat_lib_1_1_quaternion}{}\label{class_intro_sat_lib_1_1_quaternion}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Quaternion.\+h$>$}
+
+\doxysubsubsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+typedef T \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a2a22c5d6bacfdc0c18de6353bbcd97d6}{value\+\_\+type}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_ac1cb942740d19d5462ce927670649267}{Quaternion}} (T \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}=0, T b=0, T c=0, T d=0)
+\item 
+{\footnotesize template$<$typename T1 , IS\+\_\+\+CONVERTIBLE(T1, T) $>$ }\\\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a26c0f2ea76926fc0b3f402733c700636}{Quaternion}} (T1 \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}}=0, T1 b=0, T1 c=0, T1 d=0)
+\item 
+{\footnotesize template$<$typename T1 $>$ }\\\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_ab9ba7b257d85534ef52847dd44a31fbb}{Quaternion}} (const std\+::complex$<$ T1 $>$ \&x, const std\+::complex$<$ T1 $>$ \&y=std\+::complex$<$ T1 $>$(0, 0))
+\item 
+{\footnotesize template$<$typename It , IS\+\_\+\+ITERATOR(It) $>$ }\\\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a23a6b80921e5176361b09bac916b6fac}{Quaternion}} (It it)
+\item 
+{\footnotesize template$<$typename T1 $>$ }\\\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_af5b4e370d51677626bd86c55c80295c6}{Quaternion}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ T1 $>$ \&y)
+\item 
+{\footnotesize template$<$typename T1 $>$ }\\\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \& \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a07644b6645eefebbb62f21ba85e5af8f}{operator=}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ T1 $>$ \&other)
+\item 
+T \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}{a}} () const
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_quaternion_a83c1f3da88c64870ef428a863cc82855}\label{class_intro_sat_lib_1_1_quaternion_a83c1f3da88c64870ef428a863cc82855} 
+T {\bfseries b} () const
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_quaternion_a6d389eb3612ed58d8a5f55702d3c1ef7}\label{class_intro_sat_lib_1_1_quaternion_a6d389eb3612ed58d8a5f55702d3c1ef7} 
+T {\bfseries c} () const
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_quaternion_ab581718cdbb626c9bbcb55fd6ea5fece}\label{class_intro_sat_lib_1_1_quaternion_ab581718cdbb626c9bbcb55fd6ea5fece} 
+T {\bfseries d} () const
+\item 
+std\+::complex$<$ T $>$ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a1d104f7674162ec98c184a4a2aff8584}{c1}} () const
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_quaternion_ab9294983283a665291cf4a36d1e9f980}\label{class_intro_sat_lib_1_1_quaternion_ab9294983283a665291cf4a36d1e9f980} 
+std\+::complex$<$ T $>$ {\bfseries c2} () const
+\item 
+std\+::array$<$ T, 4 $>$ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_af17e6ee80f3dc8dd7bd5c9d193c64025}{to\+\_\+array}} () const
+\item 
+T \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a68b92d21aafd9fc7f38c704fbd4416f4}{real}} () const
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_abbcc8d856b30c6ccbd8a4688ede6cbb6}{unreal}} () const
+\item 
+T \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a1f53667772c7a87536db7cc736e60f84}{norm\+\_\+squared}} () const
+\item 
+T \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a642406a575fb7e1dd55ad8b33e68146b}{abs}} () const
+\item 
+T \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_af6442ffe1e05b7b4af6aee48471b27dc}{unreal\+\_\+norm\+\_\+squared}} () const
+\item 
+{\footnotesize template$<$typename T1  = T$>$ }\\bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_ac8d29edf533375c957d35becbef14186}{is\+\_\+zero}} (T1 eps=0) const
+\item 
+{\footnotesize template$<$typename T1  = T$>$ }\\bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a89266579f5716cf304fcaac90ee51e1d}{is\+\_\+non\+\_\+zero}} (T1 eps=0) const
+\item 
+bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_ad3a0fd98a213c99446cf435016b552ed}{is\+\_\+nan}} () const
+\item 
+bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a966d262c6bcf2b6e58d512d67cb6c666}{is\+\_\+inf}} () const
+\item 
+bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_af1dcc67b0745dcec88e6458989504151}{is\+\_\+finite}} () const
+\item 
+{\footnotesize template$<$typename T1  = T$>$ }\\bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a0505ace56d6a3991c2059676d1671123}{is\+\_\+unit}} (T1 eps=0) const
+\item 
+{\footnotesize template$<$typename T1  = T$>$ }\\bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_aa8bdbdab62a86de6d0a623b14eb93a6d}{is\+\_\+real}} (T1 eps=0) const
+\item 
+{\footnotesize template$<$typename T1  = T$>$ }\\bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a395e7b495b9e59a46302b198678c65c6}{is\+\_\+complex}} (T1 eps=0) const
+\item 
+{\footnotesize template$<$typename T1  = T$>$ }\\bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_afc29b6e5ec84cf4ad8448314510cddda}{is\+\_\+unreal}} (T1 eps=0) const
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a5f7fa60222d6e935c677dfad883dd855}{operator+}} () const
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a1d316a1d784b0a027e92d906326ef939}{operator-\/}} () const
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_af779304937e5d8b2a2b5f3223e369e6e}{operator+=}} (T y)
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a3a5eeb4576834ac9749c4910a29c703b}{operator-\/=}} (T y)
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a46f221f6482764b60c3e1845b3d753c4}{operator\texorpdfstring{$\ast$}{*}=}} (T k)
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a26252d95cce2fbb1917416536f25e302}{operator/=}} (T k)
+\item 
+{\footnotesize template$<$typename T1 $>$ }\\\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a79c932524f9b17e3d4805d1cabda425a}{operator+=}} (const std\+::complex$<$ T1 $>$ \&y)
+\item 
+{\footnotesize template$<$typename T1 $>$ }\\\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a351ea6f86f347b2aaf797d082104022b}{operator-\/=}} (const std\+::complex$<$ T1 $>$ \&y)
+\item 
+{\footnotesize template$<$typename T1 $>$ }\\\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_adc204bc78aef365c122a6d0bddcb8e11}{operator\texorpdfstring{$\ast$}{*}=}} (const std\+::complex$<$ T1 $>$ \&y)
+\item 
+{\footnotesize template$<$typename T1 $>$ }\\\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a8cd226fe19ee5c4b9093074e51d1a477}{operator/=}} (const std\+::complex$<$ T1 $>$ \&y)
+\item 
+{\footnotesize template$<$typename T1 $>$ }\\\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a5b3a445cf390dfc29915bdbebdaa0419}{operator+=}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ T1 $>$ \&y)
+\item 
+{\footnotesize template$<$typename T1 $>$ }\\\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a1a00415186450b20bed8d25821d270da}{operator-\/=}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ T1 $>$ \&y)
+\item 
+{\footnotesize template$<$typename T1 $>$ }\\\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_af3bf07a853b7135a1ad72ceabcb4d209}{operator\texorpdfstring{$\ast$}{*}=}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ T1 $>$ \&y)
+\item 
+{\footnotesize template$<$typename T1 $>$ }\\\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion_a1a19be2f7471223a998c6909fae051d7}{operator/=}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ T1 $>$ \&y)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+\subsubsection*{template$<$typename T = float$>$\newline
+class Intro\+Sat\+Lib\+::\+Quaternion$<$ T $>$}
+A \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} class. TODO\+: quaternion logo TODO\+: IEEE 754/\+IEC 559? TODO\+: remove IS\+\_\+\+CONVERTIBLE in favor std\+::common\+\_\+type TODO\+: arc-\/trans, rounding, rotate vector, slerp, fitting, maybe separate Euler 
+
+\doxysubsection{Определения типов}
+\Hypertarget{class_intro_sat_lib_1_1_quaternion_a2a22c5d6bacfdc0c18de6353bbcd97d6}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a2a22c5d6bacfdc0c18de6353bbcd97d6} 
+template$<$typename T  = float$>$ \\
+T \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::value\+\_\+type}
+
+The type of each component of the 4 components of a \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion}. See below for allowed types. 
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_intro_sat_lib_1_1_quaternion_ac1cb942740d19d5462ce927670649267}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_ac1cb942740d19d5462ce927670649267} 
+template$<$typename T  = float$>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::\+Quaternion (\begin{DoxyParamCaption}\item[{T}]{a}{ = {\ttfamily 0}, }\item[{T}]{b}{ = {\ttfamily 0}, }\item[{T}]{c}{ = {\ttfamily 0}, }\item[{T}]{d}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+For now, the types that we can handle are restricted, to make sure that we are not asked to handle a type that would lead to bugs (e.\+g. unsigned T when we have signed operations, or complex T). boost\+::rational is technically OK, and I verified in tests, but I don\textquotesingle{}t want to depend on boost in this header, so we\textquotesingle{}ll allow boost\+::rational if there is demand for it.
+
+WARNING\+: for bool and the integers, some operations won\textquotesingle{}t compile right now, in particular the transcendental functions. Construct a \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} from at most 4 components of type T. Specifying only a != 0 makes the \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} a real. Specifying only a != and b != 0 makes the \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} an ordinary complex number. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a26c0f2ea76926fc0b3f402733c700636}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a26c0f2ea76926fc0b3f402733c700636} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1 , IS\+\_\+\+CONVERTIBLE(T1, T) $>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::\+Quaternion (\begin{DoxyParamCaption}\item[{T1}]{a}{ = {\ttfamily 0}, }\item[{T1}]{b}{ = {\ttfamily 0}, }\item[{T1}]{c}{ = {\ttfamily 0}, }\item[{T1}]{d}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construct a \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} from at most 4 components of type T1. Specifying only a != 0 makes the \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} a real. Specifying only a != and b != 0 makes the \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} an ordinary complex number. NOTE\+: IS\+\_\+\+CONVERTIBLE to avoid ambiguity with constructor from iterator. \Hypertarget{class_intro_sat_lib_1_1_quaternion_ab9ba7b257d85534ef52847dd44a31fbb}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_ab9ba7b257d85534ef52847dd44a31fbb} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1 $>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::\+Quaternion (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ T1 $>$ \&}]{x}{, }\item[{const std\+::complex$<$ T1 $>$ \&}]{y}{ = {\ttfamily std\+:\+:complex$<$T1$>$(0,~0)}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construct a \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} from 1 or 2 std\+::complex$<$\+T$>$. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a23a6b80921e5176361b09bac916b6fac}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a23a6b80921e5176361b09bac916b6fac} 
+template$<$typename T  = float$>$ \\
+template$<$typename It , IS\+\_\+\+ITERATOR(It) $>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::\+Quaternion (\begin{DoxyParamCaption}\item[{It}]{it}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construct from an iterator to a range of 4 elements. The iterator is dereferenced exactly 4 times, and advanced (++) exactly 3 times. \Hypertarget{class_intro_sat_lib_1_1_quaternion_af5b4e370d51677626bd86c55c80295c6}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_af5b4e370d51677626bd86c55c80295c6} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1 $>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::\+Quaternion (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ T1 $>$ \&}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copy constructor, from a \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} with another value type. 
+
+\doxysubsection{Методы}
+\Hypertarget{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!a@{a}}
+\index{a@{a}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{a()}{a()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a20b8f459211141c7bacafb0598387d81} 
+template$<$typename T  = float$>$ \\
+T \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::a (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Accessors for all 4 components of the \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion}. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a642406a575fb7e1dd55ad8b33e68146b}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!abs@{abs}}
+\index{abs@{abs}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{abs()}{abs()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a642406a575fb7e1dd55ad8b33e68146b} 
+template$<$typename T  = float$>$ \\
+T \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::abs (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+The norm of the \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} (the l2 norm). \Hypertarget{class_intro_sat_lib_1_1_quaternion_a1d104f7674162ec98c184a4a2aff8584}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!c1@{c1}}
+\index{c1@{c1}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{c1()}{c1()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a1d104f7674162ec98c184a4a2aff8584} 
+template$<$typename T  = float$>$ \\
+std\+::complex$<$ T $>$ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::c1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+The complex components of this \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion}. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a395e7b495b9e59a46302b198678c65c6}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!is\_complex@{is\_complex}}
+\index{is\_complex@{is\_complex}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_complex()}{is\_complex()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a395e7b495b9e59a46302b198678c65c6} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1  = T$>$ \\
+bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::is\+\_\+complex (\begin{DoxyParamCaption}\item[{T1}]{eps}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return true if this \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} is complex, false otherwise. \Hypertarget{class_intro_sat_lib_1_1_quaternion_af1dcc67b0745dcec88e6458989504151}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!is\_finite@{is\_finite}}
+\index{is\_finite@{is\_finite}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_finite()}{is\_finite()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_af1dcc67b0745dcec88e6458989504151} 
+template$<$typename T  = float$>$ \\
+bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::is\+\_\+finite (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return true if all the components of this quaternion are finite, false otherwise. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a966d262c6bcf2b6e58d512d67cb6c666}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!is\_inf@{is\_inf}}
+\index{is\_inf@{is\_inf}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_inf()}{is\_inf()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a966d262c6bcf2b6e58d512d67cb6c666} 
+template$<$typename T  = float$>$ \\
+bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::is\+\_\+inf (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return true if any component of this quaternion is inf, false otherwise. \Hypertarget{class_intro_sat_lib_1_1_quaternion_ad3a0fd98a213c99446cf435016b552ed}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!is\_nan@{is\_nan}}
+\index{is\_nan@{is\_nan}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_nan()}{is\_nan()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_ad3a0fd98a213c99446cf435016b552ed} 
+template$<$typename T  = float$>$ \\
+bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::is\+\_\+nan (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return true if any component of this quaternion is nan, false otherwise. TODO\+: use "{}isnan"{} instead of "{}is\+\_\+nan"{} to keep consistent? \Hypertarget{class_intro_sat_lib_1_1_quaternion_a89266579f5716cf304fcaac90ee51e1d}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!is\_non\_zero@{is\_non\_zero}}
+\index{is\_non\_zero@{is\_non\_zero}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_non\_zero()}{is\_non\_zero()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a89266579f5716cf304fcaac90ee51e1d} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1  = T$>$ \\
+bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::is\+\_\+non\+\_\+zero (\begin{DoxyParamCaption}\item[{T1}]{eps}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return true if this \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} is not zero, false otherwise. \Hypertarget{class_intro_sat_lib_1_1_quaternion_aa8bdbdab62a86de6d0a623b14eb93a6d}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!is\_real@{is\_real}}
+\index{is\_real@{is\_real}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_real()}{is\_real()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_aa8bdbdab62a86de6d0a623b14eb93a6d} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1  = T$>$ \\
+bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::is\+\_\+real (\begin{DoxyParamCaption}\item[{T1}]{eps}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return true if this \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} is real, false otherwise. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a0505ace56d6a3991c2059676d1671123}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!is\_unit@{is\_unit}}
+\index{is\_unit@{is\_unit}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_unit()}{is\_unit()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a0505ace56d6a3991c2059676d1671123} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1  = T$>$ \\
+bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::is\+\_\+unit (\begin{DoxyParamCaption}\item[{T1}]{eps}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return true if this \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} has norm 1, false otherwise. \Hypertarget{class_intro_sat_lib_1_1_quaternion_afc29b6e5ec84cf4ad8448314510cddda}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!is\_unreal@{is\_unreal}}
+\index{is\_unreal@{is\_unreal}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_unreal()}{is\_unreal()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_afc29b6e5ec84cf4ad8448314510cddda} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1  = T$>$ \\
+bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::is\+\_\+unreal (\begin{DoxyParamCaption}\item[{T1}]{eps}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return true if this \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} is real, false otherwise. \Hypertarget{class_intro_sat_lib_1_1_quaternion_ac8d29edf533375c957d35becbef14186}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!is\_zero@{is\_zero}}
+\index{is\_zero@{is\_zero}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{is\_zero()}{is\_zero()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_ac8d29edf533375c957d35becbef14186} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1  = T$>$ \\
+bool \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::is\+\_\+zero (\begin{DoxyParamCaption}\item[{T1}]{eps}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return true if this \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} is zero, false otherwise. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a1f53667772c7a87536db7cc736e60f84}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!norm\_squared@{norm\_squared}}
+\index{norm\_squared@{norm\_squared}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{norm\_squared()}{norm\_squared()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a1f53667772c7a87536db7cc736e60f84} 
+template$<$typename T  = float$>$ \\
+T \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::norm\+\_\+squared (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+The square of the norm of the \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion}. (The square is sometimes useful, and it avoids paying for a sqrt). \Hypertarget{class_intro_sat_lib_1_1_quaternion_af3bf07a853b7135a1ad72ceabcb4d209}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_af3bf07a853b7135a1ad72ceabcb4d209} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1 $>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ T1 $>$ \&}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary multiplication. 28 operations \Hypertarget{class_intro_sat_lib_1_1_quaternion_adc204bc78aef365c122a6d0bddcb8e11}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_adc204bc78aef365c122a6d0bddcb8e11} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1 $>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ T1 $>$ \&}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary \texorpdfstring{$\ast$}{*}=. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a46f221f6482764b60c3e1845b3d753c4}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a46f221f6482764b60c3e1845b3d753c4} 
+template$<$typename T  = float$>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{T}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Scaling by a constant. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a5f7fa60222d6e935c677dfad883dd855}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a5f7fa60222d6e935c677dfad883dd855} 
+template$<$typename T  = float$>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator+ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary plus. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a5b3a445cf390dfc29915bdbebdaa0419}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a5b3a445cf390dfc29915bdbebdaa0419} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1 $>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ T1 $>$ \&}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary +=. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a79c932524f9b17e3d4805d1cabda425a}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a79c932524f9b17e3d4805d1cabda425a} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1 $>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator+= (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ T1 $>$ \&}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary +=. \Hypertarget{class_intro_sat_lib_1_1_quaternion_af779304937e5d8b2a2b5f3223e369e6e}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_af779304937e5d8b2a2b5f3223e369e6e} 
+template$<$typename T  = float$>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator+= (\begin{DoxyParamCaption}\item[{T}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary +=. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a1d316a1d784b0a027e92d906326ef939}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a1d316a1d784b0a027e92d906326ef939} 
+template$<$typename T  = float$>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary minus. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a1a00415186450b20bed8d25821d270da}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a1a00415186450b20bed8d25821d270da} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1 $>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ T1 $>$ \&}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary -\/=. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a351ea6f86f347b2aaf797d082104022b}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a351ea6f86f347b2aaf797d082104022b} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1 $>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ T1 $>$ \&}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary -\/=. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a3a5eeb4576834ac9749c4910a29c703b}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a3a5eeb4576834ac9749c4910a29c703b} 
+template$<$typename T  = float$>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{T}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary +=. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a1a19be2f7471223a998c6909fae051d7}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a1a19be2f7471223a998c6909fae051d7} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1 $>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ T1 $>$ \&}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary division with other \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion}.
+
+Warning\+: if the norm of y is zero, the result is 4 Na\+Ns, but maybe it should be inf. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a8cd226fe19ee5c4b9093074e51d1a477}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a8cd226fe19ee5c4b9093074e51d1a477} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1 $>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator/= (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ T1 $>$ \&}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary /=. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a26252d95cce2fbb1917416536f25e302}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a26252d95cce2fbb1917416536f25e302} 
+template$<$typename T  = float$>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator/= (\begin{DoxyParamCaption}\item[{T}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Dividing by a constant. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a07644b6645eefebbb62f21ba85e5af8f}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a07644b6645eefebbb62f21ba85e5af8f} 
+template$<$typename T  = float$>$ \\
+template$<$typename T1 $>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \& \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ T1 $>$ \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Assignment operator, from a \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} with another value type. \Hypertarget{class_intro_sat_lib_1_1_quaternion_a68b92d21aafd9fc7f38c704fbd4416f4}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!real@{real}}
+\index{real@{real}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{real()}{real()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_a68b92d21aafd9fc7f38c704fbd4416f4} 
+template$<$typename T  = float$>$ \\
+T \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::real (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+The real part of this \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion}. \Hypertarget{class_intro_sat_lib_1_1_quaternion_af17e6ee80f3dc8dd7bd5c9d193c64025}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!to\_array@{to\_array}}
+\index{to\_array@{to\_array}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{to\_array()}{to\_array()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_af17e6ee80f3dc8dd7bd5c9d193c64025} 
+template$<$typename T  = float$>$ \\
+std\+::array$<$ T, 4 $>$ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::to\+\_\+array (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Ordered list form. \Hypertarget{class_intro_sat_lib_1_1_quaternion_abbcc8d856b30c6ccbd8a4688ede6cbb6}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!unreal@{unreal}}
+\index{unreal@{unreal}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{unreal()}{unreal()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_abbcc8d856b30c6ccbd8a4688ede6cbb6} 
+template$<$typename T  = float$>$ \\
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::unreal (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+The "{}unreal"{} part of this \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion}, which is a \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion} itself. \Hypertarget{class_intro_sat_lib_1_1_quaternion_af6442ffe1e05b7b4af6aee48471b27dc}\index{IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}!unreal\_norm\_squared@{unreal\_norm\_squared}}
+\index{unreal\_norm\_squared@{unreal\_norm\_squared}!IntroSatLib::Quaternion$<$ T $>$@{IntroSatLib::Quaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{unreal\_norm\_squared()}{unreal\_norm\_squared()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_quaternion_af6442ffe1e05b7b4af6aee48471b27dc} 
+template$<$typename T  = float$>$ \\
+T \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Intro\+Sat\+Lib\+::\+Quaternion}}$<$ T $>$\+::unreal\+\_\+norm\+\_\+squared (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+The L2 norm of the "{}unreal"{} components of the \doxylink{class_intro_sat_lib_1_1_quaternion}{Quaternion}, comes back often in computations. 
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Quaternion/Quaternion.\+h\end{DoxyCompactItemize}
