@@ -28,7 +28,7 @@ jobs:
       matrix:
         fqbn:
           - STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103C8
-          - STMicroelectronics:stm32:GenH7:pnum=H750VB
+          - STMicroelectronics:stm32:GenH7:pnum=GENERIC_H750VBTX
     steps:
       - uses: actions/checkout@v4
       - uses: arduino/compile-sketches@v1
