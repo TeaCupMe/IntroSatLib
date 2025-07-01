@@ -38,6 +38,6 @@ jobs:
             - name: STMicroelectronics:stm32
               source-url: https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
           sketch-paths: |
-            - examples/Accellerometer/Base/
+            - examples/Accelerometer/Base/
           cli-compile-flags: |
             - --warnings="none"
