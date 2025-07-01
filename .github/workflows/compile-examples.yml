@@ -3,7 +3,7 @@ name: Compile Examples
 on:
   push:
     paths:
-      - ".github/workflows/compile-examples-linux.yml"
+      - ".github/workflows/compile-examples.yml"
       - "examples/**"
       - "src/**"
     branches: 
@@ -12,7 +12,7 @@ on:
       - feature/*
   pull_request:
     paths:
-      - ".github/workflows/compile-examples-linux.yml"
+      - ".github/workflows/compile-examples.yml"
       - "examples/**"
       - "src/**"
   schedule:
