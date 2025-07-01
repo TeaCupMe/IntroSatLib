@@ -28,6 +28,7 @@ jobs:
       matrix:
         fqbn:
           - STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103C8
+          - STMicroelectronics:stm32:GenH7:pnum=H750VB
     steps:
       - uses: actions/checkout@v4
       - uses: arduino/compile-sketches@v1
@@ -38,6 +39,7 @@ jobs:
             - name: STMicroelectronics:stm32
               source-url: https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
           sketch-paths: |
-            - examples/Accelerometer/Base/
+            - examples/Gyroscope/Base
+            - examples/Acceleromter/*
           cli-compile-flags: |
             - --warnings="none"
