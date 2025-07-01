@@ -7,6 +7,9 @@ on:
       - ".github/workflows/compile-examples.yml"
       - "examples/**"
       - "src/**"
+    branches: 
+      - main
+      - dev/actions
   pull_request:
     paths:
       - ".github/workflows/compile-examples.yml"
