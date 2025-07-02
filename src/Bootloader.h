@@ -1,5 +1,5 @@
-#ifndef IS_BLUETOOTH_H_
-#define IS_BLUETOOTH_H_
+#ifndef BOOTLOADER_H_
+#define BOOTLOADER_H_
 
 #include <stdint.h>
 
