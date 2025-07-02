@@ -3,17 +3,18 @@
 
 #include <stdint.h>
 
-#ifdef ARDUINO
-#include <Arduino.h>
-#else
-	#if __has_include ("stm32f4xx_hal.h")
-		#include "stm32f4xx_hal.h"
-	#endif
+#include "Bootloader.h"
+// #ifdef ARDUINO
+// #include <Arduino.h>
+// #else
+// 	#if __has_include ("stm32f4xx_hal.h")
+// 		#include "stm32f4xx_hal.h"
+// 	#endif
 
-	#if __has_include ("stm32f1xx_hal.h")
-		#include "stm32f1xx_hal.h"
-	#endif
-#endif /* ARDUINO */
+// 	#if __has_include ("stm32f1xx_hal.h")
+// 		#include "stm32f1xx_hal.h"
+// 	#endif
+// #endif /* ARDUINO */
 
 #ifdef __cplusplus
 extern "C" {
