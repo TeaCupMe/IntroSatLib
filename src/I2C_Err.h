@@ -35,10 +35,9 @@ static uint8_t wait_for_gpio_state_timeout(GPIO_TypeDef *port, uint16_t pin, GPI
     }
     return ret;
 }
-
-static void I2C_ClearBusyFlagErratum(I2C_HandleTypeDef *hi2c, uint32_t timeout)
+#ifdef STM32F103xx 
+static void I2C_ClearBusyFlagErratum_F103(I2C_HandleTypeDef *hi2c, uint32_t timeout)
 {
-#ifdef STM32F103xx // This I2C fix is tested only in STM32F103C8 BluePill board. 
     GPIO_InitTypeDef GPIO_InitStructure = {0};
 
     // 1. Clear PE bit.
@@ -123,18 +122,24 @@ static void I2C_ClearBusyFlagErratum(I2C_HandleTypeDef *hi2c, uint32_t timeout)
 #else
     HAL_I2C_Init(hi2c);
 #endif
-
-#else // STM32F103xx
-    Wire.begin();
-#endif // STM32F103xx
 }
+#endif
+
 
 static void I2C_ErrorAnalyzer(I2C_HandleTypeDef *hi2c)
 {
-
+    
+#ifdef ARDUINO // If in Arduino IDE - let stm32duino handle bus recovery 
+    Wire.end();
+    HAL_Delay(timeout);
+    Wire.begin();
+    return;
+#endif
+    
     // когда-нибудь здесь будет полноценная обработка ошибок...
+#ifdef STM32F103xx
     I2C_ClearBusyFlagErratum(hi2c, I2C_TIMEOUT_ERRATUM);
-
+#endif
 }
 
 #endif /* I2C_ER_H_ */
