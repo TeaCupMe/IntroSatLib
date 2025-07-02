@@ -125,7 +125,7 @@ static void I2C_ClearBusyFlagErratum(I2C_HandleTypeDef *hi2c, uint32_t timeout)
 #endif
 
 #else // STM32F103xx
-    Wire.recoverBus();
+    Wire.begin();
 #endif // STM32F103xx
 }
 
