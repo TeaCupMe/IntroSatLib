@@ -16,7 +16,7 @@ on:
       - "examples/**"
       - "src/**"
   schedule:
-    # Run every Tuesday at 8 AM UTC to catch breakage caused by changes to external resources (libraries, platforms).
+    # Run every Tuesday at 8 AM UTC to catch breakage caused by changes to external resources (stm32duino).
     - cron: "0 8 * * TUE"
   workflow_dispatch:
   repository_dispatch:
@@ -40,9 +40,6 @@ jobs:
           platforms: |
             - name: STMicroelectronics:stm32
               source-url: https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
-          # sketch-paths: |
-          #   - examples/Gyroscope/Base
-          #   - examples/Acceleromter/*
           cli-compile-flags: |
             - --warnings="all"
       - uses: actions/upload-artifact@v4
