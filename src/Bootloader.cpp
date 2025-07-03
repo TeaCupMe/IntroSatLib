@@ -12,6 +12,7 @@ void EnterBootloader(void)
 #ifdef BOOT_ADDR
 
 #ifdef STM32F1xx // If F103 (most probably base IntroSat) - print message to UART1
+
     for (char *next_char = message_buffer; *next_char != 0; next_char++)
     {
         while (READ_BIT(USART1->SR, USART_SR_TXE) != (USART_SR_TXE))

@@ -36,6 +36,7 @@ static uint8_t wait_for_gpio_state_timeout(GPIO_TypeDef *port, uint16_t pin, GPI
     }
     return ret;
 }
+
 #ifdef STM32F103xx 
 static void I2C_ClearBusyFlagErratum_F103(I2C_HandleTypeDef *hi2c, uint32_t timeout)
 {
