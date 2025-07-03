@@ -8,7 +8,7 @@ on:
       - "src/**"
     branches: 
       - main
-      - staging/*
+      - staging
   pull_request:
     paths:
       - ".github/workflows/compile-examples.yml"
@@ -16,7 +16,7 @@ on:
       - "src/**"
     branches: 
       - main
-      - staging/*
+      - staging
       - dev/*
   schedule:
     # Run every Tuesday at 8 AM UTC to catch breakage caused by changes to external resources (stm32duino).
@@ -47,7 +47,12 @@ jobs:
           cli-compile-flags: |
             - --warnings="none"
             - --warnings="default"
+      - name: Split string using awk
+        id: get_pnum
+        run: |
+          pnum=$(echo "${{ matrix.fqbn }}" | awk -F':' '{print $4}')
+          echo "pnum=$pnum" >> $GITHUB_OUTPUT
       - uses: actions/upload-artifact@v4
         with:
-          name: sketches-reports
+          name: 'sketches-reports-${{ steps.get_pnum.outputs.pnum }}'
           path: sketches-reports

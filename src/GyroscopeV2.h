@@ -1,8 +1,13 @@
 #ifndef GYROSCOPE_V2_H_
 #define GYROSCOPE_V2_H_
 
-#include "I2CDevice.h"
-#include "BaseDevice.h"
+//#include "Device/I2CDevice.h"
+//#include "Adapter/System.h"
+//#include "../BaseDevice.h"
+
+#include "Device/LSM6DS3/LSM6DS3.h"
+#include "Adapter/System.h"
+#include <stdint.h>
 
 #ifndef ARDUINO
 #include "Quaternion/Quaternion.h"
@@ -10,36 +15,14 @@
 
 namespace IntroSatLib {
 
-class GyroscopeV2: public BaseDevice {
+class GyroscopeV2: private LSM6DS3 {
 private:
 
 	static const uint8_t BASE_ADDRESS = 0x6B;
-	static constexpr float _rawdps = (8.75f / 1000.f) * 3.1415926f / 180.0f;
-
-	enum RegisterMap
-	{
-		GYRO_CONFIG = 0X11,
-		GYRO_XOUT_H = 0X22,
-		GYRO_XOUT_L,
-		GYRO_YOUT_H,
-		GYRO_YOUT_L,
-		GYRO_ZOUT_H,
-		GYRO_ZOUT_L,
-	};
-
-	static float cutMin(float value, float cut);
-
-	uint8_t _sensitivity = 0;
-	uint8_t _dataRate = 0;
 
 	uint32_t _lastXTime = 0;
 	uint32_t _lastYTime = 0;
 	uint32_t _lastZTime = 0;
-
-	float _cutX = 0.0872665;
-	float _cutY = 0.0872665;
-	float _cutZ = 0.0872665;
-
 	float _lastX = 0;
 	float _lastY = 0;
 	float _lastZ = 0;
@@ -75,7 +58,6 @@ public:
 		DPS2000			/**< Диапазон &plusmn;2000 град/с */
 	};
 
-#ifndef ARDUINO
 	/**
 	 * @note Только в STM32CubeIDE
 	 * @brief Конструктор объекта гироскопа. 
@@ -83,34 +65,17 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес гироскопа на шине I2C
 	 */
-	GyroscopeV2(I2C_HandleTypeDef *hi2c, uint8_t address = BASE_ADDRESS);
-#else
-	/**
-	 * @note Только в Arduino IDE
-	 * @brief Конструктор объекта гироскопа
-	 * 
-	 * @param hi2c объект @b TwoWire или @b Wire 
-	 * @param address адрес гироскопа на шине I2C
-	 */
-	GyroscopeV2(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
-	
-	/**
-	 * @note Только в Arduino IDE
-	 * @brief Конструктор объекта гироскопа на @b I2C1 
-	 * 
-	 * @param address адрес гироскопа на шине I2C
-	 */
-	GyroscopeV2(uint8_t address = BASE_ADDRESS);
-#endif
+	GyroscopeV2(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS): LSM6DS3(i2c, address) {};
+
 	/**
 	 * @brief Конструктор объекта гироскопа как копии другого объекта гироскопа
 	 * 
 	 * @param other исходный объект для копирования
 	 */
-	GyroscopeV2(const GyroscopeV2 &other);
-	GyroscopeV2(GyroscopeV2 &&other);
-	GyroscopeV2& operator=(const GyroscopeV2 &other);
-	GyroscopeV2& operator=(GyroscopeV2 &&other);
+//	GyroscopeV2(const GyroscopeV2 &other);
+//	GyroscopeV2(GyroscopeV2 &&other);
+//	GyroscopeV2& operator=(const GyroscopeV2 &other);
+//	GyroscopeV2& operator=(GyroscopeV2 &&other);
 
 	/**
 	 * @brief Инициализация гироскопа с параметрами по умолчанию: @ref DataRate::F_104_Hz, @ref Scale::DPS0250
@@ -118,7 +83,9 @@ public:
 	 * @returns 0, если инициализация завершена успешно
 	 * @returns 1, если при инициализации возникла ошибка 
 	 */
-	uint8_t Init() override;
+	ISL_StatusTypeDef Init() {
+		return Init(Scale::DPS0250);
+	}
 
 	/**
 	 * @brief Инициализация гироскопа с заданным диапазоном измерения
@@ -127,8 +94,9 @@ public:
 	 * @returns 0, если инициализация завершена успешно
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
-	//TODO Переименовать sensitivity в scale, иначе вызывает путаницу. Это именно scale
-	uint8_t Init(Scale sensitivity);
+	ISL_StatusTypeDef Init(Scale scale) {
+		return Init(scale, DataRate::F_416_Hz);
+	}
 
 	/**
 	 * @brief Инициализация гироскопа с заданным диапазоном измерения
@@ -138,65 +106,84 @@ public:
 	 * @returns 0, если инициализация завершена успешно
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
-	//TODO Переименовать sensitivity в scale, иначе вызывает путаницу. Это именно scale
-	uint8_t Init(Scale sensitivity, DataRate dataRate);
+	ISL_StatusTypeDef Init(Scale scale, DataRate dataRate) {
+		_lastXTime = system::GetTick();
+		_lastYTime = _lastXTime;
+		_lastZTime = _lastXTime;
+		return LSM6DS3::InitGyro((LSM6DS3::ScaleGyro) scale, (LSM6DS3::DataRateGyro) dataRate);
+	}
 
 	/**
 	 * @brief Установка диапазона измерения
 	 * 
 	 * @param sensitivity Значение чуствительности @ref Scale
 	 */
-	//TODO Переименовать sensitivity в scale, иначе вызывает путаницу. Это именно scale
-	void SetScale(Scale sensitivity);
+	ISL_StatusTypeDef SetScale(Scale scale) {
+		return LSM6DS3::SetScaleGyro((LSM6DS3::ScaleGyro) scale);
+	}
 
 	/**
 	* @brief Установка скорости обновления данных
 	* 
 	* @param datarate Значение скорости обновления данных @ref DataRate
 	*/
-	void SetDataRate(DataRate dataRate);
-public:
+	ISL_StatusTypeDef SetDataRate(DataRate dataRate) {
+		return LSM6DS3::SetDataRateGyro((LSM6DS3::DataRateGyro) dataRate);
+	}
+
 	/**
 	 * @brief Получение @b необработанного значения ускорения по оси X.
 	 * 
 	 * @return Ускорение по оси в условных единицах
 	 */
-	int16_t RawX();
+	int16_t RawX() {
+		return LSM6DS3::RawGX();
+	}
 
 	/**
 	 * @brief Получение @b необработанного значения ускорения по оси Y. 
 	 * 
 	 * @return Ускорение по оси в условных единицах
 	 */
-	int16_t RawY();
+	int16_t RawY() {
+		return LSM6DS3::RawGY();
+	}
 
 	/**
 	 * @brief Получение @b необработанного значения ускорения по оси Z. 
 	 * 
 	 * @return Ускорение по оси в условных единицах
 	 */
-	int16_t RawZ();
+	int16_t RawZ() {
+		return LSM6DS3::RawGZ();
+	}
 
 	/**
 	 * @brief Получение значения ускорения вокруг оси X.
 	 * 
 	 * @returns Ускорение по оси в м/с<sup>2</sup>
 	 */	
-	float X();
+	float X() {
+		return LSM6DS3::GX();
+	}
 
 	/**
 	 * @brief Получение значения ускорения вокруг оси Y.
 	 * 
 	 * @returns Ускорение по оси в м/с<sup>2</sup>
 	 */
-	float Y();
+	float Y() {
+		return LSM6DS3::GY();
+	}
 
 	/**
 	 * @brief Получение значения ускорения вокруг оси Z.
 	 * 
 	 * @returns Ускорение по оси в м/с<sup>2</sup>
 	 */	
-	float Z();
+	float Z() {
+		return LSM6DS3::GZ();
+	}
 
 	/**
 	 * @brief Получение углового перемещения вокруг оси X с момента предыдущего вызова @ref integrationX()
@@ -206,7 +193,15 @@ public:
 	 * 
 	 * @return Угловое перемещение в градусах.
 	 */
-	float integrationX();
+	float integrationX() {
+	   float speed = X();
+	   uint32_t time = system::GetTick();
+	   uint32_t deltaTime = time - _lastXTime;
+	   float value = (_lastX + speed) * (deltaTime >> 1) * 0.001;
+	   _lastX = speed;
+	   _lastXTime = time;
+	   return value;
+	}
 	
 	/**
 	 * @brief Получение углового перемещения вокруг оси Y с момента предыдущего вызова @ref integrationY()
@@ -216,7 +211,15 @@ public:
 	 * 
 	 * @return Угловое перемещение в градусах.
 	 */
-	float integrationY();
+	float integrationY() {
+		float speed = Y();
+		uint32_t time = system::GetTick();
+		uint32_t deltaTime = time - _lastYTime;
+		float value = (_lastY + speed) * (deltaTime >> 1) * 0.001;
+		_lastY = speed;
+		_lastYTime = time;
+		return value;
+	}
 	
 	/**
 	 * @brief Получение углового перемещения вокруг оси Z с момента предыдущего вызова @ref integrationZ()
@@ -226,28 +229,42 @@ public:
 	 * 
 	 * @return Угловое перемещение в градусах.
 	 */
-	float integrationZ();
+	float integrationZ() {
+		float speed = Z();
+		uint32_t time = system::GetTick();
+		uint32_t deltaTime = time - _lastZTime;
+		float value = (_lastZ + speed) * (deltaTime >> 1) * 0.001;
+		_lastZ = speed;
+		_lastZTime = time;
+		return value;
+	}
 
 	/**
 	 * @brief Установка порогового значения по оси X
 	 * @note Если угловая скорость, полученная с датчика, меньше этого числа, метод @ref X() вернёт 0.
 	 * @param x Пороговое значение 
 	 */
-	void SetMinCutX(float x);
+	void SetMinCutX(float x) {
+		LSM6DS3::SetMinCutX(x);
+	}
 
 	/**
 	 * @brief Установка порогового значения по оси Y
 	 * @note Если угловая скорость, полученная с датчика, меньше этого числа, метод @ref Y() вернёт 0.
 	 * @param y Пороговое значение
 	 */
-	void SetMinCutY(float y);
+	void SetMinCutY(float y) {
+		LSM6DS3::SetMinCutX(y);
+	}
 
 	/**
 	 * @brief Установка порогового значения по оси Z
 	 * @note Если угловая скорость, полученная с датчика, меньше этого числа, метод @ref Z() вернёт 0.
 	 * @param z Пороговое значение
 	 */
-	void SetMinCutZ(float z);
+	void SetMinCutZ(float z) {
+		LSM6DS3::SetMinCutX(z);
+	}
 #ifndef ARDUINO
 	// TODO @TeaCupMe Описать более понятным языком
 	/**
@@ -259,7 +276,7 @@ public:
 	 */
 	Quaternion<float> GetQuaternion();
 #endif
-	~GyroscopeV2() override;
+	~GyroscopeV2() {};
 };
 
 } /* namespace IntroSatLib */
