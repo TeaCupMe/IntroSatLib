@@ -36,7 +36,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: arduino/compile-sketches@v1
         with:
-          verbose: true
+          verbose: false
           enable-warnings-report: true
           enable-deltas-report: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -46,6 +46,7 @@ jobs:
               source-url: https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
           cli-compile-flags: |
             - --warnings="none"
+            - --warnings="default"
       - uses: actions/upload-artifact@v4
         with:
           name: sketches-reports
