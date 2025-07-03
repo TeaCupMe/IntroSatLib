@@ -1,29 +1,4 @@
-#ifndef INTERFACES_SPI_H_
-#define INTERFACES_SPI_H_
-
-
-
-// TODO Generalize preprocessor directives
-#ifdef ARDUINO
-	#include "Arduino.h"
-	#include "SPI.h"
-	#define	SPI_ENABLED
-#else
-	#if __has_include ("stm32f4xx_hal_spi.h")
-		#include "stm32f4xx_hal.h"
-		#include "stm32f4xx_hal_spi.h"
-		#define	SPI_ENABLED
-	#elif __has_include ("stm32f1xx_hal_spi.h")
-		#include "stm32f1xx_hal.h"
-		#include "stm32f1xx_hal_spi.h"
-		#define	SPI_ENABLED
-	#elif __has_include ("stm32h7xx_hal_spi.h")
-		#include "stm32h7xx_hal.h"
-		#include "stm32h7xx_hal_spi.h"
-		#define	SPI_ENABLED
-	#endif
-#endif
-
+#include "SPI.h"
 
 #ifdef SPI_ENABLED // If SPI is enabled or at least accessible (in case of Arduino IDE)
 
@@ -100,6 +75,3 @@ public:
 } /* namespace IntroSatLib */
 
 #endif /* SPI_ENABLED */
-#endif /* INTERFACES_SPI_H_ */
-
-

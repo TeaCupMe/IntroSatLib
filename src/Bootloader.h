@@ -9,7 +9,7 @@
     #define BOOT_ADDR 0x1FFFF000
 #endif
 
-#ifdef STM32F1xx
+#ifdef STM32F103xB
     #include "stm32f1xx_hal.h"
     #define BOOT_ADDR 0x1FFFF000
 #endif
