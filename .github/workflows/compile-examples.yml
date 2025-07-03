@@ -1,0 +1,52 @@
+name: Compile Examples
+
+on:
+  push:
+    paths:
+      - ".github/workflows/compile-examples.yml"
+      - "examples/**"
+      - "src/**"
+    branches: 
+      - main
+      - staging/*
+  pull_request:
+    paths:
+      - ".github/workflows/compile-examples.yml"
+      - "examples/**"
+      - "src/**"
+    branches: 
+      - main
+      - staging/*
+      - dev/*
+  schedule:
+    # Run every Tuesday at 8 AM UTC to catch breakage caused by changes to external resources (stm32duino).
+    - cron: "0 8 * * TUE"
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        fqbn:
+          - STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103C8
+          - STMicroelectronics:stm32:GenH7:pnum=GENERIC_H750VBTX
+    steps:
+      - uses: actions/checkout@v4
+      - uses: arduino/compile-sketches@v1
+        with:
+          verbose: true
+          enable-warnings-report: true
+          enable-deltas-report: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          fqbn: ${{ matrix.fqbn }}
+          platforms: |
+            - name: STMicroelectronics:stm32
+              source-url: https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
+          cli-compile-flags: |
+            - --warnings="none"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sketches-reports
+          path: sketches-reports
