@@ -2,13 +2,13 @@
 
 char message_buffer[] = "Bootloader Mode\n\r";
 
-struct boot_vectable_ {
-    uint32_t Initial_SP;
-    void (*Reset_Handler)(void);
-};
-#ifdef BOOT_ADDR
-    #define BOOTVTAB	((struct boot_vectable_ *)BOOT_ADDR)
-#endif
+// struct boot_vectable_ {
+//     uint32_t Initial_SP;
+//     void (*Reset_Handler)(void);
+// };
+// #ifdef BOOT_ADDR
+//     #define BOOTVTAB	((struct boot_vectable_ *)BOOT_ADDR)
+// #endif
 void EnterBootloader(void)
 {
 #ifdef BOOT_ADDR
@@ -49,10 +49,8 @@ void EnterBootloader(void)
 	/* Re-enable all interrupts */
 	__enable_irq();
 
-	// Set the MSP
-	__set_MSP(BOOTVTAB->Initial_SP);
-
-	// Jump to app firmware
-	BOOTVTAB->Reset_Handler();
+	SysMemBootJump = (void (*)(void)) (*((uint32_t *) (BOOT_ADDR + 4)));
+  	__set_MSP(*(uint32_t *)BOOT_ADDR);
+  	SysMemBootJump();
 #endif /** BOOT_ADDR */ 
 }
