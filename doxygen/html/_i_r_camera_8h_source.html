@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IntroSatLib: Исходный файл src/IRCamera.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">IntroSatLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">IRCamera.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef IRCAMERA_H_</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define IRCAMERA_H_</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;I2CDevice.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;BaseDevice.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>IntroSatLib {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_i_r_camera.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a>: <span class="keyword">public</span> <a class="code hl_class" href="class_intro_sat_lib_1_1_base_device.html">BaseDevice</a> {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">static</span> <span class="keyword">const</span> uint8_t BASE_ADDRESS = 0x68;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">float</span> _rawdeg = 0.25f;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">enum</span> RegisterMap</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>      AMG88xx_PCTL = 0x00,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>      AMG88xx_RST = 0x01,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>      AMG88xx_FPSC = 0x02,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>      AMG88xx_INTC = 0x03,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>      AMG88xx_STAT = 0x04,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>      AMG88xx_SCLR = 0x05,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>      <span class="comment">// 0x06 reserved</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>      AMG88xx_AVE = 0x07,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>      AMG88xx_INTHL = 0x08,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>      AMG88xx_INTHH = 0x09,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>      AMG88xx_INTLL = 0x0A,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      AMG88xx_INTLH = 0x0B,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>      AMG88xx_IHYSL = 0x0C,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>      AMG88xx_IHYSH = 0x0D,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>      AMG88xx_TTHL = 0x0E,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>      AMG88xx_TTHH = 0x0F,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>      AMG88xx_INT_OFFSET = 0x010,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>      AMG88xx_PIXEL_OFFSET = 0x80</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    };</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    uint8_t _framrate = 0;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    uint8_t _mirror = 0;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    GPIO_TypeDef* _resetPort = 0;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    uint16_t _resetPin = 0;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    int16_t _buffer[64] = {0};</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> tryReset();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    int16_t int12ToInt16(uint16_t val);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_i_r_camera.html#a1fc8cab3fcbd47bed763bdcc726aaeaf">   54</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="class_intro_sat_lib_1_1_i_r_camera.html#a1fc8cab3fcbd47bed763bdcc726aaeaf">Framerate</a></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_i_r_camera.html#a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e">   56</a></span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_i_r_camera.html#a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e">FPS_10</a> = 0, </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_i_r_camera.html#a1fc8cab3fcbd47bed763bdcc726aaeafa81c8ccc55fb696606bbda356baa21d8d">FPS_1</a> = 1   </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_i_r_camera.html#a1fc8cab3fcbd47bed763bdcc726aaeafa81c8ccc55fb696606bbda356baa21d8d">   58</a></span>    };</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#ifndef ARDUINO</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_function" href="class_intro_sat_lib_1_1_i_r_camera.html#a2a0f6527d04256bbed09b6095d3db9ce">IRCamera</a>(I2C_HandleTypeDef *hi2c, uint8_t address = BASE_ADDRESS);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_function" href="class_intro_sat_lib_1_1_i_r_camera.html#a2a0f6527d04256bbed09b6095d3db9ce">IRCamera</a>(TwoWire &amp;hi2c, uint8_t address = BASE_ADDRESS);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_function" href="class_intro_sat_lib_1_1_i_r_camera.html#a2a0f6527d04256bbed09b6095d3db9ce">IRCamera</a>(uint8_t address = BASE_ADDRESS);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_function" href="class_intro_sat_lib_1_1_i_r_camera.html#a2a0f6527d04256bbed09b6095d3db9ce">IRCamera</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a> &amp;other);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_function" href="class_intro_sat_lib_1_1_i_r_camera.html#a2a0f6527d04256bbed09b6095d3db9ce">IRCamera</a>(<a class="code hl_class" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a> &amp;&amp;other);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <a class="code hl_class" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a> &amp;other);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_class" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a>&amp; operator=(<a class="code hl_class" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a> &amp;&amp;other);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_intro_sat_lib_1_1_i_r_camera.html#a7346c3d20d5a22ebe12afb57de31ac9e">useForceReset</a>(GPIO_TypeDef* resetPort, uint16_t resetPin);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_intro_sat_lib_1_1_i_r_camera.html#a53d5a93a40408726632323f59c009bd6">useMirrored</a>();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_intro_sat_lib_1_1_i_r_camera.html#ade5050b97643e2d5d8e0d35162351137">useNotMirrored</a>();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    uint8_t <a class="code hl_function" href="class_intro_sat_lib_1_1_i_r_camera.html#a6a97093c3ad3dd193dcf8018847a49ae">Init</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="comment">// TODO @TeaCupMe @Goldfor исправить опечатку framrate на framerate</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    uint8_t <a class="code hl_function" href="class_intro_sat_lib_1_1_i_r_camera.html#a6a97093c3ad3dd193dcf8018847a49ae">Init</a>(<a class="code hl_enumeration" href="class_intro_sat_lib_1_1_i_r_camera.html#a1fc8cab3fcbd47bed763bdcc726aaeaf">Framerate</a> framrate);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    uint8_t <a class="code hl_function" href="class_intro_sat_lib_1_1_i_r_camera.html#a65cf6e91d4c6db8635094486b51a5846">Read</a>();</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    int16_t <a class="code hl_function" href="class_intro_sat_lib_1_1_i_r_camera.html#a35dc23801eb348de678b74b3cf5d94b0">getPixelRaw</a>(uint8_t x, uint8_t y);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_intro_sat_lib_1_1_i_r_camera.html#a440c56a2f0f37442887191e6ae823d72">getPixel</a>(uint8_t x, uint8_t y);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <a class="code hl_class" href="class_intro_sat_lib_1_1_i_r_camera.html">~IRCamera</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>};</div>
+</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>} <span class="comment">/* namespace IntroSatLib */</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="preprocessor">#endif </span><span class="comment">/* IRCAMERA_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_base_device_html"><div class="ttname"><a href="class_intro_sat_lib_1_1_base_device.html">IntroSatLib::BaseDevice</a></div><div class="ttdef"><b>Definition</b> BaseDevice.h:8</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_i_r_camera_html"><div class="ttname"><a href="class_intro_sat_lib_1_1_i_r_camera.html">IntroSatLib::IRCamera</a></div><div class="ttdef"><b>Definition</b> IRCamera.h:9</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_i_r_camera_html_a1fc8cab3fcbd47bed763bdcc726aaeaf"><div class="ttname"><a href="class_intro_sat_lib_1_1_i_r_camera.html#a1fc8cab3fcbd47bed763bdcc726aaeaf">IntroSatLib::IRCamera::Framerate</a></div><div class="ttdeci">Framerate</div><div class="ttdoc">Количество кадров (обновлений данных) в секунду</div><div class="ttdef"><b>Definition</b> IRCamera.h:55</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_i_r_camera_html_a1fc8cab3fcbd47bed763bdcc726aaeafa81c8ccc55fb696606bbda356baa21d8d"><div class="ttname"><a href="class_intro_sat_lib_1_1_i_r_camera.html#a1fc8cab3fcbd47bed763bdcc726aaeafa81c8ccc55fb696606bbda356baa21d8d">IntroSatLib::IRCamera::FPS_1</a></div><div class="ttdeci">@ FPS_1</div><div class="ttdef"><b>Definition</b> IRCamera.h:57</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_i_r_camera_html_a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e"><div class="ttname"><a href="class_intro_sat_lib_1_1_i_r_camera.html#a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e">IntroSatLib::IRCamera::FPS_10</a></div><div class="ttdeci">@ FPS_10</div><div class="ttdef"><b>Definition</b> IRCamera.h:56</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_i_r_camera_html_a2a0f6527d04256bbed09b6095d3db9ce"><div class="ttname"><a href="class_intro_sat_lib_1_1_i_r_camera.html#a2a0f6527d04256bbed09b6095d3db9ce">IntroSatLib::IRCamera::IRCamera</a></div><div class="ttdeci">IRCamera(I2C_HandleTypeDef *hi2c, uint8_t address=BASE_ADDRESS)</div><div class="ttdoc">Создание объекта ИК-камеры.</div><div class="ttdef"><b>Definition</b> IRCamera.cpp:6</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_i_r_camera_html_a35dc23801eb348de678b74b3cf5d94b0"><div class="ttname"><a href="class_intro_sat_lib_1_1_i_r_camera.html#a35dc23801eb348de678b74b3cf5d94b0">IntroSatLib::IRCamera::getPixelRaw</a></div><div class="ttdeci">int16_t getPixelRaw(uint8_t x, uint8_t y)</div><div class="ttdoc">Получение необработанного значения пикселя</div><div class="ttdef"><b>Definition</b> IRCamera.cpp:104</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_i_r_camera_html_a440c56a2f0f37442887191e6ae823d72"><div class="ttname"><a href="class_intro_sat_lib_1_1_i_r_camera.html#a440c56a2f0f37442887191e6ae823d72">IntroSatLib::IRCamera::getPixel</a></div><div class="ttdeci">float getPixel(uint8_t x, uint8_t y)</div><div class="ttdoc">Получение значения пикселя</div><div class="ttdef"><b>Definition</b> IRCamera.cpp:109</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_i_r_camera_html_a53d5a93a40408726632323f59c009bd6"><div class="ttname"><a href="class_intro_sat_lib_1_1_i_r_camera.html#a53d5a93a40408726632323f59c009bd6">IntroSatLib::IRCamera::useMirrored</a></div><div class="ttdeci">void useMirrored()</div><div class="ttdoc">Вывод картинки в отзеркаленном виде</div><div class="ttdef"><b>Definition</b> IRCamera.cpp:120</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_i_r_camera_html_a65cf6e91d4c6db8635094486b51a5846"><div class="ttname"><a href="class_intro_sat_lib_1_1_i_r_camera.html#a65cf6e91d4c6db8635094486b51a5846">IntroSatLib::IRCamera::Read</a></div><div class="ttdeci">uint8_t Read()</div><div class="ttdoc">Считывание значений с матрицы ИК-камеры во внутренний буффер.</div><div class="ttdef"><b>Definition</b> IRCamera.cpp:87</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_i_r_camera_html_a6a97093c3ad3dd193dcf8018847a49ae"><div class="ttname"><a href="class_intro_sat_lib_1_1_i_r_camera.html#a6a97093c3ad3dd193dcf8018847a49ae">IntroSatLib::IRCamera::Init</a></div><div class="ttdeci">uint8_t Init() override</div><div class="ttdoc">Инициализация камеры с параметрами по умолчанию: Framerate::FPS_10.</div><div class="ttdef"><b>Definition</b> IRCamera.cpp:79</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_i_r_camera_html_a7346c3d20d5a22ebe12afb57de31ac9e"><div class="ttname"><a href="class_intro_sat_lib_1_1_i_r_camera.html#a7346c3d20d5a22ebe12afb57de31ac9e">IntroSatLib::IRCamera::useForceReset</a></div><div class="ttdeci">void useForceReset(GPIO_TypeDef *resetPort, uint16_t resetPin)</div><div class="ttdoc">Включает использование пина reset ИК-камеры.</div><div class="ttdef"><b>Definition</b> IRCamera.cpp:114</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_i_r_camera_html_ade5050b97643e2d5d8e0d35162351137"><div class="ttname"><a href="class_intro_sat_lib_1_1_i_r_camera.html#ade5050b97643e2d5d8e0d35162351137">IntroSatLib::IRCamera::useNotMirrored</a></div><div class="ttdeci">void useNotMirrored()</div><div class="ttdoc">Вывод картинки в нормальном (не отзеркаленном) виде</div><div class="ttdef"><b>Definition</b> IRCamera.cpp:122</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IntroSatLib: [IntroSatLib]()</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">IntroSatLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="doc-content">
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">[IntroSatLib]() </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a></p>
+<p>Библиотека для взаимодействия с компонентами спутника</p>
+<h1><a class="anchor" id="required-hardware-and-software-product"></a>
+Required hardware and software product</h1>
+<ul>
+<li>Библиотека подходит для <a href="https://www.arduino.cc/en/software">ArduinoIDE</a> и <a href="https://www.st.com/en/development-tools/stm32cubeide.html">STM32CubeIDE</a></li>
+<li>Библиотека подходит только для контроллеров<ul>
+<li>STM32F1XX</li>
+<li>STM32F103C8T6</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="оглавление"></a>
+Оглавление</h1>
+<ul>
+<li><a class="el" href="#installation">Установка</a></li>
+<li><a class="el" href="#using">Использование</a></li>
+<li><a class="el" href="#documentation">Документация</a></li>
+</ul>
+<h1><a class="anchor" id="installation"></a>
+Installation</h1>
+<ul>
+<li><b>ArduinoIDE:</b> скачайте библиотеку в <em>.zip</em> формате. Через менеджер библиотек <em>("Скетч -&gt; Подключить библиотеку -&gt; Добавить .ZIP библиотеку...")</em> выберете скачанный <em>.zip</em> файл. Библиотека подключена ;)</li>
+<li><b>STM32CubeIDE:</b></li>
+</ul>
+<h1><a class="anchor" id="using"></a>
+Using</h1>
+<ul>
+<li><b>ArduinoIDE:</b> базовое использование библиотеки</li>
+</ul>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;Wire.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;Accelerometer.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment"> * Включение пространства имён библиотеки спутника</span></div>
+<div class="line"><span class="comment"> * Чтобы постоянно не писать IntroSatLib::</span></div>
+<div class="line"><span class="comment">*/</span></div>
+<div class="line"><span class="keyword">using namespace </span>IntroSatLib;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a> accel(Wire);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> setup() {</div>
+<div class="line">    Serial.begin(9600); <span class="comment">// Включения Serial для вывода данных</span></div>
+<div class="line">    Wire.begin(); <span class="comment">// Включение Wire(I2C)</span></div>
+<div class="line">    accel.Init(); <span class="comment">// Инициализация датчика</span></div>
+<div class="line">    delay(1000);</div>
+<div class="line">    Serial.println(<span class="stringliteral">&quot;ax, ay, az&quot;</span>); <span class="comment">// Для работы плоттера в ArduinoIDE</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> loop() {</div>
+<div class="line">    Serial.print(accel.X());</div>
+<div class="line">    Serial.print(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">    Serial.print(accel.Y());</div>
+<div class="line">    Serial.print(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">    Serial.println(accel.Z());</div>
+<div class="line">    delay(100);</div>
+<div class="line">}</div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html">IntroSatLib::Accelerometer</a></div><div class="ttdef"><b>Definition</b> Accelerometer.h:10</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="documentation"></a>
+Documentation</h1>
+<ul>
+<li>**Accelerometer**<ul>
+<li>**Methods**<ul>
+<li>*void* Init(*Scale* sensitivity, *FilterBandwidth* filter)</li>
+<li>*void* SetScale(*Scale* sensitivity)</li>
+<li>*void* SetFilter(*FilterBandwidth* filter)</li>
+<li>*float* X()</li>
+<li>*float* Y()</li>
+<li>*float* Z()</li>
+<li>*int16_t* RawX()</li>
+<li>*int16_t* RawY()</li>
+<li>*int16_t* RawZ()</li>
+</ul>
+</li>
+<li>**Enums**<ul>
+<li>Scale</li>
+<li>FilterBandwidth</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>**Gyroscope**<ul>
+<li>**Methods**<ul>
+<li>[<em>void</em> Init(<em>Scale</em> sensitivity, <em>FilterBandwidth</em> filter)]()</li>
+<li>[<em>void</em> SetScale(<em>Scale</em> sensitivity)]()</li>
+<li>[<em>void</em> SetFilter(<em>FilterBandwidth</em> filter)]()</li>
+<li>*float* X()</li>
+<li>*float* Y()</li>
+<li>*float* Z()</li>
+<li>*int16_t* RawX()</li>
+<li>*int16_t* RawY()</li>
+<li>*int16_t* RawZ()</li>
+</ul>
+</li>
+<li>Enums<ul>
+<li>[Scale]()</li>
+<li>[FilterBandwidth]()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>**FlyWheel**<ul>
+<li>**Methods**</li>
+</ul>
+</li>
+<li><p class="startli">### Accelerometer</p>
+<p class="startli">Класс позволяющий получать данные из акселерометра Находится в пространстве <em><b>IntroSatLib</b></em> <em>Этой строчкой подключается</em></p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span>IntroSatLib;</div>
+</div><!-- fragment --><p class="startli">Параметры:</p>
+</li>
+<li><em>hi2c</em> = I2C интерфейс</li>
+<li><p class="startli"><em>address</em> = необязательный параметр, стандартное значение <em>0x68</em>. Адрес акселерометра ***Accelerometer* Accelerometer(<em>I2C_HandleTypeDef</em> *hi2c, <em>uint8_t</em> address)** <em>(STM32CubeIDE)</em> <em>или</em> ***Accelerometer* Accelerometer(<em>TwoWire</em> &amp;hi2c, <em>uint8_t</em> address)** <em>(ArduinoIDE)</em> Создание объекта класса</p>
+<p class="startli">Для <a href="https://www.st.com/en/development-tools/stm32cubeide.html">STM32CubeIDE</a></p>
+<div class="fragment"><div class="line"><a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a> accel = <a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a>(&amp;hi2c1, 0x68);</div>
+<div class="line"><span class="comment">// или</span></div>
+<div class="line"><a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a> accel = <a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a>(&amp;hi2c1);</div>
+</div><!-- fragment --><p class="startli">Для <a href="https://www.arduino.cc/en/software">ArduinoIDE</a></p>
+<div class="fragment"><div class="line"><a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a> accel = <a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a>(Wire, 0x68);</div>
+<div class="line"><span class="comment">// или</span></div>
+<div class="line"><a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a> accel = <a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a>(Wire);</div>
+</div><!-- fragment --></li>
+<li>#### Methods</li>
+<li><p class="startli">##### <em>void</em> Init(<em>Scale</em> sensitivity, <em>FilterBandwidth</em> filter)</p>
+<p class="startli">Инициализация акселерометра, нужна для выставления базовых настроек Оба параметра не являются обязательными Стандартные значения:</p><ul>
+<li>sensitivity = <em>Accelerometer::Scale::twoG</em></li>
+<li>filter = <em>Accelerometer::FilterBandwidth::F0021</em></li>
+</ul>
+<p class="startli">Зачем нужны? ;)</p><ul>
+<li><em>sensitivity</em> устанавливает чувствительность акселерометра</li>
+<li><em>filter</em> устанавливает аппаратный фильтр в акселерометре</li>
+</ul>
+<div class="fragment"><div class="line">accel.<a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#a0af0bc319a2e46d3fc0e9dfacf0730ca">Init</a>(Accelerometer::Scale::sixteenG, Accelerometer::FilterBandwidth::F0005);</div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a0af0bc319a2e46d3fc0e9dfacf0730ca"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a0af0bc319a2e46d3fc0e9dfacf0730ca">IntroSatLib::Accelerometer::Init</a></div><div class="ttdeci">uint8_t Init() override</div><div class="ttdoc">Инициализация акселлерометра с параметрами по умолчанию: Scale::twoG, FilterBandwidth::F0021.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:57</div></div>
+</div><!-- fragment --><p class="startli">или</p>
+<div class="fragment"><div class="line">accel.<a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#a0af0bc319a2e46d3fc0e9dfacf0730ca">Init</a>(Accelerometer::Scale::sixteenG);</div>
+</div><!-- fragment --><p class="startli">или</p>
+<div class="fragment"><div class="line">accel.<a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#a0af0bc319a2e46d3fc0e9dfacf0730ca">Init</a>();</div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>void</em> SetScale(<em>Scale</em> sensitivity)</p>
+<p class="startli">Устанавливает чувствительность акселерометра Зачем нужны? ;)</p><ul>
+<li><em>sensitivity</em> чувствительность акселерометра</li>
+</ul>
+<div class="fragment"><div class="line">accel.<a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#a2b935d7e55fe6c80a48b9a91915193fe">SetScale</a>(Accelerometer::Scale::sixteenG);</div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a2b935d7e55fe6c80a48b9a91915193fe"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a2b935d7e55fe6c80a48b9a91915193fe">IntroSatLib::Accelerometer::SetScale</a></div><div class="ttdeci">void SetScale(Scale sensitivity)</div><div class="ttdoc">Установка диапазона измерения</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:63</div></div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>void</em> SetFilter(<em>FilterBandwidth</em> filter)</p>
+<p class="startli">Устанавливает внутренний фильтр акселерометра Зачем нужны? ;)</p><ul>
+<li><em>filter</em> частота внутреннего фильтра акселерометра</li>
+</ul>
+<div class="fragment"><div class="line">accel.<a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#a082053d929f641e7f6b2f4ad82cf19e8">SetFilter</a>(Accelerometer::FilterBandwidth::F0005);</div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a082053d929f641e7f6b2f4ad82cf19e8"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a082053d929f641e7f6b2f4ad82cf19e8">IntroSatLib::Accelerometer::SetFilter</a></div><div class="ttdeci">void SetFilter(FilterBandwidth filter)</div><div class="ttdoc">Установка фильтра измерений</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:72</div></div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>float</em> X()</p>
+<p class="startli">Получение данных из акселерометра по оси <em>x</em> в долях от <em>g</em>, то есть если ускорение по оси <em>x</em> равно $10м\cdot с^{2}$, то <em>accel.X() == 1</em></p>
+<div class="fragment"><div class="line"><span class="keywordtype">float</span> x = accel.<a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#a1e2e805d29c5ee84eb4fe860736f10de">X</a>();</div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a1e2e805d29c5ee84eb4fe860736f10de"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a1e2e805d29c5ee84eb4fe860736f10de">IntroSatLib::Accelerometer::X</a></div><div class="ttdeci">float X()</div><div class="ttdoc">Получение значения ускорения по оси X.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:97</div></div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>float</em> Y()</p>
+<p class="startli">Получение данных из акселерометра по оси <em>y</em> в долях от <em>g</em>, то есть если ускорение по оси <em>y</em> равно $10м\cdot с^{2}$, то <em>accel.Y() == 1</em></p>
+<div class="fragment"><div class="line"><span class="keywordtype">float</span> x = accel.<a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#af4a2e25b032d924c72bc46698dc81a58">Y</a>();</div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_af4a2e25b032d924c72bc46698dc81a58"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#af4a2e25b032d924c72bc46698dc81a58">IntroSatLib::Accelerometer::Y</a></div><div class="ttdeci">float Y()</div><div class="ttdoc">Получение значения ускорения по оси Y.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:102</div></div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>float</em> Z()</p>
+<p class="startli">Получение данных из акселерометра по оси <em>z</em> в долях от <em>g</em>, то есть если ускорение по оси <em>z</em> равно $10м\cdot с^{2}$, то <em>accel.Z() == 1</em></p>
+<div class="fragment"><div class="line"><span class="keywordtype">float</span> x = accel.<a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#ab09b2295e26c46eee9cb09b479d01292">Z</a>();</div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_ab09b2295e26c46eee9cb09b479d01292"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#ab09b2295e26c46eee9cb09b479d01292">IntroSatLib::Accelerometer::Z</a></div><div class="ttdeci">float Z()</div><div class="ttdoc">Получение значения ускорения по оси Z.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:107</div></div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>int16_t</em> RawX()</p>
+<p class="startli">Получение сырых данных из акселерометра по оси <em>x</em>. Данные никак не преобразуются.</p>
+<div class="fragment"><div class="line">int16_t x = accel.<a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#afb952b6c8e9c653e5a4d1b9247cd3905">RawX</a>();</div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_afb952b6c8e9c653e5a4d1b9247cd3905"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#afb952b6c8e9c653e5a4d1b9247cd3905">IntroSatLib::Accelerometer::RawX</a></div><div class="ttdeci">int16_t RawX()</div><div class="ttdoc">Получение необработанного значения ускорения по оси X.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:78</div></div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>int16_t</em> RawY()</p>
+<p class="startli">Получение сырых данных из акселерометра по оси <em>y</em>. Данные никак не преобразуются.</p>
+<div class="fragment"><div class="line">int16_t x = accel.<a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#acb687931641ac34087e969c2efbb0606">RawY</a>();</div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_acb687931641ac34087e969c2efbb0606"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#acb687931641ac34087e969c2efbb0606">IntroSatLib::Accelerometer::RawY</a></div><div class="ttdeci">int16_t RawY()</div><div class="ttdoc">Получение необработанного значения ускорения по оси Y.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:84</div></div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>int16_t</em> RawZ()</p>
+<p class="startli">Получение сырых данных из акселерометра по оси <em>z</em>. Данные никак не преобразуются.</p>
+<div class="fragment"><div class="line">int16_t x = accel.<a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#a8561c8c4397e2588ae56bd2fff66a9ec">RawZ</a>();</div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a8561c8c4397e2588ae56bd2fff66a9ec"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a8561c8c4397e2588ae56bd2fff66a9ec">IntroSatLib::Accelerometer::RawZ</a></div><div class="ttdeci">int16_t RawZ()</div><div class="ttdoc">Получение необработанного значения ускорения по оси Z.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:90</div></div>
+</div><!-- fragment --></li>
+<li>#### Enums<ul>
+<li><p class="startli">##### Scale</p>
+<p class="startli">Перечисление нужно для указания разрешения работы акселерометра в человеко понятно виде <em>Обозначение переменной для хранения элемента перечисления</em></p>
+<div class="fragment"><div class="line"><a class="code hl_enumeration" href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3">Accelerometer::Scale</a> scale = Accelerometer::Scale::twoG;</div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a546db6400715485ed2e27ecddd954ff3"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3">IntroSatLib::Accelerometer::Scale</a></div><div class="ttdeci">Scale</div><div class="ttdoc">Диапазон измерения ускорения</div><div class="ttdef"><b>Definition</b> Accelerometer.h:37</div></div>
+</div><!-- fragment --><p class="startli">Значения в перечислении <em><b>twoG</b></em> — диапазон работы в *$\plusmn$2g* <em><b>fourG</b></em> — диапазон работы в *$\plusmn$4g* <em><b>eightG</b></em> — диапазон работы в *$\plusmn$8g* <em><b>sixteenG</b></em> — диапазон работы в *$\plusmn$16g*</p>
+<div class="fragment"><div class="line"><span class="keyword">enum</span></div>
+<div class="line">{</div>
+<div class="line"> twoG = 0, </div>
+<div class="line"> fourG = 1,</div>
+<div class="line"> eightG = 2,</div>
+<div class="line"> sixteenG = 3,</div>
+<div class="line">}</div>
+</div><!-- fragment --></li>
+</ul>
+</li>
+<li><p class="startli">##### FilterBandwidth</p>
+<p class="startli">Перечисление нужно для указания разрешения работы акселерометра в человеко понятно виде <em>Обозначение переменной для хранения элемента перечисления</em></p>
+<div class="fragment"><div class="line"><a class="code hl_enumeration" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0">Accelerometer::FilterBandwidth</a> filter = Accelerometer::FilterBandwidth::F0010;</div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_abb0ab0a96031515ed9a96b08f21a41c0"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0">IntroSatLib::Accelerometer::FilterBandwidth</a></div><div class="ttdeci">FilterBandwidth</div><div class="ttdoc">Ширина окна фильтра</div><div class="ttdef"><b>Definition</b> Accelerometer.h:50</div></div>
+</div><!-- fragment --><p class="startli">Значения в перечислении</p>
+<div class="fragment"><div class="line"><span class="keyword">enum</span></div>
+<div class="line">{</div>
+<div class="line"> F0218 = 0,</div>
+<div class="line"> F0218b = 1,</div>
+<div class="line"> F0099 = 2,</div>
+<div class="line"> F0045 = 3,</div>
+<div class="line"> F0021 = 4,</div>
+<div class="line"> F0010 = 5,</div>
+<div class="line"> F0005 = 6,</div>
+<div class="line"> F0420 = 7</div>
+<div class="line"> F1046 = 8,</div>
+<div class="line">}</div>
+</div><!-- fragment --></li>
+<li><p class="startli">### Gyroscope</p>
+<p class="startli">Класс позволяющий получать данные из гироскопа</p>
+</li>
+<li>#### Methods</li>
+<li><p class="startli">##### <em>float</em> X()</p>
+<p class="startli">Получение данных из гироскопа по оси <em>x</em> в <em>град/с</em></p>
+<div class="fragment"><div class="line"><span class="keywordtype">float</span> x = gyro.X();</div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>float</em> Y()</p>
+<p class="startli">Получение данных из гироскопа по оси <em>y</em> в <em>град/с</em></p>
+<div class="fragment"><div class="line"><span class="keywordtype">float</span> x = gyro.Y();</div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>float</em> Z()</p>
+<p class="startli">Получение данных из гироскопа по оси <em>z</em> в <em>град/с</em></p>
+<div class="fragment"><div class="line"><span class="keywordtype">float</span> x = gyro.Z();</div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>int16_t</em> RawX()</p>
+<p class="startli">Получение сырых данных из гироскопа по оси <em>x</em>. Данные никак не преобразуются.</p>
+<div class="fragment"><div class="line">int16_t x = gyro.RawX();</div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>int16_t</em> RawY()</p>
+<p class="startli">Получение сырых данных из гироскопа по оси <em>y</em>. Данные никак не преобразуются.</p>
+<div class="fragment"><div class="line">int16_t x = gyro.RawY();</div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>int16_t</em> RawZ()</p>
+<p class="startli">Получение сырых данных из гироскопа по оси <em>z</em>. Данные никак не преобразуются.</p>
+<div class="fragment"><div class="line">int16_t x = gyro.RawZ();</div>
+</div><!-- fragment --></li>
+<li><p class="startli">### FlyWheel</p>
+<p class="startli">Класс позволяющий управлять скоростью и направлением вращения маховика Находится в пространстве <em><b>IntroSatLib</b></em> <em>Этой строчкой подключается</em></p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span>IntroSatLib;</div>
+</div><!-- fragment --><p class="startli">Создание объекта класса</p>
+<p class="startli">***FlyWheel* FlyWheel(<em>I2C_HandleTypeDef</em> *hi2c, <em>uint8_t</em> address)** <em>(STM32CubeIDE)</em> <em>или</em> ***FlyWheel* FlyWheel(<em>TwoWire</em> &amp;hi2c, <em>uint8_t</em> address)** <em>(ArduinoIDE)</em></p>
+<p class="startli">Параметры:</p>
+</li>
+<li><em>hi2c</em> = I2C интерфейс</li>
+<li><p class="startli"><em>address</em> = необязательный параметр, стандартное значение <em>0x38</em>. Адрес платы маховика</p>
+<p class="startli">Для <a href="https://www.st.com/en/development-tools/stm32cubeide.html">STM32CubeIDE</a></p>
+<div class="fragment"><div class="line">FlyWheel motor = FlyWheel(&amp;hi2c1, 0x38);</div>
+<div class="line"><span class="comment">// или</span></div>
+<div class="line">FlyWheel motor = FlyWheel(&amp;hi2c1);</div>
+</div><!-- fragment --><p class="startli">Для <a href="https://www.arduino.cc/en/software">ArduinoIDE</a></p>
+<div class="fragment"><div class="line">FlyWheel motor = FlyWheel(Wire, 0x38);</div>
+<div class="line"><span class="comment">// или</span></div>
+<div class="line">FlyWheel motor = FlyWheel(Wire);</div>
+</div><!-- fragment --></li>
+<li>#### Methods</li>
+<li><p class="startli">##### <em>void</em> Init()</p>
+<p class="startli">Инициализация платы маховика, нужна для выставления базовых настроек.</p>
+<div class="fragment"><div class="line">motor.Init();</div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>int16_t</em> NeedSpeed(<em>int16_t</em> needSpeed)</p>
+<p class="startli">Метод задает скорость вращения маховика. Знак переменной <em>needSpeed</em> определяет направение вращения:</p>
+<p class="startli">"+" - вращение против часовой стрелки; "-" - вращение по часовой стрелки.</p>
+<div class="fragment"><div class="line">motor.NeedSpeed(needSpeed);</div>
+</div><!-- fragment --></li>
+<li><p class="startli">##### <em>int16_t</em> CurrentSpeed()</p>
+<p class="startli">Метод позволяет считать текущую скорость вращения маховика. Знак полученного числа будет определять текущее направление вращения маховика:</p>
+<p class="startli">"+" - вращение против часовой стрелки; "-" - вращение по часовой стрелки.</p>
+<div class="fragment"><div class="line">motor.CurrentSpeed();</div>
+</div><!-- fragment --> <blockquote class="doxtable">
+<p>&zwj;## Полезные ссылки</p>
+<p>Наш <a href="https://t.me/introsat_news">канал в Telegram</a> поможет не пропустить обновления.</p>
+<p>Если у вас возникли вопросы или сложности при работе с IntroSat, ответы можно найти в нашем <a href="https://docs.google.com/document/d/15KqFrMlc6Jzxut_zMf_pXNx5r5JTjqfKEvCHWx99rEc/edit#heading=h.demjj79bt080">F.A.Q.</a></p>
+<p>Остались вопросы? Напишите нашему <a href="https://t.me/introsatBot">боту в Telegram</a>! Укажите в обращении модуль конструктора, при работе с которым возникли проблемы, и версии платы (написаны на самих платах), и мы обязательно вам поможем. </p>
+</blockquote>
+</li>
+</ul>
+</div></div><!-- PageDoc -->
+<a href="doxygen_crawl.html"></a>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

@@ -1,0 +1,477 @@
+\doxysection{CC1101.\+h}
+\hypertarget{_c_c1101_8h_source}{}\label{_c_c1101_8h_source}\index{src/CC1101.h@{src/CC1101.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CC1101\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CC1101\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}./interfaces/GPIO.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}./interfaces/SPI.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}string.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}math.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101}{CC1101}}\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{enum}\ ConfigRegisterMap}
+\DoxyCodeLine{00017\ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ CC1101\_IOCFG2\ \ \ \ \ \ \ =\ 0x00,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ GDO2\ output\ pin\ configuration}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ CC1101\_IOCFG1\ \ \ \ \ \ \ =\ 0x01,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ GDO1\ output\ pin\ configuration}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ CC1101\_IOCFG0\ \ \ \ \ \ \ =\ 0x02,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ GDO0\ output\ pin\ configuration}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ CC1101\_FIFOTHR\ \ \ \ \ \ =\ 0x03,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ RX\ FIFO\ and\ TX\ FIFO\ thresholds}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ CC1101\_SYNC1\ \ \ \ \ \ \ \ =\ 0x04,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sync\ word,\ high\ INT8U}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ CC1101\_SYNC0\ \ \ \ \ \ \ \ =\ 0x05,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sync\ word,\ low\ INT8U}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ CC1101\_PKTLEN\ \ \ \ \ \ \ =\ 0x06,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Packet\ length}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ CC1101\_PKTCTRL1\ \ \ \ \ =\ 0x07,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Packet\ automation\ control}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ CC1101\_PKTCTRL0\ \ \ \ \ =\ 0x08,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Packet\ automation\ control}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ CC1101\_ADDR\ \ \ \ \ \ \ \ \ =\ 0x09,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Device\ address}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ CC1101\_CHANNR\ \ \ \ \ \ \ =\ 0x0A,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Channel\ number}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ CC1101\_FSCTRL1\ \ \ \ \ \ =\ 0x0B,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Frequency\ synthesizer\ control}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ CC1101\_FSCTRL0\ \ \ \ \ \ =\ 0x0C,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Frequency\ synthesizer\ control}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ CC1101\_FREQ2\ \ \ \ \ \ \ \ =\ 0x0D,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Frequency\ control\ word,\ high\ INT8U}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ CC1101\_FREQ1\ \ \ \ \ \ \ \ =\ 0x0E,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Frequency\ control\ word,\ middle\ INT8U}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ CC1101\_FREQ0\ \ \ \ \ \ \ \ =\ 0x0F,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Frequency\ control\ word,\ low\ INT8U}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ CC1101\_MDMCFG4\ \ \ \ \ \ =\ 0x10,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Modem\ configuration}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ CC1101\_MDMCFG3\ \ \ \ \ \ =\ 0x11,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Modem\ configuration}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ CC1101\_MDMCFG2\ \ \ \ \ \ =\ 0x12,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Modem\ configuration}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ CC1101\_MDMCFG1\ \ \ \ \ \ =\ 0x13,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Modem\ configuration}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ CC1101\_MDMCFG0\ \ \ \ \ \ =\ 0x14,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Modem\ configuration}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ CC1101\_DEVIATN\ \ \ \ \ \ =\ 0x15,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Modem\ deviation\ setting}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ CC1101\_MCSM2\ \ \ \ \ \ \ \ =\ 0x16,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Main\ Radio\ Control\ State\ Machine\ configuration}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ CC1101\_MCSM1\ \ \ \ \ \ \ \ =\ 0x17,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Main\ Radio\ Control\ State\ Machine\ configuration}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ CC1101\_MCSM0\ \ \ \ \ \ \ \ =\ 0x18,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Main\ Radio\ Control\ State\ Machine\ configuration}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ CC1101\_FOCCFG\ \ \ \ \ \ \ =\ 0x19,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Frequency\ Offset\ Compensation\ configuration}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ CC1101\_BSCFG\ \ \ \ \ \ \ \ =\ 0x1A,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bit\ Synchronization\ configuration}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ CC1101\_AGCCTRL2\ \ \ \ \ =\ 0x1B,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ AGC\ control}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ CC1101\_AGCCTRL1\ \ \ \ \ =\ 0x1C,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ AGC\ control}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ CC1101\_AGCCTRL0\ \ \ \ \ =\ 0x1D,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ AGC\ control}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ CC1101\_WOREVT1\ \ \ \ \ \ =\ 0x1E,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ High\ INT8U\ Event\ 0\ timeout}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ CC1101\_WOREVT0\ \ \ \ \ \ =\ 0x1F,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Low\ INT8U\ Event\ 0\ timeout}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ CC1101\_WORCTRL\ \ \ \ \ \ =\ 0x20,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Wake\ On\ Radio\ control}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ CC1101\_FREND1\ \ \ \ \ \ \ =\ 0x21,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Front\ end\ RX\ configuration}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ CC1101\_FREND0\ \ \ \ \ \ \ =\ 0x22,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Front\ end\ TX\ configuration}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ CC1101\_FSCAL3\ \ \ \ \ \ \ =\ 0x23,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Frequency\ synthesizer\ calibration}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ CC1101\_FSCAL2\ \ \ \ \ \ \ =\ 0x24,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Frequency\ synthesizer\ calibration}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ CC1101\_FSCAL1\ \ \ \ \ \ \ =\ 0x25,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Frequency\ synthesizer\ calibration}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ CC1101\_FSCAL0\ \ \ \ \ \ \ =\ 0x26,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Frequency\ synthesizer\ calibration}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ CC1101\_RCCTRL1\ \ \ \ \ \ =\ 0x27,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ RC\ oscillator\ configuration}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ CC1101\_RCCTRL0\ \ \ \ \ \ =\ 0x28,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ RC\ oscillator\ configuration}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ CC1101\_FSTEST\ \ \ \ \ \ \ =\ 0x29,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Frequency\ synthesizer\ calibration\ control}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ CC1101\_PTEST\ \ \ \ \ \ \ \ =\ 0x2A,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Production\ test}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ CC1101\_AGCTEST\ \ \ \ \ \ =\ 0x2B,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ AGC\ test}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ CC1101\_TEST2\ \ \ \ \ \ \ \ =\ 0x2C,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Various\ test\ settings}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ CC1101\_TEST1\ \ \ \ \ \ \ \ =\ 0x2D,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Various\ test\ settings}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ CC1101\_TEST0\ \ \ \ \ \ \ \ =\ 0x2E\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Various\ test\ settings}}
+\DoxyCodeLine{00065\ \ \ \ \ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{enum}\ StrobeCommand}
+\DoxyCodeLine{00068\ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ CC1101\_SRES\ \ \ \ \ \ \ =\ 0x30,\ \ \ \ \ \ \ \textcolor{comment}{//\ Reset\ chip.}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ CC1101\_SFSTXON\ \ \ \ =\ 0x31,\ \ \ \ \ \ \ \textcolor{comment}{//\ Enable\ and\ calibrate\ frequency\ synthesizer\ (if\ MCSM0.FS\_AUTOCAL=1).}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ in\ RX/TX:\ Go\ to\ a\ wait\ state\ where\ only\ the\ synthesizer\ is}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ running\ (for\ quick\ RX\ /\ TX\ turnaround).}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ CC1101\_SXOFF\ \ \ \ \ \ =\ 0x32,\ \ \ \ \ \ \ \textcolor{comment}{//\ Turn\ off\ crystal\ oscillator.}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ CC1101\_SCAL\ \ \ \ \ \ \ =\ 0x33,\ \ \ \ \ \ \ \textcolor{comment}{//\ Calibrate\ frequency\ synthesizer\ and\ turn\ it\ off}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (enables\ quick\ start).}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ CC1101\_SRX\ \ \ \ \ \ \ \ =\ 0x34,\ \ \ \ \ \ \ \textcolor{comment}{//\ Enable\ RX.\ Perform\ calibration\ first\ if\ coming\ from\ IDLE\ and}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ MCSM0.FS\_AUTOCAL=1.}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ CC1101\_STX\ \ \ \ \ \ \ \ =\ 0x35,\ \ \ \ \ \ \ \textcolor{comment}{//\ In\ IDLE\ state:\ Enable\ TX.\ Perform\ calibration\ first\ if}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ MCSM0.FS\_AUTOCAL=1.\ If\ in\ RX\ state\ and\ CCA\ is\ enabled:}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Only\ go\ to\ TX\ if\ channel\ is\ clear.}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ CC1101\_SIDLE\ \ \ \ \ \ =\ 0x36,\ \ \ \ \ \ \ \textcolor{comment}{//\ Exit\ RX\ /\ TX,\ turn\ off\ frequency\ synthesizer\ and\ exit}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Wake-\/On-\/Radio\ mode\ if\ applicable.}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ CC1101\_SAFC\ \ \ \ \ \ \ =\ 0x37,\ \ \ \ \ \ \ \textcolor{comment}{//\ Perform\ AFC\ adjustment\ of\ the\ frequency\ synthesizer}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ CC1101\_SWOR\ \ \ \ \ \ \ =\ 0x38,\ \ \ \ \ \ \ \textcolor{comment}{//\ Start\ automatic\ RX\ polling\ sequence\ (Wake-\/on-\/Radio)}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ CC1101\_SPWD\ \ \ \ \ \ \ =\ 0x39,\ \ \ \ \ \ \ \textcolor{comment}{//\ Enter\ power\ down\ mode\ when\ CSn\ goes\ high.}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ CC1101\_SFRX\ \ \ \ \ \ \ =\ 0x3A,\ \ \ \ \ \ \ \textcolor{comment}{//\ Flush\ the\ RX\ FIFO\ buffer.}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ CC1101\_SFTX\ \ \ \ \ \ \ =\ 0x3B,\ \ \ \ \ \ \ \textcolor{comment}{//\ Flush\ the\ TX\ FIFO\ buffer.}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ CC1101\_SWORRST\ \ \ \ =\ 0x3C,\ \ \ \ \ \ \ \textcolor{comment}{//\ Reset\ real\ time\ clock.}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ CC1101\_SNOP\ \ \ \ \ \ \ =\ 0x3D,\ \ \ \ \ \ \ \textcolor{comment}{//\ No\ operation.\ May\ be\ used\ to\ pad\ strobe\ commands\ to\ two}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ INT8Us\ for\ simpler\ software.}}
+\DoxyCodeLine{00091\ \ \ \ \ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{enum}\ StatusRegister}
+\DoxyCodeLine{00094\ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ CC1101\_PARTNUM\ \ \ \ =\ 0x30,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ CC1101\_VERSION\ \ \ \ =\ 0x31,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ CC1101\_FREQEST\ \ \ \ =\ 0x32,}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ CC1101\_LQI\ \ \ \ \ \ \ \ =\ 0x33,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ CC1101\_RSSI\ \ \ \ \ \ \ =\ 0x34,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ CC1101\_MARCSTATE\ \ =\ 0x35,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ CC1101\_WORTIME1\ \ \ =\ 0x36,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ CC1101\_WORTIME0\ \ \ =\ 0x37,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ CC1101\_PKTSTATUS\ \ =\ 0x38,}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ CC1101\_VCO\_VC\_DAC\ =\ 0x39,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ CC1101\_TXBYTES\ \ \ \ =\ 0x3A,}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ CC1101\_RXBYTES\ \ \ \ =\ 0x3B,}
+\DoxyCodeLine{00107\ \ \ \ \ \};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ uint8\_t\ WRITE\_BURST\ \ \ \ \ =\ 0x40;}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ uint8\_t\ READ\_SINGLE\ \ \ \ \ =\ 0x80;}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ uint8\_t\ READ\_BURST\ \ \ \ \ \ =\ 0xC0;}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ uint8\_t\ BYTES\_IN\_RXFIFO\ =\ 0x7F;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ uint8\_t\ CC1101\_PATABLE\ \ \ \ =\ 0x3E;}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ uint8\_t\ CC1101\_TXFIFO\ \ \ \ \ =\ 0x3F;}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ uint8\_t\ CC1101\_RXFIFO\ \ \ \ \ =\ 0x3F;}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{enum}\ State}
+\DoxyCodeLine{00119\ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ NONE\ =\ 0,}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ TX\ \ \ =\ 1,}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ RX\ \ \ =\ 2}
+\DoxyCodeLine{00123\ \ \ \ \ \};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{class\ }RegisterData}
+\DoxyCodeLine{00126\ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ ConfigRegisterMap\ \_reg;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ uint8\_t\ \_value;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ uint8\_t\ \_ready;}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ RegisterData(ConfigRegisterMap\ reg,\ uint8\_t\ value):}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \_reg(reg),\ \_value(value),\ \_ready(1)\ \{\ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ RegisterData(ConfigRegisterMap\ reg):}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \_reg(reg),\ \_value(0),\ \_ready(0)\ \{\ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{void}\ set(uint8\_t\ value)\ \{\ \_value\ =\ value;\ \_ready\ =\ 1;\ \}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ uint8\_t\ get()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_value;\ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ std::array<uint8\_t,\ 2>\ toWrite()}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \{\ \_ready\ =\ 0;\ \textcolor{keywordflow}{return}\ \{\_reg,\ \_value\};\ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ std::array<uint8\_t,\ 2>\ toRead()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00149\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{\ \textcolor{keywordflow}{return}\ \{(uint8\_t)(\_reg\ |\ READ\_SINGLE),\ 0\};\ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{void}\ fromRead(std::array<uint8\_t,\ 2>\ value)}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \{\ \_ready\ =\ 0;\ \_value\ =\ value[1];\ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{struct\ }CalibrateValues}
+\DoxyCodeLine{00157\ \ \ \ \ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \_treashold;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ uint16\_t\ \_minFreq;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ uint16\_t\ \_maxFreq;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ uint8\_t\ \_minData;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ uint8\_t\ \_maxData;}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ uint16\_t}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ getData(\textcolor{keywordtype}{float}\ mhz)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00166\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ x\ =\ mhz;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ in\_min\ =\ \_minFreq;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ in\_max\ =\ \_maxFreq;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ out\_min\ =\ \_minData;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ out\_max\ =\ \_maxData;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (x\ -\/\ in\_min)\ *\ (out\_max\ -\/\ out\_min)\ /\ (in\_max\ -\/\ in\_min)\ +\ out\_min;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ uint8\_t}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ useTreshold(\textcolor{keywordtype}{float}\ mhz)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00177\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{\ \textcolor{keywordflow}{return}\ mhz\ >=\ \_treashold;\ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_s_p_i}{intefaces::SPI}}\ \&\_spi;}
+\DoxyCodeLine{00182\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&\_scl;}
+\DoxyCodeLine{00183\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&\_mosi;}
+\DoxyCodeLine{00184\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&\_miso;}
+\DoxyCodeLine{00185\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&\_reset;}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{int}\ \_pa\ =\ 12;}
+\DoxyCodeLine{00188\ \ \ \ \ uint8\_t\ \_modulation\ =\ 2;}
+\DoxyCodeLine{00189\ \ \ \ \ uint8\_t\ \_frend0\ =\ 0;}
+\DoxyCodeLine{00190\ \ \ \ \ uint8\_t\ \_chan\ =\ 0;}
+\DoxyCodeLine{00191\ \ \ \ \ uint8\_t\ \_last\_pa\ =\ 0;}
+\DoxyCodeLine{00192\ \ \ \ \ uint8\_t\ \_ccmode\ =\ 0;}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \_mhz\ =\ 433.92f;}
+\DoxyCodeLine{00194\ \ \ \ \ uint8\_t\ \_m4RxBw\ =\ 0;}
+\DoxyCodeLine{00195\ \ \ \ \ uint8\_t\ \_m4DaRa\ =\ 0;}
+\DoxyCodeLine{00196\ \ \ \ \ uint8\_t\ \_m2DCOFF\ =\ 0;}
+\DoxyCodeLine{00197\ \ \ \ \ uint8\_t\ \_m2MODFM\ =\ 0;}
+\DoxyCodeLine{00198\ \ \ \ \ uint8\_t\ \_m2MANCH\ =\ 0;}
+\DoxyCodeLine{00199\ \ \ \ \ uint8\_t\ \_m2SYNCM\ =\ 0;}
+\DoxyCodeLine{00200\ \ \ \ \ uint8\_t\ \_m1FEC\ =\ 0;}
+\DoxyCodeLine{00201\ \ \ \ \ uint8\_t\ \_m1PRE\ =\ 0;}
+\DoxyCodeLine{00202\ \ \ \ \ uint8\_t\ \_m1CHSP\ =\ 0;}
+\DoxyCodeLine{00203\ \ \ \ \ uint8\_t\ \_pc1PQT\ =\ 0;}
+\DoxyCodeLine{00204\ \ \ \ \ uint8\_t\ \_pc1CRC\_AF\ =\ 0;}
+\DoxyCodeLine{00205\ \ \ \ \ uint8\_t\ \_pc1APP\_ST\ =\ 0;}
+\DoxyCodeLine{00206\ \ \ \ \ uint8\_t\ \_pc1ADRCHK\ =\ 0;}
+\DoxyCodeLine{00207\ \ \ \ \ uint8\_t\ \_pc0WDATA\ =\ 0;}
+\DoxyCodeLine{00208\ \ \ \ \ uint8\_t\ \_pc0PktForm\ =\ 0;}
+\DoxyCodeLine{00209\ \ \ \ \ uint8\_t\ \_pc0CRC\_EN\ =\ 0;}
+\DoxyCodeLine{00210\ \ \ \ \ uint8\_t\ \_pc0LenConf\ =\ 0;}
+\DoxyCodeLine{00211\ \ \ \ \ State\ \ \ \_trxstate\ =\ State::NONE;}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ std::array<std::array<uint8\_t,\ 10>,\ 4>\ PA\_TABLE\_CONST\ =}
+\DoxyCodeLine{00214\ \ \ \ \ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ std::array<uint8\_t,\ 10>\ \{\ 0x12,\ 0x0D,\ 0x1C,\ 0x34,\ 0x51,\ 0x85,\ 0xCB,\ 0xC2,\ 0xC2,\ 0xC2\ \},}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ std::array<uint8\_t,\ 10>\ \{\ 0x12,\ 0x0E,\ 0x1D,\ 0x34,\ 0x60,\ 0x84,\ 0xC8,\ 0xC0,\ 0xC0,\ 0xC0\ \},}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ std::array<uint8\_t,\ 10>\ \{\ 0x03,\ 0x17,\ 0x1D,\ 0x26,\ 0x37,\ 0x50,\ 0x86,\ 0xCD,\ 0xC5,\ 0xC0\ \},}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ std::array<uint8\_t,\ 10>\ \{\ 0x03,\ 0x0E,\ 0x1E,\ 0x27,\ 0x38,\ 0x8E,\ 0x84,\ 0xCC,\ 0xC3,\ 0xC0\ \}}
+\DoxyCodeLine{00219\ \ \ \ \ \};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ std::array<uint8\_t,\ 8>\ PA\_TABLE\ =\ \{0x00,\ 0xC0,\ 0x00,\ 0x00,\ 0x00,\ 0x00,\ 0x00,\ 0x00\};}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ std::array<CalibrateValues,\ 4>\ CLB\ =\ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ CalibrateValues\ \{\ 322.88f,\ 300,\ 348,\ 24,\ 28\ \},}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ CalibrateValues\ \{\ 430.50f,\ 378,\ 464,\ 31,\ 38\ \},}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ CalibrateValues\ \{\ 861.00f,\ 779,\ 900,\ 65,\ 77\ \},}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ CalibrateValues\ \{\ \ \ 0.00f,\ 900,\ 928,\ 77,\ 79\ \}}
+\DoxyCodeLine{00228\ \ \ \ \ \};}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ std::array<RegisterData,\ 0x2F>\ \_registers\ =\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_IOCFG2\ \ \ \},}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_IOCFG1\ \ \ \},}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_IOCFG0\ \ \ \},}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_FIFOTHR\ \ \},}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_SYNC1\ \ \ \ \},}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_SYNC0\ \ \ \ \},}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_PKTLEN\ \ \ \},}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_PKTCTRL1\ \},}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_PKTCTRL0\ \},}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_ADDR\ \ \ \ \ \},}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_CHANNR\ \ \ \},}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_FSCTRL1\ \ \},}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_FSCTRL0\ \ \},}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_FREQ2\ \ \ \ \},}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_FREQ1\ \ \ \ \},}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_FREQ0\ \ \ \ \},}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_MDMCFG4\ \ \},}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_MDMCFG3\ \ \},}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_MDMCFG2\ \ \},}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_MDMCFG1\ \ \},}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_MDMCFG0\ \ \},}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_DEVIATN\ \ \},}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_MCSM2\ \ \ \ \},}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_MCSM1\ \ \ \ \},}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_MCSM0\ \ \ \ \},}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_FOCCFG\ \ \ \},}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_BSCFG\ \ \ \ \},}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_AGCCTRL2\ \},}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_AGCCTRL1\ \},}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_AGCCTRL0\ \},}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_WOREVT1\ \ \},}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_WOREVT0\ \ \},}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_WORCTRL\ \ \},}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_FREND1\ \ \ \},}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_FREND0\ \ \ \},}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_FSCAL3\ \ \ \},}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_FSCAL2\ \ \ \},}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_FSCAL1\ \ \ \},}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_FSCAL0\ \ \ \},}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_RCCTRL1\ \ \},}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_RCCTRL0\ \ \},}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_FSTEST\ \ \ \},}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_PTEST\ \ \ \ \},}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_AGCTEST\ \ \},}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_TEST2\ \ \ \ \},}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_TEST1\ \ \ \ \},}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ RegisterData\ \{\ CC1101\_TEST0\ \ \ \ \}}
+\DoxyCodeLine{00278\ \ \ \ \ \};}
+\DoxyCodeLine{00279\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ await(uint8\_t\ len)\ =\ 0;}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordtype}{void}\ start()\ \{\ \}}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordtype}{void}\ end()\ \{\ \_scl.reset();\ \}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordtype}{void}\ select()\textcolor{keyword}{\ const\ }\{\ \_reset.reset();\ \}}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordtype}{void}\ deSelect()\textcolor{keyword}{\ const\ }\{\ \_reset.set();\ \}}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{keywordtype}{void}\ sendRegister(RegisterData\&\ reg);}
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordtype}{void}\ sendRegister(uint8\_t\ reg,\ uint8\_t\ value);}
+\DoxyCodeLine{00291\ \ \ \ \ uint8\_t\ readRegister(RegisterData\&\ reg);}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keywordtype}{void}\ setRegister(ConfigRegisterMap\ reg,\ uint8\_t\ value)}
+\DoxyCodeLine{00295\ \ \ \ \ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \_registers[(uint8\_t)reg].set(value);}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ sendRegister(\_registers[(uint8\_t)reg]);}
+\DoxyCodeLine{00298\ \ \ \ \ \}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ \ \ uint8\_t\ readRegister(ConfigRegisterMap\ reg)}
+\DoxyCodeLine{00301\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ readRegister(\_registers[(uint8\_t)reg]);\ \}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordtype}{void}\ setStrobe(StrobeCommand\ command,\ uint8\_t\ initSpi\ =\ 1);}
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordtype}{void}\ setBurstReg(uint8\_t\ reg,\ \textcolor{keyword}{const}\ uint8\_t*\ data,\ uint8\_t\ len);}
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordtype}{void}\ readBurstReg(uint8\_t\ reg,\ uint8\_t*\ data,\ uint8\_t\ len);}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \ \ \ \ uint8\_t\ readStatus(uint8\_t\ reg);}
+\DoxyCodeLine{00308\ \ \ \ \ uint8\_t\ readStatus(StatusRegister\ reg)}
+\DoxyCodeLine{00309\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ readStatus((uint8\_t)reg);\ \}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \ \ uint8\_t\ readStatus(ConfigRegisterMap\ reg)}
+\DoxyCodeLine{00312\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ readStatus((uint8\_t)reg);\ \}}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordtype}{void}\ calibrate();}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keywordtype}{void}\ setDefualtSettings();}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ uint8\_t\ getMHzCase()}
+\DoxyCodeLine{00319\ \ \ \ \ \{}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_mhz\ >=\ 300.00f\ \&\&\ \_mhz\ <=\ 348.00f)\ \{\ \textcolor{keywordflow}{return}\ 0;\ \}}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_mhz\ >=\ 378.00f\ \&\&\ \_mhz\ <=\ 464.00f)\ \{\ \textcolor{keywordflow}{return}\ 1;\ \}}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_mhz\ >=\ 779.00f\ \&\&\ \_mhz\ <\ \ 900.00f)\ \{\ \textcolor{keywordflow}{return}\ 2;\ \}}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_mhz\ >=\ 900.00f\ \&\&\ \_mhz\ <=\ 928.00f)\ \{\ \textcolor{keywordflow}{return}\ 3;\ \}}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00325\ \ \ \ \ \}}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{comment}{//\ TODO\ @Goldfor\ для\ соответствия\ стандартным\ названиям\ может\ переименовать\ scl\ в\ sck?}}
+\DoxyCodeLine{00338\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_aa6f513ab3e24211756505055565d7de8}{CC1101}}(}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_s_p_i}{intefaces::SPI}}\ \&spi,}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&scl,}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&mosi,}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&miso,}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&reset}
+\DoxyCodeLine{00344\ \ \ \ \ ):\ \_spi(spi),\ \_scl(scl),\ \_mosi(mosi),\ \_miso(miso),\ \ \_reset(reset)}
+\DoxyCodeLine{00345\ \ \ \ \ \{\ \}}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_a1491c4d3833f3cfd2ce97e019064f8da}{Init}}();}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_ab96bc2a7664531b796090cb1397e7506}{setChannel}}(uint8\_t\ ch);}
+\DoxyCodeLine{00359\ \ \ \ \ }
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_a63fd6892fcd1b8a1b04b3cfbc387cb35}{setPacketLength}}(uint8\_t\ v);}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_a5ab8e87f6c3b1a1fddcf0d7ff05f77a4}{setCCMode}}(uint8\_t\ ccmode);}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_aedac5916dbd33a1b731ea0ec414956e7}{setModulation}}(uint8\_t\ modulation);}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \ \ \ \ \textcolor{comment}{//TODO\ @Goldfor\ Надо\ Дописать\ документацию\ для\ всего\ недостающего}}
+\DoxyCodeLine{00382\ \ \ \ \ \textcolor{keywordtype}{void}\ setPA(\textcolor{keywordtype}{int}\ p);}
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordtype}{void}\ setMHZ(\textcolor{keywordtype}{float}\ mhz);}
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keywordtype}{void}\ setClb(uint8\_t\ b,\ uint8\_t\ s,\ uint8\_t\ e);}
+\DoxyCodeLine{00385\ \ \ \ \ uint8\_t\ getCC1101();}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ State\ getMode()\ \{\ \textcolor{keywordflow}{return}\ \_trxstate;\ \}}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordtype}{void}\ setSyncWord(uint8\_t\ sh,\ uint8\_t\ sl);}
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keywordtype}{void}\ setAddr(uint8\_t\ v);}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{comment}{//\ PKTCTRL1}}
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordtype}{void}\ setPQT(uint8\_t\ v);}
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordtype}{void}\ setCRC\_AF(uint8\_t\ v);}
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keywordtype}{void}\ setAppendStatus(uint8\_t\ v);}
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keywordtype}{void}\ setAdrChk(uint8\_t\ v);}
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{comment}{//\ PKTCTRL0}}
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keywordtype}{void}\ setWhiteData(uint8\_t\ v);}
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordtype}{void}\ setPktFormat(uint8\_t\ v);}
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keywordtype}{void}\ setCrc(uint8\_t\ v);}
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordtype}{void}\ setLengthConfig(uint8\_t\ v);}
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{comment}{//\ MDMCFG4}}
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keywordtype}{void}\ setRxBW(\textcolor{keywordtype}{float}\ f);}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{comment}{//\ MDMCFG4\ +\ MDMCFG3}}
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setDRate(\textcolor{keywordtype}{float}\ kD);}
+\DoxyCodeLine{00405\ \ \ \ \ \textcolor{comment}{//\ MDMCFG2}}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordtype}{void}\ setDcFilterOff(uint8\_t\ v);}
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keywordtype}{void}\ setManchester(uint8\_t\ v);}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordtype}{void}\ setSyncMode(uint8\_t\ v);}
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{comment}{//\ MDMCFG1}}
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keywordtype}{void}\ setFEC(uint8\_t\ v);}
+\DoxyCodeLine{00411\ \ \ \ \ \textcolor{keywordtype}{void}\ setPRE(uint8\_t\ v);}
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{comment}{//\ MDMCFG1\ +\ MDMCFG0}}
+\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keywordtype}{void}\ setChsp(\textcolor{keywordtype}{float}\ f);}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ \ \ \ \ \textcolor{keywordtype}{void}\ setDeviation(\textcolor{keywordtype}{float}\ d);}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_PKTCTRL1();}
+\DoxyCodeLine{00418\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_PKTCTRL0();}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_MDMCFG4();}
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_MDMCFG2();}
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keywordtype}{void}\ Split\_MDMCFG1();}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordtype}{void}\ SetTx();}
+\DoxyCodeLine{00425\ \ \ \ \ \textcolor{keywordtype}{void}\ SetRx();}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keywordtype}{void}\ SetTx(\textcolor{keywordtype}{float}\ mhz);}
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keywordtype}{void}\ SetRx(\textcolor{keywordtype}{float}\ mhz);}
+\DoxyCodeLine{00429\ }
+\DoxyCodeLine{00430\ \ \ \ \ \textcolor{keywordtype}{int}\ getRssi();}
+\DoxyCodeLine{00431\ \ \ \ \ uint8\_t\ getLqi();}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordtype}{void}\ setSres();}
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordtype}{void}\ setSidle();}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keywordtype}{void}\ goSleep();}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \ \ \ \ \textcolor{keywordtype}{void}\ SendData(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *txchar);}
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keywordtype}{void}\ SendData(uint8\_t\ *txBuffer,\ uint8\_t\ size);}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00440\ \ \ \ \ uint8\_t\ CheckCRC();}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ \};}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_with_delay}{CC1101WithDelay}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101}{CC1101}}}
+\DoxyCodeLine{00445\ \{}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ getTimeoutK(\textcolor{keywordtype}{float}\ kD)}
+\DoxyCodeLine{00448\ \ \ \ \ \{}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (1.66f\ +\ 0.6f\ *\ (log10f(kD)\ +\ 3))\ /\ kD;}
+\DoxyCodeLine{00450\ \ \ \ \ \}}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00452\ \ \ \ \ \textcolor{keywordtype}{float}\ timeoutK\ =\ getTimeoutK(99.97f);}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00455\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_with_delay}{CC1101WithDelay}}(}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_s_p_i}{intefaces::SPI}}\ \&spi,}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&scl,}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&mosi,}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&miso,}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&reset}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ ):\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_aa6f513ab3e24211756505055565d7de8}{CC1101}}(spi,\ scl,\ mosi,\ miso,\ reset)\ \{\ \}}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keywordtype}{void}\ await(uint8\_t\ len)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00464\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ uint32\_t\ timeout\ =\ ceilf((\textcolor{keywordtype}{float})len\ *\ timeoutK\ *\ 8);}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ HAL\_Delay(timeout);}
+\DoxyCodeLine{00467\ \ \ \ \ \}}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00469\ \ \ \ \ \textcolor{keywordtype}{void}\ setDRate(\textcolor{keywordtype}{float}\ kD)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00470\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ CC1101::setDRate(kD);}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ timeoutK\ =\ getTimeoutK(kD);}
+\DoxyCodeLine{00473\ \ \ \ \ \};}
+\DoxyCodeLine{00474\ \};}
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00476\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_with_g_d0}{CC1101WithGD0}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101}{CC1101}}}
+\DoxyCodeLine{00477\ \{}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&\_gd0;}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00481\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00482\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_with_g_d0}{CC1101WithGD0}}(}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_s_p_i}{intefaces::SPI}}\ \&spi,}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&scl,}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&mosi,}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&miso,}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&reset,}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces::GPIO}}\ \&gd0}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ ):\ \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_aa6f513ab3e24211756505055565d7de8}{CC1101}}(spi,\ scl,\ mosi,\ miso,\ reset),\ \_gd0(gd0)\ \{\ \}}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \ \ \ \ \textcolor{keywordtype}{void}\ await(uint8\_t\ len)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00492\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ logText(\textcolor{stringliteral}{"{}wait\ set\(\backslash\)n"{}});}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \_gd0.waitSet();}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ logText(\textcolor{stringliteral}{"{}wait\ reset\(\backslash\)n"{}});}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \_gd0.waitReset();}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ HAL\_Delay(10);}
+\DoxyCodeLine{00498\ \ \ \ \ \}}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \};}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00502\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00504\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CC1101\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

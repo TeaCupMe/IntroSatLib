@@ -1,0 +1,1356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IntroSatLib: Шаблон класса IntroSatLib::Quaternion&lt; T &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">IntroSatLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="class_intro_sat_lib_1_1_quaternion-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Шаблон класса IntroSatLib::Quaternion&lt; T &gt;</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_quaternion_8h_source.html">Quaternion.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a2a22c5d6bacfdc0c18de6353bbcd97d6" id="r_a2a22c5d6bacfdc0c18de6353bbcd97d6"><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a22c5d6bacfdc0c18de6353bbcd97d6">value_type</a></td></tr>
+<tr class="separator:a2a22c5d6bacfdc0c18de6353bbcd97d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ac1cb942740d19d5462ce927670649267" id="r_ac1cb942740d19d5462ce927670649267"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1cb942740d19d5462ce927670649267">Quaternion</a> (T <a class="el" href="#a20b8f459211141c7bacafb0598387d81">a</a>=0, T b=0, T c=0, T d=0)</td></tr>
+<tr class="separator:ac1cb942740d19d5462ce927670649267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26c0f2ea76926fc0b3f402733c700636" id="r_a26c0f2ea76926fc0b3f402733c700636"><td class="memTemplParams" colspan="2">template&lt;typename T1 , IS_CONVERTIBLE(T1, T) &gt; </td></tr>
+<tr class="memitem:a26c0f2ea76926fc0b3f402733c700636"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a26c0f2ea76926fc0b3f402733c700636">Quaternion</a> (T1 <a class="el" href="#a20b8f459211141c7bacafb0598387d81">a</a>=0, T1 b=0, T1 c=0, T1 d=0)</td></tr>
+<tr class="separator:a26c0f2ea76926fc0b3f402733c700636"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9ba7b257d85534ef52847dd44a31fbb" id="r_ab9ba7b257d85534ef52847dd44a31fbb"><td class="memTemplParams" colspan="2">template&lt;typename T1 &gt; </td></tr>
+<tr class="memitem:ab9ba7b257d85534ef52847dd44a31fbb"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab9ba7b257d85534ef52847dd44a31fbb">Quaternion</a> (const std::complex&lt; T1 &gt; &amp;x, const std::complex&lt; T1 &gt; &amp;y=std::complex&lt; T1 &gt;(0, 0))</td></tr>
+<tr class="separator:ab9ba7b257d85534ef52847dd44a31fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23a6b80921e5176361b09bac916b6fac" id="r_a23a6b80921e5176361b09bac916b6fac"><td class="memTemplParams" colspan="2">template&lt;typename It , IS_ITERATOR(It) &gt; </td></tr>
+<tr class="memitem:a23a6b80921e5176361b09bac916b6fac"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a23a6b80921e5176361b09bac916b6fac">Quaternion</a> (It it)</td></tr>
+<tr class="separator:a23a6b80921e5176361b09bac916b6fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5b4e370d51677626bd86c55c80295c6" id="r_af5b4e370d51677626bd86c55c80295c6"><td class="memTemplParams" colspan="2">template&lt;typename T1 &gt; </td></tr>
+<tr class="memitem:af5b4e370d51677626bd86c55c80295c6"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af5b4e370d51677626bd86c55c80295c6">Quaternion</a> (const <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&lt; T1 &gt; &amp;y)</td></tr>
+<tr class="separator:af5b4e370d51677626bd86c55c80295c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07644b6645eefebbb62f21ba85e5af8f" id="r_a07644b6645eefebbb62f21ba85e5af8f"><td class="memTemplParams" colspan="2">template&lt;typename T1 &gt; </td></tr>
+<tr class="memitem:a07644b6645eefebbb62f21ba85e5af8f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a07644b6645eefebbb62f21ba85e5af8f">operator=</a> (const <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&lt; T1 &gt; &amp;other)</td></tr>
+<tr class="separator:a07644b6645eefebbb62f21ba85e5af8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20b8f459211141c7bacafb0598387d81" id="r_a20b8f459211141c7bacafb0598387d81"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20b8f459211141c7bacafb0598387d81">a</a> () const</td></tr>
+<tr class="separator:a20b8f459211141c7bacafb0598387d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83c1f3da88c64870ef428a863cc82855" id="r_a83c1f3da88c64870ef428a863cc82855"><td class="memItemLeft" align="right" valign="top"><a id="a83c1f3da88c64870ef428a863cc82855" name="a83c1f3da88c64870ef428a863cc82855"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>b</b> () const</td></tr>
+<tr class="separator:a83c1f3da88c64870ef428a863cc82855"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d389eb3612ed58d8a5f55702d3c1ef7" id="r_a6d389eb3612ed58d8a5f55702d3c1ef7"><td class="memItemLeft" align="right" valign="top"><a id="a6d389eb3612ed58d8a5f55702d3c1ef7" name="a6d389eb3612ed58d8a5f55702d3c1ef7"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>c</b> () const</td></tr>
+<tr class="separator:a6d389eb3612ed58d8a5f55702d3c1ef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab581718cdbb626c9bbcb55fd6ea5fece" id="r_ab581718cdbb626c9bbcb55fd6ea5fece"><td class="memItemLeft" align="right" valign="top"><a id="ab581718cdbb626c9bbcb55fd6ea5fece" name="ab581718cdbb626c9bbcb55fd6ea5fece"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>d</b> () const</td></tr>
+<tr class="separator:ab581718cdbb626c9bbcb55fd6ea5fece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d104f7674162ec98c184a4a2aff8584" id="r_a1d104f7674162ec98c184a4a2aff8584"><td class="memItemLeft" align="right" valign="top">std::complex&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d104f7674162ec98c184a4a2aff8584">c1</a> () const</td></tr>
+<tr class="separator:a1d104f7674162ec98c184a4a2aff8584"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9294983283a665291cf4a36d1e9f980" id="r_ab9294983283a665291cf4a36d1e9f980"><td class="memItemLeft" align="right" valign="top"><a id="ab9294983283a665291cf4a36d1e9f980" name="ab9294983283a665291cf4a36d1e9f980"></a>
+std::complex&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>c2</b> () const</td></tr>
+<tr class="separator:ab9294983283a665291cf4a36d1e9f980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af17e6ee80f3dc8dd7bd5c9d193c64025" id="r_af17e6ee80f3dc8dd7bd5c9d193c64025"><td class="memItemLeft" align="right" valign="top">std::array&lt; T, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af17e6ee80f3dc8dd7bd5c9d193c64025">to_array</a> () const</td></tr>
+<tr class="separator:af17e6ee80f3dc8dd7bd5c9d193c64025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68b92d21aafd9fc7f38c704fbd4416f4" id="r_a68b92d21aafd9fc7f38c704fbd4416f4"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68b92d21aafd9fc7f38c704fbd4416f4">real</a> () const</td></tr>
+<tr class="separator:a68b92d21aafd9fc7f38c704fbd4416f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbcc8d856b30c6ccbd8a4688ede6cbb6" id="r_abbcc8d856b30c6ccbd8a4688ede6cbb6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbcc8d856b30c6ccbd8a4688ede6cbb6">unreal</a> () const</td></tr>
+<tr class="separator:abbcc8d856b30c6ccbd8a4688ede6cbb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f53667772c7a87536db7cc736e60f84" id="r_a1f53667772c7a87536db7cc736e60f84"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f53667772c7a87536db7cc736e60f84">norm_squared</a> () const</td></tr>
+<tr class="separator:a1f53667772c7a87536db7cc736e60f84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a642406a575fb7e1dd55ad8b33e68146b" id="r_a642406a575fb7e1dd55ad8b33e68146b"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a642406a575fb7e1dd55ad8b33e68146b">abs</a> () const</td></tr>
+<tr class="separator:a642406a575fb7e1dd55ad8b33e68146b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6442ffe1e05b7b4af6aee48471b27dc" id="r_af6442ffe1e05b7b4af6aee48471b27dc"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6442ffe1e05b7b4af6aee48471b27dc">unreal_norm_squared</a> () const</td></tr>
+<tr class="separator:af6442ffe1e05b7b4af6aee48471b27dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8d29edf533375c957d35becbef14186" id="r_ac8d29edf533375c957d35becbef14186"><td class="memTemplParams" colspan="2">template&lt;typename T1  = T&gt; </td></tr>
+<tr class="memitem:ac8d29edf533375c957d35becbef14186"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac8d29edf533375c957d35becbef14186">is_zero</a> (T1 eps=0) const</td></tr>
+<tr class="separator:ac8d29edf533375c957d35becbef14186"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89266579f5716cf304fcaac90ee51e1d" id="r_a89266579f5716cf304fcaac90ee51e1d"><td class="memTemplParams" colspan="2">template&lt;typename T1  = T&gt; </td></tr>
+<tr class="memitem:a89266579f5716cf304fcaac90ee51e1d"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a89266579f5716cf304fcaac90ee51e1d">is_non_zero</a> (T1 eps=0) const</td></tr>
+<tr class="separator:a89266579f5716cf304fcaac90ee51e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3a0fd98a213c99446cf435016b552ed" id="r_ad3a0fd98a213c99446cf435016b552ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3a0fd98a213c99446cf435016b552ed">is_nan</a> () const</td></tr>
+<tr class="separator:ad3a0fd98a213c99446cf435016b552ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a966d262c6bcf2b6e58d512d67cb6c666" id="r_a966d262c6bcf2b6e58d512d67cb6c666"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a966d262c6bcf2b6e58d512d67cb6c666">is_inf</a> () const</td></tr>
+<tr class="separator:a966d262c6bcf2b6e58d512d67cb6c666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1dcc67b0745dcec88e6458989504151" id="r_af1dcc67b0745dcec88e6458989504151"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1dcc67b0745dcec88e6458989504151">is_finite</a> () const</td></tr>
+<tr class="separator:af1dcc67b0745dcec88e6458989504151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0505ace56d6a3991c2059676d1671123" id="r_a0505ace56d6a3991c2059676d1671123"><td class="memTemplParams" colspan="2">template&lt;typename T1  = T&gt; </td></tr>
+<tr class="memitem:a0505ace56d6a3991c2059676d1671123"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0505ace56d6a3991c2059676d1671123">is_unit</a> (T1 eps=0) const</td></tr>
+<tr class="separator:a0505ace56d6a3991c2059676d1671123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8bdbdab62a86de6d0a623b14eb93a6d" id="r_aa8bdbdab62a86de6d0a623b14eb93a6d"><td class="memTemplParams" colspan="2">template&lt;typename T1  = T&gt; </td></tr>
+<tr class="memitem:aa8bdbdab62a86de6d0a623b14eb93a6d"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa8bdbdab62a86de6d0a623b14eb93a6d">is_real</a> (T1 eps=0) const</td></tr>
+<tr class="separator:aa8bdbdab62a86de6d0a623b14eb93a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a395e7b495b9e59a46302b198678c65c6" id="r_a395e7b495b9e59a46302b198678c65c6"><td class="memTemplParams" colspan="2">template&lt;typename T1  = T&gt; </td></tr>
+<tr class="memitem:a395e7b495b9e59a46302b198678c65c6"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a395e7b495b9e59a46302b198678c65c6">is_complex</a> (T1 eps=0) const</td></tr>
+<tr class="separator:a395e7b495b9e59a46302b198678c65c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc29b6e5ec84cf4ad8448314510cddda" id="r_afc29b6e5ec84cf4ad8448314510cddda"><td class="memTemplParams" colspan="2">template&lt;typename T1  = T&gt; </td></tr>
+<tr class="memitem:afc29b6e5ec84cf4ad8448314510cddda"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#afc29b6e5ec84cf4ad8448314510cddda">is_unreal</a> (T1 eps=0) const</td></tr>
+<tr class="separator:afc29b6e5ec84cf4ad8448314510cddda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f7fa60222d6e935c677dfad883dd855" id="r_a5f7fa60222d6e935c677dfad883dd855"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f7fa60222d6e935c677dfad883dd855">operator+</a> () const</td></tr>
+<tr class="separator:a5f7fa60222d6e935c677dfad883dd855"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d316a1d784b0a027e92d906326ef939" id="r_a1d316a1d784b0a027e92d906326ef939"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d316a1d784b0a027e92d906326ef939">operator-</a> () const</td></tr>
+<tr class="separator:a1d316a1d784b0a027e92d906326ef939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af779304937e5d8b2a2b5f3223e369e6e" id="r_af779304937e5d8b2a2b5f3223e369e6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af779304937e5d8b2a2b5f3223e369e6e">operator+=</a> (T y)</td></tr>
+<tr class="separator:af779304937e5d8b2a2b5f3223e369e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a5eeb4576834ac9749c4910a29c703b" id="r_a3a5eeb4576834ac9749c4910a29c703b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a5eeb4576834ac9749c4910a29c703b">operator-=</a> (T y)</td></tr>
+<tr class="separator:a3a5eeb4576834ac9749c4910a29c703b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46f221f6482764b60c3e1845b3d753c4" id="r_a46f221f6482764b60c3e1845b3d753c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46f221f6482764b60c3e1845b3d753c4">operator*=</a> (T k)</td></tr>
+<tr class="separator:a46f221f6482764b60c3e1845b3d753c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26252d95cce2fbb1917416536f25e302" id="r_a26252d95cce2fbb1917416536f25e302"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26252d95cce2fbb1917416536f25e302">operator/=</a> (T k)</td></tr>
+<tr class="separator:a26252d95cce2fbb1917416536f25e302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79c932524f9b17e3d4805d1cabda425a" id="r_a79c932524f9b17e3d4805d1cabda425a"><td class="memTemplParams" colspan="2">template&lt;typename T1 &gt; </td></tr>
+<tr class="memitem:a79c932524f9b17e3d4805d1cabda425a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a79c932524f9b17e3d4805d1cabda425a">operator+=</a> (const std::complex&lt; T1 &gt; &amp;y)</td></tr>
+<tr class="separator:a79c932524f9b17e3d4805d1cabda425a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a351ea6f86f347b2aaf797d082104022b" id="r_a351ea6f86f347b2aaf797d082104022b"><td class="memTemplParams" colspan="2">template&lt;typename T1 &gt; </td></tr>
+<tr class="memitem:a351ea6f86f347b2aaf797d082104022b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a351ea6f86f347b2aaf797d082104022b">operator-=</a> (const std::complex&lt; T1 &gt; &amp;y)</td></tr>
+<tr class="separator:a351ea6f86f347b2aaf797d082104022b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc204bc78aef365c122a6d0bddcb8e11" id="r_adc204bc78aef365c122a6d0bddcb8e11"><td class="memTemplParams" colspan="2">template&lt;typename T1 &gt; </td></tr>
+<tr class="memitem:adc204bc78aef365c122a6d0bddcb8e11"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#adc204bc78aef365c122a6d0bddcb8e11">operator*=</a> (const std::complex&lt; T1 &gt; &amp;y)</td></tr>
+<tr class="separator:adc204bc78aef365c122a6d0bddcb8e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cd226fe19ee5c4b9093074e51d1a477" id="r_a8cd226fe19ee5c4b9093074e51d1a477"><td class="memTemplParams" colspan="2">template&lt;typename T1 &gt; </td></tr>
+<tr class="memitem:a8cd226fe19ee5c4b9093074e51d1a477"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a8cd226fe19ee5c4b9093074e51d1a477">operator/=</a> (const std::complex&lt; T1 &gt; &amp;y)</td></tr>
+<tr class="separator:a8cd226fe19ee5c4b9093074e51d1a477"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b3a445cf390dfc29915bdbebdaa0419" id="r_a5b3a445cf390dfc29915bdbebdaa0419"><td class="memTemplParams" colspan="2">template&lt;typename T1 &gt; </td></tr>
+<tr class="memitem:a5b3a445cf390dfc29915bdbebdaa0419"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5b3a445cf390dfc29915bdbebdaa0419">operator+=</a> (const <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&lt; T1 &gt; &amp;y)</td></tr>
+<tr class="separator:a5b3a445cf390dfc29915bdbebdaa0419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a00415186450b20bed8d25821d270da" id="r_a1a00415186450b20bed8d25821d270da"><td class="memTemplParams" colspan="2">template&lt;typename T1 &gt; </td></tr>
+<tr class="memitem:a1a00415186450b20bed8d25821d270da"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1a00415186450b20bed8d25821d270da">operator-=</a> (const <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&lt; T1 &gt; &amp;y)</td></tr>
+<tr class="separator:a1a00415186450b20bed8d25821d270da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3bf07a853b7135a1ad72ceabcb4d209" id="r_af3bf07a853b7135a1ad72ceabcb4d209"><td class="memTemplParams" colspan="2">template&lt;typename T1 &gt; </td></tr>
+<tr class="memitem:af3bf07a853b7135a1ad72ceabcb4d209"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af3bf07a853b7135a1ad72ceabcb4d209">operator*=</a> (const <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&lt; T1 &gt; &amp;y)</td></tr>
+<tr class="separator:af3bf07a853b7135a1ad72ceabcb4d209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a19be2f7471223a998c6909fae051d7" id="r_a1a19be2f7471223a998c6909fae051d7"><td class="memTemplParams" colspan="2">template&lt;typename T1 &gt; </td></tr>
+<tr class="memitem:a1a19be2f7471223a998c6909fae051d7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1a19be2f7471223a998c6909fae051d7">operator/=</a> (const <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&lt; T1 &gt; &amp;y)</td></tr>
+<tr class="separator:a1a19be2f7471223a998c6909fae051d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T = float&gt;<br />
+class IntroSatLib::Quaternion&lt; T &gt;</div><p>A <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> class. TODO: quaternion logo TODO: IEEE 754/IEC 559? TODO: remove IS_CONVERTIBLE in favor std::common_type TODO: arc-trans, rounding, rotate vector, slerp, fitting, maybe separate Euler </p>
+</div><h2 class="groupheader">Определения типов</h2>
+<a id="a2a22c5d6bacfdc0c18de6353bbcd97d6" name="a2a22c5d6bacfdc0c18de6353bbcd97d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a22c5d6bacfdc0c18de6353bbcd97d6">&#9670;&#160;</a></span>value_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::value_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The type of each component of the 4 components of a <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>. See below for allowed types. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="ac1cb942740d19d5462ce927670649267" name="ac1cb942740d19d5462ce927670649267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1cb942740d19d5462ce927670649267">&#9670;&#160;</a></span>Quaternion() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::Quaternion </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>a</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>b</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>c</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>d</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For now, the types that we can handle are restricted, to make sure that we are not asked to handle a type that would lead to bugs (e.g. unsigned T when we have signed operations, or complex T). boost::rational is technically OK, and I verified in tests, but I don't want to depend on boost in this header, so we'll allow boost::rational if there is demand for it.</p>
+<p>WARNING: for bool and the integers, some operations won't compile right now, in particular the transcendental functions. Construct a <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> from at most 4 components of type T. Specifying only a != 0 makes the <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> a real. Specifying only a != and b != 0 makes the <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> an ordinary complex number. </p>
+
+</div>
+</div>
+<a id="a26c0f2ea76926fc0b3f402733c700636" name="a26c0f2ea76926fc0b3f402733c700636"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26c0f2ea76926fc0b3f402733c700636">&#9670;&#160;</a></span>Quaternion() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1 , IS_CONVERTIBLE(T1, T) &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::Quaternion </td>
+          <td>(</td>
+          <td class="paramtype">T1</td>          <td class="paramname"><span class="paramname"><em>a</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T1</td>          <td class="paramname"><span class="paramname"><em>b</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T1</td>          <td class="paramname"><span class="paramname"><em>c</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T1</td>          <td class="paramname"><span class="paramname"><em>d</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Construct a <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> from at most 4 components of type T1. Specifying only a != 0 makes the <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> a real. Specifying only a != and b != 0 makes the <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> an ordinary complex number. NOTE: IS_CONVERTIBLE to avoid ambiguity with constructor from iterator. </p>
+
+</div>
+</div>
+<a id="ab9ba7b257d85534ef52847dd44a31fbb" name="ab9ba7b257d85534ef52847dd44a31fbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9ba7b257d85534ef52847dd44a31fbb">&#9670;&#160;</a></span>Quaternion() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::Quaternion </td>
+          <td>(</td>
+          <td class="paramtype">const std::complex&lt; T1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::complex&lt; T1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::complex&lt;T1&gt;(0,&#160;0)</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Construct a <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> from 1 or 2 std::complex&lt;T&gt;. </p>
+
+</div>
+</div>
+<a id="a23a6b80921e5176361b09bac916b6fac" name="a23a6b80921e5176361b09bac916b6fac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23a6b80921e5176361b09bac916b6fac">&#9670;&#160;</a></span>Quaternion() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename It , IS_ITERATOR(It) &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::Quaternion </td>
+          <td>(</td>
+          <td class="paramtype">It</td>          <td class="paramname"><span class="paramname"><em>it</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Construct from an iterator to a range of 4 elements. The iterator is dereferenced exactly 4 times, and advanced (++) exactly 3 times. </p>
+
+</div>
+</div>
+<a id="af5b4e370d51677626bd86c55c80295c6" name="af5b4e370d51677626bd86c55c80295c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5b4e370d51677626bd86c55c80295c6">&#9670;&#160;</a></span>Quaternion() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::Quaternion </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&lt; T1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Copy constructor, from a <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> with another value type. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a20b8f459211141c7bacafb0598387d81" name="a20b8f459211141c7bacafb0598387d81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20b8f459211141c7bacafb0598387d81">&#9670;&#160;</a></span>a()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::a </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Accessors for all 4 components of the <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>. </p>
+
+</div>
+</div>
+<a id="a642406a575fb7e1dd55ad8b33e68146b" name="a642406a575fb7e1dd55ad8b33e68146b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a642406a575fb7e1dd55ad8b33e68146b">&#9670;&#160;</a></span>abs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::abs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The norm of the <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> (the l2 norm). </p>
+
+</div>
+</div>
+<a id="a1d104f7674162ec98c184a4a2aff8584" name="a1d104f7674162ec98c184a4a2aff8584"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d104f7674162ec98c184a4a2aff8584">&#9670;&#160;</a></span>c1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::complex&lt; T &gt; <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::c1 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The complex components of this <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>. </p>
+
+</div>
+</div>
+<a id="a395e7b495b9e59a46302b198678c65c6" name="a395e7b495b9e59a46302b198678c65c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a395e7b495b9e59a46302b198678c65c6">&#9670;&#160;</a></span>is_complex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::is_complex </td>
+          <td>(</td>
+          <td class="paramtype">T1</td>          <td class="paramname"><span class="paramname"><em>eps</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return true if this <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> is complex, false otherwise. </p>
+
+</div>
+</div>
+<a id="af1dcc67b0745dcec88e6458989504151" name="af1dcc67b0745dcec88e6458989504151"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1dcc67b0745dcec88e6458989504151">&#9670;&#160;</a></span>is_finite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::is_finite </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return true if all the components of this quaternion are finite, false otherwise. </p>
+
+</div>
+</div>
+<a id="a966d262c6bcf2b6e58d512d67cb6c666" name="a966d262c6bcf2b6e58d512d67cb6c666"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a966d262c6bcf2b6e58d512d67cb6c666">&#9670;&#160;</a></span>is_inf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::is_inf </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return true if any component of this quaternion is inf, false otherwise. </p>
+
+</div>
+</div>
+<a id="ad3a0fd98a213c99446cf435016b552ed" name="ad3a0fd98a213c99446cf435016b552ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3a0fd98a213c99446cf435016b552ed">&#9670;&#160;</a></span>is_nan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::is_nan </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return true if any component of this quaternion is nan, false otherwise. TODO: use "isnan" instead of "is_nan" to keep consistent? </p>
+
+</div>
+</div>
+<a id="a89266579f5716cf304fcaac90ee51e1d" name="a89266579f5716cf304fcaac90ee51e1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89266579f5716cf304fcaac90ee51e1d">&#9670;&#160;</a></span>is_non_zero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::is_non_zero </td>
+          <td>(</td>
+          <td class="paramtype">T1</td>          <td class="paramname"><span class="paramname"><em>eps</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return true if this <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> is not zero, false otherwise. </p>
+
+</div>
+</div>
+<a id="aa8bdbdab62a86de6d0a623b14eb93a6d" name="aa8bdbdab62a86de6d0a623b14eb93a6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8bdbdab62a86de6d0a623b14eb93a6d">&#9670;&#160;</a></span>is_real()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::is_real </td>
+          <td>(</td>
+          <td class="paramtype">T1</td>          <td class="paramname"><span class="paramname"><em>eps</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return true if this <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> is real, false otherwise. </p>
+
+</div>
+</div>
+<a id="a0505ace56d6a3991c2059676d1671123" name="a0505ace56d6a3991c2059676d1671123"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0505ace56d6a3991c2059676d1671123">&#9670;&#160;</a></span>is_unit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::is_unit </td>
+          <td>(</td>
+          <td class="paramtype">T1</td>          <td class="paramname"><span class="paramname"><em>eps</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return true if this <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> has norm 1, false otherwise. </p>
+
+</div>
+</div>
+<a id="afc29b6e5ec84cf4ad8448314510cddda" name="afc29b6e5ec84cf4ad8448314510cddda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc29b6e5ec84cf4ad8448314510cddda">&#9670;&#160;</a></span>is_unreal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::is_unreal </td>
+          <td>(</td>
+          <td class="paramtype">T1</td>          <td class="paramname"><span class="paramname"><em>eps</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return true if this <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> is real, false otherwise. </p>
+
+</div>
+</div>
+<a id="ac8d29edf533375c957d35becbef14186" name="ac8d29edf533375c957d35becbef14186"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8d29edf533375c957d35becbef14186">&#9670;&#160;</a></span>is_zero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::is_zero </td>
+          <td>(</td>
+          <td class="paramtype">T1</td>          <td class="paramname"><span class="paramname"><em>eps</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return true if this <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> is zero, false otherwise. </p>
+
+</div>
+</div>
+<a id="a1f53667772c7a87536db7cc736e60f84" name="a1f53667772c7a87536db7cc736e60f84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f53667772c7a87536db7cc736e60f84">&#9670;&#160;</a></span>norm_squared()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::norm_squared </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The square of the norm of the <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>. (The square is sometimes useful, and it avoids paying for a sqrt). </p>
+
+</div>
+</div>
+<a id="af3bf07a853b7135a1ad72ceabcb4d209" name="af3bf07a853b7135a1ad72ceabcb4d209"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3bf07a853b7135a1ad72ceabcb4d209">&#9670;&#160;</a></span>operator*=() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&lt; T1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unary multiplication. 28 operations </p>
+
+</div>
+</div>
+<a id="adc204bc78aef365c122a6d0bddcb8e11" name="adc204bc78aef365c122a6d0bddcb8e11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc204bc78aef365c122a6d0bddcb8e11">&#9670;&#160;</a></span>operator*=() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">const std::complex&lt; T1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unary *=. </p>
+
+</div>
+</div>
+<a id="a46f221f6482764b60c3e1845b3d753c4" name="a46f221f6482764b60c3e1845b3d753c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46f221f6482764b60c3e1845b3d753c4">&#9670;&#160;</a></span>operator*=() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>k</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Scaling by a constant. </p>
+
+</div>
+</div>
+<a id="a5f7fa60222d6e935c677dfad883dd855" name="a5f7fa60222d6e935c677dfad883dd855"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f7fa60222d6e935c677dfad883dd855">&#9670;&#160;</a></span>operator+()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator+ </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unary plus. </p>
+
+</div>
+</div>
+<a id="a5b3a445cf390dfc29915bdbebdaa0419" name="a5b3a445cf390dfc29915bdbebdaa0419"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b3a445cf390dfc29915bdbebdaa0419">&#9670;&#160;</a></span>operator+=() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&lt; T1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unary +=. </p>
+
+</div>
+</div>
+<a id="a79c932524f9b17e3d4805d1cabda425a" name="a79c932524f9b17e3d4805d1cabda425a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79c932524f9b17e3d4805d1cabda425a">&#9670;&#160;</a></span>operator+=() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const std::complex&lt; T1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unary +=. </p>
+
+</div>
+</div>
+<a id="af779304937e5d8b2a2b5f3223e369e6e" name="af779304937e5d8b2a2b5f3223e369e6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af779304937e5d8b2a2b5f3223e369e6e">&#9670;&#160;</a></span>operator+=() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>y</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unary +=. </p>
+
+</div>
+</div>
+<a id="a1d316a1d784b0a027e92d906326ef939" name="a1d316a1d784b0a027e92d906326ef939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d316a1d784b0a027e92d906326ef939">&#9670;&#160;</a></span>operator-()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator- </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unary minus. </p>
+
+</div>
+</div>
+<a id="a1a00415186450b20bed8d25821d270da" name="a1a00415186450b20bed8d25821d270da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a00415186450b20bed8d25821d270da">&#9670;&#160;</a></span>operator-=() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator-= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&lt; T1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unary -=. </p>
+
+</div>
+</div>
+<a id="a351ea6f86f347b2aaf797d082104022b" name="a351ea6f86f347b2aaf797d082104022b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a351ea6f86f347b2aaf797d082104022b">&#9670;&#160;</a></span>operator-=() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator-= </td>
+          <td>(</td>
+          <td class="paramtype">const std::complex&lt; T1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unary -=. </p>
+
+</div>
+</div>
+<a id="a3a5eeb4576834ac9749c4910a29c703b" name="a3a5eeb4576834ac9749c4910a29c703b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a5eeb4576834ac9749c4910a29c703b">&#9670;&#160;</a></span>operator-=() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator-= </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>y</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unary +=. </p>
+
+</div>
+</div>
+<a id="a1a19be2f7471223a998c6909fae051d7" name="a1a19be2f7471223a998c6909fae051d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a19be2f7471223a998c6909fae051d7">&#9670;&#160;</a></span>operator/=() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator/= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&lt; T1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unary division with other <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>.</p>
+<p>Warning: if the norm of y is zero, the result is 4 NaNs, but maybe it should be inf. </p>
+
+</div>
+</div>
+<a id="a8cd226fe19ee5c4b9093074e51d1a477" name="a8cd226fe19ee5c4b9093074e51d1a477"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cd226fe19ee5c4b9093074e51d1a477">&#9670;&#160;</a></span>operator/=() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator/= </td>
+          <td>(</td>
+          <td class="paramtype">const std::complex&lt; T1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unary /=. </p>
+
+</div>
+</div>
+<a id="a26252d95cce2fbb1917416536f25e302" name="a26252d95cce2fbb1917416536f25e302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26252d95cce2fbb1917416536f25e302">&#9670;&#160;</a></span>operator/=() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator/= </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>k</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Dividing by a constant. </p>
+
+</div>
+</div>
+<a id="a07644b6645eefebbb62f21ba85e5af8f" name="a07644b6645eefebbb62f21ba85e5af8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07644b6645eefebbb62f21ba85e5af8f">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename T1 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> &amp; <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>&lt; T1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Assignment operator, from a <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> with another value type. </p>
+
+</div>
+</div>
+<a id="a68b92d21aafd9fc7f38c704fbd4416f4" name="a68b92d21aafd9fc7f38c704fbd4416f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68b92d21aafd9fc7f38c704fbd4416f4">&#9670;&#160;</a></span>real()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::real </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The real part of this <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>. </p>
+
+</div>
+</div>
+<a id="af17e6ee80f3dc8dd7bd5c9d193c64025" name="af17e6ee80f3dc8dd7bd5c9d193c64025"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af17e6ee80f3dc8dd7bd5c9d193c64025">&#9670;&#160;</a></span>to_array()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt; T, 4 &gt; <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::to_array </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Ordered list form. </p>
+
+</div>
+</div>
+<a id="abbcc8d856b30c6ccbd8a4688ede6cbb6" name="abbcc8d856b30c6ccbd8a4688ede6cbb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbcc8d856b30c6ccbd8a4688ede6cbb6">&#9670;&#160;</a></span>unreal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::unreal </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The "unreal" part of this <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>, which is a <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a> itself. </p>
+
+</div>
+</div>
+<a id="af6442ffe1e05b7b4af6aee48471b27dc" name="af6442ffe1e05b7b4af6aee48471b27dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6442ffe1e05b7b4af6aee48471b27dc">&#9670;&#160;</a></span>unreal_norm_squared()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">IntroSatLib::Quaternion</a>&lt; T &gt;::unreal_norm_squared </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The L2 norm of the "unreal" components of the <a class="el" href="class_intro_sat_lib_1_1_quaternion.html">Quaternion</a>, comes back often in computations. </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>src/Quaternion/<a class="el" href="_quaternion_8h_source.html">Quaternion.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

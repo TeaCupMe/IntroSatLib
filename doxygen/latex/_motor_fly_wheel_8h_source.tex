@@ -1,0 +1,31 @@
+\doxysection{Motor\+Fly\+Wheel.\+h}
+\hypertarget{_motor_fly_wheel_8h_source}{}\label{_motor_fly_wheel_8h_source}\index{src/MotorFlyWheel.h@{src/MotorFlyWheel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MOTORFLYWHEEL\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MOTORFLYWHEEL\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}BaseFlyWheel.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_motor_fly_wheel}{MotorFlyWheel}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{BaseFlyWheel}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_motor_fly_wheel_a5beb7fb739686825aee9e26e337461e3}{MotorFlyWheel}}(I2C\_HandleTypeDef\ *hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_motor_fly_wheel_a5beb7fb739686825aee9e26e337461e3}{MotorFlyWheel}}(TwoWire\ \&hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_motor_fly_wheel_a5beb7fb739686825aee9e26e337461e3}{MotorFlyWheel}}(uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_motor_fly_wheel_a5beb7fb739686825aee9e26e337461e3}{MotorFlyWheel}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_motor_fly_wheel}{MotorFlyWheel}}\ \&other);}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_motor_fly_wheel_a5beb7fb739686825aee9e26e337461e3}{MotorFlyWheel}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_motor_fly_wheel}{MotorFlyWheel}}\ \&\&other);}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_motor_fly_wheel}{MotorFlyWheel}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_motor_fly_wheel}{MotorFlyWheel}}\ \&other);}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_motor_fly_wheel}{MotorFlyWheel}}\&\ operator=(\mbox{\hyperlink{class_intro_sat_lib_1_1_motor_fly_wheel}{MotorFlyWheel}}\ \&\&other);}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_motor_fly_wheel}{\string~MotorFlyWheel}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MOTORFLYWHEEL\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

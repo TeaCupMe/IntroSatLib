@@ -1,0 +1,63 @@
+\doxysection{GPIO.\+h}
+\hypertarget{_g_p_i_o_8h_source}{}\label{_g_p_i_o_8h_source}\index{src/interfaces/GPIO.h@{src/interfaces/GPIO.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INTERFACES\_GPIO\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INTERFACES\_GPIO\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifdef\ ARDUINO}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}Arduino.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}Wire.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#if\ \_\_has\_include\ ("{}stm32f4xx\_hal.h"{})}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f4xx\_hal.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \#if\ \_\_has\_include\ ("{}stm32f1xx\_hal.h"{})}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f1xx\_hal.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }intefaces\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{GPIO}}\ final\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ GPIO\_TypeDef*\ \_port\ =\ 0;}
+\DoxyCodeLine{00023\ \ \ \ \ uint16\_t\ \_pin\ =\ 0;}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{GPIO}}(GPIO\_TypeDef*\ port,\ uint16\_t\ pin):\ \_port(port),\ \_pin(pin)\ \{\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ uint8\_t\ read()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{\ \ \ \ }\{\ \textcolor{keywordflow}{return}\ HAL\_GPIO\_ReadPin(\_port,\ \_pin);\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ write(uint8\_t\ state)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00031\ \textcolor{keyword}{\ \ \ \ }\{\ HAL\_GPIO\_WritePin(\_port,\ \_pin,\ state\ >\ 0\ ?\ GPIO\_PIN\_SET\ :\ GPIO\_PIN\_RESET);\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ reset()\textcolor{keyword}{\ const\ }\{\ write(0);\ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ set()\textcolor{keyword}{\ const\ }\{\ write(1);\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ uint8\_t\ wait(uint8\_t\ state,\ uint16\_t\ timeout\ =\ 0xFFFF)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ state\ =\ !!state;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ uint32\_t\ firstTime\ =\ HAL\_GetTick();}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(read()\ !=\ state)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((HAL\_GetTick()\ -\/\ firstTime)\ >\ timeout)\ \{\ \textcolor{keywordflow}{return}\ 1;\ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ uint8\_t\ waitReset(uint16\_t\ timeout\ =\ 0xFFFF)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00048\ \textcolor{keyword}{\ \ \ \ }\{\ \textcolor{keywordflow}{return}\ wait(0,\ timeout);\ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ uint8\_t\ waitSet(uint16\_t\ timeout\ =\ 0xFFFF)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{\ \ \ \ }\{\ \textcolor{keywordflow}{return}\ wait(1,\ timeout);\ \}}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \}\ \textcolor{comment}{/*\ namespace\ intefaces\ */}}
+\DoxyCodeLine{00055\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INTERFACES\_GPIO\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

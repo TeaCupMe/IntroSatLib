@@ -1,0 +1,525 @@
+\doxysection{Класс Intro\+Sat\+Lib\+::Accelerometer\+V2}
+\hypertarget{class_intro_sat_lib_1_1_accelerometer_v2}{}\label{class_intro_sat_lib_1_1_accelerometer_v2}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+Граф наследования\+:Intro\+Sat\+Lib\+::Accelerometer\+V2\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_intro_sat_lib_1_1_accelerometer_v2}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}{Scale}} \{ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6faf865b46a57087bb80188ad48a807ad22}{twoG}} = 0
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6fa296d1cfd7d54d5ddbe71fa8b772a4d4e}{fourG}} = 2
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6fa4a84557e082d519a336ad86e72f7a2b3}{eightG}} = 3
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6fa8de6d2cbae99ba3b936ea8a75ac468ae}{sixteenG}} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em Диапазон измерения ускорения \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835}{Filter\+Bandwidth}} \{ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835a2e5bec24269ac51d9cb73ee5fcc2f82d}{F400H}} = 0
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835ab68b35f970d9237adcabb0977dd6f2c9}{F200H}} = 1
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835a96ebe41795a6728552a8a0be56598e08}{F100H}} = 2
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835a5ad7490d75f72eeaa09ac3a7e765b17a}{F050H}} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em Частота внутреннего фильтра измерения ускорения \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5}{Data\+Rate}} \{ \newline
+\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5a6c76cb64f3d128e888f3585e6551aba5}{DR12\+\_\+5H}} = 1
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5a8703e148a292eccf6d084927a7f55e3b}{DR26H}} = 2
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5a1e40aa01d9cd66c448358a04114f0ba6}{DR52H}} = 3
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5ac85241d7e0e33c88baaa8e440b2de113}{DR104H}} = 4
+, \newline
+\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5ac12117c58700047677b1b1d36baa1405}{DR208H}} = 5
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5a9e2899af69a7dae7bd19ca4fcf86318a}{DR416H}} = 6
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5aa193b0081c6f95911e16987c68766de1}{DR833H}} = 7
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5ac6396ef9eb3fc0f1ead5d007b5561fab}{DR1\+\_\+66\+KH}} = 8
+, \newline
+\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5a413292da15452a8b0be826d6d453c7bc}{DR3\+\_\+33\+KH}} = 9
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5a5cf7ab40bece0f88779bd0c77572f1d3}{DR6\+\_\+66\+KH}} = 10
+ \}
+\begin{DoxyCompactList}\small\item\em Скорость обновления данных \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac07e33b747c5482cc3c949c916ed14e0}{Accelerometer\+V2}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c, uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Конструктор объекта акселлерометра. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ab75716c9194f25093fc8d92666fe8b53}{Accelerometer\+V2}} (Two\+Wire \&hi2c, uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Конструктор объекта акселлерометра \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_af0fbfeaa95e48b4aca878cc1780a6ac5}{Accelerometer\+V2}} (uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Конструктор объекта акселлерометра на {\bfseries{I2\+C1}}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_adced9fba7fa767b33a5796e6a0133778}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Инициализация акселлерометра с параметрами по умолчанию\+: \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6fa296d1cfd7d54d5ddbe71fa8b772a4d4e}{Scale\+::fourG}, \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835a2e5bec24269ac51d9cb73ee5fcc2f82d}{Filter\+Bandwidth\+::\+F400H}, \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5a5cf7ab40bece0f88779bd0c77572f1d3}{Data\+Rate\+::\+DR6\+\_\+66\+KH}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_af82891e2b991366113f1fdadb04d72e1}{Init}} (\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}{Scale}} sens)
+\begin{DoxyCompactList}\small\item\em Инициализация акселлерометра с заданным диапазоном измерения \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_af27e6da30ec50b0ae124303c61655339}{Init}} (\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}{Scale}} sens, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835}{Filter\+Bandwidth}} filter)
+\begin{DoxyCompactList}\small\item\em Инициализация акселлерометра с заданными диапазоном измерения и шириной окна фильтра \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a657d58849bc5b79cf535449c1b1013ca}{Init}} (\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}{Scale}} sens, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835}{Filter\+Bandwidth}} filter, \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5}{Data\+Rate}} datarate)
+\begin{DoxyCompactList}\small\item\em Инициализация акселлерометра с заданными диапазоном измерения, шириной окна фильтра и скоростью обновления данных \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_afa7e53d7474ad71995daedd6fb4fa0ac}{Set\+Scale}} (\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}{Scale}} sens=\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6faf865b46a57087bb80188ad48a807ad22}{twoG}})
+\begin{DoxyCompactList}\small\item\em Установка диапазона измерения \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ad779333a98dd050b782fe0b62aa3607e}{Set\+Filter}} (\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835}{Filter\+Bandwidth}} filter=\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835a2e5bec24269ac51d9cb73ee5fcc2f82d}{F400H}})
+\begin{DoxyCompactList}\small\item\em Установка ширины окна фильтра \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a0c51cba7dd75b7a9b7b3b38c5c165ad1}{Set\+Data\+Rate}} (\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5}{Data\+Rate}} datarate)
+\begin{DoxyCompactList}\small\item\em Установка скорости обновления данных \end{DoxyCompactList}\item 
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_a8c41d31aaf853e7c0fae6f3b9f1a87fe}\label{class_intro_sat_lib_1_1_accelerometer_v2_a8c41d31aaf853e7c0fae6f3b9f1a87fe} 
+void {\bfseries end} ()
+\begin{DoxyCompactList}\small\item\em Отключение акселлерометра -\/ переход в режим экономии энергии \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_af411108897b7bc80ba06910016c36754}{RawX}} ()
+\begin{DoxyCompactList}\small\item\em Получение {\bfseries{необработанного}} значения ускорения по оси X. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_af8788daec748c71d7b0dc79ec6eab07e}{RawY}} ()
+\begin{DoxyCompactList}\small\item\em Получение {\bfseries{необработанного}} значения ускорения по оси Y. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a5c64be636f093c40a55c2a9cebb88177}{RawZ}} ()
+\begin{DoxyCompactList}\small\item\em Получение {\bfseries{необработанного}} значения ускорения по оси Z. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a84948c4c0ac9ea54eb4d8ac69528ede8}{X}} ()
+\begin{DoxyCompactList}\small\item\em Получение значения ускорения по оси X. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ae3959d1a5999f4156ec6d662cbc14a46}{Y}} ()
+\begin{DoxyCompactList}\small\item\em Получение значения ускорения по оси Y. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a4e8f12605a751c1638e11eeb3c69bf21}{Z}} ()
+\begin{DoxyCompactList}\small\item\em Получение значения ускорения по оси Z. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a18ae0f243bfcf304aaef06255df0590a}{Temp}} ()
+\begin{DoxyCompactList}\small\item\em Получение значения температуры акселлерометра \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a631104c6cd77fb82326aa3e8140fc60d}{Base\+Device}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c, uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта {\bfseries{@ref}}  \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a86bf0b41f10cc79d6271930ef61be7d5}{Base\+Device}} (Two\+Wire \&hi2c, uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a82a1cb1576068b9802ad25342c74a462}{Base\+Device}} (uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device} на {\bfseries{I2\+C1}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_abf11ffaf569aa5d7f19990da9b4afb7f}{Base\+Device}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&other)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device} как копии другого объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+{\bfseries Base\+Device} (\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&\&other)
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&other)
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \& {\bfseries operator=} (\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&\&other)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ab182466898710a0653556d9fcf268f39}\label{class_intro_sat_lib_1_1_accelerometer_v2_ab182466898710a0653556d9fcf268f39} 
+uint8\+\_\+t {\bfseries \+\_\+sens} = 0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Защищенные члены унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ac3d81df953423b66b238f8113306d214}{Get\+Register}} (uint8\+\_\+t reg)
+\begin{DoxyCompactList}\small\item\em Чтение значения из регистра устройства \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a417cad1072ec9b537f7b1b6a3e79841e}{Set\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Запись значения в регистр устройства \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ae33eb53f04bd78500b1a5183e9640db7}{Set\+Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ac672694bd65c5ea6b54b733073f4fa4d}{Reset\+Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ae000696da9dc4f5d7d6978f9b2348c24}{Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение по условию value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2\+CDevice}} \& {\bfseries \+\_\+i2c}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Перечисления}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!DataRate@{DataRate}}
+\index{DataRate@{DataRate}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{DataRate}{DataRate}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5} 
+enum \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5}{Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+Data\+Rate}}}
+
+
+
+Скорость обновления данных 
+
+\begin{DoxyParagraph}{}
+
+\end{DoxyParagraph}
+\begin{DoxyEnumFields}[2]{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DR12\_5H@{DR12\_5H}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!DR12\_5H@{DR12\_5H}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5a6c76cb64f3d128e888f3585e6551aba5}\label{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5} 
+DR12\+\_\+5H&12.\+5 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DR26H@{DR26H}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!DR26H@{DR26H}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5a8703e148a292eccf6d084927a7f55e3b}\label{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5} 
+DR26H&26 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DR52H@{DR52H}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!DR52H@{DR52H}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5a1e40aa01d9cd66c448358a04114f0ba6}\label{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5} 
+DR52H&52 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DR104H@{DR104H}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!DR104H@{DR104H}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5ac85241d7e0e33c88baaa8e440b2de113}\label{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5} 
+DR104H&104 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DR208H@{DR208H}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!DR208H@{DR208H}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5ac12117c58700047677b1b1d36baa1405}\label{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5} 
+DR208H&208 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DR416H@{DR416H}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!DR416H@{DR416H}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5a9e2899af69a7dae7bd19ca4fcf86318a}\label{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5} 
+DR416H&416 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DR833H@{DR833H}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!DR833H@{DR833H}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5aa193b0081c6f95911e16987c68766de1}\label{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5} 
+DR833H&833 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DR1\_66KH@{DR1\_66KH}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!DR1\_66KH@{DR1\_66KH}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5ac6396ef9eb3fc0f1ead5d007b5561fab}\label{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5} 
+DR1\+\_\+66\+KH&1.\+66 кГц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DR3\_33KH@{DR3\_33KH}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!DR3\_33KH@{DR3\_33KH}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5a413292da15452a8b0be826d6d453c7bc}\label{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5} 
+DR3\+\_\+33\+KH&3.\+33 кГц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DR6\_66KH@{DR6\_66KH}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!DR6\_66KH@{DR6\_66KH}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5a5cf7ab40bece0f88779bd0c77572f1d3}\label{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5} 
+DR6\+\_\+66\+KH&6.\+66 кГц \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!FilterBandwidth@{FilterBandwidth}}
+\index{FilterBandwidth@{FilterBandwidth}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{FilterBandwidth}{FilterBandwidth}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835} 
+enum \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835}{Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+Filter\+Bandwidth}}}
+
+
+
+Частота внутреннего фильтра измерения ускорения 
+
+\begin{DoxyEnumFields}[2]{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F400H@{F400H}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!F400H@{F400H}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835a2e5bec24269ac51d9cb73ee5fcc2f82d}\label{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835} 
+F400H&Частота 400 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F200H@{F200H}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!F200H@{F200H}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835ab68b35f970d9237adcabb0977dd6f2c9}\label{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835} 
+F200H&Частота 200 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F100H@{F100H}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!F100H@{F100H}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835a96ebe41795a6728552a8a0be56598e08}\label{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835} 
+F100H&Частота 100 Гц \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F050H@{F050H}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!F050H@{F050H}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835a5ad7490d75f72eeaa09ac3a7e765b17a}\label{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835} 
+F050H&Частота 50 Гц \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!Scale@{Scale}}
+\index{Scale@{Scale}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{Scale}{Scale}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f} 
+enum \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}{Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+Scale}}}
+
+
+
+Диапазон измерения ускорения 
+
+\begin{DoxyEnumFields}[2]{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{twoG@{twoG}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!twoG@{twoG}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6faf865b46a57087bb80188ad48a807ad22}\label{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f} 
+twoG&Диапазон {$\pm$} 2g \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fourG@{fourG}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!fourG@{fourG}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6fa296d1cfd7d54d5ddbe71fa8b772a4d4e}\label{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f} 
+fourG&Диапазон {$\pm$} 4g \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eightG@{eightG}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!eightG@{eightG}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6fa4a84557e082d519a336ad86e72f7a2b3}\label{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f} 
+eightG&Диапазон {$\pm$} 8g \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{sixteenG@{sixteenG}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!sixteenG@{sixteenG}}}\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6fa8de6d2cbae99ba3b936ea8a75ac468ae}\label{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f} 
+sixteenG&Диапазон {$\pm$} 16g \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ac07e33b747c5482cc3c949c916ed14e0}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!AccelerometerV2@{AccelerometerV2}}
+\index{AccelerometerV2@{AccelerometerV2}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{AccelerometerV2()}{AccelerometerV2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_ac07e33b747c5482cc3c949c916ed14e0} 
+Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+Accelerometer\+V2 (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hi2c}{, }\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Конструктор объекта акселлерометра. 
+
+\begin{DoxyNote}{Заметки}
+Только в STM32\+Cube\+IDE
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em hi2c} & объект {\bfseries{I2\+C\+\_\+\+Handle\+Type\+Def}} \\
+\hline
+{\em address} & адрес акселлерометра на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ab75716c9194f25093fc8d92666fe8b53}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!AccelerometerV2@{AccelerometerV2}}
+\index{AccelerometerV2@{AccelerometerV2}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{AccelerometerV2()}{AccelerometerV2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_ab75716c9194f25093fc8d92666fe8b53} 
+Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+Accelerometer\+V2 (\begin{DoxyParamCaption}\item[{Two\+Wire \&}]{hi2c}{, }\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Конструктор объекта акселлерометра 
+
+\begin{DoxyNote}{Заметки}
+Только в Arduino IDE
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em hi2c} & объект {\bfseries{Two\+Wire}} или {\bfseries{Wire}} \\
+\hline
+{\em address} & адрес акселлерометра на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_af0fbfeaa95e48b4aca878cc1780a6ac5}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!AccelerometerV2@{AccelerometerV2}}
+\index{AccelerometerV2@{AccelerometerV2}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{AccelerometerV2()}{AccelerometerV2()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_af0fbfeaa95e48b4aca878cc1780a6ac5} 
+Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+Accelerometer\+V2 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Конструктор объекта акселлерометра на {\bfseries{I2\+C1}}. 
+
+\begin{DoxyNote}{Заметки}
+Только в Arduino IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em address} & адрес акселлерометра на шине I2C \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_adced9fba7fa767b33a5796e6a0133778}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!Init@{Init}}
+\index{Init@{Init}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_adced9fba7fa767b33a5796e6a0133778} 
+uint8\+\_\+t Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Инициализация акселлерометра с параметрами по умолчанию\+: \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6fa296d1cfd7d54d5ddbe71fa8b772a4d4e}{Scale\+::fourG}, \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835a2e5bec24269ac51d9cb73ee5fcc2f82d}{Filter\+Bandwidth\+::\+F400H}, \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5a5cf7ab40bece0f88779bd0c77572f1d3}{Data\+Rate\+::\+DR6\+\_\+66\+KH}. 
+
+\begin{DoxyReturn}{Возвращает}
+0, если инициализация завершена успешно 
+
+1, если при инициализации возникла ошибка 
+\end{DoxyReturn}
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_aed46bf6b65b16efcad1f5c5d3e36aaff}{Intro\+Sat\+Lib\+::\+Base\+Device}}.
+
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_af82891e2b991366113f1fdadb04d72e1}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!Init@{Init}}
+\index{Init@{Init}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_af82891e2b991366113f1fdadb04d72e1} 
+uint8\+\_\+t Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}{Scale}}}]{sens}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация акселлерометра с заданным диапазоном измерения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sens} & Значение чуствительности \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}{Scale} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если инициализация завершена успешно 
+
+1, если при инициализации возникла ошибка 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_af27e6da30ec50b0ae124303c61655339}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!Init@{Init}}
+\index{Init@{Init}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_af27e6da30ec50b0ae124303c61655339} 
+uint8\+\_\+t Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}{Scale}}}]{sens}{, }\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835}{Filter\+Bandwidth}}}]{filter}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация акселлерометра с заданными диапазоном измерения и шириной окна фильтра 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sens} & Значение чуствительности \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}{Scale} \\
+\hline
+{\em filter} & Значение ширины фильтра \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835}{Filter\+Bandwidth} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если инициализация завершена успешно 
+
+1, если при инициализации возникла ошибка 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_a657d58849bc5b79cf535449c1b1013ca}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!Init@{Init}}
+\index{Init@{Init}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_a657d58849bc5b79cf535449c1b1013ca} 
+uint8\+\_\+t Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}{Scale}}}]{sens}{, }\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835}{Filter\+Bandwidth}}}]{filter}{, }\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5}{Data\+Rate}}}]{datarate}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация акселлерометра с заданными диапазоном измерения, шириной окна фильтра и скоростью обновления данных 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sens} & Значение чуствительности \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}{Scale} \\
+\hline
+{\em filter} & Значение ширины фильтра \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835}{Filter\+Bandwidth} \\
+\hline
+{\em datarate} & Значение скорости обновления данных \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5}{Data\+Rate} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если инициализация завершена успешно 
+
+1, если при инициализации возникла ошибка 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_af411108897b7bc80ba06910016c36754}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!RawX@{RawX}}
+\index{RawX@{RawX}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{RawX()}{RawX()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_af411108897b7bc80ba06910016c36754} 
+int16\+\_\+t Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+RawX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение {\bfseries{необработанного}} значения ускорения по оси X. 
+
+\begin{DoxyReturn}{Возвращает}
+Ускорение по оси в условных единицах 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_af8788daec748c71d7b0dc79ec6eab07e}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!RawY@{RawY}}
+\index{RawY@{RawY}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{RawY()}{RawY()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_af8788daec748c71d7b0dc79ec6eab07e} 
+int16\+\_\+t Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+RawY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение {\bfseries{необработанного}} значения ускорения по оси Y. 
+
+\begin{DoxyReturn}{Возвращает}
+Ускорение по оси в условных единицах 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_a5c64be636f093c40a55c2a9cebb88177}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!RawZ@{RawZ}}
+\index{RawZ@{RawZ}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{RawZ()}{RawZ()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_a5c64be636f093c40a55c2a9cebb88177} 
+int16\+\_\+t Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+RawZ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение {\bfseries{необработанного}} значения ускорения по оси Z. 
+
+\begin{DoxyReturn}{Возвращает}
+Ускорение по оси в условных единицах 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_a0c51cba7dd75b7a9b7b3b38c5c165ad1}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!SetDataRate@{SetDataRate}}
+\index{SetDataRate@{SetDataRate}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{SetDataRate()}{SetDataRate()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_a0c51cba7dd75b7a9b7b3b38c5c165ad1} 
+void Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+Set\+Data\+Rate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5}{Data\+Rate}}}]{datarate}{}\end{DoxyParamCaption})}
+
+
+
+Установка скорости обновления данных 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em datarate} & datarate Значение скорости обновления данных \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_ac68bd3301131ff6d889fffa70b4672f5}{Data\+Rate} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ad779333a98dd050b782fe0b62aa3607e}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!SetFilter@{SetFilter}}
+\index{SetFilter@{SetFilter}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{SetFilter()}{SetFilter()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_ad779333a98dd050b782fe0b62aa3607e} 
+void Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+Set\+Filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835}{Filter\+Bandwidth}}}]{filter}{ = {\ttfamily \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835a2e5bec24269ac51d9cb73ee5fcc2f82d}{F400H}}}}\end{DoxyParamCaption})}
+
+
+
+Установка ширины окна фильтра 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em filter} & Значение ширины фильтра \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_a8f5b23f444406679eaa0275e13870835}{Filter\+Bandwidth} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_afa7e53d7474ad71995daedd6fb4fa0ac}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!SetScale@{SetScale}}
+\index{SetScale@{SetScale}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{SetScale()}{SetScale()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_afa7e53d7474ad71995daedd6fb4fa0ac} 
+uint8\+\_\+t Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+Set\+Scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}{Scale}}}]{sens}{ = {\ttfamily \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6faf865b46a57087bb80188ad48a807ad22}{twoG}}}}\end{DoxyParamCaption})}
+
+
+
+Установка диапазона измерения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sens} & Значение чуствительности \doxylink{class_intro_sat_lib_1_1_accelerometer_v2_aa4558f57b486ed9a7fa260fc6e694e6f}{Scale} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_a18ae0f243bfcf304aaef06255df0590a}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!Temp@{Temp}}
+\index{Temp@{Temp}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{Temp()}{Temp()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_a18ae0f243bfcf304aaef06255df0590a} 
+float Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::\+Temp (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение значения температуры акселлерометра 
+
+\begin{DoxyReturn}{Возвращает}
+Значение температуры в \textdegree{}C 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_a84948c4c0ac9ea54eb4d8ac69528ede8}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!X@{X}}
+\index{X@{X}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{X()}{X()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_a84948c4c0ac9ea54eb4d8ac69528ede8} 
+float Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::X (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение значения ускорения по оси X. 
+
+\begin{DoxyReturn}{Возвращает}
+Ускорение по оси в м/с\textsuperscript{2} 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_ae3959d1a5999f4156ec6d662cbc14a46}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!Y@{Y}}
+\index{Y@{Y}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{Y()}{Y()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_ae3959d1a5999f4156ec6d662cbc14a46} 
+float Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::Y (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение значения ускорения по оси Y. 
+
+\begin{DoxyReturn}{Возвращает}
+Ускорение по оси в м/с\textsuperscript{2} 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_accelerometer_v2_a4e8f12605a751c1638e11eeb3c69bf21}\index{IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}!Z@{Z}}
+\index{Z@{Z}!IntroSatLib::AccelerometerV2@{IntroSatLib::AccelerometerV2}}
+\doxysubsubsection{\texorpdfstring{Z()}{Z()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_accelerometer_v2_a4e8f12605a751c1638e11eeb3c69bf21} 
+float Intro\+Sat\+Lib\+::\+Accelerometer\+V2\+::Z (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение значения ускорения по оси Z. 
+
+\begin{DoxyReturn}{Возвращает}
+Ускорение по оси в м/с\textsuperscript{2} 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/Accelerometer\+V2.\+h\item 
+src/Accelerometer\+V2.\+cpp\end{DoxyCompactItemize}

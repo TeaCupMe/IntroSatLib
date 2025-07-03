@@ -10,6 +10,9 @@ AccelerometerV2::AccelerometerV2(I2C_HandleTypeDef *hi2c, uint8_t address): Base
 AccelerometerV2::AccelerometerV2(TwoWire &hi2c, uint8_t address): BaseDevice(hi2c, address)
 {
 }
+AccelerometerV2::AccelerometerV2(uint8_t address): BaseDevice(address)
+{
+}
 #endif
 
 uint8_t AccelerometerV2::Init()
@@ -18,6 +21,10 @@ uint8_t AccelerometerV2::Init()
 	if (whoIAm != 0x6C && whoIAm != 0x69) { return 1; }
 	_sens = 1;
 	SetRegister(RegisterMap::CTRL1_XL, BASE_ACCEL_CONF);
+	// TODO Лучше сделать явную установку параметров, так понятнее, что происходит, чем использование магического BASE_ACCEL_CONF
+	// SetScale(Scale::fourG);
+	// SetDataRate(DataRate::DR6_66KH);
+	// SetFilter(FilterBandwidth::F400H);
 	return 0;
 }
 

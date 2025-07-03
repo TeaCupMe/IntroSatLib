@@ -40,7 +40,7 @@ LightSensor& LightSensor::operator=(LightSensor &&other)
 	}
 	return *this;
 }
-
+// TODO Возвращать не просто 0, а результат проверки наличия датчика
 uint8_t LightSensor::Init()
 {
 	return 0;

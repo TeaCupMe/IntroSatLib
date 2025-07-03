@@ -1,0 +1,478 @@
+\chapter{\mbox{[}Intro\+Sat\+Lib\mbox{]}()}
+\hypertarget{index}{}\label{index}\index{\mbox{[}IntroSatLib\mbox{]}()@{[IntroSatLib]()}}
+\label{index_md__r_e_a_d_m_e}%
+\Hypertarget{index_md__r_e_a_d_m_e}%
+
+
+Библиотека для взаимодействия с компонентами спутника\hypertarget{index_required-hardware-and-software-product}{}\doxysection{\texorpdfstring{Required hardware and software product}{Required hardware and software product}}\label{index_required-hardware-and-software-product}
+
+\begin{DoxyItemize}
+\item Библиотека подходит для \href{https://www.arduino.cc/en/software}{\texttt{ Arduino\+IDE}} и \href{https://www.st.com/en/development-tools/stm32cubeide.html}{\texttt{ STM32\+Cube\+IDE}}
+\item Библиотека подходит только для контроллеров
+\begin{DoxyItemize}
+\item STM32\+F1\+XX
+\item STM32\+F103\+C8\+T6
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_оглавление}{}\doxysection{\texorpdfstring{Оглавление}{Оглавление}}\label{index_оглавление}
+
+\begin{DoxyItemize}
+\item \doxysectlink{index_installation}{Установка}{1}
+\item \doxysectlink{index_using}{Использование}{1}
+\item \doxysectlink{index_documentation}{Документация}{1}
+\end{DoxyItemize}\hypertarget{index_installation}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{index_installation}
+
+\begin{DoxyItemize}
+\item {\bfseries{Arduino\+IDE\+:}} скачайте библиотеку в {\itshape .zip} формате. Через менеджер библиотек {\itshape ("{}Скетч -\/$>$ Подключить библиотеку -\/$>$ Добавить .\+ZIP библиотеку..."{})} выберете скачанный {\itshape .zip} файл. Библиотека подключена ;)
+\item {\bfseries{STM32\+Cube\+IDE\+:}}
+\end{DoxyItemize}\hypertarget{index_using}{}\doxysection{\texorpdfstring{Using}{Using}}\label{index_using}
+
+\begin{DoxyItemize}
+\item {\bfseries{Arduino\+IDE\+:}} базовое использование библиотеки
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <Wire.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <Accelerometer.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ Включение\ пространства\ имён\ библиотеки\ спутника}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ Чтобы\ постоянно\ не\ писать\ IntroSatLib::}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }IntroSatLib;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}\ accel(Wire);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ setup()\ \{}
+\DoxyCodeLine{\ \ \ \ Serial.begin(9600);\ \textcolor{comment}{//\ Включения\ Serial\ для\ вывода\ данных}}
+\DoxyCodeLine{\ \ \ \ Wire.begin();\ \textcolor{comment}{//\ Включение\ Wire(I2C)}}
+\DoxyCodeLine{\ \ \ \ accel.Init();\ \textcolor{comment}{//\ Инициализация\ датчика}}
+\DoxyCodeLine{\ \ \ \ delay(1000);}
+\DoxyCodeLine{\ \ \ \ Serial.println(\textcolor{stringliteral}{"{}ax,\ ay,\ az"{}});\ \textcolor{comment}{//\ Для\ работы\ плоттера\ в\ ArduinoIDE}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ loop()\ \{}
+\DoxyCodeLine{\ \ \ \ Serial.print(accel.X());}
+\DoxyCodeLine{\ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{\ \ \ \ Serial.print(accel.Y());}
+\DoxyCodeLine{\ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{\ \ \ \ Serial.println(accel.Z());}
+\DoxyCodeLine{\ \ \ \ delay(100);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_documentation}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{index_documentation}
+
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Accelerometer\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Methods\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}void\texorpdfstring{$\ast$}{*} Init(\texorpdfstring{$\ast$}{*}\+Scale\texorpdfstring{$\ast$}{*} sensitivity, \texorpdfstring{$\ast$}{*}\+Filter\+Bandwidth\texorpdfstring{$\ast$}{*} filter)
+\item \texorpdfstring{$\ast$}{*}void\texorpdfstring{$\ast$}{*} Set\+Scale(\texorpdfstring{$\ast$}{*}\+Scale\texorpdfstring{$\ast$}{*} sensitivity)
+\item \texorpdfstring{$\ast$}{*}void\texorpdfstring{$\ast$}{*} Set\+Filter(\texorpdfstring{$\ast$}{*}\+Filter\+Bandwidth\texorpdfstring{$\ast$}{*} filter)
+\item \texorpdfstring{$\ast$}{*}float\texorpdfstring{$\ast$}{*} X()
+\item \texorpdfstring{$\ast$}{*}float\texorpdfstring{$\ast$}{*} Y()
+\item \texorpdfstring{$\ast$}{*}float\texorpdfstring{$\ast$}{*} Z()
+\item \texorpdfstring{$\ast$}{*}int16\+\_\+t\texorpdfstring{$\ast$}{*} RawX()
+\item \texorpdfstring{$\ast$}{*}int16\+\_\+t\texorpdfstring{$\ast$}{*} RawY()
+\item \texorpdfstring{$\ast$}{*}int16\+\_\+t\texorpdfstring{$\ast$}{*} RawZ()
+\end{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Enums\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item Scale
+\item Filter\+Bandwidth
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Gyroscope\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Methods\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item \mbox{[}{\itshape void} Init({\itshape Scale} sensitivity, {\itshape Filter\+Bandwidth} filter)\mbox{]}()
+\item \mbox{[}{\itshape void} Set\+Scale({\itshape Scale} sensitivity)\mbox{]}()
+\item \mbox{[}{\itshape void} Set\+Filter({\itshape Filter\+Bandwidth} filter)\mbox{]}()
+\item \texorpdfstring{$\ast$}{*}float\texorpdfstring{$\ast$}{*} X()
+\item \texorpdfstring{$\ast$}{*}float\texorpdfstring{$\ast$}{*} Y()
+\item \texorpdfstring{$\ast$}{*}float\texorpdfstring{$\ast$}{*} Z()
+\item \texorpdfstring{$\ast$}{*}int16\+\_\+t\texorpdfstring{$\ast$}{*} RawX()
+\item \texorpdfstring{$\ast$}{*}int16\+\_\+t\texorpdfstring{$\ast$}{*} RawY()
+\item \texorpdfstring{$\ast$}{*}int16\+\_\+t\texorpdfstring{$\ast$}{*} RawZ()
+\end{DoxyItemize}
+\item Enums
+\begin{DoxyItemize}
+\item \mbox{[}Scale\mbox{]}()
+\item \mbox{[}Filter\+Bandwidth\mbox{]}()
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Fly\+Wheel\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Methods\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\end{DoxyItemize}
+\item \#\#\# Accelerometer
+
+Класс позволяющий получать данные из акселерометра Находится в пространстве {\itshape {\bfseries{Intro\+Sat\+Lib}}} {\itshape Этой строчкой подключается}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }IntroSatLib;}
+
+\end{DoxyCode}
+
+
+Параметры\+:
+\item {\itshape hi2c} = I2C интерфейс
+\item {\itshape address} = необязательный параметр, стандартное значение {\itshape 0x68}. Адрес акселерометра \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Accelerometer\texorpdfstring{$\ast$}{*} Accelerometer({\itshape I2\+C\+\_\+\+Handle\+Type\+Def} \texorpdfstring{$\ast$}{*}hi2c, {\itshape uint8\+\_\+t} address)\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\itshape (STM32\+Cube\+IDE)} {\itshape или} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Accelerometer\texorpdfstring{$\ast$}{*} Accelerometer({\itshape Two\+Wire} \&hi2c, {\itshape uint8\+\_\+t} address)\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\itshape (Arduino\+IDE)} Создание объекта класса
+
+Для \href{https://www.st.com/en/development-tools/stm32cubeide.html}{\texttt{ STM32\+Cube\+IDE}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}\ accel\ =\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}(\&hi2c1,\ 0x68);}
+\DoxyCodeLine{\textcolor{comment}{//\ или}}
+\DoxyCodeLine{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}\ accel\ =\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}(\&hi2c1);}
+
+\end{DoxyCode}
+
+
+Для \href{https://www.arduino.cc/en/software}{\texttt{ Arduino\+IDE}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}\ accel\ =\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}(Wire,\ 0x68);}
+\DoxyCodeLine{\textcolor{comment}{//\ или}}
+\DoxyCodeLine{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}\ accel\ =\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}(Wire);}
+
+\end{DoxyCode}
+
+\item \#\#\#\# Methods
+\item \#\#\#\#\# {\itshape void} Init({\itshape Scale} sensitivity, {\itshape Filter\+Bandwidth} filter)
+
+Инициализация акселерометра, нужна для выставления базовых настроек Оба параметра не являются обязательными Стандартные значения\+:
+\begin{DoxyItemize}
+\item sensitivity = {\itshape Accelerometer\+::\+Scale\+::twoG}
+\item filter = {\itshape Accelerometer\+::\+Filter\+Bandwidth\+::\+F0021}
+\end{DoxyItemize}
+
+Зачем нужны? ;)
+\begin{DoxyItemize}
+\item {\itshape sensitivity} устанавливает чувствительность акселерометра
+\item {\itshape filter} устанавливает аппаратный фильтр в акселерометре
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{accel.\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a0af0bc319a2e46d3fc0e9dfacf0730ca}{Init}}(Accelerometer::Scale::sixteenG,\ Accelerometer::FilterBandwidth::F0005);}
+
+\end{DoxyCode}
+
+
+или
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{accel.\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a0af0bc319a2e46d3fc0e9dfacf0730ca}{Init}}(Accelerometer::Scale::sixteenG);}
+
+\end{DoxyCode}
+
+
+или
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{accel.\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a0af0bc319a2e46d3fc0e9dfacf0730ca}{Init}}();}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape void} Set\+Scale({\itshape Scale} sensitivity)
+
+Устанавливает чувствительность акселерометра Зачем нужны? ;)
+\begin{DoxyItemize}
+\item {\itshape sensitivity} чувствительность акселерометра
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{accel.\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a2b935d7e55fe6c80a48b9a91915193fe}{SetScale}}(Accelerometer::Scale::sixteenG);}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape void} Set\+Filter({\itshape Filter\+Bandwidth} filter)
+
+Устанавливает внутренний фильтр акселерометра Зачем нужны? ;)
+\begin{DoxyItemize}
+\item {\itshape filter} частота внутреннего фильтра акселерометра
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{accel.\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a082053d929f641e7f6b2f4ad82cf19e8}{SetFilter}}(Accelerometer::FilterBandwidth::F0005);}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape float} X()
+
+Получение данных из акселерометра по оси {\itshape x} в долях от {\itshape g}, то есть если ускорение по оси {\itshape x} равно \$10м\textbackslash{}cdot с\texorpdfstring{$^\wedge$}{\string^}\{2\}\$, то {\itshape accel.\+X() == 1}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{float}\ x\ =\ accel.\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a1e2e805d29c5ee84eb4fe860736f10de}{X}}();}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape float} Y()
+
+Получение данных из акселерометра по оси {\itshape y} в долях от {\itshape g}, то есть если ускорение по оси {\itshape y} равно \$10м\textbackslash{}cdot с\texorpdfstring{$^\wedge$}{\string^}\{2\}\$, то {\itshape accel.\+Y() == 1}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{float}\ x\ =\ accel.\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_af4a2e25b032d924c72bc46698dc81a58}{Y}}();}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape float} Z()
+
+Получение данных из акселерометра по оси {\itshape z} в долях от {\itshape g}, то есть если ускорение по оси {\itshape z} равно \$10м\textbackslash{}cdot с\texorpdfstring{$^\wedge$}{\string^}\{2\}\$, то {\itshape accel.\+Z() == 1}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{float}\ x\ =\ accel.\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_ab09b2295e26c46eee9cb09b479d01292}{Z}}();}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape int16\+\_\+t} Raw\+X()
+
+Получение сырых данных из акселерометра по оси {\itshape x}. Данные никак не преобразуются.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int16\_t\ x\ =\ accel.\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_afb952b6c8e9c653e5a4d1b9247cd3905}{RawX}}();}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape int16\+\_\+t} Raw\+Y()
+
+Получение сырых данных из акселерометра по оси {\itshape y}. Данные никак не преобразуются.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int16\_t\ x\ =\ accel.\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_acb687931641ac34087e969c2efbb0606}{RawY}}();}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape int16\+\_\+t} Raw\+Z()
+
+Получение сырых данных из акселерометра по оси {\itshape z}. Данные никак не преобразуются.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int16\_t\ x\ =\ accel.\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a8561c8c4397e2588ae56bd2fff66a9ec}{RawZ}}();}
+
+\end{DoxyCode}
+
+\item \#\#\#\# Enums
+\begin{DoxyItemize}
+\item \#\#\#\#\# Scale
+
+Перечисление нужно для указания разрешения работы акселерометра в человеко понятно виде {\itshape Обозначение переменной для хранения элемента перечисления}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a546db6400715485ed2e27ecddd954ff3}{Accelerometer::Scale}}\ scale\ =\ Accelerometer::Scale::twoG;}
+
+\end{DoxyCode}
+
+
+Значения в перечислении {\itshape {\bfseries{twoG}}} — диапазон работы в \texorpdfstring{$\ast$}{*}\$\textbackslash{}plusmn\$2g\texorpdfstring{$\ast$}{*} {\itshape {\bfseries{fourG}}} — диапазон работы в \texorpdfstring{$\ast$}{*}\$\textbackslash{}plusmn\$4g\texorpdfstring{$\ast$}{*} {\itshape {\bfseries{eightG}}} — диапазон работы в \texorpdfstring{$\ast$}{*}\$\textbackslash{}plusmn\$8g\texorpdfstring{$\ast$}{*} {\itshape {\bfseries{sixteenG}}} — диапазон работы в \texorpdfstring{$\ast$}{*}\$\textbackslash{}plusmn\$16g\texorpdfstring{$\ast$}{*}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{enum}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ twoG\ =\ 0,\ }
+\DoxyCodeLine{\ fourG\ =\ 1,}
+\DoxyCodeLine{\ eightG\ =\ 2,}
+\DoxyCodeLine{\ sixteenG\ =\ 3,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+\item \#\#\#\#\# Filter\+Bandwidth
+
+Перечисление нужно для указания разрешения работы акселерометра в человеко понятно виде {\itshape Обозначение переменной для хранения элемента перечисления}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abb0ab0a96031515ed9a96b08f21a41c0}{Accelerometer::FilterBandwidth}}\ filter\ =\ Accelerometer::FilterBandwidth::F0010;}
+
+\end{DoxyCode}
+
+
+Значения в перечислении
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{enum}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ F0218\ =\ 0,}
+\DoxyCodeLine{\ F0218b\ =\ 1,}
+\DoxyCodeLine{\ F0099\ =\ 2,}
+\DoxyCodeLine{\ F0045\ =\ 3,}
+\DoxyCodeLine{\ F0021\ =\ 4,}
+\DoxyCodeLine{\ F0010\ =\ 5,}
+\DoxyCodeLine{\ F0005\ =\ 6,}
+\DoxyCodeLine{\ F0420\ =\ 7}
+\DoxyCodeLine{\ F1046\ =\ 8,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+\item \#\#\# Gyroscope
+
+Класс позволяющий получать данные из гироскопа
+\item \#\#\#\# Methods
+\item \#\#\#\#\# {\itshape float} X()
+
+Получение данных из гироскопа по оси {\itshape x} в {\itshape град/с}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{float}\ x\ =\ gyro.X();}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape float} Y()
+
+Получение данных из гироскопа по оси {\itshape y} в {\itshape град/с}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{float}\ x\ =\ gyro.Y();}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape float} Z()
+
+Получение данных из гироскопа по оси {\itshape z} в {\itshape град/с}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{float}\ x\ =\ gyro.Z();}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape int16\+\_\+t} Raw\+X()
+
+Получение сырых данных из гироскопа по оси {\itshape x}. Данные никак не преобразуются.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int16\_t\ x\ =\ gyro.RawX();}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape int16\+\_\+t} Raw\+Y()
+
+Получение сырых данных из гироскопа по оси {\itshape y}. Данные никак не преобразуются.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int16\_t\ x\ =\ gyro.RawY();}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape int16\+\_\+t} Raw\+Z()
+
+Получение сырых данных из гироскопа по оси {\itshape z}. Данные никак не преобразуются.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int16\_t\ x\ =\ gyro.RawZ();}
+
+\end{DoxyCode}
+
+\item \#\#\# Fly\+Wheel
+
+Класс позволяющий управлять скоростью и направлением вращения маховика Находится в пространстве {\itshape {\bfseries{Intro\+Sat\+Lib}}} {\itshape Этой строчкой подключается}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }IntroSatLib;}
+
+\end{DoxyCode}
+
+
+Создание объекта класса
+
+\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Fly\+Wheel\texorpdfstring{$\ast$}{*} Fly\+Wheel({\itshape I2\+C\+\_\+\+Handle\+Type\+Def} \texorpdfstring{$\ast$}{*}hi2c, {\itshape uint8\+\_\+t} address)\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\itshape (STM32\+Cube\+IDE)} {\itshape или} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Fly\+Wheel\texorpdfstring{$\ast$}{*} Fly\+Wheel({\itshape Two\+Wire} \&hi2c, {\itshape uint8\+\_\+t} address)\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\itshape (Arduino\+IDE)}
+
+Параметры\+:
+\item {\itshape hi2c} = I2C интерфейс
+\item {\itshape address} = необязательный параметр, стандартное значение {\itshape 0x38}. Адрес платы маховика
+
+Для \href{https://www.st.com/en/development-tools/stm32cubeide.html}{\texttt{ STM32\+Cube\+IDE}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FlyWheel\ motor\ =\ FlyWheel(\&hi2c1,\ 0x38);}
+\DoxyCodeLine{\textcolor{comment}{//\ или}}
+\DoxyCodeLine{FlyWheel\ motor\ =\ FlyWheel(\&hi2c1);}
+
+\end{DoxyCode}
+
+
+Для \href{https://www.arduino.cc/en/software}{\texttt{ Arduino\+IDE}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FlyWheel\ motor\ =\ FlyWheel(Wire,\ 0x38);}
+\DoxyCodeLine{\textcolor{comment}{//\ или}}
+\DoxyCodeLine{FlyWheel\ motor\ =\ FlyWheel(Wire);}
+
+\end{DoxyCode}
+
+\item \#\#\#\# Methods
+\item \#\#\#\#\# {\itshape void} Init()
+
+Инициализация платы маховика, нужна для выставления базовых настроек.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{motor.Init();}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape int16\+\_\+t} Need\+Speed({\itshape int16\+\_\+t} need\+Speed)
+
+Метод задает скорость вращения маховика. Знак переменной {\itshape need\+Speed} определяет направение вращения\+:
+
+"{}+"{} -\/ вращение против часовой стрелки; "{}-\/"{} -\/ вращение по часовой стрелки.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{motor.NeedSpeed(needSpeed);}
+
+\end{DoxyCode}
+
+\item \#\#\#\#\# {\itshape int16\+\_\+t} Current\+Speed()
+
+Метод позволяет считать текущую скорость вращения маховика. Знак полученного числа будет определять текущее направление вращения маховика\+:
+
+"{}+"{} -\/ вращение против часовой стрелки; "{}-\/"{} -\/ вращение по часовой стрелки.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{motor.CurrentSpeed();}
+
+\end{DoxyCode}
+ \begin{quote}
+\#\# Полезные ссылки
+
+Наш \href{https://t.me/introsat_news}{\texttt{ канал в Telegram}} поможет не пропустить обновления.
+
+Если у вас возникли вопросы или сложности при работе с Intro\+Sat, ответы можно найти в нашем \href{https://docs.google.com/document/d/15KqFrMlc6Jzxut_zMf_pXNx5r5JTjqfKEvCHWx99rEc/edit\#heading=h.demjj79bt080}{\texttt{ F.\+A.\+Q.}}
+
+Остались вопросы? Напишите нашему \href{https://t.me/introsatBot}{\texttt{ боту в Telegram}}! Укажите в обращении модуль конструктора, при работе с которым возникли проблемы, и версии платы (написаны на самих платах), и мы обязательно вам поможем. \end{quote}
+
+\end{DoxyItemize}

@@ -40,14 +40,41 @@ protected:
 	uint8_t CheckVersion();
 public:
 #ifndef ARDUINO
+	/**
+	 * @brief Создание объекта маховика. 
+	 * @note Только в STM32CubeIDE
+	 * @param hi2c объект @b I2C_HandleTypeDef
+	 * @param address адрес маховика на шине I2C
+	 */
 	BaseFlyWheel(I2C_HandleTypeDef *hi2c, uint8_t address = BASE_ADDRESS);
 #else
+	/**
+	 * @note Только в Arduino IDE
+	 * @brief Создание объекта маховика
+	 * 
+	 * @param hi2c объект @b TwoWire или @b Wire 
+	 * @param address адрес маховика на шине I2C
+	 */
 	BaseFlyWheel(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
+
+	/**
+	 * @note Только в Arduino IDE
+	 * @brief Создание объекта маховика на @b I2C1 
+	 * 
+	 * @param address адрес маховика на шине I2C
+	 */
 	BaseFlyWheel(uint8_t address = BASE_ADDRESS);
 #endif
 
+	/**
+	 * @brief Инициализация маховика
+	 * 
+	 * @returns 0, если инициализация завершена успешно
+	 * @returns 1, если при инициализации возникла ошибка
+	 */
 	uint8_t Init() override;
 
+	// TODO @Goldfor Надо описать что все эти методы делают
 	void DirectMode(uint8_t directMode);
 	uint8_t DirectMode();
 	void SilentMode(uint8_t silentMode);
@@ -56,8 +83,26 @@ public:
 	uint8_t MinForceMode();
 	void ReverseMode(uint8_t reverceMode);
 	uint8_t ReverseMode();
+
+	/**
+	 * @brief Установка скорости
+	 * 
+	 * @param needSpeed Жедаемая скорость в об/с
+	 */
 	void NeedSpeed(int16_t needSpeed);
+
+	/**
+	 * @brief Чтение установленной скорости
+	 * 
+	 * @return Скорость в об/с
+	 */
 	int16_t NeedSpeed();
+
+	/**
+	 * @brief Чтение реальной скорости
+	 * 
+	 * @return Скорость в об/с
+	 */
 	int16_t CurrentSpeed();
 	void MaxAbsSpeed(uint16_t maxAbsSpeed);
 	uint16_t MaxAbsSpeed();
@@ -70,6 +115,11 @@ public:
 	void PID_D(float d);
 	float PID_D();
 
+	/**
+	 * @brief Создание объекта маховика как копии другого объекта маховика
+	 * 
+	 * @param other исходный объект для копирования
+	 */
 	BaseFlyWheel(const BaseFlyWheel &other);
 	BaseFlyWheel(BaseFlyWheel &&other);
 	BaseFlyWheel& operator=(const BaseFlyWheel &other);

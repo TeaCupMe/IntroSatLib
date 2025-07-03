@@ -1,0 +1,59 @@
+\doxysection{AK8963.\+h}
+\hypertarget{_a_k8963_8h_source}{}\label{_a_k8963_8h_source}\index{src/AK8963.h@{src/AK8963.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ AK8963\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ AK8963\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}I2CDevice.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}BaseDevice.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_a_k8963}{AK8963}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ BASE\_ADDRESS\ =\ 0x0C;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \_rawmt\ =\ 8190.0f\ /\ 4912.0f;\ \textcolor{comment}{//microTesla}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ uint16\_t\ \_x\ =\ 0;}
+\DoxyCodeLine{00015\ \ \ \ \ uint16\_t\ \_y\ =\ 0;}
+\DoxyCodeLine{00016\ \ \ \ \ uint16\_t\ \_z\ =\ 0;}
+\DoxyCodeLine{00017\ \ \ \ \ uint8\_t\ \_calX\ =\ 0;}
+\DoxyCodeLine{00018\ \ \ \ \ uint8\_t\ \_calY\ =\ 0;}
+\DoxyCodeLine{00019\ \ \ \ \ uint8\_t\ \_calZ\ =\ 0;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadCal();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_a_k8963}{AK8963}}(I2C\_HandleTypeDef\ *hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_a_k8963}{AK8963}}(TwoWire\ \&hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_a_k8963}{AK8963}}(uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_a_k8963}{AK8963}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_a_k8963}{AK8963}}\&\ other);}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_a_k8963}{AK8963}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_a_k8963}{AK8963}}\&\ other);}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_a_k8963}{AK8963}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_a_k8963}{AK8963}}\&\&\ other);}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_a_k8963}{AK8963}}\&\ operator=(\mbox{\hyperlink{class_intro_sat_lib_1_1_a_k8963}{AK8963}}\&\&\ other);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_a_k8963_a345cda2e245be658de5bd2de930c2c01}{Init}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ Read();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ int16\_t\ RawX();}
+\DoxyCodeLine{00041\ \ \ \ \ int16\_t\ RawY();}
+\DoxyCodeLine{00042\ \ \ \ \ int16\_t\ RawZ();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{float}\ X();}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{float}\ Y();}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{float}\ Z();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_a_k8963}{\string~AK8963}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ AK8963\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

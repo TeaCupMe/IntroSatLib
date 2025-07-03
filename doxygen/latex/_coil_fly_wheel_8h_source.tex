@@ -1,0 +1,32 @@
+\doxysection{Coil\+Fly\+Wheel.\+h}
+\hypertarget{_coil_fly_wheel_8h_source}{}\label{_coil_fly_wheel_8h_source}\index{src/CoilFlyWheel.h@{src/CoilFlyWheel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ COILFLYWHEEL\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ COILFLYWHEEL\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}BaseFlyWheel.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_coil_fly_wheel}{CoilFlyWheel}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{BaseFlyWheel}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_coil_fly_wheel_a6d929b93e18d99bea26217d8ea20e19d}{CoilFlyWheel}}(I2C\_HandleTypeDef\ *hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_coil_fly_wheel_a6d929b93e18d99bea26217d8ea20e19d}{CoilFlyWheel}}(TwoWire\ \&hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_coil_fly_wheel_a6d929b93e18d99bea26217d8ea20e19d}{CoilFlyWheel}}(uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_coil_fly_wheel_a6d929b93e18d99bea26217d8ea20e19d}{CoilFlyWheel}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_coil_fly_wheel}{CoilFlyWheel}}\ \&other);}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_coil_fly_wheel_a6d929b93e18d99bea26217d8ea20e19d}{CoilFlyWheel}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_coil_fly_wheel}{CoilFlyWheel}}\ \&\&other);}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_coil_fly_wheel}{CoilFlyWheel}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_coil_fly_wheel}{CoilFlyWheel}}\ \&other);}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_coil_fly_wheel}{CoilFlyWheel}}\&\ operator=(\mbox{\hyperlink{class_intro_sat_lib_1_1_coil_fly_wheel}{CoilFlyWheel}}\ \&\&other);}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_coil_fly_wheel}{\string~CoilFlyWheel}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00047\ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COILFLYWHEEL\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

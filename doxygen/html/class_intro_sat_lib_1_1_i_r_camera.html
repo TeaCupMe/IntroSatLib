@@ -1,0 +1,535 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IntroSatLib: Класс IntroSatLib::IRCamera</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">IntroSatLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a class="el" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="class_intro_sat_lib_1_1_i_r_camera-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс IntroSatLib::IRCamera</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:IntroSatLib::IRCamera:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_intro_sat_lib_1_1_i_r_camera.png" usemap="#IntroSatLib::IRCamera_map" alt=""/>
+  <map id="IntroSatLib::IRCamera_map" name="IntroSatLib::IRCamera_map">
+<area href="class_intro_sat_lib_1_1_base_device.html" alt="IntroSatLib::BaseDevice" shape="rect" coords="0,0,146,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a1fc8cab3fcbd47bed763bdcc726aaeaf" id="r_a1fc8cab3fcbd47bed763bdcc726aaeaf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeaf">Framerate</a> { <a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e">FPS_10</a> = 0
+, <a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeafa81c8ccc55fb696606bbda356baa21d8d">FPS_1</a> = 1
+ }</td></tr>
+<tr class="memdesc:a1fc8cab3fcbd47bed763bdcc726aaeaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Количество кадров (обновлений данных) в секунду  <a href="#a1fc8cab3fcbd47bed763bdcc726aaeaf">Подробнее...</a><br /></td></tr>
+<tr class="separator:a1fc8cab3fcbd47bed763bdcc726aaeaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a2a0f6527d04256bbed09b6095d3db9ce" id="r_a2a0f6527d04256bbed09b6095d3db9ce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a0f6527d04256bbed09b6095d3db9ce">IRCamera</a> (I2C_HandleTypeDef *hi2c, uint8_t address=BASE_ADDRESS)</td></tr>
+<tr class="memdesc:a2a0f6527d04256bbed09b6095d3db9ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта ИК-камеры.  <br /></td></tr>
+<tr class="separator:a2a0f6527d04256bbed09b6095d3db9ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7283d56de854df01589e29f8b5279e76" id="r_a7283d56de854df01589e29f8b5279e76"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7283d56de854df01589e29f8b5279e76">IRCamera</a> (TwoWire &amp;hi2c, uint8_t address=BASE_ADDRESS)</td></tr>
+<tr class="memdesc:a7283d56de854df01589e29f8b5279e76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта ИК-камеры  <br /></td></tr>
+<tr class="separator:a7283d56de854df01589e29f8b5279e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21d0296b0a22a7a6d4a8dd214bb18e01" id="r_a21d0296b0a22a7a6d4a8dd214bb18e01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21d0296b0a22a7a6d4a8dd214bb18e01">IRCamera</a> (uint8_t address=BASE_ADDRESS)</td></tr>
+<tr class="memdesc:a21d0296b0a22a7a6d4a8dd214bb18e01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта ИК-камеры на <b>I2C1</b>.  <br /></td></tr>
+<tr class="separator:a21d0296b0a22a7a6d4a8dd214bb18e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dbcd4d50d4f16151b7926c138dc42eb" id="r_a1dbcd4d50d4f16151b7926c138dc42eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1dbcd4d50d4f16151b7926c138dc42eb">IRCamera</a> (const <a class="el" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a> &amp;other)</td></tr>
+<tr class="memdesc:a1dbcd4d50d4f16151b7926c138dc42eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта ИК-камеры как копии другого объекта ИК-камеры  <br /></td></tr>
+<tr class="separator:a1dbcd4d50d4f16151b7926c138dc42eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a029db9b77ff9c3528d6e17bb19b4bcad" id="r_a029db9b77ff9c3528d6e17bb19b4bcad"><td class="memItemLeft" align="right" valign="top"><a id="a029db9b77ff9c3528d6e17bb19b4bcad" name="a029db9b77ff9c3528d6e17bb19b4bcad"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IRCamera</b> (<a class="el" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a> &amp;&amp;other)</td></tr>
+<tr class="separator:a029db9b77ff9c3528d6e17bb19b4bcad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8852e4ab026c47e8cca1319988f9f9d0" id="r_a8852e4ab026c47e8cca1319988f9f9d0"><td class="memItemLeft" align="right" valign="top"><a id="a8852e4ab026c47e8cca1319988f9f9d0" name="a8852e4ab026c47e8cca1319988f9f9d0"></a>
+<a class="el" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a> &amp;other)</td></tr>
+<tr class="separator:a8852e4ab026c47e8cca1319988f9f9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9d0c91268f9f07acc08f54178b03c3e" id="r_ae9d0c91268f9f07acc08f54178b03c3e"><td class="memItemLeft" align="right" valign="top"><a id="ae9d0c91268f9f07acc08f54178b03c3e" name="ae9d0c91268f9f07acc08f54178b03c3e"></a>
+<a class="el" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a> &amp;&amp;other)</td></tr>
+<tr class="separator:ae9d0c91268f9f07acc08f54178b03c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7346c3d20d5a22ebe12afb57de31ac9e" id="r_a7346c3d20d5a22ebe12afb57de31ac9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7346c3d20d5a22ebe12afb57de31ac9e">useForceReset</a> (GPIO_TypeDef *resetPort, uint16_t resetPin)</td></tr>
+<tr class="memdesc:a7346c3d20d5a22ebe12afb57de31ac9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включает использование пина reset ИК-камеры.  <br /></td></tr>
+<tr class="separator:a7346c3d20d5a22ebe12afb57de31ac9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53d5a93a40408726632323f59c009bd6" id="r_a53d5a93a40408726632323f59c009bd6"><td class="memItemLeft" align="right" valign="top"><a id="a53d5a93a40408726632323f59c009bd6" name="a53d5a93a40408726632323f59c009bd6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>useMirrored</b> ()</td></tr>
+<tr class="memdesc:a53d5a93a40408726632323f59c009bd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вывод картинки в отзеркаленном виде <br /></td></tr>
+<tr class="separator:a53d5a93a40408726632323f59c009bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade5050b97643e2d5d8e0d35162351137" id="r_ade5050b97643e2d5d8e0d35162351137"><td class="memItemLeft" align="right" valign="top"><a id="ade5050b97643e2d5d8e0d35162351137" name="ade5050b97643e2d5d8e0d35162351137"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>useNotMirrored</b> ()</td></tr>
+<tr class="memdesc:ade5050b97643e2d5d8e0d35162351137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вывод картинки в нормальном (не отзеркаленном) виде <br /></td></tr>
+<tr class="separator:ade5050b97643e2d5d8e0d35162351137"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a97093c3ad3dd193dcf8018847a49ae" id="r_a6a97093c3ad3dd193dcf8018847a49ae"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a97093c3ad3dd193dcf8018847a49ae">Init</a> () override</td></tr>
+<tr class="memdesc:a6a97093c3ad3dd193dcf8018847a49ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация камеры с параметрами по умолчанию: <a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e">Framerate::FPS_10</a>.  <br /></td></tr>
+<tr class="separator:a6a97093c3ad3dd193dcf8018847a49ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa76998d8844ac1b6c79a42d04e0483eb" id="r_aa76998d8844ac1b6c79a42d04e0483eb"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa76998d8844ac1b6c79a42d04e0483eb">Init</a> (<a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeaf">Framerate</a> framrate)</td></tr>
+<tr class="memdesc:aa76998d8844ac1b6c79a42d04e0483eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация камеры с заданным количеством кадров в секунду  <br /></td></tr>
+<tr class="separator:aa76998d8844ac1b6c79a42d04e0483eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65cf6e91d4c6db8635094486b51a5846" id="r_a65cf6e91d4c6db8635094486b51a5846"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65cf6e91d4c6db8635094486b51a5846">Read</a> ()</td></tr>
+<tr class="memdesc:a65cf6e91d4c6db8635094486b51a5846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Считывание значений с матрицы ИК-камеры во внутренний буффер.  <br /></td></tr>
+<tr class="separator:a65cf6e91d4c6db8635094486b51a5846"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35dc23801eb348de678b74b3cf5d94b0" id="r_a35dc23801eb348de678b74b3cf5d94b0"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35dc23801eb348de678b74b3cf5d94b0">getPixelRaw</a> (uint8_t x, uint8_t y)</td></tr>
+<tr class="memdesc:a35dc23801eb348de678b74b3cf5d94b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение необработанного значения пикселя  <br /></td></tr>
+<tr class="separator:a35dc23801eb348de678b74b3cf5d94b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a440c56a2f0f37442887191e6ae823d72" id="r_a440c56a2f0f37442887191e6ae823d72"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a440c56a2f0f37442887191e6ae823d72">getPixel</a> (uint8_t x, uint8_t y)</td></tr>
+<tr class="memdesc:a440c56a2f0f37442887191e6ae823d72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение значения пикселя  <br /></td></tr>
+<tr class="separator:a440c56a2f0f37442887191e6ae823d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_intro_sat_lib_1_1_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_intro_sat_lib_1_1_base_device')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="class_intro_sat_lib_1_1_base_device.html">IntroSatLib::BaseDevice</a></td></tr>
+<tr class="memitem:a631104c6cd77fb82326aa3e8140fc60d inherit pub_methods_class_intro_sat_lib_1_1_base_device" id="r_a631104c6cd77fb82326aa3e8140fc60d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sat_lib_1_1_base_device.html#a631104c6cd77fb82326aa3e8140fc60d">BaseDevice</a> (I2C_HandleTypeDef *hi2c, uint8_t address)</td></tr>
+<tr class="memdesc:a631104c6cd77fb82326aa3e8140fc60d inherit pub_methods_class_intro_sat_lib_1_1_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта <b>@ref</b>  <a class="el" href="class_intro_sat_lib_1_1_base_device.html">BaseDevice</a>.  <br /></td></tr>
+<tr class="separator:a631104c6cd77fb82326aa3e8140fc60d inherit pub_methods_class_intro_sat_lib_1_1_base_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86bf0b41f10cc79d6271930ef61be7d5 inherit pub_methods_class_intro_sat_lib_1_1_base_device" id="r_a86bf0b41f10cc79d6271930ef61be7d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sat_lib_1_1_base_device.html#a86bf0b41f10cc79d6271930ef61be7d5">BaseDevice</a> (TwoWire &amp;hi2c, uint8_t address)</td></tr>
+<tr class="memdesc:a86bf0b41f10cc79d6271930ef61be7d5 inherit pub_methods_class_intro_sat_lib_1_1_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта <a class="el" href="class_intro_sat_lib_1_1_base_device.html">BaseDevice</a>.  <br /></td></tr>
+<tr class="separator:a86bf0b41f10cc79d6271930ef61be7d5 inherit pub_methods_class_intro_sat_lib_1_1_base_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82a1cb1576068b9802ad25342c74a462 inherit pub_methods_class_intro_sat_lib_1_1_base_device" id="r_a82a1cb1576068b9802ad25342c74a462"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sat_lib_1_1_base_device.html#a82a1cb1576068b9802ad25342c74a462">BaseDevice</a> (uint8_t address)</td></tr>
+<tr class="memdesc:a82a1cb1576068b9802ad25342c74a462 inherit pub_methods_class_intro_sat_lib_1_1_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта <a class="el" href="class_intro_sat_lib_1_1_base_device.html">BaseDevice</a> на <b>I2C1</b>.  <br /></td></tr>
+<tr class="separator:a82a1cb1576068b9802ad25342c74a462 inherit pub_methods_class_intro_sat_lib_1_1_base_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf11ffaf569aa5d7f19990da9b4afb7f inherit pub_methods_class_intro_sat_lib_1_1_base_device" id="r_abf11ffaf569aa5d7f19990da9b4afb7f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sat_lib_1_1_base_device.html#abf11ffaf569aa5d7f19990da9b4afb7f">BaseDevice</a> (const <a class="el" href="class_intro_sat_lib_1_1_base_device.html">BaseDevice</a> &amp;other)</td></tr>
+<tr class="memdesc:abf11ffaf569aa5d7f19990da9b4afb7f inherit pub_methods_class_intro_sat_lib_1_1_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта <a class="el" href="class_intro_sat_lib_1_1_base_device.html">BaseDevice</a> как копии другого объекта <a class="el" href="class_intro_sat_lib_1_1_base_device.html">BaseDevice</a>.  <br /></td></tr>
+<tr class="separator:abf11ffaf569aa5d7f19990da9b4afb7f inherit pub_methods_class_intro_sat_lib_1_1_base_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a441cdc3c3b2c39bbd8c4631dad098465 inherit pub_methods_class_intro_sat_lib_1_1_base_device" id="r_a441cdc3c3b2c39bbd8c4631dad098465"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>BaseDevice</b> (<a class="el" href="class_intro_sat_lib_1_1_base_device.html">BaseDevice</a> &amp;&amp;other)</td></tr>
+<tr class="separator:a441cdc3c3b2c39bbd8c4631dad098465 inherit pub_methods_class_intro_sat_lib_1_1_base_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cfaf8265fff411bb39425efb2f91bc7 inherit pub_methods_class_intro_sat_lib_1_1_base_device" id="r_a5cfaf8265fff411bb39425efb2f91bc7"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="class_intro_sat_lib_1_1_base_device.html">BaseDevice</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_intro_sat_lib_1_1_base_device.html">BaseDevice</a> &amp;other)</td></tr>
+<tr class="separator:a5cfaf8265fff411bb39425efb2f91bc7 inherit pub_methods_class_intro_sat_lib_1_1_base_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ce2afbbc51c426076ff71abfe979bbe inherit pub_methods_class_intro_sat_lib_1_1_base_device" id="r_a4ce2afbbc51c426076ff71abfe979bbe"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="class_intro_sat_lib_1_1_base_device.html">BaseDevice</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_intro_sat_lib_1_1_base_device.html">BaseDevice</a> &amp;&amp;other)</td></tr>
+<tr class="separator:a4ce2afbbc51c426076ff71abfe979bbe inherit pub_methods_class_intro_sat_lib_1_1_base_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Дополнительные унаследованные члены</h2></td></tr>
+<tr class="inherit_header pro_methods_class_intro_sat_lib_1_1_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_intro_sat_lib_1_1_base_device')"><img src="closed.png" alt="-"/>&#160;Защищенные члены унаследованные от <a class="el" href="class_intro_sat_lib_1_1_base_device.html">IntroSatLib::BaseDevice</a></td></tr>
+<tr class="memitem:ac3d81df953423b66b238f8113306d214 inherit pro_methods_class_intro_sat_lib_1_1_base_device" id="r_ac3d81df953423b66b238f8113306d214"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sat_lib_1_1_base_device.html#ac3d81df953423b66b238f8113306d214">GetRegister</a> (uint8_t reg)</td></tr>
+<tr class="memdesc:ac3d81df953423b66b238f8113306d214 inherit pro_methods_class_intro_sat_lib_1_1_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение значения из регистра устройства  <br /></td></tr>
+<tr class="separator:ac3d81df953423b66b238f8113306d214 inherit pro_methods_class_intro_sat_lib_1_1_base_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a417cad1072ec9b537f7b1b6a3e79841e inherit pro_methods_class_intro_sat_lib_1_1_base_device" id="r_a417cad1072ec9b537f7b1b6a3e79841e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sat_lib_1_1_base_device.html#a417cad1072ec9b537f7b1b6a3e79841e">SetRegister</a> (uint8_t reg, uint8_t value)</td></tr>
+<tr class="memdesc:a417cad1072ec9b537f7b1b6a3e79841e inherit pro_methods_class_intro_sat_lib_1_1_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись значения в регистр устройства  <br /></td></tr>
+<tr class="separator:a417cad1072ec9b537f7b1b6a3e79841e inherit pro_methods_class_intro_sat_lib_1_1_base_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae33eb53f04bd78500b1a5183e9640db7 inherit pro_methods_class_intro_sat_lib_1_1_base_device" id="r_ae33eb53f04bd78500b1a5183e9640db7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sat_lib_1_1_base_device.html#ae33eb53f04bd78500b1a5183e9640db7">SetBitRegister</a> (uint8_t reg, uint8_t bit)</td></tr>
+<tr class="memdesc:ae33eb53f04bd78500b1a5183e9640db7 inherit pro_methods_class_intro_sat_lib_1_1_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение 1.  <br /></td></tr>
+<tr class="separator:ae33eb53f04bd78500b1a5183e9640db7 inherit pro_methods_class_intro_sat_lib_1_1_base_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac672694bd65c5ea6b54b733073f4fa4d inherit pro_methods_class_intro_sat_lib_1_1_base_device" id="r_ac672694bd65c5ea6b54b733073f4fa4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sat_lib_1_1_base_device.html#ac672694bd65c5ea6b54b733073f4fa4d">ResetBitRegister</a> (uint8_t reg, uint8_t bit)</td></tr>
+<tr class="memdesc:ac672694bd65c5ea6b54b733073f4fa4d inherit pro_methods_class_intro_sat_lib_1_1_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение 0.  <br /></td></tr>
+<tr class="separator:ac672694bd65c5ea6b54b733073f4fa4d inherit pro_methods_class_intro_sat_lib_1_1_base_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae000696da9dc4f5d7d6978f9b2348c24 inherit pro_methods_class_intro_sat_lib_1_1_base_device" id="r_ae000696da9dc4f5d7d6978f9b2348c24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sat_lib_1_1_base_device.html#ae000696da9dc4f5d7d6978f9b2348c24">BitRegister</a> (uint8_t reg, uint8_t bit, uint8_t value)</td></tr>
+<tr class="memdesc:ae000696da9dc4f5d7d6978f9b2348c24 inherit pro_methods_class_intro_sat_lib_1_1_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение по условию value.  <br /></td></tr>
+<tr class="separator:ae000696da9dc4f5d7d6978f9b2348c24 inherit pro_methods_class_intro_sat_lib_1_1_base_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_intro_sat_lib_1_1_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_intro_sat_lib_1_1_base_device')"><img src="closed.png" alt="-"/>&#160;Защищенные данные унаследованные от <a class="el" href="class_intro_sat_lib_1_1_base_device.html">IntroSatLib::BaseDevice</a></td></tr>
+<tr class="memitem:a98b5e2ee71ac8b03bef96365e8e0cac2 inherit pro_attribs_class_intro_sat_lib_1_1_base_device" id="r_a98b5e2ee71ac8b03bef96365e8e0cac2"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="class_intro_sat_lib_1_1_i2_c_device.html">I2CDevice</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>_i2c</b></td></tr>
+<tr class="separator:a98b5e2ee71ac8b03bef96365e8e0cac2 inherit pro_attribs_class_intro_sat_lib_1_1_base_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Перечисления</h2>
+<a id="a1fc8cab3fcbd47bed763bdcc726aaeaf" name="a1fc8cab3fcbd47bed763bdcc726aaeaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fc8cab3fcbd47bed763bdcc726aaeaf">&#9670;&#160;</a></span>Framerate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeaf">IntroSatLib::IRCamera::Framerate</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Количество кадров (обновлений данных) в секунду </p>
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e" name="a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e"></a>FPS_10&#160;</td><td class="fielddoc"><p>10 кадров в секунду </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1fc8cab3fcbd47bed763bdcc726aaeafa81c8ccc55fb696606bbda356baa21d8d" name="a1fc8cab3fcbd47bed763bdcc726aaeafa81c8ccc55fb696606bbda356baa21d8d"></a>FPS_1&#160;</td><td class="fielddoc"><p>1 кадр в секунду </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a2a0f6527d04256bbed09b6095d3db9ce" name="a2a0f6527d04256bbed09b6095d3db9ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a0f6527d04256bbed09b6095d3db9ce">&#9670;&#160;</a></span>IRCamera() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::IRCamera::IRCamera </td>
+          <td>(</td>
+          <td class="paramtype">I2C_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>hi2c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span><span class="paramdefsep"> = </span><span class="paramdefval">BASE_ADDRESS</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Создание объекта ИК-камеры. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Только в STM32CubeIDE </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hi2c</td><td>объект <b>I2C_HandleTypeDef</b> </td></tr>
+    <tr><td class="paramname">address</td><td>адрес ИК-камеры на шине I2C </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7283d56de854df01589e29f8b5279e76" name="a7283d56de854df01589e29f8b5279e76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7283d56de854df01589e29f8b5279e76">&#9670;&#160;</a></span>IRCamera() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::IRCamera::IRCamera </td>
+          <td>(</td>
+          <td class="paramtype">TwoWire &amp;</td>          <td class="paramname"><span class="paramname"><em>hi2c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span><span class="paramdefsep"> = </span><span class="paramdefval">BASE_ADDRESS</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Создание объекта ИК-камеры </p>
+<dl class="section note"><dt>Заметки</dt><dd>Только в Arduino IDE </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hi2c</td><td>объект <b>TwoWire</b> или <b>Wire</b> </td></tr>
+    <tr><td class="paramname">address</td><td>адрес ИК-камеры на шине I2C </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a21d0296b0a22a7a6d4a8dd214bb18e01" name="a21d0296b0a22a7a6d4a8dd214bb18e01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21d0296b0a22a7a6d4a8dd214bb18e01">&#9670;&#160;</a></span>IRCamera() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::IRCamera::IRCamera </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span><span class="paramdefsep"> = </span><span class="paramdefval">BASE_ADDRESS</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Создание объекта ИК-камеры на <b>I2C1</b>. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Только в Arduino IDE </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>адрес ИК-камеры на шине I2C </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1dbcd4d50d4f16151b7926c138dc42eb" name="a1dbcd4d50d4f16151b7926c138dc42eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dbcd4d50d4f16151b7926c138dc42eb">&#9670;&#160;</a></span>IRCamera() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::IRCamera::IRCamera </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_intro_sat_lib_1_1_i_r_camera.html">IRCamera</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Создание объекта ИК-камеры как копии другого объекта ИК-камеры </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>исходный объект для копирования </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a440c56a2f0f37442887191e6ae823d72" name="a440c56a2f0f37442887191e6ae823d72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a440c56a2f0f37442887191e6ae823d72">&#9670;&#160;</a></span>getPixel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::IRCamera::getPixel </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение значения пикселя </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Координата x пикселя </td></tr>
+    <tr><td class="paramname">y</td><td>Координата y пикселя </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Значение пикселя в диапазоне от 0 до 1 </dd></dl>
+
+</div>
+</div>
+<a id="a35dc23801eb348de678b74b3cf5d94b0" name="a35dc23801eb348de678b74b3cf5d94b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35dc23801eb348de678b74b3cf5d94b0">&#9670;&#160;</a></span>getPixelRaw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t IntroSatLib::IRCamera::getPixelRaw </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение необработанного значения пикселя </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Координата x пикселя </td></tr>
+    <tr><td class="paramname">y</td><td>Координата y пикселя </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Необработанное значение пикселя, 12 бит, right-aligned </dd></dl>
+
+</div>
+</div>
+<a id="a6a97093c3ad3dd193dcf8018847a49ae" name="a6a97093c3ad3dd193dcf8018847a49ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a97093c3ad3dd193dcf8018847a49ae">&#9670;&#160;</a></span>Init() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t IntroSatLib::IRCamera::Init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Инициализация камеры с параметрами по умолчанию: <a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e">Framerate::FPS_10</a>. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>0, если инициализация завершена успешно </dd>
+<dd>
+1, если при инициализации возникла ошибка </dd></dl>
+
+<p>Переопределяет метод предка <a class="el" href="class_intro_sat_lib_1_1_base_device.html#aed46bf6b65b16efcad1f5c5d3e36aaff">IntroSatLib::BaseDevice</a>.</p>
+
+</div>
+</div>
+<a id="aa76998d8844ac1b6c79a42d04e0483eb" name="aa76998d8844ac1b6c79a42d04e0483eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa76998d8844ac1b6c79a42d04e0483eb">&#9670;&#160;</a></span>Init() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t IntroSatLib::IRCamera::Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeaf">Framerate</a></td>          <td class="paramname"><span class="paramname"><em>framrate</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Инициализация камеры с заданным количеством кадров в секунду </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">framrate</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>0, если инициализация завершена успешно </dd>
+<dd>
+1, если при инициализации возникла ошибка </dd></dl>
+
+</div>
+</div>
+<a id="a65cf6e91d4c6db8635094486b51a5846" name="a65cf6e91d4c6db8635094486b51a5846"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65cf6e91d4c6db8635094486b51a5846">&#9670;&#160;</a></span>Read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t IntroSatLib::IRCamera::Read </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Считывание значений с матрицы ИК-камеры во внутренний буффер. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>0, если изображение считано успешно </dd>
+<dd>
+1, если считывании возникла ошибка </dd></dl>
+
+</div>
+</div>
+<a id="a7346c3d20d5a22ebe12afb57de31ac9e" name="a7346c3d20d5a22ebe12afb57de31ac9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7346c3d20d5a22ebe12afb57de31ac9e">&#9670;&#160;</a></span>useForceReset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntroSatLib::IRCamera::useForceReset </td>
+          <td>(</td>
+          <td class="paramtype">GPIO_TypeDef *</td>          <td class="paramname"><span class="paramname"><em>resetPort</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>resetPin</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Включает использование пина reset ИК-камеры. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resetPort</td><td>Порт, которому подключён контакт </td></tr>
+    <tr><td class="paramname">resetPin</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/<a class="el" href="_i_r_camera_8h_source.html">IRCamera.h</a></li>
+<li>src/<b>IRCamera.cpp</b></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>
