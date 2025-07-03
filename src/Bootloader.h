@@ -5,12 +5,12 @@
 
 
 
-#ifdef STM32F4
+#ifdef STM32F4xx
     #include "stm32f4xx_hal.h"
     #define BOOT_ADDR 0x1FFFF000
 #endif
 
-#ifdef STM32F1
+#ifdef STM32F1xx
     #include "stm32f1xx_hal.h"
     #define BOOT_ADDR 0x1FFFF000
 #endif
@@ -25,7 +25,7 @@
 #else
     // Looks like unsupported platform
     #warning "IntroSatLib::EnterBootloader() not supported by selected core"
-    #warning "IntroSatLib::EnterBootloader() currently supports STM32F1, STM32F4, STM32H750xx."
+    #warning "IntroSatLib::EnterBootloader() currently supports STM32F1xx, STM32F4xx, STM32H750xx."
     #warning "Calls to IntroSatLib::EnterBootloader() will have no effect"
 #endif
 
