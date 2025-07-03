@@ -17,6 +17,7 @@
 
 #define I2C_TIMEOUTERR 50
 #define I2C_TIMEOUT_ERRATUM 200
+#define I2C_TIMEOUT_BASE 200
 
 static uint8_t wait_for_gpio_state_timeout(GPIO_TypeDef *port, uint16_t pin, GPIO_PinState state, uint32_t timeout)
 {
@@ -131,7 +132,7 @@ static void I2C_ErrorAnalyzer(I2C_HandleTypeDef *hi2c)
     
 #ifdef ARDUINO // If in Arduino IDE - let stm32duino handle bus recovery 
     Wire.end();
-    HAL_Delay(timeout);
+    HAL_Delay(I2C_TIMEOUT_BASE);
     Wire.begin();
     return;
 #endif
