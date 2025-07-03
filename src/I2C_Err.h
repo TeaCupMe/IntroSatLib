@@ -4,41 +4,42 @@
  *  Created on: May 13, 2025
  *  Author: matve
  */
+#ifndef I2C_ER_H_
 
- #ifndef I2C_ER_H_
+#define I2C_ER_H_
 
- #define I2C_ER_H_
- 
- #define SCL_PIN     GPIO_PIN_6
- #define SCL_PORT    GPIOB
- 
- #define SDA_PIN     GPIO_PIN_7
- #define SDA_PORT    GPIOB
- 
- #define I2C_TIMEOUTERR 50
- #define I2C_TIMEOUT_ERRATUM 200
- 
- 
- static uint8_t wait_for_gpio_state_timeout(GPIO_TypeDef *port, uint16_t pin, GPIO_PinState state, uint32_t timeout)
-  {
-     uint32_t Tickstart = HAL_GetTick();
-     uint8_t ret = 1;
- 
-     for(;(state != HAL_GPIO_ReadPin(port, pin)) && (1 == ret);) // Wait until flag is set
-     {
-         if(timeout != HAL_MAX_DELAY) // Check for the timeout
-         {
-             if((timeout == 0U) || ((HAL_GetTick() - Tickstart) > timeout)) ret = 0;
-         }
- 
-         asm("nop");
-     }
-     return ret;
- }
- 
- 
- static void I2C_ClearBusyFlagErratum(I2C_HandleTypeDef *hi2c, uint32_t timeout)
- {
+
+#define SCL_PIN GPIO_PIN_6
+#define SCL_PORT GPIOB
+
+#define SDA_PIN GPIO_PIN_7
+#define SDA_PORT GPIOB
+
+#define I2C_TIMEOUTERR 50
+#define I2C_TIMEOUT_ERRATUM 200
+#define I2C_TIMEOUT_BASE 200
+
+static uint8_t wait_for_gpio_state_timeout(GPIO_TypeDef *port, uint16_t pin, GPIO_PinState state, uint32_t timeout)
+{
+    uint32_t Tickstart = HAL_GetTick();
+    uint8_t ret = 1;
+
+    for (; (state != HAL_GPIO_ReadPin(port, pin)) && (1 == ret);) // Wait until flag is set
+    {
+        if (timeout != HAL_MAX_DELAY) // Check for the timeout
+        {
+            if ((timeout == 0U) || ((HAL_GetTick() - Tickstart) > timeout))
+                ret = 0;
+        }
+
+        asm("nop");
+    }
+    return ret;
+}
+
+#ifdef STM32F103xx 
+static void I2C_ClearBusyFlagErratum_F103(I2C_HandleTypeDef *hi2c, uint32_t timeout)
+{
     GPIO_InitTypeDef GPIO_InitStructure = {0};
 
     // 1. Clear PE bit.
@@ -89,7 +90,7 @@
 
     // 12. Configure the SCL and SDA I/Os as Alternate function Open-Drain.
     GPIO_InitStructure.Mode = GPIO_MODE_AF_OD;
-    //GPIO_InitStructure.Alternate = GPIO_AF4_I2C2; // F4
+    // GPIO_InitStructure.Alternate = GPIO_AF4_I2C2; // F4
 
     GPIO_InitStructure.Pin = SCL_PIN;
     HAL_GPIO_Init(SCL_PORT, &GPIO_InitStructure);
@@ -116,22 +117,28 @@
     asm("nop");
     asm("nop");
 
-    // Call initialization function.
-    #ifdef ARDUINO
-        Wire.begin();
-    #else
-        HAL_I2C_Init(hi2c);
-    #endif
 
- }
-
-
-
-static void I2C_ErrorAnalyzer(I2C_HandleTypeDef *hi2c) {
-
-    // когда-нибудь здесь будет полноценная обработка ошибок...
-    I2C_ClearBusyFlagErratum(hi2c, I2C_TIMEOUT_ERRATUM);
-
+// Call initialization function.
+#ifdef ARDUINO
+    Wire.begin();
+#else
+    HAL_I2C_Init(hi2c);
+#endif
 }
- 
- #endif /* I2C_ER_H_ */
+#endif
+
+
+static void I2C_ErrorAnalyzer(I2C_HandleTypeDef *hi2c)
+{
+    // когда-нибудь здесь будет полноценная обработка ошибок...
+#ifdef ARDUINO // If in Arduino IDE - let stm32duino handle bus recovery 
+    Wire.end();
+    HAL_Delay(I2C_TIMEOUT_BASE);
+    Wire.begin();
+    return;
+#elifdef STM32F103xx
+    I2C_ClearBusyFlagErratum(hi2c, I2C_TIMEOUT_ERRATUM);
+#endif
+}
+
+#endif /* I2C_ER_H_ */
