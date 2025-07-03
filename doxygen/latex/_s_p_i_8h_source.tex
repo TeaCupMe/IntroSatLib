@@ -1,0 +1,97 @@
+\doxysection{SPI.\+h}
+\hypertarget{_s_p_i_8h_source}{}\label{_s_p_i_8h_source}\index{src/interfaces/SPI.h@{src/interfaces/SPI.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INTERFACES\_SPI\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INTERFACES\_SPI\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifdef\ ARDUINO}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}Arduino.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}SPI.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \#if\ \_\_has\_include\ ("{}stm32f4xx\_hal.h"{})}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f4xx\_hal.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f4xx\_hal\_spi.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \#if\ \_\_has\_include\ ("{}stm32f1xx\_hal.h"{})}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f1xx\_hal.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f1xx\_hal\_spi.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}../Logger.h"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ ASSERT\_SPI\_HAVE()\ \(\backslash\)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{if(!\_hspi)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\ \ \ \ logText("{}Haven't\ spi\ handle"{});\ \(\backslash\)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ return\ HAL\_StatusTypeDef::HAL\_ERROR;\ \(\backslash\)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ LOG\_SPI(mode)\ \(\backslash\)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{logText("{}SPI\ "{});\ \(\backslash\)}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{logText(mode);}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#if\ LOGDATA}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ LOG\_SPI\_BUFFER(Sep,\ Data,\ Nbytes)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{logText("{}\ -\/\ "{});\ \(\backslash\)}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{for(uint8\_t\ i\ =\ 0;\ i\ <\ Nbytes;\ i++)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\ \ \ \ logHEX(Data[i]);\ \(\backslash\)}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\ \ \ \ if\ (i\ !=\ (Nbytes\ -\/\ 1))\ logText(Sep);\ \(\backslash\)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\}\ \(\backslash\)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ LOG\_SPI\_BUFFER(Sep,\ Data,\ Nbytes)}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00047\ \textcolor{keyword}{namespace\ }intefaces\ \{}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_s_p_i}{SPI}}\ final\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ SPI\_HandleTypeDef\ *\_hspi\ =\ 0;}
+\DoxyCodeLine{00051\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_s_p_i}{SPI}}(SPI\_HandleTypeDef\ *hspi):\ \_hspi(hspi)\ \{\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00055\ \ \ \ \ HAL\_StatusTypeDef\ transfer(\textcolor{keyword}{const}\ std::array<uint8\_t,\ N>\ out,\ std::array<uint8\_t,\ N>\ in)}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ transfer(out.data(),\ in.data(),\ N);}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00060\ \ \ \ \ HAL\_StatusTypeDef\ transfer(\textcolor{keyword}{const}\ std::array<uint8\_t,\ N>\ out,\ uint8\_t*\ in)}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ transfer(out.data(),\ in,\ N);}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00066\ \ \ \ \ HAL\_StatusTypeDef\ transfer(\textcolor{keyword}{const}\ uint8\_t*\ out,\ std::array<uint8\_t,\ N>\ in)}
+\DoxyCodeLine{00067\ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ transfer(out,\ in.data(),\ N);}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ HAL\_StatusTypeDef\ transfer(\textcolor{keyword}{const}\ uint8\_t*\ out,\ uint8\_t*\ in,\ uint8\_t\ len)}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ LOG\_SPI(\textcolor{stringliteral}{"{}read/write"{}});}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ LOG\_SPI\_BUFFER(\textcolor{stringliteral}{"{},\ "{}},\ out,\ len);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ logText(\textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ logNumber((uint8\_t)len);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ logText(\textcolor{stringliteral}{"{}\ bytes\ >\ "{}});}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ HAL\_StatusTypeDef\ result\ =\ logStatus(}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_SPI\_TransmitReceive(\_hspi,\ (uint8\_t*)\ out,\ in,\ len,\ 1000)}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ LOG\_SPI\_BUFFER(\textcolor{stringliteral}{"{},\ "{}},\ in,\ len);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ logText(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \}\ \textcolor{comment}{/*\ namespace\ intefaces\ */}}
+\DoxyCodeLine{00089\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INTERFACES\_SPI\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

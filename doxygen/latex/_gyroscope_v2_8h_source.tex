@@ -1,0 +1,133 @@
+\doxysection{Gyroscope\+V2.\+h}
+\hypertarget{_gyroscope_v2_8h_source}{}\label{_gyroscope_v2_8h_source}\index{src/GyroscopeV2.h@{src/GyroscopeV2.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GYROSCOPE\_V2\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GYROSCOPE\_V2\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}I2CDevice.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}BaseDevice.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Quaternion/Quaternion.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{GyroscopeV2}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ BASE\_ADDRESS\ =\ 0x6B;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \_rawdps\ =\ (8.75f\ /\ 1000.f)\ *\ 3.1415926f\ /\ 180.0f;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{enum}\ RegisterMap}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ GYRO\_CONFIG\ =\ 0X11,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ GYRO\_XOUT\_H\ =\ 0X22,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ GYRO\_XOUT\_L,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ GYRO\_YOUT\_H,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ GYRO\_YOUT\_L,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ GYRO\_ZOUT\_H,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ GYRO\_ZOUT\_L,}
+\DoxyCodeLine{00028\ \ \ \ \ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ cutMin(\textcolor{keywordtype}{float}\ value,\ \textcolor{keywordtype}{float}\ cut);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ uint8\_t\ \_sensitivity\ =\ 0;}
+\DoxyCodeLine{00033\ \ \ \ \ uint8\_t\ \_dataRate\ =\ 0;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ uint32\_t\ \_lastXTime\ =\ 0;}
+\DoxyCodeLine{00036\ \ \ \ \ uint32\_t\ \_lastYTime\ =\ 0;}
+\DoxyCodeLine{00037\ \ \ \ \ uint32\_t\ \_lastZTime\ =\ 0;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{float}\ \_cutX\ =\ 0.0872665;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{float}\ \_cutY\ =\ 0.0872665;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{float}\ \_cutZ\ =\ 0.0872665;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{float}\ \_lastX\ =\ 0;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{float}\ \_lastY\ =\ 0;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{float}\ \_lastZ\ =\ 0;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776}{DataRate}}}
+\DoxyCodeLine{00054\ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a233aa0268f4b5697cbe03d195bc63edb}{OFF}},\ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a4496a5345b9d078b1a3cc7f478af5e88}{F\_13\_Hz}},\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a64ef558a170750e4504f53aa81a0b9c6}{F\_26\_Hz}},\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776afc66624b147ae4f9010ecb34da16dbff}{F\_52\_Hz}},\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776abdc899b99c6041ddaac011e9509384dd}{F\_104\_Hz}},\ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a98b89f819d2f837ddf7677c482e1d643}{F\_208\_Hz}},\ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a554bdf6dabb1cef0715cd3af5474bf8b}{F\_416\_Hz}},\ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776af1b042c80a89c842a048abba952f09f0}{F\_833\_Hz}},\ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776a99a2b1c87b4b80a35301f87ae7d0c434}{F\_1666\_Hz}},\ }
+\DoxyCodeLine{00064\ \ \ \ \ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Scale}}}
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cdaa619e830702605019f7c31eb9ccc73c4}{DPS0250}}\ =\ 0,\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cdacfcadb1487edc5b5b698d24cc389f064}{DPS0500}},\ \ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cda9e3681f18954a25ab273f4cd41023fc3}{DPS1000}},\ \ \ \ \ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cdaed1f53527e36fef9697c498a232bc5f7}{DPS2000}}\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ \ \ \ \ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a743dcf6d8383216a7d35c8345fa364e7}{GyroscopeV2}}(I2C\_HandleTypeDef\ *hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a743dcf6d8383216a7d35c8345fa364e7}{GyroscopeV2}}(TwoWire\ \&hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00096\ \ \ \ \ }
+\DoxyCodeLine{00103\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a743dcf6d8383216a7d35c8345fa364e7}{GyroscopeV2}}(uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a743dcf6d8383216a7d35c8345fa364e7}{GyroscopeV2}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{GyroscopeV2}}\ \&other);}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a743dcf6d8383216a7d35c8345fa364e7}{GyroscopeV2}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{GyroscopeV2}}\ \&\&other);}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{GyroscopeV2}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{GyroscopeV2}}\ \&other);}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{GyroscopeV2}}\&\ operator=(\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{GyroscopeV2}}\ \&\&other);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00121\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a5a3e7eba099d6fb9e5bd4fbd610b7dee}{Init}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//TODO\ Переименовать\ sensitivity\ в\ scale,\ иначе\ вызывает\ путаницу.\ Это\ именно\ scale}}
+\DoxyCodeLine{00131\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a5a3e7eba099d6fb9e5bd4fbd610b7dee}{Init}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Scale}}\ sensitivity);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{//TODO\ Переименовать\ sensitivity\ в\ scale,\ иначе\ вызывает\ путаницу.\ Это\ именно\ scale}}
+\DoxyCodeLine{00142\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a5a3e7eba099d6fb9e5bd4fbd610b7dee}{Init}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Scale}}\ sensitivity,\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776}{DataRate}}\ dataRate);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{//TODO\ Переименовать\ sensitivity\ в\ scale,\ иначе\ вызывает\ путаницу.\ Это\ именно\ scale}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_aacd274ab97a0d95225e8781efa895f6b}{SetScale}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a912ca73281cb47a9814c87edb5f808cd}{Scale}}\ sensitivity);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a5ac00bc18fdda1cde017437f34f5f098}{SetDataRate}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a6264fcade03afe83c704010e7f355776}{DataRate}}\ dataRate);}
+\DoxyCodeLine{00158\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00164\ \ \ \ \ int16\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_aeb342c38d639cba5e64f63d633309a3d}{RawX}}();}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00171\ \ \ \ \ int16\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a636e1f39da7f2219a283f52a6948c65a}{RawY}}();}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00178\ \ \ \ \ int16\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a5d3fbac3b7a704d9830d211e91285424}{RawZ}}();}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_af7a7092c963b98a77db17942e4953414}{X}}();}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a0368d477229930df0ef58640bc2d527e}{Y}}();}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a9bbefccd5288b1491702445b179dcc67}{Z}}();}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a634e6a3601b57696f531eb1a60944cd3}{integrationX}}();}
+\DoxyCodeLine{00210\ \ \ \ \ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a9bcbe61f3524fecab135727b5a5af393}{integrationY}}();}
+\DoxyCodeLine{00220\ \ \ \ \ }
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_aa439dc1798a1faa31092576432b3c670}{integrationZ}}();}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a5996a9118399e22af1144b7b926e2460}{SetMinCutX}}(\textcolor{keywordtype}{float}\ x);}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_abd6f7b8b36f2646b34af3f95bf4232ff}{SetMinCutY}}(\textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a2a0aea7800ccf7ec64f22f35038b68d6}{SetMinCutZ}}(\textcolor{keywordtype}{float}\ z);}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{comment}{//\ TODO\ @TeaCupMe\ Описать\ более\ понятным\ языком}}
+\DoxyCodeLine{00260\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion<float>}}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2_a88e863335a2f0e2dd7848d3a5ca02fbf}{GetQuaternion}}();}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00262\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_v2}{\string~GyroscopeV2}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00263\ \};}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GYROSCOPE\_V2\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

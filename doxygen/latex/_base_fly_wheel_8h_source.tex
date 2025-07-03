@@ -1,0 +1,93 @@
+\doxysection{Base\+Fly\+Wheel.\+h}
+\hypertarget{_base_fly_wheel_8h_source}{}\label{_base_fly_wheel_8h_source}\index{src/BaseFlyWheel.h@{src/BaseFlyWheel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BASEFLYWHEEL\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BASEFLYWHEEL\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}BaseDevice.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{BaseFlyWheel}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{enum}\ RegisterMap}
+\DoxyCodeLine{00012\ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ Config\ =\ 0,}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ BaseAddress,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ Calibration,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ Clock\_Setting,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ Need\_F\_ChannelSpeed\ =\ 4,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ Current\_F\_ChannelSpeed\ =\ 6,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ F\_MaxAbsSpeed\ =\ 8,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ F\_Min\_Force\ =\ 10,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ F\_P\ =\ 12,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ F\_I\ =\ 16,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ F\_D\ =\ 20,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ Need\_S\_ChannelSpeed\ =\ 24,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ Current\_S\_ChannelSpeed\ =\ 26,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ S\_MaxAbsSpeed\ =\ 28,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ S\_Min\_Force\ =\ 30,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ S\_P\ =\ 32,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ S\_I\ =\ 36,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ S\_D\ =\ 40,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ Reserve1\ =\ 44,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ Reserve2\ =\ 45,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ Version\ =\ 46,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ WriteToMemory\ =\ 47,}
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00037\ \ \ \ \ uint8\_t\ \_channel\ =\ 0;}
+\DoxyCodeLine{00038\ \ \ \ \ uint8\_t\ \_version\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ BASE\_ADDRESS\ =\ 0x38;}
+\DoxyCodeLine{00040\ \ \ \ \ uint8\_t\ CheckVersion();}
+\DoxyCodeLine{00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_a1606cc1c3b288764a10825239d752a8f}{BaseFlyWheel}}(I2C\_HandleTypeDef\ *hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_a1606cc1c3b288764a10825239d752a8f}{BaseFlyWheel}}(TwoWire\ \&hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_a1606cc1c3b288764a10825239d752a8f}{BaseFlyWheel}}(uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00075\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_a551affc78e13d23c1e88eabf8afc8d38}{Init}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ TODO\ @Goldfor\ Надо\ описать\ что\ все\ эти\ методы\ делают}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ DirectMode(uint8\_t\ directMode);}
+\DoxyCodeLine{00079\ \ \ \ \ uint8\_t\ DirectMode();}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ SilentMode(uint8\_t\ silentMode);}
+\DoxyCodeLine{00081\ \ \ \ \ uint8\_t\ SilentMode();}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ MinForceMode(uint8\_t\ minForceMode);}
+\DoxyCodeLine{00083\ \ \ \ \ uint8\_t\ MinForceMode();}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ ReverseMode(uint8\_t\ reverceMode);}
+\DoxyCodeLine{00085\ \ \ \ \ uint8\_t\ ReverseMode();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_a786d0d5f17e18e37d1b2cd44fcde0d86}{NeedSpeed}}(int16\_t\ needSpeed);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00099\ \ \ \ \ int16\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_a786d0d5f17e18e37d1b2cd44fcde0d86}{NeedSpeed}}();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00106\ \ \ \ \ int16\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_aae974e08f86599e4c69c26dbd151b9a3}{CurrentSpeed}}();}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ MaxAbsSpeed(uint16\_t\ maxAbsSpeed);}
+\DoxyCodeLine{00108\ \ \ \ \ uint16\_t\ MaxAbsSpeed();}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ MinForce(uint16\_t\ minForce);}
+\DoxyCodeLine{00110\ \ \ \ \ uint16\_t\ MinForce();}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ PID\_P(\textcolor{keywordtype}{float}\ p);}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{float}\ PID\_P();}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ PID\_I(\textcolor{keywordtype}{float}\ i);}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{float}\ PID\_I();}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ PID\_D(\textcolor{keywordtype}{float}\ d);}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{float}\ PID\_D();}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_a1606cc1c3b288764a10825239d752a8f}{BaseFlyWheel}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{BaseFlyWheel}}\ \&other);}
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_a1606cc1c3b288764a10825239d752a8f}{BaseFlyWheel}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{BaseFlyWheel}}\ \&\&other);}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{BaseFlyWheel}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{BaseFlyWheel}}\ \&other);}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{BaseFlyWheel}}\&\ operator=(\mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{BaseFlyWheel}}\ \&\&other);}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{\string~BaseFlyWheel}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00128\ \};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ BASEFLYWHEEL\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

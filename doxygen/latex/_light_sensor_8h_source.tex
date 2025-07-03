@@ -1,0 +1,41 @@
+\doxysection{Light\+Sensor.\+h}
+\hypertarget{_light_sensor_8h_source}{}\label{_light_sensor_8h_source}\index{src/LightSensor.h@{src/LightSensor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LIGHTSENSOR\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LIGHTSENSOR\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}I2CDevice.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}BaseDevice.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor}{LightSensor}}:\ \textcolor{keyword}{public}\ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ BASE\_ADDRESS\ =\ 0x50;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor_a2d5304716804f0b212db548a0440c852}{LightSensor}}(I2C\_HandleTypeDef\ *hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor_a2d5304716804f0b212db548a0440c852}{LightSensor}}(TwoWire\ \&hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor_a2d5304716804f0b212db548a0440c852}{LightSensor}}(uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor_a2d5304716804f0b212db548a0440c852}{LightSensor}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor}{LightSensor}}\ \&other);}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor_a2d5304716804f0b212db548a0440c852}{LightSensor}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor}{LightSensor}}\ \&\&other);}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor}{LightSensor}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor}{LightSensor}}\ \&other);}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor}{LightSensor}}\&\ operator=(\mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor}{LightSensor}}\ \&\&other);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor_a4163fb62eb8c3e37376868e099ce0db7}{Init}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ int16\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor_ab2b377d11f98459a57c5ac1080f60150}{GetLight}}();}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_light_sensor}{\string~LightSensor}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIGHTSENSOR\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

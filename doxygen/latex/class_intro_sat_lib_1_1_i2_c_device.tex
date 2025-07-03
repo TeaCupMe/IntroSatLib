@@ -1,0 +1,235 @@
+\doxysection{Класс Intro\+Sat\+Lib\+::I2\+CDevice}
+\hypertarget{class_intro_sat_lib_1_1_i2_c_device}{}\label{class_intro_sat_lib_1_1_i2_c_device}\index{IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a76a52f702c3a9dedceb80da0279aef01}{I2\+CDevice}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c, uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Конструктор объекта устройства на шине I2C. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a784000654b2c6878fe1acf0e417ed0fb}{I2\+CDevice}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c, uint8\+\_\+t address, I2\+CSpeed speed)
+\begin{DoxyCompactList}\small\item\em Конструктор объекта устройства на шине I2C. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_af23c87f327a42c675ef85149e27760d7}{I2\+CDevice}} (Two\+Wire \&hi2c, uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Конструктор объекта гироскопа \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_aa3546bbabaa65d5fc26468a0f08c88e8}{I2\+CDevice}} (Two\+Wire \&hi2c, uint8\+\_\+t address, I2\+CSpeed speed)
+\begin{DoxyCompactList}\small\item\em Конструктор объекта устройства на шине I2C. \end{DoxyCompactList}\item 
+\Hypertarget{class_intro_sat_lib_1_1_i2_c_device_a168d5c83b720d8b9859689fb07a4c80c}\label{class_intro_sat_lib_1_1_i2_c_device_a168d5c83b720d8b9859689fb07a4c80c} 
+{\bfseries I2\+CDevice} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2\+CDevice}} \&other)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_i2_c_device_a8a9cdabcd7339291d28d877f65507546}\label{class_intro_sat_lib_1_1_i2_c_device_a8a9cdabcd7339291d28d877f65507546} 
+{\bfseries I2\+CDevice} (\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2\+CDevice}} \&\&other)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_i2_c_device_abae57f30f83bf34d2e3fcec43067b00b}\label{class_intro_sat_lib_1_1_i2_c_device_abae57f30f83bf34d2e3fcec43067b00b} 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2\+CDevice}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2\+CDevice}} \&other)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_i2_c_device_a731b1566a1dacd02e9c7948d1a3ee27c}\label{class_intro_sat_lib_1_1_i2_c_device_a731b1566a1dacd02e9c7948d1a3ee27c} 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2\+CDevice}} \& {\bfseries operator=} (\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2\+CDevice}} \&\&other)
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a443fa6b5967e4f6f2b32068e7cc5d25a}{is\+Ready}} (uint8\+\_\+t wait\+Is\+Ready=0)
+\begin{DoxyCompactList}\small\item\em Проверка доступности устройства на шине к работе \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a2b677f59a1c1a13d8c1da4126c6de93c}{read}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}Data, uint8\+\_\+t Nbytes)
+\begin{DoxyCompactList}\small\item\em Отправка запроса на чтение Nbytes байт с устройства \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a55dbf3d2389a6e0bca70b62b454c4563}{read}} (uint8\+\_\+t Register, uint8\+\_\+t \texorpdfstring{$\ast$}{*}Data, uint8\+\_\+t Nbytes)
+\begin{DoxyCompactList}\small\item\em Отправка запроса на чтение Nbytes байт из регистра Register устройства \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_acebc8d2df529364bbb8e46dab8930614}{write}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}Data, uint8\+\_\+t Nbytes)
+\begin{DoxyCompactList}\small\item\em Отправка запроса на запись NBytes байт на устройство \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device_a7f8cd0a301a87313e022bed52e3f03e7}{write}} (uint8\+\_\+t Register, uint8\+\_\+t \texorpdfstring{$\ast$}{*}Data, uint8\+\_\+t Nbytes)
+\begin{DoxyCompactList}\small\item\em Отправка запроса на запись NBytes байт в регистр Register устройства \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_intro_sat_lib_1_1_i2_c_device_a76a52f702c3a9dedceb80da0279aef01}\index{IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}!I2CDevice@{I2CDevice}}
+\index{I2CDevice@{I2CDevice}!IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}}
+\doxysubsubsection{\texorpdfstring{I2CDevice()}{I2CDevice()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i2_c_device_a76a52f702c3a9dedceb80da0279aef01} 
+Intro\+Sat\+Lib\+::\+I2\+CDevice\+::\+I2\+CDevice (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hi2c}{, }\item[{uint8\+\_\+t}]{address}{}\end{DoxyParamCaption})}
+
+
+
+Конструктор объекта устройства на шине I2C. 
+
+\begin{DoxyNote}{Заметки}
+Только в STM32\+Cube\+IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em hi2c} & объект {\bfseries{I2\+C\+\_\+\+Handle\+Type\+Def}} \\
+\hline
+{\em address} & адрес устройства на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_i2_c_device_a784000654b2c6878fe1acf0e417ed0fb}\index{IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}!I2CDevice@{I2CDevice}}
+\index{I2CDevice@{I2CDevice}!IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}}
+\doxysubsubsection{\texorpdfstring{I2CDevice()}{I2CDevice()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i2_c_device_a784000654b2c6878fe1acf0e417ed0fb} 
+Intro\+Sat\+Lib\+::\+I2\+CDevice\+::\+I2\+CDevice (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hi2c}{, }\item[{uint8\+\_\+t}]{address}{, }\item[{I2\+CSpeed}]{speed}{}\end{DoxyParamCaption})}
+
+
+
+Конструктор объекта устройства на шине I2C. 
+
+\begin{DoxyNote}{Заметки}
+Только в STM32\+Cube\+IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em hi2c} & объект {\bfseries{I2\+C\+\_\+\+Handle\+Type\+Def}} \\
+\hline
+{\em address} & адрес устройства на шине I2C \\
+\hline
+{\em speed} & скорость I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_i2_c_device_af23c87f327a42c675ef85149e27760d7}\index{IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}!I2CDevice@{I2CDevice}}
+\index{I2CDevice@{I2CDevice}!IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}}
+\doxysubsubsection{\texorpdfstring{I2CDevice()}{I2CDevice()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i2_c_device_af23c87f327a42c675ef85149e27760d7} 
+Intro\+Sat\+Lib\+::\+I2\+CDevice\+::\+I2\+CDevice (\begin{DoxyParamCaption}\item[{Two\+Wire \&}]{hi2c}{, }\item[{uint8\+\_\+t}]{address}{}\end{DoxyParamCaption})}
+
+
+
+Конструктор объекта гироскопа 
+
+\begin{DoxyNote}{Заметки}
+Только в Arduino IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em hi2c} & объект {\bfseries{Two\+Wire}} или {\bfseries{Wire}} \\
+\hline
+{\em address} & адрес гироскопа на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_i2_c_device_aa3546bbabaa65d5fc26468a0f08c88e8}\index{IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}!I2CDevice@{I2CDevice}}
+\index{I2CDevice@{I2CDevice}!IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}}
+\doxysubsubsection{\texorpdfstring{I2CDevice()}{I2CDevice()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i2_c_device_aa3546bbabaa65d5fc26468a0f08c88e8} 
+Intro\+Sat\+Lib\+::\+I2\+CDevice\+::\+I2\+CDevice (\begin{DoxyParamCaption}\item[{Two\+Wire \&}]{hi2c}{, }\item[{uint8\+\_\+t}]{address}{, }\item[{I2\+CSpeed}]{speed}{}\end{DoxyParamCaption})}
+
+
+
+Конструктор объекта устройства на шине I2C. 
+
+\begin{DoxyNote}{Заметки}
+Только в Arduino IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em hi2c} & объект {\bfseries{Two\+Wire}} или {\bfseries{Wire}} \\
+\hline
+{\em address} & адрес устройства на шине I2C \\
+\hline
+{\em speed} & скорость I2C \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_intro_sat_lib_1_1_i2_c_device_a443fa6b5967e4f6f2b32068e7cc5d25a}\index{IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}!isReady@{isReady}}
+\index{isReady@{isReady}!IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}}
+\doxysubsubsection{\texorpdfstring{isReady()}{isReady()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i2_c_device_a443fa6b5967e4f6f2b32068e7cc5d25a} 
+HAL\+\_\+\+Status\+Type\+Def Intro\+Sat\+Lib\+::\+I2\+CDevice\+::is\+Ready (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{wait\+Is\+Ready}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Проверка доступности устройства на шине к работе 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em wait\+Is\+Ready} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если устройство доступно 
+
+1, если с устройством произошла ошибка 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_i2_c_device_a2b677f59a1c1a13d8c1da4126c6de93c}\index{IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}!read@{read}}
+\index{read@{read}!IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i2_c_device_a2b677f59a1c1a13d8c1da4126c6de93c} 
+HAL\+\_\+\+Status\+Type\+Def Intro\+Sat\+Lib\+::\+I2\+CDevice\+::read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data}{, }\item[{uint8\+\_\+t}]{Nbytes}{}\end{DoxyParamCaption})}
+
+
+
+Отправка запроса на чтение Nbytes байт с устройства 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ out}}  & {\em Data} & Указатель на первый байт (/{\bfseries{uint8\+\_\+t}} ) массива, в которую будет записан результат. В случае \\
+\hline
+\mbox{\texttt{ in}}  & {\em Nbytes} & Количество байт для чтения \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Статус выполнения чтения 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_i2_c_device_a55dbf3d2389a6e0bca70b62b454c4563}\index{IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}!read@{read}}
+\index{read@{read}!IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i2_c_device_a55dbf3d2389a6e0bca70b62b454c4563} 
+HAL\+\_\+\+Status\+Type\+Def Intro\+Sat\+Lib\+::\+I2\+CDevice\+::read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Register}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data}{, }\item[{uint8\+\_\+t}]{Nbytes}{}\end{DoxyParamCaption})}
+
+
+
+Отправка запроса на чтение Nbytes байт из регистра Register устройства 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em Register} & Адрес регистра для чтения \\
+\hline
+\mbox{\texttt{ out}}  & {\em Data} & Указатель на первый байт (/{\bfseries{uint8\+\_\+t}} ) массива, в который будет записан результат. В случае \\
+\hline
+\mbox{\texttt{ in}}  & {\em Nbytes} & Количество байт для чтения \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+HAL\+\_\+\+Status\+Type\+Def 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_i2_c_device_acebc8d2df529364bbb8e46dab8930614}\index{IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}!write@{write}}
+\index{write@{write}!IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i2_c_device_acebc8d2df529364bbb8e46dab8930614} 
+HAL\+\_\+\+Status\+Type\+Def Intro\+Sat\+Lib\+::\+I2\+CDevice\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data}{, }\item[{uint8\+\_\+t}]{Nbytes}{}\end{DoxyParamCaption})}
+
+
+
+Отправка запроса на запись NBytes байт на устройство 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em Data} & Указатель на первый байт(/{\bfseries{uint8\+\_\+t}}) массива данных для записи \\
+\hline
+{\em Nbytes} & Количество байт для записи \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+HAL\+\_\+\+Status\+Type\+Def 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_i2_c_device_a7f8cd0a301a87313e022bed52e3f03e7}\index{IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}!write@{write}}
+\index{write@{write}!IntroSatLib::I2CDevice@{IntroSatLib::I2CDevice}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i2_c_device_a7f8cd0a301a87313e022bed52e3f03e7} 
+HAL\+\_\+\+Status\+Type\+Def Intro\+Sat\+Lib\+::\+I2\+CDevice\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Register}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data}{, }\item[{uint8\+\_\+t}]{Nbytes}{}\end{DoxyParamCaption})}
+
+
+
+Отправка запроса на запись NBytes байт в регистр Register устройства 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em Register} & Адрес регистра для записи \\
+\hline
+{\em Data} & Указатель на первый байт(/{\bfseries{uint8\+\_\+t}}) массива данных для записи \\
+\hline
+{\em Nbytes} & Количество байт для записи \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+HAL\+\_\+\+Status\+Type\+Def 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/I2\+CDevice.\+h\item 
+src/I2\+CDevice.\+cpp\end{DoxyCompactItemize}

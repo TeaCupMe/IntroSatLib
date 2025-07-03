@@ -1,0 +1,45 @@
+\doxysection{Utils.\+h}
+\hypertarget{_utils_8h_source}{}\label{_utils_8h_source}\index{src/Quaternion/Utils.h@{src/Quaternion/Utils.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ QUATERNIONS\_UTILS\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ QUATERNIONS\_UTILS\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iterator>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ IS\_ITERATOR(X)\ typename\ std::enable\_if<!std::is\_same<typename\ std::iterator\_traits<X>::value\_type,\ void>::value>::type*\ =nullptr}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ IS\_CONVERTIBLE(FROM,\ TO)\ typename\ std::enable\_if<std::is\_convertible<FROM,TO>::value>::type*\ =nullptr}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2>}
+\DoxyCodeLine{00031\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_scalar\_zero(T1\ x,\ T2\ eps\ =\ 0)\ \{}
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ std::common\_type<T1,T2>::type\ T;}
+\DoxyCodeLine{00033\ \ \ T\ xx\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(x);}
+\DoxyCodeLine{00034\ \ \ T\ ee\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(eps);}
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordflow}{return}\ std::abs(xx)\ <=\ ee;}
+\DoxyCodeLine{00036\ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3>}
+\DoxyCodeLine{00045\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_nearly\_equal(T1\ x,\ T2\ y,\ T3\ eps\ =\ 0)\ \{}
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ std::common\_type<T1,T2,T3>::type\ T;}
+\DoxyCodeLine{00047\ \ \ T\ xx\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(x);}
+\DoxyCodeLine{00048\ \ \ T\ yy\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(y);}
+\DoxyCodeLine{00049\ \ \ T\ ee\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(eps);}
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordflow}{if}\ (xx\ ==\ 0)}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ is\_scalar\_zero(yy,\ ee);}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (yy\ ==\ 0)}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{return}\ is\_scalar\_zero(xx,\ ee);}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ is\_scalar\_zero((xx\ -\/\ yy)\ /\ std::min(xx,\ yy),\ ee);}
+\DoxyCodeLine{00056\ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \}\ \textcolor{comment}{//\ end\ namespace\ IntroSatLib}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//QUATERNIONS\_UTILS\_H}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

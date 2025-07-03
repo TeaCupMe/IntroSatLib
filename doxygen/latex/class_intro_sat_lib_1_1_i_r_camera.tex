@@ -1,0 +1,308 @@
+\doxysection{Класс Intro\+Sat\+Lib\+::IRCamera}
+\hypertarget{class_intro_sat_lib_1_1_i_r_camera}{}\label{class_intro_sat_lib_1_1_i_r_camera}\index{IntroSatLib::IRCamera@{IntroSatLib::IRCamera}}
+Граф наследования\+:Intro\+Sat\+Lib\+::IRCamera\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_intro_sat_lib_1_1_i_r_camera}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeaf}{Framerate}} \{ \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e}{FPS\+\_\+10}} = 0
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeafa81c8ccc55fb696606bbda356baa21d8d}{FPS\+\_\+1}} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em Количество кадров (обновлений данных) в секунду \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a2a0f6527d04256bbed09b6095d3db9ce}{IRCamera}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c, uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Создание объекта ИК-\/камеры. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a7283d56de854df01589e29f8b5279e76}{IRCamera}} (Two\+Wire \&hi2c, uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Создание объекта ИК-\/камеры \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a21d0296b0a22a7a6d4a8dd214bb18e01}{IRCamera}} (uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Создание объекта ИК-\/камеры на {\bfseries{I2\+C1}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a1dbcd4d50d4f16151b7926c138dc42eb}{IRCamera}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{IRCamera}} \&other)
+\begin{DoxyCompactList}\small\item\em Создание объекта ИК-\/камеры как копии другого объекта ИК-\/камеры \end{DoxyCompactList}\item 
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a029db9b77ff9c3528d6e17bb19b4bcad}\label{class_intro_sat_lib_1_1_i_r_camera_a029db9b77ff9c3528d6e17bb19b4bcad} 
+{\bfseries IRCamera} (\mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{IRCamera}} \&\&other)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a8852e4ab026c47e8cca1319988f9f9d0}\label{class_intro_sat_lib_1_1_i_r_camera_a8852e4ab026c47e8cca1319988f9f9d0} 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{IRCamera}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{IRCamera}} \&other)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_ae9d0c91268f9f07acc08f54178b03c3e}\label{class_intro_sat_lib_1_1_i_r_camera_ae9d0c91268f9f07acc08f54178b03c3e} 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{IRCamera}} \& {\bfseries operator=} (\mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{IRCamera}} \&\&other)
+\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a7346c3d20d5a22ebe12afb57de31ac9e}{use\+Force\+Reset}} (GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}reset\+Port, uint16\+\_\+t reset\+Pin)
+\begin{DoxyCompactList}\small\item\em Включает использование пина reset ИК-\/камеры. \end{DoxyCompactList}\item 
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a53d5a93a40408726632323f59c009bd6}\label{class_intro_sat_lib_1_1_i_r_camera_a53d5a93a40408726632323f59c009bd6} 
+void {\bfseries use\+Mirrored} ()
+\begin{DoxyCompactList}\small\item\em Вывод картинки в отзеркаленном виде \end{DoxyCompactList}\item 
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_ade5050b97643e2d5d8e0d35162351137}\label{class_intro_sat_lib_1_1_i_r_camera_ade5050b97643e2d5d8e0d35162351137} 
+void {\bfseries use\+Not\+Mirrored} ()
+\begin{DoxyCompactList}\small\item\em Вывод картинки в нормальном (не отзеркаленном) виде \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a6a97093c3ad3dd193dcf8018847a49ae}{Init}} () override
+\begin{DoxyCompactList}\small\item\em Инициализация камеры с параметрами по умолчанию\+: \doxylink{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e}{Framerate\+::\+FPS\+\_\+10}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_aa76998d8844ac1b6c79a42d04e0483eb}{Init}} (\mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeaf}{Framerate}} framrate)
+\begin{DoxyCompactList}\small\item\em Инициализация камеры с заданным количеством кадров в секунду \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a65cf6e91d4c6db8635094486b51a5846}{Read}} ()
+\begin{DoxyCompactList}\small\item\em Считывание значений с матрицы ИК-\/камеры во внутренний буффер. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a35dc23801eb348de678b74b3cf5d94b0}{get\+Pixel\+Raw}} (uint8\+\_\+t x, uint8\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Получение необработанного значения пикселя \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a440c56a2f0f37442887191e6ae823d72}{get\+Pixel}} (uint8\+\_\+t x, uint8\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Получение значения пикселя \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a631104c6cd77fb82326aa3e8140fc60d}{Base\+Device}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c, uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта {\bfseries{@ref}}  \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a86bf0b41f10cc79d6271930ef61be7d5}{Base\+Device}} (Two\+Wire \&hi2c, uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a82a1cb1576068b9802ad25342c74a462}{Base\+Device}} (uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device} на {\bfseries{I2\+C1}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_abf11ffaf569aa5d7f19990da9b4afb7f}{Base\+Device}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&other)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device} как копии другого объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+{\bfseries Base\+Device} (\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&\&other)
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&other)
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \& {\bfseries operator=} (\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&\&other)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Защищенные члены унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ac3d81df953423b66b238f8113306d214}{Get\+Register}} (uint8\+\_\+t reg)
+\begin{DoxyCompactList}\small\item\em Чтение значения из регистра устройства \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a417cad1072ec9b537f7b1b6a3e79841e}{Set\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Запись значения в регистр устройства \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ae33eb53f04bd78500b1a5183e9640db7}{Set\+Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ac672694bd65c5ea6b54b733073f4fa4d}{Reset\+Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ae000696da9dc4f5d7d6978f9b2348c24}{Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение по условию value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2\+CDevice}} \& {\bfseries \+\_\+i2c}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Перечисления}
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeaf}\index{IntroSatLib::IRCamera@{IntroSatLib::IRCamera}!Framerate@{Framerate}}
+\index{Framerate@{Framerate}!IntroSatLib::IRCamera@{IntroSatLib::IRCamera}}
+\doxysubsubsection{\texorpdfstring{Framerate}{Framerate}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeaf} 
+enum \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeaf}{Intro\+Sat\+Lib\+::\+IRCamera\+::\+Framerate}}}
+
+
+
+Количество кадров (обновлений данных) в секунду 
+
+\begin{DoxyEnumFields}[2]{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FPS\_10@{FPS\_10}!IntroSatLib::IRCamera@{IntroSatLib::IRCamera}}\index{IntroSatLib::IRCamera@{IntroSatLib::IRCamera}!FPS\_10@{FPS\_10}}}\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e}\label{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeaf} 
+FPS\+\_\+10&10 кадров в секунду \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FPS\_1@{FPS\_1}!IntroSatLib::IRCamera@{IntroSatLib::IRCamera}}\index{IntroSatLib::IRCamera@{IntroSatLib::IRCamera}!FPS\_1@{FPS\_1}}}\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeafa81c8ccc55fb696606bbda356baa21d8d}\label{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeaf} 
+FPS\+\_\+1&1 кадр в секунду \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a2a0f6527d04256bbed09b6095d3db9ce}\index{IntroSatLib::IRCamera@{IntroSatLib::IRCamera}!IRCamera@{IRCamera}}
+\index{IRCamera@{IRCamera}!IntroSatLib::IRCamera@{IntroSatLib::IRCamera}}
+\doxysubsubsection{\texorpdfstring{IRCamera()}{IRCamera()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i_r_camera_a2a0f6527d04256bbed09b6095d3db9ce} 
+Intro\+Sat\+Lib\+::\+IRCamera\+::\+IRCamera (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hi2c}{, }\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Создание объекта ИК-\/камеры. 
+
+\begin{DoxyNote}{Заметки}
+Только в STM32\+Cube\+IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em hi2c} & объект {\bfseries{I2\+C\+\_\+\+Handle\+Type\+Def}} \\
+\hline
+{\em address} & адрес ИК-\/камеры на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a7283d56de854df01589e29f8b5279e76}\index{IntroSatLib::IRCamera@{IntroSatLib::IRCamera}!IRCamera@{IRCamera}}
+\index{IRCamera@{IRCamera}!IntroSatLib::IRCamera@{IntroSatLib::IRCamera}}
+\doxysubsubsection{\texorpdfstring{IRCamera()}{IRCamera()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i_r_camera_a7283d56de854df01589e29f8b5279e76} 
+Intro\+Sat\+Lib\+::\+IRCamera\+::\+IRCamera (\begin{DoxyParamCaption}\item[{Two\+Wire \&}]{hi2c}{, }\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Создание объекта ИК-\/камеры 
+
+\begin{DoxyNote}{Заметки}
+Только в Arduino IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em hi2c} & объект {\bfseries{Two\+Wire}} или {\bfseries{Wire}} \\
+\hline
+{\em address} & адрес ИК-\/камеры на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a21d0296b0a22a7a6d4a8dd214bb18e01}\index{IntroSatLib::IRCamera@{IntroSatLib::IRCamera}!IRCamera@{IRCamera}}
+\index{IRCamera@{IRCamera}!IntroSatLib::IRCamera@{IntroSatLib::IRCamera}}
+\doxysubsubsection{\texorpdfstring{IRCamera()}{IRCamera()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i_r_camera_a21d0296b0a22a7a6d4a8dd214bb18e01} 
+Intro\+Sat\+Lib\+::\+IRCamera\+::\+IRCamera (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Создание объекта ИК-\/камеры на {\bfseries{I2\+C1}}. 
+
+\begin{DoxyNote}{Заметки}
+Только в Arduino IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em address} & адрес ИК-\/камеры на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a1dbcd4d50d4f16151b7926c138dc42eb}\index{IntroSatLib::IRCamera@{IntroSatLib::IRCamera}!IRCamera@{IRCamera}}
+\index{IRCamera@{IRCamera}!IntroSatLib::IRCamera@{IntroSatLib::IRCamera}}
+\doxysubsubsection{\texorpdfstring{IRCamera()}{IRCamera()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i_r_camera_a1dbcd4d50d4f16151b7926c138dc42eb} 
+Intro\+Sat\+Lib\+::\+IRCamera\+::\+IRCamera (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera}{IRCamera}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Создание объекта ИК-\/камеры как копии другого объекта ИК-\/камеры 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em other} & исходный объект для копирования \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a440c56a2f0f37442887191e6ae823d72}\index{IntroSatLib::IRCamera@{IntroSatLib::IRCamera}!getPixel@{getPixel}}
+\index{getPixel@{getPixel}!IntroSatLib::IRCamera@{IntroSatLib::IRCamera}}
+\doxysubsubsection{\texorpdfstring{getPixel()}{getPixel()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i_r_camera_a440c56a2f0f37442887191e6ae823d72} 
+float Intro\+Sat\+Lib\+::\+IRCamera\+::get\+Pixel (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x}{, }\item[{uint8\+\_\+t}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Получение значения пикселя 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em x} & Координата x пикселя \\
+\hline
+{\em y} & Координата y пикселя \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Значение пикселя в диапазоне от 0 до 1 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a35dc23801eb348de678b74b3cf5d94b0}\index{IntroSatLib::IRCamera@{IntroSatLib::IRCamera}!getPixelRaw@{getPixelRaw}}
+\index{getPixelRaw@{getPixelRaw}!IntroSatLib::IRCamera@{IntroSatLib::IRCamera}}
+\doxysubsubsection{\texorpdfstring{getPixelRaw()}{getPixelRaw()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i_r_camera_a35dc23801eb348de678b74b3cf5d94b0} 
+int16\+\_\+t Intro\+Sat\+Lib\+::\+IRCamera\+::get\+Pixel\+Raw (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x}{, }\item[{uint8\+\_\+t}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Получение необработанного значения пикселя 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em x} & Координата x пикселя \\
+\hline
+{\em y} & Координата y пикселя \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Необработанное значение пикселя, 12 бит, right-\/aligned 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a6a97093c3ad3dd193dcf8018847a49ae}\index{IntroSatLib::IRCamera@{IntroSatLib::IRCamera}!Init@{Init}}
+\index{Init@{Init}!IntroSatLib::IRCamera@{IntroSatLib::IRCamera}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i_r_camera_a6a97093c3ad3dd193dcf8018847a49ae} 
+uint8\+\_\+t Intro\+Sat\+Lib\+::\+IRCamera\+::\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Инициализация камеры с параметрами по умолчанию\+: \doxylink{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e}{Framerate\+::\+FPS\+\_\+10}. 
+
+\begin{DoxyReturn}{Возвращает}
+0, если инициализация завершена успешно 
+
+1, если при инициализации возникла ошибка 
+\end{DoxyReturn}
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_aed46bf6b65b16efcad1f5c5d3e36aaff}{Intro\+Sat\+Lib\+::\+Base\+Device}}.
+
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_aa76998d8844ac1b6c79a42d04e0483eb}\index{IntroSatLib::IRCamera@{IntroSatLib::IRCamera}!Init@{Init}}
+\index{Init@{Init}!IntroSatLib::IRCamera@{IntroSatLib::IRCamera}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i_r_camera_aa76998d8844ac1b6c79a42d04e0483eb} 
+uint8\+\_\+t Intro\+Sat\+Lib\+::\+IRCamera\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_i_r_camera_a1fc8cab3fcbd47bed763bdcc726aaeaf}{Framerate}}}]{framrate}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация камеры с заданным количеством кадров в секунду 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em framrate} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если инициализация завершена успешно 
+
+1, если при инициализации возникла ошибка 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a65cf6e91d4c6db8635094486b51a5846}\index{IntroSatLib::IRCamera@{IntroSatLib::IRCamera}!Read@{Read}}
+\index{Read@{Read}!IntroSatLib::IRCamera@{IntroSatLib::IRCamera}}
+\doxysubsubsection{\texorpdfstring{Read()}{Read()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i_r_camera_a65cf6e91d4c6db8635094486b51a5846} 
+uint8\+\_\+t Intro\+Sat\+Lib\+::\+IRCamera\+::\+Read (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Считывание значений с матрицы ИК-\/камеры во внутренний буффер. 
+
+\begin{DoxyReturn}{Возвращает}
+0, если изображение считано успешно 
+
+1, если считывании возникла ошибка 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_i_r_camera_a7346c3d20d5a22ebe12afb57de31ac9e}\index{IntroSatLib::IRCamera@{IntroSatLib::IRCamera}!useForceReset@{useForceReset}}
+\index{useForceReset@{useForceReset}!IntroSatLib::IRCamera@{IntroSatLib::IRCamera}}
+\doxysubsubsection{\texorpdfstring{useForceReset()}{useForceReset()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_i_r_camera_a7346c3d20d5a22ebe12afb57de31ac9e} 
+void Intro\+Sat\+Lib\+::\+IRCamera\+::use\+Force\+Reset (\begin{DoxyParamCaption}\item[{GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{reset\+Port}{, }\item[{uint16\+\_\+t}]{reset\+Pin}{}\end{DoxyParamCaption})}
+
+
+
+Включает использование пина reset ИК-\/камеры. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em reset\+Port} & Порт, которому подключён контакт \\
+\hline
+{\em reset\+Pin} & \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/IRCamera.\+h\item 
+src/IRCamera.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,90 @@
+\doxysection{Gyroscope.\+h}
+\hypertarget{_gyroscope_8h_source}{}\label{_gyroscope_8h_source}\index{src/Gyroscope.h@{src/Gyroscope.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GYROSCOPE\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GYROSCOPE\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}I2CDevice.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}BaseDevice.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope}{Gyroscope}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ BASE\_ADDRESS\ =\ 0x68;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \_rawdps\ =\ 32768.0f\ /\ 250.0f;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{enum}\ RegisterMap}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ CONFIG\ =\ 0x1A,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ GYRO\_CONFIG,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ GYRO\_XOUT\_H\ =\ 0x43,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ GYRO\_XOUT\_L,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ GYRO\_YOUT\_H,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ GYRO\_YOUT\_L,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ GYRO\_ZOUT\_H,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ GYRO\_ZOUT\_L,}
+\DoxyCodeLine{00025\ \ \ \ \ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ uint8\_t\ \_sensitivity\ =\ 0;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{enum}\ Scale}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ DPS0250\ =\ 0,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ DPS0500,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ DPS1000,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ DPS2000}
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{enum}\ FilterBandwidth}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ F8800\ =\ 8,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ F3600\ =\ 16,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ F0250\ =\ 0,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ F0184,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ F0092,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ F0041,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ F0020,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ F0010,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ F0005,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ F3600b}
+\DoxyCodeLine{00050\ \ \ \ \ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope}{Gyroscope}}(I2C\_HandleTypeDef\ *hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope}{Gyroscope}}(TwoWire\ \&hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope}{Gyroscope}}(uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope}{Gyroscope}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope}{Gyroscope}}\ \&other);}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope}{Gyroscope}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope}{Gyroscope}}\ \&\&other);}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope}{Gyroscope}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope}{Gyroscope}}\ \&other);}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope}{Gyroscope}}\&\ operator=(\mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope}{Gyroscope}}\ \&\&other);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_a4c139e2ac4f7372240c12bcd8747fcbe}{Init}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00065\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_a4c139e2ac4f7372240c12bcd8747fcbe}{Init}}(Scale\ sensitivity);}
+\DoxyCodeLine{00066\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope_a4c139e2ac4f7372240c12bcd8747fcbe}{Init}}(Scale\ sensitivity,\ FilterBandwidth\ filter);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ SetScale(Scale\ sensitivity);}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ SetFilter(FilterBandwidth\ filter);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ int16\_t\ RawX();}
+\DoxyCodeLine{00072\ \ \ \ \ int16\_t\ RawY();}
+\DoxyCodeLine{00073\ \ \ \ \ int16\_t\ RawZ();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{float}\ X();}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{float}\ Y();}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{float}\ Z();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_gyroscope}{\string~Gyroscope}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00080\ \};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GYROSCOPE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
