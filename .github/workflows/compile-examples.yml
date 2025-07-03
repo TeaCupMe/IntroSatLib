@@ -8,13 +8,16 @@ on:
       - "src/**"
     branches: 
       - main
-      - dev/*
-      - feature/*
+      - staging/*
   pull_request:
     paths:
       - ".github/workflows/compile-examples.yml"
       - "examples/**"
       - "src/**"
+    branches: 
+      - main
+      - staging/*
+      - dev/*
   schedule:
     # Run every Tuesday at 8 AM UTC to catch breakage caused by changes to external resources (stm32duino).
     - cron: "0 8 * * TUE"
