@@ -130,16 +130,13 @@ static void I2C_ClearBusyFlagErratum_F103(I2C_HandleTypeDef *hi2c, uint32_t time
 
 static void I2C_ErrorAnalyzer(I2C_HandleTypeDef *hi2c)
 {
-    
+    // когда-нибудь здесь будет полноценная обработка ошибок...
 #ifdef ARDUINO // If in Arduino IDE - let stm32duino handle bus recovery 
     Wire.end();
     HAL_Delay(I2C_TIMEOUT_BASE);
     Wire.begin();
     return;
-#endif
-    
-    // когда-нибудь здесь будет полноценная обработка ошибок...
-#ifdef STM32F103xx
+#elifdef STM32F103xx
     I2C_ClearBusyFlagErratum(hi2c, I2C_TIMEOUT_ERRATUM);
 #endif
 }
