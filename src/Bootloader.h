@@ -20,9 +20,10 @@
     #define BOOT_ADDR 0x1FF09800
 #endif
 
-#ifdef BOOT_ADDR
-    #define BOOTVTAB	((struct boot_vectable_ *)BOOT_ADDR)
-#else
+
+
+
+#ifndef BOOT_ADDR
     // Looks like unsupported platform
     #warning "IntroSatLib::EnterBootloader() not supported by selected core"
     #warning "IntroSatLib::EnterBootloader() currently supports STM32F1xx, STM32F4xx, STM32H750xx."

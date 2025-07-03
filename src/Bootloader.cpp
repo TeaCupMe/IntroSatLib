@@ -6,7 +6,9 @@ struct boot_vectable_ {
     uint32_t Initial_SP;
     void (*Reset_Handler)(void);
 };
-
+#ifdef BOOT_ADDR
+    #define BOOTVTAB	((struct boot_vectable_ *)BOOT_ADDR)
+#endif
 void EnterBootloader(void)
 {
 #ifdef BOOT_ADDR
