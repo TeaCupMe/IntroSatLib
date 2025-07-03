@@ -32,13 +32,17 @@ void EnterBootloader(void)
     /* Disable all interrupts */
 	__disable_irq();
 
-	/* Disable Systick timer */
-	SysTick->CTRL = 0;
-
-	/* Set the clock to the default state */
 #ifdef USE_HAL_DRIVER
 	HAL_RCC_DeInit();
 #endif /** USE_HAL_DRIVER */
+	
+/* Disable Systick timer */
+	SysTick->CTRL = 0;
+  	SysTick->LOAD = 0;
+  	SysTick->VAL = 0;
+
+	/* Set the clock to the default state */
+
 
 	/* Clear Interrupt Enable Register & Interrupt Pending Register */
 	for (uint8_t i = 0; i < sizeof(NVIC->ICER) / sizeof(NVIC->ICER[0]); i++)
