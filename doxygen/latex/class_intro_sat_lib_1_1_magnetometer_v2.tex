@@ -1,0 +1,363 @@
+\doxysection{Класс Intro\+Sat\+Lib\+::Magnetometer\+V2}
+\hypertarget{class_intro_sat_lib_1_1_magnetometer_v2}{}\label{class_intro_sat_lib_1_1_magnetometer_v2}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+Граф наследования\+:Intro\+Sat\+Lib\+::Magnetometer\+V2\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_intro_sat_lib_1_1_magnetometer_v2}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a}{Scale}} \{ \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20aac199186658563d6b475808b9692baf22}{G4}} = 1
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20aa91237f835ba96db2fca6e21e75b9be1a}{G8}}
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20aaf5c2b19081768d56b3027249ee2bfd9e}{G12}}
+, \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20aaa2b72be2415ce192541e6caa08f14eef}{G16}}
+ \}
+\begin{DoxyCompactList}\small\item\em Диапазон измерения \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_aa1b9fd980d6179904d6b7b142e5ff982}{Magnetometer\+V2}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c, uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Создание объекта манитометра. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_ad491d623c2ba75ae5a098ab566f1697a}{Magnetometer\+V2}} (Two\+Wire \&hi2c, uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Создание объекта манитометра \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a1f7ef337b82dde042d3ce609964c5f3e}{Magnetometer\+V2}} (uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Создание объекта манитометра на {\bfseries{I2\+C1}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_ae1338caea387a6e6ac84aef39024ee70}{Magnetometer\+V2}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{Magnetometer\+V2}} \&other)
+\begin{DoxyCompactList}\small\item\em Создание объекта манитометра как копии другого объекта манитометра \end{DoxyCompactList}\item 
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_adb4dd477553adba0ea00601c8fad7e3a}\label{class_intro_sat_lib_1_1_magnetometer_v2_adb4dd477553adba0ea00601c8fad7e3a} 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{Magnetometer\+V2}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{Magnetometer\+V2}} \&other)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a3ac93d7958e77500a71769095aa1cccf}\label{class_intro_sat_lib_1_1_magnetometer_v2_a3ac93d7958e77500a71769095aa1cccf} 
+{\bfseries Magnetometer\+V2} (\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{Magnetometer\+V2}} \&\&other)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_ac7d747f003688e3d30fa6d040ebd2c24}\label{class_intro_sat_lib_1_1_magnetometer_v2_ac7d747f003688e3d30fa6d040ebd2c24} 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{Magnetometer\+V2}} \& {\bfseries operator=} (\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{Magnetometer\+V2}} \&\&other)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a677fcc96807576904ab90fe33cf682c9}{Init}} () override
+\begin{DoxyCompactList}\small\item\em Инициализация манитометра с параметрами по умолчанию\+: \doxylink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20aaa2b72be2415ce192541e6caa08f14eef}{Scale\+::\+G16}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a0ba47ffc68fa0be1f2778e2498fa8c33}{Init}} (\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a}{Scale}} sensitivity)
+\begin{DoxyCompactList}\small\item\em Инициализация манитометра с заданным диапазоном измерения \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_aca6403bd63d890bc17c93b7277dd4e11}{Set\+Scale}} (\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a}{Scale}} sensitivity)
+\begin{DoxyCompactList}\small\item\em Установка диапазона измерения \end{DoxyCompactList}\item 
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a5feb9f766236b7e1b985b9ff3d65da48}\label{class_intro_sat_lib_1_1_magnetometer_v2_a5feb9f766236b7e1b985b9ff3d65da48} 
+void {\bfseries Read} ()
+\begin{DoxyCompactList}\small\item\em Чтение значения с датчика во внутренний буфер \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_ae360a4e2af6ff62acfbed160c41cc4db}{RawX}} ()
+\begin{DoxyCompactList}\small\item\em Получение необработанного значения по оси X. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a2dc810500c4fd738b51d6d47e50bfb3f}{RawY}} ()
+\begin{DoxyCompactList}\small\item\em Получение необработанного значения по оси Y. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a6c248b532384d5c3df294be8ee8893ad}{RawZ}} ()
+\begin{DoxyCompactList}\small\item\em Получение необработанного значения по оси Z. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a3f897c560c60e9b8797085b48ca3d74c}{X}} ()
+\begin{DoxyCompactList}\small\item\em Получение значения напряжённости по оси X. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a95bfe17a02c519a8a1c8370e8b9bd0b3}{Y}} ()
+\begin{DoxyCompactList}\small\item\em Получение значения напряжённости по оси Y. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_acad4280bc59f8aa5ae6d9557cff9bd26}{Z}} ()
+\begin{DoxyCompactList}\small\item\em Получение значения напряжённости по оси Z. \end{DoxyCompactList}\item 
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a606e9686808dc03a58e2b32a7713e653}\label{class_intro_sat_lib_1_1_magnetometer_v2_a606e9686808dc03a58e2b32a7713e653} 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_quaternion}{Quaternion}}$<$ float $>$ {\bfseries Get\+Quaternion} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a631104c6cd77fb82326aa3e8140fc60d}{Base\+Device}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c, uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта {\bfseries{@ref}}  \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a86bf0b41f10cc79d6271930ef61be7d5}{Base\+Device}} (Two\+Wire \&hi2c, uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a82a1cb1576068b9802ad25342c74a462}{Base\+Device}} (uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device} на {\bfseries{I2\+C1}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_abf11ffaf569aa5d7f19990da9b4afb7f}{Base\+Device}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&other)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device} как копии другого объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+{\bfseries Base\+Device} (\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&\&other)
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&other)
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \& {\bfseries operator=} (\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&\&other)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Защищенные члены унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ac3d81df953423b66b238f8113306d214}{Get\+Register}} (uint8\+\_\+t reg)
+\begin{DoxyCompactList}\small\item\em Чтение значения из регистра устройства \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a417cad1072ec9b537f7b1b6a3e79841e}{Set\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Запись значения в регистр устройства \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ae33eb53f04bd78500b1a5183e9640db7}{Set\+Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ac672694bd65c5ea6b54b733073f4fa4d}{Reset\+Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ae000696da9dc4f5d7d6978f9b2348c24}{Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение по условию value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2\+CDevice}} \& {\bfseries \+\_\+i2c}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Перечисления}
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!Scale@{Scale}}
+\index{Scale@{Scale}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+\doxysubsubsection{\texorpdfstring{Scale}{Scale}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a} 
+enum \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a}{Intro\+Sat\+Lib\+::\+Magnetometer\+V2\+::\+Scale}}}
+
+
+
+Диапазон измерения 
+
+\begin{DoxyEnumFields}[2]{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{G4@{G4}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!G4@{G4}}}\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20aac199186658563d6b475808b9692baf22}\label{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a} 
+G4&Диапазон {$\pm$}4 Гаусс \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{G8@{G8}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!G8@{G8}}}\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20aa91237f835ba96db2fca6e21e75b9be1a}\label{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a} 
+G8&Диапазон {$\pm$}8 Гаусс \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{G12@{G12}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!G12@{G12}}}\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20aaf5c2b19081768d56b3027249ee2bfd9e}\label{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a} 
+G12&Диапазон {$\pm$}12 Гаусс \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{G16@{G16}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!G16@{G16}}}\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20aaa2b72be2415ce192541e6caa08f14eef}\label{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a} 
+G16&Диапазон {$\pm$}16 Гаусс \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_aa1b9fd980d6179904d6b7b142e5ff982}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!MagnetometerV2@{MagnetometerV2}}
+\index{MagnetometerV2@{MagnetometerV2}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+\doxysubsubsection{\texorpdfstring{MagnetometerV2()}{MagnetometerV2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_magnetometer_v2_aa1b9fd980d6179904d6b7b142e5ff982} 
+Intro\+Sat\+Lib\+::\+Magnetometer\+V2\+::\+Magnetometer\+V2 (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hi2c}{, }\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Создание объекта манитометра. 
+
+\begin{DoxyNote}{Заметки}
+Только в STM32\+Cube\+IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em hi2c} & объект {\bfseries{I2\+C\+\_\+\+Handle\+Type\+Def}} \\
+\hline
+{\em address} & адрес манитометра на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_ad491d623c2ba75ae5a098ab566f1697a}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!MagnetometerV2@{MagnetometerV2}}
+\index{MagnetometerV2@{MagnetometerV2}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+\doxysubsubsection{\texorpdfstring{MagnetometerV2()}{MagnetometerV2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_magnetometer_v2_ad491d623c2ba75ae5a098ab566f1697a} 
+Intro\+Sat\+Lib\+::\+Magnetometer\+V2\+::\+Magnetometer\+V2 (\begin{DoxyParamCaption}\item[{Two\+Wire \&}]{hi2c}{, }\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Создание объекта манитометра 
+
+\begin{DoxyNote}{Заметки}
+Только в Arduino IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em hi2c} & объект {\bfseries{Two\+Wire}} или {\bfseries{Wire}} \\
+\hline
+{\em address} & адрес манитометра на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a1f7ef337b82dde042d3ce609964c5f3e}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!MagnetometerV2@{MagnetometerV2}}
+\index{MagnetometerV2@{MagnetometerV2}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+\doxysubsubsection{\texorpdfstring{MagnetometerV2()}{MagnetometerV2()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_magnetometer_v2_a1f7ef337b82dde042d3ce609964c5f3e} 
+Intro\+Sat\+Lib\+::\+Magnetometer\+V2\+::\+Magnetometer\+V2 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Создание объекта манитометра на {\bfseries{I2\+C1}}. 
+
+\begin{DoxyNote}{Заметки}
+Только в Arduino IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em address} & адрес манитометра на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_ae1338caea387a6e6ac84aef39024ee70}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!MagnetometerV2@{MagnetometerV2}}
+\index{MagnetometerV2@{MagnetometerV2}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+\doxysubsubsection{\texorpdfstring{MagnetometerV2()}{MagnetometerV2()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_magnetometer_v2_ae1338caea387a6e6ac84aef39024ee70} 
+Intro\+Sat\+Lib\+::\+Magnetometer\+V2\+::\+Magnetometer\+V2 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2}{Magnetometer\+V2}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Создание объекта манитометра как копии другого объекта манитометра 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em other} & исходный объект для копирования \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a677fcc96807576904ab90fe33cf682c9}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!Init@{Init}}
+\index{Init@{Init}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_magnetometer_v2_a677fcc96807576904ab90fe33cf682c9} 
+uint8\+\_\+t Intro\+Sat\+Lib\+::\+Magnetometer\+V2\+::\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Инициализация манитометра с параметрами по умолчанию\+: \doxylink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20aaa2b72be2415ce192541e6caa08f14eef}{Scale\+::\+G16}. 
+
+\begin{DoxyReturn}{Возвращает}
+0, если инициализация завершена успешно 
+
+1, если при инициализации возникла ошибка 
+\end{DoxyReturn}
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_aed46bf6b65b16efcad1f5c5d3e36aaff}{Intro\+Sat\+Lib\+::\+Base\+Device}}.
+
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a0ba47ffc68fa0be1f2778e2498fa8c33}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!Init@{Init}}
+\index{Init@{Init}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_magnetometer_v2_a0ba47ffc68fa0be1f2778e2498fa8c33} 
+uint8\+\_\+t Intro\+Sat\+Lib\+::\+Magnetometer\+V2\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a}{Scale}}}]{sensitivity}{}\end{DoxyParamCaption})}
+
+
+
+Инициализация манитометра с заданным диапазоном измерения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sensitivity} & Значение чуствительности \doxylink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a}{Scale} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если инициализация завершена успешно 
+
+1, если при инициализации возникла ошибка 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_ae360a4e2af6ff62acfbed160c41cc4db}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!RawX@{RawX}}
+\index{RawX@{RawX}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+\doxysubsubsection{\texorpdfstring{RawX()}{RawX()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_magnetometer_v2_ae360a4e2af6ff62acfbed160c41cc4db} 
+int16\+\_\+t Intro\+Sat\+Lib\+::\+Magnetometer\+V2\+::\+RawX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение необработанного значения по оси X. 
+
+\begin{DoxyNote}{Заметки}
+Этот метод возвращает значение из внутреннего буфера, не читая новое значение с датчика. Для чтения значения с датчика необходимо вызвать метод \doxylink{class_intro_sat_lib_1_1_magnetometer_v2_a5feb9f766236b7e1b985b9ff3d65da48}{Read()} 
+\end{DoxyNote}
+\begin{DoxyReturn}{Возвращает}
+Необработанное значение напряжённости магнитного поля по оси X 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a2dc810500c4fd738b51d6d47e50bfb3f}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!RawY@{RawY}}
+\index{RawY@{RawY}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+\doxysubsubsection{\texorpdfstring{RawY()}{RawY()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_magnetometer_v2_a2dc810500c4fd738b51d6d47e50bfb3f} 
+int16\+\_\+t Intro\+Sat\+Lib\+::\+Magnetometer\+V2\+::\+RawY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение необработанного значения по оси Y. 
+
+\begin{DoxyNote}{Заметки}
+Этот метод возвращает значение из внутреннего буфера, не читая новое значение с датчика. Для чтения значения с датчика необходимо вызвать метод \doxylink{class_intro_sat_lib_1_1_magnetometer_v2_a5feb9f766236b7e1b985b9ff3d65da48}{Read()} 
+\end{DoxyNote}
+\begin{DoxyReturn}{Возвращает}
+Необработанное значение напряжённости магнитного поля по оси Y 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a6c248b532384d5c3df294be8ee8893ad}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!RawZ@{RawZ}}
+\index{RawZ@{RawZ}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+\doxysubsubsection{\texorpdfstring{RawZ()}{RawZ()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_magnetometer_v2_a6c248b532384d5c3df294be8ee8893ad} 
+int16\+\_\+t Intro\+Sat\+Lib\+::\+Magnetometer\+V2\+::\+RawZ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение необработанного значения по оси Z. 
+
+\begin{DoxyNote}{Заметки}
+Этот метод возвращает значение из внутреннего буфера, не читая новое значение с датчика. Для чтения значения с датчика необходимо вызвать метод \doxylink{class_intro_sat_lib_1_1_magnetometer_v2_a5feb9f766236b7e1b985b9ff3d65da48}{Read()} 
+\end{DoxyNote}
+\begin{DoxyReturn}{Возвращает}
+Необработанное значение напряжённости магнитного поля по оси Z 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_aca6403bd63d890bc17c93b7277dd4e11}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!SetScale@{SetScale}}
+\index{SetScale@{SetScale}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+\doxysubsubsection{\texorpdfstring{SetScale()}{SetScale()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_magnetometer_v2_aca6403bd63d890bc17c93b7277dd4e11} 
+void Intro\+Sat\+Lib\+::\+Magnetometer\+V2\+::\+Set\+Scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a}{Scale}}}]{sensitivity}{}\end{DoxyParamCaption})}
+
+
+
+Установка диапазона измерения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sensitivity} & Значение чуствительности \doxylink{class_intro_sat_lib_1_1_magnetometer_v2_a7311d6621be5feb447ff382ec400e20a}{Scale} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a3f897c560c60e9b8797085b48ca3d74c}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!X@{X}}
+\index{X@{X}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+\doxysubsubsection{\texorpdfstring{X()}{X()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_magnetometer_v2_a3f897c560c60e9b8797085b48ca3d74c} 
+float Intro\+Sat\+Lib\+::\+Magnetometer\+V2\+::X (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение значения напряжённости по оси X. 
+
+\begin{DoxyNote}{Заметки}
+Этот метод возвращает значение из внутреннего буфера, не читая новое значение с датчика. Для чтения значения с датчика необходимо вызвать метод \doxylink{class_intro_sat_lib_1_1_magnetometer_v2_a5feb9f766236b7e1b985b9ff3d65da48}{Read()} 
+\end{DoxyNote}
+\begin{DoxyReturn}{Возвращает}
+Значение напряжённости магнитного поля по оси X 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_a95bfe17a02c519a8a1c8370e8b9bd0b3}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!Y@{Y}}
+\index{Y@{Y}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+\doxysubsubsection{\texorpdfstring{Y()}{Y()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_magnetometer_v2_a95bfe17a02c519a8a1c8370e8b9bd0b3} 
+float Intro\+Sat\+Lib\+::\+Magnetometer\+V2\+::Y (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение значения напряжённости по оси Y. 
+
+\begin{DoxyNote}{Заметки}
+Этот метод возвращает значение из внутреннего буфера, не читая новое значение с датчика. Для чтения значения с датчика необходимо вызвать метод \doxylink{class_intro_sat_lib_1_1_magnetometer_v2_a5feb9f766236b7e1b985b9ff3d65da48}{Read()} 
+\end{DoxyNote}
+\begin{DoxyReturn}{Возвращает}
+Значение напряжённости магнитного поля по оси Y 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_magnetometer_v2_acad4280bc59f8aa5ae6d9557cff9bd26}\index{IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}!Z@{Z}}
+\index{Z@{Z}!IntroSatLib::MagnetometerV2@{IntroSatLib::MagnetometerV2}}
+\doxysubsubsection{\texorpdfstring{Z()}{Z()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_magnetometer_v2_acad4280bc59f8aa5ae6d9557cff9bd26} 
+float Intro\+Sat\+Lib\+::\+Magnetometer\+V2\+::Z (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение значения напряжённости по оси Z. 
+
+\begin{DoxyNote}{Заметки}
+Этот метод возвращает значение из внутреннего буфера, не читая новое значение с датчика. Для чтения значения с датчика необходимо вызвать метод \doxylink{class_intro_sat_lib_1_1_magnetometer_v2_a5feb9f766236b7e1b985b9ff3d65da48}{Read()} 
+\end{DoxyNote}
+\begin{DoxyReturn}{Возвращает}
+Значение напряжённости магнитного поля по оси Z 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/Magnetometer\+V2.\+h\item 
+src/Magnetometer\+V2.\+cpp\end{DoxyCompactItemize}

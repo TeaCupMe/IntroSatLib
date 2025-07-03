@@ -47,6 +47,7 @@ uint8_t Accelerometer::Init(Scale sensitivity, FilterBandwidth filter)
 	SetRegister(0x37, 0x02);
 	SetScale(sensitivity);
 	SetFilter(filter);
+	//TODO  возвращать _i2c.isReady();
 	return 0;
 }
 uint8_t Accelerometer::Init(Scale sensitivity)

@@ -1,0 +1,48 @@
+\doxysection{Base\+Device.\+h}
+\hypertarget{_base_device_8h_source}{}\label{_base_device_8h_source}\index{src/BaseDevice.h@{src/BaseDevice.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BASEDEVICE\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BASEDEVICE\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}I2CDevice.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2CDevice}}\ \&\_i2c;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00019\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ac3d81df953423b66b238f8113306d214}{GetRegister}}(uint8\_t\ reg);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a417cad1072ec9b537f7b1b6a3e79841e}{SetRegister}}(uint8\_t\ reg,\ uint8\_t\ value);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ae33eb53f04bd78500b1a5183e9640db7}{SetBitRegister}}(uint8\_t\ reg,\ uint8\_t\ bit);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ac672694bd65c5ea6b54b733073f4fa4d}{ResetBitRegister}}(uint8\_t\ reg,\ uint8\_t\ bit);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ae000696da9dc4f5d7d6978f9b2348c24}{BitRegister}}(uint8\_t\ reg,\ uint8\_t\ bit,\ uint8\_t\ value);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a631104c6cd77fb82326aa3e8140fc60d}{BaseDevice}}(I2C\_HandleTypeDef\ *hi2c,\ uint8\_t\ address);}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a631104c6cd77fb82326aa3e8140fc60d}{BaseDevice}}(TwoWire\ \&hi2c,\ uint8\_t\ address);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a631104c6cd77fb82326aa3e8140fc60d}{BaseDevice}}(uint8\_t\ address);}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a631104c6cd77fb82326aa3e8140fc60d}{BaseDevice}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}\&\ other);}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a631104c6cd77fb82326aa3e8140fc60d}{BaseDevice}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}\&\&\ other);}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}\&\ other);}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}\&\ operator=(\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}\&\&\ other);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{virtual}\ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_aed46bf6b65b16efcad1f5c5d3e36aaff}{Init}}();}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{\string~BaseDevice}}();}
+\DoxyCodeLine{00101\ \};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ BASEDEVICE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

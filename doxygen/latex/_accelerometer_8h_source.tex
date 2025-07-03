@@ -1,0 +1,104 @@
+\doxysection{Accelerometer.\+h}
+\hypertarget{_accelerometer_8h_source}{}\label{_accelerometer_8h_source}\index{src/Accelerometer.h@{src/Accelerometer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ACCELEROMETER\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ACCELEROMETER\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}I2CDevice.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}BaseDevice.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }IntroSatLib\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{BaseDevice}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ @Goldfor\ может\ вынести\ в\ protected?\ Чтобы\ с\ точки\ зрения\ документации\ было\ логичнее}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ BASE\_ADDRESS\ =\ 0x68;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \_rawg\ =\ 16384.0;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ uint8\_t\ \_sensitivity\ =\ 0;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{enum}\ RegisterMap}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ ACCEL\_CONFIG\ =\ 0x1C,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ ACCEL\_CONFIG\_2,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ ACCEL\_XOUT\_H\ =\ 0x3B,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ ACCEL\_XOUT\_L,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ ACCEL\_YOUT\_H,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ ACCEL\_YOUT\_L,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ ACCEL\_ZOUT\_H,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ ACCEL\_ZOUT\_L,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00030\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a546db6400715485ed2e27ecddd954ff3}{Scale}}}
+\DoxyCodeLine{00037\ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a546db6400715485ed2e27ecddd954ff3a61cc588c17dbae97513b1b6e8cc23f7b}{twoG}}\ =\ 0,\ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a546db6400715485ed2e27ecddd954ff3ae5787409626eba69b9d67a64a63aa42d}{fourG}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a546db6400715485ed2e27ecddd954ff3a35fa164c23cdcd0ff4f67e1f2d7a6590}{eightG}},\ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a546db6400715485ed2e27ecddd954ff3aa1e2e76420d1b738603ee50b66f0efdb}{sixteenG}}\ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ TODO\ @Goldfor\ это\ же\ ширина\ окна?}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abb0ab0a96031515ed9a96b08f21a41c0}{FilterBandwidth}}}
+\DoxyCodeLine{00050\ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abb0ab0a96031515ed9a96b08f21a41c0a14d9209450d842c49c02bd104aaf0e55}{F0218}}\ =\ 0,\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abb0ab0a96031515ed9a96b08f21a41c0a46bbc588c81c5e040c7b79f3de1aa0f6}{F1046}}\ =\ 8,\ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abb0ab0a96031515ed9a96b08f21a41c0a2bc3878837d33530a5d1f936dd135170}{F0218b}},\ \ \ \ \ \ \ \ \textcolor{comment}{//\ ??}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abb0ab0a96031515ed9a96b08f21a41c0a5b65e6404c0baa19a24fb148faaff9bd}{F0099}},\ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abb0ab0a96031515ed9a96b08f21a41c0a88e190ffa5946db5e050f81bd4203406}{F0045}},\ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abb0ab0a96031515ed9a96b08f21a41c0a4df9453eaa7a271daa2cecc1bd04eea0}{F0021}},\ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abb0ab0a96031515ed9a96b08f21a41c0a04c1b9cf38902af15073a165e9560b54}{F0010}},\ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abb0ab0a96031515ed9a96b08f21a41c0a727d2878726bafb50dd7d1834fde9790}{F0005}},\ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abb0ab0a96031515ed9a96b08f21a41c0a9540c80c4aacb1e71510977e1904bfdf}{F0420}}\ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#ifndef\ ARDUINO}}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abe51019c443aa7b39f93a50771a85551}{Accelerometer}}(I2C\_HandleTypeDef\ *hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abe51019c443aa7b39f93a50771a85551}{Accelerometer}}(TwoWire\ \&hi2c,\ uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abe51019c443aa7b39f93a50771a85551}{Accelerometer}}(uint8\_t\ address\ =\ BASE\_ADDRESS);}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abe51019c443aa7b39f93a50771a85551}{Accelerometer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}\&\ other);}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}\&\ other);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ @Goldfor\ Не\ знаю,\ как\ понятным\ детям\ языком\ описать\ отличие\ создания\ из\ rvalue\ (и\ не\ уверен,\ что\ нам\ это\ когда-\/нибудь\ понадобится).}}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abe51019c443aa7b39f93a50771a85551}{Accelerometer}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}\&\&\ other);}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}\&\ operator=(\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{Accelerometer}}\&\&\ other);}
+\DoxyCodeLine{00099\ \ \ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a0af0bc319a2e46d3fc0e9dfacf0730ca}{Init}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//TODO\ Переименовать\ sensitivity\ в\ scale,\ иначе\ вызывает\ путаницу.\ Это\ именно\ scale}}
+\DoxyCodeLine{00114\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a0af0bc319a2e46d3fc0e9dfacf0730ca}{Init}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a546db6400715485ed2e27ecddd954ff3}{Scale}}\ sensitivity);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//TODO\ Переименовать\ sensitivity\ в\ scale,\ иначе\ вызывает\ путаницу.\ Это\ именно\ scale}}
+\DoxyCodeLine{00124\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a0af0bc319a2e46d3fc0e9dfacf0730ca}{Init}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a546db6400715485ed2e27ecddd954ff3}{Scale}}\ sensitivity,\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abb0ab0a96031515ed9a96b08f21a41c0}{FilterBandwidth}}\ filter);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//TODO\ Переименовать\ sensitivity\ в\ scale,\ иначе\ вызывает\ путаницу.\ Это\ именно\ scale}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a2b935d7e55fe6c80a48b9a91915193fe}{SetScale}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a546db6400715485ed2e27ecddd954ff3}{Scale}}\ sensitivity);}
+\DoxyCodeLine{00133\ \ \ \ \ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a082053d929f641e7f6b2f4ad82cf19e8}{SetFilter}}(\mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_abb0ab0a96031515ed9a96b08f21a41c0}{FilterBandwidth}}\ filter);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00146\ \ \ \ \ int16\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_afb952b6c8e9c653e5a4d1b9247cd3905}{RawX}}();}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00153\ \ \ \ \ int16\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_acb687931641ac34087e969c2efbb0606}{RawY}}();}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00160\ \ \ \ \ int16\_t\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a8561c8c4397e2588ae56bd2fff66a9ec}{RawZ}}();}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_a1e2e805d29c5ee84eb4fe860736f10de}{X}}();}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_af4a2e25b032d924c72bc46698dc81a58}{Y}}();}
+\DoxyCodeLine{00177\ \ \ \ \ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer_ab09b2295e26c46eee9cb09b479d01292}{Z}}();}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \mbox{\hyperlink{class_intro_sat_lib_1_1_accelerometer}{\string~Accelerometer}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00187\ \};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \}\ \textcolor{comment}{/*\ namespace\ IntroSatLib\ */}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ACCELEROMETER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

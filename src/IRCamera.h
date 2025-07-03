@@ -47,37 +47,115 @@ private:
 	int16_t int12ToInt16(uint16_t val);
 
 public:
-
+	/**
+	 * @brief Количество кадров (обновлений данных) в секунду
+	 * 
+	 */
 	enum Framerate
 	{
-		FPS_10 = 0,
-		FPS_1 = 1
+		FPS_10 = 0,	/**< 10 кадров в секунду */
+		FPS_1 = 1	/**< 1 кадр в секунду */
 	};
 
 #ifndef ARDUINO
+	/**
+	 * @note Только в STM32CubeIDE
+	 * @brief Создание объекта ИК-камеры. 
+	 * 
+	 * @param hi2c объект @b I2C_HandleTypeDef
+	 * @param address адрес ИК-камеры на шине I2C
+	 */
 	IRCamera(I2C_HandleTypeDef *hi2c, uint8_t address = BASE_ADDRESS);
 #else
+	/**
+	 * @note Только в Arduino IDE
+	 * @brief Создание объекта ИК-камеры
+	 * 
+	 * @param hi2c объект @b TwoWire или @b Wire 
+	 * @param address адрес ИК-камеры на шине I2C
+	 */
 	IRCamera(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
+
+	/**
+	 * @note Только в Arduino IDE
+	 * @brief Создание объекта ИК-камеры на @b I2C1 
+	 * 
+	 * @param address адрес ИК-камеры на шине I2C
+	 */
 	IRCamera(uint8_t address = BASE_ADDRESS);
 #endif
-
+	/**
+	 * @brief Создание объекта ИК-камеры как копии другого объекта ИК-камеры
+	 * 
+	 * @param other исходный объект для копирования
+	 */
 	IRCamera(const IRCamera &other);
 	IRCamera(IRCamera &&other);
 	IRCamera& operator=(const IRCamera &other);
 	IRCamera& operator=(IRCamera &&other);
 
+	/**
+	 * @brief Включает использование пина reset ИК-камеры.
+	 * 
+	 * @param resetPort Порт, которому подключён контакт 
+	 * @param resetPin 
+	 */
 	void useForceReset(GPIO_TypeDef* resetPort, uint16_t resetPin);
 
+	/**
+	 * @brief Вывод картинки в отзеркаленном виде
+	 * 
+	 */
 	void useMirrored();
+
+	/**
+	 * @brief Вывод картинки в нормальном (не отзеркаленном) виде
+	 * 
+	 */
 	void useNotMirrored();
 
+	/**
+	 * @brief Инициализация камеры с параметрами по умолчанию: @ref Framerate::FPS_10
+	 * 
+	 * @returns 0, если инициализация завершена успешно
+	 * @returns 1, если при инициализации возникла ошибка
+	 */
 	uint8_t Init() override;
+
+	/**
+	 * @brief Инициализация камеры с заданным количеством кадров в секунду
+	 * 
+	 * @param framrate
+	 * @returns 0, если инициализация завершена успешно
+	 * @returns 1, если при инициализации возникла ошибка
+	 */
+	// TODO @TeaCupMe @Goldfor исправить опечатку framrate на framerate
 	uint8_t Init(Framerate framrate);
 
+	/**
+	 * @brief Считывание значений с матрицы ИК-камеры во внутренний буффер.
+	 * 
+	 * @returns 0, если изображение считано успешно
+	 * @returns 1, если считывании возникла ошибка
+	 */
 	uint8_t Read();
 
+	/**
+	 * @brief Получение необработанного значения пикселя
+	 * 
+	 * @param x Координата x пикселя
+	 * @param y Координата y пикселя
+	 * @return Необработанное значение пикселя, 12 бит, right-aligned
+	 */
 	int16_t getPixelRaw(uint8_t x, uint8_t y);
 
+	/**
+	 * @brief Получение значения пикселя
+	 * 
+	 * @param x Координата x пикселя
+	 * @param y Координата y пикселя
+	 * @return Значение пикселя в диапазоне от 0 до 1
+	 */
 	float getPixel(uint8_t x, uint8_t y);
 
 	~IRCamera() override;

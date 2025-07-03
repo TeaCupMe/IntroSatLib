@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IntroSatLib: Исходный файл src/Accelerometer.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">IntroSatLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">Accelerometer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef ACCELEROMETER_H_</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define ACCELEROMETER_H_</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;I2CDevice.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;BaseDevice.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>IntroSatLib {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a>: <span class="keyword">public</span> <a class="code hl_class" href="class_intro_sat_lib_1_1_base_device.html">BaseDevice</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// @Goldfor может вынести в protected? Чтобы с точки зрения документации было логичнее</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">static</span> <span class="keyword">const</span> uint8_t BASE_ADDRESS = 0x68;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">float</span> _rawg = 16384.0;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    uint8_t _sensitivity = 0;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">enum</span> RegisterMap</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            ACCEL_CONFIG = 0x1C,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            ACCEL_CONFIG_2,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            ACCEL_XOUT_H = 0x3B,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            ACCEL_XOUT_L,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            ACCEL_YOUT_H,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            ACCEL_YOUT_L,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            ACCEL_ZOUT_H,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            ACCEL_ZOUT_L,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        };</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3">   36</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3">Scale</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3a61cc588c17dbae97513b1b6e8cc23f7b">   38</a></span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3a61cc588c17dbae97513b1b6e8cc23f7b">twoG</a> = 0,   </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3ae5787409626eba69b9d67a64a63aa42d">   39</a></span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3ae5787409626eba69b9d67a64a63aa42d">fourG</a>,      </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3a35fa164c23cdcd0ff4f67e1f2d7a6590">   40</a></span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3a35fa164c23cdcd0ff4f67e1f2d7a6590">eightG</a>,     </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3aa1e2e76420d1b738603ee50b66f0efdb">sixteenG</a>    </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3aa1e2e76420d1b738603ee50b66f0efdb">   42</a></span>    };</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">// TODO @Goldfor это же ширина окна?</span></div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0">   49</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0">FilterBandwidth</a></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a14d9209450d842c49c02bd104aaf0e55">   51</a></span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a14d9209450d842c49c02bd104aaf0e55">F0218</a> = 0,  </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a46bbc588c81c5e040c7b79f3de1aa0f6">   52</a></span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a46bbc588c81c5e040c7b79f3de1aa0f6">F1046</a> = 8,  </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a2bc3878837d33530a5d1f936dd135170">   53</a></span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a2bc3878837d33530a5d1f936dd135170">F0218b</a>,      <span class="comment">// ??</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a5b65e6404c0baa19a24fb148faaff9bd">   54</a></span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a5b65e6404c0baa19a24fb148faaff9bd">F0099</a>,      </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a88e190ffa5946db5e050f81bd4203406">   55</a></span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a88e190ffa5946db5e050f81bd4203406">F0045</a>,      </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a4df9453eaa7a271daa2cecc1bd04eea0">   56</a></span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a4df9453eaa7a271daa2cecc1bd04eea0">F0021</a>,      </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a04c1b9cf38902af15073a165e9560b54">   57</a></span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a04c1b9cf38902af15073a165e9560b54">F0010</a>,      </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a727d2878726bafb50dd7d1834fde9790">   58</a></span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a727d2878726bafb50dd7d1834fde9790">F0005</a>,      </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_enumvalue" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a9540c80c4aacb1e71510977e1904bfdf">F0420</a>       </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a9540c80c4aacb1e71510977e1904bfdf">   60</a></span>    };</div>
+</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#ifndef ARDUINO</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#abe51019c443aa7b39f93a50771a85551">Accelerometer</a>(I2C_HandleTypeDef *hi2c, uint8_t address = BASE_ADDRESS);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#abe51019c443aa7b39f93a50771a85551">Accelerometer</a>(TwoWire &amp;hi2c, uint8_t address = BASE_ADDRESS);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#abe51019c443aa7b39f93a50771a85551">Accelerometer</a>(uint8_t address = BASE_ADDRESS);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#abe51019c443aa7b39f93a50771a85551">Accelerometer</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a>&amp; other);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a>&amp; other);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="comment">// @Goldfor Не знаю, как понятным детям языком описать отличие создания из rvalue (и не уверен, что нам это когда-нибудь понадобится).</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#abe51019c443aa7b39f93a50771a85551">Accelerometer</a>(<a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a>&amp;&amp; other);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a>&amp; operator=(<a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">Accelerometer</a>&amp;&amp; other);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    uint8_t <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#a0af0bc319a2e46d3fc0e9dfacf0730ca">Init</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="comment">//TODO Переименовать sensitivity в scale, иначе вызывает путаницу. Это именно scale</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    uint8_t <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#a0af0bc319a2e46d3fc0e9dfacf0730ca">Init</a>(<a class="code hl_enumeration" href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3">Scale</a> sensitivity);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="comment">//TODO Переименовать sensitivity в scale, иначе вызывает путаницу. Это именно scale</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    uint8_t <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#a0af0bc319a2e46d3fc0e9dfacf0730ca">Init</a>(<a class="code hl_enumeration" href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3">Scale</a> sensitivity, <a class="code hl_enumeration" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0">FilterBandwidth</a> filter);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="comment">//TODO Переименовать sensitivity в scale, иначе вызывает путаницу. Это именно scale</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#a2b935d7e55fe6c80a48b9a91915193fe">SetScale</a>(<a class="code hl_enumeration" href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3">Scale</a> sensitivity);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#a082053d929f641e7f6b2f4ad82cf19e8">SetFilter</a>(<a class="code hl_enumeration" href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0">FilterBandwidth</a> filter);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    int16_t <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#afb952b6c8e9c653e5a4d1b9247cd3905">RawX</a>();</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    int16_t <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#acb687931641ac34087e969c2efbb0606">RawY</a>();</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    int16_t <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#a8561c8c4397e2588ae56bd2fff66a9ec">RawZ</a>();</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#a1e2e805d29c5ee84eb4fe860736f10de">X</a>();</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#af4a2e25b032d924c72bc46698dc81a58">Y</a>();</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_intro_sat_lib_1_1_accelerometer.html#ab09b2295e26c46eee9cb09b479d01292">Z</a>();</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <a class="code hl_class" href="class_intro_sat_lib_1_1_accelerometer.html">~Accelerometer</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>};</div>
+</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>} <span class="comment">/* namespace IntroSatLib */</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="preprocessor">#endif </span><span class="comment">/* ACCELEROMETER_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html">IntroSatLib::Accelerometer</a></div><div class="ttdef"><b>Definition</b> Accelerometer.h:10</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a082053d929f641e7f6b2f4ad82cf19e8"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a082053d929f641e7f6b2f4ad82cf19e8">IntroSatLib::Accelerometer::SetFilter</a></div><div class="ttdeci">void SetFilter(FilterBandwidth filter)</div><div class="ttdoc">Установка фильтра измерений</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:72</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a0af0bc319a2e46d3fc0e9dfacf0730ca"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a0af0bc319a2e46d3fc0e9dfacf0730ca">IntroSatLib::Accelerometer::Init</a></div><div class="ttdeci">uint8_t Init() override</div><div class="ttdoc">Инициализация акселлерометра с параметрами по умолчанию: Scale::twoG, FilterBandwidth::F0021.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:57</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a1e2e805d29c5ee84eb4fe860736f10de"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a1e2e805d29c5ee84eb4fe860736f10de">IntroSatLib::Accelerometer::X</a></div><div class="ttdeci">float X()</div><div class="ttdoc">Получение значения ускорения по оси X.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:97</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a2b935d7e55fe6c80a48b9a91915193fe"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a2b935d7e55fe6c80a48b9a91915193fe">IntroSatLib::Accelerometer::SetScale</a></div><div class="ttdeci">void SetScale(Scale sensitivity)</div><div class="ttdoc">Установка диапазона измерения</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:63</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a546db6400715485ed2e27ecddd954ff3"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3">IntroSatLib::Accelerometer::Scale</a></div><div class="ttdeci">Scale</div><div class="ttdoc">Диапазон измерения ускорения</div><div class="ttdef"><b>Definition</b> Accelerometer.h:37</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a546db6400715485ed2e27ecddd954ff3a35fa164c23cdcd0ff4f67e1f2d7a6590"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3a35fa164c23cdcd0ff4f67e1f2d7a6590">IntroSatLib::Accelerometer::eightG</a></div><div class="ttdeci">@ eightG</div><div class="ttdef"><b>Definition</b> Accelerometer.h:40</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a546db6400715485ed2e27ecddd954ff3a61cc588c17dbae97513b1b6e8cc23f7b"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3a61cc588c17dbae97513b1b6e8cc23f7b">IntroSatLib::Accelerometer::twoG</a></div><div class="ttdeci">@ twoG</div><div class="ttdef"><b>Definition</b> Accelerometer.h:38</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a546db6400715485ed2e27ecddd954ff3aa1e2e76420d1b738603ee50b66f0efdb"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3aa1e2e76420d1b738603ee50b66f0efdb">IntroSatLib::Accelerometer::sixteenG</a></div><div class="ttdeci">@ sixteenG</div><div class="ttdef"><b>Definition</b> Accelerometer.h:41</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a546db6400715485ed2e27ecddd954ff3ae5787409626eba69b9d67a64a63aa42d"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a546db6400715485ed2e27ecddd954ff3ae5787409626eba69b9d67a64a63aa42d">IntroSatLib::Accelerometer::fourG</a></div><div class="ttdeci">@ fourG</div><div class="ttdef"><b>Definition</b> Accelerometer.h:39</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_a8561c8c4397e2588ae56bd2fff66a9ec"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#a8561c8c4397e2588ae56bd2fff66a9ec">IntroSatLib::Accelerometer::RawZ</a></div><div class="ttdeci">int16_t RawZ()</div><div class="ttdoc">Получение необработанного значения ускорения по оси Z.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:90</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_ab09b2295e26c46eee9cb09b479d01292"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#ab09b2295e26c46eee9cb09b479d01292">IntroSatLib::Accelerometer::Z</a></div><div class="ttdeci">float Z()</div><div class="ttdoc">Получение значения ускорения по оси Z.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:107</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_abb0ab0a96031515ed9a96b08f21a41c0"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0">IntroSatLib::Accelerometer::FilterBandwidth</a></div><div class="ttdeci">FilterBandwidth</div><div class="ttdoc">Ширина окна фильтра</div><div class="ttdef"><b>Definition</b> Accelerometer.h:50</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_abb0ab0a96031515ed9a96b08f21a41c0a04c1b9cf38902af15073a165e9560b54"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a04c1b9cf38902af15073a165e9560b54">IntroSatLib::Accelerometer::F0010</a></div><div class="ttdeci">@ F0010</div><div class="ttdef"><b>Definition</b> Accelerometer.h:57</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_abb0ab0a96031515ed9a96b08f21a41c0a14d9209450d842c49c02bd104aaf0e55"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a14d9209450d842c49c02bd104aaf0e55">IntroSatLib::Accelerometer::F0218</a></div><div class="ttdeci">@ F0218</div><div class="ttdef"><b>Definition</b> Accelerometer.h:51</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_abb0ab0a96031515ed9a96b08f21a41c0a2bc3878837d33530a5d1f936dd135170"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a2bc3878837d33530a5d1f936dd135170">IntroSatLib::Accelerometer::F0218b</a></div><div class="ttdeci">@ F0218b</div><div class="ttdef"><b>Definition</b> Accelerometer.h:53</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_abb0ab0a96031515ed9a96b08f21a41c0a46bbc588c81c5e040c7b79f3de1aa0f6"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a46bbc588c81c5e040c7b79f3de1aa0f6">IntroSatLib::Accelerometer::F1046</a></div><div class="ttdeci">@ F1046</div><div class="ttdef"><b>Definition</b> Accelerometer.h:52</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_abb0ab0a96031515ed9a96b08f21a41c0a4df9453eaa7a271daa2cecc1bd04eea0"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a4df9453eaa7a271daa2cecc1bd04eea0">IntroSatLib::Accelerometer::F0021</a></div><div class="ttdeci">@ F0021</div><div class="ttdef"><b>Definition</b> Accelerometer.h:56</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_abb0ab0a96031515ed9a96b08f21a41c0a5b65e6404c0baa19a24fb148faaff9bd"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a5b65e6404c0baa19a24fb148faaff9bd">IntroSatLib::Accelerometer::F0099</a></div><div class="ttdeci">@ F0099</div><div class="ttdef"><b>Definition</b> Accelerometer.h:54</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_abb0ab0a96031515ed9a96b08f21a41c0a727d2878726bafb50dd7d1834fde9790"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a727d2878726bafb50dd7d1834fde9790">IntroSatLib::Accelerometer::F0005</a></div><div class="ttdeci">@ F0005</div><div class="ttdef"><b>Definition</b> Accelerometer.h:58</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_abb0ab0a96031515ed9a96b08f21a41c0a88e190ffa5946db5e050f81bd4203406"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a88e190ffa5946db5e050f81bd4203406">IntroSatLib::Accelerometer::F0045</a></div><div class="ttdeci">@ F0045</div><div class="ttdef"><b>Definition</b> Accelerometer.h:55</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_abb0ab0a96031515ed9a96b08f21a41c0a9540c80c4aacb1e71510977e1904bfdf"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a9540c80c4aacb1e71510977e1904bfdf">IntroSatLib::Accelerometer::F0420</a></div><div class="ttdeci">@ F0420</div><div class="ttdef"><b>Definition</b> Accelerometer.h:59</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_abe51019c443aa7b39f93a50771a85551"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#abe51019c443aa7b39f93a50771a85551">IntroSatLib::Accelerometer::Accelerometer</a></div><div class="ttdeci">Accelerometer(I2C_HandleTypeDef *hi2c, uint8_t address=BASE_ADDRESS)</div><div class="ttdoc">Конструктор объекта акселлерометра.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:6</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_acb687931641ac34087e969c2efbb0606"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#acb687931641ac34087e969c2efbb0606">IntroSatLib::Accelerometer::RawY</a></div><div class="ttdeci">int16_t RawY()</div><div class="ttdoc">Получение необработанного значения ускорения по оси Y.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:84</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_af4a2e25b032d924c72bc46698dc81a58"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#af4a2e25b032d924c72bc46698dc81a58">IntroSatLib::Accelerometer::Y</a></div><div class="ttdeci">float Y()</div><div class="ttdoc">Получение значения ускорения по оси Y.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:102</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_accelerometer_html_afb952b6c8e9c653e5a4d1b9247cd3905"><div class="ttname"><a href="class_intro_sat_lib_1_1_accelerometer.html#afb952b6c8e9c653e5a4d1b9247cd3905">IntroSatLib::Accelerometer::RawX</a></div><div class="ttdeci">int16_t RawX()</div><div class="ttdoc">Получение необработанного значения ускорения по оси X.</div><div class="ttdef"><b>Definition</b> Accelerometer.cpp:78</div></div>
+<div class="ttc" id="aclass_intro_sat_lib_1_1_base_device_html"><div class="ttname"><a href="class_intro_sat_lib_1_1_base_device.html">IntroSatLib::BaseDevice</a></div><div class="ttdef"><b>Definition</b> BaseDevice.h:8</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

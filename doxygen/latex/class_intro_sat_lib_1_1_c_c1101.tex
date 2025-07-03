@@ -1,0 +1,244 @@
+\doxysection{Класс Intro\+Sat\+Lib\+::CC1101}
+\hypertarget{class_intro_sat_lib_1_1_c_c1101}{}\label{class_intro_sat_lib_1_1_c_c1101}\index{IntroSatLib::CC1101@{IntroSatLib::CC1101}}
+Граф наследования\+:Intro\+Sat\+Lib\+::CC1101\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_intro_sat_lib_1_1_c_c1101}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_aa6f513ab3e24211756505055565d7de8}{CC1101}} (\mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_s_p_i}{intefaces\+::\+SPI}} \&spi, \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&scl, \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&mosi, \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&miso, \mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&reset)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_c_c1101}{CC1101}. \end{DoxyCompactList}\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a1491c4d3833f3cfd2ce97e019064f8da}\label{class_intro_sat_lib_1_1_c_c1101_a1491c4d3833f3cfd2ce97e019064f8da} 
+void {\bfseries Init} ()
+\begin{DoxyCompactList}\small\item\em Инициализация \doxylink{class_intro_sat_lib_1_1_c_c1101}{CC1101}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_ab96bc2a7664531b796090cb1397e7506}{set\+Channel}} (uint8\+\_\+t ch)
+\begin{DoxyCompactList}\small\item\em Выбора канала \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_a63fd6892fcd1b8a1b04b3cfbc387cb35}{set\+Packet\+Length}} (uint8\+\_\+t v)
+\begin{DoxyCompactList}\small\item\em Установка длины пакета \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_a5ab8e87f6c3b1a1fddcf0d7ff05f77a4}{set\+CCMode}} (uint8\+\_\+t ccmode)
+\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_c_c1101_aedac5916dbd33a1b731ea0ec414956e7}{set\+Modulation}} (uint8\+\_\+t modulation)
+\begin{DoxyCompactList}\small\item\em Выбор модуляции \end{DoxyCompactList}\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a1b066a924b686a90b5ebb0aa2e2b3e54}\label{class_intro_sat_lib_1_1_c_c1101_a1b066a924b686a90b5ebb0aa2e2b3e54} 
+void {\bfseries set\+PA} (int p)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_aa3653a54de7db0898ef40be20d0c0c97}\label{class_intro_sat_lib_1_1_c_c1101_aa3653a54de7db0898ef40be20d0c0c97} 
+void {\bfseries set\+MHZ} (float mhz)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a61931594e7f7cb636abac595bef82cb3}\label{class_intro_sat_lib_1_1_c_c1101_a61931594e7f7cb636abac595bef82cb3} 
+void {\bfseries set\+Clb} (uint8\+\_\+t b, uint8\+\_\+t s, uint8\+\_\+t e)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_afb76e323d541f17cbcd426530a41e6d9}\label{class_intro_sat_lib_1_1_c_c1101_afb76e323d541f17cbcd426530a41e6d9} 
+uint8\+\_\+t {\bfseries get\+CC1101} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a00a64931ed7ba9d2c0ae69b0829eca71}\label{class_intro_sat_lib_1_1_c_c1101_a00a64931ed7ba9d2c0ae69b0829eca71} 
+State {\bfseries get\+Mode} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_ac6ddee26e865545ec862593fcab9843e}\label{class_intro_sat_lib_1_1_c_c1101_ac6ddee26e865545ec862593fcab9843e} 
+void {\bfseries set\+Sync\+Word} (uint8\+\_\+t sh, uint8\+\_\+t sl)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a9fdfd4b6fd5c391527a43ab54fe02dae}\label{class_intro_sat_lib_1_1_c_c1101_a9fdfd4b6fd5c391527a43ab54fe02dae} 
+void {\bfseries set\+Addr} (uint8\+\_\+t v)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a0e071a4d0b225518ef8f2aefa74be579}\label{class_intro_sat_lib_1_1_c_c1101_a0e071a4d0b225518ef8f2aefa74be579} 
+void {\bfseries set\+PQT} (uint8\+\_\+t v)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_aff7bad251d1e9998d79cf368e5f8f558}\label{class_intro_sat_lib_1_1_c_c1101_aff7bad251d1e9998d79cf368e5f8f558} 
+void {\bfseries set\+CRC\+\_\+\+AF} (uint8\+\_\+t v)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_aa15caa01133b78ee08dc08184caf9ac0}\label{class_intro_sat_lib_1_1_c_c1101_aa15caa01133b78ee08dc08184caf9ac0} 
+void {\bfseries set\+Append\+Status} (uint8\+\_\+t v)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a0d4c8e832c7c485c519e8c2054e9fb05}\label{class_intro_sat_lib_1_1_c_c1101_a0d4c8e832c7c485c519e8c2054e9fb05} 
+void {\bfseries set\+Adr\+Chk} (uint8\+\_\+t v)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a4824122ed258119cd9a078805490aceb}\label{class_intro_sat_lib_1_1_c_c1101_a4824122ed258119cd9a078805490aceb} 
+void {\bfseries set\+White\+Data} (uint8\+\_\+t v)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a37e0e1afdb590e0da9dced30d419ccac}\label{class_intro_sat_lib_1_1_c_c1101_a37e0e1afdb590e0da9dced30d419ccac} 
+void {\bfseries set\+Pkt\+Format} (uint8\+\_\+t v)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a283019ae19ff48a07489f1ba06e8b599}\label{class_intro_sat_lib_1_1_c_c1101_a283019ae19ff48a07489f1ba06e8b599} 
+void {\bfseries set\+Crc} (uint8\+\_\+t v)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a4ec15007729bd3d2943c1aee86f7eb89}\label{class_intro_sat_lib_1_1_c_c1101_a4ec15007729bd3d2943c1aee86f7eb89} 
+void {\bfseries set\+Length\+Config} (uint8\+\_\+t v)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_ad1ac0fe7fc3eed9420d62637705749eb}\label{class_intro_sat_lib_1_1_c_c1101_ad1ac0fe7fc3eed9420d62637705749eb} 
+void {\bfseries set\+Rx\+BW} (float f)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a64a581b4fb069751cfd529fab6fa353e}\label{class_intro_sat_lib_1_1_c_c1101_a64a581b4fb069751cfd529fab6fa353e} 
+virtual void {\bfseries set\+DRate} (float kD)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a5cbb7d25527ad3fc333d72dc020598fe}\label{class_intro_sat_lib_1_1_c_c1101_a5cbb7d25527ad3fc333d72dc020598fe} 
+void {\bfseries set\+Dc\+Filter\+Off} (uint8\+\_\+t v)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a4adf1bfc949393d5c143e8568ace7d8c}\label{class_intro_sat_lib_1_1_c_c1101_a4adf1bfc949393d5c143e8568ace7d8c} 
+void {\bfseries set\+Manchester} (uint8\+\_\+t v)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a05658079076bb15d58ac2a1e830151f5}\label{class_intro_sat_lib_1_1_c_c1101_a05658079076bb15d58ac2a1e830151f5} 
+void {\bfseries set\+Sync\+Mode} (uint8\+\_\+t v)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a03809e32241f0372e833d02e57c27e21}\label{class_intro_sat_lib_1_1_c_c1101_a03809e32241f0372e833d02e57c27e21} 
+void {\bfseries set\+FEC} (uint8\+\_\+t v)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a1b17fa9f6b150cee833c0f8a8997f666}\label{class_intro_sat_lib_1_1_c_c1101_a1b17fa9f6b150cee833c0f8a8997f666} 
+void {\bfseries set\+PRE} (uint8\+\_\+t v)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a6bba215a52e0a935d28ae3b69440223b}\label{class_intro_sat_lib_1_1_c_c1101_a6bba215a52e0a935d28ae3b69440223b} 
+void {\bfseries set\+Chsp} (float f)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a01adcd44390a5a9884f075bfb0f07357}\label{class_intro_sat_lib_1_1_c_c1101_a01adcd44390a5a9884f075bfb0f07357} 
+void {\bfseries set\+Deviation} (float d)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_ac9ad1c573793619a8f5eb516da95a3e8}\label{class_intro_sat_lib_1_1_c_c1101_ac9ad1c573793619a8f5eb516da95a3e8} 
+void {\bfseries Split\+\_\+\+PKTCTRL1} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_aa8cecbdfc40be85dd897ba91453b344a}\label{class_intro_sat_lib_1_1_c_c1101_aa8cecbdfc40be85dd897ba91453b344a} 
+void {\bfseries Split\+\_\+\+PKTCTRL0} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a0afaf6a08991715cd5500122748041eb}\label{class_intro_sat_lib_1_1_c_c1101_a0afaf6a08991715cd5500122748041eb} 
+void {\bfseries Split\+\_\+\+MDMCFG4} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_af89d2271be9b833fe029e1fda7d56312}\label{class_intro_sat_lib_1_1_c_c1101_af89d2271be9b833fe029e1fda7d56312} 
+void {\bfseries Split\+\_\+\+MDMCFG2} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_af94a76ea5af223fee50254ff0b30f63a}\label{class_intro_sat_lib_1_1_c_c1101_af94a76ea5af223fee50254ff0b30f63a} 
+void {\bfseries Split\+\_\+\+MDMCFG1} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a25efb84ea21237e1d8c0c1d544057853}\label{class_intro_sat_lib_1_1_c_c1101_a25efb84ea21237e1d8c0c1d544057853} 
+void {\bfseries Set\+Tx} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a8b79603cc4ce637233076aef5987a8a5}\label{class_intro_sat_lib_1_1_c_c1101_a8b79603cc4ce637233076aef5987a8a5} 
+void {\bfseries Set\+Rx} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_aac0d7d3f745801b4b4b1979ceaf8d802}\label{class_intro_sat_lib_1_1_c_c1101_aac0d7d3f745801b4b4b1979ceaf8d802} 
+void {\bfseries Set\+Tx} (float mhz)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a11243ccdf5587f74bf2e4a65946815bb}\label{class_intro_sat_lib_1_1_c_c1101_a11243ccdf5587f74bf2e4a65946815bb} 
+void {\bfseries Set\+Rx} (float mhz)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a8eec24a97a7b2f6a9e8f90e6aa9d0fd7}\label{class_intro_sat_lib_1_1_c_c1101_a8eec24a97a7b2f6a9e8f90e6aa9d0fd7} 
+int {\bfseries get\+Rssi} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_af97c9e69a69f784c822162bb409c0324}\label{class_intro_sat_lib_1_1_c_c1101_af97c9e69a69f784c822162bb409c0324} 
+uint8\+\_\+t {\bfseries get\+Lqi} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a21d44dc1e195c41343c50f6b1f805b5d}\label{class_intro_sat_lib_1_1_c_c1101_a21d44dc1e195c41343c50f6b1f805b5d} 
+void {\bfseries set\+Sres} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_accaf243ba4dc2a391549d582548402de}\label{class_intro_sat_lib_1_1_c_c1101_accaf243ba4dc2a391549d582548402de} 
+void {\bfseries set\+Sidle} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a4b26beb7b254a9fe33b2ea0489ce6689}\label{class_intro_sat_lib_1_1_c_c1101_a4b26beb7b254a9fe33b2ea0489ce6689} 
+void {\bfseries go\+Sleep} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_afe8cfa76cfe3d526258b9a8f0527bd2c}\label{class_intro_sat_lib_1_1_c_c1101_afe8cfa76cfe3d526258b9a8f0527bd2c} 
+void {\bfseries Send\+Data} (const char \texorpdfstring{$\ast$}{*}txchar)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a79584c11f3b9548aa842d3421e67e904}\label{class_intro_sat_lib_1_1_c_c1101_a79584c11f3b9548aa842d3421e67e904} 
+void {\bfseries Send\+Data} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}tx\+Buffer, uint8\+\_\+t size)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_ab5032ea138783c5aeeff3823818954ce}\label{class_intro_sat_lib_1_1_c_c1101_ab5032ea138783c5aeeff3823818954ce} 
+uint8\+\_\+t {\bfseries Check\+CRC} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a1ac5d6522df120eef41e984c3e1439b7}\label{class_intro_sat_lib_1_1_c_c1101_a1ac5d6522df120eef41e984c3e1439b7} 
+virtual void {\bfseries await} (uint8\+\_\+t len)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_aa6f513ab3e24211756505055565d7de8}\index{IntroSatLib::CC1101@{IntroSatLib::CC1101}!CC1101@{CC1101}}
+\index{CC1101@{CC1101}!IntroSatLib::CC1101@{IntroSatLib::CC1101}}
+\doxysubsubsection{\texorpdfstring{CC1101()}{CC1101()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_c_c1101_aa6f513ab3e24211756505055565d7de8} 
+Intro\+Sat\+Lib\+::\+CC1101\+::\+CC1101 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_s_p_i}{intefaces\+::\+SPI}} \&}]{spi}{, }\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&}]{scl}{, }\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&}]{mosi}{, }\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&}]{miso}{, }\item[{\mbox{\hyperlink{class_intro_sat_lib_1_1intefaces_1_1_g_p_i_o}{intefaces\+::\+GPIO}} \&}]{reset}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Создание объекта \doxylink{class_intro_sat_lib_1_1_c_c1101}{CC1101}. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em spi} & Интерфейс SPI interfaces\+::\+SPI \\
+\hline
+{\em scl} & Контакт scl interfaces\+::\+GPIO \\
+\hline
+{\em mosi} & Контакт mosi interfaces\+::\+GPIO \\
+\hline
+{\em miso} & Контакт miso interfaces\+::\+GPIO \\
+\hline
+{\em reset} & Контакт reset interfaces\+::\+GPIO \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a5ab8e87f6c3b1a1fddcf0d7ff05f77a4}\index{IntroSatLib::CC1101@{IntroSatLib::CC1101}!setCCMode@{setCCMode}}
+\index{setCCMode@{setCCMode}!IntroSatLib::CC1101@{IntroSatLib::CC1101}}
+\doxysubsubsection{\texorpdfstring{setCCMode()}{setCCMode()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_c_c1101_a5ab8e87f6c3b1a1fddcf0d7ff05f77a4} 
+void Intro\+Sat\+Lib\+::\+CC1101\+::set\+CCMode (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ccmode}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ccmode} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_ab96bc2a7664531b796090cb1397e7506}\index{IntroSatLib::CC1101@{IntroSatLib::CC1101}!setChannel@{setChannel}}
+\index{setChannel@{setChannel}!IntroSatLib::CC1101@{IntroSatLib::CC1101}}
+\doxysubsubsection{\texorpdfstring{setChannel()}{setChannel()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_c_c1101_ab96bc2a7664531b796090cb1397e7506} 
+void Intro\+Sat\+Lib\+::\+CC1101\+::set\+Channel (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ch}{}\end{DoxyParamCaption})}
+
+
+
+Выбора канала 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ch} & Номер канала \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_aedac5916dbd33a1b731ea0ec414956e7}\index{IntroSatLib::CC1101@{IntroSatLib::CC1101}!setModulation@{setModulation}}
+\index{setModulation@{setModulation}!IntroSatLib::CC1101@{IntroSatLib::CC1101}}
+\doxysubsubsection{\texorpdfstring{setModulation()}{setModulation()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_c_c1101_aedac5916dbd33a1b731ea0ec414956e7} 
+void Intro\+Sat\+Lib\+::\+CC1101\+::set\+Modulation (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{modulation}{}\end{DoxyParamCaption})}
+
+
+
+Выбор модуляции 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em modulation} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_c_c1101_a63fd6892fcd1b8a1b04b3cfbc387cb35}\index{IntroSatLib::CC1101@{IntroSatLib::CC1101}!setPacketLength@{setPacketLength}}
+\index{setPacketLength@{setPacketLength}!IntroSatLib::CC1101@{IntroSatLib::CC1101}}
+\doxysubsubsection{\texorpdfstring{setPacketLength()}{setPacketLength()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_c_c1101_a63fd6892fcd1b8a1b04b3cfbc387cb35} 
+void Intro\+Sat\+Lib\+::\+CC1101\+::set\+Packet\+Length (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{v}{}\end{DoxyParamCaption})}
+
+
+
+Установка длины пакета 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em v} & Длина пакета в байтах \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/CC1101.\+h\item 
+src/CC1101.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,291 @@
+\doxysection{Класс Intro\+Sat\+Lib\+::Base\+Fly\+Wheel}
+\hypertarget{class_intro_sat_lib_1_1_base_fly_wheel}{}\label{class_intro_sat_lib_1_1_base_fly_wheel}\index{IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}}
+Граф наследования\+:Intro\+Sat\+Lib\+::Base\+Fly\+Wheel\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_intro_sat_lib_1_1_base_fly_wheel}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_a1606cc1c3b288764a10825239d752a8f}{Base\+Fly\+Wheel}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c, uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Создание объекта маховика. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_a990d8f775b7d7f375cd8e16b9aade143}{Base\+Fly\+Wheel}} (Two\+Wire \&hi2c, uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Создание объекта маховика \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_a6f91eb97b7123a89beba5b01108bdecd}{Base\+Fly\+Wheel}} (uint8\+\_\+t address=BASE\+\_\+\+ADDRESS)
+\begin{DoxyCompactList}\small\item\em Создание объекта маховика на {\bfseries{I2\+C1}}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_a551affc78e13d23c1e88eabf8afc8d38}{Init}} () override
+\begin{DoxyCompactList}\small\item\em Инициализация маховика \end{DoxyCompactList}\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a0f5770e97450f94ab06bde8ea6c118c8}\label{class_intro_sat_lib_1_1_base_fly_wheel_a0f5770e97450f94ab06bde8ea6c118c8} 
+void {\bfseries Direct\+Mode} (uint8\+\_\+t direct\+Mode)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a298a175e25145ef8efa30e60ae1c7f8e}\label{class_intro_sat_lib_1_1_base_fly_wheel_a298a175e25145ef8efa30e60ae1c7f8e} 
+uint8\+\_\+t {\bfseries Direct\+Mode} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a21536cb0dd005493d535d6f1958bb364}\label{class_intro_sat_lib_1_1_base_fly_wheel_a21536cb0dd005493d535d6f1958bb364} 
+void {\bfseries Silent\+Mode} (uint8\+\_\+t silent\+Mode)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a328aa95782a83c4c3317c19914d8633c}\label{class_intro_sat_lib_1_1_base_fly_wheel_a328aa95782a83c4c3317c19914d8633c} 
+uint8\+\_\+t {\bfseries Silent\+Mode} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a6b95c55b4101c5ee30e36d703801ab21}\label{class_intro_sat_lib_1_1_base_fly_wheel_a6b95c55b4101c5ee30e36d703801ab21} 
+void {\bfseries Min\+Force\+Mode} (uint8\+\_\+t min\+Force\+Mode)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_ab5b66f2a70a5833a9ab8baed16027636}\label{class_intro_sat_lib_1_1_base_fly_wheel_ab5b66f2a70a5833a9ab8baed16027636} 
+uint8\+\_\+t {\bfseries Min\+Force\+Mode} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_ae481413f4ef9511641d4c1a243e1f9f6}\label{class_intro_sat_lib_1_1_base_fly_wheel_ae481413f4ef9511641d4c1a243e1f9f6} 
+void {\bfseries Reverse\+Mode} (uint8\+\_\+t reverce\+Mode)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_ab42ece59c50fa8e1bd606ff98758aab6}\label{class_intro_sat_lib_1_1_base_fly_wheel_ab42ece59c50fa8e1bd606ff98758aab6} 
+uint8\+\_\+t {\bfseries Reverse\+Mode} ()
+\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_a6b34389a3dbe6c555354b271f61e3552}{Need\+Speed}} (int16\+\_\+t need\+Speed)
+\begin{DoxyCompactList}\small\item\em Установка скорости \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_a786d0d5f17e18e37d1b2cd44fcde0d86}{Need\+Speed}} ()
+\begin{DoxyCompactList}\small\item\em Чтение установленной скорости \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_aae974e08f86599e4c69c26dbd151b9a3}{Current\+Speed}} ()
+\begin{DoxyCompactList}\small\item\em Чтение реальной скорости \end{DoxyCompactList}\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a0f6ab19b60d54791dc1a1b03de2df418}\label{class_intro_sat_lib_1_1_base_fly_wheel_a0f6ab19b60d54791dc1a1b03de2df418} 
+void {\bfseries Max\+Abs\+Speed} (uint16\+\_\+t max\+Abs\+Speed)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_abdd9d9c9d81a960a559506fce4aed6c8}\label{class_intro_sat_lib_1_1_base_fly_wheel_abdd9d9c9d81a960a559506fce4aed6c8} 
+uint16\+\_\+t {\bfseries Max\+Abs\+Speed} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a51ce82882968a0cfff2ec4ae01c6a4cc}\label{class_intro_sat_lib_1_1_base_fly_wheel_a51ce82882968a0cfff2ec4ae01c6a4cc} 
+void {\bfseries Min\+Force} (uint16\+\_\+t min\+Force)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a3e657fa800b4ab6235b3a0d431b28c9a}\label{class_intro_sat_lib_1_1_base_fly_wheel_a3e657fa800b4ab6235b3a0d431b28c9a} 
+uint16\+\_\+t {\bfseries Min\+Force} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a1f26c2037e9aae882ea47329ee89842c}\label{class_intro_sat_lib_1_1_base_fly_wheel_a1f26c2037e9aae882ea47329ee89842c} 
+void {\bfseries PID\+\_\+P} (float p)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_ad5c303a0d4828d632321504c3fc93372}\label{class_intro_sat_lib_1_1_base_fly_wheel_ad5c303a0d4828d632321504c3fc93372} 
+float {\bfseries PID\+\_\+P} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a1d6b75b273b5871b0a59178388b2a787}\label{class_intro_sat_lib_1_1_base_fly_wheel_a1d6b75b273b5871b0a59178388b2a787} 
+void {\bfseries PID\+\_\+I} (float i)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a47784fa9f6eb1cbcd739f60e642d1679}\label{class_intro_sat_lib_1_1_base_fly_wheel_a47784fa9f6eb1cbcd739f60e642d1679} 
+float {\bfseries PID\+\_\+I} ()
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a1c75c64ebf8839546189f46153a34f62}\label{class_intro_sat_lib_1_1_base_fly_wheel_a1c75c64ebf8839546189f46153a34f62} 
+void {\bfseries PID\+\_\+D} (float d)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a67ade5b7f6ce6f3777fc82ca2854cbf3}\label{class_intro_sat_lib_1_1_base_fly_wheel_a67ade5b7f6ce6f3777fc82ca2854cbf3} 
+float {\bfseries PID\+\_\+D} ()
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel_af4ac48a7701f09a041da004c708600dc}{Base\+Fly\+Wheel}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{Base\+Fly\+Wheel}} \&other)
+\begin{DoxyCompactList}\small\item\em Создание объекта маховика как копии другого объекта маховика \end{DoxyCompactList}\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a09b0e8a3b22cd367f1951bc3effc58b8}\label{class_intro_sat_lib_1_1_base_fly_wheel_a09b0e8a3b22cd367f1951bc3effc58b8} 
+{\bfseries Base\+Fly\+Wheel} (\mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{Base\+Fly\+Wheel}} \&\&other)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a8c2d68d44757be0c185b6d443f322c9e}\label{class_intro_sat_lib_1_1_base_fly_wheel_a8c2d68d44757be0c185b6d443f322c9e} 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{Base\+Fly\+Wheel}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{Base\+Fly\+Wheel}} \&other)
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a7cca0198893cf2f09f753d584196b941}\label{class_intro_sat_lib_1_1_base_fly_wheel_a7cca0198893cf2f09f753d584196b941} 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{Base\+Fly\+Wheel}} \& {\bfseries operator=} (\mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{Base\+Fly\+Wheel}} \&\&other)
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a631104c6cd77fb82326aa3e8140fc60d}{Base\+Device}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c, uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта {\bfseries{@ref}}  \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a86bf0b41f10cc79d6271930ef61be7d5}{Base\+Device}} (Two\+Wire \&hi2c, uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a82a1cb1576068b9802ad25342c74a462}{Base\+Device}} (uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device} на {\bfseries{I2\+C1}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_abf11ffaf569aa5d7f19990da9b4afb7f}{Base\+Device}} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&other)
+\begin{DoxyCompactList}\small\item\em Создание объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device} как копии другого объекта \doxylink{class_intro_sat_lib_1_1_base_device}{Base\+Device}. \end{DoxyCompactList}\item 
+{\bfseries Base\+Device} (\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&\&other)
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&other)
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \& {\bfseries operator=} (\mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Base\+Device}} \&\&other)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_ab219e0ada8158cb1b5fbc5bb61d31474}\label{class_intro_sat_lib_1_1_base_fly_wheel_ab219e0ada8158cb1b5fbc5bb61d31474} 
+uint8\+\_\+t {\bfseries Check\+Version} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные члены унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ac3d81df953423b66b238f8113306d214}{Get\+Register}} (uint8\+\_\+t reg)
+\begin{DoxyCompactList}\small\item\em Чтение значения из регистра устройства \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_a417cad1072ec9b537f7b1b6a3e79841e}{Set\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Запись значения в регистр устройства \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ae33eb53f04bd78500b1a5183e9640db7}{Set\+Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ac672694bd65c5ea6b54b733073f4fa4d}{Reset\+Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_ae000696da9dc4f5d7d6978f9b2348c24}{Bit\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t bit, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Установка одного бита регистра в значение по условию value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a5f9a8ad433ad401cf0cb26229c41da56}\label{class_intro_sat_lib_1_1_base_fly_wheel_a5f9a8ad433ad401cf0cb26229c41da56} 
+uint8\+\_\+t {\bfseries \+\_\+channel} = 0
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a1189bda218be11d354216110c8e3fe09}\label{class_intro_sat_lib_1_1_base_fly_wheel_a1189bda218be11d354216110c8e3fe09} 
+uint8\+\_\+t {\bfseries \+\_\+version} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device}{Intro\+Sat\+Lib\+::\+Base\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intro_sat_lib_1_1_i2_c_device}{I2\+CDevice}} \& {\bfseries \+\_\+i2c}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Статические защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a6a6ec297e9ca75622fde44a06868ac71}\label{class_intro_sat_lib_1_1_base_fly_wheel_a6a6ec297e9ca75622fde44a06868ac71} 
+static const uint8\+\_\+t {\bfseries BASE\+\_\+\+ADDRESS} = 0x38
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a1606cc1c3b288764a10825239d752a8f}\index{IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}!BaseFlyWheel@{BaseFlyWheel}}
+\index{BaseFlyWheel@{BaseFlyWheel}!IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}}
+\doxysubsubsection{\texorpdfstring{BaseFlyWheel()}{BaseFlyWheel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_base_fly_wheel_a1606cc1c3b288764a10825239d752a8f} 
+Intro\+Sat\+Lib\+::\+Base\+Fly\+Wheel\+::\+Base\+Fly\+Wheel (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hi2c}{, }\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Создание объекта маховика. 
+
+\begin{DoxyNote}{Заметки}
+Только в STM32\+Cube\+IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em hi2c} & объект {\bfseries{I2\+C\+\_\+\+Handle\+Type\+Def}} \\
+\hline
+{\em address} & адрес маховика на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a990d8f775b7d7f375cd8e16b9aade143}\index{IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}!BaseFlyWheel@{BaseFlyWheel}}
+\index{BaseFlyWheel@{BaseFlyWheel}!IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}}
+\doxysubsubsection{\texorpdfstring{BaseFlyWheel()}{BaseFlyWheel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_base_fly_wheel_a990d8f775b7d7f375cd8e16b9aade143} 
+Intro\+Sat\+Lib\+::\+Base\+Fly\+Wheel\+::\+Base\+Fly\+Wheel (\begin{DoxyParamCaption}\item[{Two\+Wire \&}]{hi2c}{, }\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Создание объекта маховика 
+
+\begin{DoxyNote}{Заметки}
+Только в Arduino IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em hi2c} & объект {\bfseries{Two\+Wire}} или {\bfseries{Wire}} \\
+\hline
+{\em address} & адрес маховика на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a6f91eb97b7123a89beba5b01108bdecd}\index{IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}!BaseFlyWheel@{BaseFlyWheel}}
+\index{BaseFlyWheel@{BaseFlyWheel}!IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}}
+\doxysubsubsection{\texorpdfstring{BaseFlyWheel()}{BaseFlyWheel()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_base_fly_wheel_a6f91eb97b7123a89beba5b01108bdecd} 
+Intro\+Sat\+Lib\+::\+Base\+Fly\+Wheel\+::\+Base\+Fly\+Wheel (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address}{ = {\ttfamily BASE\+\_\+ADDRESS}}\end{DoxyParamCaption})}
+
+
+
+Создание объекта маховика на {\bfseries{I2\+C1}}. 
+
+\begin{DoxyNote}{Заметки}
+Только в Arduino IDE 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em address} & адрес маховика на шине I2C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_af4ac48a7701f09a041da004c708600dc}\index{IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}!BaseFlyWheel@{BaseFlyWheel}}
+\index{BaseFlyWheel@{BaseFlyWheel}!IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}}
+\doxysubsubsection{\texorpdfstring{BaseFlyWheel()}{BaseFlyWheel()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_base_fly_wheel_af4ac48a7701f09a041da004c708600dc} 
+Intro\+Sat\+Lib\+::\+Base\+Fly\+Wheel\+::\+Base\+Fly\+Wheel (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_intro_sat_lib_1_1_base_fly_wheel}{Base\+Fly\+Wheel}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Создание объекта маховика как копии другого объекта маховика 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em other} & исходный объект для копирования \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_aae974e08f86599e4c69c26dbd151b9a3}\index{IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}!CurrentSpeed@{CurrentSpeed}}
+\index{CurrentSpeed@{CurrentSpeed}!IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}}
+\doxysubsubsection{\texorpdfstring{CurrentSpeed()}{CurrentSpeed()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_base_fly_wheel_aae974e08f86599e4c69c26dbd151b9a3} 
+int16\+\_\+t Intro\+Sat\+Lib\+::\+Base\+Fly\+Wheel\+::\+Current\+Speed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Чтение реальной скорости 
+
+\begin{DoxyReturn}{Возвращает}
+Скорость в об/с 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a551affc78e13d23c1e88eabf8afc8d38}\index{IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}!Init@{Init}}
+\index{Init@{Init}!IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_base_fly_wheel_a551affc78e13d23c1e88eabf8afc8d38} 
+uint8\+\_\+t Intro\+Sat\+Lib\+::\+Base\+Fly\+Wheel\+::\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Инициализация маховика 
+
+\begin{DoxyReturn}{Возвращает}
+0, если инициализация завершена успешно 
+
+1, если при инициализации возникла ошибка 
+\end{DoxyReturn}
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_intro_sat_lib_1_1_base_device_aed46bf6b65b16efcad1f5c5d3e36aaff}{Intro\+Sat\+Lib\+::\+Base\+Device}}.
+
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a786d0d5f17e18e37d1b2cd44fcde0d86}\index{IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}!NeedSpeed@{NeedSpeed}}
+\index{NeedSpeed@{NeedSpeed}!IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}}
+\doxysubsubsection{\texorpdfstring{NeedSpeed()}{NeedSpeed()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_base_fly_wheel_a786d0d5f17e18e37d1b2cd44fcde0d86} 
+int16\+\_\+t Intro\+Sat\+Lib\+::\+Base\+Fly\+Wheel\+::\+Need\+Speed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Чтение установленной скорости 
+
+\begin{DoxyReturn}{Возвращает}
+Скорость в об/с 
+\end{DoxyReturn}
+\Hypertarget{class_intro_sat_lib_1_1_base_fly_wheel_a6b34389a3dbe6c555354b271f61e3552}\index{IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}!NeedSpeed@{NeedSpeed}}
+\index{NeedSpeed@{NeedSpeed}!IntroSatLib::BaseFlyWheel@{IntroSatLib::BaseFlyWheel}}
+\doxysubsubsection{\texorpdfstring{NeedSpeed()}{NeedSpeed()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_intro_sat_lib_1_1_base_fly_wheel_a6b34389a3dbe6c555354b271f61e3552} 
+void Intro\+Sat\+Lib\+::\+Base\+Fly\+Wheel\+::\+Need\+Speed (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{need\+Speed}{}\end{DoxyParamCaption})}
+
+
+
+Установка скорости 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em need\+Speed} & Жедаемая скорость в об/с \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/Base\+Fly\+Wheel.\+h\item 
+src/Base\+Fly\+Wheel.\+cpp\end{DoxyCompactItemize}
