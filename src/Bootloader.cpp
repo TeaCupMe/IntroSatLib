@@ -14,6 +14,7 @@ void EnterBootloader(void)
 #ifdef BOOT_ADDR
 
 #ifdef STM32F1xx // If F103 (most probably base IntroSat) - print message to UART1
+	
 
     for (char *next_char = message_buffer; *next_char != 0; next_char++)
     {
@@ -48,7 +49,7 @@ void EnterBootloader(void)
 
 	/* Re-enable all interrupts */
 	__enable_irq();
-
+	void (*SysMemBootJump)(void);
 	SysMemBootJump = (void (*)(void)) (*((uint32_t *) (BOOT_ADDR + 4)));
   	__set_MSP(*(uint32_t *)BOOT_ADDR);
   	SysMemBootJump();
