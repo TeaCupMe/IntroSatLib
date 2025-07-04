@@ -27,31 +27,8 @@
 #ifdef I2C_ENABLED // If I2C is enabled or at least accessible (in case of Arduino IDE)
 
 #include <array>
-#include "../Logger.h"
-//#include <>
 
-#define ASSERT_I2C_HAVE() \
-if(!_hi2c) { \
-	logText("No I2C handle"); \
-	return HAL_StatusTypeDef::HAL_ERROR; \
-}
 
-#define LOG_I2C(mode) \
-logText("I2C "); \
-logText(mode);
-
-#if LOGDATA
-#define LOG_I2C_BUFFER(Sep, Data, Nbytes) { \
-logText(" - "); \
-for(uint8_t i = 0; i < Nbytes; i++) { \
-	logHEX(Data[i]); \
-	if (i != (Nbytes - 1)) logText(Sep); \
-} \
-}
-
-#else
-#define LOG_I2C_BUFFER(Sep, Data, Nbytes)
-#endif
 
 namespace IntroSatLib {
 namespace intefaces {
@@ -65,7 +42,7 @@ class I2C final {
 private:
 	I2CSpeed _speed = I2CSpeed::Standard;
 	uint8_t _address = 0;
-	I2C_HandleTypeDef *_i2c = 0;
+	I2C_HandleTypeDef *_hi2c = 0;
 	HAL_StatusTypeDef innerIsReady();
 public:
 	/**
@@ -75,8 +52,7 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес устройства на шине I2C
 	 */
-	template <typename T>
-	I2C(T *hi2c, uint8_t address);
+	I2C(I2C_HandleTypeDef *hi2c, uint8_t address);
 
 	/**
 	 * @note Только в STM32CubeIDE

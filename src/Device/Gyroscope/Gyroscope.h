@@ -1,8 +1,8 @@
 #ifndef GYROSCOPE_H_
 #define GYROSCOPE_H_
 
-#include "I2CDevice.h"
-#include "BaseDevice.h"
+#include "../I2CDevice.h"
+#include "../BaseDevice.h"
 
 namespace IntroSatLib {
 

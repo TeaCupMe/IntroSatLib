@@ -1,8 +1,8 @@
 #ifndef CC1101_H_
 #define CC1101_H_
 
-#include "./interfaces/GPIO.h"
-#include "./interfaces/SPI.h"
+#include "../../Interface/GPIO.h"
+#include "../../Interface/SPI.h"
 #include <array>
 #include "string.h"
 #include "math.h"

@@ -1,11 +1,11 @@
 #ifndef GYROSCOPE_V2_H_
 #define GYROSCOPE_V2_H_
 
-#include "I2CDevice.h"
-#include "BaseDevice.h"
+#include "../I2CDevice.h"
+#include "../BaseDevice.h"
 
 #ifndef ARDUINO
-#include "Quaternion/Quaternion.h"
+#include "../../Quaternion/Quaternion.h"
 #endif
 
 namespace IntroSatLib {
