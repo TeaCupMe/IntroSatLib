@@ -1,12 +1,12 @@
-#ifndef INTERFACES_SPI_H_
-#define INTERFACES_SPI_H_
+#ifndef INTERFACE_SPI_H_
+#define INTERFACE_SPI_H_
 
 
 
 // TODO Generalize preprocessor directives
 #ifdef ARDUINO
 	#include "Arduino.h"
-	#include "SPI.h"
+	#include "../Interface/SPI.h"
 	#define	SPI_ENABLED
 #else
 	#if __has_include ("stm32f4xx_hal_spi.h")
@@ -29,30 +29,7 @@
 
 
 #include <array>
-#include "../Logger.h"
 
-#define ASSERT_SPI_HAVE() \
-if(!_hspi) { \
-	logText("No spi handle"); \
-	return HAL_StatusTypeDef::HAL_ERROR; \
-}
-
-#define LOG_SPI(mode) \
-logText("SPI "); \
-logText(mode);
-
-#if LOGDATA
-#define LOG_SPI_BUFFER(Sep, Data, Nbytes) { \
-logText(" - "); \
-for(uint8_t i = 0; i < Nbytes; i++) { \
-	logHEX(Data[i]); \
-	if (i != (Nbytes - 1)) logText(Sep); \
-} \
-}
-
-#else
-#define LOG_SPI_BUFFER(Sep, Data, Nbytes)
-#endif
 
 namespace IntroSatLib {
 namespace intefaces {
@@ -100,6 +77,6 @@ public:
 } /* namespace IntroSatLib */
 
 #endif /* SPI_ENABLED */
-#endif /* INTERFACES_SPI_H_ */
+#endif /* INTERFACE_SPI_H_ */
 
 

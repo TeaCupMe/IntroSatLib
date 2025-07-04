@@ -1,8 +1,8 @@
 #ifndef ACCELEROMETERV2_H_
 #define ACCELEROMETERV2_H_
 
-#include "I2CDevice.h"
-#include "BaseDevice.h"
+#include "../I2CDevice.h"
+#include "../BaseDevice.h"
 
 namespace IntroSatLib {
 

@@ -1,7 +1,7 @@
 #ifndef BASEFLYWHEEL_H_
 #define BASEFLYWHEEL_H_
 
-#include "BaseDevice.h"
+#include "../BaseDevice.h"
 
 namespace IntroSatLib {
 
