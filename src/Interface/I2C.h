@@ -6,25 +6,17 @@
 #ifdef ARDUINO
 	#include "Arduino.h"
 	#include "Wire.h"
-	#define	I2C_ENABLED
-#else
-	#if __has_include ("stm32f4xx_hal_i2c.h")
-		#include "stm32f4xx_hal.h"
-		#include "stm32f4xx_hal_i2c.h"
-		#define	I2C_ENABLED
-	#elif __has_include ("stm32f1xx_hal_i2c.h")
-		#include "stm32f1xx_hal.h"
-		#include "stm32f1xx_hal_i2c.h"
-		#define	I2C_ENABLED
-	#elif __has_include ("stm32h7xx_hal_i2c.h")
-		#include "stm32h7xx_hal.h"
-		#include "stm32h7xx_hal_i2c.h"
-		#define	I2C_ENABLED
-	#endif
 #endif
 
+#if __has_include ("stm32f4xx_hal_conf.h")
+	#include "stm32f4xx_hal.h"
+#elif __has_include ("stm32f1xx_hal.h")
+	#include "stm32f1xx_hal.h"
+#elif __has_include ("stm32h7xx_hal.h")
+	#include "stm32h7xx_hal.h"
+#endif
 
-#ifdef I2C_ENABLED // If I2C is enabled or at least accessible (in case of Arduino IDE)
+#ifdef HAL_I2C_MODULE_ENABLED // If I2C is enabled or at least accessible (in case of Arduino IDE)
 
 #include <array>
 
