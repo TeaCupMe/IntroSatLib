@@ -1,3 +1,5 @@
+#define INTROSAT_INTERNAL
+
 #include "Bootloader.h"
 
 char message_buffer[] = "Bootloader Mode\n\r";
@@ -5,8 +7,7 @@ char message_buffer[] = "Bootloader Mode\n\r";
 void EnterBootloader(void)
 {
 #ifdef BOOT_ADDR // If platform is supported -> bootloader address is set
-
-#ifdef STM32F1xx // If F103 (most probably base IntroSat) - print message to UART1
+#ifdef STM32F103xB // If F103 (most probably base IntroSat) - print message to UART1
 	
 
     for (char *next_char = message_buffer; *next_char != 0; next_char++)
