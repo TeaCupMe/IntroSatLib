@@ -1,10 +1,11 @@
-#ifndef INTERFACE_SPI_H_
-#define INTERFACE_SPI_H_
+#ifndef ADAPTER_SPI_H_
+#define ADAPTER_SPI_H_
 
 // Resolve platform-dependent SPI
 
-/////////////// AVR  ////////////////////
-// AVR-series in Arduino IDE
+/************** AVR  **************/
+//  This is not yet supported, but it is here for future reference.
+//  AVR-series in Arduino IDE
 #if defined(AVR) && defined(ARDUINO)
 	#error "AVR not yet supported"
 	#include "Arduino.h"
@@ -12,7 +13,7 @@
 
 
 #elif defined(USE_HAL_DRIVER)
-/////////  STM32 and stm32duino //////////
+/*****  STM32 and stm32duino ******/
 
 	#ifdef ARDUINO
 		// Arduino IDE with stm32duino
@@ -32,10 +33,14 @@
 	#elif !defined(INTROSATLIB_INTERNAL)
 		#error "SPI not enabled as part of HAL"
 	#endif
+
+/************** AMUR *************/
+// #elif defined(AMUR)
+	// #error "AMUR not yet supported"
+/************ UNKNOWN ************/
 #else
-///////////// UNKNOWN ///////////////////
-	#error "Unsupported system"
-	#error "Currently supported systems are: stm32, stm32duino"
+	#error "Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros."
+	#error "Currently supported systems are: stm32, stm32duino. AVR planned for future support."
 #endif
 
-#endif /* INTERFACE_SPI_H_ */
+#endif /* ADAPTER_SPI_H_ */
