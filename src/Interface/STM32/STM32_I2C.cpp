@@ -1,8 +1,10 @@
-#include "./I2C.h"
+#define INTROSATLIB_INTERNAL
+#include "STM32_I2C.h"
 
-#include "./I2C_Err.h"
-#include "../Logger.h"
+#include "I2C_Err.h"
+#include "../../Logger.h"
 
+#ifdef HAL_I2C_MODULE_ENABLED
 
 
 #define ASSERT_I2C_HAVE() \
@@ -219,3 +221,4 @@ IntroSatLib::intefaces::I2C::~I2C()
 {
 }
 
+#endif /* HAL_SPI_MODULE_ENABLED */

@@ -1,4 +1,4 @@
-
+#define INTROSATLIB_INTERNAL
 #include "CC1101.h"
 #ifdef SPI_ENABLED
 namespace IntroSatLib {

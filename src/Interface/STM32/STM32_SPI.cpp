@@ -1,6 +1,10 @@
-#include "SPI.h"
+#define INTROSATLIB_INTERNAL
+#include "STM32_SPI.h"
+#include "../SPI.h"
 
-#ifdef SPI_ENABLED // If SPI is enabled or at least accessible (in case of Arduino IDE)
+
+#ifdef HAL_SPI_MODULE_ENABLED
+ // If SPI is enabled or at least accessible (in case of Arduino IDE)
 
 
 #include <array>
@@ -74,4 +78,4 @@ public:
 } /* namespace intefaces */
 } /* namespace IntroSatLib */
 
-#endif /* SPI_ENABLED */
+#endif /* HAL_SPI_MODULE_ENABLED */
