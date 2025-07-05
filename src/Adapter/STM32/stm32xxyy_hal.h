@@ -8,263 +8,59 @@
 #ifndef INTERFACE_STM32_STM32XXYY_HAL_H_
 #define INTERFACE_STM32_STM32XXYY_HAL_H_
 
-#if defined(STM32C011xx)
-	#include "stm32c0xx_hal.h"
-#elif defined(STM32C031xx)
-	#include "stm32c0xx_hal.h"
-#elif defined(STM32C051xx)
-	#include "stm32c0xx_hal.h"
-#elif defined(STM32C071xx)
-	#include "stm32c0xx_hal.h"
-#elif defined(STM32C091xx)
-	#include "stm32c0xx_hal.h"
-#elif defined(STM32C092xx)
+// \n[^\n]*\n#elif defined\(STM32H7([^\)]*)\) ->  || defined(STM32H7$1)
+
+// STM32C0 Series
+#if defined(STM32C011xx) || defined(STM32C031xx) || defined(STM32C051xx) || defined(STM32C071xx) || defined(STM32C091xx) || defined(STM32C092xx)
 	#include "stm32c0xx_hal.h"
 
-
-#elif defined(STM32F030x6)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F030x8)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F030xC)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F031x6)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F038xx)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F042x6)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F048xx)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F051x8)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F058xx)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F070x6)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F070xB)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F071xB)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F072xB)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F078xx)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F091xC)
-	#include "stm32f0xx_hal.h"
-#elif defined(STM32F098xx)
+#if defined(STM32F030x6) || defined(STM32F030x8) || defined(STM32F030xC) ||\
+	defined(STM32F031x6) || defined(STM32F038xx) || defined(STM32F042x6) ||\
+	defined(STM32F048xx) || defined(STM32F051x8) || defined(STM32F058xx) ||\
+	defined(STM32F070x6) || defined(STM32F070xB) || defined(STM32F071xB) ||\
+	defined(STM32F072xB) || defined(STM32F078xx) || defined(STM32F091xC) ||\
+	defined(STM32F098xx)
 	#include "stm32f0xx_hal.h"
 
 
-#elif defined(STM32F100xB)
-	#include "stm32f1xx_hal.h"
-#elif defined(STM32F100xE)
-	#include "stm32f1xx_hal.h"
-#elif defined(STM32F101x6)
-	#include "stm32f1xx_hal.h"
-#elif defined(STM32F101xB)
-	#include "stm32f1xx_hal.h"
-#elif defined(STM32F101xE)
-	#include "stm32f1xx_hal.h"
-#elif defined(STM32F101xG)
-	#include "stm32f1xx_hal.h"
-#elif defined(STM32F102x6)
-	#include "stm32f1xx_hal.h"
-#elif defined(STM32F102xB)
-	#include "stm32f1xx_hal.h"
-#elif defined(STM32F103x6)
-	#include "stm32f1xx_hal.h"
-#elif defined(STM32F103xB)
-	#include "stm32f1xx_hal.h"
-#elif defined(STM32F103xE)
-	#include "stm32f1xx_hal.h"
-#elif defined(STM32F103xG)
-	#include "stm32f1xx_hal.h"
-#elif defined(STM32F105xC)
-	#include "stm32f1xx_hal.h"
-#elif defined(STM32F107xC)
+#if defined(STM32F100xB) || defined(STM32F100xE) || defined(STM32F101x6) ||\
+	defined(STM32F101xB) || defined(STM32F101xE) || defined(STM32F101xG) ||\
+	defined(STM32F102x6) || defined(STM32F102xB) || defined(STM32F103x6) ||\
+	defined(STM32F103xE) || defined(STM32F103xE) || defined(STM32F103xG) ||\
+	defined(STM32F105xC) || defined(STM32F107xC)
 	#include "stm32f1xx_hal.h"
 
 
-#elif defined(STM32F205xx)
-	#include "stm32f2xx_hal.h"
-#elif defined(STM32F207xx)
-	#include "stm32f2xx_hal.h"
-#elif defined(STM32F215xx)
-	#include "stm32f2xx_hal.h"
-#elif defined(STM32F217xx)
+#if defined(STM32F205xx) || defined(STM32F207xx) || defined(STM32F215xx) ||\
+	defined(STM32F217xx)
 	#include "stm32f2xx_hal.h"
 
-#elif defined(STM32F301x8)
-	#include "stm32f3xx_hal.h"
-#elif defined(STM32F302x8)
-	#include "stm32f3xx_hal.h"
-#elif defined(STM32F302xC)
-	#include "stm32f3xx_hal.h"
-#elif defined(STM32F302xE)
-	#include "stm32f3xx_hal.h"
-#elif defined(STM32F303x8)
-	#include "stm32f3xx_hal.h"
-#elif defined(STM32F303xC)
-	#include "stm32f3xx_hal.h"
-#elif defined(STM32F303xE)
-	#include "stm32f3xx_hal.h"
-#elif defined(STM32F318xx)
-	#include "stm32f3xx_hal.h"
-#elif defined(STM32F328xx)
-	#include "stm32f3xx_hal.h"
-#elif defined(STM32F334x8)
-	#include "stm32f3xx_hal.h"
-#elif defined(STM32F358xx)
-	#include "stm32f3xx_hal.h"
-#elif defined(STM32F373xC)
-	#include "stm32f3xx_hal.h"
-#elif defined(STM32F378xx)
-	#include "stm32f3xx_hal.h"
-#elif defined(STM32F398xx)
+
+#if defined(STM32F301x8) || defined(STM32F302x8) || defined(STM32F302xC) ||\
+	defined(STM32F302xE) || defined(STM32F303x8) || defined(STM32F303xC) ||\
+	defined(STM32F303xE) || defined(STM32F318xx) || defined(STM32F328xx) ||\
+	defined(STM32F334x8) || defined(STM32F358xx) || defined(STM32F373xC) ||\
+	defined(STM32F378xx) || defined(STM32F398xx)
 	#include "stm32f3xx_hal.h"
 
-#elif defined(STM32F401xC)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F401xE)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F405xx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F407xx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F410Cx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F410Rx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F410Tx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F411xE)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F412Cx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F412Rx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F412Vx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F412Zx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F413xx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F415xx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F417xx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F423xx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F427xx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F429xx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F437xx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F439xx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F446xx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F469xx)
-	#include "stm32f4xx_hal.h"
-#elif defined(STM32F479xx)
+
+#if defined(STM32F401xC) || defined(STM32F401xE) || defined(STM32F405xx) || defined(STM32F407xx) || defined(STM32F410Cx) || defined(STM32F410Rx) || defined(STM32F410Tx) || defined(STM32F411xE) || defined(STM32F412Cx) || defined(STM32F412Rx) || defined(STM32F412Vx) || defined(STM32F412Zx) || defined(STM32F413xx) || defined(STM32F415xx) || defined(STM32F417xx) || defined(STM32F423xx) || defined(STM32F427xx) || defined(STM32F429xx) || defined(STM32F437xx) || defined(STM32F439xx) || defined(STM32F446xx) || defined(STM32F469xx) || defined(STM32F479xx)
 	#include "stm32f4xx_hal.h"
 
-#elif defined(STM32F722xx)
-	#include "stm32f7xx_hal.h"
-#elif defined(STM32F723xx)
-	#include "stm32f7xx_hal.h"
-#elif defined(STM32F730xx)
-	#include "stm32f7xx_hal.h"
-#elif defined(STM32F732xx)
-	#include "stm32f7xx_hal.h"
-#elif defined(STM32F733xx)
-	#include "stm32f7xx_hal.h"
-#elif defined(STM32F745xx)
-	#include "stm32f7xx_hal.h"
-#elif defined(STM32F746xx)
-	#include "stm32f7xx_hal.h"
-#elif defined(STM32F750xx)
-	#include "stm32f7xx_hal.h"
-#elif defined(STM32F756xx)
-	#include "stm32f7xx_hal.h"
-#elif defined(STM32F765xx)
-	#include "stm32f7xx_hal.h"
-#elif defined(STM32F767xx)
-	#include "stm32f7xx_hal.h"
-#elif defined(STM32F769xx)
-	#include "stm32f7xx_hal.h"
-#elif defined(STM32F777xx)
-	#include "stm32f7xx_hal.h"
-#elif defined(STM32F779xx)
+#if defined(STM32F722xx) || defined(STM32F723xx) || defined(STM32F730xx) || defined(STM32F732xx) || defined(STM32F733xx) || defined(STM32F745xx) || defined(STM32F746xx) || defined(STM32F750xx) || defined(STM32F756xx) || defined(STM32F765xx) || defined(STM32F767xx) || defined(STM32F769xx) || defined(STM32F777xx) || defined(STM32F779xx)
 	#include "stm32f7xx_hal.h"
 
-#elif defined(STM32G030xx)
-	#include "stm32g0xx_hal.h"
-#elif defined(STM32G031xx)
-	#include "stm32g0xx_hal.h"
-#elif defined(STM32G041xx)
-	#include "stm32g0xx_hal.h"
-#elif defined(STM32G050xx)
-	#include "stm32g0xx_hal.h"
-#elif defined(STM32G051xx)
-	#include "stm32g0xx_hal.h"
-#elif defined(STM32G061xx)
-	#include "stm32g0xx_hal.h"
-#elif defined(STM32G070xx)
-	#include "stm32g0xx_hal.h"
-#elif defined(STM32G071xx)
-	#include "stm32g0xx_hal.h"
-#elif defined(STM32G081xx)
-	#include "stm32g0xx_hal.h"
-#elif defined(STM32G0B0xx)
-	#include "stm32g0xx_hal.h"
-#elif defined(STM32G0B1xx)
-	#include "stm32g0xx_hal.h"
-#elif defined(STM32G0C1xx)
+#if defined(STM32G030xx) || defined(STM32G031xx) || defined(STM32G041xx) || defined(STM32G050xx) || defined(STM32G051xx) || defined(STM32G061xx) || defined(STM32G070xx) || defined(STM32G071xx) || defined(STM32G081xx) || defined(STM32G0B0xx) || defined(STM32G0B1xx) || defined(STM32G0C1xx)
 	#include "stm32g0xx_hal.h"
 
-#elif defined(STM32G411xB)
-	#include "stm32g4xx_hal.h"
-#elif defined(STM32G411xC)
-	#include "stm32g4xx_hal.h"
-#elif defined(STM32G414xx)
-	#include "stm32g4xx_hal.h"
-#elif defined(STM32G431xx)
-	#include "stm32g4xx_hal.h"
-#elif defined(STM32G441xx)
-	#include "stm32g4xx_hal.h"
-#elif defined(STM32G471xx)
-	#include "stm32g4xx_hal.h"
-#elif defined(STM32G473xx)
-	#include "stm32g4xx_hal.h"
-#elif defined(STM32G474xx)
-	#include "stm32g4xx_hal.h"
-#elif defined(STM32G483xx)
-	#include "stm32g4xx_hal.h"
-#elif defined(STM32G484xx)
-	#include "stm32g4xx_hal.h"
-#elif defined(STM32G491xx)
-	#include "stm32g4xx_hal.h"
-#elif defined(STM32G4A1xx)
+#if defined(STM32G411xB) || defined(STM32G411xC) || defined(STM32G414xx) || defined(STM32G431xx) || defined(STM32G441xx) || defined(STM32G471xx) || defined(STM32G473xx) || defined(STM32G474xx) || defined(STM32G483xx) || defined(STM32G484xx) || defined(STM32G491xx) || defined(STM32G4A1xx)
 	#include "stm32g4xx_hal.h"
 
 #elif defined(STM32GBK1CB)
 	#error "Unsupported?"
 	#include "stm32gbk1cb_hal.h"
 
-#elif defined(STM32H503xx)
-	#include "stm32h5xx_hal.h"
-#elif defined(STM32H523xx)
-	#include "stm32h5xx_hal.h"
-#elif defined(STM32H533xx)
-	#include "stm32h5xx_hal.h"
-#elif defined(STM32H562xx)
-	#include "stm32h5xx_hal.h"
-#elif defined(STM32H563xx)
-	#include "stm32h5xx_hal.h"
-#elif defined(STM32H573xx)
+#if defined(STM32H503xx) || defined(STM32H523xx) || defined(STM32H533xx) || defined(STM32H562xx) || defined(STM32H563xx) || defined(STM32H573xx)
 	#include "stm32h5xx_hal.h"
 
 #elif defined(STM32H723xx)
@@ -514,6 +310,7 @@
 	#include "stm32wbaxx_hal.h"
 #elif defined(STM32WBA5Mxx)
 	#include "stm32wbaxx_hal.h"
+
 #elif defined(STM32WB10xx)
 	#include "stm32wbxx_hal.h"
 #elif defined(STM32WB15xx)
@@ -530,6 +327,7 @@
 	#include "stm32wbxx_hal.h"
 #elif defined(STM32WB5Mxx)
 	#include "stm32wbxx_hal.h"
+
 #elif defined(STM32WL54xx)
 	#include "stm32wlxx_hal.h"
 #elif defined(STM32WLE4xx)

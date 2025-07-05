@@ -1,5 +1,5 @@
-#ifndef INTERFACE_SPI_H_
-#define INTERFACE_SPI_H_
+#ifndef ADAPTER_SPI_H_
+#define ADAPTER_SPI_H_
 
 // Resolve platform-dependent SPI
 
@@ -38,4 +38,4 @@
 	#error "Currently supported systems are: stm32, stm32duino"
 #endif
 
-#endif /* INTERFACE_SPI_H_ */
+#endif /* ADAPTER_SPI_H_ */

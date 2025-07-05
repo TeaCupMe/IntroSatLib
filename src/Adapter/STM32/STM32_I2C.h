@@ -1,5 +1,5 @@
-#ifndef INTERFACES_STM32_I2C_H_
-#define INTERFACES_STM32_I2C_H_
+#ifndef STM32_I2C_H_
+#define STM32_I2C_H_
 
 #include "../I2C.h"
 
@@ -98,4 +98,4 @@ public:
 } /* namespace intefaces */
 } /* namespace IntroSatLib */
 #endif /* HAL_I2C_MODULE_ENABLED */
-#endif /* INTERFACES_STM32_I2C_H_ */
+#endif /* STM32_I2C_H_ */
