@@ -2,11 +2,11 @@
 #define IRCAMERA_H_
 
 #include "../I2CDevice.h"
-#include "../BaseDevice.h"
+//#include "../BaseDevice.h"
 
 namespace IntroSatLib {
 
-class IRCamera: public BaseDevice {
+class IRCamera: public I2CDevice {
 private:
 
 	static const uint8_t BASE_ADDRESS = 0x68;
@@ -57,7 +57,7 @@ public:
 		FPS_1 = 1	/**< 1 кадр в секунду */
 	};
 
-#ifndef ARDUINO
+//#ifndef ARDUINO
 	/**
 	 * @note Только в STM32CubeIDE
 	 * @brief Создание объекта ИК-камеры. 
@@ -65,25 +65,25 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес ИК-камеры на шине I2C
 	 */
-	IRCamera(I2C_HandleTypeDef *hi2c, uint8_t address = BASE_ADDRESS);
-#else
-	/**
-	 * @note Только в Arduino IDE
-	 * @brief Создание объекта ИК-камеры
-	 * 
-	 * @param hi2c объект @b TwoWire или @b Wire 
-	 * @param address адрес ИК-камеры на шине I2C
-	 */
-	IRCamera(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
-
-	/**
-	 * @note Только в Arduino IDE
-	 * @brief Создание объекта ИК-камеры на @b I2C1 
-	 * 
-	 * @param address адрес ИК-камеры на шине I2C
-	 */
-	IRCamera(uint8_t address = BASE_ADDRESS);
-#endif
+	IRCamera(interfaces::I2C *i2c = I2C1, uint8_t address = BASE_ADDRESS);
+//#else
+//	/**
+//	 * @note Только в Arduino IDE
+//	 * @brief Создание объекта ИК-камеры
+//	 *
+//	 * @param hi2c объект @b TwoWire или @b Wire
+//	 * @param address адрес ИК-камеры на шине I2C
+//	 */
+//	IRCamera(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
+//
+//	/**
+//	 * @note Только в Arduino IDE
+//	 * @brief Создание объекта ИК-камеры на @b I2C1
+//	 *
+//	 * @param address адрес ИК-камеры на шине I2C
+//	 */
+//	IRCamera(uint8_t address = BASE_ADDRESS);
+//#endif
 	/**
 	 * @brief Создание объекта ИК-камеры как копии другого объекта ИК-камеры
 	 * 
@@ -120,7 +120,7 @@ public:
 	 * @returns 0, если инициализация завершена успешно
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
-	uint8_t Init() override;
+	ISL_StatusTypeDef Init() override;
 
 	/**
 	 * @brief Инициализация камеры с заданным количеством кадров в секунду
@@ -130,7 +130,7 @@ public:
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
 	// TODO @TeaCupMe @Goldfor исправить опечатку framrate на framerate
-	uint8_t Init(Framerate framrate);
+	ISL_StatusTypeDef Init(Framerate framrate);
 
 	/**
 	 * @brief Считывание значений с матрицы ИК-камеры во внутренний буффер.

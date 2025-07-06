@@ -2,24 +2,24 @@
 
 namespace IntroSatLib {
 
-#ifndef ARDUINO
-Gyroscope::Gyroscope(I2C_HandleTypeDef *hi2c, uint8_t address): BaseDevice(hi2c, address)
+//#ifndef ARDUINO
+Gyroscope::Gyroscope(interfaces::I2C *hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
-#else
-Gyroscope::Gyroscope(TwoWire &hi2c, uint8_t address): BaseDevice(hi2c, address)
-{
-}
-Gyroscope::Gyroscope(uint8_t address): BaseDevice(address)
-{
-}
-#endif
+//#else
+//Gyroscope::Gyroscope(TwoWire &hi2c, uint8_t address): I2CDevice(hi2c, address)
+//{
+//}
+//Gyroscope::Gyroscope(uint8_t address): I2CDevice(address)
+//{
+//}
+//#endif
 
-Gyroscope::Gyroscope(const Gyroscope &other): BaseDevice(other)
+Gyroscope::Gyroscope(const Gyroscope &other): I2CDevice(other)
 {
 	_sensitivity= other._sensitivity;
 }
-Gyroscope::Gyroscope(Gyroscope &&other): BaseDevice(other)
+Gyroscope::Gyroscope(Gyroscope &&other): I2CDevice(other)
 {
 	_sensitivity= other._sensitivity;
 }
@@ -27,7 +27,7 @@ Gyroscope& Gyroscope::operator=(const Gyroscope &other)
 {
 	if (this != &other)
 	{
-		this->BaseDevice::operator = (other);
+		this->I2CDevice::operator = (other);
 		_sensitivity= other._sensitivity;
 	}
 	return *this;
@@ -36,7 +36,7 @@ Gyroscope& Gyroscope::operator=(Gyroscope &&other)
 {
 	if (this != &other)
 	{
-		this->BaseDevice::operator = (other);
+		this->I2CDevice::operator = (other);
 		_sensitivity= other._sensitivity;
 	}
 	return *this;
@@ -44,7 +44,7 @@ Gyroscope& Gyroscope::operator=(Gyroscope &&other)
 
 uint8_t Gyroscope::Init(Scale sensitivity, FilterBandwidth filter)
 {
-	SetRegister(0x37, 0x02);
+	SetRegisterI2C(0x37, 0x02);
 	SetScale(sensitivity);
 	SetFilter(filter);
 	return 0;
@@ -60,42 +60,42 @@ uint8_t Gyroscope::Init()
 
 void Gyroscope::SetScale(Scale sensitivity)
 {
-	uint8_t reg = GetRegister(RegisterMap::GYRO_CONFIG);
+	uint8_t reg = GetRegisterI2C(RegisterMap::GYRO_CONFIG);
 	reg &= 0xFF ^ (Scale::DPS2000 << 3);
 	reg |= (sensitivity << 3);
 	_sensitivity = sensitivity;
-	SetRegister(RegisterMap::GYRO_CONFIG, reg);
+	SetRegisterI2C(RegisterMap::GYRO_CONFIG, reg);
 }
 
 void Gyroscope::SetFilter(FilterBandwidth filter)
 {
-	uint8_t reg = GetRegister(RegisterMap::GYRO_CONFIG);
+	uint8_t reg = GetRegisterI2C(RegisterMap::GYRO_CONFIG);
 	reg &= 0xFF ^ 3;
 	reg |= (filter >> 3);
-	SetRegister(RegisterMap::GYRO_CONFIG, reg);
+	SetRegisterI2C(RegisterMap::GYRO_CONFIG, reg);
 
-	reg = GetRegister(RegisterMap::CONFIG);
+	reg = GetRegisterI2C(RegisterMap::CONFIG);
 	reg &= 0xFF ^ 7;
 	reg |= (filter & 7);
-	SetRegister(RegisterMap::CONFIG, reg);
+	SetRegisterI2C(RegisterMap::CONFIG, reg);
 }
 
 int16_t Gyroscope::RawX()
 {
 	uint8_t buf[2];
-	_i2c.read(RegisterMap::GYRO_XOUT_H, buf, 2);
+	ReadRegisterI2C(RegisterMap::GYRO_XOUT_H, buf, 2);
 	return buf[0] << 8 | buf[1];
 }
 int16_t Gyroscope::RawY()
 {
 	uint8_t buf[2];
-	_i2c.read(RegisterMap::GYRO_YOUT_H, buf, 2);
+	ReadRegisterI2C(RegisterMap::GYRO_YOUT_H, buf, 2);
 	return buf[0] << 8 | buf[1];
 }
 int16_t Gyroscope::RawZ()
 {
 	uint8_t buf[2];
-	_i2c.read(RegisterMap::GYRO_ZOUT_H, buf, 2);
+	ReadRegisterI2C(RegisterMap::GYRO_ZOUT_H, buf, 2);
 	return buf[0] << 8 | buf[1];
 }
 

@@ -1,132 +1,102 @@
-#ifndef I2CDEVICE_H_
-#define I2CDEVICE_H_
+#ifndef BASEDEVICE_H_
+#define BASEDEVICE_H_
 
-#include <stdint.h>
+#include "../Adapter/I2C.h"
 
-#ifdef ARDUINO
-	#include "Arduino.h"
-	#include "Wire.h"
-#else
-	#if __has_include ("stm32f4xx_hal.h")
-		#include "stm32f4xx_hal.h"
-		#include "stm32f4xx_hal_i2c.h"
-	#endif
-
-	#if __has_include ("stm32f1xx_hal.h")
-		#include "stm32f1xx_hal.h"
-		#include "stm32f1xx_hal_i2c.h"
-	#endif
-#endif
-
+#ifdef I2C_ENABLED
 
 namespace IntroSatLib {
 
-enum class I2CSpeed
-{
-	Standard = 0,
-	Fast = 1
-};
-
 class I2CDevice {
-private:
-	I2CSpeed _speed = I2CSpeed::Standard;
-	uint8_t _address = 0;
-	I2C_HandleTypeDef *_hi2c = 0;
-	HAL_StatusTypeDef innerIsReady();
+
+protected:
+	interfaces::I2C &_i2c;
+	uint8_t _address;
+
+	ISL_StatusTypeDef IsReady();
+
+	ISL_StatusTypeDef WriteI2C(uint8_t* buf, uint8_t nBytes = 1);
+
+	ISL_StatusTypeDef ReadI2C(uint8_t* buf, uint8_t nBytes = 1);
+
+	ISL_StatusTypeDef ReadRegisterI2C(uint8_t reg, uint8_t* data);
+
+	ISL_StatusTypeDef ReadRegisterI2C(uint8_t reg, uint8_t* data, uint8_t nBytes);
+
+	/**
+	 * @brief Чтение значения из регистра устройства
+	 * 
+	 * @param reg Адрес регистра
+	 * @return Значение решистра
+	 */
+	uint8_t GetRegisterI2C(uint8_t reg) __attribute__((deprecated("This method does not check if I2C read happened correctly")));
+
+	ISL_StatusTypeDef SetRegisterI2C(uint8_t reg, uint8_t* value, uint8_t nBytes);
+
+	/**
+	 * @brief Запись значения в регистр устройства
+	 * 
+	 * @param reg Адрес регистра
+	 * @param value Значение
+	 */
+	ISL_StatusTypeDef SetRegisterI2C(uint8_t reg, uint8_t value);
+
+	/**
+	 * @brief Установка одного бита регистра в значение 1
+	 * 
+	 * @param reg Адрес регистра
+	 * @param bit Номер бита, где 0 - младший бит, 7 - старший бит.
+	 */
+	ISL_StatusTypeDef SetBitRegisterI2C(uint8_t reg, uint8_t bit);
+
+	/**
+	 * @brief Установка одного бита регистра в значение 0
+	 * 
+	 * @param reg Адрес регистра
+	 * @param bit Номер бита, где 0 - младший бит, 7 - старший бит.
+	 */
+	ISL_StatusTypeDef ResetBitRegisterI2C(uint8_t reg, uint8_t bit);
+
+	/**
+	 * @brief Установка одного бита регистра в значение по условию @ref value
+	 * 
+	 * @param reg Адрес регистра
+	 * @param bit Номер бита, где 0 - младший бит, 7 - старший бит.
+	 * @param value Условие установки. Если true (&ne; 0) - выставляет в 1, иначе - в 0.
+	 */
+	ISL_StatusTypeDef BitRegisterI2C(uint8_t reg, uint8_t bit, uint8_t value);
+
 public:
-#ifndef ARDUINO
 	/**
-	 * @note Только в STM32CubeIDE
-	 * @brief Конструктор объекта устройства на шине I2C
+	 * @brief Создание объекта @b @ref I2CDevice
 	 * 
-	 * @param hi2c объект @b I2C_HandleTypeDef
-	 * @param address адрес устройства на шине I2C 
+	 * @param hi2c объект @b I2C_HandleTypeDef в STM32CubeIDE или @b Wire в Arduino IDE
+	 * @param address адрес устройства на шине I2C
 	 */
-	I2CDevice(I2C_HandleTypeDef *hi2c, uint8_t address);
+	I2CDevice(interfaces::I2C *hi2c, uint8_t address);
 
 	/**
-	 * @note Только в STM32CubeIDE
-	 * @brief Конструктор объекта устройства на шине I2C
-	 * 
-	 * @param hi2c объект @b I2C_HandleTypeDef
-	 * @param address адрес устройства на шине I2C 
-	 * @param speed скорость I2C
-	 */
-	I2CDevice(I2C_HandleTypeDef *hi2c, uint8_t address, I2CSpeed speed);
-#else
-	/**
+	 * @brief Создание объекта @ref BaseDevice как копии другого объекта @ref BaseDevice 
 	 * @note Только в Arduino IDE
-	 * @brief Конструктор объекта гироскопа
 	 * 
-	 * @param hi2c объект @b TwoWire или @b Wire 
-	 * @param address адрес гироскопа на шине I2C
+	 * @param address адрес устройства на шине I2C
 	 */
-	I2CDevice(TwoWire &hi2c, uint8_t address);
-
-	/**
-	 * @note Только в Arduino IDE
-	 * @brief Конструктор объекта устройства на шине I2C
-	 * 
-	 * @param hi2c объект @b TwoWire или @b Wire 
-	 * @param address адрес устройства на шине I2C 
-	 * @param speed скорость I2C
-	 */
-	I2CDevice(TwoWire &hi2c, uint8_t address, I2CSpeed speed);
-#endif
 	I2CDevice(const I2CDevice& other);
 	I2CDevice(I2CDevice&& other);
 	I2CDevice& operator=(const I2CDevice& other);
 	I2CDevice& operator=(I2CDevice&& other);
 
 	/**
-	 * @brief Проверка доступности устройства на шине к работе
+	 * @brief Инициализация устройства на шине I2C
 	 * 
-	 * @param waitIsReady 
-	 * @returns 0, если устройство доступно
-	 * @returns 1, если с устройством произошла ошибка 
+	 * @returns 0, если инициализация завершена успешно
+	 * @returns код ошибки HAL_StatusTypeDef, если при инициализации возникла ошибка 
 	 */
-	HAL_StatusTypeDef isReady(uint8_t waitIsReady = 0);
-
-	/**
-	 * @brief Отправка запроса на чтение Nbytes байт с устройства
-	 * 
-	 * @param[out] Data Указатель на первый байт (/@b uint8_t ) массива, в которую будет записан результат. В случае
-	 * @param[in] Nbytes Количество байт  для чтения
-	 * @return Статус выполнения чтения 
-	 */
-	HAL_StatusTypeDef read(uint8_t* Data, uint8_t Nbytes);
-	
-	/**
-	 * @brief Отправка запроса на чтение Nbytes байт из регистра Register устройства
-	 * 
-	 * @param[in] Register Адрес регистра для чтения
-	 * @param[out] Data Указатель на первый байт (/@b uint8_t ) массива, в который будет записан результат. В случае
-	 * @param[in] Nbytes Количество байт для чтения
-	 * @return HAL_StatusTypeDef 
-	 */
-	HAL_StatusTypeDef read(uint8_t Register, uint8_t* Data, uint8_t Nbytes);
-	
-	/**
-	 * @brief Отправка запроса на запись NBytes байт на устройство
-	 * 
-	 * @param Data Указатель на первый байт(/@b uint8_t) массива данных для записи
-	 * @param Nbytes Количество байт для записи
-	 * @return HAL_StatusTypeDef 
-	 */
-	HAL_StatusTypeDef write(uint8_t* Data, uint8_t Nbytes);
-
-	/**
-	 * @brief Отправка запроса на запись NBytes байт в регистр Register устройства
-	 * 
-	 * @param Register Адрес регистра для записи
-	 * @param Data Указатель на первый байт(/@b uint8_t) массива данных для записи
-	 * @param Nbytes Количество байт для записи
-	 * @return HAL_StatusTypeDef 
-	 */
-	HAL_StatusTypeDef write(uint8_t Register, uint8_t* Data, uint8_t Nbytes);
-	~I2CDevice();
+	virtual ISL_StatusTypeDef Init();
+	virtual ~I2CDevice();
 };
 
 } /* namespace IntroSatLib */
 
-#endif /* I2CDEVICE_H_ */
+#endif /* I2C_ENABLED */
+#endif /* BASEDEVICE_H_ */

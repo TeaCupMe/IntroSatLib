@@ -2,30 +2,30 @@
 
 namespace IntroSatLib {
 
-#ifndef ARDUINO
-AK8963::AK8963(I2C_HandleTypeDef *hi2c, uint8_t address): BaseDevice(hi2c, address)
+//#ifndef ARDUINO
+AK8963::AK8963(interfaces::I2C *hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
-#else
-AK8963::AK8963(TwoWire &hi2c, uint8_t address): BaseDevice(hi2c, address)
-{
-}
-AK8963::AK8963(uint8_t address): BaseDevice(address)
-{
-}
-#endif
+//#else
+//AK8963::AK8963(TwoWire &hi2c, uint8_t address): BaseDevice(hi2c, address)
+//{
+//}
+//AK8963::AK8963(uint8_t address): BaseDevice(address)
+//{
+//}
+//#endif
 
-AK8963::AK8963(const AK8963& other): BaseDevice(other)
+AK8963::AK8963(const AK8963& other): I2CDevice(other)
 {
 }
-AK8963::AK8963(AK8963&& other): BaseDevice(other)
+AK8963::AK8963(AK8963&& other): I2CDevice(other)
 {
 }
 AK8963& AK8963::operator=(const AK8963& other)
 {
 	if (this != &other)
 	{
-		this->BaseDevice::operator = (other);
+		this->I2CDevice::operator = (other);
 	}
 	return *this;
 }
@@ -33,24 +33,24 @@ AK8963& AK8963::operator=(AK8963&& other)
 {
 	if (this != &other)
 	{
-		this->BaseDevice::operator =(other);
+		this->I2CDevice::operator =(other);
 	}
 	return *this;
 }
 
 
-uint8_t AK8963::Init()
+ISL_StatusTypeDef AK8963::Init()
 {
-	SetRegister(0x0A, 0x00);
+	SetRegisterI2C(0x0A, 0x00);
 	HAL_Delay(100);
-	SetRegister(0x0A, 0x0F); // Fuse ROM
+	SetRegisterI2C(0x0A, 0x0F); // Fuse ROM
 	HAL_Delay(100);
 	ReadCal();
-	SetRegister(0x0A, 0x00);
+	SetRegisterI2C(0x0A, 0x00);
 	HAL_Delay(100);
-	SetRegister(0x0A, 0x06); // Continuous measurement mode 2
+	SetRegisterI2C(0x0A, 0x06); // Continuous measurement mode 2
 	HAL_Delay(100);
-	return 0;
+	return ISL_StatusTypeDef::OK;
 }
 
 void AK8963::ReadCal()

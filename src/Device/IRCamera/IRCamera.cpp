@@ -2,27 +2,27 @@
 
 namespace IntroSatLib {
 
-#ifndef ARDUINO
-IRCamera::IRCamera(I2C_HandleTypeDef *hi2c, uint8_t address): BaseDevice(hi2c, address)
+//#ifndef ARDUINO
+IRCamera::IRCamera(interfaces::I2C *hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
-#else
-IRCamera::IRCamera(TwoWire &hi2c, uint8_t address): BaseDevice(hi2c, address)
-{
-}
-IRCamera::IRCamera(uint8_t address): BaseDevice(address)
-{
-}
-#endif
+//#else
+//IRCamera::IRCamera(TwoWire &hi2c, uint8_t address): BaseDevice(hi2c, address)
+//{
+//}
+//IRCamera::IRCamera(uint8_t address): BaseDevice(address)
+//{
+//}
+//#endif
 
-IRCamera::IRCamera(const IRCamera &other): BaseDevice(other)
+IRCamera::IRCamera(const IRCamera &other): I2CDevice(other)
 {
 	_framrate = other._framrate;
 	_resetPort = other._resetPort;
 	_resetPin = other._resetPin;
 	_mirror = other._mirror;
 }
-IRCamera::IRCamera(IRCamera &&other): BaseDevice(other)
+IRCamera::IRCamera(IRCamera &&other): I2CDevice(other)
 {
 	_framrate = other._framrate;
 	_resetPort = other._resetPort;
@@ -33,7 +33,7 @@ IRCamera& IRCamera::operator=(const IRCamera &other)
 {
 	if (this != &other)
 	{
-		this->BaseDevice::operator = (other);
+		this->I2CDevice::operator = (other);
 		_framrate = other._framrate;
 		_resetPort = other._resetPort;
 		_resetPin = other._resetPin;
@@ -45,7 +45,7 @@ IRCamera& IRCamera::operator=(IRCamera &&other)
 {
 	if (this != &other)
 	{
-		this->BaseDevice::operator = (other);
+		this->I2CDevice::operator = (other);
 		_framrate = other._framrate;
 		_resetPort = other._resetPort;
 		_resetPin = other._resetPin;
@@ -54,29 +54,30 @@ IRCamera& IRCamera::operator=(IRCamera &&other)
 	return *this;
 }
 
-uint8_t IRCamera::Init(Framerate framrate)
+ISL_StatusTypeDef IRCamera::Init(Framerate framrate)
 {
 	tryReset();
+	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
 
-	_i2c.isReady(1);
+	if ((status = IsReady()) != 0) return status;
 
 	uint8_t value = 0;
-	if (_i2c.write(AMG88xx_PCTL, &value, 1)) { return 1; }
+	if ((status = SetRegisterI2C(AMG88xx_PCTL, &value, 1)) != 0) { return status; }
 
 	value = 0x3F;
-	if (_i2c.write(AMG88xx_RST, &value, 1)) { return 1; }
+	if ((status = SetRegisterI2C(AMG88xx_RST, &value, 1)) != 0) { return status; }
 
 	value = 0;
-	if (_i2c.write(AMG88xx_INTC, &value, 1)) { return 1; }
+	if ((status = SetRegisterI2C(AMG88xx_INTC, &value, 1)) != 0) { return status; }
 
 	value = 0x01;
-	if (_i2c.write(AMG88xx_FPSC, &value, 1)) { return 1; }
+	if ((status = SetRegisterI2C(AMG88xx_FPSC, &value, 1)) != 0) { return status; }
 
 	HAL_Delay(1000);
-	return 0;
+	return status;
 }
 
-uint8_t IRCamera::Init() { return Init(Framerate::FPS_10); }
+ISL_StatusTypeDef IRCamera::Init() { return Init(Framerate::FPS_10); }
 
 int16_t IRCamera::int12ToInt16(uint16_t val)
 {
@@ -88,8 +89,8 @@ uint8_t IRCamera::Read()
 {
 	uint8_t buffer[128];
 
-	HAL_StatusTypeDef status = _i2c.read(AMG88xx_PIXEL_OFFSET, buffer, 128);
-	if (status) { return 1; }
+	ISL_StatusTypeDef status;
+	if ((status = ReadRegisterI2C(AMG88xx_PIXEL_OFFSET, buffer, 128)) != 0) { return status; }
 
 	for (int i = 0; i < 64; i++)
 	{

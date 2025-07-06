@@ -2,7 +2,7 @@
 #define MAGNETOMETER_V2_H_
 
 #include "../I2CDevice.h"
-#include "../BaseDevice.h"
+//#include "../BaseDevice.h"
 #ifndef ARDUINO
 #include "../../Quaternion/Quaternion.h"
 #endif
@@ -12,10 +12,11 @@
 namespace IntroSatLib
 {
 
-	class MagnetometerV2 : public BaseDevice
+	class MagnetometerV2 : public I2CDevice
 	{
 	private:
 		static const uint8_t BASE_ADDRESS = 0x1E;
+		static const uint8_t LIS3MDL_WHO_AM_I = 0b00111101;
 		static constexpr float _rawg = 27386.0f / 4.0f; // Gauss
 
 		enum RegisterMap
@@ -54,7 +55,7 @@ namespace IntroSatLib
 			G16		/**< Диапазон &plusmn;16 Гаусс */
 		};	
 
-#ifndef ARDUINO
+//#ifndef ARDUINO
 	/**
 	 * @note Только в STM32CubeIDE
 	 * @brief Создание объекта манитометра. 
@@ -62,25 +63,25 @@ namespace IntroSatLib
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес манитометра на шине I2C
 	 */
-		MagnetometerV2(I2C_HandleTypeDef *hi2c, uint8_t address = BASE_ADDRESS);
-#else
-		/**
-		 * @note Только в Arduino IDE
-		 * @brief Создание объекта манитометра
-		 * 
-		 * @param hi2c объект @b TwoWire или @b Wire 
-		 * @param address адрес манитометра на шине I2C
-		 */
-		MagnetometerV2(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
-		
-		/**
-		 * @note Только в Arduino IDE
-		 * @brief Создание объекта манитометра на @b I2C1 
-		 * 
-		 * @param address адрес манитометра на шине I2C
-		 */
-		MagnetometerV2(uint8_t address = BASE_ADDRESS);
-#endif
+		MagnetometerV2(interfaces::I2C *hi2c, uint8_t address = BASE_ADDRESS);
+//#else
+//		/**
+//		 * @note Только в Arduino IDE
+//		 * @brief Создание объекта манитометра
+//		 *
+//		 * @param hi2c объект @b TwoWire или @b Wire
+//		 * @param address адрес манитометра на шине I2C
+//		 */
+//		MagnetometerV2(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
+//
+//		/**
+//		 * @note Только в Arduino IDE
+//		 * @brief Создание объекта манитометра на @b I2C1
+//		 *
+//		 * @param address адрес манитометра на шине I2C
+//		 */
+//		MagnetometerV2(uint8_t address = BASE_ADDRESS);
+//#endif
 		/**
 		 * @brief Создание объекта манитометра как копии другого объекта манитометра
 		 * 
@@ -97,7 +98,7 @@ namespace IntroSatLib
 		 * @returns 0, если инициализация завершена успешно
 		 * @returns 1, если при инициализации возникла ошибка 
 		 */
-		uint8_t Init() override;
+		ISL_StatusTypeDef Init() override;
 
 		/**
 		 * @brief Инициализация манитометра с заданным диапазоном измерения
@@ -106,20 +107,20 @@ namespace IntroSatLib
 		 * @returns 0, если инициализация завершена успешно
 		 * @returns 1, если при инициализации возникла ошибка
 		 */
-		uint8_t Init(Scale sensitivity);
+		ISL_StatusTypeDef Init(Scale sensitivity);
 
 		/**
 		 * @brief Установка диапазона измерения
 		 * 
 		 * @param sensitivity Значение чуствительности @ref Scale
 		 */
-		void SetScale(Scale sensitivity);
+		ISL_StatusTypeDef SetScale(Scale sensitivity);
 
 		/**
 		 * @brief Чтение значения с датчика во внутренний буфер
 		 * 
 		 */
-		void Read();
+		ISL_StatusTypeDef Read() __attribute__((deprecated("This method exists for backward compatibility and does nothing. Methods X(), Y(), Z(), RawX(), RawY(), RawZ() perform read operation on their own")));
 
 		/**
 		 * @note Этот метод возвращает значение из внутреннего буфера, не читая новое значение с датчика. 
