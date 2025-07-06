@@ -2,15 +2,18 @@
 #define BASEDEVICE_H_
 
 #include "../Adapter/I2C.h"
-
+#include "Device.h"
 #ifdef I2C_ENABLED
 
 namespace IntroSatLib {
 
-class I2CDevice {
+class I2CDevice: public Device {
+
+private:
+	interfaces::I2C &_i2c;
 
 protected:
-	interfaces::I2C &_i2c;
+
 	uint8_t _address;
 
 	ISL_StatusTypeDef IsReady();
@@ -92,7 +95,7 @@ public:
 	 * @returns 0, если инициализация завершена успешно
 	 * @returns код ошибки HAL_StatusTypeDef, если при инициализации возникла ошибка 
 	 */
-	virtual ISL_StatusTypeDef Init();
+	virtual ISL_StatusTypeDef Init() override;
 	virtual ~I2CDevice();
 };
 

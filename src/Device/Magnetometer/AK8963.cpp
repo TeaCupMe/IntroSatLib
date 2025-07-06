@@ -3,7 +3,7 @@
 namespace IntroSatLib {
 
 //#ifndef ARDUINO
-AK8963::AK8963(interfaces::I2C *hi2c, uint8_t address): I2CDevice(hi2c, address)
+AK8963::AK8963(interfaces::I2C *i2c, uint8_t address): I2CDevice(i2c, address)
 {
 }
 //#else
@@ -50,22 +50,27 @@ ISL_StatusTypeDef AK8963::Init()
 	HAL_Delay(100);
 	SetRegisterI2C(0x0A, 0x06); // Continuous measurement mode 2
 	HAL_Delay(100);
-	return ISL_StatusTypeDef::OK;
+	return ISL_StatusTypeDef::ISL_OK;
 }
 
-void AK8963::ReadCal()
+ISL_StatusTypeDef AK8963::ReadCal()
 {
 	uint8_t buf[3];
-	_i2c.read(0x10, buf, 3);
+	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
+	if ((status = ReadRegisterI2C(0x10, buf, 3)) != ISL_StatusTypeDef::ISL_OK) { return status; }
+//	ReadRegisterI2C(0x10, buf, 3);
 	_calX = buf[0];
 	_calY = buf[1];
 	_calZ = buf[2];
+	return status;
 }
 
-void AK8963::Read()
+ISL_StatusTypeDef AK8963::Read()
 {
 	uint8_t buf[7];
-	_i2c.read(0x03, buf, 7);
+	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
+	if ((status = ReadRegisterI2C(0x03, buf, 7)) != ISL_StatusTypeDef::ISL_OK) { return status; }
+//	ReadRegisterI2C(0x03, buf, 7);
 	if (!(buf[6] & 0x08))
 	{
 		_x = (buf[1] << 8) | buf[0];
@@ -77,14 +82,17 @@ void AK8963::Read()
 
 int16_t AK8963::RawX()
 {
+	Read();
 	return int16_t(_x) * ((int8_t(_calX) - 128) / 256.0f + 1);
 }
 int16_t AK8963::RawY()
 {
+	Read();
 	return int16_t(_y) * ((int8_t(_calY) - 128) / 256.0f + 1);
 }
 int16_t AK8963::RawZ()
 {
+	Read();
 	return int16_t(_z) * ((int8_t(_calZ) - 128) / 256.0f + 1);
 }
 

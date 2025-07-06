@@ -19,7 +19,7 @@ protected:
 	void setState(Device::DeviceState state);
 
 public:
-	virtual uint8_t Init() = 0;
+	virtual ISL_StatusTypeDef Init() = 0;
 	Device::DeviceState GetState() {
 		return _state;
 	};

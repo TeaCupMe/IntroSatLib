@@ -41,9 +41,9 @@ LightSensor& LightSensor::operator=(LightSensor &&other)
 	return *this;
 }
 // TODO Возвращать не просто 0, а результат проверки наличия датчика
-uint8_t LightSensor::Init()
+ISL_StatusTypeDef LightSensor::Init()
 {
-	return 0;
+	return IsReady();
 }
 
 int16_t LightSensor::GetLight()

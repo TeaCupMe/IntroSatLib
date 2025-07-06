@@ -3,7 +3,7 @@
 namespace IntroSatLib {
 
 //#ifndef ARDUINO
-MagnetometerV2::MagnetometerV2(interfaces::I2C *hi2c, uint8_t address): I2CDevice(hi2c, address)
+MagnetometerV2::MagnetometerV2(interfaces::I2C *i2c, uint8_t address): I2CDevice(i2c, address)
 {
 }
 //#else
@@ -43,16 +43,16 @@ ISL_StatusTypeDef MagnetometerV2::Init(Scale sensitivity)
 {
 	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
 
-	SetRegisterI2C(RegisterMap::CTRL_REG1, 0x7C);
+	if ((status = SetRegisterI2C(RegisterMap::CTRL_REG1, 0x7C)) != ISL_StatusTypeDef::ISL_OK) { return status; }
 	HAL_Delay(1);
-	SetScale(sensitivity);
+	if ((status = SetScale(sensitivity)) != ISL_StatusTypeDef::ISL_OK) { return status; }
 	HAL_Delay(1);
-	SetRegisterI2C(RegisterMap::CTRL_REG3, 0x00);
+	if ((status = SetRegisterI2C(RegisterMap::CTRL_REG3, 0x00)) != ISL_StatusTypeDef::ISL_OK) { return status; }
 	HAL_Delay(1);
-	SetRegisterI2C(RegisterMap::CTRL_REG4, 0x0C);
+	if ((status = SetRegisterI2C(RegisterMap::CTRL_REG4, 0x0C)) != ISL_StatusTypeDef::ISL_OK) { return status; }
 	HAL_Delay(1);
-	SetRegisterI2C(RegisterMap::CTRL_REG5, 0x40);
-	return 0;
+	status = SetRegisterI2C(RegisterMap::CTRL_REG5, 0x40);
+	return status;
 }
 
 ISL_StatusTypeDef MagnetometerV2::Init()
@@ -84,6 +84,8 @@ ISL_StatusTypeDef MagnetometerV2::Read()
 //		_z = buf[5] << 8 | buf[4];
 //	}
 //	return ISL_StatusTypeDef::ISL_ERROR;
+
+	// Return ISL_OK not to break anything
 	return ISL_StatusTypeDef::ISL_OK;
 }
 
@@ -94,7 +96,7 @@ int16_t MagnetometerV2::RawX()
 
 	if ((status = ReadRegisterI2C(RegisterMap::STATUS_REG, &status_reg)) != 0) { return 0; }
 
-	if (status_reg & 0x08)
+	if (status_reg & (0x1 << 0))
 	{
 		uint8_t buf[2];
 		ReadRegisterI2C(RegisterMap::OUT_X_L, buf, 2);
@@ -109,7 +111,7 @@ int16_t MagnetometerV2::RawY()
 
 	if ((status = ReadRegisterI2C(RegisterMap::STATUS_REG, &status_reg)) != 0) { return 0; }
 
-	if (status_reg & 0x08)
+	if (status_reg & (0x1 << 1))
 	{
 		uint8_t buf[2];
 		ReadRegisterI2C(RegisterMap::OUT_Y_L, buf, 2);
@@ -117,6 +119,7 @@ int16_t MagnetometerV2::RawY()
 	}
 	return 0;
 }
+
 int16_t MagnetometerV2::RawZ()
 {
 	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
@@ -124,7 +127,7 @@ int16_t MagnetometerV2::RawZ()
 
 	if ((status = ReadRegisterI2C(RegisterMap::STATUS_REG, &status_reg)) != 0) { return 0; }
 
-	if (status_reg & 0x08)
+	if (status_reg & (0x1 << 2))
 	{
 		uint8_t buf[2];
 		ReadRegisterI2C(RegisterMap::OUT_Z_L, buf, 2);

@@ -12,7 +12,7 @@
 namespace IntroSatLib
 {
 
-	class MagnetometerV2 : public I2CDevice
+	class MagnetometerV2 : private I2CDevice
 	{
 	private:
 		static const uint8_t BASE_ADDRESS = 0x1E;

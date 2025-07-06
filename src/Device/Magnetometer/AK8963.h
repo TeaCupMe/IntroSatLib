@@ -6,7 +6,7 @@
 
 namespace IntroSatLib {
 
-class AK8963: public I2CDevice {
+class AK8963: private I2CDevice {
 private:
 	static const uint8_t BASE_ADDRESS = 0x0C;
 	static constexpr float _rawmt = 8190.0f / 4912.0f; //microTesla
@@ -18,7 +18,7 @@ private:
 	uint8_t _calY = 0;
 	uint8_t _calZ = 0;
 
-	void ReadCal();
+	ISL_StatusTypeDef ReadCal();
 
 public:
 	AK8963(interfaces::I2C *i2c, uint8_t address = BASE_ADDRESS);
@@ -30,7 +30,7 @@ public:
 
 	ISL_StatusTypeDef Init();
 
-	void Read();
+	ISL_StatusTypeDef Read();
 
 	int16_t RawX();
 	int16_t RawY();
