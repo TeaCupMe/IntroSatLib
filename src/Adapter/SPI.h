@@ -3,14 +3,13 @@
 
 // Resolve platform-dependent SPI
 
-/************** AVR  **************/
-//  This is not yet supported, but it is here for future reference.
-//  AVR-series in Arduino IDE
 #if defined(AVR) && defined(ARDUINO)
+/************** AVR  **************/
+	//  This is not yet supported, but it is here for future reference.
+	//  AVR-series in Arduino IDE
 	#error "AVR not yet supported"
 	#include "Arduino.h"
 	#include "SPI.h"
-
 
 #elif defined(USE_HAL_DRIVER)
 /*****  STM32 and stm32duino ******/
@@ -21,8 +20,9 @@
 		#include "SPI.h"
 	#endif
 
+	// Include hal for supported STM32 platforms
 	#include "STM32/stm32XXyy_hal.h"
-	// Supported STM32 platforms
+
 	#ifndef HAL_MODULE_ENABLED
 		#error "HAL not enabled"
 	#endif

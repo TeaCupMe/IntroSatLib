@@ -2,11 +2,11 @@
 #define GYROSCOPE_H_
 
 #include "../I2CDevice.h"
-#include "../BaseDevice.h"
+//#include "../BaseDevice.h"
 
 namespace IntroSatLib {
 
-class Gyroscope: public BaseDevice {
+class Gyroscope: public I2CDevice {
 private:
 
 	static const uint8_t BASE_ADDRESS = 0x68;
@@ -49,12 +49,12 @@ public:
 		F3600b
 	};
 
-#ifndef ARDUINO
-	Gyroscope(I2C_HandleTypeDef *hi2c, uint8_t address = BASE_ADDRESS);
-#else
-	Gyroscope(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
-	Gyroscope(uint8_t address = BASE_ADDRESS);
-#endif
+//#ifndef ARDUINO
+	Gyroscope(interfaces::I2C *hi2c, uint8_t address = BASE_ADDRESS);
+//#else
+//	Gyroscope(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
+//	Gyroscope(uint8_t address = BASE_ADDRESS);
+//#endif
 
 	Gyroscope(const Gyroscope &other);
 	Gyroscope(Gyroscope &&other);

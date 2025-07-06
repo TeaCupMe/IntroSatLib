@@ -1,14 +1,12 @@
 #define INTROSATLIB_INTERNAL
 #include "STM32_SPI.h"
-#include "../SPI.h"
-
 
 #ifdef HAL_SPI_MODULE_ENABLED
  // If SPI is enabled or at least accessible (in case of Arduino IDE)
 
 
 #include <array>
-#include "../Logger.h"
+#include "Logger.h"
 
 #define ASSERT_SPI_HAVE() \
 if(!_hspi) { \
@@ -34,7 +32,7 @@ for(uint8_t i = 0; i < Nbytes; i++) { \
 #endif
 
 namespace IntroSatLib {
-namespace intefaces {
+namespace interfaces {
 
 class SPI final {
 	SPI_HandleTypeDef *_hspi = 0;

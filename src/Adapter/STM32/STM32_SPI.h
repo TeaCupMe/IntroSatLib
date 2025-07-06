@@ -1,19 +1,15 @@
-#ifndef INTERFACE_STM32_SPI_H_
-#define INTERFACE_STM32_SPI_H_
-
-
+#ifndef STM32_SPI_H_
+#define STM32_SPI_H_
 
 #include "../SPI.h"
-
 
 #ifdef HAL_SPI_MODULE_ENABLED // If SPI is enabled or at least accessible (in case of Arduino IDE)
 #define SPI_ENABLED
 
 #include <array>
 
-
 namespace IntroSatLib {
-namespace intefaces {
+namespace interfaces {
 
 class SPI final {
 	SPI_HandleTypeDef *_hspi = 0;
@@ -57,7 +53,7 @@ public:
 } /* namespace intefaces */
 } /* namespace IntroSatLib */
 
-#endif /* SPI_ENABLED */
-#endif /* INTERFACE_STM32_SPI_H_ */
+#endif /* HAL_SPI_MODULE_ENABLED */
+#endif /* STM32_SPI_H_ */
 
 
