@@ -78,7 +78,7 @@ I2CDevice::I2CDevice(interfaces::I2C *hi2c, uint8_t address): _i2c(hi2c), _addre
 
 ISL_StatusTypeDef I2CDevice::Init()
 {
-	return _i2c.isReady(_address);
+	return IsReady();
 }
 
 I2CDevice::I2CDevice(const I2CDevice& other): _i2c(other._i2c), _address(other._address)

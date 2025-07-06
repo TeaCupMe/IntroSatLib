@@ -42,42 +42,44 @@ Gyroscope& Gyroscope::operator=(Gyroscope &&other)
 	return *this;
 }
 
-uint8_t Gyroscope::Init(Scale sensitivity, FilterBandwidth filter)
+ISL_StatusTypeDef Gyroscope::Init(Scale sensitivity, FilterBandwidth filter)
 {
-	SetRegisterI2C(0x37, 0x02);
-	SetScale(sensitivity);
-	SetFilter(filter);
-	return 0;
+	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
+	RETURN_STATUS_IF_NOT_OK(IsReady(), status);
+	RETURN_STATUS_IF_NOT_OK(SetRegisterI2C(0x37, 0x02), status);
+	RETURN_STATUS_IF_NOT_OK(SetScale(sensitivity), status);
+	return SetFilter(filter);
 }
-uint8_t Gyroscope::Init(Scale sensitivity)
+ISL_StatusTypeDef Gyroscope::Init(Scale sensitivity)
 {
 	return Init(sensitivity, FilterBandwidth::F0005);
 }
-uint8_t Gyroscope::Init()
+ISL_StatusTypeDef Gyroscope::Init()
 {
 	return Init(Scale::DPS0250);
 }
 
-void Gyroscope::SetScale(Scale sensitivity)
+ISL_StatusTypeDef Gyroscope::SetScale(Scale sensitivity)
 {
 	uint8_t reg = GetRegisterI2C(RegisterMap::GYRO_CONFIG);
 	reg &= 0xFF ^ (Scale::DPS2000 << 3);
 	reg |= (sensitivity << 3);
 	_sensitivity = sensitivity;
-	SetRegisterI2C(RegisterMap::GYRO_CONFIG, reg);
+	return SetRegisterI2C(RegisterMap::GYRO_CONFIG, reg);
 }
 
-void Gyroscope::SetFilter(FilterBandwidth filter)
+ISL_StatusTypeDef Gyroscope::SetFilter(FilterBandwidth filter)
 {
+	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
 	uint8_t reg = GetRegisterI2C(RegisterMap::GYRO_CONFIG);
 	reg &= 0xFF ^ 3;
 	reg |= (filter >> 3);
-	SetRegisterI2C(RegisterMap::GYRO_CONFIG, reg);
+	RETURN_STATUS_IF_NOT_OK(SetRegisterI2C(RegisterMap::GYRO_CONFIG, reg), status)
 
 	reg = GetRegisterI2C(RegisterMap::CONFIG);
 	reg &= 0xFF ^ 7;
 	reg |= (filter & 7);
-	SetRegisterI2C(RegisterMap::CONFIG, reg);
+	return SetRegisterI2C(RegisterMap::CONFIG, reg);
 }
 
 int16_t Gyroscope::RawX()

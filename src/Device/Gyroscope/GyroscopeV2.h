@@ -2,7 +2,8 @@
 #define GYROSCOPE_V2_H_
 
 #include "../I2CDevice.h"
-#include "../BaseDevice.h"
+#include "Adapter/System.h"
+//#include "../BaseDevice.h"
 
 #ifndef ARDUINO
 #include "../../Quaternion/Quaternion.h"
@@ -10,7 +11,7 @@
 
 namespace IntroSatLib {
 
-class GyroscopeV2: public BaseDevice {
+class GyroscopeV2: private I2CDevice {
 private:
 
 	static const uint8_t BASE_ADDRESS = 0x6B;
@@ -29,7 +30,7 @@ private:
 
 	static float cutMin(float value, float cut);
 
-	uint8_t _sensitivity = 0;
+	uint8_t _scale = 0;
 	uint8_t _dataRate = 0;
 
 	uint32_t _lastXTime = 0;
@@ -75,7 +76,6 @@ public:
 		DPS2000			/**< Диапазон &plusmn;2000 град/с */
 	};
 
-#ifndef ARDUINO
 	/**
 	 * @note Только в STM32CubeIDE
 	 * @brief Конструктор объекта гироскопа. 
@@ -83,25 +83,8 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес гироскопа на шине I2C
 	 */
-	GyroscopeV2(I2C_HandleTypeDef *hi2c, uint8_t address = BASE_ADDRESS);
-#else
-	/**
-	 * @note Только в Arduino IDE
-	 * @brief Конструктор объекта гироскопа
-	 * 
-	 * @param hi2c объект @b TwoWire или @b Wire 
-	 * @param address адрес гироскопа на шине I2C
-	 */
-	GyroscopeV2(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
-	
-	/**
-	 * @note Только в Arduino IDE
-	 * @brief Конструктор объекта гироскопа на @b I2C1 
-	 * 
-	 * @param address адрес гироскопа на шине I2C
-	 */
-	GyroscopeV2(uint8_t address = BASE_ADDRESS);
-#endif
+	GyroscopeV2(interfaces::I2C *i2c, uint8_t address = BASE_ADDRESS);
+
 	/**
 	 * @brief Конструктор объекта гироскопа как копии другого объекта гироскопа
 	 * 
@@ -118,7 +101,7 @@ public:
 	 * @returns 0, если инициализация завершена успешно
 	 * @returns 1, если при инициализации возникла ошибка 
 	 */
-	uint8_t Init() override;
+	ISL_StatusTypeDef Init() override;
 
 	/**
 	 * @brief Инициализация гироскопа с заданным диапазоном измерения
@@ -127,8 +110,7 @@ public:
 	 * @returns 0, если инициализация завершена успешно
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
-	//TODO Переименовать sensitivity в scale, иначе вызывает путаницу. Это именно scale
-	uint8_t Init(Scale sensitivity);
+	ISL_StatusTypeDef Init(Scale scale);
 
 	/**
 	 * @brief Инициализация гироскопа с заданным диапазоном измерения
@@ -138,23 +120,21 @@ public:
 	 * @returns 0, если инициализация завершена успешно
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
-	//TODO Переименовать sensitivity в scale, иначе вызывает путаницу. Это именно scale
-	uint8_t Init(Scale sensitivity, DataRate dataRate);
+	ISL_StatusTypeDef Init(Scale scale, DataRate dataRate);
 
 	/**
 	 * @brief Установка диапазона измерения
 	 * 
 	 * @param sensitivity Значение чуствительности @ref Scale
 	 */
-	//TODO Переименовать sensitivity в scale, иначе вызывает путаницу. Это именно scale
-	void SetScale(Scale sensitivity);
+	ISL_StatusTypeDef SetScale(Scale scale);
 
 	/**
 	* @brief Установка скорости обновления данных
 	* 
 	* @param datarate Значение скорости обновления данных @ref DataRate
 	*/
-	void SetDataRate(DataRate dataRate);
+	ISL_StatusTypeDef SetDataRate(DataRate dataRate);
 public:
 	/**
 	 * @brief Получение @b необработанного значения ускорения по оси X.

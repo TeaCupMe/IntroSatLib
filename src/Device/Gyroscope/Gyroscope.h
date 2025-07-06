@@ -6,7 +6,7 @@
 
 namespace IntroSatLib {
 
-class Gyroscope: public I2CDevice {
+class Gyroscope: private I2CDevice {
 private:
 
 	static const uint8_t BASE_ADDRESS = 0x68;
@@ -61,12 +61,12 @@ public:
 	Gyroscope& operator=(const Gyroscope &other);
 	Gyroscope& operator=(Gyroscope &&other);
 
-	uint8_t Init() override;
-	uint8_t Init(Scale sensitivity);
-	uint8_t Init(Scale sensitivity, FilterBandwidth filter);
+	ISL_StatusTypeDef Init() override;
+	ISL_StatusTypeDef Init(Scale scale);
+	ISL_StatusTypeDef Init(Scale scale, FilterBandwidth filter);
 
-	void SetScale(Scale sensitivity);
-	void SetFilter(FilterBandwidth filter);
+	ISL_StatusTypeDef SetScale(Scale scale);
+	ISL_StatusTypeDef SetFilter(FilterBandwidth filter);
 
 	int16_t RawX();
 	int16_t RawY();

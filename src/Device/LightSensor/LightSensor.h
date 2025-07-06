@@ -6,7 +6,7 @@
 
 namespace IntroSatLib {
 
-class LightSensor: public virtual I2CDevice {
+class LightSensor: private I2CDevice {
 private:
 
 	static const uint8_t BASE_ADDRESS = 0x50;
@@ -54,7 +54,7 @@ public:
 	 * 
 	 * @returns 0, если инициализация прошла успешно
 	 */
-	uint8_t Init() override;
+	ISL_StatusTypeDef Init() override;
 
 	/**
 	 * @brief Получение значения освещённости

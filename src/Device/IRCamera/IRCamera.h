@@ -6,7 +6,7 @@
 
 namespace IntroSatLib {
 
-class IRCamera: public I2CDevice {
+class IRCamera: private I2CDevice {
 private:
 
 	static const uint8_t BASE_ADDRESS = 0x68;
