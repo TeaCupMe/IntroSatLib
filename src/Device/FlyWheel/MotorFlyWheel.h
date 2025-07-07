@@ -7,7 +7,6 @@ namespace IntroSatLib {
 
 class MotorFlyWheel: public BaseFlyWheel {
 public:
-#ifndef ARDUINO
 	/**
 	 * @note Только в STM32CubeIDE
 	 * @brief Создание объекта маховика. 
@@ -15,24 +14,8 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес маховика на шине I2C
 	 */
-	MotorFlyWheel(I2C_HandleTypeDef *hi2c, uint8_t address = BASE_ADDRESS);
-#else
-	/**
-	 * @note Только в Arduino IDE
-	 * @brief Создание объекта маховика
-	 * 
-	 * @param hi2c объект @b TwoWire или @b Wire 
-	 * @param address адрес маховика на шине I2C
-	 */
-	MotorFlyWheel(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
-	/**
-	 * @note Только в Arduino IDE
-	 * @brief Создание объекта маховика на @b I2C1 
-	 * 
-	 * @param address адрес маховика на шине I2C
-	 */
-	MotorFlyWheel(uint8_t address = BASE_ADDRESS);
-#endif
+	MotorFlyWheel(interfaces::I2C *i2c, uint8_t address = BASE_ADDRESS);
+
 	/**
 	 * @brief Создание объекта маховика как копии другого объекта маховика
 	 * 

@@ -1,11 +1,12 @@
 #ifndef BASEFLYWHEEL_H_
 #define BASEFLYWHEEL_H_
 
-#include "../BaseDevice.h"
+//#include "../BaseDevice.h"
+#include "../I2CDevice.h"
 
 namespace IntroSatLib {
 
-class BaseFlyWheel: public BaseDevice {
+class BaseFlyWheel: private I2CDevice {
 private:
 
 	enum RegisterMap
@@ -39,32 +40,13 @@ protected:
 	static const uint8_t BASE_ADDRESS = 0x38;
 	uint8_t CheckVersion();
 public:
-#ifndef ARDUINO
 	/**
 	 * @brief Создание объекта маховика. 
 	 * @note Только в STM32CubeIDE
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес маховика на шине I2C
 	 */
-	BaseFlyWheel(I2C_HandleTypeDef *hi2c, uint8_t address = BASE_ADDRESS);
-#else
-	/**
-	 * @note Только в Arduino IDE
-	 * @brief Создание объекта маховика
-	 * 
-	 * @param hi2c объект @b TwoWire или @b Wire 
-	 * @param address адрес маховика на шине I2C
-	 */
-	BaseFlyWheel(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
-
-	/**
-	 * @note Только в Arduino IDE
-	 * @brief Создание объекта маховика на @b I2C1 
-	 * 
-	 * @param address адрес маховика на шине I2C
-	 */
-	BaseFlyWheel(uint8_t address = BASE_ADDRESS);
-#endif
+	BaseFlyWheel(interfaces::I2C *i2c, uint8_t address = BASE_ADDRESS);
 
 	/**
 	 * @brief Инициализация маховика
@@ -72,16 +54,16 @@ public:
 	 * @returns 0, если инициализация завершена успешно
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
-	uint8_t Init() override;
+	ISL_StatusTypeDef Init() override;
 
 	// TODO @Goldfor Надо описать что все эти методы делают
-	void DirectMode(uint8_t directMode);
+	ISL_StatusTypeDef DirectMode(uint8_t directMode);
 	uint8_t DirectMode();
-	void SilentMode(uint8_t silentMode);
+	ISL_StatusTypeDef SilentMode(uint8_t silentMode);
 	uint8_t SilentMode();
-	void MinForceMode(uint8_t minForceMode);
+	ISL_StatusTypeDef MinForceMode(uint8_t minForceMode);
 	uint8_t MinForceMode();
-	void ReverseMode(uint8_t reverceMode);
+	ISL_StatusTypeDef ReverseMode(uint8_t reverceMode);
 	uint8_t ReverseMode();
 
 	/**
@@ -89,7 +71,7 @@ public:
 	 * 
 	 * @param needSpeed Жедаемая скорость в об/с
 	 */
-	void NeedSpeed(int16_t needSpeed);
+	ISL_StatusTypeDef NeedSpeed(int16_t needSpeed);
 
 	/**
 	 * @brief Чтение установленной скорости
