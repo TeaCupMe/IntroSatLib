@@ -41,16 +41,14 @@
 	// #error "AMUR not yet supported"
 /************ UNKNOWN ************/
 #else
+#ifndef INTROSAT_INTERNAL
 	#error "Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros."
 	#error "Currently supported systems are: stm32, stm32duino. AVR planned for future support."
+#endif
 #endif
 
 #ifdef I2C_HANDLE_TYPE
 #define I2C_ENABLED
-#endif
-
-#ifdef HAL_I2C_MODULE_ENABLED // If I2C is enabled or at least accessible (in case of Arduino IDE)
-#ifdef I2C_ENABLED
 
 #include <array>
 
@@ -164,6 +162,5 @@ public:
 
 } /* namespace intefaces */
 } /* namespace IntroSatLib */
-#endif /* HAL_I2C_MODULE_ENABLED */
-#endif /* STM32_I2C_H_ */
+#endif /* I2C_HANDLE_TYPE */
 #endif /* ADAPTER_I2C_H_ */
