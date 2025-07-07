@@ -95,7 +95,7 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес устройства на шине I2C
 	 */
-	I2C(Wire *hi2c);
+	I2C(TwoWire &hi2c);
 
 	/**
 	 * @note Только в STM32CubeIDE
@@ -105,7 +105,7 @@ public:
 	 * @param address адрес устройства на шине I2C
 	 * @param speed скорость I2C
 	 */
-	I2C(Wire *hi2c, I2CSpeed speed);
+	I2C(TwoWire &hi2c, I2CSpeed speed);
 #endif
 
 	I2C(const I2C& other);
