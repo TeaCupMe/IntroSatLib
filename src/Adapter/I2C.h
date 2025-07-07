@@ -41,7 +41,7 @@
 	// #error "AMUR not yet supported"
 /************ UNKNOWN ************/
 #else
-#ifndef INTROSAT_INTERNAL
+#ifndef INTROSATLIB_INTERNAL
 	#error "Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros."
 	#error "Currently supported systems are: stm32, stm32duino. AVR planned for future support."
 #endif
