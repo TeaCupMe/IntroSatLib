@@ -2,12 +2,12 @@
 #define ACCELEROMETER_H_
 
 #include "../I2CDevice.h"
-#include "../BaseDevice.h"
+//#include "../BaseDevice.h"
 
 namespace IntroSatLib {
 
 
-class Accelerometer: public BaseDevice {
+class Accelerometer: private I2CDevice {
 
 private:
 	// @Goldfor может вынести в protected? Чтобы с точки зрения документации было логичнее
@@ -59,31 +59,13 @@ public:
 		F0420		/**< 420 измерений */
 	};
 
-#ifndef ARDUINO
 	/**
 	 * @brief Конструктор объекта акселлерометра. 
 	 * @note Только в STM32CubeIDE
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес акселлерометра на шине I2C
 	 */
-	Accelerometer(I2C_HandleTypeDef *hi2c, uint8_t address = BASE_ADDRESS);
-#else
-	/**
-	 * @note Только в Arduino IDE
-	 * @brief Конструктор объекта акселлерометра
-	 * 
-	 * @param hi2c объект @b TwoWire или @b Wire 
-	 * @param address адрес акселлерометра на шине I2C
-	 */
-	Accelerometer(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
-	/**
-	 * @note Только в Arduino IDE
-	 * @brief Конструктор объекта акселлерометра на @b I2C1 
-	 * 
-	 * @param address адрес акселлерометра на шине I2C
-	 */
-	Accelerometer(uint8_t address = BASE_ADDRESS);
-#endif
+	Accelerometer(interfaces::I2C *i2c, uint8_t address = BASE_ADDRESS);
 
 	/**
 	 * @brief Конструктор объекта акселлерометра как копии другого объекта акселлерометра
@@ -102,7 +84,7 @@ public:
 	 * 
 	 * @return 0, когда инизиализация завершена
 	 */
-	uint8_t Init() override;
+	ISL_StatusTypeDef Init() override;
 
 	/**
 	 * @brief Инициализация акселлерометра с заданным диапазоном измерения
@@ -111,7 +93,7 @@ public:
 	 * @return 0, когда инизиализация завершена
 	 */
 	//TODO Переименовать sensitivity в scale, иначе вызывает путаницу. Это именно scale
-	uint8_t Init(Scale sensitivity);
+	ISL_StatusTypeDef Init(Scale sensitivity);
 
 	/**
 	 * @brief Инициализация акселлерометра с заданными диапазоном измерения и шириной окна фильтра 
@@ -121,7 +103,7 @@ public:
 	 * @return 0, когда инизиализация завершена
 	 */
 	//TODO Переименовать sensitivity в scale, иначе вызывает путаницу. Это именно scale
-	uint8_t Init(Scale sensitivity, FilterBandwidth filter);
+	ISL_StatusTypeDef Init(Scale sensitivity, FilterBandwidth filter);
 
 	/**
 	 * @brief Установка диапазона измерения
@@ -129,14 +111,14 @@ public:
 	 * @param sensitivity Значение чуствительности @ref Scale
 	 */
 	//TODO Переименовать sensitivity в scale, иначе вызывает путаницу. Это именно scale
-	void SetScale(Scale sensitivity);
+	ISL_StatusTypeDef SetScale(Scale sensitivity);
 	
 	/**
 	 * @brief Установка фильтра измерений
 	 * 
 	 * @param filter Значение ширины фильтра @ref FilterBandwidth 
 	 */
-	void SetFilter(FilterBandwidth filter);
+	ISL_StatusTypeDef SetFilter(FilterBandwidth filter);
 
 	/**
 	 * @brief Получение необработанного значения ускорения по оси X.

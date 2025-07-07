@@ -2,21 +2,10 @@
 
 namespace IntroSatLib {
 
-#ifndef ARDUINO
-CoilFlyWheel::CoilFlyWheel(I2C_HandleTypeDef *hi2c, uint8_t address): BaseFlyWheel(hi2c, address)
+CoilFlyWheel::CoilFlyWheel(interfaces::I2C *hi2c, uint8_t address): BaseFlyWheel(hi2c, address)
 {
 	_channel = 2;
 }
-#else
-CoilFlyWheel::CoilFlyWheel(TwoWire &hi2c, uint8_t address): BaseFlyWheel(hi2c, address)
-{
-	_channel = 2;
-}
-CoilFlyWheel::CoilFlyWheel(uint8_t address): BaseFlyWheel(address)
-{
-	_channel = 2;
-}
-#endif
 
 CoilFlyWheel::CoilFlyWheel(const CoilFlyWheel &other): BaseFlyWheel(other)
 {

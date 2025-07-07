@@ -65,7 +65,7 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес ИК-камеры на шине I2C
 	 */
-	IRCamera(interfaces::I2C *i2c = I2C1, uint8_t address = BASE_ADDRESS);
+	IRCamera(interfaces::I2C *i2c, uint8_t address = BASE_ADDRESS);
 //#else
 //	/**
 //	 * @note Только в Arduino IDE

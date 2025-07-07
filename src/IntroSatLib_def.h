@@ -6,7 +6,7 @@
 
 
 #ifdef USE_HAL_DRIVER
-enum ISL_StatusTypeDef: uint8_t {
+typedef enum ISL_StatusTypeDef {
 	ISL_OK      = 0x00U,
 	ISL_ERROR	= 0x01U,
 	ISL_BUSY	= 0x02U,
@@ -22,6 +22,8 @@ enum ISL_StatusTypeDef: uint8_t {
 #endif
 
 #define RETURN_STATUS_IF_NOT_OK(func, status) if ((status = func) != ISL_StatusTypeDef::ISL_OK) { return status; }
+#define RETURN_STATUS_IF_NOT_OK_SILENT(func) {ISL_StatusTypeDef __status__ = ISL_StatusTypeDef::ISL_OK; \
+if ((__status__ = func) != ISL_StatusTypeDef::ISL_OK) { return __status__; }}
 
 
 

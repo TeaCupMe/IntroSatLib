@@ -2,11 +2,11 @@
 #define ACCELEROMETERV2_H_
 
 #include "../I2CDevice.h"
-#include "../BaseDevice.h"
+//#include "../BaseDevice.h"
 
 namespace IntroSatLib {
 
-class AccelerometerV2: public BaseDevice {
+class AccelerometerV2: private I2CDevice {
 
 private:
   
@@ -78,7 +78,6 @@ public:
 
     uint8_t _sens = 0;
 
-#ifndef ARDUINO
 	/**
 	 * @brief Конструктор объекта акселлерометра. 
 	 * @note Только в STM32CubeIDE
@@ -86,32 +85,15 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес акселлерометра на шине I2C
 	 */
-    AccelerometerV2(I2C_HandleTypeDef *hi2c, uint8_t address = BASE_ADDRESS);
-#else
-	/**
-	 * @brief Конструктор объекта акселлерометра
-	 * @note Только в Arduino IDE
-	 * 
-	 * @param hi2c объект @b TwoWire или @b Wire 
-	 * @param address адрес акселлерометра на шине I2C
-	 */
-    AccelerometerV2(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
-	
-	/**
-	 * @note Только в Arduino IDE
-	 * @brief Конструктор объекта акселлерометра на @b I2C1 
-	 * 
-	 * @param address адрес акселлерометра на шине I2C
-	 */
-	AccelerometerV2(uint8_t address = BASE_ADDRESS);
-#endif
+    AccelerometerV2(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
+
 	/**
 	 * @brief Инициализация акселлерометра с параметрами по умолчанию: @ref Scale::fourG, @ref FilterBandwidth::F400H, @ref DataRate::DR6_66KH.
 	 * 
 	 * @returns 0, если инициализация завершена успешно
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
-    uint8_t Init();
+    ISL_StatusTypeDef Init();
 
 	/**
 	 * @brief Инициализация акселлерометра с заданным диапазоном измерения
@@ -121,7 +103,7 @@ public:
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
 	//TODO Переименовать sens в scale, иначе вызывает путаницу. Это именно scale
-    uint8_t Init(Scale sens);
+    ISL_StatusTypeDef Init(Scale sens);
 
 	/**
 	 * @brief Инициализация акселлерометра с заданными диапазоном измерения и шириной окна фильтра 
@@ -132,7 +114,7 @@ public:
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
 	//TODO Переименовать sens в scale, иначе вызывает путаницу. Это именно scale
-    uint8_t Init(Scale sens, FilterBandwidth filter);
+    ISL_StatusTypeDef Init(Scale sens, FilterBandwidth filter);
 
 	/**
 	 * @brief Инициализация акселлерометра с заданными диапазоном измерения, шириной окна фильтра и скоростью обновления данных 
@@ -144,7 +126,7 @@ public:
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
 	//TODO Переименовать sens в scale, иначе вызывает путаницу. Это именно scale
-    uint8_t Init(Scale sens, FilterBandwidth filter, DataRate datarate);
+    ISL_StatusTypeDef Init(Scale sens, FilterBandwidth filter, DataRate datarate);
 
 	/**
 	 * @brief Установка диапазона измерения
@@ -153,27 +135,27 @@ public:
 	 */
 	//TODO Переименовать sens в scale, иначе вызывает путаницу. Это именно scale
 	//? @irongamer54 Тут параметр по умолчанию Scale::twoG, хотя в Init() выставляется fourG (из BASE_ACCELL_CONF)
-    uint8_t SetScale(Scale sens = twoG);
+    ISL_StatusTypeDef SetScale(Scale sens = twoG);
 
 	/**
 	 * @brief Установка ширины окна фильтра
 	 * 
 	 * @param filter Значение ширины фильтра @ref FilterBandwidth 
 	 */
-    void SetFilter(FilterBandwidth filter = F400H);
+    ISL_StatusTypeDef SetFilter(FilterBandwidth filter = F400H);
 
 	/**
 	 * @brief Установка скорости обновления данных
 	 * 
 	 * @param datarate datarate Значение скорости обновления данных @ref DataRate
 	 */
-    void SetDataRate(DataRate datarate);
+    ISL_StatusTypeDef SetDataRate(DataRate datarate);
 
 	/**
 	 * @brief Отключение акселлерометра - переход в режим экономии энергии
 	 * 
 	 */
-    void end();
+    ISL_StatusTypeDef end();
 
 	/**
 	 * @brief Получение @b необработанного значения ускорения по оси X.

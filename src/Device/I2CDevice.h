@@ -7,16 +7,24 @@
 
 namespace IntroSatLib {
 
-class I2CDevice: public Device {
+class I2CDevice: public Device 	{
 
 private:
-	interfaces::I2C &_i2c;
+	interfaces::I2C *_i2c;
 
 protected:
 
 	uint8_t _address;
 
 	ISL_StatusTypeDef IsReady();
+
+	/**
+	 * @brief checks if register contents equal to @b value
+	 *
+	 * @returns @b true, if register was read successfully and its contents match @value
+	 * @returns @b false, if any error happened during communication or register contents do not match @b value
+	 */
+	bool CheckRegisterI2C(uint8_t reg, uint8_t value);
 
 	ISL_StatusTypeDef WriteI2C(uint8_t* buf, uint8_t nBytes = 1);
 
@@ -76,7 +84,7 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef в STM32CubeIDE или @b Wire в Arduino IDE
 	 * @param address адрес устройства на шине I2C
 	 */
-	I2CDevice(interfaces::I2C *hi2c, uint8_t address);
+	I2CDevice(interfaces::I2C *i2c, uint8_t address);
 
 	/**
 	 * @brief Создание объекта @ref BaseDevice как копии другого объекта @ref BaseDevice 

@@ -30,6 +30,7 @@
 	#ifdef HAL_SPI_MODULE_ENABLED
 		// include STM32-specific implementation of I2C
 		#include "STM32/STM32_SPI.h"
+//		#define SPI_HANDLE_TYPE SPI_HandleTypeDef
 	#elif !defined(INTROSATLIB_INTERNAL)
 		#error "SPI not enabled as part of HAL"
 	#endif
