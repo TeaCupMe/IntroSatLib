@@ -3,7 +3,7 @@
 
 #include "IntroSatLib_def.h"
 // Resolve platform-dependent I2C
-#if defined(ARDUINO)
+#ifdef ARDUINO
 #include "Arduino.h"
 #endif
 

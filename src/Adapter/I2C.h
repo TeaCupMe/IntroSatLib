@@ -4,12 +4,15 @@
 #include "IntroSatLib_def.h"
 // Resolve platform-dependent I2C
 
-#if defined(AVR) && defined(ARDUINO)
+#ifdef ARDUINO
+#include "Arduino.h"
+#endif
+
+#if defined(AVR)
 /************** AVR  **************/
 	//  This is not yet supported, but it is here for future reference.
 	//  AVR-series in Arduino IDE
 	#error "AVR not yet supported"
-	#include "Arduino.h"
 	#include "Wire.h"
 
 #elif defined(USE_HAL_DRIVER) // TODO Change to more reusable symbol
@@ -17,7 +20,6 @@
 
 	#ifdef ARDUINO
 		// Arduino IDE with stm32duino
-		#include "Arduino.h"
 		#include "Wire.h"
 	#endif
 	
