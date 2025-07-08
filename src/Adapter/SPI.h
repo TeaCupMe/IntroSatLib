@@ -1,11 +1,14 @@
 #ifndef ADAPTER_SPI_H_
 #define ADAPTER_SPI_H_
 
-// Resolve platform-dependent SPI
+// Include general Library definitions
+#include "IntroSatLib_def.h"
+
 #ifdef ARDUINO
 #include "Arduino.h"
 #endif
 
+// Resolve platform-dependent SPI
 #if defined(AVR)
 /************** AVR  **************/
 	//  This is not yet supported, but it is here for future reference.
@@ -29,9 +32,8 @@
 	#endif
 
 	#ifdef HAL_SPI_MODULE_ENABLED
-		// include STM32-specific implementation of I2C
-		#include "STM32/STM32_SPI.h"
-//		#define SPI_HANDLE_TYPE SPI_HandleTypeDef
+		// define STM32-specific handle type for SPI
+		#define SPI_HANDLE_TYPE SPI_HandleTypeDef
 	#elif !defined(INTROSATLIB_INTERNAL)
 		#error "SPI not enabled as part of HAL"
 	#endif
@@ -46,5 +48,44 @@
 	#error "Currently supported systems are: stm32, stm32duino. AVR planned for future support."
 #endif
 #endif
+
+#ifdef SPI_HANDLE_TYPE
+#define I2C_ENABLED
+
+ #include <array>
+
+
+ namespace IntroSatLib {
+ namespace interfaces {
+
+ class SPI final {
+	SPI_HANDLE_TYPE *_hspi = 0;
+ public:
+ 	SPI(SPI_HANDLE_TYPE *hspi): _hspi(hspi) { };
+
+ 	template<size_t N>
+ 	ISL_StatusTypeDef transfer(const std::array<uint8_t, N> out, std::array<uint8_t, N> in)
+ 	{
+ 		return transfer(out.data(), in.data(), N);
+ 	}
+ 	template<size_t N>
+ 	ISL_StatusTypeDef transfer(const std::array<uint8_t, N> out, uint8_t* in)
+ 	{
+ 		return transfer(out.data(), in, N);
+ 	}
+
+ 	template<size_t N>
+ 	ISL_StatusTypeDef transfer(const uint8_t* out, std::array<uint8_t, N> in)
+ 	{
+ 		return transfer(out, in.data(), N);
+ 	}
+
+ 	ISL_StatusTypeDef transfer(const uint8_t* out, uint8_t* in, uint8_t len);
+ };
+
+ } /* namespace intefaces */
+ } /* namespace IntroSatLib */
+
+#endif /* SPI_HANDLE_TYPE */
 
 #endif /* ADAPTER_SPI_H_ */

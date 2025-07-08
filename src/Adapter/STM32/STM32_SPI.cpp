@@ -1,79 +1,48 @@
-// #define INTROSATLIB_INTERNAL
-// #include "STM32_SPI.h"
+#define INTROSATLIB_INTERNAL
+#include "Adapter/SPI.h"
 
-// #ifdef HAL_SPI_MODULE_ENABLED
-//  // If SPI is enabled or at least accessible (in case of Arduino IDE)
+#ifdef HAL_SPI_MODULE_ENABLED // If SPI is enabled or at least accessible (in case of Arduino IDE)
 
+#include "Logger.h"
 
-// #include <array>
-// #include "Logger.h"
+#define ASSERT_SPI_HAVE() \
+if(!_hspi) { \
+logText("No spi handle"); \
+return ISL_StatusTypeDef::ISL_ERROR; \
+}
 
-// #define ASSERT_SPI_HAVE() \
-// if(!_hspi) { \
-// 	logText("No spi handle"); \
-// 	return HAL_StatusTypeDef::HAL_ERROR; \
-// }
+#define LOG_SPI(mode) \
+logText("SPI "); \
+logText(mode);
 
-// #define LOG_SPI(mode) \
-// logText("SPI "); \
-// logText(mode);
+#if LOGDATA
+#define LOG_SPI_BUFFER(Sep, Data, Nbytes) { \
+logText(" - "); \
+for(uint8_t i = 0; i < Nbytes; i++) { \
+logHEX(Data[i]); \
+if (i != (Nbytes - 1)) logText(Sep); \
+} \
+}
 
-// #if LOGDATA
-// #define LOG_SPI_BUFFER(Sep, Data, Nbytes) { \
-// logText(" - "); \
-// for(uint8_t i = 0; i < Nbytes; i++) { \
-// 	logHEX(Data[i]); \
-// 	if (i != (Nbytes - 1)) logText(Sep); \
-// } \
-// }
+#else
+#define LOG_SPI_BUFFER(Sep, Data, Nbytes)
+#endif
 
-// #else
-// #define LOG_SPI_BUFFER(Sep, Data, Nbytes)
-// #endif
+ISL_StatusTypeDef IntroSatLib::interfaces::SPI::transfer(const uint8_t* out, uint8_t* in, uint8_t len)
+ 	{
+		ASSERT_SPI_HAVE();
+ 		LOG_SPI("read/write");
+ 		LOG_SPI_BUFFER(", ", out, len);
+ 		logText(" ");
+ 		logNumber((uint8_t)len);
+ 		logText(" bytes > ");
+ 		ISL_StatusTypeDef result = logStatus(
+ 			(ISL_StatusTypeDef) HAL_SPI_TransmitReceive(_hspi, (uint8_t*) out, in, len, 1000)
+ 		);
 
-// namespace IntroSatLib {
-// namespace interfaces {
+ 		LOG_SPI_BUFFER(", ", in, len);
+ 		logText("\n");
+ 		return result;
+ 	}
+#endif /* HAL_SPI_MODULE_ENABLED */
 
-// class SPI final {
-// 	SPI_HandleTypeDef *_hspi = 0;
-// public:
-// 	SPI(SPI_HandleTypeDef *hspi): _hspi(hspi) { };
-
-// 	template<size_t N>
-// 	HAL_StatusTypeDef transfer(const std::array<uint8_t, N> out, std::array<uint8_t, N> in)
-// 	{
-// 		return transfer(out.data(), in.data(), N);
-// 	}
-// 	template<size_t N>
-// 	HAL_StatusTypeDef transfer(const std::array<uint8_t, N> out, uint8_t* in)
-// 	{
-// 		return transfer(out.data(), in, N);
-// 	}
-
-// 	template<size_t N>
-// 	HAL_StatusTypeDef transfer(const uint8_t* out, std::array<uint8_t, N> in)
-// 	{
-// 		return transfer(out, in.data(), N);
-// 	}
-
-// 	HAL_StatusTypeDef transfer(const uint8_t* out, uint8_t* in, uint8_t len)
-// 	{
-// 		LOG_SPI("read/write");
-// 		LOG_SPI_BUFFER(", ", out, len);
-// 		logText(" ");
-// 		logNumber((uint8_t)len);
-// 		logText(" bytes > ");
-// 		HAL_StatusTypeDef result = logStatus(
-// 			HAL_SPI_TransmitReceive(_hspi, (uint8_t*) out, in, len, 1000)
-// 		);
-
-// 		LOG_SPI_BUFFER(", ", in, len);
-// 		logText("\n");
-// 		return result;
-// 	}
-// };
-
-// } /* namespace intefaces */
-// } /* namespace IntroSatLib */
-
-// #endif /* HAL_SPI_MODULE_ENABLED */
