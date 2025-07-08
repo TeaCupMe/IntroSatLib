@@ -5,51 +5,57 @@
 #include "IntroSatLib_def.h"
 
 #ifdef ARDUINO
-#include "Arduino.h"
-#endif
-
-// Resolve platform-dependent I2C
-#if defined(AVR)
-/************** AVR  **************/
-	//  This is not yet supported, but it is here for future reference.
-	//  AVR-series in Arduino IDE
-	#error "AVR not yet supported"
+/*********************************/
+/********** Arduino IDE **********/
+/*********************************/
+	#include "Arduino.h"
 	#include "Wire.h"
 
-#elif defined(USE_HAL_DRIVER) // TODO Change to more reusable symbol
-/*****  STM32 and stm32duino ******/
-
-	#ifdef ARDUINO
-		// Arduino IDE with stm32duino
-		#include "Wire.h"
-	#endif
-	
-	// Include hal for supported STM32 platforms
-	#include "STM32/stm32XXyy_hal.h"
-
-	#ifndef HAL_MODULE_ENABLED
-		#error "HAL not enabled"
-	#endif
-
-	#ifdef HAL_I2C_MODULE_ENABLED
-		// define STM32-specific handle type for I2C
-		#define I2C_HANDLE_TYPE I2C_HandleTypeDef
-	#elif !defined(INTROSATLIB_INTERNAL)
-		#error "I2C not enabled as part of HAL"
-	#endif
-
-/************** AMUR *************/
-// #elif defined(AMUR)
-	// #error "AMUR not yet supported"
-/************ UNKNOWN ************/
 #else
-#ifndef INTROSATLIB_INTERNAL
-	#error "Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros."
-	#error "Currently supported systems are: stm32, stm32duino. AVR planned for future support."
-#endif
-#endif
+/*********************************/
+/************ Native *************/
+/*********************************/
+	#if defined(AVR)
+	/************** AVR  **************/
+		//  This is not yet supported, but it is here for future reference.
+		//  AVR-series in Arduino IDE
+		#error "Bare AVR outside of Arduino IDE is not yet supported"
+//		#define I2C_HANDLE_TYPE TwoWire
 
-#ifdef I2C_HANDLE_TYPE
+	#elif defined(USE_HAL_DRIVER) // TODO Change to more reusable symbol
+	/*****  STM32 and stm32duino ******/
+
+		// Include HAL for supported STM32 platforms
+		#include "STM32/stm32XXyy_hal.h"
+
+		#ifndef HAL_MODULE_ENABLED
+			#error "HAL configuration incorrect"
+		#endif
+
+		#ifdef HAL_I2C_MODULE_ENABLED
+			// define STM32-specific handle type for I2C
+			#define I2C_HANDLE_TYPE I2C_HandleTypeDef
+
+		#elif !defined(INTROSATLIB_INTERNAL)
+			#error "I2C not enabled as part of HAL"
+		#endif
+
+
+	// #elif defined(AMUR)
+	/************** AMUR *************/
+		// #error "AMUR not yet supported"
+
+	#else
+	/************ UNKNOWN ************/
+	//#ifndef INTROSATLIB_INTERNAL
+		#error "Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros."
+		#error "Currently supported systems are: stm32 with HAL, stm32duino. AVR planned for future support."
+	//#endif
+	#endif
+#endif /* ARDUINO */
+
+
+//#ifdef I2C_HANDLE_TYPE // Unnecessary
 #define I2C_ENABLED
 
 #include <array>
@@ -68,26 +74,8 @@ private:
 	I2CSpeed _speed = I2CSpeed::Standard;
 	ISL_StatusTypeDef innerIsReady(uint8_t address);
 public:
-	/**
-	 * @note Только в STM32CubeIDE
-	 * @brief Конструктор объекта устройства на шине I2C
-	 *
-	 * @param hi2c объект @b I2C_HandleTypeDef
-	 * @param address адрес устройства на шине I2C
-	 */
-	I2C(I2C_HANDLE_TYPE *hi2c);
 
-	/**
-	 * @note Только в STM32CubeIDE
-	 * @brief Конструктор объекта устройства на шине I2C
-	 *
-	 * @param hi2c объект @b I2C_HandleTypeDef
-	 * @param address адрес устройства на шине I2C
-	 * @param speed скорость I2C
-	 */
-	I2C(I2C_HANDLE_TYPE *hi2c, I2CSpeed speed);
-
-#ifdef ARDUINO
+#if defined(ARDUINO)
 	/**
 	 * @note Только в STM32CubeIDE
 	 * @brief Конструктор объекта устройства на шине I2C
@@ -106,6 +94,28 @@ public:
 	 * @param speed скорость I2C
 	 */
 	I2C(TwoWire &hi2c, I2CSpeed speed);
+#endif
+
+#ifdef I2C_HANDLE_TYPE
+
+	/**
+	 * @note Только в STM32CubeIDE
+	 * @brief Конструктор объекта устройства на шине I2C
+	 *
+	 * @param hi2c объект @b I2C_HandleTypeDef
+	 * @param address адрес устройства на шине I2C
+	 */
+	I2C(I2C_HANDLE_TYPE *hi2c);
+
+	/**
+	 * @note Только в STM32CubeIDE
+	 * @brief Конструктор объекта устройства на шине I2C
+	 *
+	 * @param hi2c объект @b I2C_HandleTypeDef
+	 * @param address адрес устройства на шине I2C
+	 * @param speed скорость I2C
+	 */
+	I2C(I2C_HANDLE_TYPE *hi2c, I2CSpeed speed);
 #endif
 
 	I2C(const I2C& other);
@@ -164,5 +174,5 @@ public:
 
 } /* namespace intefaces */
 } /* namespace IntroSatLib */
-#endif /* I2C_HANDLE_TYPE */
+//#endif /* I2C_HANDLE_TYPE */
 #endif /* ADAPTER_I2C_H_ */
