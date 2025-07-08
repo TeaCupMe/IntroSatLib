@@ -1,11 +1,12 @@
 #ifndef CC1101_H_
 #define CC1101_H_
 
-#include "../../Adapter/GPIO.h"
-#include "../../Adapter/SPI.h"
+#include "Adapter/GPIO.h"
+#include "Adapter/SPI.h"
 #include <array>
 #include "string.h"
 #include "math.h"
+#include "Logger.h"
 
 #ifdef SPI_ENABLED
 
@@ -180,11 +181,11 @@ private:
 	};
 
 private:
-	intefaces::SPI &_spi;
-	intefaces::GPIO &_scl;
-	intefaces::GPIO &_mosi;
-	intefaces::GPIO &_miso;
-	intefaces::GPIO &_reset;
+	interfaces::SPI &_spi;
+	interfaces::GPIO &_scl;
+	interfaces::GPIO &_mosi;
+	interfaces::GPIO &_miso;
+	interfaces::GPIO &_reset;
 
 	int _pa = 12;
 	uint8_t _modulation = 2;
@@ -338,11 +339,11 @@ public:
 	 */
 	// TODO @Goldfor для соответствия стандартным названиям может переименовать scl в sck?
 	CC1101(
-		intefaces::SPI &spi,
-		intefaces::GPIO &scl,
-		intefaces::GPIO &mosi,
-		intefaces::GPIO &miso,
-		intefaces::GPIO &reset
+		interfaces::SPI &spi,
+		interfaces::GPIO &scl,
+		interfaces::GPIO &mosi,
+		interfaces::GPIO &miso,
+		interfaces::GPIO &reset
 	): _spi(spi), _scl(scl), _mosi(mosi), _miso(miso),  _reset(reset)
 	{ }
 
@@ -455,11 +456,11 @@ class CC1101WithDelay: public CC1101
 
 public:
 	CC1101WithDelay(
-			intefaces::SPI &spi,
-			intefaces::GPIO &scl,
-			intefaces::GPIO &mosi,
-			intefaces::GPIO &miso,
-			intefaces::GPIO &reset
+			interfaces::SPI &spi,
+			interfaces::GPIO &scl,
+			interfaces::GPIO &mosi,
+			interfaces::GPIO &miso,
+			interfaces::GPIO &reset
 		): CC1101(spi, scl, mosi, miso, reset) { }
 
 	void await(uint8_t len) override
@@ -478,16 +479,16 @@ public:
 class CC1101WithGD0: public CC1101
 {
 
-	intefaces::GPIO &_gd0;
+	interfaces::GPIO &_gd0;
 
 public:
 	CC1101WithGD0(
-			intefaces::SPI &spi,
-			intefaces::GPIO &scl,
-			intefaces::GPIO &mosi,
-			intefaces::GPIO &miso,
-			intefaces::GPIO &reset,
-			intefaces::GPIO &gd0
+			interfaces::SPI &spi,
+			interfaces::GPIO &scl,
+			interfaces::GPIO &mosi,
+			interfaces::GPIO &miso,
+			interfaces::GPIO &reset,
+			interfaces::GPIO &gd0
 		): CC1101(spi, scl, mosi, miso, reset), _gd0(gd0) { }
 
 	void await(uint8_t len) override

@@ -63,7 +63,7 @@ namespace IntroSatLib
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес манитометра на шине I2C
 	 */
-		MagnetometerV2(interfaces::I2C *hi2c, uint8_t address = BASE_ADDRESS);
+		MagnetometerV2(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
 //#else
 //		/**
 //		 * @note Только в Arduino IDE

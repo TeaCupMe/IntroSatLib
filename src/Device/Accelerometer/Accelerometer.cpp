@@ -2,7 +2,7 @@
 
 namespace IntroSatLib {
 
-Accelerometer::Accelerometer(interfaces::I2C *hi2c, uint8_t address): I2CDevice(hi2c, address)
+Accelerometer::Accelerometer(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
 {
 }
 
@@ -35,9 +35,8 @@ Accelerometer& Accelerometer::operator=(Accelerometer&& other)
 
 ISL_StatusTypeDef Accelerometer::Init(Scale sensitivity, FilterBandwidth filter)
 {
-	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
-	RETURN_STATUS_IF_NOT_OK(SetRegisterI2C(0x37, 0x02), status);
-	RETURN_STATUS_IF_NOT_OK(SetScale(sensitivity), status);
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(0x37, 0x02));
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetScale(sensitivity));
 	return SetFilter(filter);
 	//TODO  возвращать _i2c.isReady();
 //	return 0;

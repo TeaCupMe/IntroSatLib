@@ -2,7 +2,7 @@
 
 namespace IntroSatLib {
 
-MotorFlyWheel::MotorFlyWheel(interfaces::I2C *i2c, uint8_t address): BaseFlyWheel(i2c, address)
+MotorFlyWheel::MotorFlyWheel(const interfaces::I2C &i2c, uint8_t address): BaseFlyWheel(i2c, address)
 {
 	_channel = 1;
 }

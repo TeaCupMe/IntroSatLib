@@ -2,7 +2,7 @@
 
 namespace IntroSatLib {
 
-CoilFlyWheel::CoilFlyWheel(interfaces::I2C *hi2c, uint8_t address): BaseFlyWheel(hi2c, address)
+CoilFlyWheel::CoilFlyWheel(const interfaces::I2C &i2c, uint8_t address): BaseFlyWheel(i2c, address)
 {
 	_channel = 2;
 }

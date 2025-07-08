@@ -3,7 +3,7 @@
 namespace IntroSatLib {
 
 //#ifndef ARDUINO
-IRCamera::IRCamera(interfaces::I2C *hi2c, uint8_t address): I2CDevice(hi2c, address)
+IRCamera::IRCamera(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
 {
 }
 //#else
