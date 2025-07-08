@@ -49,12 +49,7 @@ public:
 		F3600b
 	};
 
-//#ifndef ARDUINO
-	Gyroscope(interfaces::I2C *hi2c, uint8_t address = BASE_ADDRESS);
-//#else
-//	Gyroscope(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
-//	Gyroscope(uint8_t address = BASE_ADDRESS);
-//#endif
+	Gyroscope(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
 
 	Gyroscope(const Gyroscope &other);
 	Gyroscope(Gyroscope &&other);

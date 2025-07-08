@@ -14,7 +14,7 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес магнитных катушек на шине I2C
 	 */
-	CoilFlyWheel(interfaces::I2C *i2c, uint8_t address = BASE_ADDRESS);
+	CoilFlyWheel(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
 
 	/**
 	 * @brief Конструктор объекта для управления магнитными катушками как копии другого объекта

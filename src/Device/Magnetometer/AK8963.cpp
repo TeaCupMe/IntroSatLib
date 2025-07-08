@@ -3,7 +3,7 @@
 namespace IntroSatLib {
 
 //#ifndef ARDUINO
-AK8963::AK8963(interfaces::I2C *i2c, uint8_t address): I2CDevice(i2c, address)
+AK8963::AK8963(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
 {
 }
 //#else

@@ -21,7 +21,7 @@ private:
 	ISL_StatusTypeDef ReadCal();
 
 public:
-	AK8963(interfaces::I2C *i2c, uint8_t address = BASE_ADDRESS);
+	AK8963(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
 
 	AK8963(const AK8963& other);
 	AK8963& operator=(const AK8963& other);

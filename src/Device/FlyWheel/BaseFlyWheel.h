@@ -46,7 +46,7 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес маховика на шине I2C
 	 */
-	BaseFlyWheel(interfaces::I2C *i2c, uint8_t address = BASE_ADDRESS);
+	BaseFlyWheel(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
 
 	/**
 	 * @brief Инициализация маховика

@@ -2,7 +2,7 @@
 
 namespace IntroSatLib {
 
-BaseFlyWheel::BaseFlyWheel(interfaces::I2C *i2c, uint8_t address): I2CDevice(i2c, address)
+BaseFlyWheel::BaseFlyWheel(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
 {
 
 }
@@ -10,7 +10,7 @@ BaseFlyWheel::BaseFlyWheel(interfaces::I2C *i2c, uint8_t address): I2CDevice(i2c
 
 ISL_StatusTypeDef BaseFlyWheel::Init()
 {
-	_version = GetRegisterI2C(RegisterMap::Version);
+	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(RegisterMap::Version, &_version));
 
 	if (_version < 2)
 	{

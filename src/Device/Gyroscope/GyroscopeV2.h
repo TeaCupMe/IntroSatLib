@@ -83,7 +83,7 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес гироскопа на шине I2C
 	 */
-	GyroscopeV2(interfaces::I2C *i2c, uint8_t address = BASE_ADDRESS);
+	GyroscopeV2(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
 
 	/**
 	 * @brief Конструктор объекта гироскопа как копии другого объекта гироскопа

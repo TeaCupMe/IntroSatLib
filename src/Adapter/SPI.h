@@ -50,7 +50,7 @@
 #endif
 
 #ifdef SPI_HANDLE_TYPE
-#define I2C_ENABLED
+#define SPI_ENABLED
 
  #include <array>
 
