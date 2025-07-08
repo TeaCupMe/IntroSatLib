@@ -206,4 +206,4 @@ IntroSatLib::interfaces::I2C::~I2C()
 {
 }
 
-#endif /* HAL_SPI_MODULE_ENABLED */
+#endif /* HAL_I2C_MODULE_ENABLED */

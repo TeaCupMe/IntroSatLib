@@ -1,13 +1,14 @@
 #ifndef ADAPTER_I2C_H_
 #define ADAPTER_I2C_H_
 
+// Include general Library definitions
 #include "IntroSatLib_def.h"
-// Resolve platform-dependent I2C
 
 #ifdef ARDUINO
 #include "Arduino.h"
 #endif
 
+// Resolve platform-dependent I2C
 #if defined(AVR)
 /************** AVR  **************/
 	//  This is not yet supported, but it is here for future reference.
@@ -31,8 +32,7 @@
 	#endif
 
 	#ifdef HAL_I2C_MODULE_ENABLED
-		// include STM32-specific implementation of I2C
-//		#include "STM32/STM32_I2C.h"
+		// define STM32-specific handle type for I2C
 		#define I2C_HANDLE_TYPE I2C_HandleTypeDef
 	#elif !defined(INTROSATLIB_INTERNAL)
 		#error "I2C not enabled as part of HAL"
