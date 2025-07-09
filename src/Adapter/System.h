@@ -1,5 +1,5 @@
-#ifndef ADAPTER_CLOCK_H_
-#define ADAPTER_CLOCK_H_
+#ifndef ADAPTER_SYSTEM_H_
+#define ADAPTER_SYSTEM_H_
 
 #include "IntroSatLib_def.h"
 // Resolve platform-dependent I2C
@@ -44,4 +44,12 @@
 #endif
 #endif
 
-#endif /* ADAPTER_CLOCK_H_ */
+#include <stdint.h>
+
+namespace IntroSatLib {
+	namespace system {
+		uint32_t GetTick();
+	};
+};
+
+#endif /* ADAPTER_SYSTEM_H_ */
