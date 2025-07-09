@@ -3,6 +3,8 @@
 
 // Include general Library definitions
 #include "IntroSatLib_def.h"
+namespace IntroSatLib {
+namespace interfaces {
 
 #ifdef ARDUINO
 /*********************************/
@@ -10,6 +12,7 @@
 /*********************************/
 	#include "Arduino.h"
 	#include "Wire.h"
+	using I2C_HANDLE_TYPE = TwoWire;
 
 #else
 /*********************************/
@@ -34,7 +37,7 @@
 
 		#ifdef HAL_I2C_MODULE_ENABLED
 			// define STM32-specific handle type for I2C
-			#define I2C_HANDLE_TYPE I2C_HandleTypeDef
+			using I2C_HANDLE_TYPE = I2C_HandleTypeDef;
 
 		#elif !defined(INTROSATLIB_INTERNAL)
 			#error "I2C not enabled as part of HAL"
@@ -60,8 +63,6 @@
 
 #include <array>
 
-namespace IntroSatLib {
-namespace interfaces {
 
 class I2C final {
 	enum class I2CSpeed
@@ -74,29 +75,6 @@ private:
 	I2CSpeed _speed = I2CSpeed::Standard;
 	ISL_StatusTypeDef innerIsReady(uint8_t address);
 public:
-
-#if defined(ARDUINO)
-	/**
-	 * @note Только в STM32CubeIDE
-	 * @brief Конструктор объекта устройства на шине I2C
-	 *
-	 * @param hi2c объект @b I2C_HandleTypeDef
-	 * @param address адрес устройства на шине I2C
-	 */
-	I2C(TwoWire &hi2c);
-
-	/**
-	 * @note Только в STM32CubeIDE
-	 * @brief Конструктор объекта устройства на шине I2C
-	 *
-	 * @param hi2c объект @b I2C_HandleTypeDef
-	 * @param address адрес устройства на шине I2C
-	 * @param speed скорость I2C
-	 */
-	I2C(TwoWire &hi2c, I2CSpeed speed);
-#endif
-
-#ifdef I2C_HANDLE_TYPE
 
 	/**
 	 * @note Только в STM32CubeIDE
@@ -116,7 +94,6 @@ public:
 	 * @param speed скорость I2C
 	 */
 	I2C(I2C_HANDLE_TYPE *hi2c, I2CSpeed speed);
-#endif
 
 	I2C(const I2C& other);
 	I2C(I2C&& other);
