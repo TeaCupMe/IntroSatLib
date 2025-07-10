@@ -3,8 +3,7 @@
 
 // Include general Library definitions
 #include "IntroSatLib_def.h"
-namespace IntroSatLib {
-namespace interfaces {
+
 
 #ifdef ARDUINO
 /*********************************/
@@ -12,7 +11,7 @@ namespace interfaces {
 /*********************************/
 	#include "Arduino.h"
 	#include "Wire.h"
-	using I2C_HANDLE_TYPE = TwoWire;
+	namespace IntroSatLib::interfaces {using I2C_HANDLE_TYPE = I2C_HandleTypeDef;}
 
 #else
 /*********************************/
@@ -37,7 +36,7 @@ namespace interfaces {
 
 		#ifdef HAL_I2C_MODULE_ENABLED
 			// define STM32-specific handle type for I2C
-			using I2C_HANDLE_TYPE = I2C_HandleTypeDef;
+			namespace IntroSatLib::interfaces {using I2C_HANDLE_TYPE = I2C_HandleTypeDef;}
 
 		#elif !defined(INTROSATLIB_INTERNAL)
 			#error "I2C not enabled as part of HAL"
@@ -62,7 +61,8 @@ namespace interfaces {
 #define I2C_ENABLED
 
 #include <array>
-
+namespace IntroSatLib {
+namespace interfaces {
 
 class I2C final {
 	enum class I2CSpeed

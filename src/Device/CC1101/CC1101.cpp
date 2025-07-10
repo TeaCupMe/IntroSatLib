@@ -1,6 +1,6 @@
 #define INTROSATLIB_INTERNAL
 #include "CC1101.h"
-#ifdef SPI_ENABLED
+#ifdef SPI_ENABLED2
 namespace IntroSatLib {
 
 void CC1101::reset()
