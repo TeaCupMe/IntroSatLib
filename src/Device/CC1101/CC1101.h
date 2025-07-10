@@ -8,7 +8,7 @@
 #include "math.h"
 #include "Logger.h"
 
-#ifdef SPI_ENABLED
+#ifdef SPI_ENABLED2
 
 namespace IntroSatLib {
 
