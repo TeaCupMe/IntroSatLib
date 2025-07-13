@@ -97,7 +97,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::innerIsReady(uint8_t deviceAddre
 	LOG_I2C_ADDRESS();
 	logText(": ");
 	_hi2c->beginTransmission(deviceAddress);
-	uint8_t result = _hi2c.endTransmission();
+	uint8_t result = _hi2c->endTransmission();
 	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
 	// result codes of endTransmission() according to
 	// https://docs.arduino.cc/language-reference/en/functions/communication/wire/endTransmission/
