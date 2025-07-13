@@ -31,22 +31,22 @@ for(uint8_t i = 0; i < Nbytes; i++) { \
 #endif
 
 
-//IntroSatLib::interfaces::I2C::I2C(TwoWire *hi2c): _hi2c(hi2c)
+IntroSatLib::interfaces::I2C::I2C(TwoWire *hi2c): _hi2c(hi2c)
+{
+}
+
+IntroSatLib::interfaces::I2C::I2C(TwoWire *hi2c, I2CSpeed speed): _hi2c(hi2c), _speed(speed)
+{
+}
+
+
+//IntroSatLib::interfaces::I2C::I2C(TwoWire &hi2c): _hi2c(hi2c)
 //{
 //}
 //
-//IntroSatLib::interfaces::I2C::I2C(TwoWire *hi2c, I2CSpeed speed): _hi2c(hi2c), _speed(speed)
+//IntroSatLib::interfaces::I2C::I2C(TwoWire &hi2c, I2CSpeed speed): _hi2c(hi2c), _speed(speed)
 //{
 //}
-
-
-IntroSatLib::interfaces::I2C::I2C(TwoWire &hi2c): _hi2c(hi2c)
-{
-}
-
-IntroSatLib::interfaces::I2C::I2C(TwoWire &hi2c, I2CSpeed speed): _hi2c(hi2c), _speed(speed)
-{
-}
 
 IntroSatLib::interfaces::I2C::I2C(const I2C& other)
 {
