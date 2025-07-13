@@ -30,7 +30,7 @@
 	#endif
 
 	// include STM32-specific implementation of basic functions
-	#include "STM32/STM32_System.h"
+//	#include "STM32/STM32_System.h"
 
 
 /************** AMUR *************/
