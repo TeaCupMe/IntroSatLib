@@ -11,7 +11,7 @@
 /*********************************/
 	#include "Arduino.h"
 	#include "Wire.h"
-	namespace IntroSatLib::interfaces {using I2C_HANDLE_TYPE = I2C_HandleTypeDef;}
+	namespace IntroSatLib::interfaces {using I2C_HANDLE_TYPE = TwoWire;}
 
 #else
 /*********************************/
