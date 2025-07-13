@@ -1,6 +1,7 @@
 #define INTROSATLIB_INTERNAL
 #include "Adapter/I2C.h"
 
+//#define ARDUINO
 #ifdef ARDUINO
 
 #include "I2C_Err.h"
@@ -95,9 +96,25 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::innerIsReady(uint8_t deviceAddre
 {
 	LOG_I2C_ADDRESS();
 	logText(": ");
-	ISL_StatusTypeDef status = logStatus(
-			(ISL_StatusTypeDef) HAL_I2C_IsDeviceReady(_hi2c, deviceAddress, 1, 1000)
-	);
+	_hi2c->beginTransmission(deviceAddress);
+	uint8_t result = _hi2c.endTransmission();
+	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
+	// result codes of endTransmission() according to
+	// https://docs.arduino.cc/language-reference/en/functions/communication/wire/endTransmission/
+	switch (result) {
+		case (0):	// success
+			break;
+		case (5):	// timeout
+			status = ISL_StatusTypeDef::ISL_TIMEOUT;
+			break;
+		case (1):	// data too long to fit in transmit buffer
+		case (2):	// received NACK on transmit of address
+		case (3):	// received NACK on transmit of data
+		case (4):	// other error
+		default:
+			status = ISL_StatusTypeDef::ISL_ERROR;
+	}
+	logStatus(status);
 	logText("\n");
 	return status;
 }
@@ -109,17 +126,48 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::read(uint8_t deviceAddress, uint
 	LOG_I2C_ADDRESS();
 	logText(" read ");
 	logNumber(nBytes);
-	logText("bytes > ");
 
-	ISL_StatusTypeDef status = logStatus(
-			static_cast<ISL_StatusTypeDef>(HAL_I2C_Master_Receive(_hi2c, deviceAddress, data, nBytes, 1000))
-	);
-	if (status == ISL_StatusTypeDef::ISL_OK) { LOG_I2C_BUFFER(", ", data, nBytes); }
-	else {I2C_ErrorAnalyzer(_hi2c);}
+	// flush RX buffer
+	while (_hi2c->available()) {
+		_hi2c->read();
+	}
 
+/* TODO according to
+ * https://docs.arduino.cc/language-reference/en/functions/communication/wire/setWireTimeout/#:~:text=Code%20that%20needs,are%20all%20available.
+ * WIRE_HAS_TIMEOUT is defined when Wire.setWireTimeout(), Wire.getWireTimeoutFlag() and Wire.clearWireTimeot() are all defined
+ * However it seems like WIRE_HAS_TIMEOUT is not defined even for Arduino UNO in Arduino IDE, although all the methods above are defined.
+*/
+#ifdef WIRE_HAS_TIMEOUT
+	_hi2c->clearWireTimeout();
+#endif
+
+	_hi2c->requestFrom(deviceAddress, nBytes);
+
+	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
+#ifdef WIRE_HAS_TIMEOUT
+	if (_hi2c->getWireTimeoutFlag()) { status = logStatus(ISL_StatusTypeDef::ISL_TIMEOUT); }
+#endif
+
+	if (status == ISL_StatusTypeDef::ISL_OK) {
+		// Handle basic errors to mimic HAL_I2C_Master_Receive method (kinda)
+		if (_hi2c->available() < nBytes) {
+			// buffer has less bytes than expected
+			status =  logStatus(ISL_StatusTypeDef::ISL_ERROR);
+		} else {
+			logStatus(status);
+
+			while (_hi2c->available()) {
+				*(data++) = _hi2c->read();
+			}
+
+			logText(" bytes > ");
+			LOG_I2C_BUFFER(", ", data-nBytes, nBytes);
+		}
+
+
+	}
 	logText("\n");
 	return status;
-
 }
 
 ISL_StatusTypeDef IntroSatLib::interfaces::I2C::readMem(uint8_t deviceAddress, uint8_t reg, uint8_t* data, uint8_t nBytes)
@@ -130,22 +178,47 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::readMem(uint8_t deviceAddress, u
 	logHEX(reg);
 	logText(" ");
 	logNumber(nBytes);
-	logText("bytes > ");
-	ISL_StatusTypeDef status = logStatus(
-			(ISL_StatusTypeDef) HAL_I2C_Mem_Read(
-			_hi2c,
-			deviceAddress,
-			reg,
-			I2C_MEMADD_SIZE_8BIT,
-			data,
-			nBytes,
-			1000
-		)
-	);
 
-	if (status == ISL_StatusTypeDef::ISL_OK) { LOG_I2C_BUFFER(", ", data, nBytes); }
-	else {I2C_ErrorAnalyzer(_hi2c);}
+	// flush RX buffer
+	while (_hi2c->available()) {
+		_hi2c->read();
+	}
 
+	/* TODO according to
+	 * https://docs.arduino.cc/language-reference/en/functions/communication/wire/setWireTimeout/#:~:text=Code%20that%20needs,are%20all%20available.
+	 * WIRE_HAS_TIMEOUT is defined when Wire.setWireTimeout(), Wire.getWireTimeoutFlag() and Wire.clearWireTimeot() are all defined
+	 * However it seems like WIRE_HAS_TIMEOUT is not defined even for Arduino UNO in Arduino IDE, although all the methods above are defined.
+	*/
+#ifdef WIRE_HAS_TIMEOUT
+	_hi2c->clearWireTimeout();
+#endif
+	// TODO check if this method works as expected
+	_hi2c->requestFrom(deviceAddress, nBytes, reg, nBytes, true);
+
+	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
+#ifdef WIRE_HAS_TIMEOUT
+	if (_hi2c->getWireTimeoutFlag()) { return logStatus(ISL_StatusTypeDef::ISL_TIMEOUT); }
+#endif
+
+	// Handle basic errors to mimic HAL_I2C_Master_Receive method (kinda)
+	if (status == ISL_StatusTypeDef::ISL_OK) {
+		// Handle basic errors to mimic HAL_I2C_Master_Receive method (kinda)
+		if (_hi2c->available() != nBytes) {
+			// buffer has more or less bytes than expected
+			status =  logStatus(ISL_StatusTypeDef::ISL_ERROR);
+		} else {
+			logStatus(status);
+
+			while (_hi2c->available()) {
+				*(data++) = _hi2c->read();
+			}
+
+			logText(" bytes > ");
+			LOG_I2C_BUFFER(", ", data-nBytes, nBytes);
+		}
+
+
+	}
 	logText("\n");
 	return status;
 }
@@ -159,13 +232,42 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::write(uint8_t deviceAddress, uin
 	logText(" bytes ");
 	LOG_I2C_BUFFER(", ", data, Nbytes);
 	logText(" > ");
-	ISL_StatusTypeDef status = logStatus(
-			(ISL_StatusTypeDef) HAL_I2C_Master_Transmit(_hi2c, deviceAddress, data, nBytes, 1000)
-	);
 
-	if (status == ISL_StatusTypeDef::ISL_OK) { LOG_I2C_BUFFER(", ", data, nBytes); }
-	else {I2C_ErrorAnalyzer(_hi2c);}
+	/* TODO according to
+	 * https://docs.arduino.cc/language-reference/en/functions/communication/wire/setWireTimeout/#:~:text=Code%20that%20needs,are%20all%20available.
+	 * WIRE_HAS_TIMEOUT is defined when Wire.setWireTimeout(), Wire.getWireTimeoutFlag() and Wire.clearWireTimeot() are all defined
+	 * However it seems like WIRE_HAS_TIMEOUT is not defined even for Arduino UNO in Arduino IDE, although all the methods above are defined.
+	*/
+#ifdef WIRE_HAS_TIMEOUT
+	_hi2c->clearWireTimeout();
+#endif
 
+	_hi2c->beginTransmission(deviceAddress);
+	_hi2c->write(data, nBytes);
+	uint8_t result = _hi2c->endTransmission();
+
+#ifdef WIRE_HAS_TIMEOUT
+	if (_hi2c->getWireTimeoutFlag()) { return logStatus(ISL_StatusTypeDef::ISL_TIMEOUT); }
+#endif
+
+	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
+	// result codes of endTransmission() according to
+	// https://docs.arduino.cc/language-reference/en/functions/communication/wire/endTransmission/
+	switch (result) {
+		case (0):	// success
+			break;
+		case (5):	// timeout
+			status = ISL_StatusTypeDef::ISL_TIMEOUT;
+			break;
+		case (1):	// data too long to fit in transmit buffer
+		case (2):	// received NACK on transmit of address
+		case (3):	// received NACK on transmit of data
+		case (4):	// other error
+		default:
+			status = ISL_StatusTypeDef::ISL_ERROR;
+	}
+
+	logStatus(status);
 	logText("\n");
 	return status;
 }
@@ -174,26 +276,50 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::writeMem(uint8_t deviceAddress, 
 {
 	ASSERT_I2C_HAVE();
 	LOG_I2C_ADDRESS();
-	logText(" write from memory ");
+	logText(" write to memory ");
 	logHEX(reg);
 	logText(" ");
 	logNumber(nBytes);
 	logText(" bytes ");
 	LOG_I2C_BUFFER(", ", data, nBytes);
 	logText(" > ");
-	ISL_StatusTypeDef status = logStatus(
-			(ISL_StatusTypeDef) HAL_I2C_Mem_Write(
-				_hi2c,
-				deviceAddress,
-				reg,
-				I2C_MEMADD_SIZE_8BIT,
-				data,
-				nBytes,
-				1000)
-	);
-	if (status == ISL_StatusTypeDef::ISL_OK) { LOG_I2C_BUFFER(", ", data, nBytes); }
-	else {I2C_ErrorAnalyzer(_hi2c);}
 
+	/* TODO according to
+	 * https://docs.arduino.cc/language-reference/en/functions/communication/wire/setWireTimeout/#:~:text=Code%20that%20needs,are%20all%20available.
+	 * WIRE_HAS_TIMEOUT is defined when Wire.setWireTimeout(), Wire.getWireTimeoutFlag() and Wire.clearWireTimeot() are all defined
+	 * However it seems like WIRE_HAS_TIMEOUT is not defined even for Arduino UNO in Arduino IDE, although all the methods above are defined.
+	*/
+#ifdef WIRE_HAS_TIMEOUT
+	_hi2c->clearWireTimeout();
+#endif
+
+	_hi2c->beginTransmission(deviceAddress);
+	_hi2c->write(reg);
+	_hi2c->write(data, nBytes);
+	uint8_t result = _hi2c->endTransmission();
+
+#ifdef WIRE_HAS_TIMEOUT
+	if (_hi2c->getWireTimeoutFlag()) { return logStatus(ISL_StatusTypeDef::ISL_TIMEOUT); }
+#endif
+
+	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
+	// result codes of endTransmission() according to
+	// https://docs.arduino.cc/language-reference/en/functions/communication/wire/endTransmission/
+	switch (result) {
+		case (0):	// success
+			break;
+		case (5):	// timeout
+			status = ISL_StatusTypeDef::ISL_TIMEOUT;
+			break;
+		case (1):	// data too long to fit in transmit buffer
+		case (2):	// received NACK on transmit of address
+		case (3):	// received NACK on transmit of data
+		case (4):	// other error
+		default:
+			status = ISL_StatusTypeDef::ISL_ERROR;
+	}
+
+	logStatus(status);
 	logText("\n");
 	return status;
 }

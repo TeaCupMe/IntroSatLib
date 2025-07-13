@@ -27,16 +27,16 @@ ISL_StatusTypeDef logStatus(ISL_StatusTypeDef status)
 	switch(status)
 	{
 	case ISL_StatusTypeDef::ISL_OK:
-		logText("HAL_OK");
+		logText("OK");
 		break;
 	case ISL_StatusTypeDef::ISL_ERROR:
-		logText("HAL_ERROR");
+		logText("ERROR");
 		break;
 	case ISL_StatusTypeDef::ISL_BUSY:
-		logText("HAL_BUSY");
+		logText("BUSY");
 		break;
 	case ISL_StatusTypeDef::ISL_TIMEOUT:
-		logText("HAL_TIMEOUT");
+		logText("TIMEOUT");
 		break;
 	default:
 		logText("NON_STATUS");
