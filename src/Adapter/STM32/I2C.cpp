@@ -38,15 +38,15 @@ IntroSatLib::interfaces::I2C::I2C(I2C_HANDLE_TYPE *hi2c, I2CSpeed speed): _hi2c(
 {
 }
 
-#ifdef ARDUINO
-IntroSatLib::interfaces::I2C::I2C(TwoWire &hi2c): _hi2c(hi2c.getHandle())
-{
-}
-
-IntroSatLib::interfaces::I2C::I2C(TwoWire &hi2c, I2CSpeed speed): _hi2c(hi2c.getHandle()), _speed(speed)
-{
-}
-#endif
+//#ifdef ARDUINO
+//IntroSatLib::interfaces::I2C::I2C(TwoWire &hi2c): _hi2c(hi2c.getHandle())
+//{
+//}
+//
+//IntroSatLib::interfaces::I2C::I2C(TwoWire &hi2c, I2CSpeed speed): _hi2c(hi2c.getHandle()), _speed(speed)
+//{
+//}
+//#endif
 
 
 IntroSatLib::interfaces::I2C::I2C(const I2C& other)

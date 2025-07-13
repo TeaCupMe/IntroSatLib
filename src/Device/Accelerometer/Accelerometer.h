@@ -7,7 +7,7 @@
 namespace IntroSatLib {
 
 
-class Accelerometer: private I2CDevice {
+class Accelerometer: protected I2CDevice {
 
 private:
 	// @Goldfor может вынести в protected? Чтобы с точки зрения документации было логичнее
