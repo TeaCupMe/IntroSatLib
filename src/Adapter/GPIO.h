@@ -7,7 +7,7 @@
 /********** Arduino IDE **********/
 /*********************************/
 	#include "Arduino.h"
-	namespace IntroSatLib::interfaces {using GPIO_HANDLE_TYPE = GPIO_HandleTypeDef;}
+	namespace IntroSatLib::interfaces {using PORT_HANDLE_TYPE = GPIO_HandleTypeDef;}
 
 #else
 /*********************************/
