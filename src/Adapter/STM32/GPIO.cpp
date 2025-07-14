@@ -20,10 +20,4 @@ uint8_t IntroSatLib::interfaces::GPIO::wait(uint8_t state, uint16_t timeout) con
 	return 0;
 }
 
-uint8_t IntroSatLib::interfaces::GPIO::waitReset(uint16_t timeout) const
-{ return wait(0, timeout); }
-
-uint8_t IntroSatLib::interfaces::GPIO::waitSet(uint16_t timeout) const
-{ return wait(1, timeout); }
-
 #endif /* defined(HAL_GPIO_MODULE_ENABLED) && !defined(ARDUINO) */
