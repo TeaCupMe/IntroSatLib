@@ -23,7 +23,7 @@
 	/************  STM32 **************/
 
 		// Include HAL for supported STM32 platforms
-		#include "STM32/stm32XXyy_hal.h"
+		#include "./STM32/stm32XXyy_hal.h"
 
 		#ifndef HAL_MODULE_ENABLED
 			#error "HAL configuration incorrect"
