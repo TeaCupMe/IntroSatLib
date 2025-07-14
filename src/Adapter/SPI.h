@@ -9,7 +9,7 @@
 /********** Arduino IDE **********/
 /*********************************/
 	#include "Arduino.h"
-	#include "SPI.h"
+	#include <SPI.h>
 	namespace IntroSatLib::interfaces {using SPI_HANDLE_TYPE = SPIClass;}
 
 #else
