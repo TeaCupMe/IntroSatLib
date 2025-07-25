@@ -70,20 +70,20 @@ ISL_StatusTypeDef MagnetometerV2::SetScale(Scale sensitivity)
 
 ISL_StatusTypeDef MagnetometerV2::Read()
 {
-//	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
-//	uint8_t status_reg;
-//
-//	if ((status = ReadRegisterI2C(RegisterMap::STATUS_REG, &status_reg)) != 0) { return status; }
-//
-//	if (status_reg & 0x08)
-//	{
-//		uint8_t buf[6];
-//		_i2c.read(RegisterMap::OUT_X_L, buf, 6);
-//		_x = buf[1] << 8 | buf[0];
-//		_y = buf[3] << 8 | buf[2];
-//		_z = buf[5] << 8 | buf[4];
-//	}
-//	return ISL_StatusTypeDef::ISL_ERROR;
+	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
+	uint8_t status_reg;
+
+	if ((status = ReadRegisterI2C(RegisterMap::STATUS_REG, &status_reg)) != 0) { return status; }
+
+	if (status_reg & 0x08)
+	{
+		uint8_t buf[6];
+		ReadRegisterI2C(RegisterMap::OUT_X_L, buf, 6);
+		_x = buf[1] << 8 | buf[0];
+		_y = buf[3] << 8 | buf[2];
+		_z = buf[5] << 8 | buf[4];
+	}
+	return ISL_StatusTypeDef::ISL_ERROR;
 
 	// Return ISL_OK not to break anything
 	return ISL_StatusTypeDef::ISL_OK;

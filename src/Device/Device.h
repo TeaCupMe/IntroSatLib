@@ -1,6 +1,7 @@
 #ifndef DEVICE_H_
 #define DEVICE_H_
 
+#include "IntroSatLib_def.h"
 //#include <stdint.h>
 
 namespace IntroSatLib {

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "IntroSatLib_def.h"
 
-#define LOGDATA 0
+#define LOGDATA 1
 
 #ifdef ARDUINO
 #include <Arduino.h>
