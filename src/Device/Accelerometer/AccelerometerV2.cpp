@@ -8,10 +8,12 @@ AccelerometerV2::AccelerometerV2(const interfaces::I2C &i2c, uint8_t address): I
 
 ISL_StatusTypeDef AccelerometerV2::Init()
 {
+	HAL_Delay(15);
 	if (!(CheckRegisterI2C(RegisterMap::WHO_AM_I_REG, 0x6C) || CheckRegisterI2C(RegisterMap::WHO_AM_I_REG, 0x69))) {
 		return ISL_StatusTypeDef::ISL_ERROR;
 	}
-//	SetRegister(RegisterMap::CTRL1_XL, BASE_ACCEL_CONF);
+
+//	SetRegisterI2C(RegisterMap::CTRL1_XL, BASE_ACCEL_CONF);
 	// TODO Лучше сделать явную установку параметров, так понятнее, что происходит, чем использование магического BASE_ACCEL_CONF
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetScale(Scale::fourG));
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetDataRate(DataRate::DR6_66KH));

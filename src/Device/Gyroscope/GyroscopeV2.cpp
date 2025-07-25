@@ -38,6 +38,7 @@ GyroscopeV2& GyroscopeV2::operator=(GyroscopeV2 &&other)
 }
 ISL_StatusTypeDef GyroscopeV2::Init(Scale scale, DataRate dataRate)
 {
+	HAL_Delay(15);
 	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
 	if ((status = SetScale(scale)) != ISL_StatusTypeDef::ISL_OK) { return status; }
 

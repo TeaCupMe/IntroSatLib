@@ -52,7 +52,7 @@
 	#endif
 #endif
 
-#ifdef SPI_HANDLE_TYPE
+//#ifdef SPI_HANDLE_TYPE
 #define SPI_ENABLED
 
  #include <array>
@@ -91,4 +91,4 @@
 
 #endif /* SPI_HANDLE_TYPE */
 
-#endif /* ADAPTER_SPI_H_ */
+//#endif /* ADAPTER_SPI_H_ */

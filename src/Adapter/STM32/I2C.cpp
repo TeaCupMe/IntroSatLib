@@ -14,7 +14,7 @@ if(!_hi2c) { \
 
 #define LOG_I2C_ADDRESS() \
 logText("Device in "); \
-logHEX(deviceAddress >> 1);
+logHEX(deviceAddress);
 
 #if LOGDATA
 #define LOG_I2C_BUFFER(Sep, Data, Nbytes) { \
@@ -48,19 +48,21 @@ IntroSatLib::interfaces::I2C::I2C(I2C_HANDLE_TYPE *hi2c, I2CSpeed speed): _hi2c(
 //}
 //#endif
 
-
+// TODO Move to Header
 IntroSatLib::interfaces::I2C::I2C(const I2C& other)
 {
 	_hi2c = other._hi2c;
 	_speed = other._speed;
 }
 
+// TODO Move to Header
 IntroSatLib::interfaces::I2C::I2C(I2C&& other)
 {
 	_hi2c = other._hi2c;
 	_speed = other._speed;
 }
 
+// TODO Move to Header
 IntroSatLib::interfaces::I2C& IntroSatLib::interfaces::I2C::operator=(const I2C& other)
 {
 	if (this == &other)
@@ -72,6 +74,7 @@ IntroSatLib::interfaces::I2C& IntroSatLib::interfaces::I2C::operator=(const I2C&
 	return *this;
 }
 
+// TODO Move to Header
 IntroSatLib::interfaces::I2C& IntroSatLib::interfaces::I2C::operator=(I2C&& other)
 {
 	if (this == &other)
@@ -82,6 +85,8 @@ IntroSatLib::interfaces::I2C& IntroSatLib::interfaces::I2C::operator=(I2C&& othe
 	_speed = other._speed;
 	return *this;
 }
+
+// TODO Move to Header
 ISL_StatusTypeDef IntroSatLib::interfaces::I2C::isReady(uint8_t deviceAddress, uint8_t waitIsReady)
 {
 	ASSERT_I2C_HAVE();
@@ -98,7 +103,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::innerIsReady(uint8_t deviceAddre
 	LOG_I2C_ADDRESS();
 	logText(": ");
 	ISL_StatusTypeDef status = logStatus(
-			(ISL_StatusTypeDef) HAL_I2C_IsDeviceReady(_hi2c, deviceAddress, 1, 1000)
+			(ISL_StatusTypeDef) HAL_I2C_IsDeviceReady(_hi2c, deviceAddress << 1, 1, 1000)
 	);
 	logText("\n");
 	return status;
@@ -114,7 +119,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::read(uint8_t deviceAddress, uint
 	logText("bytes > ");
 
 	ISL_StatusTypeDef status = logStatus(
-			static_cast<ISL_StatusTypeDef>(HAL_I2C_Master_Receive(_hi2c, deviceAddress, data, nBytes, 1000))
+			static_cast<ISL_StatusTypeDef>(HAL_I2C_Master_Receive(_hi2c, deviceAddress << 1, data, nBytes, 1000))
 	);
 	if (status == ISL_StatusTypeDef::ISL_OK) { LOG_I2C_BUFFER(", ", data, nBytes); }
 	else {I2C_ErrorAnalyzer(_hi2c);}
@@ -136,7 +141,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::readMem(uint8_t deviceAddress, u
 	ISL_StatusTypeDef status = logStatus(
 			(ISL_StatusTypeDef) HAL_I2C_Mem_Read(
 			_hi2c,
-			deviceAddress,
+			deviceAddress << 1,
 			reg,
 			I2C_MEMADD_SIZE_8BIT,
 			data,
@@ -159,10 +164,10 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::write(uint8_t deviceAddress, uin
 	logText(" write ");
 	logNumber(nBytes);
 	logText(" bytes ");
-	LOG_I2C_BUFFER(", ", data, Nbytes);
+	LOG_I2C_BUFFER(", ", data, nBytes);
 	logText(" > ");
 	ISL_StatusTypeDef status = logStatus(
-			(ISL_StatusTypeDef) HAL_I2C_Master_Transmit(_hi2c, deviceAddress, data, nBytes, 1000)
+			(ISL_StatusTypeDef) HAL_I2C_Master_Transmit(_hi2c, deviceAddress << 1, data, nBytes, 1000)
 	);
 
 	if (status == ISL_StatusTypeDef::ISL_OK) { LOG_I2C_BUFFER(", ", data, nBytes); }
@@ -186,7 +191,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::writeMem(uint8_t deviceAddress, 
 	ISL_StatusTypeDef status = logStatus(
 			(ISL_StatusTypeDef) HAL_I2C_Mem_Write(
 				_hi2c,
-				deviceAddress,
+				deviceAddress << 1,
 				reg,
 				I2C_MEMADD_SIZE_8BIT,
 				data,
@@ -201,7 +206,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::writeMem(uint8_t deviceAddress, 
 }
 
 
-
+// TODO Move to Header
 IntroSatLib::interfaces::I2C::~I2C()
 {
 }
