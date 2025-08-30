@@ -1,33 +1,13 @@
+
 #define INTROSATLIB_INTERNAL
 #include "Adapter/I2C.h"
 
 #if defined(HAL_I2C_MODULE_ENABLED) && !defined(ARDUINO)
 
-#include "I2C_Err.h"
+#include <Adapter/STM32/STM32_I2C_Err.h>
 #include "Logger.h"
 
-#define ASSERT_I2C_HAVE() \
-if(!_hi2c) { \
-	logText("Haven't i2c handle"); \
-	return ISL_StatusTypeDef::ISL_ERROR; \
-}
 
-#define LOG_I2C_ADDRESS() \
-logText("Device in "); \
-logHEX(deviceAddress);
-
-#if LOGDATA
-#define LOG_I2C_BUFFER(Sep, Data, Nbytes) { \
-logText(" - "); \
-for(uint8_t i = 0; i < Nbytes; i++) { \
-	logHEX(Data[i]); \
-	if (i != (Nbytes - 1)) logText(Sep); \
-} \
-}
-
-#else
-#define LOG_I2C_BUFFER(Sep, Data, Nbytes)
-#endif
 
 
 IntroSatLib::interfaces::I2C::I2C(I2C_HANDLE_TYPE *hi2c): _hi2c(hi2c)

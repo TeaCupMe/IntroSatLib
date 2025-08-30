@@ -61,6 +61,32 @@
 #define I2C_ENABLED
 
 #include <array>
+
+
+#define ASSERT_I2C_HAVE() \
+if(!_hi2c) { \
+	logText("Haven't i2c handle"); \
+	return ISL_StatusTypeDef::ISL_ERROR; \
+}
+
+#define LOG_I2C_ADDRESS() \
+logText("Device in "); \
+logHEX(deviceAddress);
+
+#if LOGDATA
+#define LOG_I2C_BUFFER(Sep, Data, Nbytes) { \
+logText(" - "); \
+for(uint8_t i = 0; i < Nbytes; i++) { \
+	logHEX(Data[i]); \
+	if (i != (Nbytes - 1)) logText(Sep); \
+} \
+}
+
+#else
+#define LOG_I2C_BUFFER(Sep, Data, Nbytes)
+#endif
+
+
 namespace IntroSatLib {
 namespace interfaces {
 
@@ -94,6 +120,25 @@ public:
 	 * @param speed скорость I2C
 	 */
 	I2C(I2C_HANDLE_TYPE *hi2c, I2CSpeed speed);
+
+	/**
+	 * @note Только в STM32CubeIDE
+	 * @brief Конструктор объекта устройства на шине I2C
+	 *
+	 * @param hi2c объект @b I2C_HandleTypeDef
+	 * @param address адрес устройства на шине I2C
+	 */
+	I2C(I2C_HANDLE_TYPE &hi2c): I2C(&hi2c) {};
+
+	/**
+	 * @note Только в STM32CubeIDE
+	 * @brief Конструктор объекта устройства на шине I2C
+	 *
+	 * @param hi2c объект @b I2C_HandleTypeDef
+	 * @param address адрес устройства на шине I2C
+	 * @param speed скорость I2C
+	 */
+	I2C(I2C_HANDLE_TYPE &hi2c, I2CSpeed speed): I2C(&hi2c, speed) {};
 
 	I2C(const I2C& other);
 	I2C(I2C&& other);

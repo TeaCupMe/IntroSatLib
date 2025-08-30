@@ -1,5 +1,5 @@
 #define INTROSATLIB_INTERNAL
-#include "./AVR_System.h"
+#include "Adapter/System.h"
 #ifdef AVR
 uint32_t IntroSatLib::system::GetTick() {
 	return millis();

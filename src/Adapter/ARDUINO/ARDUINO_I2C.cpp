@@ -4,38 +4,14 @@
 //#define ARDUINO
 #ifdef ARDUINO
 
-#include "I2C_Err.h"
 #include "Logger.h"
 
-#define ASSERT_I2C_HAVE() \
-if(!_hi2c) { \
-	logText("Haven't i2c handle"); \
-	return ISL_StatusTypeDef::ISL_ERROR; \
-}
 
-#define LOG_I2C_ADDRESS() \
-logText("Device in "); \
-logHEX(deviceAddress >> 1);
-
-#if LOGDATA
-#define LOG_I2C_BUFFER(Sep, Data, Nbytes) { \
-logText(" - "); \
-for(uint8_t i = 0; i < Nbytes; i++) { \
-	logHEX(Data[i]); \
-	if (i != (Nbytes - 1)) logText(Sep); \
-} \
-}
-
-#else
-#define LOG_I2C_BUFFER(Sep, Data, Nbytes)
-#endif
-
-
-IntroSatLib::interfaces::I2C::I2C(TwoWire *hi2c): _hi2c(hi2c)
+IntroSatLib::interfaces::I2C::I2C(I2C_HANDLE_TYPE *hi2c): _hi2c(hi2c)
 {
 }
 
-IntroSatLib::interfaces::I2C::I2C(TwoWire *hi2c, I2CSpeed speed): _hi2c(hi2c), _speed(speed)
+IntroSatLib::interfaces::I2C::I2C(I2C_HANDLE_TYPE *hi2c, I2CSpeed speed): _hi2c(hi2c), _speed(speed)
 {
 }
 
@@ -141,11 +117,15 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::read(uint8_t deviceAddress, uint
 	_hi2c->clearWireTimeout();
 #endif
 
-	_hi2c->requestFrom(deviceAddress, nBytes);
+	// TODO this method returns the amount of received bytes. Can be used to check if enough bytes were received
+	uint8_t rxCount = _hi2c->requestFrom(deviceAddress, nBytes);
 
 	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
-#ifdef WIRE_HAS_TIMEOUT
+
+	#ifdef WIRE_HAS_TIMEOUT
 	if (_hi2c->getWireTimeoutFlag()) { status = logStatus(ISL_StatusTypeDef::ISL_TIMEOUT); }
+#else
+	if (rxCount < nBytes) { status = logStatus(ISL_StatusTypeDef::ISL_TIMEOUT); }
 #endif
 
 	if (status == ISL_StatusTypeDef::ISL_OK) {
@@ -156,12 +136,10 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::read(uint8_t deviceAddress, uint
 		} else {
 			logStatus(status);
 
-			while (_hi2c->available()) {
-				*(data++) = _hi2c->read();
-			}
+			_hi2c->readBytes(data, nBytes);
 
 			logText(" bytes > ");
-			LOG_I2C_BUFFER(", ", data-nBytes, nBytes);
+			LOG_I2C_BUFFER(", ", data, nBytes);
 		}
 
 
@@ -209,12 +187,10 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::readMem(uint8_t deviceAddress, u
 		} else {
 			logStatus(status);
 
-			while (_hi2c->available()) {
-				*(data++) = _hi2c->read();
-			}
+			_hi2c->readBytes(data, nBytes);
 
 			logText(" bytes > ");
-			LOG_I2C_BUFFER(", ", data-nBytes, nBytes);
+			LOG_I2C_BUFFER(", ", data, nBytes);
 		}
 
 

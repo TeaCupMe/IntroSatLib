@@ -43,7 +43,8 @@ ISL_StatusTypeDef AccelerometerV2::Init(Scale sens, FilterBandwidth filter, Data
 }
 
 ISL_StatusTypeDef AccelerometerV2::SetScale(Scale sens) {
-	uint8_t reg = GetRegisterI2C(RegisterMap::CTRL1_XL);
+	uint8_t reg;
+	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(RegisterMap::CTRL1_XL, &reg))
 	reg &= 0xFF ^ (Scale::eightG << 2);
 	reg |= (sens << 2);
 	switch (sens)

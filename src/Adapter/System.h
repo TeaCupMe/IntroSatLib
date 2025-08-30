@@ -45,7 +45,6 @@
 #endif
 
 #include <stdint.h>
-
 namespace IntroSatLib {
 	namespace system {
 		uint32_t GetTick();

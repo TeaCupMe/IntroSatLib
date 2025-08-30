@@ -19,6 +19,8 @@
 #define I2C_TIMEOUT_ERRATUM 200
 #define I2C_TIMEOUT_BASE 200
 
+#include "stdint.h"
+
 static uint8_t wait_for_gpio_state_timeout(GPIO_TypeDef *port, uint16_t pin, GPIO_PinState state, uint32_t timeout)
 {
     uint32_t Tickstart = HAL_GetTick();

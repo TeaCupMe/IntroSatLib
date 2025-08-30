@@ -1,7 +1,7 @@
 #define INTROSATLIB_INTERNAL
 #include "Adapter/SPI.h"
 
-#ifdef HAL_SPI_MODULE_ENABLED // If SPI is enabled or at least accessible (in case of Arduino IDE)
+#if defined(HAL_SPI_MODULE_ENABLED) && !defined(ARDUINO) // If HAL SPI is enabled and no Arduino framework
 
 #include "Logger.h"
 
@@ -44,5 +44,5 @@ ISL_StatusTypeDef IntroSatLib::interfaces::SPI::transfer(const uint8_t* out, uin
  		logText("\n");
  		return result;
  	}
-#endif /* HAL_SPI_MODULE_ENABLED */
+#endif /* defined(HAL_SPI_MODULE_ENABLED) && !defined(ARDUINO) */
 
