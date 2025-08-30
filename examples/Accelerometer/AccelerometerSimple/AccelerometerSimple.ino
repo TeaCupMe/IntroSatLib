@@ -1,6 +1,6 @@
 // Подключение библиотек
 #include <Wire.h>
-#include <Accelerometer.h>
+#include <Device/Accelerometer/Accelerometer.h>
 #include <IS_Bluetooth.h>
 
 /**
