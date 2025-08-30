@@ -82,7 +82,7 @@ public:
 	 * @brief Конструктор объекта акселлерометра. 
 	 * @note Только в STM32CubeIDE
 	 * 
-	 * @param hi2c объект @b I2C_HandleTypeDef
+	 * @param hi2c объект @b I2C_HandleTypeDef или @b TwoWire
 	 * @param address адрес акселлерометра на шине I2C
 	 */
     AccelerometerV2(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);

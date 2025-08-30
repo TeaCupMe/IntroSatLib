@@ -6,7 +6,7 @@
 
 
 #ifdef USE_HAL_DRIVER
-typedef enum ISL_StatusTypeDef {
+enum ISL_StatusTypeDef {
 	ISL_OK      = 0x00U,
 	ISL_ERROR	= 0x01U,
 	ISL_BUSY	= 0x02U,

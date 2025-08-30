@@ -11,6 +11,11 @@ ISL_StatusTypeDef I2CDevice::WriteI2C(uint8_t* buf, uint8_t nBytes)
 	return _i2c->write(_address, buf, nBytes);
 }
 
+ISL_StatusTypeDef I2CDevice::WriteI2C(uint8_t byte)
+{
+	return _i2c->write(_address, &byte, 1);
+}
+
 ISL_StatusTypeDef I2CDevice::ReadI2C(uint8_t* buf, uint8_t nBytes)
 {
 	return _i2c->read(_address, buf, nBytes);
@@ -45,14 +50,16 @@ uint8_t I2CDevice::GetRegisterI2C(uint8_t reg)
 ISL_StatusTypeDef I2CDevice::SetBitRegisterI2C(uint8_t reg, uint8_t bit)
 {
 	if (bit > 7) bit = 7;
-	uint8_t tmp = GetRegisterI2C(reg);
+	uint8_t tmp;
+	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(reg, &tmp));
 	tmp |= (1 << bit);
 	return SetRegisterI2C(reg, tmp);
 }
 ISL_StatusTypeDef I2CDevice::ResetBitRegisterI2C(uint8_t reg, uint8_t bit)
 {
 	if (bit > 7) bit = 7;
-	uint8_t tmp = GetRegisterI2C(reg);
+	uint8_t tmp;
+	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(reg, &tmp));
 	tmp &= ~(1 << bit);
 	return SetRegisterI2C(reg, tmp);
 }
@@ -111,7 +118,7 @@ bool I2CDevice::CheckRegisterI2C(uint8_t reg, uint8_t value) {
 
 I2CDevice::~I2CDevice()
 {
-	delete &_i2c;
+	delete _i2c;
 }
 
 } /* namespace IntroSatLib */

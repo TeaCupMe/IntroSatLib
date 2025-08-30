@@ -12,7 +12,8 @@
 #include "stdint.h"
 #include <cstring>
 #include "stdio.h"
-#include "stm32h7xx_hal.h"
+//#include "stm32h7xx_hal.h"
+#include "Adapter/STM32/STM32xxyy_hal.h"
 
 namespace IntroSatLib {
 struct E32_SettingsBytes {

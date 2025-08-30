@@ -24,6 +24,12 @@ public:
 	Device::DeviceState GetState() {
 		return _state;
 	};
+	virtual ISL_StatusTypeDef Enable() {
+		return ISL_StatusTypeDef::ISL_OK;
+	};
+	virtual ISL_StatusTypeDef Disable() {
+		return ISL_StatusTypeDef::ISL_OK;
+	};
 };
 } /* namespace IntroSatLib */
 
