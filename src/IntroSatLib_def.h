@@ -10,6 +10,7 @@ enum ISL_StatusTypeDef {
 	ISL_TIMEOUT	= 0x03U
 };
 
+
 #define RETURN_STATUS_IF_NOT_OK(func, status) if ((status = func) != ISL_StatusTypeDef::ISL_OK) { return status; }
 #define RETURN_STATUS_IF_NOT_OK_SILENT(func) {ISL_StatusTypeDef __status__ = ISL_StatusTypeDef::ISL_OK; \
 if ((__status__ = func) != ISL_StatusTypeDef::ISL_OK) { return __status__; }}
