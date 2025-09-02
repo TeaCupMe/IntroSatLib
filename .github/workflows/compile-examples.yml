@@ -47,7 +47,12 @@ jobs:
           cli-compile-flags: |
             - --warnings="none"
             - --warnings="default"
+      - name: Split string using awk
+        id: get_pnum
+        run: |
+          pnum=$(echo "${{ matrix.fqbn }}" | awk -F':' '{print $4}')
+          echo "pnum=$pnum" >> $GITHUB_OUTPUT
       - uses: actions/upload-artifact@v4
         with:
-          name: sketches-reports-${{ matrix.fqbn }}
+          name: 'sketches-reports-${{ steps.get_pnum.outputs.pnum }}'
           path: sketches-reports
