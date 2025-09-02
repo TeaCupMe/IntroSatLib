@@ -9,6 +9,7 @@ on:
     branches: 
       - main
       - staging
+
   pull_request:
     paths:
       - ".github/workflows/compile-examples.yml"
@@ -45,7 +46,6 @@ jobs:
             - name: STMicroelectronics:stm32
               source-url: https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
           cli-compile-flags: |
-            - --warnings="none"
             - --warnings="default"
       - name: Split string using awk
         id: get_pnum
