@@ -60,7 +60,7 @@
 //#ifdef I2C_HANDLE_TYPE // Unnecessary
 #define I2C_ENABLED
 
-#include <array>
+//#include <array>
 
 
 #define ASSERT_I2C_HAVE() \
