@@ -14,7 +14,8 @@ LSM6DS3::LSM6DS3(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new int
 }
 
 ISL_StatusTypeDef LSM6DS3::WhoAmI() {
-	uint8_t iAm = GetRegisterI2C(RegisterMap::WHO_AM_I_REG);
+	uint8_t iAm;
+	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(RegisterMap::WHO_AM_I_REG, &iAm));
 	return (ISL_StatusTypeDef) (iAm != 0x69);
 }
 

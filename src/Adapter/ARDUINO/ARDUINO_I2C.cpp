@@ -130,9 +130,9 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::read(uint8_t deviceAddress, uint
 
 	if (status == ISL_StatusTypeDef::ISL_OK) {
 		// Handle basic errors to mimic HAL_I2C_Master_Receive method (kinda)
-		if (_hi2c->available() < nBytes) {
+		if (_hi2c->available() != nBytes) {
 			// buffer has less bytes than expected
-			status =  logStatus(ISL_StatusTypeDef::ISL_ERROR);
+			status = logStatus(ISL_StatusTypeDef::ISL_ERROR);
 		} else {
 			logStatus(status);
 
@@ -171,11 +171,13 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::readMem(uint8_t deviceAddress, u
 	_hi2c->clearWireTimeout();
 #endif
 	// TODO check if this method works as expected
-	_hi2c->requestFrom(deviceAddress, nBytes, reg, nBytes, true);
+	uint8_t rxCount = _hi2c->requestFrom(deviceAddress, nBytes, reg, nBytes, true);
 
 	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
 #ifdef WIRE_HAS_TIMEOUT
 	if (_hi2c->getWireTimeoutFlag()) { return logStatus(ISL_StatusTypeDef::ISL_TIMEOUT); }
+#else
+	if (rxCount < nBytes) { status = logStatus(ISL_StatusTypeDef::ISL_TIMEOUT); }
 #endif
 
 	// Handle basic errors to mimic HAL_I2C_Master_Receive method (kinda)
@@ -183,7 +185,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::readMem(uint8_t deviceAddress, u
 		// Handle basic errors to mimic HAL_I2C_Master_Receive method (kinda)
 		if (_hi2c->available() != nBytes) {
 			// buffer has more or less bytes than expected
-			status =  logStatus(ISL_StatusTypeDef::ISL_ERROR);
+			status = logStatus(ISL_StatusTypeDef::ISL_ERROR);
 		} else {
 			logStatus(status);
 
