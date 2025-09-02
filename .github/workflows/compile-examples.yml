@@ -49,5 +49,5 @@ jobs:
             - --warnings="default"
       - uses: actions/upload-artifact@v4
         with:
-          name: sketches-reports-${{ matrix.fqbn }}
+          name: 'sketches-reports-${{ matrix.fqbn }}'
           path: sketches-reports
