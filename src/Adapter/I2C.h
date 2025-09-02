@@ -22,7 +22,6 @@
 		//  This is not yet supported, but it is here for future reference.
 		//  AVR-series in Arduino IDE
 		#error "Bare AVR outside of Arduino IDE is not yet supported"
-//		#define I2C_HANDLE_TYPE TwoWire
 
 	#elif defined(USE_HAL_DRIVER) // TODO Change to more reusable symbol
 	/*****  STM32 and stm32duino ******/
