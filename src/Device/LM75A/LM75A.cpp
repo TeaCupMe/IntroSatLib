@@ -44,22 +44,22 @@ uint8_t LM75A::GetConfig() {
 }
 
 
-void LM75A::DumpData(UART_HandleTypeDef* _uart) {
-	char tx_buf[40] = {0};
-	sprintf(tx_buf, "lm75ad init: %d\n\r", Init());
-	HAL_UART_Transmit(_uart, (uint8_t *)tx_buf, strlen(tx_buf), 300);
-	sprintf(tx_buf, "Raw temperature: %X\n\r", GetRawTemperature());
-	HAL_UART_Transmit(_uart, (uint8_t *)tx_buf, strlen(tx_buf), 300);
-	sprintf(tx_buf, "Temperature: %f\n\r",  GetTemperature());
-	HAL_UART_Transmit(_uart, (uint8_t *)tx_buf, strlen(tx_buf), 300);
-	sprintf(tx_buf, "Temperature in F: %f\n\r",  GetTemperatureF());
-	HAL_UART_Transmit(_uart, (uint8_t *)tx_buf, strlen(tx_buf), 300);
-	sprintf(tx_buf, "Temperature times 8: %d\n\r",  GetTemperatureTimes8());
-	HAL_UART_Transmit(_uart, (uint8_t *)tx_buf, strlen(tx_buf), 300);
-	sprintf(tx_buf, "Config: %X\n\r",  GetConfig());
-	HAL_UART_Transmit(_uart, (uint8_t *)tx_buf, strlen(tx_buf), 300);
-//	HAL_Delay(1000);
-}
+//void LM75A::DumpData(UART_HandleTypeDef* _uart) {
+//	char tx_buf[40] = {0};
+//	sprintf(tx_buf, "lm75ad init: %d\n\r", Init());
+//	HAL_UART_Transmit(_uart, (uint8_t *)tx_buf, strlen(tx_buf), 300);
+//	sprintf(tx_buf, "Raw temperature: %X\n\r", GetRawTemperature());
+//	HAL_UART_Transmit(_uart, (uint8_t *)tx_buf, strlen(tx_buf), 300);
+//	sprintf(tx_buf, "Temperature: %f\n\r",  GetTemperature());
+//	HAL_UART_Transmit(_uart, (uint8_t *)tx_buf, strlen(tx_buf), 300);
+//	sprintf(tx_buf, "Temperature in F: %f\n\r",  GetTemperatureF());
+//	HAL_UART_Transmit(_uart, (uint8_t *)tx_buf, strlen(tx_buf), 300);
+//	sprintf(tx_buf, "Temperature times 8: %d\n\r",  GetTemperatureTimes8());
+//	HAL_UART_Transmit(_uart, (uint8_t *)tx_buf, strlen(tx_buf), 300);
+//	sprintf(tx_buf, "Config: %X\n\r",  GetConfig());
+//	HAL_UART_Transmit(_uart, (uint8_t *)tx_buf, strlen(tx_buf), 300);
+////	HAL_Delay(1000);
+//}
 
 //void LM75A::DumpData(std::function<void(uint8_t*, uint16_t)> transmitMethod) {
 //	char tx_buf[40] = {0};

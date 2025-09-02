@@ -51,7 +51,7 @@ public:
 	uint8_t GetConfig();
 //	void Enable();
 	void PowerDown(bool shutdown);
-	void DumpData(UART_HandleTypeDef* _uart);
+//	void DumpData(UART_HandleTypeDef* _uart);
 //	void DumpData(std::function<void (uint8_t*, uint16_t)> transmitMethod);
 
 };
