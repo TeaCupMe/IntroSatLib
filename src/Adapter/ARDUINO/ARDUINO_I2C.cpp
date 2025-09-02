@@ -171,7 +171,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::readMem(uint8_t deviceAddress, u
 	_hi2c->clearWireTimeout();
 #endif
 	// TODO check if this method works as expected
-	uint8_t rxCount = _hi2c->requestFrom(deviceAddress, nBytes, reg, nBytes, true);
+	uint8_t rxCount = _hi2c->requestFrom(deviceAddress, nBytes, reg, 1, true);
 
 	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
 #ifdef WIRE_HAS_TIMEOUT

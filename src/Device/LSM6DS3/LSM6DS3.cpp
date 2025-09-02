@@ -192,7 +192,7 @@ int16_t LSM6DS3::RawAZ()
 	return buf[1] << 8 | buf[0];
 }
 
-float LSM6DS3::AX()
+float LSM6DS3::AX ()
 {
 	float e = RawAX() * (1 << _sensitivityAccel) * _rawg;
 	return e;
