@@ -50,6 +50,7 @@
 namespace IntroSatLib {
 	namespace system {
 		uint32_t GetTick();
+		void Delay(uint32_t milliseconds);
 	};
 };
 
