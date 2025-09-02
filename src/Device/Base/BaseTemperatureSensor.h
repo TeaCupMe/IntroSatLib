@@ -8,7 +8,7 @@
 #ifndef TEMPERATURESENSOR_H_
 #define TEMPERATURESENSOR_H_
 
-#include "../Device.h"
+#include "Device/Device.h"
 
 namespace IntroSatLib {
 
