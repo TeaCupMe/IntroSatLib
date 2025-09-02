@@ -1,7 +1,7 @@
 #ifndef AK8963_H_
 #define AK8963_H_
 
-#include "../I2CDevice.h"
+#include "Device/I2CDevice.h"
 //#include "../Device.h"
 
 namespace IntroSatLib {

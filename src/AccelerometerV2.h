@@ -1,34 +1,14 @@
 #ifndef ACCELEROMETERV2_H_
 #define ACCELEROMETERV2_H_
 
-#include "../I2CDevice.h"
+#include "Device/LSM6DS3/LSM6DS3.h"
 //#include "../BaseDevice.h"
 
 namespace IntroSatLib {
 
-class AccelerometerV2: private I2CDevice {
-
+class AccelerometerV2: private LSM6DS3 {
 private:
-  
-	static const uint8_t BASE_ACCEL_CONF = 0xA8;
 	static const uint8_t BASE_ADDRESS = 0x6B;
-	static constexpr float _rawg = 16384.0;
-    
-	enum RegisterMap
-	{
-		WHO_AM_I_REG = 0X0F,
-		CTRL1_XL = 0X10,
-		CTRL8_XL = 0X17,
-		OUT_TEMP_L = 0X20,
-		OUT_TEMP_H = 0X21,
-		OUTX_L_XL = 0X28,
-		OUTX_H_XL = 0X29,
-		OUTY_L_XL = 0X2A,
-		OUTY_H_XL = 0X2B,
-		OUTZ_L_XL = 0X2C,
-		OUTZ_H_XL = 0X2D,
-    };
-
 public:
 	/**
 	 * @brief Диапазон измерения ускорения
@@ -85,7 +65,7 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef или @b TwoWire
 	 * @param address адрес акселлерометра на шине I2C
 	 */
-    AccelerometerV2(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
+    AccelerometerV2(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS): LSM6DS3(i2c, address) {};
 
 	/**
 	 * @brief Инициализация акселлерометра с параметрами по умолчанию: @ref Scale::fourG, @ref FilterBandwidth::F400H, @ref DataRate::DR6_66KH.
@@ -93,7 +73,9 @@ public:
 	 * @returns 0, если инициализация завершена успешно
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
-    ISL_StatusTypeDef Init();
+    ISL_StatusTypeDef Init() {
+    	return LSM6DS3::InitAccel();
+    }
 
 	/**
 	 * @brief Инициализация акселлерометра с заданным диапазоном измерения
@@ -103,7 +85,9 @@ public:
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
 	//TODO Переименовать sens в scale, иначе вызывает путаницу. Это именно scale
-    ISL_StatusTypeDef Init(Scale sens);
+    ISL_StatusTypeDef Init(Scale scale) {
+    	return LSM6DS3::InitAccel((LSM6DS3::ScaleAccel) scale);
+    }
 
 	/**
 	 * @brief Инициализация акселлерометра с заданными диапазоном измерения и шириной окна фильтра 
@@ -114,7 +98,11 @@ public:
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
 	//TODO Переименовать sens в scale, иначе вызывает путаницу. Это именно scale
-    ISL_StatusTypeDef Init(Scale sens, FilterBandwidth filter);
+    ISL_StatusTypeDef Init(Scale scale, FilterBandwidth filter) {
+    	// TODO !!!!!!!!! НЕ РЕАЛИЗОВАНО ДЛЯ LSM6DS3 !!!!!!!!!!
+//    	return LSM6DS3::InitAccel((LSM6DS3::ScaleAccel) sens, (LSM6DS3::))
+    	return ISL_StatusTypeDef::ISL_ERROR;
+    }
 
 	/**
 	 * @brief Инициализация акселлерометра с заданными диапазоном измерения, шириной окна фильтра и скоростью обновления данных 
@@ -126,7 +114,11 @@ public:
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
 	//TODO Переименовать sens в scale, иначе вызывает путаницу. Это именно scale
-    ISL_StatusTypeDef Init(Scale sens, FilterBandwidth filter, DataRate datarate);
+    ISL_StatusTypeDef Init(Scale scale, FilterBandwidth filter, DataRate datarate) {
+    	// TODO !!!!!!!!! FilterBandwidth НЕ РЕАЛИЗОВАНО ДЛЯ LSM6DS3 !!!!!!!!!!
+    	//    	return LSM6DS3::InitAccel((LSM6DS3::ScaleAccel) sens, ...)
+		return ISL_StatusTypeDef::ISL_ERROR;
+    }
 
 	/**
 	 * @brief Установка диапазона измерения
@@ -135,78 +127,101 @@ public:
 	 */
 	//TODO Переименовать sens в scale, иначе вызывает путаницу. Это именно scale
 	//? @irongamer54 Тут параметр по умолчанию Scale::twoG, хотя в Init() выставляется fourG (из BASE_ACCELL_CONF)
-    ISL_StatusTypeDef SetScale(Scale sens = twoG);
+    ISL_StatusTypeDef SetScale(Scale scale = twoG) {
+    	return LSM6DS3::SetScaleAccel((LSM6DS3::ScaleAccel) scale);
+    }
 
 	/**
 	 * @brief Установка ширины окна фильтра
 	 * 
 	 * @param filter Значение ширины фильтра @ref FilterBandwidth 
 	 */
-    ISL_StatusTypeDef SetFilter(FilterBandwidth filter = F400H);
+    ISL_StatusTypeDef SetFilter(FilterBandwidth filter = F400H) {
+    	// TODO !!!!!!!!! FilterBandwidth НЕ РЕАЛИЗОВАНО ДЛЯ LSM6DS3 !!!!!!!!!!
+		return ISL_StatusTypeDef::ISL_ERROR;
+    }
 
 	/**
 	 * @brief Установка скорости обновления данных
 	 * 
 	 * @param datarate datarate Значение скорости обновления данных @ref DataRate
 	 */
-    ISL_StatusTypeDef SetDataRate(DataRate datarate);
+    ISL_StatusTypeDef SetDataRate(DataRate datarate) {
+    	return LSM6DS3::SetDataRateAccel((LSM6DS3::DataRateAccel) datarate);
+    }
 
 	/**
 	 * @brief Отключение акселлерометра - переход в режим экономии энергии
 	 * 
 	 */
-    ISL_StatusTypeDef end();
+    ISL_StatusTypeDef end() {
+    	return LSM6DS3::DeinitAccel();
+    }
 
 	/**
 	 * @brief Получение @b необработанного значения ускорения по оси X.
 	 * 
 	 * @return Ускорение по оси в условных единицах
 	 */
-    int16_t RawX();
+    int16_t RawX() {
+    	return LSM6DS3::RawAX();
+    }
 
 	/**
 	 * @brief Получение @b необработанного значения ускорения по оси Y. 
 	 * 
 	 * @return Ускорение по оси в условных единицах
 	 */
-    int16_t RawY();
+    int16_t RawY() {
+    	return LSM6DS3::RawAY();
+    }
     
 	/**
 	 * @brief Получение @b необработанного значения ускорения по оси Z. 
 	 * 
 	 * @return Ускорение по оси в условных единицах
 	 */
-	int16_t RawZ();
+	int16_t RawZ() {
+		return LSM6DS3::RawAZ();
+	}
 
     /**
 	 * @brief Получение значения ускорения по оси X.
 	 * 
 	 * @returns Ускорение по оси в м/с<sup>2</sup>
 	 */
-	float X();
+	float X() {
+		return LSM6DS3::AX();
+	}
     
 	/**
 	 * @brief Получение значения ускорения по оси Y.
 	 * 
 	 * @returns Ускорение по оси в м/с<sup>2</sup>
 	 */
-	float Y();
+	float Y() {
+		return LSM6DS3::AY();
+	}
     
 	/**
 	 * @brief Получение значения ускорения по оси Z.
 	 * 
 	 * @returns Ускорение по оси в м/с<sup>2</sup>
 	 */
-	float Z();
+	float Z() {
+		return LSM6DS3::AZ();
+	}
 
 	/**
 	 * @brief Получение значения температуры акселлерометра
 	 * 
 	 * @return Значение температуры в &deg;C
 	 */
-    float Temp();
+    float Temp() {
+    	return LSM6DS3::Temp();
+    }
 
-    virtual ~AccelerometerV2();
+    ~AccelerometerV2() {};
 };
 
 } /* namespace IntroSatLib */

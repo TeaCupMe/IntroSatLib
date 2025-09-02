@@ -212,6 +212,19 @@ float LSM6DS3::Temp() {
 	return float((int16_t)(buf[1] << 8 | buf[0]) / 16.0 + 25);
 }
 
+ISL_StatusTypeDef LSM6DS3::DeinitAccel() {
+	return SetRegisterI2C(RegisterMap::CTRL1_XL, 0x00);
+}
+
+ISL_StatusTypeDef LSM6DS3::DeinitGyro() {
+	return SetRegisterI2C(RegisterMap::CTRL2_G, 0x00);
+}
+
+ISL_StatusTypeDef LSM6DS3::Deinit() {
+	RETURN_STATUS_IF_NOT_OK_SILENT(DeinitAccel());
+	return DeinitGyro();
+}
+
 LSM6DS3::~LSM6DS3() { }
 
 } /* namespace IntroSatLib */

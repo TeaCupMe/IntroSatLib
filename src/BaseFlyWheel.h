@@ -2,7 +2,7 @@
 #define BASEFLYWHEEL_H_
 
 //#include "../BaseDevice.h"
-#include "../I2CDevice.h"
+#include "Device/I2CDevice.h"
 
 namespace IntroSatLib {
 

@@ -32,6 +32,7 @@ private:
 		GYRO_ZOUT_L,
 		WHO_AM_I_REG = 0X0F,
 		CTRL1_XL = 0X10,
+		CTRL2_G = 0X11,
 		CTRL8_XL = 0X17,
 		CTRL9_XL,
 		CTRL10_C,
@@ -146,6 +147,10 @@ public:
 	void SetMinCutZ(float z);
 
     float Temp();
+
+    ISL_StatusTypeDef DeinitAccel();
+    ISL_StatusTypeDef DeinitGyro();
+    ISL_StatusTypeDef Deinit();
 
 	~LSM6DS3();
 };
