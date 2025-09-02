@@ -61,7 +61,8 @@ ISL_StatusTypeDef Gyroscope::Init()
 
 ISL_StatusTypeDef Gyroscope::SetScale(Scale sensitivity)
 {
-	uint8_t reg = GetRegisterI2C(RegisterMap::GYRO_CONFIG);
+	uint8_t reg;
+	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(RegisterMap::GYRO_CONFIG, &reg));
 	reg &= 0xFF ^ (Scale::DPS2000 << 3);
 	reg |= (sensitivity << 3);
 	_sensitivity = sensitivity;
@@ -71,12 +72,13 @@ ISL_StatusTypeDef Gyroscope::SetScale(Scale sensitivity)
 ISL_StatusTypeDef Gyroscope::SetFilter(FilterBandwidth filter)
 {
 	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
-	uint8_t reg = GetRegisterI2C(RegisterMap::GYRO_CONFIG);
+	uint8_t reg;
+	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(RegisterMap::GYRO_CONFIG, &reg));
 	reg &= 0xFF ^ 3;
 	reg |= (filter >> 3);
 	RETURN_STATUS_IF_NOT_OK(SetRegisterI2C(RegisterMap::GYRO_CONFIG, reg), status)
 
-	reg = GetRegisterI2C(RegisterMap::CONFIG);
+	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(RegisterMap::CONFIG, &reg));
 	reg &= 0xFF ^ 7;
 	reg |= (filter & 7);
 	return SetRegisterI2C(RegisterMap::CONFIG, reg);
