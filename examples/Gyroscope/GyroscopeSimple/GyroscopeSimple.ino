@@ -43,11 +43,11 @@ void loop()
 {
     // Выводим данные и названия в бесконечном цикле
     Serial.print("gx:");
-	Serial.print(accel.X());
+	Serial.print(gyro.X());
 	Serial.print(",gy:");
-	Serial.print(accel.Y());
+	Serial.print(gyro.Y());
 	Serial.print(",gz:");
-	Serial.println(accel.Z());
+	Serial.println(gyro.Z());
 
     // Проверяем, не пришёл ли запрос на переход в режим перепрошивки
 	if (Serial.available())
