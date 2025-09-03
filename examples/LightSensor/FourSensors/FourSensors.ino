@@ -62,10 +62,10 @@ void loop()
     for (uint8_t i = 0; i < 4; i++)
     {
         Serial.print("light");
-        Serial.print(i);
+        Serial.print(i+1);
         Serial.print(":");
         Serial.print(ls[i].GetLight());
-        Serial.print(',\t');
+        Serial.print('\t');
     }
     Serial.println();
 
