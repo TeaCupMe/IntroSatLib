@@ -8,7 +8,7 @@
 #ifndef ACCELEROMETER_H_
 #define ACCELEROMETER_H_
 
-#include "../Device.h"
+#include "Device/Device.h"
 
 namespace IntroSatLib {
 

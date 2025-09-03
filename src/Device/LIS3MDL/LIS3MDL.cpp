@@ -6,6 +6,7 @@
  */
 
 #include "LIS3MDL.h"
+#include "Adapter/System.h"
 
 namespace IntroSatLib {
 
@@ -16,15 +17,16 @@ LIS3MDL::LIS3MDL(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new int
 
 ISL_StatusTypeDef LIS3MDL::Init(Scale scale, uint8_t force)
 {
+	system::Delay(15); // wait for powerup
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady());
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CTRL_REG1, 0x7C))
-	HAL_Delay(1);
+	system::Delay(1);
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetScale(scale));
-	HAL_Delay(1);
+	system::Delay(1);
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CTRL_REG3, 0x00))
-	HAL_Delay(1);
+	system::Delay(1);
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CTRL_REG4, 0x0C))
-	HAL_Delay(1);
+	system::Delay(1);
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CTRL_REG5, 0x40))
 	return IsReady();
 }

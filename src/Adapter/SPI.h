@@ -55,17 +55,21 @@
 //#ifdef SPI_HANDLE_TYPE
 #define SPI_ENABLED
 
- #include <array>
+#if __has_include(<array>)
+#define STL_AVAILABLE
+#include <array>
+#endif
 
+namespace IntroSatLib {
+namespace interfaces {
 
- namespace IntroSatLib {
- namespace interfaces {
-
- class SPI final {
+class SPI final {
 	SPI_HANDLE_TYPE *_hspi = 0;
- public:
+public:
  	SPI(SPI_HANDLE_TYPE *hspi): _hspi(hspi) { };
 
+// STL not available in Arduino IDE by default
+#ifdef STL_AVAILABLE
  	template<size_t N>
  	ISL_StatusTypeDef transfer(const std::array<uint8_t, N> out, std::array<uint8_t, N> in)
  	{
@@ -82,12 +86,13 @@
  	{
  		return transfer(out, in.data(), N);
  	}
+#endif
 
  	ISL_StatusTypeDef transfer(const uint8_t* out, uint8_t* in, uint8_t len);
- };
+};
 
- } /* namespace intefaces */
- } /* namespace IntroSatLib */
+} /* namespace intefaces */
+} /* namespace IntroSatLib */
 
 #endif /* SPI_HANDLE_TYPE */
 

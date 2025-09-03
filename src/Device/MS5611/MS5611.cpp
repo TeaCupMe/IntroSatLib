@@ -6,6 +6,7 @@
  */
 
 #include "MS5611.h"
+#include "Adapter/System.h"
 
 namespace IntroSatLib {
 
@@ -17,7 +18,7 @@ ISL_StatusTypeDef MS5611::Init(OSR sensitivity, uint8_t force) {
 
 	uint8_t tx_buf = CMD::RST;
 	RETURN_STATUS_IF_NOT_OK_SILENT(WriteI2C(&tx_buf, 1));
-	HAL_Delay(5);
+	system::Delay(5);
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetSensitivity(sensitivity));
 	return ReadPROM();
 }
@@ -80,13 +81,13 @@ ISL_StatusTypeDef MS5611::SetSensitivity(OSR sensitivity) {
 
 ISL_StatusTypeDef MS5611::ReadADC() {
 	RETURN_STATUS_IF_NOT_OK_SILENT(WriteI2C(CMD::ADC_READ));
-	HAL_Delay(10);
+	system::Delay(10);
 	return ISL_StatusTypeDef::ISL_OK;
 }
 
 ISL_StatusTypeDef MS5611::ReadRawTemperature() {
 	RETURN_STATUS_IF_NOT_OK_SILENT(WriteI2C(CMD::REQUEST_TEMPERATURE | _sensitivity));
-	HAL_Delay(30);
+	system::Delay(30);
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadADC())
 
 	uint8_t buf[3];
@@ -111,7 +112,7 @@ float MS5611::GetTemperature() {
 
 ISL_StatusTypeDef MS5611::ReadRawPressure() {
 	RETURN_STATUS_IF_NOT_OK_SILENT(WriteI2C(CMD::REQUEST_PRESSURE + _sensitivity));
-	HAL_Delay(30);
+	system::Delay(30);
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadADC())
 
 	uint8_t buf[3];

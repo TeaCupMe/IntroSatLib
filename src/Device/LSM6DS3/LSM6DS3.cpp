@@ -6,6 +6,8 @@
  */
 
 #include "LSM6DS3.h"
+#include "Adapter/System.h"
+#include "stdint.h"
 
 namespace IntroSatLib {
 
@@ -21,7 +23,7 @@ ISL_StatusTypeDef LSM6DS3::WhoAmI() {
 
 ISL_StatusTypeDef LSM6DS3::InitGyro(ScaleGyro sensitivityGyro, DataRateGyro dataRateGyro, uint8_t force)
 {
-	HAL_Delay(15); // wait for power up
+	system::Delay(15); // wait for power up
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady())
 	RETURN_STATUS_IF_NOT_OK_SILENT(WhoAmI())
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetScaleGyro(sensitivityGyro))
@@ -40,7 +42,7 @@ ISL_StatusTypeDef LSM6DS3::InitGyro(uint8_t force)
 
 ISL_StatusTypeDef LSM6DS3::InitAccel(ScaleAccel sensitivityAccel, DataRateAccel dataRateAccel, uint8_t force)
 {
-	HAL_Delay(15); // wait for power up
+	system::Delay(15); // wait for power up
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady())
 	RETURN_STATUS_IF_NOT_OK_SILENT(WhoAmI())
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetScaleAccel(sensitivityAccel))
@@ -190,7 +192,7 @@ int16_t LSM6DS3::RawAZ()
 	return buf[1] << 8 | buf[0];
 }
 
-float LSM6DS3::AX()
+float LSM6DS3::AX ()
 {
 	float e = RawAX() * (1 << _sensitivityAccel) * _rawg;
 	return e;

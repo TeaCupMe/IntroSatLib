@@ -8,9 +8,8 @@
 #ifndef MAGNETOMETER_H_
 #define MAGNETOMETER_H_
 
-#include "../Device.h"
-#include <cmath>
-#include <array>
+#include "Device/Device.h"
+
 
 namespace IntroSatLib {
 

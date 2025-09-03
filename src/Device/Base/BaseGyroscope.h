@@ -8,7 +8,7 @@
 #ifndef GYROSCOPE_H_
 #define GYROSCOPE_H_
 
-#include "../Device.h"
+#include "Device/Device.h"
 
 namespace IntroSatLib {
 
