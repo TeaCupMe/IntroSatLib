@@ -10,12 +10,12 @@
 using namespace IntroSatLib;
 
 // Создание объекта акселерометра
-AccelerometerV2 accel(Wire);
+AccelerometerV2 accel(Wire, 0x6B);
 
 // Переменные для хранения показаний датчика
 float ax = 0, ay = 0, az = 0;
 
-// Начальный диапазон измерения 2g (+- 20 м/с^2)
+// Начальный диапазон измерения +-2g (+- 20 м/с^2)
 AccelerometerV2::Scale currentScale = AccelerometerV2::Scale::twoG;
 
 void setup()

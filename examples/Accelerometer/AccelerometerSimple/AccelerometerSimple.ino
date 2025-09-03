@@ -10,7 +10,7 @@
 using namespace IntroSatLib;
 
 // Создание объекта акселерометра
-AccelerometerV2 accel(Wire);
+AccelerometerV2 accel(Wire, 0x6B);
 
 void setup()
 {
