@@ -1,6 +1,6 @@
 // Подключение библиотек
 #include <Wire.h>
-#include <Device/Accelerometer/Accelerometer.h>
+#include <AccelerometerV2.h>
 #include <IS_Bluetooth.h>
 
 /**
@@ -10,13 +10,13 @@
 using namespace IntroSatLib;
 
 // Создание объекта акселерометра
-Accelerometer accel(Wire);
+AccelerometerV2 accel(Wire);
 
 // Переменные для хранения показаний датчика
 float ax = 0, ay = 0, az = 0;
 
-// Начальный диапазон измерения
-Accelerometer::Scale lastScale = Accelerometer::Scale::twoG;
+// Начальный диапазон измерения 2g (+- 20 м/с^2)
+Accelerometer::Scale currentScale = Accelerometer::Scale::twoG;
 
 void setup()
 {
@@ -27,13 +27,24 @@ void setup()
     Wire.begin();
 
     // Инициализация датчика с диапазоном измерения 2g (стандартная настройка)
-    accel.Init(lastScale);
-    delay(1000);
+    uint8_t status = accel.Init(currentScale);
 
-    // Выводим названия осей для работы плоттера в ArduinoIDE
-    Serial.println("ax, ay, az");
+	/** Проверка успешной инициализации. 
+	 *  	0 - Инициализция успешна
+	 *		1-3 - Ошибка инициализации 
+	 */
+	if (status != 0)
+    {
+        Serial.print("Ошибка инициализации акселерометра! Код ошибки: ");
+        Serial.println(status);
+		Serial.println("Проверьте подключение и адрес датчика!");
+		// Если датчик не инициализирован - уходим в бесконечный цикл
+        while (1)
+            ;
+    }
 }
 
+// Бесконечный цикл - основной код программы
 void loop()
 {
     // Считывание данных с акселерометра
@@ -41,44 +52,45 @@ void loop()
     ay = accel.Y();
     az = accel.Z();
 
+    // Выводим данные
+    Serial.print("ax:");
+	Serial.print(ax);
+	Serial.print(",ay:");
+	Serial.print(ay);
+	Serial.print(",az:");
+	Serial.println(az);
+
     // Находим максимальный модуль ускорения по одной из осей
     float mx = max(max(abs(ax), abs(ay)), abs(az));
 
     // Начальный диапазон измерения акселерометра
-    Accelerometer::Scale nowScale = Accelerometer::Scale::twoG;
+    Accelerometer::Scale optimalScale = Accelerometer::Scale::twoG;
 
     // Если значение стоновится больше прогового, изменяем диапазон измерения на больший.
     // Если значение больше 1.5g - переключаемся на диапазон +-4g
     if (mx > 1.5)
     {
-        nowScale = Accelerometer::Scale::fourG;
+        optimalScale = Accelerometer::Scale::fourG;
     }
 
     // Если значение больше 3.5g - переключаемся на диапазон +-8g
     else if (mx > 3.5)
     {
-        nowScale = Accelerometer::Scale::eightG;
+        optimalScale = Accelerometer::Scale::eightG;
     }
 
     // Если значение больше 7.5g - переключаемся на диапазон +-16g
     else if (mx > 7.5)
     {
-        nowScale = Accelerometer::Scale::sixteenG;
+        optimalScale = Accelerometer::Scale::sixteenG;
     }
 
-    // Изменяем разрешение, если оно не совпадает с прошлым
-    if (nowScale != lastScale)
+    // Изменяем разрешение, если оно не совпадает с установленным
+    if (optimalScale != currentScale)
     {
-        accel.SetScale(nowScale);
-        lastScale = nowScale;
+        accel.SetScale(optimalScale);
+        currentScale = optimalScale;
     }
-
-    // Выводим данные
-    Serial.print(ax);
-    Serial.print(" ");
-    Serial.print(ay);
-    Serial.print(" ");
-    Serial.println(az);
 
     // Проверяем, не пришёл ли запрос на переход в режим перепрошивки
     if (Serial.available())
@@ -90,6 +102,6 @@ void loop()
         }
     }
 
-    // Задержка в 50 мс, чтобы данные приходили с небольшим перерывом
-    delay(50);
+    // Задержка в 20 мс, чтобы данные приходили с небольшим перерывом
+    delay(20);
 }
