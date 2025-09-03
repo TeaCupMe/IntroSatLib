@@ -9,18 +9,20 @@
  */
 using namespace IntroSatLib;
 
-// Задаём понятные имена для возможных адресов датчиков освещённости
-#define LS_ADDR_1 0x50
-#define LS_ADDR_2 0x51
-#define LS_ADDR_3 0x52
-#define LS_ADDR_4 0x53
+// Создаём массив возможных адресов датчиков освещённости
+const uint8_t LS_ADDR[4] = {
+    0x50,
+    0x51,
+    0x52,
+    0x53
+};
 
 // Создаём массив из 4-х датчиков освещённости
 LightSensor ls[4] = {
-    LightSensor(Wire, LS_ADDR_1),
-    LightSensor(Wire, LS_ADDR_2),
-    LightSensor(Wire, LS_ADDR_3),
-    LightSensor(Wire, LS_ADDR_4)
+    LightSensor(Wire, LS_ADDR[0]),
+    LightSensor(Wire, LS_ADDR[1]),
+    LightSensor(Wire, LS_ADDR[2]),
+    LightSensor(Wire, LS_ADDR[3])
 };
 
 void setup()
@@ -61,7 +63,7 @@ void loop()
     {
         Serial.print("light");
         Serial.print(i);
-        Serial.print(":")
+        Serial.print(":");
         Serial.print(ls[i].GetLight());
         Serial.print(',\t');
     }

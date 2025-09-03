@@ -16,7 +16,7 @@ AccelerometerV2 accel(Wire);
 float ax = 0, ay = 0, az = 0;
 
 // Начальный диапазон измерения 2g (+- 20 м/с^2)
-Accelerometer::Scale currentScale = Accelerometer::Scale::twoG;
+AccelerometerV2::Scale currentScale = AccelerometerV2::Scale::twoG;
 
 void setup()
 {
@@ -64,7 +64,7 @@ void loop()
     float mx = max(max(abs(ax), abs(ay)), abs(az));
 
     // Начальный диапазон измерения акселерометра
-    Accelerometer::Scale optimalScale = Accelerometer::Scale::twoG;
+    AccelerometerV2::Scale optimalScale = Accelerometer::Scale::twoG;
 
     // Если значение стоновится больше прогового, изменяем диапазон измерения на больший.
     // Если значение больше 1.5g - переключаемся на диапазон +-4g
