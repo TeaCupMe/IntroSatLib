@@ -64,7 +64,7 @@ void loop()
     float mx = max(max(abs(ax), abs(ay)), abs(az));
 
     // Начальный диапазон измерения акселерометра
-    AccelerometerV2::Scale optimalScale = Accelerometer::Scale::twoG;
+    AccelerometerV2::Scale optimalScale = AccelerometerV2::Scale::twoG;
 
     // Если значение стоновится больше прогового, изменяем диапазон измерения на больший.
     // Если значение больше 1.5g - переключаемся на диапазон +-4g
