@@ -70,19 +70,19 @@ void loop()
     // Если значение больше 1.5g - переключаемся на диапазон +-4g
     if (mx > 1.5)
     {
-        optimalScale = Accelerometer::Scale::fourG;
+        optimalScale = AccelerometerV2::Scale::fourG;
     }
 
     // Если значение больше 3.5g - переключаемся на диапазон +-8g
     else if (mx > 3.5)
     {
-        optimalScale = Accelerometer::Scale::eightG;
+        optimalScale = AccelerometerV2::Scale::eightG;
     }
 
     // Если значение больше 7.5g - переключаемся на диапазон +-16g
     else if (mx > 7.5)
     {
-        optimalScale = Accelerometer::Scale::sixteenG;
+        optimalScale = AccelerometerV2::Scale::sixteenG;
     }
 
     // Изменяем разрешение, если оно не совпадает с установленным
