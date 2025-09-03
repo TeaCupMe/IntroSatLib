@@ -57,7 +57,7 @@ jobs:
       - name: Split string using awk
         id: get_fqbn
         run: |
-          fqbn=$(echo "${{ matrix.fqbn }}" | awk 'gsub(/:/, _); print')
+          fqbn=$(echo "${{ matrix.fqbn }}" | awk 'gsub(/:/, "_")')
           echo "fqbn=$fqbn" >> $GITHUB_OUTPUT
       - uses: actions/upload-artifact@v4
         with:
