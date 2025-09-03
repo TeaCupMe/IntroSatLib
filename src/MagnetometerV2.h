@@ -6,9 +6,9 @@
 #include "Device/LIS3MDL/LIS3MDL.h"
 #ifndef ARDUINO
 #include "Quaternion/Quaternion.h"
-#endif
 #include <cmath>
 #include <array>
+#endif
 
 namespace IntroSatLib
 {

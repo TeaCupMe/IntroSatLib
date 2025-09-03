@@ -12,7 +12,7 @@
 #include "stdint.h"
 #include "string.h"
 #include "stdio.h"
-#include <functional>
+//#include <functional>
 
 
 namespace IntroSatLib {
@@ -51,8 +51,8 @@ public:
 	uint8_t GetConfig();
 //	void Enable();
 	void PowerDown(bool shutdown);
-	void DumpData(UART_HandleTypeDef* _uart);
-	void DumpData(std::function<void (uint8_t*, uint16_t)> transmitMethod);
+//	void DumpData(UART_HandleTypeDef* _uart);
+//	void DumpData(std::function<void (uint8_t*, uint16_t)> transmitMethod);
 
 };
 

@@ -10,8 +10,6 @@
 
 #include "Device/I2CDevice.h"
 #include "Device/Base/BaseMagnetometer.h"
-#include <cmath>
-#include <array>
 
 namespace IntroSatLib {
 

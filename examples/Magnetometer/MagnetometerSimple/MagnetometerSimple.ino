@@ -1,6 +1,6 @@
 // Подключение библиотек
 #include <Wire.h>
-#include <AccelerometerV2.h>
+#include <MagnetometerV2.h>
 #include <IS_Bluetooth.h>
 
 /**
@@ -9,30 +9,30 @@
  */
 using namespace IntroSatLib;
 
-// Создание объекта акселерометра
-AccelerometerV2 accel(Wire, 0x6B);
+// Создание объекта магнитометра по адресу 0x1E
+MagnetometerV2 magn(Wire, 0x1E);
 
 void setup()
 {
-	// Включение Serial для вывода данных
-	Serial.begin(115200, SERIAL_8E1);
-
-	// Инициализация Wire - I2C1
+    // Включение Serial для вывода данных
+    Serial.begin(115200, SERIAL_8E1);
+    
+    // Инициализация Wire - I2C1
 	Wire.begin();
 
-	// Инициализация датчика
-	uint8_t status = accel.Init();
-
-	/** Проверка успешной инициализации. 
+    // Инициализация датчика
+	uint8_t status = magn.Init();
+    
+    /** Проверка успешной инициализации. 
 	 *  	0 - Инициализция успешна
 	 *		1-3 - Ошибка инициализации 
 	 */
 	if (status != 0)
     {
-        Serial.print("Ошибка инициализации акселерометра! Код ошибки: ");
+        Serial.print("Ошибка инициализации магнитометра! Код ошибки: ");
         Serial.println(status);
-		Serial.println("Проверьте подключение и адрес датчика!");
-		// Если датчик не инициализирован - уходим в бесконечный цикл
+        Serial.println("Проверьте подключение и адрес датчика!");
+        // Если датчик не инициализирован - уходим в бесконечный цикл
         while (1)
             ;
     }
@@ -41,13 +41,13 @@ void setup()
 // Бесконечный цикл - основной код программы
 void loop()
 {
-	// Выводим данные и названия в бесконечном цикле
-	Serial.print("ax:");
-	Serial.print(accel.X());
-	Serial.print(",ay:");
-	Serial.print(accel.Y());
-	Serial.print(",az:");
-	Serial.println(accel.Z());
+    // Выводим данные и названия в бесконечном цикле
+	Serial.print("mx:");
+	Serial.print(magn.X());
+	Serial.print(",my:");
+	Serial.print(magn.Y());
+	Serial.print(",mz:");
+	Serial.println(magn.Z());
 
 	// Проверяем, не пришёл ли запрос на переход в режим перепрошивки
 	if (Serial.available())

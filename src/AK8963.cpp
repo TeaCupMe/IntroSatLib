@@ -1,19 +1,11 @@
 #include "AK8963.h"
-
+#include "Adapter/System.h"
 namespace IntroSatLib {
 
 //#ifndef ARDUINO
 AK8963::AK8963(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
 {
 }
-//#else
-//AK8963::AK8963(TwoWire &hi2c, uint8_t address): BaseDevice(hi2c, address)
-//{
-//}
-//AK8963::AK8963(uint8_t address): BaseDevice(address)
-//{
-//}
-//#endif
 
 AK8963::AK8963(const AK8963& other): I2CDevice(other)
 {
@@ -41,15 +33,15 @@ AK8963& AK8963::operator=(AK8963&& other)
 
 ISL_StatusTypeDef AK8963::Init()
 {
-	SetRegisterI2C(0x0A, 0x00);
-	HAL_Delay(100);
-	SetRegisterI2C(0x0A, 0x0F); // Fuse ROM
-	HAL_Delay(100);
-	ReadCal();
-	SetRegisterI2C(0x0A, 0x00);
-	HAL_Delay(100);
-	SetRegisterI2C(0x0A, 0x06); // Continuous measurement mode 2
-	HAL_Delay(100);
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(0x0A, 0x00));
+	system::Delay(100);
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(0x0A, 0x0F)); // Fuse ROM
+	system::Delay(100);
+	RETURN_STATUS_IF_NOT_OK_SILENT(ReadCal());
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(0x0A, 0x00));
+	system::Delay(100);
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(0x0A, 0x06)); // Continuous measurement mode 2
+	system::Delay(100);
 	return ISL_StatusTypeDef::ISL_OK;
 }
 

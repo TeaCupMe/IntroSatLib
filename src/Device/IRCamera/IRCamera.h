@@ -2,6 +2,7 @@
 #define IRCAMERA_H_
 
 #include "../I2CDevice.h"
+#include "Adapter/GPIO.h"
 //#include "../BaseDevice.h"
 
 namespace IntroSatLib {
@@ -38,8 +39,7 @@ private:
 	uint8_t _framrate = 0;
 	uint8_t _mirror = 0;
 
-	GPIO_TypeDef* _resetPort = 0;
-	uint16_t _resetPin = 0;
+	interfaces::GPIO* _reset = nullptr;
 
 	int16_t _buffer[64] = {0};
 
@@ -100,7 +100,7 @@ public:
 	 * @param resetPort Порт, которому подключён контакт 
 	 * @param resetPin 
 	 */
-	void useForceReset(GPIO_TypeDef* resetPort, uint16_t resetPin);
+	void useForceReset(interfaces::GPIO_HANDLE_TYPE& resetPort, uint16_t resetPin = 0);
 
 	/**
 	 * @brief Вывод картинки в отзеркаленном виде
