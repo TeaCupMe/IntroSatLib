@@ -60,13 +60,19 @@
 #include <array>
 #endif
 
+#include "Adapter/GPIO.h"
+
 namespace IntroSatLib {
 namespace interfaces {
 
 class SPI final {
 	SPI_HANDLE_TYPE *_hspi = 0;
+	::IntroSatLib::interfaces::GPIO _cs;
+
+	bool _useInternalCs = false;
 public:
  	SPI(SPI_HANDLE_TYPE *hspi): _hspi(hspi) { };
+	SPI(SPI_HANDLE_TYPE &hspi): _hspi(&hspi) { };
 
 // STL not available in Arduino IDE by default
 #ifdef STL_AVAILABLE
@@ -89,6 +95,8 @@ public:
 #endif
 
  	ISL_StatusTypeDef transfer(const uint8_t* out, uint8_t* in, uint8_t len);
+
+	ISL_StatusTypeDef setCs(GPIO_HANDLE_TYPE* port, uint16_t pin);
 };
 
 } /* namespace intefaces */
