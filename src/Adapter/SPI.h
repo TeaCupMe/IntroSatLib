@@ -70,6 +70,7 @@ class SPI final {
 	::IntroSatLib::interfaces::GPIO _cs;
 
 	bool _useInternalCs = false;
+	bool _csActiveHigh = false;
 public:
  	SPI(SPI_HANDLE_TYPE *hspi): _hspi(hspi) { };
 	SPI(SPI_HANDLE_TYPE &hspi): _hspi(&hspi) { };
@@ -96,7 +97,7 @@ public:
 
  	ISL_StatusTypeDef transfer(const uint8_t* out, uint8_t* in, uint8_t len);
 
-	ISL_StatusTypeDef setCs(GPIO_HANDLE_TYPE* port, uint16_t pin);
+	ISL_StatusTypeDef setCs(GPIO_HANDLE_TYPE* port, uint16_t pin, bool activeHigh = false);
 };
 
 } /* namespace intefaces */

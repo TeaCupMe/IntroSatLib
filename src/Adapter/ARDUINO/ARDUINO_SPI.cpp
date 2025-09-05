@@ -11,11 +11,24 @@ void IntroSatLib::interfaces::SPI::begin()
 }
 
 ISL_StatusTypeDef IntroSatLib::interfaces::SPI::transfer(const uint8_t* out, uint8_t* in, uint8_t len) {
+    if (_useInternalCs) {
+        _cs.write(_activeHigh);
+    }
 
+    for (int i = 0; i < len; i++) {
+        in[i] = _hspi.transfer(out[i]);
+    }
+
+
+    if (_useInternalCs) {
+        _cs.write(!_activeHigh);
+    }
 }  
 
-ISL_StatusTypeDef IntroSatLib::interfaces::SPI::setCs(GPIO_HANDLE_TYPE* port, uint16_t pin) {
-    
+ISL_StatusTypeDef IntroSatLib::interfaces::SPI::setCs(GPIO_HANDLE_TYPE* port, uint16_t pin, bool activeHigh = false)  {
+    _cs = new interfaces::GPIO(port, pin);
+    _csActiveHigh = activeHigh;
 }
+
 
 #endif /* ARDUINO */
