@@ -2,8 +2,6 @@
 #include "SPI.h"
 
 #if defined(ARDUINO)
-IntroSatLib::interfaces::SPI::SPI(SPIClass& spi): _spi(spi)
-{}
 
 void IntroSatLib::interfaces::SPI::begin()
 {
