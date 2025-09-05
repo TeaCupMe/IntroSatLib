@@ -67,7 +67,7 @@ namespace interfaces {
 
 class SPI final {
 	SPI_HANDLE_TYPE *_hspi = 0;
-	::IntroSatLib::interfaces::GPIO _cs;
+	::IntroSatLib::interfaces::GPIO* _cs;
 
 	bool _useInternalCs = false;
 	bool _csActiveHigh = false;
