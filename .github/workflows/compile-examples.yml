@@ -8,10 +8,9 @@ on:
       - "src/**"
     branches: 
       - main
-      - staging
-      - dev/examples
-      - dev/new-architecture
-      - dev/actions
+      - examples
+      - dev/*
+      - actions
   pull_request:
     paths:
       - ".github/workflows/compile-examples.yml"
@@ -20,7 +19,6 @@ on:
     branches: 
       - main
       - staging
-      - dev/*
   schedule:
     # Run every Tuesday at 8 AM UTC to catch breakage caused by changes to external resources (stm32duino).
     - cron: "0 8 * * TUE"
@@ -54,7 +52,7 @@ jobs:
             - name: arduino:avr
           cli-compile-flags: |
             - --warnings="default"
-      - name: Split string using awk
+      - name: Transform fqbn with awk
         id: get_fqbn
         run: |
           fqbn=$(echo "${{ matrix.fqbn }}" | awk 'gsub(/:/, "_")')
