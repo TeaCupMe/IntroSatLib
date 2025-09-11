@@ -52,8 +52,33 @@
 	#endif
 #endif
 
-//#ifdef SPI_HANDLE_TYPE
+#ifdef SPI_HANDLE_TYPE
 #define SPI_ENABLED
+
+#include "Logger.h"
+
+#define ASSERT_SPI_HAVE() \
+if(!_hspi) { \
+logText("No spi handle"); \
+return ISL_StatusTypeDef::ISL_ERROR; \
+}
+
+#define LOG_SPI(mode) \
+logText("SPI "); \
+logText(mode);
+
+#if LOGDATA
+#define LOG_SPI_BUFFER(Sep, Data, Nbytes) { \
+logText(" - "); \
+for(uint8_t i = 0; i < Nbytes; i++) { \
+logHEX(Data[i]); \
+if (i != (Nbytes - 1)) logText(Sep); \
+} \
+}
+
+#else
+#define LOG_SPI_BUFFER(Sep, Data, Nbytes)
+#endif
 
 #if __has_include(<array>)
 #define STL_AVAILABLE
@@ -71,6 +96,8 @@ class SPI final {
 
 	bool _useInternalCs = false;
 	bool _csActiveHigh = false;
+
+	ISL_StatusTypeDef _transfer(const uint8_t* out, uint8_t* in, uint8_t len);
 public:
  	SPI(SPI_HANDLE_TYPE *hspi): _hspi(hspi) { };
 	SPI(SPI_HANDLE_TYPE &hspi): _hspi(&hspi) { };
@@ -95,9 +122,36 @@ public:
  	}
 #endif
 
- 	ISL_StatusTypeDef transfer(const uint8_t* out, uint8_t* in, uint8_t len);
+ 	ISL_StatusTypeDef transfer(const uint8_t* out, uint8_t* in, uint8_t len) {
+		ASSERT_SPI_HAVE();
+	
+		if (_useInternalCs) {
+			logText("Asserting CS");
+			_cs->write(_csActiveHigh);
+		}
+		
+		LOG_SPI("read/write");
+		LOG_SPI_BUFFER(", ", out, len);
+		logText(" ");
+		logNumber((uint8_t)len);
+		logText(" bytes > ");
 
-	ISL_StatusTypeDef setCs(GPIO_HANDLE_TYPE* port, uint16_t pin, bool activeHigh = false);
+		ISL_StatusTypeDef result = _transfer(out, in, len);
+
+		LOG_SPI_BUFFER(", ", in, len);
+		logText("\n");
+
+		if (_useInternalCs) {
+			logText("De-asserting CS")
+			_cs->write(!_csActiveHigh);
+		}
+
+	}
+
+	ISL_StatusTypeDef setCs(GPIO_HANDLE_TYPE* port, uint16_t pin, bool activeHigh = false) {
+		_cs = new interfaces::GPIO(port, pin);
+    	_csActiveHigh = activeHigh;
+	}
 };
 
 } /* namespace intefaces */
@@ -105,4 +159,4 @@ public:
 
 #endif /* SPI_HANDLE_TYPE */
 
-//#endif /* ADAPTER_SPI_H_ */
+#endif /* ADAPTER_SPI_H_ */
