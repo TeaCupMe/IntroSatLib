@@ -52,6 +52,7 @@ jobs:
             - name: arduino:avr
           cli-compile-flags: |
             - --warnings="default"
+            - --build-path="/home/docker/tmp"
       - name: Transform fqbn with awk
         id: get_fqbn
         run: |
