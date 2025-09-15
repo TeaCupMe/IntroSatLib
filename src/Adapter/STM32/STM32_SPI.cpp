@@ -8,8 +8,5 @@ ISL_StatusTypeDef IntroSatLib::interfaces::SPI::_transfer(const uint8_t* out, ui
 	return (ISL_StatusTypeDef) HAL_SPI_TransmitReceive(_hspi, (uint8_t*) out, in, len, 1000);
 }
 
-ISL_StatusTypeDef IntroSatLib::interfaces::SPI::setCs(GPIO_HANDLE_TYPE* port, uint16_t pin, bool activeHigh)  {
-    _cs = new GPIO(port, pin);
-}
 #endif /* defined(HAL_SPI_MODULE_ENABLED) && !defined(ARDUINO) */
 

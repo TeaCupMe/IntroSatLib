@@ -148,7 +148,8 @@ public:
 
 	}
 
-	ISL_StatusTypeDef setCs(GPIO_HANDLE_TYPE* port, uint16_t pin, bool activeHigh = false) {
+	void setCs(GPIO_HANDLE_TYPE* port, uint16_t pin, bool activeHigh = false) {
+		_useInternalCs = true;
 		_cs = new interfaces::GPIO(port, pin);
     	_csActiveHigh = activeHigh;
 	}
