@@ -52,7 +52,7 @@
 	#endif
 #endif
 
-#ifdef SPI_HANDLE_TYPE
+// #ifdef SPI_HANDLE_TYPE
 #define SPI_ENABLED
 
 #include "Logger.h"
@@ -157,6 +157,6 @@ public:
 } /* namespace intefaces */
 } /* namespace IntroSatLib */
 
-#endif /* SPI_HANDLE_TYPE */
+// #endif /* SPI_HANDLE_TYPE */
 
 #endif /* ADAPTER_SPI_H_ */
