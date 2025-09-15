@@ -65,6 +65,7 @@ private:
 	uint16_t _pin = 0;
 public:
 	GPIO(GPIO_HANDLE_TYPE* port, uint16_t pin = 0);
+	GPIO(GPIO_HANDLE_TYPE& port, uint16_t pin = 0): GPIO(&port, pin) {};
 
 	uint8_t read() const;
 
