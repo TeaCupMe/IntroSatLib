@@ -1,6 +1,8 @@
 #ifndef CC1101_H_
 #define CC1101_H_
 
+#ifdef SPI_ENABLED2 // TODO WTF?
+
 #include "Adapter/GPIO.h"
 #include "Adapter/SPI.h"
 #include <array>
@@ -8,7 +10,7 @@
 #include "math.h"
 #include "Logger.h"
 
-#ifdef SPI_ENABLED2 // TODO WTF?
+
 
 namespace IntroSatLib {
 
