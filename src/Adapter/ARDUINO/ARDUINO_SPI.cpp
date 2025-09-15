@@ -9,7 +9,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::SPI::_transfer(const uint8_t* out, ui
         in[i] = _hspi->transfer(out[i]);
     }
     // _hspi->endTransaction();
-    return ISL_StatusTypeDef::ISL_OK // always ok?    
+    return ISL_StatusTypeDef::ISL_OK; // always ok?    
 }  
 
 #endif /* ARDUINO */
