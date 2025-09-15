@@ -142,7 +142,7 @@ public:
 		logText("\n");
 
 		if (_useInternalCs) {
-			logText("De-asserting CS")
+			logText("De-asserting CS");
 			_cs->write(!_csActiveHigh);
 		}
 
