@@ -9,7 +9,7 @@
 /********** Arduino IDE **********/
 /*********************************/
 	#include "Arduino.h"
-	#include <UART.h>
+	#include <HardwareSerial.h>
 	namespace IntroSatLib::interfaces {using UART_HANDLE_TYPE = HardwareSerial;}
 
 #else
