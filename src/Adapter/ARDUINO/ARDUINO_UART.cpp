@@ -34,7 +34,6 @@ ISL_StatusTypeDef IntroSatLib::interfaces::UART::transmit(uint8_t* tx_buf, uint1
 }
 
 ISL_StatusTypeDef IntroSatLib::interfaces::UART::transmitAsync(uint8_t* tx_buf, uint16_t count) {
-    _huart->setTimeout(timeout);
     _huart->write(tx_buf, count);
 }
 
