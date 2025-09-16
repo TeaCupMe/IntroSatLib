@@ -28,12 +28,14 @@ ISL_StatusTypeDef IntroSatLib::interfaces::UART::receive(uint8_t* rx_buf, uint16
 
 ISL_StatusTypeDef IntroSatLib::interfaces::UART::transmit(uint8_t* tx_buf, uint16_t count, uint16_t timeout) {
     _huart->setTimeout(timeout);
-    return (ISL_StatusTypeDef) HAL_UART_Transmit(_huart, txbuf, count, timeout);
+    status = _huart->write(tx_buf, count) == count ? ISL_OK : ISL_ERROR;
+    while (_huart->availableForWrite() < SERIAL_TX_BUFFER_SIZE);
+    return status;
 }
 
 ISL_StatusTypeDef IntroSatLib::interfaces::UART::transmitAsync(uint8_t* tx_buf, uint16_t count) {
     _huart->setTimeout(timeout);
-    return (ISL_StatusTypeDef) HAL_UART_Transmit_IT(_huart, txbuf, count);
+    _huart->write(txbuf, count);
 }
 
 #endif /* defined(HAL_UART_MODULE_ENABLED) && !defined(ARDUINO) */
