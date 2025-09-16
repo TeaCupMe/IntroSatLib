@@ -35,7 +35,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::UART::transmit(uint8_t* tx_buf, uint1
 
 ISL_StatusTypeDef IntroSatLib::interfaces::UART::transmitAsync(uint8_t* tx_buf, uint16_t count) {
     if (_huart->availableForWrite() < count) return ISL_BUSY;
-    return (_huart->write(tx_buf, count) == count ? ISL_OK : ISL_ERROR;
+    return (_huart->write(tx_buf, count) == count ? ISL_OK : ISL_ERROR);
 }
 
 #endif /* defined(HAL_UART_MODULE_ENABLED) && !defined(ARDUINO) */
