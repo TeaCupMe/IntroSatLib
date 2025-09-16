@@ -1,8 +1,3 @@
-</**
- * replace <INTERFACE> with interface name in upper-case
- * replace <interface> with interface name in lower-case
- * replace <INTERFACE_ARDUINO_CLASS> with corresponding Arduino API class
- */>
 #ifndef ADAPTER_UART_H_
 #define ADAPTER_UART_H_
 
@@ -59,6 +54,26 @@
 
 // #ifdef UART_HANDLE_TYPE
 #define UART_ENABLED
+#include "Adapter/System.h"
+
+#define ASSERT_UART_HAVE() \
+if(!_huart) { \
+logText("No uart handle"); \
+return ISL_StatusTypeDef::ISL_ERROR; \
+}
+
+#if LOGDATA
+    #define LOG_UART_BUFFER(Sep, Data, Nbytes) { \
+        logText(" - "); \
+        for(uint8_t i = 0; i < Nbytes; i++) { \
+        logHEX(Data[i]); \
+        if (i != (Nbytes - 1)) logText(Sep); \
+        } \
+        }
+#else
+    #define LOG_UART_BUFFER(Sep, Data, Nbytes)
+#endif
+
 
 namespace IntroSatLib {
 namespace interfaces {
@@ -68,6 +83,58 @@ class UART final {
 public:
  	UART(UART_HANDLE_TYPE *huart): _huart(huart) { };
 	UART(UART_HANDLE_TYPE &huart): _huart(&huart) { };
+
+	uint8_t available();
+	ISL_StatusTypeDef receive(uint8_t* rx_buf, uint16_t count, uint16_t timeout = 1000);
+	ISL_StatusTypeDef transmit(uint8_t* tx_buf, uint16_t count, uint16_t timeout = 1000);
+	ISL_StatusTypeDef transmitAsync(uint8_t* tx_buf, uint16_t count);
+
+	// В Arduino API есть аналоги - find() и findUntil(). Делают похожую вещь, маловероятно, что сильно оптимальнее. 
+	// https://docs.arduino.cc/language-reference/en/functions/communication/serial/find/
+	ISL_StatusTypeDef waitFor (const uint8_t symbol, uint16_t timeout = 0xFFFF) {
+		uint32_t nowTime = system::GetTick();
+		uint32_t finishTime = nowTime + timeout;
+
+		uint8_t temp;
+		
+		ISL_StatusTypeDef status = ISL_OK;
+
+		while (nowTime < finishTime) {
+			status = receive(&temp, 1, finishTime - nowTime);
+			if (status != ISL_OK) return status;
+			
+			if (temp == symbol) {
+				return ISL_OK;
+			}
+			nowTime = system::GetTick();
+		}
+		return ISL_TIMEOUT;
+
+	}
+
+	ISL_StatusTypeDef waitForPattern(uint8_t* pattern, uint8_t patternLength, uint16_t timeout = 0xFFFF) {
+		uint32_t nowTime = system::GetTick();
+		uint32_t finishTime = nowTime + timeout;
+		uint8_t* tempBuf = new uint8_t[patternLength];
+		uint8_t matched = 0;
+		
+		ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
+
+		while (matched < patternLength) {
+			nowTime = system::GetTick();
+			// if (nowTime > finishTime) return ISL_TIMEOUT; // Вроде необязательно тут...
+
+			status = receive(tempBuf + matched, 1, finishTime - system::GetTick());
+			
+			if (status != ISL_OK) return status;
+			
+			if (tempBuf[matched] == pattern[matched])
+				matched++;
+			else 
+				matched = 0;
+		}
+		return status;
+	}
 };
 
 } /* namespace intefaces */
