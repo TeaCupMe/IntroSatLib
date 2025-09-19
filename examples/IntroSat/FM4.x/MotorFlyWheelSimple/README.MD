@@ -1,6 +1,10 @@
-# Пример использования магнитных катушек с IntroSatLib
+# Пример использования маховика с IntroSatLib
 
-Этот пример демонстрирует работу с магнитными катушками с помощью библиотеки [IntroSatLib](https://github.com/Obu-IntroSat/IntroSatLib)
+Этот пример демонстрирует работу с маховиком с помощью библиотеки [IntroSatLib](https://github.com/Obu-IntroSat/IntroSatLib)
+
+Для работы с маховиком с помощью этого примера нужна плата маховика (Flywheel Module) конструктора IntroSat SR версии FM4.0 и выше (версию можно найти на самой плате).
+
+![alt text](image.png)
 
 ## Описание
 

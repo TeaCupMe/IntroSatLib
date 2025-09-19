@@ -1,6 +1,6 @@
 // Подключение библиотек
 #include <Wire.h>
-#include <MagnetometerV2.h>
+#include <AK8963.h>
 #include <IS_Bluetooth.h>
 
 /**
@@ -9,39 +9,37 @@
  */
 using namespace IntroSatLib;
 
-// Создание объекта магнитометра по адресу 0x1E
-MagnetometerV2 magn(Wire, 0x1E);
+// Создание объекта магнитометра
+// @TeaCupMe здесь без адреса, потому что на старых его нельзя изменить
+AK8963 magn(Wire);
 
-void setup()
-{
-    // Включение Serial для вывода данных
-    Serial.begin(115200, SERIAL_8E1);
-    
-    // Инициализация Wire - I2C1
+void setup() {
+	// Включение Serial для вывода данных
+	Serial.begin(115200, SERIAL_8E1);
+
+	// Инициализация Wire - I2C1
 	Wire.begin();
 
-    // Инициализация датчика
+	// Инициализация датчика
 	uint8_t status = magn.Init();
-    
-    /** Проверка успешной инициализации. 
+
+	/** Проверка успешной инициализации. 
 	 *  	0 - Инициализция успешна
 	 *		1-3 - Ошибка инициализации 
 	 */
-	if (status != 0)
-    {
-        Serial.print("Ошибка инициализации магнитометра! Код ошибки: ");
-        Serial.println(status);
-        Serial.println("Проверьте подключение и адрес датчика!");
-        // Если датчик не инициализирован - уходим в бесконечный цикл
-        while (1)
-            ;
-    }
+	if (status != 0) {
+		Serial.print("Ошибка инициализации магнитометра! Код ошибки: ");
+		Serial.println(status);
+		Serial.println("Проверьте подключение и адрес датчика!");
+		// Если датчик не инициализирован - уходим в бесконечный цикл
+		while (1)
+			;
+	}
 }
 
 // Бесконечный цикл - основной код программы
-void loop()
-{
-    // Выводим данные и названия в бесконечном цикле
+void loop() {
+	// Выводим данные и названия в бесконечном цикле
 	Serial.print("mx:");
 	Serial.print(magn.X());
 	Serial.print(",my:");
@@ -50,10 +48,8 @@ void loop()
 	Serial.println(magn.Z());
 
 	// Проверяем, не пришёл ли запрос на переход в режим перепрошивки
-	if (Serial.available())
-	{
-		if (Serial.read() == 'b')
-		{
+	if (Serial.available()) {
+		if (Serial.read() == 'b') {
 			// Если пришёл символ 'b', переходим в режим перепрошивки
 			enter_bootloader();
 		}
