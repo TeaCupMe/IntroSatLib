@@ -5,8 +5,8 @@
  *      Author: Aleksey <TeaCupMe> Gilenko
  */
 
-#ifndef TEMPERATURESENSOR_H_
-#define TEMPERATURESENSOR_H_
+#ifndef BASE_TEMPERATURESENSOR_H_
+#define BASE_TEMPERATURESENSOR_H_
 
 #include "Device/Device.h"
 
@@ -36,4 +36,4 @@ public:
 
 
 
-#endif /* TEMPERATURESENSOR_H_ */
+#endif /* BASE_TEMPERATURESENSOR_H_ */

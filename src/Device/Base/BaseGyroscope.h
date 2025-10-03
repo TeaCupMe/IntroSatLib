@@ -5,8 +5,8 @@
  *      Author: unflesh
  */
 
-#ifndef GYROSCOPE_H_
-#define GYROSCOPE_H_
+#ifndef BASE_GYROSCOPE_H_
+#define BASE_GYROSCOPE_H_
 
 #include "Device/Device.h"
 
@@ -27,4 +27,4 @@ public:
 } /* namespace IntroStratLib */
 
 
-#endif /* GYROSCOPE_H_ */
+#endif /* BASE_GYROSCOPE_H_ */
