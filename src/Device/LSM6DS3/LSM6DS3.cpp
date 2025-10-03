@@ -23,6 +23,7 @@ ISL_StatusTypeDef LSM6DS3::WhoAmI() {
 
 ISL_StatusTypeDef LSM6DS3::InitGyro(ScaleGyro sensitivityGyro, DataRateGyro dataRateGyro, uint8_t force)
 {
+	UNUSED(force);
 	system::Delay(15); // wait for power up
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady())
 	RETURN_STATUS_IF_NOT_OK_SILENT(WhoAmI())
@@ -42,6 +43,7 @@ ISL_StatusTypeDef LSM6DS3::InitGyro(uint8_t force)
 
 ISL_StatusTypeDef LSM6DS3::InitAccel(ScaleAccel sensitivityAccel, DataRateAccel dataRateAccel, uint8_t force)
 {
+	UNUSED(force);
 	system::Delay(15); // wait for power up
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady())
 	RETURN_STATUS_IF_NOT_OK_SILENT(WhoAmI())

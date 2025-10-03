@@ -43,6 +43,7 @@ IRCamera& IRCamera::operator=(IRCamera &&other)
 
 ISL_StatusTypeDef IRCamera::Init(Framerate framrate)
 {
+	UNUSED(framrate);
 	tryReset();
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady())
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(AMG88xx_PCTL, 0))
