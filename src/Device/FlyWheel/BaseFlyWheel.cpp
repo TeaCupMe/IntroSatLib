@@ -108,6 +108,7 @@ ISL_StatusTypeDef BaseFlyWheel::ReverseMode(uint8_t reverceMode)
 	{
 		return BitRegisterI2C(RegisterMap::Config, 4, reverceMode);
 	}
+	return ISL_StatusTypeDef::ISL_ERROR;
 }
 uint8_t BaseFlyWheel::ReverseMode()
 {
