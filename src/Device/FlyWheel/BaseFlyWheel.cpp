@@ -199,7 +199,7 @@ ISL_StatusTypeDef BaseFlyWheel::MinForce(uint16_t minForce)
 	{
 		return SetRegisterI2C(RegisterMap::Need_S_ChannelSpeed, (uint8_t*)&minForce, 2);
 	}
-	return ISL_StatusTypeDef::ISL_ERROR
+	return ISL_StatusTypeDef::ISL_ERROR;
 }
 uint16_t BaseFlyWheel::MinForce()
 {
