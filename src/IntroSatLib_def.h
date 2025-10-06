@@ -10,13 +10,10 @@ enum ISL_StatusTypeDef {
 	ISL_TIMEOUT	= 0x03U
 };
 
-<<<<<<< HEAD
-=======
 #if !defined(UNUSED)
 #define UNUSED(X) (void) X      /* To avoid compiler warnings warnings */
 #endif /* UNUSED */
 
->>>>>>> 197a13d... [CLEANUP] fix compiler warnings (#42)
 #define RETURN_STATUS_IF_NOT_OK(func, status) if ((status = func) != ISL_StatusTypeDef::ISL_OK) { return status; }
 #define RETURN_STATUS_IF_NOT_OK_SILENT(func) {ISL_StatusTypeDef __status__ = ISL_StatusTypeDef::ISL_OK; \
 if ((__status__ = func) != ISL_StatusTypeDef::ISL_OK) { return __status__; }}
