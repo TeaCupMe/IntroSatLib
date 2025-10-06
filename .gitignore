@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# folder with local tools
+tools/*
+doxygen/*
