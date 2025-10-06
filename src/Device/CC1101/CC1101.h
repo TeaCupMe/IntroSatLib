@@ -8,7 +8,7 @@
 #include "math.h"
 #include "Logger.h"
 
-#ifdef SPI_ENABLED2 // TODO WTF?
+#ifdef ISL_SPI_ENABLED // TODO WTF?
 
 namespace IntroSatLib {
 
@@ -503,5 +503,5 @@ public:
 };
 
 } /* namespace IntroSatLib */
-#endif /* SPI_ENABLED */
+#endif /* ISL_SPI_ENABLED */
 #endif /* CC1101_H_ */
