@@ -93,7 +93,7 @@ ISL_StatusTypeDef LSM6DS3::SetScaleGyro(ScaleGyro sensitivityGyro)
 {
 	uint8_t reg;
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(RegisterMap::GYRO_CONFIG, &reg, 1));
-	reg &= 0xFF ^ (0x3 << 2);
+	reg &= 0xFF ^ (0b11 << 2);
 	reg |= (sensitivityGyro << 2);
 	_scaleGyro = sensitivityGyro;
 	return SetRegisterI2C(RegisterMap::GYRO_CONFIG, &reg, 1);
@@ -103,32 +103,19 @@ ISL_StatusTypeDef LSM6DS3::SetDataRateGyro(DataRateGyro dataRateGyro)
 {
 	uint8_t reg;
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(RegisterMap::GYRO_CONFIG, &reg, 1))
-	reg &= 0x0F;
+	reg &= 0b1111;
 	reg |= (dataRateGyro << 4);
 	_dataRateGyro = dataRateGyro;
 	return SetRegisterI2C(RegisterMap::GYRO_CONFIG, &reg, 1);
 }
 
-ISL_StatusTypeDef LSM6DS3::SetScaleAccel(ScaleAccel sensitivityAccel) {
+ISL_StatusTypeDef LSM6DS3::SetScaleAccel(ScaleAccel scaleAccel) {
 	uint8_t reg;
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(RegisterMap::CTRL1_XL, &reg, 1));
-	reg &= 0xFF ^ (ScaleAccel::eightG << 2);
-	reg |= (sensitivityAccel << 2);
-	switch (sensitivityAccel)
-	{
-		case ScaleAccel::twoG:
-			_scaleAccel = 0;
-			break;
-	    case ScaleAccel::fourG:
-	    	_scaleAccel = 1;
-	    	break;
-	    case ScaleAccel::eightG:
-	    	_scaleAccel = 2;
-	    	break;
-	    case ScaleAccel::sixteenG:
-	    	_scaleAccel = 3;
-	    	break;
-	  }
+	reg &= 0xFF ^ (0b11 << 2);
+	reg |= (scaleAccel << 2);
+	_scaleAccel = scaleAccel;
+	
 	return SetRegisterI2C(RegisterMap::CTRL1_XL, &reg, 1);
 }
 
@@ -208,17 +195,17 @@ int16_t LSM6DS3::RawAZ()
 
 float LSM6DS3::AX ()
 {
-	float e = RawAX() * (1 << _scaleAccel) * _rawg;
+	float e = RawAX() * (1 << scaleAccelToShift(_scaleAccel)) * _rawg;
 	return e;
 }
 float LSM6DS3::AY()
 {
-	float e = RawAY() * (1 << _scaleAccel) * _rawg;
+	float e = RawAY() * (1 << scaleAccelToShift(_scaleAccel)) * _rawg;
 	return e;
 }
 float LSM6DS3::AZ()
 {
-	float e = RawAZ() * (1 << _scaleAccel) * _rawg;
+	float e = RawAZ() * (1 << scaleAccelToShift(_scaleAccel)) * _rawg;
 	return e;
 }
 

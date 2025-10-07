@@ -71,6 +71,20 @@ private:
 	static constexpr float _rawdps = (8.75f / 1000.f); // degrees per second
 	static constexpr float _rawg = (0.061f / 1000.f); // fraction of 'g'
 
+	constexpr uint8_t scaleAccelToShift(ScaleAccel scaleAccel) {
+		switch (scaleAccel)
+		{
+			case ScaleAccel::twoG:
+				return 0;
+			case ScaleAccel::fourG:
+				return 1;
+			case ScaleAccel::eightG:
+				return 2;
+			case ScaleAccel::sixteenG:
+				return 3;
+	  	}
+	}
+
 	enum RegisterMap {
 		GYRO_CONFIG = 0X11,
 		GYRO_XOUT_H = 0X22,
