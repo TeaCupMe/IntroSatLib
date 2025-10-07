@@ -12,7 +12,7 @@
 
 namespace IntroSatLib {
 
-class BaseGyroscope: virtual public Device {
+class BaseGyroscope {
 
 public:
 	virtual int16_t RawGX() = 0;
