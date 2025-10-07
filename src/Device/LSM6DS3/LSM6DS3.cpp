@@ -37,10 +37,10 @@ ISL_StatusTypeDef LSM6DS3::InitGyro(ScaleGyro sensitivityGyro, uint8_t force)
 }
 ISL_StatusTypeDef LSM6DS3::InitGyro(uint8_t force)
 {
-	return InitGyro(ScaleGyro::DPS_1000, force);
+	return InitGyro(ScaleGyro::DPS_250, force);
 }
 
-ISL_StatusTypeDef LSM6DS3::InitAccel(ScaleAccel scaleAccel, DataRateAccel dataRateAccel, FilterBandwidthAccel filter, uint8_t force = 1) {
+ISL_StatusTypeDef LSM6DS3::InitAccel(ScaleAccel scaleAccel, DataRateAccel dataRateAccel, FilterBandwidthAccel filter, uint8_t force) {
 	system::Delay(15); // wait for power up
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady())
 	RETURN_STATUS_IF_NOT_OK_SILENT(WhoAmI())
@@ -52,7 +52,7 @@ ISL_StatusTypeDef LSM6DS3::InitAccel(ScaleAccel scaleAccel, DataRateAccel dataRa
 
 ISL_StatusTypeDef LSM6DS3::InitAccel(ScaleAccel scaleAccel, DataRateAccel dataRateAccel, uint8_t force)
 {
-	return InitAccel(scaleAccel, DataRateAccel::DR_A_104_Hz, FilterBandwidthAccel::FB_A_400_Hz, force);
+	return InitAccel(scaleAccel, dataRateAccel, FilterBandwidthAccel::FB_A_400_Hz, force);
 }
 
 ISL_StatusTypeDef LSM6DS3::InitAccel(ScaleAccel scaleAccel, uint8_t force)

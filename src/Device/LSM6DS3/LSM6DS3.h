@@ -104,7 +104,7 @@ private:
 	DataRateAccel _dataRateAccel = DR_A_104_Hz;
 	FilterBandwidthAccel _filterBandwidthAccel = FB_A_400_Hz;
 
-	ScaleGyro _scaleGyro = DPS_500;
+	ScaleGyro _scaleGyro = DPS_250;
 	DataRateGyro _dataRateGyro = DR_G_104_Hz;
 	
 
