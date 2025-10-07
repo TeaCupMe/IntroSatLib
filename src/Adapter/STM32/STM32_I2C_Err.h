@@ -39,7 +39,7 @@ static uint8_t wait_for_gpio_state_timeout(GPIO_TypeDef *port, uint16_t pin, GPI
     return ret;
 }
 
-#ifdef STM32F103xx 
+#ifdef STM32F1
 static void I2C_ClearBusyFlagErratum_F103(I2C_HandleTypeDef *hi2c, uint32_t timeout)
 {
     GPIO_InitTypeDef GPIO_InitStructure = {0};
@@ -127,7 +127,7 @@ static void I2C_ClearBusyFlagErratum_F103(I2C_HandleTypeDef *hi2c, uint32_t time
     HAL_I2C_Init(hi2c);
 #endif
 }
-#endif
+#endif /* STM32F1 */
 
 
 static void I2C_ErrorAnalyzer(I2C_HandleTypeDef *hi2c)
@@ -138,8 +138,8 @@ static void I2C_ErrorAnalyzer(I2C_HandleTypeDef *hi2c)
     HAL_Delay(I2C_TIMEOUT_BASE);
     Wire.begin();
     return;
-#elifdef STM32F103xx
-    I2C_ClearBusyFlagErratum(hi2c, I2C_TIMEOUT_ERRATUM);
+#elif defined(STM32F1)
+    I2C_ClearBusyFlagErratum_F103(hi2c, I2C_TIMEOUT_ERRATUM);
 #endif
 }
 
