@@ -21,7 +21,7 @@ ISL_StatusTypeDef LSM6DS3::WhoAmI() {
 	return (ISL_StatusTypeDef) (iAm != 0x69);
 }
 
-ISL_StatusTypeDef LSM6DS3::InitGyro(ScaleGyro sensitivityGyro, DataRateGyro dataRateGyro, uint8_t force)
+ISL_StatusTypeDef LSM6DS3::InitGyro(ScaleGyro sensitivityGyro, DataRateGyro dataRateGyro)
 {
 	UNUSED(force);
 	system::Delay(15); // wait for power up
@@ -32,33 +32,37 @@ ISL_StatusTypeDef LSM6DS3::InitGyro(ScaleGyro sensitivityGyro, DataRateGyro data
 	return IsReady();
 }
 
-ISL_StatusTypeDef LSM6DS3::InitGyro(ScaleGyro sensitivityGyro, uint8_t force)
+ISL_StatusTypeDef LSM6DS3::InitGyro(ScaleGyro sensitivityGyro)
 {
-	return InitGyro(sensitivityGyro, DataRateGyro::DR_G_416_Hz, force);
+	return InitGyro(sensitivityGyro, DataRateGyro::DR_G_416_Hz);
 }
-ISL_StatusTypeDef LSM6DS3::InitGyro(uint8_t force)
+ISL_StatusTypeDef LSM6DS3::InitGyro()
 {
-	return InitGyro(ScaleGyro::DPS0500, force);
+	return InitGyro(ScaleGyro::DPS_245);
 }
 
-ISL_StatusTypeDef LSM6DS3::InitAccel(ScaleAccel sensitivityAccel, DataRateAccel dataRateAccel, uint8_t force)
-{
-	UNUSED(force);
+ISL_StatusTypeDef LSM6DS3::InitAccel(ScaleAccel scaleAccel, DataRateAccel dataRateAccel, FilterBandwidthAccel filter) {
 	system::Delay(15); // wait for power up
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady())
 	RETURN_STATUS_IF_NOT_OK_SILENT(WhoAmI())
-	RETURN_STATUS_IF_NOT_OK_SILENT(SetScaleAccel(sensitivityAccel))
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetScaleAccel(scaleAccel))
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetDataRateAccel(dataRateAccel))
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetFilterAccel(filter))
 	return IsReady();
 }
 
-ISL_StatusTypeDef LSM6DS3::InitAccel(ScaleAccel sensitivityAccel, uint8_t force)
+ISL_StatusTypeDef LSM6DS3::InitAccel(ScaleAccel scaleAccel, DataRateAccel dataRateAccel)
 {
-	return InitAccel(sensitivityAccel, DataRateAccel::DR_A_104_Hz, force);
+	return InitAccel(scaleAccel, dataRateAccel, FilterBandwidthAccel::FB_A_400_Hz);
 }
-ISL_StatusTypeDef LSM6DS3::InitAccel(uint8_t force)
+
+ISL_StatusTypeDef LSM6DS3::InitAccel(ScaleAccel scaleAccel)
 {
-	return InitAccel(ScaleAccel::fourG, force);
+	return InitAccel(scaleAccel, DataRateAccel::DR_A_104_Hz);
+}
+ISL_StatusTypeDef LSM6DS3::InitAccel()
+{
+	return InitAccel(ScaleAccel::fourG);
 }
 
 void LSM6DS3::SetMinCutX(float x)
@@ -90,9 +94,9 @@ ISL_StatusTypeDef LSM6DS3::SetScaleGyro(ScaleGyro sensitivityGyro)
 {
 	uint8_t reg;
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(RegisterMap::GYRO_CONFIG, &reg, 1));
-	reg &= 0xFF ^ (ScaleGyro::DPS2000 << 2);
+	reg &= 0xFF ^ (0b11 << 2);
 	reg |= (sensitivityGyro << 2);
-	_sensitivityGyro = sensitivityGyro;
+	_scaleGyro = sensitivityGyro;
 	return SetRegisterI2C(RegisterMap::GYRO_CONFIG, &reg, 1);
 }
 
@@ -100,32 +104,19 @@ ISL_StatusTypeDef LSM6DS3::SetDataRateGyro(DataRateGyro dataRateGyro)
 {
 	uint8_t reg;
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(RegisterMap::GYRO_CONFIG, &reg, 1))
-	reg &= 0x0F;
+	reg &= 0b1111;
 	reg |= (dataRateGyro << 4);
 	_dataRateGyro = dataRateGyro;
 	return SetRegisterI2C(RegisterMap::GYRO_CONFIG, &reg, 1);
 }
 
-ISL_StatusTypeDef LSM6DS3::SetScaleAccel(ScaleAccel sensitivityAccel) {
+ISL_StatusTypeDef LSM6DS3::SetScaleAccel(ScaleAccel scaleAccel) {
 	uint8_t reg;
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(RegisterMap::CTRL1_XL, &reg, 1));
-	reg &= 0xFF ^ (ScaleAccel::eightG << 2);
-	reg |= (sensitivityAccel << 2);
-	switch (sensitivityAccel)
-	{
-		case ScaleAccel::twoG:
-			_sensitivityAccel = 0;
-			break;
-	    case ScaleAccel::fourG:
-	    	_sensitivityAccel = 1;
-	    	break;
-	    case ScaleAccel::eightG:
-	    	_sensitivityAccel = 2;
-	    	break;
-	    case ScaleAccel::sixteenG:
-	    	_sensitivityAccel = 3;
-	    	break;
-	  }
+	reg &= 0xFF ^ (0b11 << 2);
+	reg |= (scaleAccel << 2);
+	_scaleAccel = scaleAccel;
+	
 	return SetRegisterI2C(RegisterMap::CTRL1_XL, &reg, 1);
 }
 
@@ -133,9 +124,18 @@ ISL_StatusTypeDef LSM6DS3::SetScaleAccel(ScaleAccel sensitivityAccel) {
 ISL_StatusTypeDef LSM6DS3::SetDataRateAccel(DataRateAccel dataRateAccel) {
 	uint8_t reg;
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(RegisterMap::CTRL1_XL, &reg, 1));
-	reg &= 0xFF ^ (0x0F<<4);
+	reg &= 0xFF ^ (0b01111<<4);
 	reg |= (dataRateAccel<<4);
 	_dataRateAccel = dataRateAccel;
+	return SetRegisterI2C(RegisterMap::CTRL1_XL, reg);
+}
+
+ISL_StatusTypeDef LSM6DS3::SetFilterAccel(FilterBandwidthAccel filterBandwidthAccel) {
+	uint8_t reg;
+	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(RegisterMap::CTRL1_XL, &reg, 1));
+	reg &= 0xFF ^ 0b11;
+	reg |= filterBandwidthAccel;
+	_filterBandwidthAccel = filterBandwidthAccel;
 	return SetRegisterI2C(RegisterMap::CTRL1_XL, reg);
 }
 
@@ -160,18 +160,18 @@ int16_t LSM6DS3::RawGZ()
 
 float LSM6DS3::GX()
 {
-	float e = RawGX() * (1 << _sensitivityGyro);
+	float e = RawGX() * (1 << _scaleGyro);
 	return cutMin(e * _rawdps, _cutX);
 }
 
 float LSM6DS3::GY()
 {
-	float e = RawGY() * (1 << _sensitivityGyro);
+	float e = RawGY() * (1 << _scaleGyro);
 	return cutMin(e * _rawdps, _cutY);
 }
 float LSM6DS3::GZ()
 {
-	float e = RawGZ() * (1 << _sensitivityGyro);
+	float e = RawGZ() * (1 << _scaleGyro);
 	return cutMin(e * _rawdps, _cutZ);
 }
 
@@ -194,19 +194,19 @@ int16_t LSM6DS3::RawAZ()
 	return buf[1] << 8 | buf[0];
 }
 
-float LSM6DS3::AX ()
+float LSM6DS3::AX()
 {
-	float e = RawAX() * (1 << _sensitivityAccel) * _rawg;
+	float e = RawAX() * (1 << scaleAccelToShift(_scaleAccel)) * _rawg;
 	return e;
 }
 float LSM6DS3::AY()
 {
-	float e = RawAY() * (1 << _sensitivityAccel) * _rawg;
+	float e = RawAY() * (1 << scaleAccelToShift(_scaleAccel)) * _rawg;
 	return e;
 }
 float LSM6DS3::AZ()
 {
-	float e = RawAZ() * (1 << _sensitivityAccel) * _rawg;
+	float e = RawAZ() * (1 << scaleAccelToShift(_scaleAccel)) * _rawg;
 	return e;
 }
 
