@@ -4,7 +4,7 @@
 #if defined(HAL_UART_MODULE_ENABLED) && !defined(ARDUINO) // If HAL SPI is enabled and no Arduino framework
 
 uint8_t IntroSatLib::interfaces::UART::available() {
-    return 0; // TODO implement for HAL??
+    return __HAL_UART_GET_FLAG(_huart, UART_FLAG_RXNE); // TODO implement for HAL??
 }
 
 ISL_StatusTypeDef IntroSatLib::interfaces::UART::receive(uint8_t* rx_buf, uint16_t count, uint16_t timeout) {
