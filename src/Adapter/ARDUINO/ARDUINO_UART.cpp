@@ -23,7 +23,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::UART::receive(uint8_t* rx_buf, uint16
     
     // Алтернативно - тут мы пишем в пользовательский буффер даже если принято недостаточно данных, выглядит не очень
     _huart->setTimeout(timeout);
-	return (_huart->readBytes(rx_buf, count) == count);
+	return _huart->readBytes(rx_buf, count) == count ? ISL_StatusTypeDef::ISL_OK : ISL_StatusTypeDef::ISL_TIMEOUT;
 }
 
 ISL_StatusTypeDef IntroSatLib::interfaces::UART::transmit(uint8_t* tx_buf, uint16_t count, uint16_t timeout) {
