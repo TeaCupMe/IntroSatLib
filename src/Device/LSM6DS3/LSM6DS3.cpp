@@ -33,7 +33,7 @@ ISL_StatusTypeDef LSM6DS3::InitGyro(ScaleGyro sensitivityGyro, DataRateGyro data
 
 ISL_StatusTypeDef LSM6DS3::InitGyro(ScaleGyro sensitivityGyro)
 {
-	return InitGyro(sensitivityGyro, DataRateGyro::DR_G_416_Hz, force);
+	return InitGyro(sensitivityGyro, DataRateGyro::DR_G_416_Hz);
 }
 ISL_StatusTypeDef LSM6DS3::InitGyro()
 {
