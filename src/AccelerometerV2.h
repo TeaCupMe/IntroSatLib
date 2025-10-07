@@ -84,7 +84,6 @@ public:
 	 * @returns 0, если инициализация завершена успешно
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
-	//TODO Переименовать sens в scale, иначе вызывает путаницу. Это именно scale
     ISL_StatusTypeDef Init(Scale scale) {
     	return LSM6DS3::InitAccel((LSM6DS3::ScaleAccel) scale);
     }
@@ -92,41 +91,33 @@ public:
 	/**
 	 * @brief Инициализация акселлерометра с заданными диапазоном измерения и шириной окна фильтра 
 	 * 
-	 * @param sens Значение чуствительности @ref Scale
-	 * @param filter Значение ширины фильтра @ref FilterBandwidth 
+	 * @param scale Значение диапазона измерения @ref Scale
+	 * @param dataRate Значение скорости обновления данных @ref FilterBandwidth 
 	 * @returns 0, если инициализация завершена успешно
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
-	//TODO Переименовать sens в scale, иначе вызывает путаницу. Это именно scale
-    ISL_StatusTypeDef Init(Scale scale, FilterBandwidth filter) {
-    	// TODO !!!!!!!!! НЕ РЕАЛИЗОВАНО ДЛЯ LSM6DS3 !!!!!!!!!!
-//    	return LSM6DS3::InitAccel((LSM6DS3::ScaleAccel) sens, (LSM6DS3::))
-    	return ISL_StatusTypeDef::ISL_ERROR;
+    ISL_StatusTypeDef Init(Scale scale, DataRate dataRate) {
+   		return LSM6DS3::InitAccel((LSM6DS3::ScaleAccel) scale, (LSM6DS3::DataRateAccel) dataRate);
     }
 
 	/**
 	 * @brief Инициализация акселлерометра с заданными диапазоном измерения, шириной окна фильтра и скоростью обновления данных 
 	 * 
-	 * @param sens Значение чуствительности @ref Scale
+	 * @param scale Значение диапазона измерения @ref Scale
 	 * @param filter Значение ширины фильтра @ref FilterBandwidth 
 	 * @param datarate Значение скорости обновления данных @ref DataRate
 	 * @returns 0, если инициализация завершена успешно
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
-	//TODO Переименовать sens в scale, иначе вызывает путаницу. Это именно scale
-    ISL_StatusTypeDef Init(Scale scale, FilterBandwidth filter, DataRate datarate) {
-    	// TODO !!!!!!!!! FilterBandwidth НЕ РЕАЛИЗОВАНО ДЛЯ LSM6DS3 !!!!!!!!!!
-    	//    	return LSM6DS3::InitAccel((LSM6DS3::ScaleAccel) sens, ...)
-		return ISL_StatusTypeDef::ISL_ERROR;
+    ISL_StatusTypeDef Init(Scale scale, DataRate dataRate, FilterBandwidth filter) {
+		return LSM6DS3::InitAccel((LSM6DS3::ScaleAccel) sens, (LSM6DS3::DataRateAccel) dataRate, (LSM6DS3::FilterBandwidthAccel) filter);
     }
 
 	/**
 	 * @brief Установка диапазона измерения
 	 * 
-	 * @param sens Значение чуствительности @ref Scale
+	 * @param scale Значение чуствительности @ref Scale
 	 */
-	//TODO Переименовать sens в scale, иначе вызывает путаницу. Это именно scale
-	//? @irongamer54 Тут параметр по умолчанию Scale::twoG, хотя в Init() выставляется fourG (из BASE_ACCELL_CONF)
     ISL_StatusTypeDef SetScale(Scale scale = twoG) {
     	return LSM6DS3::SetScaleAccel((LSM6DS3::ScaleAccel) scale);
     }
@@ -136,9 +127,8 @@ public:
 	 * 
 	 * @param filter Значение ширины фильтра @ref FilterBandwidth 
 	 */
-    ISL_StatusTypeDef SetFilter(FilterBandwidth filter = F400H) {
-    	// TODO !!!!!!!!! FilterBandwidth НЕ РЕАЛИЗОВАНО ДЛЯ LSM6DS3 !!!!!!!!!!
-		return ISL_StatusTypeDef::ISL_ERROR;
+    ISL_StatusTypeDef SetFilter(FilterBandwidth filter) {
+    	return LSM6DS3::SetFilterAccel((LSM6DS3::FilterBandwidthAccel) filter);
     }
 
 	/**

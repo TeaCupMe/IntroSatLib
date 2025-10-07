@@ -15,6 +15,55 @@
 namespace IntroSatLib {
 
 class LSM6DS3: public BaseGyroscope, public BaseAccelerometer, protected I2CDevice {
+public:
+		enum DataRateGyro {
+		OFF_G,
+		DR_G_13_Hz,			/**< Частота обновления 13 Гц */
+		DR_G_26_Hz,			/**< Частота обновления 26 Гц */
+		DR_G_52_Hz,			/**< Частота обновления 52 Гц */
+		DR_G_104_Hz, 		/**< Частота обновления 104 Гц (значение по умолчаиню) */
+		DR_G_208_Hz,		/**< Частота обновления 208 Гц */
+		DR_G_416_Hz,		/**< Частота обновления 416 Гц */
+		DR_G_833_Hz,		/**< Частота обновления 833 Гц */
+		DR_G_1660_Hz,		/**< Частота обновления 1660 Гц */
+	};
+
+	enum DataRateAccel {
+		OFF_A,
+		DR_A_12_5_Hz,      	/**< Частота обновления 12.5 Гц */
+		DR_A_26_Hz,        	/**< Частота обновления 26 Гц */
+		DR_A_52_Hz,        	/**< Частота обновления 52 Гц */
+		DR_A_104_Hz,       	/**< Частота обновления 104 Гц (значение по умолчанию) */
+		DR_A_208_Hz,       	/**< Частота обновления 208 Гц */
+		DR_A_416_Hz,       	/**< Частота обновления 416 Гц */
+		DR_A_833_Hz,       	/**< Частота обновления 833 Гц */
+		DR_A_1660_Hz,     	/**< Частота обновления 1660 Гц */
+		DR_A_3330_Hz,     	/**< Частота обновления 3330 Гц */
+		DR_A_6660_Hz,    	/**< Частота обновления 6660 Гц */
+    };
+
+	enum ScaleGyro {
+		DPS_250 = 0,		/**< Диапазон &plusmn;250 град/с */
+		DPS_500, 			/**< Диапазон &plusmn;500 град/с (значение по умолчанию) */
+		DPS_1000,			/**< Диапазон &plusmn;1000 град/с */
+		DPS_2000			/**< Диапазон &plusmn;2000 град/с */
+	};
+
+	enum ScaleAccel {
+		twoG = 0,			/**< Диапазон &plusmn;2g */
+		fourG = 2, 			/**< Диапазон &plusmn;4g (значение по умолчанию) */
+		eightG = 3,			/**< Диапазон &plusmn;8g */
+		sixteenG = 1		/**< Диапазон &plusmn;16g */
+	};
+
+	enum FilterBandwidthAccel
+	{
+		FB_A_400_Hz = 0, 	/**< Частота 400 Гц (значение по умолчанию) */
+		FB_A_200_Hz = 1, 	/**< Частота 200 Гц */
+		FB_A_100_Hz = 2, 	/**< Частота 100 Гц */
+		FB_A_50_Hz = 3  	/**< Частота 50 Гц */
+	};
+
 private:
 
 	static const uint8_t BASE_ADDRESS = 0x6A;
@@ -50,10 +99,14 @@ private:
 
 	ISL_StatusTypeDef WhoAmI();
 
-	uint8_t _sensitivityGyro = 0;
-	uint8_t _sensitivityAccel = 0;
-	uint8_t _dataRateGyro = 0;
-	uint8_t _dataRateAccel = 0;
+	
+	ScaleAccel _scaleAccel = fourG;
+	DataRateAccel _dataRateAccel = DR_A_104_Hz;
+	FilterBandwidthAccel _filterBandwidthAccel = FB_A_400_Hz;
+
+	ScaleGyro _scaleGyro = DPS_500;
+	DataRateGyro _dataRateGyro = DR_G_104_Hz;
+	
 
 //	float _cutX = 0.0872665; // rps
 //	float _cutY = 0.0872665;
@@ -64,55 +117,16 @@ private:
 	float _cutZ = 5.0f;
 
 public:
-	enum DataRateGyro {
-		OFF_G,
-		DR_G_13_Hz,
-		DR_G_26_Hz,
-		DR_G_52_Hz,
-		DR_G_104_Hz, // - reset value
-		DR_G_208_Hz,
-		DR_G_416_Hz,
-		DR_G_833_Hz,
-		DR_G_1660_Hz,
-	};
-
-	enum DataRateAccel {
-		OFF_A,
-		DR_A_12_5_Hz,      //12.5Hz
-		DR_A_26_Hz,        //26Hz
-		DR_A_52_Hz,        //52Hz
-		DR_A_104_Hz,       //104Hz - reset value
-		DR_A_208_Hz,       //208Hz
-		DR_A_416_Hz,       //416Hz
-		DR_A_833_Hz,       //833Hz
-		DR_A_1660_Hz,     //1.66kHz
-		DR_A_3330_Hz,     //3.33kHz
-		DR_A_6660_Hz,    //6.66kHz
-    };
-
-	enum ScaleGyro {
-		DPS0250 = 0,
-		DPS0500, // - reset value
-		DPS1000,
-		DPS2000
-	};
-
-	enum ScaleAccel {
-		twoG = 0,
-		fourG = 2, // - reset value
-		eightG = 3,
-		sixteenG = 1
-	};
-
 	LSM6DS3(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
 
 
 	ISL_StatusTypeDef InitGyro(uint8_t force = 1); // TODO: add filter to Init() of gyro&accel
-	ISL_StatusTypeDef InitGyro(ScaleGyro sensitivityGyro, uint8_t force = 1);
-	ISL_StatusTypeDef InitGyro(ScaleGyro sensitivityGyro, DataRateGyro dataRateGyro, uint8_t force = 1);
+	ISL_StatusTypeDef InitGyro(ScaleGyro scaleGyro, uint8_t force = 1);
+	ISL_StatusTypeDef InitGyro(ScaleGyro scaleGyro, DataRateGyro dataRateGyro, uint8_t force = 1);
 	ISL_StatusTypeDef InitAccel(uint8_t force = 1);
-	ISL_StatusTypeDef InitAccel(ScaleAccel sensitivityAccel, uint8_t force = 1);
-	ISL_StatusTypeDef InitAccel(ScaleAccel sensitivityAccel, DataRateAccel dataRateAccel, uint8_t force = 1);
+	ISL_StatusTypeDef InitAccel(ScaleAccel scaleAccel, uint8_t force = 1);
+	ISL_StatusTypeDef InitAccel(ScaleAccel scaleAccel, DataRateAccel dataRateAccel, uint8_t force = 1);
+	ISL_StatusTypeDef InitAccel(ScaleAccel scaleAccel, DataRateAccel dataRateAccel, FilterBandwidthAccel filter, uint8_t force = 1);
 
 	ISL_StatusTypeDef Init() override {
 		InitGyro();
@@ -120,10 +134,11 @@ public:
 		return ISL_OK;
 	}
 
-	ISL_StatusTypeDef SetScaleGyro(ScaleGyro sensitivityGyro);
-	ISL_StatusTypeDef SetScaleAccel(ScaleAccel sensitivityAccel);
+	ISL_StatusTypeDef SetScaleGyro(ScaleGyro scaleGyro);
+	ISL_StatusTypeDef SetScaleAccel(ScaleAccel scaleAccel);
 	ISL_StatusTypeDef SetDataRateGyro(DataRateGyro dataRateGyro);
 	ISL_StatusTypeDef SetDataRateAccel(DataRateAccel dataRateAccel);
+	ISL_StatusTypeDef SetFilterAccel(FilterBandwidthAccel filterBandwithAccel);
 
 public:
 	int16_t RawGX() override;

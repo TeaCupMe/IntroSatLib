@@ -84,7 +84,7 @@ public:
 	 * @returns 1, если при инициализации возникла ошибка 
 	 */
 	ISL_StatusTypeDef Init() {
-		return Init(Scale::DPS0250);
+		return Init(Scale::DPS1000);
 	}
 
 	/**
