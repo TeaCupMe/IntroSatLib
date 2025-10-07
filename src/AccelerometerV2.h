@@ -56,13 +56,13 @@ public:
 		DR6_66KH = 10,    /**< 6.66 кГц */
     };
 
-    uint8_t _sens = 0;
+    uint8_t _scale = 0;
 
 	/**
 	 * @brief Конструктор объекта акселлерометра. 
 	 * @note Только в STM32CubeIDE
 	 * 
-	 * @param hi2c объект @b I2C_HandleTypeDef или @b TwoWire
+	 * @param i2c объект(или указатель на объект) @b I2C_HandleTypeDef или @b TwoWire
 	 * @param address адрес акселлерометра на шине I2C
 	 */
     AccelerometerV2(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS): LSM6DS3(i2c, address) {};
@@ -110,7 +110,7 @@ public:
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
     ISL_StatusTypeDef Init(Scale scale, DataRate dataRate, FilterBandwidth filter) {
-		return LSM6DS3::InitAccel((LSM6DS3::ScaleAccel) sens, (LSM6DS3::DataRateAccel) dataRate, (LSM6DS3::FilterBandwidthAccel) filter);
+		return LSM6DS3::InitAccel((LSM6DS3::ScaleAccel) scale, (LSM6DS3::DataRateAccel) dataRate, (LSM6DS3::FilterBandwidthAccel) filter);
     }
 
 	/**
