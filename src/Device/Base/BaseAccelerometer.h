@@ -5,8 +5,8 @@
  *      Author: unflesh
  */
 
-#ifndef ACCELEROMETER_H_
-#define ACCELEROMETER_H_
+#ifndef BASE_ACCELEROMETER_H_
+#define BASE_ACCELEROMETER_H_
 
 #include "Device/Device.h"
 
@@ -27,4 +27,4 @@ public:
 } /* namespace IntroStratLib */
 
 
-#endif /* ACCELEROMETER_H_ */
+#endif /* BASE_ACCELEROMETER_H_ */
