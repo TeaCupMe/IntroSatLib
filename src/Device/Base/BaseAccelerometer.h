@@ -12,7 +12,7 @@
 
 namespace IntroSatLib {
 
-class BaseAccelerometer: virtual public Device {
+class BaseAccelerometer {
 
 public:
 	virtual int16_t RawAX() = 0;

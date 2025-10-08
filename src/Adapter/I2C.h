@@ -11,6 +11,7 @@
 /*********************************/
 	#include "Arduino.h"
 	#include "Wire.h"
+	#define	ISL_I2C_ENABLED
 	namespace IntroSatLib::interfaces {using I2C_HANDLE_TYPE = TwoWire;}
 
 #else
@@ -35,6 +36,7 @@
 
 		#ifdef HAL_I2C_MODULE_ENABLED
 			// define STM32-specific handle type for I2C
+			#define	ISL_I2C_ENABLED
 			namespace IntroSatLib::interfaces {using I2C_HANDLE_TYPE = I2C_HandleTypeDef;}
 
 		#elif !defined(INTROSATLIB_INTERNAL)
@@ -56,7 +58,7 @@
 #endif /* ARDUINO */
 
 
-//#ifdef I2C_HANDLE_TYPE // Unnecessary
+#ifdef ISL_I2C_ENABLED
 #define I2C_ENABLED
 
 //#include <array>
@@ -195,5 +197,5 @@ public:
 
 } /* namespace intefaces */
 } /* namespace IntroSatLib */
-//#endif /* I2C_HANDLE_TYPE */
+#endif /* ISL_I2C_ENABLED */
 #endif /* ADAPTER_I2C_H_ */

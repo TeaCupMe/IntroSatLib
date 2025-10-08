@@ -13,7 +13,7 @@
 
 namespace IntroSatLib {
 
-class BaseMagnetometer : public Device {
+class BaseMagnetometer {
 
 public:
 
