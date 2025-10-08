@@ -12,7 +12,7 @@
 
 namespace IntroSatLib {
 
-class BaseBarometer: public Device {
+class BaseBarometer {
 	float pressure;
 public:
 	virtual float GetPressure() = 0;

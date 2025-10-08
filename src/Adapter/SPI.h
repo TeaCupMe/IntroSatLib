@@ -10,6 +10,7 @@
 /*********************************/
 	#include "Arduino.h"
 	#include <SPI.h>
+	#define ISL_SPI_ENABLED
 	namespace IntroSatLib::interfaces {using SPI_HANDLE_TYPE = SPIClass;}
 
 #else
@@ -35,6 +36,7 @@
 
 		#ifdef HAL_SPI_MODULE_ENABLED
 			// define STM32-specific handle type for SPI
+			#define ISL_SPI_ENABLED
 			namespace IntroSatLib::interfaces {using SPI_HANDLE_TYPE = SPI_HandleTypeDef;}
 		#elif !defined(INTROSATLIB_INTERNAL)
 			#error "SPI not enabled as part of HAL"
@@ -52,8 +54,7 @@
 	#endif
 #endif
 
-//#ifdef SPI_HANDLE_TYPE
-#define SPI_ENABLED
+#ifdef ISL_SPI_ENABLED
 
 #if __has_include(<array>)
 #define STL_AVAILABLE
@@ -94,6 +95,6 @@ public:
 } /* namespace intefaces */
 } /* namespace IntroSatLib */
 
-#endif /* SPI_HANDLE_TYPE */
+#endif /* ISL_SPI_ENABLED */
 
-//#endif /* ADAPTER_SPI_H_ */
+#endif /* ADAPTER_SPI_H_ */

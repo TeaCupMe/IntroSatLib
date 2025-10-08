@@ -12,7 +12,7 @@
 
 namespace IntroSatLib {
 
-class BaseTemperatureSensor: public Device {
+class BaseTemperatureSensor {
 
 private:
 
