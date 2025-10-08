@@ -14,7 +14,6 @@ MS5611::MS5611(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new inter
 }
 
 ISL_StatusTypeDef MS5611::Init(OSR sensitivity, uint8_t force) {
-	UNUSED(force);
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady())
 
 	uint8_t tx_buf = CMD::RST;
