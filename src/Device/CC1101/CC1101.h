@@ -8,7 +8,7 @@
 #include "math.h"
 #include "Logger.h"
 
-#ifdef ISL_SPI_ENABLED // TODO WTF?
+#ifdef ISL_SPI_ENABLED_NOT // TODO WTF?
 
 namespace IntroSatLib {
 
