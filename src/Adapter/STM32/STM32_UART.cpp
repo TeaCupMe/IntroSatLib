@@ -8,15 +8,15 @@ uint8_t IntroSatLib::interfaces::UART::available() {
 }
 
 ISL_StatusTypeDef IntroSatLib::interfaces::UART::receive(uint8_t* rx_buf, uint16_t count, uint16_t timeout) {
-	return (ISL_StatusTypeDef) HAL_UART_Receive(_huart, rxbuf, count, timeout);
+	return (ISL_StatusTypeDef) HAL_UART_Receive(_huart, rx_buf, count, timeout);
 }
 
 ISL_StatusTypeDef IntroSatLib::interfaces::UART::transmit(uint8_t* tx_buf, uint16_t count, uint16_t timeout) {
-    return (ISL_StatusTypeDef) HAL_UART_Transmit(_huart, txbuf, count, timeout);
+    return (ISL_StatusTypeDef) HAL_UART_Transmit(_huart, tx_buf, count, timeout);
 }
 
 ISL_StatusTypeDef IntroSatLib::interfaces::UART::transmitAsync(uint8_t* tx_buf, uint16_t count) {
-    return (ISL_StatusTypeDef) HAL_UART_Transmit_IT(_huart, txbuf, count);
+    return (ISL_StatusTypeDef) HAL_UART_Transmit_IT(_huart, tx_buf, count);
 }
 
 #endif /* defined(HAL_UART_MODULE_ENABLED) && !defined(ARDUINO) */
