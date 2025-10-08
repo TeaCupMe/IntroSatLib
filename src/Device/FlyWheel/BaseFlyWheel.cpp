@@ -108,6 +108,7 @@ ISL_StatusTypeDef BaseFlyWheel::ReverseMode(uint8_t reverceMode)
 	{
 		return BitRegisterI2C(RegisterMap::Config, 4, reverceMode);
 	}
+	return ISL_StatusTypeDef::ISL_ERROR;
 }
 uint8_t BaseFlyWheel::ReverseMode()
 {
@@ -133,6 +134,7 @@ ISL_StatusTypeDef BaseFlyWheel::NeedSpeed(int16_t needSpeed)
 	{
 		return SetRegisterI2C(RegisterMap::Need_S_ChannelSpeed, (uint8_t*)&needSpeed, 2);
 	}
+	return ISL_StatusTypeDef::ISL_ERROR;
 }
 int16_t BaseFlyWheel::NeedSpeed()
 {
@@ -162,16 +164,17 @@ int16_t BaseFlyWheel::CurrentSpeed()
 	return result;
 }
 
-void BaseFlyWheel::MaxAbsSpeed(uint16_t maxAbsSpeed)
+ISL_StatusTypeDef BaseFlyWheel::MaxAbsSpeed(uint16_t maxAbsSpeed)
 {
 	if(_channel == 1)
 	{
-		SetRegisterI2C(RegisterMap::Need_F_ChannelSpeed, (uint8_t*)&maxAbsSpeed, 2);
+		return SetRegisterI2C(RegisterMap::Need_F_ChannelSpeed, (uint8_t*)&maxAbsSpeed, 2);
 	}
 	if(_channel == 2)
 	{
-		SetRegisterI2C(RegisterMap::Need_S_ChannelSpeed, (uint8_t*)&maxAbsSpeed, 2);
+		return SetRegisterI2C(RegisterMap::Need_S_ChannelSpeed, (uint8_t*)&maxAbsSpeed, 2);
 	}
+	return ISL_StatusTypeDef::ISL_ERROR;
 }
 uint16_t BaseFlyWheel::MaxAbsSpeed()
 {
@@ -187,16 +190,17 @@ uint16_t BaseFlyWheel::MaxAbsSpeed()
 	return result;
 }
 
-void BaseFlyWheel::MinForce(uint16_t minForce)
+ISL_StatusTypeDef BaseFlyWheel::MinForce(uint16_t minForce)
 {
 	if(_channel == 1)
 	{
-		SetRegisterI2C(RegisterMap::Need_F_ChannelSpeed, (uint8_t*)&minForce, 2);
+		return SetRegisterI2C(RegisterMap::Need_F_ChannelSpeed, (uint8_t*)&minForce, 2);
 	}
 	if(_channel == 2)
 	{
-		SetRegisterI2C(RegisterMap::Need_S_ChannelSpeed, (uint8_t*)&minForce, 2);
+		return SetRegisterI2C(RegisterMap::Need_S_ChannelSpeed, (uint8_t*)&minForce, 2);
 	}
+	return ISL_StatusTypeDef::ISL_ERROR;
 }
 uint16_t BaseFlyWheel::MinForce()
 {
@@ -212,16 +216,17 @@ uint16_t BaseFlyWheel::MinForce()
 	return result;
 }
 
-void BaseFlyWheel::PID_P(float p)
+ISL_StatusTypeDef BaseFlyWheel::PID_P(float p)
 {
 	if(_channel == 1)
 	{
-		SetRegisterI2C(RegisterMap::F_P, (uint8_t*)&p, 4);
+		return SetRegisterI2C(RegisterMap::F_P, (uint8_t*)&p, 4);
 	}
 	if(_channel == 2)
 	{
-		SetRegisterI2C(RegisterMap::S_P, (uint8_t*)&p, 4);
+		return SetRegisterI2C(RegisterMap::S_P, (uint8_t*)&p, 4);
 	}
+	return ISL_StatusTypeDef::ISL_ERROR;
 }
 float BaseFlyWheel::PID_P()
 {
@@ -237,16 +242,17 @@ float BaseFlyWheel::PID_P()
 	return result;
 }
 
-void BaseFlyWheel::PID_I(float i)
+ISL_StatusTypeDef BaseFlyWheel::PID_I(float i)
 {
 	if(_channel == 1)
 	{
-		SetRegisterI2C(RegisterMap::F_I, (uint8_t*)&i, 4);
+		return SetRegisterI2C(RegisterMap::F_I, (uint8_t*)&i, 4);
 	}
 	if(_channel == 2)
 	{
-		SetRegisterI2C(RegisterMap::S_I, (uint8_t*)&i, 4);
+		return SetRegisterI2C(RegisterMap::S_I, (uint8_t*)&i, 4);
 	}
+	return ISL_StatusTypeDef::ISL_ERROR;
 }
 float BaseFlyWheel::PID_I()
 {
@@ -262,16 +268,17 @@ float BaseFlyWheel::PID_I()
 	return result;
 }
 
-void BaseFlyWheel::PID_D(float d)
+ISL_StatusTypeDef BaseFlyWheel::PID_D(float d)
 {
 	if(_channel == 1)
 	{
-		SetRegisterI2C(RegisterMap::F_D, (uint8_t*)&d, 4);
+		return SetRegisterI2C(RegisterMap::F_D, (uint8_t*)&d, 4);
 	}
 	if(_channel == 2)
 	{
-		SetRegisterI2C(RegisterMap::S_D, (uint8_t*)&d, 4);
+		return SetRegisterI2C(RegisterMap::S_D, (uint8_t*)&d, 4);
 	}
+	return ISL_StatusTypeDef::ISL_ERROR;
 }
 float BaseFlyWheel::PID_D()
 {

@@ -86,15 +86,15 @@ public:
 	 * @return Скорость в об/с
 	 */
 	int16_t CurrentSpeed();
-	void MaxAbsSpeed(uint16_t maxAbsSpeed);
+	ISL_StatusTypeDef MaxAbsSpeed(uint16_t maxAbsSpeed);
 	uint16_t MaxAbsSpeed();
-	void MinForce(uint16_t minForce);
+	ISL_StatusTypeDef MinForce(uint16_t minForce);
 	uint16_t MinForce();
-	void PID_P(float p);
+	ISL_StatusTypeDef PID_P(float p);
 	float PID_P();
-	void PID_I(float i);
+	ISL_StatusTypeDef PID_I(float i);
 	float PID_I();
-	void PID_D(float d);
+	ISL_StatusTypeDef PID_D(float d);
 	float PID_D();
 
 	/**
