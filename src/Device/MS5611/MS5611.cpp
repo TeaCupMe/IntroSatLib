@@ -93,7 +93,7 @@ ISL_StatusTypeDef MS5611::ReadRawTemperature() {
 	uint8_t buf[3];
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadI2C(buf, 3));
 
-	_raw_temperature = (buf[0] << 16) | (buf[1] << 8) | buf[2];
+	_raw_temperature = (((uint32_t) buf[0]) << 16) | (((uint32_t) buf[1]) << 8) | ((uint32_t) buf[2]);
 	return ISL_OK;
 }
 
@@ -101,12 +101,12 @@ float MS5611::GetTemperature() {
 	float T2 = 0;
 	ReadRawTemperature();
 	dT = (int32_t)(_raw_temperature) - (int32_t)((_koeff_prom[T_REF] << 8));
-	TEMP = 2000 + (dT * (((int32_t)_koeff_prom[TEMPSENS]) / ((float)(0b1 << 23))));
+	TEMP = 2000 + (dT * (((int32_t)_koeff_prom[TEMPSENS]) / ((float)(((uint32_t)0b1) << 23))));
 	_temperature = ((float)TEMP) / 100.0f;
 	if (_temperature < 20) {
-		T2 = ((uint64_t)dT * dT) / ((float)(0b1 << 31));
+		T2 = ((uint64_t)dT * dT) / ((float)(((uint32_t)0b1) << 31));
 	}
-	_temperature -= - T2;
+	_temperature -= - T2; //TODO wtf?
 	return _temperature;
 }
 
@@ -118,7 +118,7 @@ ISL_StatusTypeDef MS5611::ReadRawPressure() {
 	uint8_t buf[3];
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadI2C(buf, 3));
 
-	_raw_pressure = (buf[0] << 16) | (buf[1] << 8) | buf[2];
+	_raw_pressure = (((uint32_t)buf[0]) << 16) | (((uint32_t)buf[1]) << 8) | buf[2];
 
 	return ISL_OK;
 }
@@ -130,7 +130,7 @@ float MS5611::GetPressure() {
 	ReadRawPressure();
 	OFF = (((int64_t)_koeff_prom[OFF_T1]) << 16) + (dT * (((int64_t)_koeff_prom[TCO]) / ((float)(0b1 << 7))));
 	SENS =  (((int64_t)_koeff_prom[SENS_T1]) << 15) + (dT * (((int64_t)_koeff_prom[TCS]) / ((float)( 0b1 << 8))));
-	P = ((_raw_pressure * (((int64_t)SENS) / ((float)(0b1 << 21)))) - OFF) / ((float)(0b1 << 15));
+	P = ((_raw_pressure * (((int64_t)SENS) / ((float)(((uint32_t)0b1) << 21)))) - OFF) / ((float)(((uint32_t)0b1) << 15));
 	if (_temperature < 20) {
 		OFF2 = 5 * (_temperature - 2000) * (_temperature - 2000) / 2.0f;
 		SENS2 = 5 * (_temperature - 2000) * (_temperature - 2000) / 4.0f;
@@ -142,7 +142,7 @@ float MS5611::GetPressure() {
 
 	OFF -= OFF2;
 	SENS -= SENS2;
-	P = ((_raw_pressure * (((int64_t)SENS) / ((float)(0b1 << 21)))) - OFF) / ((float)(0b1 << 15));
+	P = ((_raw_pressure * (((int64_t)SENS) / ((float)(((uint32_t)0b1) << 21)))) - OFF) / ((float)(((uint32_t)0b1) << 15));
 	_pressure = ((float)P) / 100.0f;
 	return _pressure;
 }
