@@ -14,7 +14,8 @@ ISL_StatusTypeDef LM75A::Init() {
 }
 
 void LM75A::PowerDown(bool shutdown) {
-
+	UNUSED(shutdown);
+	//TODO implement
 }
 
 LM75A::LM75A(const interfaces::I2C &i2c, uint8_t address) :

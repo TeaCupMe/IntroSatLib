@@ -9,6 +9,8 @@
 namespace IntroSatLib {
 
 void RadioTransceiver::Send(uint8_t *data, uint16_t len) {
+    UNUSED(data);
+    UNUSED(len);
 }
 
 }

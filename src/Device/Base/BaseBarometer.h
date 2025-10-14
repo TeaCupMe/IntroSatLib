@@ -5,14 +5,14 @@
  *      Author: unflesh
  */
 
-#ifndef BAROMETER_H_
-#define BAROMETER_H_
+#ifndef BASE_BAROMETER_H_
+#define BASE_BAROMETER_H_
 
 #include "Device/Device.h"
 
 namespace IntroSatLib {
 
-class BaseBarometer: public Device {
+class BaseBarometer {
 	float pressure;
 public:
 	virtual float GetPressure() = 0;
@@ -21,4 +21,4 @@ public:
 } /* namespace IntroStratLib */
 
 
-#endif /* BAROMETER_H_ */
+#endif /* BASE_BAROMETER_H_ */

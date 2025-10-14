@@ -8,6 +8,7 @@
 /********** Arduino IDE **********/
 /*********************************/
 	#include "Arduino.h"
+	#define ISL_GPIO_ENABLED
 	namespace IntroSatLib::interfaces {using GPIO_HANDLE_TYPE = uint8_t;}
 
 #else
@@ -32,6 +33,7 @@
 
 		#ifdef HAL_GPIO_MODULE_ENABLED
 			// define STM32-specific handle type for GPIO
+			#define ISL_GPIO_ENABLED
 			namespace IntroSatLib::interfaces {using GPIO_HANDLE_TYPE = GPIO_TypeDef;}
 
 		#elif !defined(INTROSATLIB_INTERNAL)
@@ -52,7 +54,8 @@
 	#endif
 #endif /* ARDUINO */
 
-#define GPIO_ENABLED
+
+#ifdef ISL_GPIO_ENABLED
 
 namespace IntroSatLib {
 namespace interfaces {
@@ -95,5 +98,5 @@ public:
 
 
 
-
+#endif /* ISL_GPIO_ENABLED */
 #endif /* ADAPTER_GPIO_H_ */

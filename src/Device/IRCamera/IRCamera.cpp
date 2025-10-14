@@ -43,12 +43,13 @@ IRCamera& IRCamera::operator=(IRCamera &&other)
 
 ISL_StatusTypeDef IRCamera::Init(Framerate framrate)
 {
+	UNUSED(framrate);
 	tryReset();
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady())
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(AMG88xx_PCTL, 0))
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(AMG88xx_RST, 0x3F))
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(AMG88xx_INTC, 0))
-	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(AMG88xx_FPSC, 0x01))
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(AMG88xx_FPSC, 0x01)) // this should be framerate
 	system::Delay(1000);
 	return ISL_OK;
 }

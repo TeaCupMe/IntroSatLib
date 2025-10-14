@@ -5,15 +5,15 @@
  *      Author: unflesh
  */
 
-#ifndef MAGNETOMETER_H_
-#define MAGNETOMETER_H_
+#ifndef BASE_MAGNETOMETER_H_
+#define BASE_MAGNETOMETER_H_
 
 #include "Device/Device.h"
 
 
 namespace IntroSatLib {
 
-class BaseMagnetometer : public Device {
+class BaseMagnetometer {
 
 public:
 
@@ -30,4 +30,4 @@ public:
 } /* namespace IntroSatLib */
 
 
-#endif /* MAGNETOMETER_H_ */
+#endif /* BASE_MAGNETOMETER_H_ */

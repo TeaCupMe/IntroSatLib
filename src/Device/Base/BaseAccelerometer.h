@@ -5,14 +5,14 @@
  *      Author: unflesh
  */
 
-#ifndef ACCELEROMETER_H_
-#define ACCELEROMETER_H_
+#ifndef BASE_ACCELEROMETER_H_
+#define BASE_ACCELEROMETER_H_
 
 #include "Device/Device.h"
 
 namespace IntroSatLib {
 
-class BaseAccelerometer: virtual public Device {
+class BaseAccelerometer {
 
 public:
 	virtual int16_t RawAX() = 0;
@@ -27,4 +27,4 @@ public:
 } /* namespace IntroStratLib */
 
 
-#endif /* ACCELEROMETER_H_ */
+#endif /* BASE_ACCELEROMETER_H_ */
