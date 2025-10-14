@@ -77,7 +77,7 @@ jobs:
         uses: mattnotmitt/doxygen-action@edge
         with:
             working-directory: '.'
-            doxyfile-path: './doxygen.conf'
+            doxyfile-path: './doxygen/doxygen.conf'
 
       - name: Deploy
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/staging' || github.ref == 'refs/heads/actions'

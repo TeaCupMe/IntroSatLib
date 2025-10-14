@@ -36,3 +36,5 @@ tools/*
 
 # documentation
 doxygen/*
+!doxygen/doxygen-style.css
+!doxygen/doxygen.conf
