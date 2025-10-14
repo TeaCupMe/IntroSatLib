@@ -1,0 +1,873 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IntroSatLib: Класс IntroSatLib::GyroscopeV2</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">IntroSatLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html">GyroscopeV2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classIntroSatLib_1_1GyroscopeV2-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс IntroSatLib::GyroscopeV2</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:IntroSatLib::GyroscopeV2:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classIntroSatLib_1_1GyroscopeV2.png" usemap="#IntroSatLib::GyroscopeV2_map" alt=""/>
+  <map id="IntroSatLib::GyroscopeV2_map" name="IntroSatLib::GyroscopeV2_map">
+<area href="classIntroSatLib_1_1LSM6DS3.html" alt="IntroSatLib::LSM6DS3" shape="rect" coords="0,0,156,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a6264fcade03afe83c704010e7f355776"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776">DataRate</a> { <br />
+&#160;&#160;<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776a233aa0268f4b5697cbe03d195bc63edb">OFF</a>
+, <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776a4496a5345b9d078b1a3cc7f478af5e88">F_13_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776a64ef558a170750e4504f53aa81a0b9c6">F_26_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776afc66624b147ae4f9010ecb34da16dbff">F_52_Hz</a>
+, <br />
+&#160;&#160;<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776abdc899b99c6041ddaac011e9509384dd">F_104_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776a98b89f819d2f837ddf7677c482e1d643">F_208_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776a554bdf6dabb1cef0715cd3af5474bf8b">F_416_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776af1b042c80a89c842a048abba952f09f0">F_833_Hz</a>
+, <br />
+&#160;&#160;<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776a99a2b1c87b4b80a35301f87ae7d0c434">F_1666_Hz</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a6264fcade03afe83c704010e7f355776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Скорость обновления данных  <a href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776">Подробнее...</a><br /></td></tr>
+<tr class="separator:a6264fcade03afe83c704010e7f355776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a912ca73281cb47a9814c87edb5f808cd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cd">Scale</a> { <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cdaa619e830702605019f7c31eb9ccc73c4">DPS0250</a> = 0
+, <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cdacfcadb1487edc5b5b698d24cc389f064">DPS0500</a>
+, <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cda9e3681f18954a25ab273f4cd41023fc3">DPS1000</a>
+, <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cdaed1f53527e36fef9697c498a232bc5f7">DPS2000</a>
+ }</td></tr>
+<tr class="memdesc:a912ca73281cb47a9814c87edb5f808cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Диапазон измерения  <a href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cd">Подробнее...</a><br /></td></tr>
+<tr class="separator:a912ca73281cb47a9814c87edb5f808cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a1ebb1853f56242c30fe5de896f428090"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a1ebb1853f56242c30fe5de896f428090">GyroscopeV2</a> (const <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> &amp;i2c, uint8_t address=BASE_ADDRESS)</td></tr>
+<tr class="memdesc:a1ebb1853f56242c30fe5de896f428090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор объекта гироскопа.  <a href="classIntroSatLib_1_1GyroscopeV2.html#a1ebb1853f56242c30fe5de896f428090">Подробнее...</a><br /></td></tr>
+<tr class="separator:a1ebb1853f56242c30fe5de896f428090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a178b734f59ee45dd6151460178cbe8ee"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a178b734f59ee45dd6151460178cbe8ee">Init</a> ()</td></tr>
+<tr class="memdesc:a178b734f59ee45dd6151460178cbe8ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор объекта гироскопа как копии другого объекта гироскопа  <a href="classIntroSatLib_1_1GyroscopeV2.html#a178b734f59ee45dd6151460178cbe8ee">Подробнее...</a><br /></td></tr>
+<tr class="separator:a178b734f59ee45dd6151460178cbe8ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a956403c90b5ab084a98f6ecc6fac4fdf"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a956403c90b5ab084a98f6ecc6fac4fdf">Init</a> (<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cd">Scale</a> scale)</td></tr>
+<tr class="memdesc:a956403c90b5ab084a98f6ecc6fac4fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация гироскопа с заданным диапазоном измерения  <a href="classIntroSatLib_1_1GyroscopeV2.html#a956403c90b5ab084a98f6ecc6fac4fdf">Подробнее...</a><br /></td></tr>
+<tr class="separator:a956403c90b5ab084a98f6ecc6fac4fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae22fcfdbe8caf7c025454b79404c9e49"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#ae22fcfdbe8caf7c025454b79404c9e49">Init</a> (<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cd">Scale</a> scale, <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776">DataRate</a> dataRate)</td></tr>
+<tr class="memdesc:ae22fcfdbe8caf7c025454b79404c9e49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация гироскопа с заданным диапазоном измерения  <a href="classIntroSatLib_1_1GyroscopeV2.html#ae22fcfdbe8caf7c025454b79404c9e49">Подробнее...</a><br /></td></tr>
+<tr class="separator:ae22fcfdbe8caf7c025454b79404c9e49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e6d55f104ff7f636ad94a89dc2a139a"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a4e6d55f104ff7f636ad94a89dc2a139a">SetScale</a> (<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cd">Scale</a> scale)</td></tr>
+<tr class="memdesc:a4e6d55f104ff7f636ad94a89dc2a139a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка диапазона измерения  <a href="classIntroSatLib_1_1GyroscopeV2.html#a4e6d55f104ff7f636ad94a89dc2a139a">Подробнее...</a><br /></td></tr>
+<tr class="separator:a4e6d55f104ff7f636ad94a89dc2a139a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa67e2f87717cc3427d030a856a6f9c73"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#aa67e2f87717cc3427d030a856a6f9c73">SetDataRate</a> (<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776">DataRate</a> dataRate)</td></tr>
+<tr class="memdesc:aa67e2f87717cc3427d030a856a6f9c73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка скорости обновления данных  <a href="classIntroSatLib_1_1GyroscopeV2.html#aa67e2f87717cc3427d030a856a6f9c73">Подробнее...</a><br /></td></tr>
+<tr class="separator:aa67e2f87717cc3427d030a856a6f9c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb342c38d639cba5e64f63d633309a3d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#aeb342c38d639cba5e64f63d633309a3d">RawX</a> ()</td></tr>
+<tr class="memdesc:aeb342c38d639cba5e64f63d633309a3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение <b>необработанного</b> значения ускорения по оси X.  <a href="classIntroSatLib_1_1GyroscopeV2.html#aeb342c38d639cba5e64f63d633309a3d">Подробнее...</a><br /></td></tr>
+<tr class="separator:aeb342c38d639cba5e64f63d633309a3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a636e1f39da7f2219a283f52a6948c65a"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a636e1f39da7f2219a283f52a6948c65a">RawY</a> ()</td></tr>
+<tr class="memdesc:a636e1f39da7f2219a283f52a6948c65a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение <b>необработанного</b> значения ускорения по оси Y.  <a href="classIntroSatLib_1_1GyroscopeV2.html#a636e1f39da7f2219a283f52a6948c65a">Подробнее...</a><br /></td></tr>
+<tr class="separator:a636e1f39da7f2219a283f52a6948c65a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d3fbac3b7a704d9830d211e91285424"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a5d3fbac3b7a704d9830d211e91285424">RawZ</a> ()</td></tr>
+<tr class="memdesc:a5d3fbac3b7a704d9830d211e91285424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение <b>необработанного</b> значения ускорения по оси Z.  <a href="classIntroSatLib_1_1GyroscopeV2.html#a5d3fbac3b7a704d9830d211e91285424">Подробнее...</a><br /></td></tr>
+<tr class="separator:a5d3fbac3b7a704d9830d211e91285424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7a7092c963b98a77db17942e4953414"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#af7a7092c963b98a77db17942e4953414">X</a> ()</td></tr>
+<tr class="memdesc:af7a7092c963b98a77db17942e4953414"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение значения ускорения вокруг оси X.  <a href="classIntroSatLib_1_1GyroscopeV2.html#af7a7092c963b98a77db17942e4953414">Подробнее...</a><br /></td></tr>
+<tr class="separator:af7a7092c963b98a77db17942e4953414"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0368d477229930df0ef58640bc2d527e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a0368d477229930df0ef58640bc2d527e">Y</a> ()</td></tr>
+<tr class="memdesc:a0368d477229930df0ef58640bc2d527e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение значения ускорения вокруг оси Y.  <a href="classIntroSatLib_1_1GyroscopeV2.html#a0368d477229930df0ef58640bc2d527e">Подробнее...</a><br /></td></tr>
+<tr class="separator:a0368d477229930df0ef58640bc2d527e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bbefccd5288b1491702445b179dcc67"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a9bbefccd5288b1491702445b179dcc67">Z</a> ()</td></tr>
+<tr class="memdesc:a9bbefccd5288b1491702445b179dcc67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение значения ускорения вокруг оси Z.  <a href="classIntroSatLib_1_1GyroscopeV2.html#a9bbefccd5288b1491702445b179dcc67">Подробнее...</a><br /></td></tr>
+<tr class="separator:a9bbefccd5288b1491702445b179dcc67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a634e6a3601b57696f531eb1a60944cd3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a634e6a3601b57696f531eb1a60944cd3">integrationX</a> ()</td></tr>
+<tr class="memdesc:a634e6a3601b57696f531eb1a60944cd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение углового перемещения вокруг оси X с момента предыдущего вызова <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a634e6a3601b57696f531eb1a60944cd3">integrationX()</a>  <a href="classIntroSatLib_1_1GyroscopeV2.html#a634e6a3601b57696f531eb1a60944cd3">Подробнее...</a><br /></td></tr>
+<tr class="separator:a634e6a3601b57696f531eb1a60944cd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bcbe61f3524fecab135727b5a5af393"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a9bcbe61f3524fecab135727b5a5af393">integrationY</a> ()</td></tr>
+<tr class="memdesc:a9bcbe61f3524fecab135727b5a5af393"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение углового перемещения вокруг оси Y с момента предыдущего вызова <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a9bcbe61f3524fecab135727b5a5af393">integrationY()</a>  <a href="classIntroSatLib_1_1GyroscopeV2.html#a9bcbe61f3524fecab135727b5a5af393">Подробнее...</a><br /></td></tr>
+<tr class="separator:a9bcbe61f3524fecab135727b5a5af393"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa439dc1798a1faa31092576432b3c670"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#aa439dc1798a1faa31092576432b3c670">integrationZ</a> ()</td></tr>
+<tr class="memdesc:aa439dc1798a1faa31092576432b3c670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение углового перемещения вокруг оси Z с момента предыдущего вызова <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#aa439dc1798a1faa31092576432b3c670">integrationZ()</a>  <a href="classIntroSatLib_1_1GyroscopeV2.html#aa439dc1798a1faa31092576432b3c670">Подробнее...</a><br /></td></tr>
+<tr class="separator:aa439dc1798a1faa31092576432b3c670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5996a9118399e22af1144b7b926e2460"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a5996a9118399e22af1144b7b926e2460">SetMinCutX</a> (float x)</td></tr>
+<tr class="memdesc:a5996a9118399e22af1144b7b926e2460"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка порогового значения по оси X.  <a href="classIntroSatLib_1_1GyroscopeV2.html#a5996a9118399e22af1144b7b926e2460">Подробнее...</a><br /></td></tr>
+<tr class="separator:a5996a9118399e22af1144b7b926e2460"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd6f7b8b36f2646b34af3f95bf4232ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#abd6f7b8b36f2646b34af3f95bf4232ff">SetMinCutY</a> (float y)</td></tr>
+<tr class="memdesc:abd6f7b8b36f2646b34af3f95bf4232ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка порогового значения по оси Y.  <a href="classIntroSatLib_1_1GyroscopeV2.html#abd6f7b8b36f2646b34af3f95bf4232ff">Подробнее...</a><br /></td></tr>
+<tr class="separator:abd6f7b8b36f2646b34af3f95bf4232ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a0aea7800ccf7ec64f22f35038b68d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a2a0aea7800ccf7ec64f22f35038b68d6">SetMinCutZ</a> (float z)</td></tr>
+<tr class="memdesc:a2a0aea7800ccf7ec64f22f35038b68d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка порогового значения по оси Z.  <a href="classIntroSatLib_1_1GyroscopeV2.html#a2a0aea7800ccf7ec64f22f35038b68d6">Подробнее...</a><br /></td></tr>
+<tr class="separator:a2a0aea7800ccf7ec64f22f35038b68d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88e863335a2f0e2dd7848d3a5ca02fbf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIntroSatLib_1_1Quaternion.html">Quaternion</a>&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a88e863335a2f0e2dd7848d3a5ca02fbf">GetQuaternion</a> ()</td></tr>
+<tr class="memdesc:a88e863335a2f0e2dd7848d3a5ca02fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение изменения углового положения в виде набора кватернионов  <a href="classIntroSatLib_1_1GyroscopeV2.html#a88e863335a2f0e2dd7848d3a5ca02fbf">Подробнее...</a><br /></td></tr>
+<tr class="separator:a88e863335a2f0e2dd7848d3a5ca02fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Перечисления</h2>
+<a id="a6264fcade03afe83c704010e7f355776" name="a6264fcade03afe83c704010e7f355776"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6264fcade03afe83c704010e7f355776">&#9670;&#160;</a></span>DataRate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776">IntroSatLib::GyroscopeV2::DataRate</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Скорость обновления данных </p>
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a6264fcade03afe83c704010e7f355776a233aa0268f4b5697cbe03d195bc63edb" name="a6264fcade03afe83c704010e7f355776a233aa0268f4b5697cbe03d195bc63edb"></a>OFF&#160;</td><td class="fielddoc"><p >Автоматическое определение </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6264fcade03afe83c704010e7f355776a4496a5345b9d078b1a3cc7f478af5e88" name="a6264fcade03afe83c704010e7f355776a4496a5345b9d078b1a3cc7f478af5e88"></a>F_13_Hz&#160;</td><td class="fielddoc"><p >13 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6264fcade03afe83c704010e7f355776a64ef558a170750e4504f53aa81a0b9c6" name="a6264fcade03afe83c704010e7f355776a64ef558a170750e4504f53aa81a0b9c6"></a>F_26_Hz&#160;</td><td class="fielddoc"><p >26 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6264fcade03afe83c704010e7f355776afc66624b147ae4f9010ecb34da16dbff" name="a6264fcade03afe83c704010e7f355776afc66624b147ae4f9010ecb34da16dbff"></a>F_52_Hz&#160;</td><td class="fielddoc"><p >52 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6264fcade03afe83c704010e7f355776abdc899b99c6041ddaac011e9509384dd" name="a6264fcade03afe83c704010e7f355776abdc899b99c6041ddaac011e9509384dd"></a>F_104_Hz&#160;</td><td class="fielddoc"><p >104 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6264fcade03afe83c704010e7f355776a98b89f819d2f837ddf7677c482e1d643" name="a6264fcade03afe83c704010e7f355776a98b89f819d2f837ddf7677c482e1d643"></a>F_208_Hz&#160;</td><td class="fielddoc"><p >208 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6264fcade03afe83c704010e7f355776a554bdf6dabb1cef0715cd3af5474bf8b" name="a6264fcade03afe83c704010e7f355776a554bdf6dabb1cef0715cd3af5474bf8b"></a>F_416_Hz&#160;</td><td class="fielddoc"><p >416 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6264fcade03afe83c704010e7f355776af1b042c80a89c842a048abba952f09f0" name="a6264fcade03afe83c704010e7f355776af1b042c80a89c842a048abba952f09f0"></a>F_833_Hz&#160;</td><td class="fielddoc"><p >833 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6264fcade03afe83c704010e7f355776a99a2b1c87b4b80a35301f87ae7d0c434" name="a6264fcade03afe83c704010e7f355776a99a2b1c87b4b80a35301f87ae7d0c434"></a>F_1666_Hz&#160;</td><td class="fielddoc"><p >1666 Гц </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a912ca73281cb47a9814c87edb5f808cd" name="a912ca73281cb47a9814c87edb5f808cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a912ca73281cb47a9814c87edb5f808cd">&#9670;&#160;</a></span>Scale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cd">IntroSatLib::GyroscopeV2::Scale</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Диапазон измерения </p>
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a912ca73281cb47a9814c87edb5f808cdaa619e830702605019f7c31eb9ccc73c4" name="a912ca73281cb47a9814c87edb5f808cdaa619e830702605019f7c31eb9ccc73c4"></a>DPS0250&#160;</td><td class="fielddoc"><p >Диапазон &plusmn;250 град/с </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a912ca73281cb47a9814c87edb5f808cdacfcadb1487edc5b5b698d24cc389f064" name="a912ca73281cb47a9814c87edb5f808cdacfcadb1487edc5b5b698d24cc389f064"></a>DPS0500&#160;</td><td class="fielddoc"><p >Диапазон &plusmn;500 град/с </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a912ca73281cb47a9814c87edb5f808cda9e3681f18954a25ab273f4cd41023fc3" name="a912ca73281cb47a9814c87edb5f808cda9e3681f18954a25ab273f4cd41023fc3"></a>DPS1000&#160;</td><td class="fielddoc"><p >Диапазон &plusmn;1000 град/с </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a912ca73281cb47a9814c87edb5f808cdaed1f53527e36fef9697c498a232bc5f7" name="a912ca73281cb47a9814c87edb5f808cdaed1f53527e36fef9697c498a232bc5f7"></a>DPS2000&#160;</td><td class="fielddoc"><p >Диапазон &plusmn;2000 град/с </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a1ebb1853f56242c30fe5de896f428090" name="a1ebb1853f56242c30fe5de896f428090"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ebb1853f56242c30fe5de896f428090">&#9670;&#160;</a></span>GyroscopeV2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::GyroscopeV2::GyroscopeV2 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> &amp;&#160;</td>
+          <td class="paramname"><em>i2c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>address</em> = <code>BASE_ADDRESS</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор объекта гироскопа. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Только в STM32CubeIDE </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hi2c</td><td>объект <b>I2C_HandleTypeDef</b> </td></tr>
+    <tr><td class="paramname">address</td><td>адрес гироскопа на шине I2C </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a88e863335a2f0e2dd7848d3a5ca02fbf" name="a88e863335a2f0e2dd7848d3a5ca02fbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88e863335a2f0e2dd7848d3a5ca02fbf">&#9670;&#160;</a></span>GetQuaternion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIntroSatLib_1_1Quaternion.html">Quaternion</a>&lt; float &gt; IntroSatLib::GyroscopeV2::GetQuaternion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение изменения углового положения в виде набора кватернионов </p>
+<dl class="section note"><dt>Заметки</dt><dd>Метод использует IntegrationX(), IntegrationY() и IntegrationZ(). В связи с этим, для получения достоверных данных необходимо вызывать достаточно часто. </dd></dl>
+<dl class="section remark"><dt>Прим.</dt><dd>Только в STM32CubeIDE </dd></dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Набор кваретнионов, описывающий изменение углового положения </dd></dl>
+
+</div>
+</div>
+<a id="a178b734f59ee45dd6151460178cbe8ee" name="a178b734f59ee45dd6151460178cbe8ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a178b734f59ee45dd6151460178cbe8ee">&#9670;&#160;</a></span>Init() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::GyroscopeV2::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор объекта гироскопа как копии другого объекта гироскопа </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>исходный объект для копирования</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Инициализация гироскопа с параметрами по умолчанию: <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776abdc899b99c6041ddaac011e9509384dd">DataRate::F_104_Hz</a>, <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cdaa619e830702605019f7c31eb9ccc73c4">Scale::DPS0250</a></p>
+<dl class="section return"><dt>Возвращает</dt><dd>0, если инициализация завершена успешно </dd>
+<dd>
+1, если при инициализации возникла ошибка </dd></dl>
+
+<p>Переопределяет метод предка <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#af38c880984699794627f389c15819e58">IntroSatLib::LSM6DS3</a>.</p>
+
+</div>
+</div>
+<a id="a956403c90b5ab084a98f6ecc6fac4fdf" name="a956403c90b5ab084a98f6ecc6fac4fdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a956403c90b5ab084a98f6ecc6fac4fdf">&#9670;&#160;</a></span>Init() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::GyroscopeV2::Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cd">Scale</a>&#160;</td>
+          <td class="paramname"><em>scale</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Инициализация гироскопа с заданным диапазоном измерения </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensitivity</td><td>Значение чуствительности <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cd">Scale</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>0, если инициализация завершена успешно </dd>
+<dd>
+1, если при инициализации возникла ошибка </dd></dl>
+
+</div>
+</div>
+<a id="ae22fcfdbe8caf7c025454b79404c9e49" name="ae22fcfdbe8caf7c025454b79404c9e49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae22fcfdbe8caf7c025454b79404c9e49">&#9670;&#160;</a></span>Init() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::GyroscopeV2::Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cd">Scale</a>&#160;</td>
+          <td class="paramname"><em>scale</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776">DataRate</a>&#160;</td>
+          <td class="paramname"><em>dataRate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Инициализация гироскопа с заданным диапазоном измерения </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensitivity</td><td>Значение чуствительности <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cd">Scale</a> </td></tr>
+    <tr><td class="paramname">datarate</td><td>Значение скорости обновления данных <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776">DataRate</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>0, если инициализация завершена успешно </dd>
+<dd>
+1, если при инициализации возникла ошибка </dd></dl>
+
+</div>
+</div>
+<a id="a634e6a3601b57696f531eb1a60944cd3" name="a634e6a3601b57696f531eb1a60944cd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a634e6a3601b57696f531eb1a60944cd3">&#9670;&#160;</a></span>integrationX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::GyroscopeV2::integrationX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение углового перемещения вокруг оси X с момента предыдущего вызова <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a634e6a3601b57696f531eb1a60944cd3">integrationX()</a> </p>
+<dl class="section note"><dt>Заметки</dt><dd>Метод учитывает только два измерения угловой скорости: одно, сделанное в момент вызова этого метода, и второе - предыдущее. Если время между измерениями велико и угловая скорость успела нелинейно измениться - результат будет некорректным.</dd></dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Угловое перемещение в градусах. </dd></dl>
+
+</div>
+</div>
+<a id="a9bcbe61f3524fecab135727b5a5af393" name="a9bcbe61f3524fecab135727b5a5af393"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bcbe61f3524fecab135727b5a5af393">&#9670;&#160;</a></span>integrationY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::GyroscopeV2::integrationY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение углового перемещения вокруг оси Y с момента предыдущего вызова <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a9bcbe61f3524fecab135727b5a5af393">integrationY()</a> </p>
+<dl class="section note"><dt>Заметки</dt><dd>Метод учитывает только два измерения угловой скорости: одно, сделанное в момент вызова этого метода, и второе - предыдущее. Если время между измерениями велико и угловая скорость успела нелинейно измениться - результат будет некорректным.</dd></dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Угловое перемещение в градусах. </dd></dl>
+
+</div>
+</div>
+<a id="aa439dc1798a1faa31092576432b3c670" name="aa439dc1798a1faa31092576432b3c670"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa439dc1798a1faa31092576432b3c670">&#9670;&#160;</a></span>integrationZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::GyroscopeV2::integrationZ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение углового перемещения вокруг оси Z с момента предыдущего вызова <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#aa439dc1798a1faa31092576432b3c670">integrationZ()</a> </p>
+<dl class="section note"><dt>Заметки</dt><dd>Метод учитывает только два измерения угловой скорости: одно, сделанное в момент вызова этого метода, и второе - предыдущее. Если время между измерениями велико и угловая скорость успела нелинейно измениться - результат будет некорректным.</dd></dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Угловое перемещение в градусах. </dd></dl>
+
+</div>
+</div>
+<a id="aeb342c38d639cba5e64f63d633309a3d" name="aeb342c38d639cba5e64f63d633309a3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb342c38d639cba5e64f63d633309a3d">&#9670;&#160;</a></span>RawX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t IntroSatLib::GyroscopeV2::RawX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение <b>необработанного</b> значения ускорения по оси X. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Ускорение по оси в условных единицах </dd></dl>
+
+</div>
+</div>
+<a id="a636e1f39da7f2219a283f52a6948c65a" name="a636e1f39da7f2219a283f52a6948c65a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a636e1f39da7f2219a283f52a6948c65a">&#9670;&#160;</a></span>RawY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t IntroSatLib::GyroscopeV2::RawY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение <b>необработанного</b> значения ускорения по оси Y. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Ускорение по оси в условных единицах </dd></dl>
+
+</div>
+</div>
+<a id="a5d3fbac3b7a704d9830d211e91285424" name="a5d3fbac3b7a704d9830d211e91285424"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d3fbac3b7a704d9830d211e91285424">&#9670;&#160;</a></span>RawZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t IntroSatLib::GyroscopeV2::RawZ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение <b>необработанного</b> значения ускорения по оси Z. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Ускорение по оси в условных единицах </dd></dl>
+
+</div>
+</div>
+<a id="aa67e2f87717cc3427d030a856a6f9c73" name="aa67e2f87717cc3427d030a856a6f9c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa67e2f87717cc3427d030a856a6f9c73">&#9670;&#160;</a></span>SetDataRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::GyroscopeV2::SetDataRate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776">DataRate</a>&#160;</td>
+          <td class="paramname"><em>dataRate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установка скорости обновления данных </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">datarate</td><td>Значение скорости обновления данных <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776">DataRate</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5996a9118399e22af1144b7b926e2460" name="a5996a9118399e22af1144b7b926e2460"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5996a9118399e22af1144b7b926e2460">&#9670;&#160;</a></span>SetMinCutX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntroSatLib::GyroscopeV2::SetMinCutX </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установка порогового значения по оси X. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Если угловая скорость, полученная с датчика, меньше этого числа, метод <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#af7a7092c963b98a77db17942e4953414">X()</a> вернёт 0. </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Пороговое значение </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abd6f7b8b36f2646b34af3f95bf4232ff" name="abd6f7b8b36f2646b34af3f95bf4232ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd6f7b8b36f2646b34af3f95bf4232ff">&#9670;&#160;</a></span>SetMinCutY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntroSatLib::GyroscopeV2::SetMinCutY </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установка порогового значения по оси Y. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Если угловая скорость, полученная с датчика, меньше этого числа, метод <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a0368d477229930df0ef58640bc2d527e">Y()</a> вернёт 0. </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">y</td><td>Пороговое значение </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2a0aea7800ccf7ec64f22f35038b68d6" name="a2a0aea7800ccf7ec64f22f35038b68d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a0aea7800ccf7ec64f22f35038b68d6">&#9670;&#160;</a></span>SetMinCutZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntroSatLib::GyroscopeV2::SetMinCutZ </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>z</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установка порогового значения по оси Z. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Если угловая скорость, полученная с датчика, меньше этого числа, метод <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a9bbefccd5288b1491702445b179dcc67">Z()</a> вернёт 0. </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">z</td><td>Пороговое значение </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4e6d55f104ff7f636ad94a89dc2a139a" name="a4e6d55f104ff7f636ad94a89dc2a139a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e6d55f104ff7f636ad94a89dc2a139a">&#9670;&#160;</a></span>SetScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::GyroscopeV2::SetScale </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cd">Scale</a>&#160;</td>
+          <td class="paramname"><em>scale</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установка диапазона измерения </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensitivity</td><td>Значение чуствительности <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a912ca73281cb47a9814c87edb5f808cd">Scale</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af7a7092c963b98a77db17942e4953414" name="af7a7092c963b98a77db17942e4953414"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a7092c963b98a77db17942e4953414">&#9670;&#160;</a></span>X()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::GyroscopeV2::X </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение значения ускорения вокруг оси X. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Ускорение по оси в м/с<sup>2</sup> </dd></dl>
+
+</div>
+</div>
+<a id="a0368d477229930df0ef58640bc2d527e" name="a0368d477229930df0ef58640bc2d527e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0368d477229930df0ef58640bc2d527e">&#9670;&#160;</a></span>Y()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::GyroscopeV2::Y </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение значения ускорения вокруг оси Y. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Ускорение по оси в м/с<sup>2</sup> </dd></dl>
+
+</div>
+</div>
+<a id="a9bbefccd5288b1491702445b179dcc67" name="a9bbefccd5288b1491702445b179dcc67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bbefccd5288b1491702445b179dcc67">&#9670;&#160;</a></span>Z()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::GyroscopeV2::Z </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение значения ускорения вокруг оси Z. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Ускорение по оси в м/с<sup>2</sup> </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>src/<a class="el" href="GyroscopeV2_8h_source.html">GyroscopeV2.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

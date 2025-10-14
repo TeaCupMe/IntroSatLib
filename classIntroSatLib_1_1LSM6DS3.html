@@ -1,0 +1,867 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IntroSatLib: Класс IntroSatLib::LSM6DS3</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">IntroSatLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html">LSM6DS3</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classIntroSatLib_1_1LSM6DS3-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс IntroSatLib::LSM6DS3</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:IntroSatLib::LSM6DS3:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classIntroSatLib_1_1LSM6DS3.png" usemap="#IntroSatLib::LSM6DS3_map" alt=""/>
+  <map id="IntroSatLib::LSM6DS3_map" name="IntroSatLib::LSM6DS3_map">
+<area href="classIntroSatLib_1_1BaseGyroscope.html" alt="IntroSatLib::BaseGyroscope" shape="rect" coords="0,56,189,80"/>
+<area href="classIntroSatLib_1_1BaseAccelerometer.html" alt="IntroSatLib::BaseAccelerometer" shape="rect" coords="199,56,388,80"/>
+<area href="classIntroSatLib_1_1I2CDevice.html" alt="IntroSatLib::I2CDevice" shape="rect" coords="398,56,587,80"/>
+<area href="classIntroSatLib_1_1Device.html" alt="IntroSatLib::Device" shape="rect" coords="398,0,587,24"/>
+<area href="classIntroSatLib_1_1AccelerometerV2.html" alt="IntroSatLib::AccelerometerV2" shape="rect" coords="99,168,288,192"/>
+<area href="classIntroSatLib_1_1GyroscopeV2.html" alt="IntroSatLib::GyroscopeV2" shape="rect" coords="298,168,487,192"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:aaff28049308e7be70a13e3f7e9a4f1b0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aaff28049308e7be70a13e3f7e9a4f1b0">DataRateGyro</a> { <br />
+&#160;&#160;<b>OFF_G</b> = 0
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aaff28049308e7be70a13e3f7e9a4f1b0a8bcb242f3f988e5f312030db19c6e43c">DR_G_13_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aaff28049308e7be70a13e3f7e9a4f1b0ab2371295aa6eea1abf2447ab7fb85269">DR_G_26_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aaff28049308e7be70a13e3f7e9a4f1b0a146978ee96386728ff61c9cf162a5d81">DR_G_52_Hz</a>
+, <br />
+&#160;&#160;<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aaff28049308e7be70a13e3f7e9a4f1b0a1a50d9f201b484ba356ea01db201bd23">DR_G_104_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aaff28049308e7be70a13e3f7e9a4f1b0a43670c4310be2743478b408ce18c57fb">DR_G_208_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aaff28049308e7be70a13e3f7e9a4f1b0a57240f3e58de5998ded73cb40e5db74f">DR_G_416_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aaff28049308e7be70a13e3f7e9a4f1b0a17d7f34184281e82261572bee91962a4">DR_G_833_Hz</a>
+, <br />
+&#160;&#160;<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aaff28049308e7be70a13e3f7e9a4f1b0a655e9096980d35dcc29484da23719b31">DR_G_1660_Hz</a>
+<br />
+ }</td></tr>
+<tr class="separator:aaff28049308e7be70a13e3f7e9a4f1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dcf8b8da54453c456fbb4b167121f85"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85">DataRateAccel</a> { <br />
+&#160;&#160;<b>OFF_A</b> = 0
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85a5b59f966e6074098951af99244c09374">DR_A_12_5_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85a5c179211bf3b4afdfbaec8af7ab033e1">DR_A_26_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85aed6bace59b854fe91b88f40bd21aaf0b">DR_A_52_Hz</a>
+, <br />
+&#160;&#160;<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85adcf4b9e54c9e06d6265f41a841638357">DR_A_104_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85ac101c657e0a3579d8c786bcb8bc25156">DR_A_208_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85aeb854d62ef77d6e02dae4dffc1d2d420">DR_A_416_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85ac3bdede3334d93eabc6c7c7a2ca594c3">DR_A_833_Hz</a>
+, <br />
+&#160;&#160;<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85aa1dec9f62b23f81c69cc1b9ff36308cc">DR_A_1660_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85a5446d100741951319e2e0deca376a269">DR_A_3330_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85ad2bf1f1f79b36ca1360df7ef82f7b135">DR_A_6660_Hz</a>
+<br />
+ }</td></tr>
+<tr class="separator:a4dcf8b8da54453c456fbb4b167121f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac8e115cf3b2db2f2a985fd5428befba"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aac8e115cf3b2db2f2a985fd5428befba">ScaleGyro</a> { <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aac8e115cf3b2db2f2a985fd5428befbaa767d4ea4d416d58d96aa75987aa9f22d">DPS_245</a> = 0
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aac8e115cf3b2db2f2a985fd5428befbaa1fdad1f35771d53e4a5501baab56efbe">DPS_500</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aac8e115cf3b2db2f2a985fd5428befbaa0242e380a875260346bf071fb1c38f12">DPS_1000</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aac8e115cf3b2db2f2a985fd5428befbaa535531bf486065168b08ba9eee6322f4">DPS_2000</a>
+ }</td></tr>
+<tr class="separator:aac8e115cf3b2db2f2a985fd5428befba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4ea0ae6d78bac39cf7c34d46042b7eb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7eb">ScaleAccel</a> { <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7eba418b038ea8812c83e9f89f9f9e2ed148">twoG</a> = 0
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7ebaa98601b8af450600432db088e5a96398">fourG</a> = 2
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7eba8eaeb6fc366f9be6c7b3b28181b82b8e">eightG</a> = 3
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7eba073ddb06d1e40adaa8517fda7e26e5c0">sixteenG</a> = 1
+ }</td></tr>
+<tr class="separator:ae4ea0ae6d78bac39cf7c34d46042b7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa605f4ded776235eaa66f26f8119e9b5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5">FilterBandwidthAccel</a> { <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5a1715eee8a8c7c0ffcf0d7c1d52678b7d">FB_A_400_Hz</a> = 0
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5aa0ba983f8e2dd7f664581c755ca4dc85">FB_A_200_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5a96980961cb1fe3325dd51fea3ebd2ea9">FB_A_100_Hz</a>
+, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5ad08826ea2c352b34d3692f961508e8af">FB_A_50_Hz</a>
+ }</td></tr>
+<tr class="separator:aa605f4ded776235eaa66f26f8119e9b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a7d872e1e998d79d53ae61abfbffd50ba"><td class="memItemLeft" align="right" valign="top"><a id="a7d872e1e998d79d53ae61abfbffd50ba" name="a7d872e1e998d79d53ae61abfbffd50ba"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>LSM6DS3</b> (const <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> &amp;i2c, uint8_t address=BASE_ADDRESS)</td></tr>
+<tr class="separator:a7d872e1e998d79d53ae61abfbffd50ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5697851630a243d0c461e5a7e7ea9737"><td class="memItemLeft" align="right" valign="top"><a id="a5697851630a243d0c461e5a7e7ea9737" name="a5697851630a243d0c461e5a7e7ea9737"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>InitGyro</b> ()</td></tr>
+<tr class="separator:a5697851630a243d0c461e5a7e7ea9737"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3be3362e9a90431e52c11cfe1deeb61"><td class="memItemLeft" align="right" valign="top"><a id="ae3be3362e9a90431e52c11cfe1deeb61" name="ae3be3362e9a90431e52c11cfe1deeb61"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>InitGyro</b> (<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aac8e115cf3b2db2f2a985fd5428befba">ScaleGyro</a> scaleGyro)</td></tr>
+<tr class="separator:ae3be3362e9a90431e52c11cfe1deeb61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a221e2872548c496da1a25a1d4d9c4cde"><td class="memItemLeft" align="right" valign="top"><a id="a221e2872548c496da1a25a1d4d9c4cde" name="a221e2872548c496da1a25a1d4d9c4cde"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>InitGyro</b> (<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aac8e115cf3b2db2f2a985fd5428befba">ScaleGyro</a> scaleGyro, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aaff28049308e7be70a13e3f7e9a4f1b0">DataRateGyro</a> dataRateGyro)</td></tr>
+<tr class="separator:a221e2872548c496da1a25a1d4d9c4cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63ba50205dc0c82481043ce40076a937"><td class="memItemLeft" align="right" valign="top"><a id="a63ba50205dc0c82481043ce40076a937" name="a63ba50205dc0c82481043ce40076a937"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>InitAccel</b> ()</td></tr>
+<tr class="separator:a63ba50205dc0c82481043ce40076a937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a312d513a7024538f298584dfbb369580"><td class="memItemLeft" align="right" valign="top"><a id="a312d513a7024538f298584dfbb369580" name="a312d513a7024538f298584dfbb369580"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>InitAccel</b> (<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7eb">ScaleAccel</a> scaleAccel)</td></tr>
+<tr class="separator:a312d513a7024538f298584dfbb369580"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ae50e6fddc7f0f1af71fb5b62ccbffa"><td class="memItemLeft" align="right" valign="top"><a id="a1ae50e6fddc7f0f1af71fb5b62ccbffa" name="a1ae50e6fddc7f0f1af71fb5b62ccbffa"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>InitAccel</b> (<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7eb">ScaleAccel</a> scaleAccel, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85">DataRateAccel</a> dataRateAccel)</td></tr>
+<tr class="separator:a1ae50e6fddc7f0f1af71fb5b62ccbffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9188dcb83c808a7c856a53a8530d131c"><td class="memItemLeft" align="right" valign="top"><a id="a9188dcb83c808a7c856a53a8530d131c" name="a9188dcb83c808a7c856a53a8530d131c"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>InitAccel</b> (<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7eb">ScaleAccel</a> scaleAccel, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85">DataRateAccel</a> dataRateAccel, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5">FilterBandwidthAccel</a> filter)</td></tr>
+<tr class="separator:a9188dcb83c808a7c856a53a8530d131c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af38c880984699794627f389c15819e58"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#af38c880984699794627f389c15819e58">Init</a> () override</td></tr>
+<tr class="memdesc:af38c880984699794627f389c15819e58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация устройства на шине I2C.  <a href="classIntroSatLib_1_1LSM6DS3.html#af38c880984699794627f389c15819e58">Подробнее...</a><br /></td></tr>
+<tr class="separator:af38c880984699794627f389c15819e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0589c29404b8e7d1f2d2ba689c86e7eb"><td class="memItemLeft" align="right" valign="top"><a id="a0589c29404b8e7d1f2d2ba689c86e7eb" name="a0589c29404b8e7d1f2d2ba689c86e7eb"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>SetScaleGyro</b> (<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aac8e115cf3b2db2f2a985fd5428befba">ScaleGyro</a> scaleGyro)</td></tr>
+<tr class="separator:a0589c29404b8e7d1f2d2ba689c86e7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f2701b047e98d3375fc944882b8e5ca"><td class="memItemLeft" align="right" valign="top"><a id="a3f2701b047e98d3375fc944882b8e5ca" name="a3f2701b047e98d3375fc944882b8e5ca"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>SetScaleAccel</b> (<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7eb">ScaleAccel</a> scaleAccel)</td></tr>
+<tr class="separator:a3f2701b047e98d3375fc944882b8e5ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99457411b5758d2fc9927775ef8e1294"><td class="memItemLeft" align="right" valign="top"><a id="a99457411b5758d2fc9927775ef8e1294" name="a99457411b5758d2fc9927775ef8e1294"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>SetDataRateGyro</b> (<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aaff28049308e7be70a13e3f7e9a4f1b0">DataRateGyro</a> dataRateGyro)</td></tr>
+<tr class="separator:a99457411b5758d2fc9927775ef8e1294"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add5ab2672d83a964208b7060e890485f"><td class="memItemLeft" align="right" valign="top"><a id="add5ab2672d83a964208b7060e890485f" name="add5ab2672d83a964208b7060e890485f"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>SetDataRateAccel</b> (<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85">DataRateAccel</a> dataRateAccel)</td></tr>
+<tr class="separator:add5ab2672d83a964208b7060e890485f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4f3850fa2d0f640c1188c849d1a794d"><td class="memItemLeft" align="right" valign="top"><a id="ac4f3850fa2d0f640c1188c849d1a794d" name="ac4f3850fa2d0f640c1188c849d1a794d"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>SetFilterAccel</b> (<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5">FilterBandwidthAccel</a> filterBandwithAccel)</td></tr>
+<tr class="separator:ac4f3850fa2d0f640c1188c849d1a794d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f0469af22433cd63de8bbc2b23252c7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4f0469af22433cd63de8bbc2b23252c7">RawGX</a> () override</td></tr>
+<tr class="separator:a4f0469af22433cd63de8bbc2b23252c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a530d0012f119c0730438386d2c375dde"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a530d0012f119c0730438386d2c375dde">RawGY</a> () override</td></tr>
+<tr class="separator:a530d0012f119c0730438386d2c375dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae42a7854131ef207670351461688d8c2"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#ae42a7854131ef207670351461688d8c2">RawGZ</a> () override</td></tr>
+<tr class="separator:ae42a7854131ef207670351461688d8c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e6b9b1f449e57ce420b9f0ffda79592"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a0e6b9b1f449e57ce420b9f0ffda79592">GX</a> () override</td></tr>
+<tr class="separator:a0e6b9b1f449e57ce420b9f0ffda79592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23cc88b7a16a2f2dafc399effd0eb67c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a23cc88b7a16a2f2dafc399effd0eb67c">GY</a> () override</td></tr>
+<tr class="separator:a23cc88b7a16a2f2dafc399effd0eb67c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af85ac5bfcae0e6aa9c640ea71c4c73f5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#af85ac5bfcae0e6aa9c640ea71c4c73f5">GZ</a> () override</td></tr>
+<tr class="separator:af85ac5bfcae0e6aa9c640ea71c4c73f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab80da425347a37a3ce46cd8264176bcc"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#ab80da425347a37a3ce46cd8264176bcc">RawAX</a> () override</td></tr>
+<tr class="separator:ab80da425347a37a3ce46cd8264176bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b8d9129c3e335dfadcd07762ead6a83"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a6b8d9129c3e335dfadcd07762ead6a83">RawAY</a> () override</td></tr>
+<tr class="separator:a6b8d9129c3e335dfadcd07762ead6a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfccb09505dc52b4f1aa430a9c72d6bd"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#acfccb09505dc52b4f1aa430a9c72d6bd">RawAZ</a> () override</td></tr>
+<tr class="separator:acfccb09505dc52b4f1aa430a9c72d6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a622e816fcf072629f83896fc97bf4bda"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a622e816fcf072629f83896fc97bf4bda">AX</a> () override</td></tr>
+<tr class="separator:a622e816fcf072629f83896fc97bf4bda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a722df11b2c6b39d33d7af1f629321418"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a722df11b2c6b39d33d7af1f629321418">AY</a> () override</td></tr>
+<tr class="separator:a722df11b2c6b39d33d7af1f629321418"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a0f9d3665c0a523bfe57f559d060d4e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a1a0f9d3665c0a523bfe57f559d060d4e">AZ</a> () override</td></tr>
+<tr class="separator:a1a0f9d3665c0a523bfe57f559d060d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5015d5f5c7a6722a381b3f214e48706a"><td class="memItemLeft" align="right" valign="top"><a id="a5015d5f5c7a6722a381b3f214e48706a" name="a5015d5f5c7a6722a381b3f214e48706a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMinCutX</b> (float x)</td></tr>
+<tr class="separator:a5015d5f5c7a6722a381b3f214e48706a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51544f2f6bf9e19759c125e026e8432f"><td class="memItemLeft" align="right" valign="top"><a id="a51544f2f6bf9e19759c125e026e8432f" name="a51544f2f6bf9e19759c125e026e8432f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMinCutY</b> (float y)</td></tr>
+<tr class="separator:a51544f2f6bf9e19759c125e026e8432f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3a259760e32f9bfc292289b4982eaa3"><td class="memItemLeft" align="right" valign="top"><a id="ae3a259760e32f9bfc292289b4982eaa3" name="ae3a259760e32f9bfc292289b4982eaa3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMinCutZ</b> (float z)</td></tr>
+<tr class="separator:ae3a259760e32f9bfc292289b4982eaa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06dc4b214041896a884d465cbdfd3852"><td class="memItemLeft" align="right" valign="top"><a id="a06dc4b214041896a884d465cbdfd3852" name="a06dc4b214041896a884d465cbdfd3852"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>Temp</b> ()</td></tr>
+<tr class="separator:a06dc4b214041896a884d465cbdfd3852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfd5cc206657ca3505eddd24933984fb"><td class="memItemLeft" align="right" valign="top"><a id="adfd5cc206657ca3505eddd24933984fb" name="adfd5cc206657ca3505eddd24933984fb"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>DeinitAccel</b> ()</td></tr>
+<tr class="separator:adfd5cc206657ca3505eddd24933984fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98a0e89f2d913fda3c7aba27ead7aefc"><td class="memItemLeft" align="right" valign="top"><a id="a98a0e89f2d913fda3c7aba27ead7aefc" name="a98a0e89f2d913fda3c7aba27ead7aefc"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>DeinitGyro</b> ()</td></tr>
+<tr class="separator:a98a0e89f2d913fda3c7aba27ead7aefc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab89461c46ecbf5dff48a10b08042b740"><td class="memItemLeft" align="right" valign="top"><a id="ab89461c46ecbf5dff48a10b08042b740" name="ab89461c46ecbf5dff48a10b08042b740"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>Deinit</b> ()</td></tr>
+<tr class="separator:ab89461c46ecbf5dff48a10b08042b740"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fb935fb81840f6500a12beb75cc4938"><td class="memItemLeft" align="right" valign="top"><a id="a0fb935fb81840f6500a12beb75cc4938" name="a0fb935fb81840f6500a12beb75cc4938"></a>
+virtual int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>RawGX</b> ()=0</td></tr>
+<tr class="separator:a0fb935fb81840f6500a12beb75cc4938"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c3180a10d4d9db17484b081e9ae2267"><td class="memItemLeft" align="right" valign="top"><a id="a8c3180a10d4d9db17484b081e9ae2267" name="a8c3180a10d4d9db17484b081e9ae2267"></a>
+virtual int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>RawGY</b> ()=0</td></tr>
+<tr class="separator:a8c3180a10d4d9db17484b081e9ae2267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0932efa8ae9d3fbdb8f0dc2134e6f6f6"><td class="memItemLeft" align="right" valign="top"><a id="a0932efa8ae9d3fbdb8f0dc2134e6f6f6" name="a0932efa8ae9d3fbdb8f0dc2134e6f6f6"></a>
+virtual int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>RawGZ</b> ()=0</td></tr>
+<tr class="separator:a0932efa8ae9d3fbdb8f0dc2134e6f6f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab89cd80c57491b9f246604751ace372b"><td class="memItemLeft" align="right" valign="top"><a id="ab89cd80c57491b9f246604751ace372b" name="ab89cd80c57491b9f246604751ace372b"></a>
+virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>GX</b> ()=0</td></tr>
+<tr class="separator:ab89cd80c57491b9f246604751ace372b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09121cfd198a7a097892828a59b26380"><td class="memItemLeft" align="right" valign="top"><a id="a09121cfd198a7a097892828a59b26380" name="a09121cfd198a7a097892828a59b26380"></a>
+virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>GY</b> ()=0</td></tr>
+<tr class="separator:a09121cfd198a7a097892828a59b26380"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0a6e7c046b3bcf4e987e0d4fac10c9d"><td class="memItemLeft" align="right" valign="top"><a id="aa0a6e7c046b3bcf4e987e0d4fac10c9d" name="aa0a6e7c046b3bcf4e987e0d4fac10c9d"></a>
+virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>GZ</b> ()=0</td></tr>
+<tr class="separator:aa0a6e7c046b3bcf4e987e0d4fac10c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d87d64990621e3549d84a4579633206"><td class="memItemLeft" align="right" valign="top"><a id="a1d87d64990621e3549d84a4579633206" name="a1d87d64990621e3549d84a4579633206"></a>
+virtual int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>RawAX</b> ()=0</td></tr>
+<tr class="separator:a1d87d64990621e3549d84a4579633206"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70bfb559040937c47ea0e4319c7a62f0"><td class="memItemLeft" align="right" valign="top"><a id="a70bfb559040937c47ea0e4319c7a62f0" name="a70bfb559040937c47ea0e4319c7a62f0"></a>
+virtual int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>RawAY</b> ()=0</td></tr>
+<tr class="separator:a70bfb559040937c47ea0e4319c7a62f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a7d71d6a4d4c7bf50c8bc6d81483afc"><td class="memItemLeft" align="right" valign="top"><a id="a3a7d71d6a4d4c7bf50c8bc6d81483afc" name="a3a7d71d6a4d4c7bf50c8bc6d81483afc"></a>
+virtual int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>RawAZ</b> ()=0</td></tr>
+<tr class="separator:a3a7d71d6a4d4c7bf50c8bc6d81483afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a031ce2b6c1e510ea4eb5156de0ead361"><td class="memItemLeft" align="right" valign="top"><a id="a031ce2b6c1e510ea4eb5156de0ead361" name="a031ce2b6c1e510ea4eb5156de0ead361"></a>
+virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>AX</b> ()=0</td></tr>
+<tr class="separator:a031ce2b6c1e510ea4eb5156de0ead361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacbd24426a435605a66173e7f6bb077d"><td class="memItemLeft" align="right" valign="top"><a id="aacbd24426a435605a66173e7f6bb077d" name="aacbd24426a435605a66173e7f6bb077d"></a>
+virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>AY</b> ()=0</td></tr>
+<tr class="separator:aacbd24426a435605a66173e7f6bb077d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1998ad6341c6ecbff4b41c586aa91145"><td class="memItemLeft" align="right" valign="top"><a id="a1998ad6341c6ecbff4b41c586aa91145" name="a1998ad6341c6ecbff4b41c586aa91145"></a>
+virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>AZ</b> ()=0</td></tr>
+<tr class="separator:a1998ad6341c6ecbff4b41c586aa91145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Дополнительные унаследованные члены</h2></td></tr>
+<tr class="inherit_header pro_methods_classIntroSatLib_1_1I2CDevice"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classIntroSatLib_1_1I2CDevice')"><img src="closed.png" alt="-"/>&#160;Защищенные члены унаследованные от <a class="el" href="classIntroSatLib_1_1I2CDevice.html">IntroSatLib::I2CDevice</a></td></tr>
+<tr class="memitem:aaee00904588c8e89d08b7b3644f87454 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="aaee00904588c8e89d08b7b3644f87454" name="aaee00904588c8e89d08b7b3644f87454"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>IsReady</b> ()</td></tr>
+<tr class="separator:aaee00904588c8e89d08b7b3644f87454 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9bbd2d50ab5023042ec65c9dfb0f5e0 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#ab9bbd2d50ab5023042ec65c9dfb0f5e0">CheckRegisterI2C</a> (uint8_t reg, uint8_t value)</td></tr>
+<tr class="memdesc:ab9bbd2d50ab5023042ec65c9dfb0f5e0 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if register contents equal to <b>value</b>  <a href="classIntroSatLib_1_1I2CDevice.html#ab9bbd2d50ab5023042ec65c9dfb0f5e0">Подробнее...</a><br /></td></tr>
+<tr class="separator:ab9bbd2d50ab5023042ec65c9dfb0f5e0 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b79aa811b553b8b7619468b98641717 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="a8b79aa811b553b8b7619468b98641717" name="a8b79aa811b553b8b7619468b98641717"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>WriteI2C</b> (uint8_t byte)</td></tr>
+<tr class="separator:a8b79aa811b553b8b7619468b98641717 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5da3e3a54bdc96eb51d8a6e2a7e12a9 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="aa5da3e3a54bdc96eb51d8a6e2a7e12a9" name="aa5da3e3a54bdc96eb51d8a6e2a7e12a9"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>WriteI2C</b> (uint8_t *buf, uint8_t nByte)</td></tr>
+<tr class="separator:aa5da3e3a54bdc96eb51d8a6e2a7e12a9 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9e008eb70a8363046a3edab69739c25 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="af9e008eb70a8363046a3edab69739c25" name="af9e008eb70a8363046a3edab69739c25"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>ReadI2C</b> (uint8_t *buf, uint8_t nBytes=1)</td></tr>
+<tr class="separator:af9e008eb70a8363046a3edab69739c25 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75a425174537da2b67e781844a4efbc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="a75a425174537da2b67e781844a4efbc6" name="a75a425174537da2b67e781844a4efbc6"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>ReadRegisterI2C</b> (uint8_t reg, uint8_t *data)</td></tr>
+<tr class="separator:a75a425174537da2b67e781844a4efbc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc2bab9655f94499cbca2ef53f0343b7 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="abc2bab9655f94499cbca2ef53f0343b7" name="abc2bab9655f94499cbca2ef53f0343b7"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>ReadRegisterI2C</b> (uint8_t reg, uint8_t *data, uint8_t nBytes)</td></tr>
+<tr class="separator:abc2bab9655f94499cbca2ef53f0343b7 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a130dbf430e1bc9da54c2ccb7efa72984 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#a130dbf430e1bc9da54c2ccb7efa72984">GetRegisterI2C</a> (uint8_t reg) __attribute__((deprecated(&quot;This method does not check if I2C read happened correctly&quot;)))</td></tr>
+<tr class="memdesc:a130dbf430e1bc9da54c2ccb7efa72984 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает значение из регистра устройства  <a href="classIntroSatLib_1_1I2CDevice.html#a130dbf430e1bc9da54c2ccb7efa72984">Подробнее...</a><br /></td></tr>
+<tr class="separator:a130dbf430e1bc9da54c2ccb7efa72984 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d47e8d51ed58bf0eb9a1206aad7e656 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="a5d47e8d51ed58bf0eb9a1206aad7e656" name="a5d47e8d51ed58bf0eb9a1206aad7e656"></a>
+ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>SetRegisterI2C</b> (uint8_t reg, uint8_t *value, uint8_t nBytes)</td></tr>
+<tr class="separator:a5d47e8d51ed58bf0eb9a1206aad7e656 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af82a37de690643f588385af356fb5d60 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#af82a37de690643f588385af356fb5d60">SetRegisterI2C</a> (uint8_t reg, uint8_t value)</td></tr>
+<tr class="memdesc:af82a37de690643f588385af356fb5d60 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись значения в регистр устройства  <a href="classIntroSatLib_1_1I2CDevice.html#af82a37de690643f588385af356fb5d60">Подробнее...</a><br /></td></tr>
+<tr class="separator:af82a37de690643f588385af356fb5d60 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa80cb32cbbebff532293fea39770bfc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#aa80cb32cbbebff532293fea39770bfc6">SetBitRegisterI2C</a> (uint8_t reg, uint8_t bit)</td></tr>
+<tr class="memdesc:aa80cb32cbbebff532293fea39770bfc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение 1.  <a href="classIntroSatLib_1_1I2CDevice.html#aa80cb32cbbebff532293fea39770bfc6">Подробнее...</a><br /></td></tr>
+<tr class="separator:aa80cb32cbbebff532293fea39770bfc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2f949a2162badc6d2b85a55781a1cac inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#aa2f949a2162badc6d2b85a55781a1cac">ResetBitRegisterI2C</a> (uint8_t reg, uint8_t bit)</td></tr>
+<tr class="memdesc:aa2f949a2162badc6d2b85a55781a1cac inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение 0.  <a href="classIntroSatLib_1_1I2CDevice.html#aa2f949a2162badc6d2b85a55781a1cac">Подробнее...</a><br /></td></tr>
+<tr class="separator:aa2f949a2162badc6d2b85a55781a1cac inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b38314890d95d28a6d6177076e81cb2 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#a7b38314890d95d28a6d6177076e81cb2">BitRegisterI2C</a> (uint8_t reg, uint8_t bit, uint8_t value)</td></tr>
+<tr class="memdesc:a7b38314890d95d28a6d6177076e81cb2 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение по условию value.  <a href="classIntroSatLib_1_1I2CDevice.html#a7b38314890d95d28a6d6177076e81cb2">Подробнее...</a><br /></td></tr>
+<tr class="separator:a7b38314890d95d28a6d6177076e81cb2 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af43bdf2ba9e2fee2da27c9c7efcdbcb7 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#af43bdf2ba9e2fee2da27c9c7efcdbcb7">I2CDevice</a> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> *i2c, uint8_t address)</td></tr>
+<tr class="memdesc:af43bdf2ba9e2fee2da27c9c7efcdbcb7 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта <b>@ref</b>  <a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a>.  <a href="classIntroSatLib_1_1I2CDevice.html#af43bdf2ba9e2fee2da27c9c7efcdbcb7">Подробнее...</a><br /></td></tr>
+<tr class="separator:af43bdf2ba9e2fee2da27c9c7efcdbcb7 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a168d5c83b720d8b9859689fb07a4c80c inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#a168d5c83b720d8b9859689fb07a4c80c">I2CDevice</a> (const <a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a> &amp;other)</td></tr>
+<tr class="memdesc:a168d5c83b720d8b9859689fb07a4c80c inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта BaseDevice как копии другого объекта BaseDevice.  <a href="classIntroSatLib_1_1I2CDevice.html#a168d5c83b720d8b9859689fb07a4c80c">Подробнее...</a><br /></td></tr>
+<tr class="separator:a168d5c83b720d8b9859689fb07a4c80c inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a9cdabcd7339291d28d877f65507546 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="a8a9cdabcd7339291d28d877f65507546" name="a8a9cdabcd7339291d28d877f65507546"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>I2CDevice</b> (<a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a> &amp;&amp;other)</td></tr>
+<tr class="separator:a8a9cdabcd7339291d28d877f65507546 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abae57f30f83bf34d2e3fcec43067b00b inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="abae57f30f83bf34d2e3fcec43067b00b" name="abae57f30f83bf34d2e3fcec43067b00b"></a>
+<a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a> &amp;other)</td></tr>
+<tr class="separator:abae57f30f83bf34d2e3fcec43067b00b inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a731b1566a1dacd02e9c7948d1a3ee27c inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="a731b1566a1dacd02e9c7948d1a3ee27c" name="a731b1566a1dacd02e9c7948d1a3ee27c"></a>
+<a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a> &amp;&amp;other)</td></tr>
+<tr class="separator:a731b1566a1dacd02e9c7948d1a3ee27c inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae90feb3286dce14b8b5b9179fbcc3cdd inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#ae90feb3286dce14b8b5b9179fbcc3cdd">Init</a> () override</td></tr>
+<tr class="memdesc:ae90feb3286dce14b8b5b9179fbcc3cdd inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация устройства на шине I2C.  <a href="classIntroSatLib_1_1I2CDevice.html#ae90feb3286dce14b8b5b9179fbcc3cdd">Подробнее...</a><br /></td></tr>
+<tr class="separator:ae90feb3286dce14b8b5b9179fbcc3cdd inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classIntroSatLib_1_1Device"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classIntroSatLib_1_1Device')"><img src="closed.png" alt="-"/>&#160;Защищенные члены унаследованные от <a class="el" href="classIntroSatLib_1_1Device.html">IntroSatLib::Device</a></td></tr>
+<tr class="memitem:a250a0d27735ec18cd3771666b6efc9c7 inherit pro_methods_classIntroSatLib_1_1Device"><td class="memItemLeft" align="right" valign="top"><a id="a250a0d27735ec18cd3771666b6efc9c7" name="a250a0d27735ec18cd3771666b6efc9c7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setState</b> (Device::DeviceState state)</td></tr>
+<tr class="separator:a250a0d27735ec18cd3771666b6efc9c7 inherit pro_methods_classIntroSatLib_1_1Device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a868cb050a621ba8536210a2055061b21 inherit pro_methods_classIntroSatLib_1_1Device"><td class="memItemLeft" align="right" valign="top">virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1Device.html#a868cb050a621ba8536210a2055061b21">Init</a> ()=0</td></tr>
+<tr class="separator:a868cb050a621ba8536210a2055061b21 inherit pro_methods_classIntroSatLib_1_1Device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f687ec7a9822ccc409037bf1cc6c59f inherit pro_methods_classIntroSatLib_1_1Device"><td class="memItemLeft" align="right" valign="top"><a id="a8f687ec7a9822ccc409037bf1cc6c59f" name="a8f687ec7a9822ccc409037bf1cc6c59f"></a>
+Device::DeviceState&#160;</td><td class="memItemRight" valign="bottom"><b>GetState</b> ()</td></tr>
+<tr class="separator:a8f687ec7a9822ccc409037bf1cc6c59f inherit pro_methods_classIntroSatLib_1_1Device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6f6a4c96b8d377ac6a020f903558694 inherit pro_methods_classIntroSatLib_1_1Device"><td class="memItemLeft" align="right" valign="top"><a id="aa6f6a4c96b8d377ac6a020f903558694" name="aa6f6a4c96b8d377ac6a020f903558694"></a>
+virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>Enable</b> ()</td></tr>
+<tr class="separator:aa6f6a4c96b8d377ac6a020f903558694 inherit pro_methods_classIntroSatLib_1_1Device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9b38286b66f8990cf5c79f3732fd64d inherit pro_methods_classIntroSatLib_1_1Device"><td class="memItemLeft" align="right" valign="top"><a id="aa9b38286b66f8990cf5c79f3732fd64d" name="aa9b38286b66f8990cf5c79f3732fd64d"></a>
+virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>Disable</b> ()</td></tr>
+<tr class="separator:aa9b38286b66f8990cf5c79f3732fd64d inherit pro_methods_classIntroSatLib_1_1Device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classIntroSatLib_1_1I2CDevice"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classIntroSatLib_1_1I2CDevice')"><img src="closed.png" alt="-"/>&#160;Защищенные данные унаследованные от <a class="el" href="classIntroSatLib_1_1I2CDevice.html">IntroSatLib::I2CDevice</a></td></tr>
+<tr class="memitem:aecd8aa363bb35678b59c973b42a41c12 inherit pro_attribs_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="aecd8aa363bb35678b59c973b42a41c12" name="aecd8aa363bb35678b59c973b42a41c12"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_address</b></td></tr>
+<tr class="separator:aecd8aa363bb35678b59c973b42a41c12 inherit pro_attribs_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Перечисления</h2>
+<a id="a4dcf8b8da54453c456fbb4b167121f85" name="a4dcf8b8da54453c456fbb4b167121f85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dcf8b8da54453c456fbb4b167121f85">&#9670;&#160;</a></span>DataRateAccel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85">IntroSatLib::LSM6DS3::DataRateAccel</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a4dcf8b8da54453c456fbb4b167121f85a5b59f966e6074098951af99244c09374" name="a4dcf8b8da54453c456fbb4b167121f85a5b59f966e6074098951af99244c09374"></a>DR_A_12_5_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 12.5 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4dcf8b8da54453c456fbb4b167121f85a5c179211bf3b4afdfbaec8af7ab033e1" name="a4dcf8b8da54453c456fbb4b167121f85a5c179211bf3b4afdfbaec8af7ab033e1"></a>DR_A_26_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 26 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4dcf8b8da54453c456fbb4b167121f85aed6bace59b854fe91b88f40bd21aaf0b" name="a4dcf8b8da54453c456fbb4b167121f85aed6bace59b854fe91b88f40bd21aaf0b"></a>DR_A_52_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 52 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4dcf8b8da54453c456fbb4b167121f85adcf4b9e54c9e06d6265f41a841638357" name="a4dcf8b8da54453c456fbb4b167121f85adcf4b9e54c9e06d6265f41a841638357"></a>DR_A_104_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 104 Гц (значение по умолчанию) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4dcf8b8da54453c456fbb4b167121f85ac101c657e0a3579d8c786bcb8bc25156" name="a4dcf8b8da54453c456fbb4b167121f85ac101c657e0a3579d8c786bcb8bc25156"></a>DR_A_208_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 208 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4dcf8b8da54453c456fbb4b167121f85aeb854d62ef77d6e02dae4dffc1d2d420" name="a4dcf8b8da54453c456fbb4b167121f85aeb854d62ef77d6e02dae4dffc1d2d420"></a>DR_A_416_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 416 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4dcf8b8da54453c456fbb4b167121f85ac3bdede3334d93eabc6c7c7a2ca594c3" name="a4dcf8b8da54453c456fbb4b167121f85ac3bdede3334d93eabc6c7c7a2ca594c3"></a>DR_A_833_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 833 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4dcf8b8da54453c456fbb4b167121f85aa1dec9f62b23f81c69cc1b9ff36308cc" name="a4dcf8b8da54453c456fbb4b167121f85aa1dec9f62b23f81c69cc1b9ff36308cc"></a>DR_A_1660_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 1660 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4dcf8b8da54453c456fbb4b167121f85a5446d100741951319e2e0deca376a269" name="a4dcf8b8da54453c456fbb4b167121f85a5446d100741951319e2e0deca376a269"></a>DR_A_3330_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 3330 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4dcf8b8da54453c456fbb4b167121f85ad2bf1f1f79b36ca1360df7ef82f7b135" name="a4dcf8b8da54453c456fbb4b167121f85ad2bf1f1f79b36ca1360df7ef82f7b135"></a>DR_A_6660_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 6660 Гц </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="aaff28049308e7be70a13e3f7e9a4f1b0" name="aaff28049308e7be70a13e3f7e9a4f1b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaff28049308e7be70a13e3f7e9a4f1b0">&#9670;&#160;</a></span>DataRateGyro</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aaff28049308e7be70a13e3f7e9a4f1b0">IntroSatLib::LSM6DS3::DataRateGyro</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="aaff28049308e7be70a13e3f7e9a4f1b0a8bcb242f3f988e5f312030db19c6e43c" name="aaff28049308e7be70a13e3f7e9a4f1b0a8bcb242f3f988e5f312030db19c6e43c"></a>DR_G_13_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 13 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaff28049308e7be70a13e3f7e9a4f1b0ab2371295aa6eea1abf2447ab7fb85269" name="aaff28049308e7be70a13e3f7e9a4f1b0ab2371295aa6eea1abf2447ab7fb85269"></a>DR_G_26_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 26 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaff28049308e7be70a13e3f7e9a4f1b0a146978ee96386728ff61c9cf162a5d81" name="aaff28049308e7be70a13e3f7e9a4f1b0a146978ee96386728ff61c9cf162a5d81"></a>DR_G_52_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 52 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaff28049308e7be70a13e3f7e9a4f1b0a1a50d9f201b484ba356ea01db201bd23" name="aaff28049308e7be70a13e3f7e9a4f1b0a1a50d9f201b484ba356ea01db201bd23"></a>DR_G_104_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 104 Гц (значение по умолчаиню) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaff28049308e7be70a13e3f7e9a4f1b0a43670c4310be2743478b408ce18c57fb" name="aaff28049308e7be70a13e3f7e9a4f1b0a43670c4310be2743478b408ce18c57fb"></a>DR_G_208_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 208 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaff28049308e7be70a13e3f7e9a4f1b0a57240f3e58de5998ded73cb40e5db74f" name="aaff28049308e7be70a13e3f7e9a4f1b0a57240f3e58de5998ded73cb40e5db74f"></a>DR_G_416_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 416 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaff28049308e7be70a13e3f7e9a4f1b0a17d7f34184281e82261572bee91962a4" name="aaff28049308e7be70a13e3f7e9a4f1b0a17d7f34184281e82261572bee91962a4"></a>DR_G_833_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 833 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaff28049308e7be70a13e3f7e9a4f1b0a655e9096980d35dcc29484da23719b31" name="aaff28049308e7be70a13e3f7e9a4f1b0a655e9096980d35dcc29484da23719b31"></a>DR_G_1660_Hz&#160;</td><td class="fielddoc"><p >Частота обновления 1660 Гц </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="aa605f4ded776235eaa66f26f8119e9b5" name="aa605f4ded776235eaa66f26f8119e9b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa605f4ded776235eaa66f26f8119e9b5">&#9670;&#160;</a></span>FilterBandwidthAccel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5">IntroSatLib::LSM6DS3::FilterBandwidthAccel</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="aa605f4ded776235eaa66f26f8119e9b5a1715eee8a8c7c0ffcf0d7c1d52678b7d" name="aa605f4ded776235eaa66f26f8119e9b5a1715eee8a8c7c0ffcf0d7c1d52678b7d"></a>FB_A_400_Hz&#160;</td><td class="fielddoc"><p >Частота 400 Гц (значение по умолчанию) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa605f4ded776235eaa66f26f8119e9b5aa0ba983f8e2dd7f664581c755ca4dc85" name="aa605f4ded776235eaa66f26f8119e9b5aa0ba983f8e2dd7f664581c755ca4dc85"></a>FB_A_200_Hz&#160;</td><td class="fielddoc"><p >Частота 200 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa605f4ded776235eaa66f26f8119e9b5a96980961cb1fe3325dd51fea3ebd2ea9" name="aa605f4ded776235eaa66f26f8119e9b5a96980961cb1fe3325dd51fea3ebd2ea9"></a>FB_A_100_Hz&#160;</td><td class="fielddoc"><p >Частота 100 Гц </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa605f4ded776235eaa66f26f8119e9b5ad08826ea2c352b34d3692f961508e8af" name="aa605f4ded776235eaa66f26f8119e9b5ad08826ea2c352b34d3692f961508e8af"></a>FB_A_50_Hz&#160;</td><td class="fielddoc"><p >Частота 50 Гц </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ae4ea0ae6d78bac39cf7c34d46042b7eb" name="ae4ea0ae6d78bac39cf7c34d46042b7eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4ea0ae6d78bac39cf7c34d46042b7eb">&#9670;&#160;</a></span>ScaleAccel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7eb">IntroSatLib::LSM6DS3::ScaleAccel</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="ae4ea0ae6d78bac39cf7c34d46042b7eba418b038ea8812c83e9f89f9f9e2ed148" name="ae4ea0ae6d78bac39cf7c34d46042b7eba418b038ea8812c83e9f89f9f9e2ed148"></a>twoG&#160;</td><td class="fielddoc"><p >Диапазон &plusmn;2g </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae4ea0ae6d78bac39cf7c34d46042b7ebaa98601b8af450600432db088e5a96398" name="ae4ea0ae6d78bac39cf7c34d46042b7ebaa98601b8af450600432db088e5a96398"></a>fourG&#160;</td><td class="fielddoc"><p >Диапазон &plusmn;4g (значение по умолчанию) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae4ea0ae6d78bac39cf7c34d46042b7eba8eaeb6fc366f9be6c7b3b28181b82b8e" name="ae4ea0ae6d78bac39cf7c34d46042b7eba8eaeb6fc366f9be6c7b3b28181b82b8e"></a>eightG&#160;</td><td class="fielddoc"><p >Диапазон &plusmn;8g </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae4ea0ae6d78bac39cf7c34d46042b7eba073ddb06d1e40adaa8517fda7e26e5c0" name="ae4ea0ae6d78bac39cf7c34d46042b7eba073ddb06d1e40adaa8517fda7e26e5c0"></a>sixteenG&#160;</td><td class="fielddoc"><p >Диапазон &plusmn;16g </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="aac8e115cf3b2db2f2a985fd5428befba" name="aac8e115cf3b2db2f2a985fd5428befba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac8e115cf3b2db2f2a985fd5428befba">&#9670;&#160;</a></span>ScaleGyro</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aac8e115cf3b2db2f2a985fd5428befba">IntroSatLib::LSM6DS3::ScaleGyro</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="aac8e115cf3b2db2f2a985fd5428befbaa767d4ea4d416d58d96aa75987aa9f22d" name="aac8e115cf3b2db2f2a985fd5428befbaa767d4ea4d416d58d96aa75987aa9f22d"></a>DPS_245&#160;</td><td class="fielddoc"><p >Диапазон &plusmn;245 град/с (значение по умолчанию) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aac8e115cf3b2db2f2a985fd5428befbaa1fdad1f35771d53e4a5501baab56efbe" name="aac8e115cf3b2db2f2a985fd5428befbaa1fdad1f35771d53e4a5501baab56efbe"></a>DPS_500&#160;</td><td class="fielddoc"><p >Диапазон &plusmn;500 град/с </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aac8e115cf3b2db2f2a985fd5428befbaa0242e380a875260346bf071fb1c38f12" name="aac8e115cf3b2db2f2a985fd5428befbaa0242e380a875260346bf071fb1c38f12"></a>DPS_1000&#160;</td><td class="fielddoc"><p >Диапазон &plusmn;1000 град/с </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aac8e115cf3b2db2f2a985fd5428befbaa535531bf486065168b08ba9eee6322f4" name="aac8e115cf3b2db2f2a985fd5428befbaa535531bf486065168b08ba9eee6322f4"></a>DPS_2000&#160;</td><td class="fielddoc"><p >Диапазон &plusmn;2000 град/с </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a622e816fcf072629f83896fc97bf4bda" name="a622e816fcf072629f83896fc97bf4bda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a622e816fcf072629f83896fc97bf4bda">&#9670;&#160;</a></span>AX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::LSM6DS3::AX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1BaseAccelerometer.html">IntroSatLib::BaseAccelerometer</a>.</p>
+
+</div>
+</div>
+<a id="a722df11b2c6b39d33d7af1f629321418" name="a722df11b2c6b39d33d7af1f629321418"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a722df11b2c6b39d33d7af1f629321418">&#9670;&#160;</a></span>AY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::LSM6DS3::AY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1BaseAccelerometer.html">IntroSatLib::BaseAccelerometer</a>.</p>
+
+</div>
+</div>
+<a id="a1a0f9d3665c0a523bfe57f559d060d4e" name="a1a0f9d3665c0a523bfe57f559d060d4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a0f9d3665c0a523bfe57f559d060d4e">&#9670;&#160;</a></span>AZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::LSM6DS3::AZ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1BaseAccelerometer.html">IntroSatLib::BaseAccelerometer</a>.</p>
+
+</div>
+</div>
+<a id="a0e6b9b1f449e57ce420b9f0ffda79592" name="a0e6b9b1f449e57ce420b9f0ffda79592"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e6b9b1f449e57ce420b9f0ffda79592">&#9670;&#160;</a></span>GX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::LSM6DS3::GX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1BaseGyroscope.html">IntroSatLib::BaseGyroscope</a>.</p>
+
+</div>
+</div>
+<a id="a23cc88b7a16a2f2dafc399effd0eb67c" name="a23cc88b7a16a2f2dafc399effd0eb67c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23cc88b7a16a2f2dafc399effd0eb67c">&#9670;&#160;</a></span>GY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::LSM6DS3::GY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1BaseGyroscope.html">IntroSatLib::BaseGyroscope</a>.</p>
+
+</div>
+</div>
+<a id="af85ac5bfcae0e6aa9c640ea71c4c73f5" name="af85ac5bfcae0e6aa9c640ea71c4c73f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af85ac5bfcae0e6aa9c640ea71c4c73f5">&#9670;&#160;</a></span>GZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::LSM6DS3::GZ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1BaseGyroscope.html">IntroSatLib::BaseGyroscope</a>.</p>
+
+</div>
+</div>
+<a id="af38c880984699794627f389c15819e58" name="af38c880984699794627f389c15819e58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af38c880984699794627f389c15819e58">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::LSM6DS3::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Инициализация устройства на шине I2C. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>0, если инициализация завершена успешно </dd>
+<dd>
+код ошибки HAL_StatusTypeDef, если при инициализации возникла ошибка </dd></dl>
+
+<p>Переопределяет метод предка <a class="el" href="classIntroSatLib_1_1I2CDevice.html#ae90feb3286dce14b8b5b9179fbcc3cdd">IntroSatLib::I2CDevice</a>.</p>
+
+<p>Переопределяется в <a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a178b734f59ee45dd6151460178cbe8ee">IntroSatLib::GyroscopeV2</a>.</p>
+
+</div>
+</div>
+<a id="ab80da425347a37a3ce46cd8264176bcc" name="ab80da425347a37a3ce46cd8264176bcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab80da425347a37a3ce46cd8264176bcc">&#9670;&#160;</a></span>RawAX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t IntroSatLib::LSM6DS3::RawAX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1BaseAccelerometer.html">IntroSatLib::BaseAccelerometer</a>.</p>
+
+</div>
+</div>
+<a id="a6b8d9129c3e335dfadcd07762ead6a83" name="a6b8d9129c3e335dfadcd07762ead6a83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b8d9129c3e335dfadcd07762ead6a83">&#9670;&#160;</a></span>RawAY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t IntroSatLib::LSM6DS3::RawAY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1BaseAccelerometer.html">IntroSatLib::BaseAccelerometer</a>.</p>
+
+</div>
+</div>
+<a id="acfccb09505dc52b4f1aa430a9c72d6bd" name="acfccb09505dc52b4f1aa430a9c72d6bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfccb09505dc52b4f1aa430a9c72d6bd">&#9670;&#160;</a></span>RawAZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t IntroSatLib::LSM6DS3::RawAZ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1BaseAccelerometer.html">IntroSatLib::BaseAccelerometer</a>.</p>
+
+</div>
+</div>
+<a id="a4f0469af22433cd63de8bbc2b23252c7" name="a4f0469af22433cd63de8bbc2b23252c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f0469af22433cd63de8bbc2b23252c7">&#9670;&#160;</a></span>RawGX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t IntroSatLib::LSM6DS3::RawGX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1BaseGyroscope.html">IntroSatLib::BaseGyroscope</a>.</p>
+
+</div>
+</div>
+<a id="a530d0012f119c0730438386d2c375dde" name="a530d0012f119c0730438386d2c375dde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a530d0012f119c0730438386d2c375dde">&#9670;&#160;</a></span>RawGY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t IntroSatLib::LSM6DS3::RawGY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1BaseGyroscope.html">IntroSatLib::BaseGyroscope</a>.</p>
+
+</div>
+</div>
+<a id="ae42a7854131ef207670351461688d8c2" name="ae42a7854131ef207670351461688d8c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae42a7854131ef207670351461688d8c2">&#9670;&#160;</a></span>RawGZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t IntroSatLib::LSM6DS3::RawGZ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1BaseGyroscope.html">IntroSatLib::BaseGyroscope</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/Device/LSM6DS3/<a class="el" href="LSM6DS3_8h_source.html">LSM6DS3.h</a></li>
+<li>src/Device/LSM6DS3/LSM6DS3.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>
