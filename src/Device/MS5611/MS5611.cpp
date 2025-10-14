@@ -13,7 +13,7 @@ namespace IntroSatLib {
 MS5611::MS5611(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address) {
 }
 
-ISL_StatusTypeDef MS5611::Init(OSR sensitivity, uint8_t force) {
+ISL_StatusTypeDef MS5611::Init(OSR sensitivity) {
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady())
 
 	uint8_t tx_buf = CMD::RST;
