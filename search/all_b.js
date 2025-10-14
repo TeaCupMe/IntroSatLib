@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['magnetometerv2_0',['MagnetometerV2',['../classIntroSatLib_1_1MagnetometerV2.html',1,'IntroSatLib::MagnetometerV2'],['../classIntroSatLib_1_1MagnetometerV2.html#a98d45e84b673642dcdd1bd51758dfc5f',1,'IntroSatLib::MagnetometerV2::MagnetometerV2()']]],
-  ['motorflywheel_1',['MotorFlyWheel',['../classIntroSatLib_1_1MotorFlyWheel.html',1,'IntroSatLib::MotorFlyWheel'],['../classIntroSatLib_1_1MotorFlyWheel.html#a33c8ea079e962731392d98d9804f5f4a',1,'IntroSatLib::MotorFlyWheel::MotorFlyWheel(const interfaces::I2C &amp;i2c, uint8_t address=BASE_ADDRESS)'],['../classIntroSatLib_1_1MotorFlyWheel.html#a703ed1d91c00d6ea69a4f68cce74bf60',1,'IntroSatLib::MotorFlyWheel::MotorFlyWheel(const MotorFlyWheel &amp;other)']]],
-  ['ms5611_2',['MS5611',['../classIntroSatLib_1_1MS5611.html',1,'IntroSatLib']]]
+  ['needspeed_0',['NeedSpeed',['../classIntroSatLib_1_1BaseFlyWheel.html#a12e783e309964f3528ceb70d52c2dfaa',1,'IntroSatLib::BaseFlyWheel::NeedSpeed(int16_t needSpeed)'],['../classIntroSatLib_1_1BaseFlyWheel.html#a786d0d5f17e18e37d1b2cd44fcde0d86',1,'IntroSatLib::BaseFlyWheel::NeedSpeed()']]],
+  ['norm_5fsquared_1',['norm_squared',['../classIntroSatLib_1_1Quaternion.html#a1f53667772c7a87536db7cc736e60f84',1,'IntroSatLib::Quaternion']]]
 ];

@@ -3,12 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IntroSatLib: Исходный файл src/Adapter/GPIO.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -29,10 +33,15 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Создано системой Doxygen 1.9.5 -->
+<!-- Создано системой Doxygen 1.13.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,12 +49,17 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Поиск');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,6 +86,7 @@ $(function() {
 <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5af6faee1e3de567d2d42561cd4ab828.html">Adapter</a></li>  </ul>
 </div>
 </div><!-- top -->
+<div id="doc-content">
 <div class="header">
   <div class="headertitle"><div class="title">GPIO.h</div></div>
 </div><!--header-->
@@ -140,12 +155,13 @@ $(function() {
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">   65</a></span><span class="keyword">class </span><a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">GPIO</a> final {</div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="};">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">   65</a></span><span class="keyword">class </span>GPIO final {</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    GPIO_HANDLE_TYPE* _port = 0;</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    uint16_t _pin = 0;</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">GPIO</a>(GPIO_HANDLE_TYPE* port, uint16_t pin = 0);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    GPIO(GPIO_HANDLE_TYPE* port, uint16_t pin = 0);</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    uint8_t read() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
@@ -155,7 +171,7 @@ $(function() {
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> set()<span class="keyword"> const </span>{ write(1); }</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    uint8_t wait(uint8_t state, uint16_t timeout = 0xFFFF)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        using ::IntroSatLib::system::GetTick;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keyword">using </span>::IntroSatLib::system::GetTick;</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        state = !!state;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        uint32_t startTime = ::IntroSatLib::system::GetTick();</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">while</span>(read() != state)</div>
@@ -168,6 +184,7 @@ $(function() {
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    uint8_t waitReset(uint16_t timeout = 0xFFFF)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> wait(0, timeout); }</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    uint8_t waitSet(uint16_t timeout = 0xFFFF)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> wait(1, timeout); }</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>};</div>
+</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>} <span class="comment">/* namespace intefaces */</span></div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>} <span class="comment">/* namespace IntroSatLib */</span></div>
@@ -178,11 +195,11 @@ $(function() {
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#endif </span><span class="comment">/* ISL_GPIO_ENABLED */</span><span class="preprocessor"></span></div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#endif </span><span class="comment">/* ADAPTER_GPIO_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1GPIO_html"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1GPIO.html">IntroSatLib::interfaces::GPIO</a></div><div class="ttdef"><b>Definition:</b> GPIO.h:65</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
 </small></address>
+</div><!-- doc-content -->
 </body>
 </html>

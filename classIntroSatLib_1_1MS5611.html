@@ -3,12 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IntroSatLib: Класс IntroSatLib::MS5611</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -29,10 +33,15 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Создано системой Doxygen 1.9.5 -->
+<!-- Создано системой Doxygen 1.13.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,12 +49,17 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Поиск');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,6 +86,7 @@ $(function() {
 <li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a class="el" href="classIntroSatLib_1_1MS5611.html">MS5611</a></li>  </ul>
 </div>
 </div><!-- top -->
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Открытые типы</a> &#124;
@@ -94,7 +109,7 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Открытые типы</h2></td></tr>
-<tr class="memitem:ad70a262dc7c31db9d4f0f655c6530bda"><td class="memItemLeft" align="right" valign="top"><a id="ad70a262dc7c31db9d4f0f655c6530bda" name="ad70a262dc7c31db9d4f0f655c6530bda"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>OSR</b> { <br />
+<tr class="memitem:ad70a262dc7c31db9d4f0f655c6530bda" id="r_ad70a262dc7c31db9d4f0f655c6530bda"><td class="memItemLeft" align="right" valign="top"><a id="ad70a262dc7c31db9d4f0f655c6530bda" name="ad70a262dc7c31db9d4f0f655c6530bda"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>OSR</b> { <br />
 &#160;&#160;<b>OSR_256</b> = 0x00
 , <b>OSR_512</b> = 0x02
 , <b>OSR_1024</b> = 0x04
@@ -107,113 +122,105 @@ $(function() {
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a0684fefa29facfbf5e4ffc5c70d6cc60"><td class="memItemLeft" align="right" valign="top"><a id="a0684fefa29facfbf5e4ffc5c70d6cc60" name="a0684fefa29facfbf5e4ffc5c70d6cc60"></a>
+<tr class="memitem:a0684fefa29facfbf5e4ffc5c70d6cc60" id="r_a0684fefa29facfbf5e4ffc5c70d6cc60"><td class="memItemLeft" align="right" valign="top"><a id="a0684fefa29facfbf5e4ffc5c70d6cc60" name="a0684fefa29facfbf5e4ffc5c70d6cc60"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>MS5611</b> (const <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> &amp;i2c, uint8_t address=BASE_ADDRESS)</td></tr>
 <tr class="separator:a0684fefa29facfbf5e4ffc5c70d6cc60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cbec165e01d28f434dbd76cb1c54e4f"><td class="memItemLeft" align="right" valign="top"><a id="a1cbec165e01d28f434dbd76cb1c54e4f" name="a1cbec165e01d28f434dbd76cb1c54e4f"></a>
+<tr class="memitem:a1cbec165e01d28f434dbd76cb1c54e4f" id="r_a1cbec165e01d28f434dbd76cb1c54e4f"><td class="memItemLeft" align="right" valign="top"><a id="a1cbec165e01d28f434dbd76cb1c54e4f" name="a1cbec165e01d28f434dbd76cb1c54e4f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>PROM_Print</b> (UART_HandleTypeDef *uart)</td></tr>
 <tr class="separator:a1cbec165e01d28f434dbd76cb1c54e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab82be492c8b7a5bb8464d5bd90fc87fd"><td class="memItemLeft" align="right" valign="top"><a id="ab82be492c8b7a5bb8464d5bd90fc87fd" name="ab82be492c8b7a5bb8464d5bd90fc87fd"></a>
+<tr class="memitem:ab82be492c8b7a5bb8464d5bd90fc87fd" id="r_ab82be492c8b7a5bb8464d5bd90fc87fd"><td class="memItemLeft" align="right" valign="top"><a id="ab82be492c8b7a5bb8464d5bd90fc87fd" name="ab82be492c8b7a5bb8464d5bd90fc87fd"></a>
 ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (OSR sensitivity, uint8_t force=1)</td></tr>
 <tr class="separator:ab82be492c8b7a5bb8464d5bd90fc87fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab927db94868802c890a0ce7d64707fba"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1MS5611.html#ab927db94868802c890a0ce7d64707fba">Init</a> () override</td></tr>
-<tr class="memdesc:ab927db94868802c890a0ce7d64707fba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация устройства на шине I2C.  <a href="classIntroSatLib_1_1MS5611.html#ab927db94868802c890a0ce7d64707fba">Подробнее...</a><br /></td></tr>
+<tr class="memitem:ab927db94868802c890a0ce7d64707fba" id="r_ab927db94868802c890a0ce7d64707fba"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab927db94868802c890a0ce7d64707fba">Init</a> () override</td></tr>
+<tr class="memdesc:ab927db94868802c890a0ce7d64707fba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация устройства на шине I2C.  <br /></td></tr>
 <tr class="separator:ab927db94868802c890a0ce7d64707fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a107ea86dc19b76bc2df17cf855a846ee"><td class="memItemLeft" align="right" valign="top"><a id="a107ea86dc19b76bc2df17cf855a846ee" name="a107ea86dc19b76bc2df17cf855a846ee"></a>
+<tr class="memitem:a107ea86dc19b76bc2df17cf855a846ee" id="r_a107ea86dc19b76bc2df17cf855a846ee"><td class="memItemLeft" align="right" valign="top"><a id="a107ea86dc19b76bc2df17cf855a846ee" name="a107ea86dc19b76bc2df17cf855a846ee"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>CalculateCRC</b> ()</td></tr>
 <tr class="separator:a107ea86dc19b76bc2df17cf855a846ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03f444246834aab7a8fd2cecc13b6a85"><td class="memItemLeft" align="right" valign="top"><a id="a03f444246834aab7a8fd2cecc13b6a85" name="a03f444246834aab7a8fd2cecc13b6a85"></a>
+<tr class="memitem:a03f444246834aab7a8fd2cecc13b6a85" id="r_a03f444246834aab7a8fd2cecc13b6a85"><td class="memItemLeft" align="right" valign="top"><a id="a03f444246834aab7a8fd2cecc13b6a85" name="a03f444246834aab7a8fd2cecc13b6a85"></a>
 ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>SetSensitivity</b> (OSR sensitivity)</td></tr>
 <tr class="separator:a03f444246834aab7a8fd2cecc13b6a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74d64c3d0c4beffee0d3658df7753cfb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1MS5611.html#a74d64c3d0c4beffee0d3658df7753cfb">GetPressure</a> () override</td></tr>
+<tr class="memitem:a74d64c3d0c4beffee0d3658df7753cfb" id="r_a74d64c3d0c4beffee0d3658df7753cfb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74d64c3d0c4beffee0d3658df7753cfb">GetPressure</a> () override</td></tr>
 <tr class="separator:a74d64c3d0c4beffee0d3658df7753cfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7986babd589e7bfd8468cbfd0484bc78"><td class="memItemLeft" align="right" valign="top"><a id="a7986babd589e7bfd8468cbfd0484bc78" name="a7986babd589e7bfd8468cbfd0484bc78"></a>
+<tr class="memitem:a7986babd589e7bfd8468cbfd0484bc78" id="r_a7986babd589e7bfd8468cbfd0484bc78"><td class="memItemLeft" align="right" valign="top"><a id="a7986babd589e7bfd8468cbfd0484bc78" name="a7986babd589e7bfd8468cbfd0484bc78"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>GetTemperature</b> ()</td></tr>
 <tr class="separator:a7986babd589e7bfd8468cbfd0484bc78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f98f2a933b2640a6bffadb5c6d51d21"><td class="memItemLeft" align="right" valign="top"><a id="a6f98f2a933b2640a6bffadb5c6d51d21" name="a6f98f2a933b2640a6bffadb5c6d51d21"></a>
+<tr class="memitem:a6f98f2a933b2640a6bffadb5c6d51d21" id="r_a6f98f2a933b2640a6bffadb5c6d51d21"><td class="memItemLeft" align="right" valign="top"><a id="a6f98f2a933b2640a6bffadb5c6d51d21" name="a6f98f2a933b2640a6bffadb5c6d51d21"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>GetHeight</b> ()</td></tr>
 <tr class="separator:a6f98f2a933b2640a6bffadb5c6d51d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b6c4d89fdc5a0d8e0be4059e26f3935"><td class="memItemLeft" align="right" valign="top"><a id="a3b6c4d89fdc5a0d8e0be4059e26f3935" name="a3b6c4d89fdc5a0d8e0be4059e26f3935"></a>
-virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>GetPressure</b> ()=0</td></tr>
-<tr class="separator:a3b6c4d89fdc5a0d8e0be4059e26f3935"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Дополнительные унаследованные члены</h2></td></tr>
-<tr class="inherit_header pro_methods_classIntroSatLib_1_1I2CDevice"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classIntroSatLib_1_1I2CDevice')"><img src="closed.png" alt="-"/>&#160;Защищенные члены унаследованные от <a class="el" href="classIntroSatLib_1_1I2CDevice.html">IntroSatLib::I2CDevice</a></td></tr>
-<tr class="memitem:aaee00904588c8e89d08b7b3644f87454 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="aaee00904588c8e89d08b7b3644f87454" name="aaee00904588c8e89d08b7b3644f87454"></a>
+<tr class="inherit_header pro_methods_classIntroSatLib_1_1I2CDevice"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classIntroSatLib_1_1I2CDevice')"><img src="closed.png" alt="-"/>&#160;Защищенные члены унаследованные от <a class="el" href="classIntroSatLib_1_1I2CDevice.html">IntroSatLib::I2CDevice</a></td></tr>
+<tr class="memitem:aaee00904588c8e89d08b7b3644f87454 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_aaee00904588c8e89d08b7b3644f87454"><td class="memItemLeft" align="right" valign="top">
 ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>IsReady</b> ()</td></tr>
 <tr class="separator:aaee00904588c8e89d08b7b3644f87454 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9bbd2d50ab5023042ec65c9dfb0f5e0 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#ab9bbd2d50ab5023042ec65c9dfb0f5e0">CheckRegisterI2C</a> (uint8_t reg, uint8_t value)</td></tr>
-<tr class="memdesc:ab9bbd2d50ab5023042ec65c9dfb0f5e0 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if register contents equal to <b>value</b>  <a href="classIntroSatLib_1_1I2CDevice.html#ab9bbd2d50ab5023042ec65c9dfb0f5e0">Подробнее...</a><br /></td></tr>
+<tr class="memitem:ab9bbd2d50ab5023042ec65c9dfb0f5e0 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_ab9bbd2d50ab5023042ec65c9dfb0f5e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#ab9bbd2d50ab5023042ec65c9dfb0f5e0">CheckRegisterI2C</a> (uint8_t reg, uint8_t value)</td></tr>
+<tr class="memdesc:ab9bbd2d50ab5023042ec65c9dfb0f5e0 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if register contents equal to <b>value</b>  <br /></td></tr>
 <tr class="separator:ab9bbd2d50ab5023042ec65c9dfb0f5e0 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b79aa811b553b8b7619468b98641717 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="a8b79aa811b553b8b7619468b98641717" name="a8b79aa811b553b8b7619468b98641717"></a>
+<tr class="memitem:a8b79aa811b553b8b7619468b98641717 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a8b79aa811b553b8b7619468b98641717"><td class="memItemLeft" align="right" valign="top">
 ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>WriteI2C</b> (uint8_t byte)</td></tr>
 <tr class="separator:a8b79aa811b553b8b7619468b98641717 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5da3e3a54bdc96eb51d8a6e2a7e12a9 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="aa5da3e3a54bdc96eb51d8a6e2a7e12a9" name="aa5da3e3a54bdc96eb51d8a6e2a7e12a9"></a>
+<tr class="memitem:aa5da3e3a54bdc96eb51d8a6e2a7e12a9 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_aa5da3e3a54bdc96eb51d8a6e2a7e12a9"><td class="memItemLeft" align="right" valign="top">
 ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>WriteI2C</b> (uint8_t *buf, uint8_t nByte)</td></tr>
 <tr class="separator:aa5da3e3a54bdc96eb51d8a6e2a7e12a9 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9e008eb70a8363046a3edab69739c25 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="af9e008eb70a8363046a3edab69739c25" name="af9e008eb70a8363046a3edab69739c25"></a>
+<tr class="memitem:af9e008eb70a8363046a3edab69739c25 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_af9e008eb70a8363046a3edab69739c25"><td class="memItemLeft" align="right" valign="top">
 ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>ReadI2C</b> (uint8_t *buf, uint8_t nBytes=1)</td></tr>
 <tr class="separator:af9e008eb70a8363046a3edab69739c25 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75a425174537da2b67e781844a4efbc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="a75a425174537da2b67e781844a4efbc6" name="a75a425174537da2b67e781844a4efbc6"></a>
+<tr class="memitem:a75a425174537da2b67e781844a4efbc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a75a425174537da2b67e781844a4efbc6"><td class="memItemLeft" align="right" valign="top">
 ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>ReadRegisterI2C</b> (uint8_t reg, uint8_t *data)</td></tr>
 <tr class="separator:a75a425174537da2b67e781844a4efbc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc2bab9655f94499cbca2ef53f0343b7 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="abc2bab9655f94499cbca2ef53f0343b7" name="abc2bab9655f94499cbca2ef53f0343b7"></a>
+<tr class="memitem:abc2bab9655f94499cbca2ef53f0343b7 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_abc2bab9655f94499cbca2ef53f0343b7"><td class="memItemLeft" align="right" valign="top">
 ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>ReadRegisterI2C</b> (uint8_t reg, uint8_t *data, uint8_t nBytes)</td></tr>
 <tr class="separator:abc2bab9655f94499cbca2ef53f0343b7 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a130dbf430e1bc9da54c2ccb7efa72984 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#a130dbf430e1bc9da54c2ccb7efa72984">GetRegisterI2C</a> (uint8_t reg) __attribute__((deprecated(&quot;This method does not check if I2C read happened correctly&quot;)))</td></tr>
-<tr class="memdesc:a130dbf430e1bc9da54c2ccb7efa72984 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает значение из регистра устройства  <a href="classIntroSatLib_1_1I2CDevice.html#a130dbf430e1bc9da54c2ccb7efa72984">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a130dbf430e1bc9da54c2ccb7efa72984 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a130dbf430e1bc9da54c2ccb7efa72984"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#a130dbf430e1bc9da54c2ccb7efa72984">GetRegisterI2C</a> (uint8_t reg) __attribute__((deprecated(&quot;This method does not check if I2C read happened correctly&quot;)))</td></tr>
+<tr class="memdesc:a130dbf430e1bc9da54c2ccb7efa72984 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает значение из регистра устройства  <br /></td></tr>
 <tr class="separator:a130dbf430e1bc9da54c2ccb7efa72984 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d47e8d51ed58bf0eb9a1206aad7e656 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="a5d47e8d51ed58bf0eb9a1206aad7e656" name="a5d47e8d51ed58bf0eb9a1206aad7e656"></a>
+<tr class="memitem:a5d47e8d51ed58bf0eb9a1206aad7e656 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a5d47e8d51ed58bf0eb9a1206aad7e656"><td class="memItemLeft" align="right" valign="top">
 ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>SetRegisterI2C</b> (uint8_t reg, uint8_t *value, uint8_t nBytes)</td></tr>
 <tr class="separator:a5d47e8d51ed58bf0eb9a1206aad7e656 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af82a37de690643f588385af356fb5d60 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#af82a37de690643f588385af356fb5d60">SetRegisterI2C</a> (uint8_t reg, uint8_t value)</td></tr>
-<tr class="memdesc:af82a37de690643f588385af356fb5d60 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись значения в регистр устройства  <a href="classIntroSatLib_1_1I2CDevice.html#af82a37de690643f588385af356fb5d60">Подробнее...</a><br /></td></tr>
+<tr class="memitem:af82a37de690643f588385af356fb5d60 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_af82a37de690643f588385af356fb5d60"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#af82a37de690643f588385af356fb5d60">SetRegisterI2C</a> (uint8_t reg, uint8_t value)</td></tr>
+<tr class="memdesc:af82a37de690643f588385af356fb5d60 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись значения в регистр устройства  <br /></td></tr>
 <tr class="separator:af82a37de690643f588385af356fb5d60 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa80cb32cbbebff532293fea39770bfc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#aa80cb32cbbebff532293fea39770bfc6">SetBitRegisterI2C</a> (uint8_t reg, uint8_t bit)</td></tr>
-<tr class="memdesc:aa80cb32cbbebff532293fea39770bfc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение 1.  <a href="classIntroSatLib_1_1I2CDevice.html#aa80cb32cbbebff532293fea39770bfc6">Подробнее...</a><br /></td></tr>
+<tr class="memitem:aa80cb32cbbebff532293fea39770bfc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_aa80cb32cbbebff532293fea39770bfc6"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#aa80cb32cbbebff532293fea39770bfc6">SetBitRegisterI2C</a> (uint8_t reg, uint8_t bit)</td></tr>
+<tr class="memdesc:aa80cb32cbbebff532293fea39770bfc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение 1.  <br /></td></tr>
 <tr class="separator:aa80cb32cbbebff532293fea39770bfc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2f949a2162badc6d2b85a55781a1cac inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#aa2f949a2162badc6d2b85a55781a1cac">ResetBitRegisterI2C</a> (uint8_t reg, uint8_t bit)</td></tr>
-<tr class="memdesc:aa2f949a2162badc6d2b85a55781a1cac inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение 0.  <a href="classIntroSatLib_1_1I2CDevice.html#aa2f949a2162badc6d2b85a55781a1cac">Подробнее...</a><br /></td></tr>
+<tr class="memitem:aa2f949a2162badc6d2b85a55781a1cac inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_aa2f949a2162badc6d2b85a55781a1cac"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#aa2f949a2162badc6d2b85a55781a1cac">ResetBitRegisterI2C</a> (uint8_t reg, uint8_t bit)</td></tr>
+<tr class="memdesc:aa2f949a2162badc6d2b85a55781a1cac inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение 0.  <br /></td></tr>
 <tr class="separator:aa2f949a2162badc6d2b85a55781a1cac inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b38314890d95d28a6d6177076e81cb2 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#a7b38314890d95d28a6d6177076e81cb2">BitRegisterI2C</a> (uint8_t reg, uint8_t bit, uint8_t value)</td></tr>
-<tr class="memdesc:a7b38314890d95d28a6d6177076e81cb2 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение по условию value.  <a href="classIntroSatLib_1_1I2CDevice.html#a7b38314890d95d28a6d6177076e81cb2">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a7b38314890d95d28a6d6177076e81cb2 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a7b38314890d95d28a6d6177076e81cb2"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#a7b38314890d95d28a6d6177076e81cb2">BitRegisterI2C</a> (uint8_t reg, uint8_t bit, uint8_t value)</td></tr>
+<tr class="memdesc:a7b38314890d95d28a6d6177076e81cb2 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение по условию value.  <br /></td></tr>
 <tr class="separator:a7b38314890d95d28a6d6177076e81cb2 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af43bdf2ba9e2fee2da27c9c7efcdbcb7 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#af43bdf2ba9e2fee2da27c9c7efcdbcb7">I2CDevice</a> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> *i2c, uint8_t address)</td></tr>
-<tr class="memdesc:af43bdf2ba9e2fee2da27c9c7efcdbcb7 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта <b>@ref</b>  <a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a>.  <a href="classIntroSatLib_1_1I2CDevice.html#af43bdf2ba9e2fee2da27c9c7efcdbcb7">Подробнее...</a><br /></td></tr>
+<tr class="memitem:af43bdf2ba9e2fee2da27c9c7efcdbcb7 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_af43bdf2ba9e2fee2da27c9c7efcdbcb7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#af43bdf2ba9e2fee2da27c9c7efcdbcb7">I2CDevice</a> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> *i2c, uint8_t address)</td></tr>
+<tr class="memdesc:af43bdf2ba9e2fee2da27c9c7efcdbcb7 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта <b>@ref</b>  <a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a>.  <br /></td></tr>
 <tr class="separator:af43bdf2ba9e2fee2da27c9c7efcdbcb7 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a168d5c83b720d8b9859689fb07a4c80c inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#a168d5c83b720d8b9859689fb07a4c80c">I2CDevice</a> (const <a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a> &amp;other)</td></tr>
-<tr class="memdesc:a168d5c83b720d8b9859689fb07a4c80c inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта BaseDevice как копии другого объекта BaseDevice.  <a href="classIntroSatLib_1_1I2CDevice.html#a168d5c83b720d8b9859689fb07a4c80c">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a168d5c83b720d8b9859689fb07a4c80c inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a168d5c83b720d8b9859689fb07a4c80c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#a168d5c83b720d8b9859689fb07a4c80c">I2CDevice</a> (const <a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a> &amp;other)</td></tr>
+<tr class="memdesc:a168d5c83b720d8b9859689fb07a4c80c inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта BaseDevice как копии другого объекта BaseDevice.  <br /></td></tr>
 <tr class="separator:a168d5c83b720d8b9859689fb07a4c80c inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a9cdabcd7339291d28d877f65507546 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="a8a9cdabcd7339291d28d877f65507546" name="a8a9cdabcd7339291d28d877f65507546"></a>
+<tr class="memitem:a8a9cdabcd7339291d28d877f65507546 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a8a9cdabcd7339291d28d877f65507546"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>I2CDevice</b> (<a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a> &amp;&amp;other)</td></tr>
 <tr class="separator:a8a9cdabcd7339291d28d877f65507546 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abae57f30f83bf34d2e3fcec43067b00b inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="abae57f30f83bf34d2e3fcec43067b00b" name="abae57f30f83bf34d2e3fcec43067b00b"></a>
+<tr class="memitem:abae57f30f83bf34d2e3fcec43067b00b inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_abae57f30f83bf34d2e3fcec43067b00b"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a> &amp;other)</td></tr>
 <tr class="separator:abae57f30f83bf34d2e3fcec43067b00b inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a731b1566a1dacd02e9c7948d1a3ee27c inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="a731b1566a1dacd02e9c7948d1a3ee27c" name="a731b1566a1dacd02e9c7948d1a3ee27c"></a>
+<tr class="memitem:a731b1566a1dacd02e9c7948d1a3ee27c inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a731b1566a1dacd02e9c7948d1a3ee27c"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a> &amp;&amp;other)</td></tr>
 <tr class="separator:a731b1566a1dacd02e9c7948d1a3ee27c inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae90feb3286dce14b8b5b9179fbcc3cdd inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top">virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#ae90feb3286dce14b8b5b9179fbcc3cdd">Init</a> () override</td></tr>
-<tr class="memdesc:ae90feb3286dce14b8b5b9179fbcc3cdd inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация устройства на шине I2C.  <a href="classIntroSatLib_1_1I2CDevice.html#ae90feb3286dce14b8b5b9179fbcc3cdd">Подробнее...</a><br /></td></tr>
-<tr class="separator:ae90feb3286dce14b8b5b9179fbcc3cdd inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_classIntroSatLib_1_1Device"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classIntroSatLib_1_1Device')"><img src="closed.png" alt="-"/>&#160;Защищенные члены унаследованные от <a class="el" href="classIntroSatLib_1_1Device.html">IntroSatLib::Device</a></td></tr>
-<tr class="memitem:a250a0d27735ec18cd3771666b6efc9c7 inherit pro_methods_classIntroSatLib_1_1Device"><td class="memItemLeft" align="right" valign="top"><a id="a250a0d27735ec18cd3771666b6efc9c7" name="a250a0d27735ec18cd3771666b6efc9c7"></a>
+<tr class="inherit_header pro_methods_classIntroSatLib_1_1Device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classIntroSatLib_1_1Device')"><img src="closed.png" alt="-"/>&#160;Защищенные члены унаследованные от <a class="el" href="classIntroSatLib_1_1Device.html">IntroSatLib::Device</a></td></tr>
+<tr class="memitem:a250a0d27735ec18cd3771666b6efc9c7 inherit pro_methods_classIntroSatLib_1_1Device" id="r_a250a0d27735ec18cd3771666b6efc9c7"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setState</b> (Device::DeviceState state)</td></tr>
 <tr class="separator:a250a0d27735ec18cd3771666b6efc9c7 inherit pro_methods_classIntroSatLib_1_1Device"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a868cb050a621ba8536210a2055061b21 inherit pro_methods_classIntroSatLib_1_1Device"><td class="memItemLeft" align="right" valign="top">virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1Device.html#a868cb050a621ba8536210a2055061b21">Init</a> ()=0</td></tr>
-<tr class="separator:a868cb050a621ba8536210a2055061b21 inherit pro_methods_classIntroSatLib_1_1Device"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f687ec7a9822ccc409037bf1cc6c59f inherit pro_methods_classIntroSatLib_1_1Device"><td class="memItemLeft" align="right" valign="top"><a id="a8f687ec7a9822ccc409037bf1cc6c59f" name="a8f687ec7a9822ccc409037bf1cc6c59f"></a>
+<tr class="memitem:a8f687ec7a9822ccc409037bf1cc6c59f inherit pro_methods_classIntroSatLib_1_1Device" id="r_a8f687ec7a9822ccc409037bf1cc6c59f"><td class="memItemLeft" align="right" valign="top">
 Device::DeviceState&#160;</td><td class="memItemRight" valign="bottom"><b>GetState</b> ()</td></tr>
 <tr class="separator:a8f687ec7a9822ccc409037bf1cc6c59f inherit pro_methods_classIntroSatLib_1_1Device"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6f6a4c96b8d377ac6a020f903558694 inherit pro_methods_classIntroSatLib_1_1Device"><td class="memItemLeft" align="right" valign="top"><a id="aa6f6a4c96b8d377ac6a020f903558694" name="aa6f6a4c96b8d377ac6a020f903558694"></a>
+<tr class="memitem:aa6f6a4c96b8d377ac6a020f903558694 inherit pro_methods_classIntroSatLib_1_1Device" id="r_aa6f6a4c96b8d377ac6a020f903558694"><td class="memItemLeft" align="right" valign="top">
 virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>Enable</b> ()</td></tr>
 <tr class="separator:aa6f6a4c96b8d377ac6a020f903558694 inherit pro_methods_classIntroSatLib_1_1Device"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9b38286b66f8990cf5c79f3732fd64d inherit pro_methods_classIntroSatLib_1_1Device"><td class="memItemLeft" align="right" valign="top"><a id="aa9b38286b66f8990cf5c79f3732fd64d" name="aa9b38286b66f8990cf5c79f3732fd64d"></a>
+<tr class="memitem:aa9b38286b66f8990cf5c79f3732fd64d inherit pro_methods_classIntroSatLib_1_1Device" id="r_aa9b38286b66f8990cf5c79f3732fd64d"><td class="memItemLeft" align="right" valign="top">
 virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>Disable</b> ()</td></tr>
 <tr class="separator:aa9b38286b66f8990cf5c79f3732fd64d inherit pro_methods_classIntroSatLib_1_1Device"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_classIntroSatLib_1_1I2CDevice"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classIntroSatLib_1_1I2CDevice')"><img src="closed.png" alt="-"/>&#160;Защищенные данные унаследованные от <a class="el" href="classIntroSatLib_1_1I2CDevice.html">IntroSatLib::I2CDevice</a></td></tr>
-<tr class="memitem:aecd8aa363bb35678b59c973b42a41c12 inherit pro_attribs_classIntroSatLib_1_1I2CDevice"><td class="memItemLeft" align="right" valign="top"><a id="aecd8aa363bb35678b59c973b42a41c12" name="aecd8aa363bb35678b59c973b42a41c12"></a>
+<tr class="inherit_header pro_attribs_classIntroSatLib_1_1I2CDevice"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classIntroSatLib_1_1I2CDevice')"><img src="closed.png" alt="-"/>&#160;Защищенные данные унаследованные от <a class="el" href="classIntroSatLib_1_1I2CDevice.html">IntroSatLib::I2CDevice</a></td></tr>
+<tr class="memitem:aecd8aa363bb35678b59c973b42a41c12 inherit pro_attribs_classIntroSatLib_1_1I2CDevice" id="r_aecd8aa363bb35678b59c973b42a41c12"><td class="memItemLeft" align="right" valign="top">
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_address</b></td></tr>
 <tr class="separator:aecd8aa363bb35678b59c973b42a41c12 inherit pro_attribs_classIntroSatLib_1_1I2CDevice"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -230,13 +237,13 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_address</b></td><
         <tr>
           <td class="memname">float IntroSatLib::MS5611::GetPressure </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -257,13 +264,13 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_address</b></td><
         <tr>
           <td class="memname">ISL_StatusTypeDef IntroSatLib::MS5611::Init </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -279,12 +286,13 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_address</b></td><
 </div>
 <hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li>src/Device/MS5611/<a class="el" href="MS5611_8h_source.html">MS5611.h</a></li>
-<li>src/Device/MS5611/MS5611.cpp</li>
+<li>src/Device/MS5611/<b>MS5611.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
 </small></address>
+</div><!-- doc-content -->
 </body>
 </html>

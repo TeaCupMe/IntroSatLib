@@ -3,12 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IntroSatLib: Класс IntroSatLib::Gyroscope</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -29,10 +33,15 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Создано системой Doxygen 1.9.5 -->
+<!-- Создано системой Doxygen 1.13.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,12 +49,17 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Поиск');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,6 +86,7 @@ $(function() {
 <li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a class="el" href="classIntroSatLib_1_1Gyroscope.html">Gyroscope</a></li>  </ul>
 </div>
 </div><!-- top -->
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Открытые типы</a> &#124;
@@ -92,13 +107,13 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Открытые типы</h2></td></tr>
-<tr class="memitem:a1ebbacd2551bb4c4b7a4d8d7918baa7f"><td class="memItemLeft" align="right" valign="top"><a id="a1ebbacd2551bb4c4b7a4d8d7918baa7f" name="a1ebbacd2551bb4c4b7a4d8d7918baa7f"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Scale</b> { <b>DPS0250</b> = 0
+<tr class="memitem:a1ebbacd2551bb4c4b7a4d8d7918baa7f" id="r_a1ebbacd2551bb4c4b7a4d8d7918baa7f"><td class="memItemLeft" align="right" valign="top"><a id="a1ebbacd2551bb4c4b7a4d8d7918baa7f" name="a1ebbacd2551bb4c4b7a4d8d7918baa7f"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Scale</b> { <b>DPS0250</b> = 0
 , <b>DPS0500</b>
 , <b>DPS1000</b>
 , <b>DPS2000</b>
  }</td></tr>
 <tr class="separator:a1ebbacd2551bb4c4b7a4d8d7918baa7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e41bf2fd334d09469386c8ead251827"><td class="memItemLeft" align="right" valign="top"><a id="a1e41bf2fd334d09469386c8ead251827" name="a1e41bf2fd334d09469386c8ead251827"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>FilterBandwidth</b> { <br />
+<tr class="memitem:a1e41bf2fd334d09469386c8ead251827" id="r_a1e41bf2fd334d09469386c8ead251827"><td class="memItemLeft" align="right" valign="top"><a id="a1e41bf2fd334d09469386c8ead251827" name="a1e41bf2fd334d09469386c8ead251827"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>FilterBandwidth</b> { <br />
 &#160;&#160;<b>F8800</b> = 8
 , <b>F3600</b> = 16
 , <b>F0250</b> = 0
@@ -117,52 +132,52 @@ $(function() {
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:aa6bf33a196cb0c08cb779223dc4e1e6b"><td class="memItemLeft" align="right" valign="top"><a id="aa6bf33a196cb0c08cb779223dc4e1e6b" name="aa6bf33a196cb0c08cb779223dc4e1e6b"></a>
+<tr class="memitem:aa6bf33a196cb0c08cb779223dc4e1e6b" id="r_aa6bf33a196cb0c08cb779223dc4e1e6b"><td class="memItemLeft" align="right" valign="top"><a id="aa6bf33a196cb0c08cb779223dc4e1e6b" name="aa6bf33a196cb0c08cb779223dc4e1e6b"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Gyroscope</b> (const <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> &amp;i2c, uint8_t address=BASE_ADDRESS)</td></tr>
 <tr class="separator:aa6bf33a196cb0c08cb779223dc4e1e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39f56c895ba638daefddadbbf220b663"><td class="memItemLeft" align="right" valign="top"><a id="a39f56c895ba638daefddadbbf220b663" name="a39f56c895ba638daefddadbbf220b663"></a>
+<tr class="memitem:a39f56c895ba638daefddadbbf220b663" id="r_a39f56c895ba638daefddadbbf220b663"><td class="memItemLeft" align="right" valign="top"><a id="a39f56c895ba638daefddadbbf220b663" name="a39f56c895ba638daefddadbbf220b663"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Gyroscope</b> (const <a class="el" href="classIntroSatLib_1_1Gyroscope.html">Gyroscope</a> &amp;other)</td></tr>
 <tr class="separator:a39f56c895ba638daefddadbbf220b663"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc4a024353e633d048d5cc8d4d5037ea"><td class="memItemLeft" align="right" valign="top"><a id="afc4a024353e633d048d5cc8d4d5037ea" name="afc4a024353e633d048d5cc8d4d5037ea"></a>
+<tr class="memitem:afc4a024353e633d048d5cc8d4d5037ea" id="r_afc4a024353e633d048d5cc8d4d5037ea"><td class="memItemLeft" align="right" valign="top"><a id="afc4a024353e633d048d5cc8d4d5037ea" name="afc4a024353e633d048d5cc8d4d5037ea"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Gyroscope</b> (<a class="el" href="classIntroSatLib_1_1Gyroscope.html">Gyroscope</a> &amp;&amp;other)</td></tr>
 <tr class="separator:afc4a024353e633d048d5cc8d4d5037ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a481d04ca99afdb81f4ab1ec332c003aa"><td class="memItemLeft" align="right" valign="top"><a id="a481d04ca99afdb81f4ab1ec332c003aa" name="a481d04ca99afdb81f4ab1ec332c003aa"></a>
+<tr class="memitem:a481d04ca99afdb81f4ab1ec332c003aa" id="r_a481d04ca99afdb81f4ab1ec332c003aa"><td class="memItemLeft" align="right" valign="top"><a id="a481d04ca99afdb81f4ab1ec332c003aa" name="a481d04ca99afdb81f4ab1ec332c003aa"></a>
 <a class="el" href="classIntroSatLib_1_1Gyroscope.html">Gyroscope</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classIntroSatLib_1_1Gyroscope.html">Gyroscope</a> &amp;other)</td></tr>
 <tr class="separator:a481d04ca99afdb81f4ab1ec332c003aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2c7b9757d854de3cd773b1e624338ee"><td class="memItemLeft" align="right" valign="top"><a id="ac2c7b9757d854de3cd773b1e624338ee" name="ac2c7b9757d854de3cd773b1e624338ee"></a>
+<tr class="memitem:ac2c7b9757d854de3cd773b1e624338ee" id="r_ac2c7b9757d854de3cd773b1e624338ee"><td class="memItemLeft" align="right" valign="top"><a id="ac2c7b9757d854de3cd773b1e624338ee" name="ac2c7b9757d854de3cd773b1e624338ee"></a>
 <a class="el" href="classIntroSatLib_1_1Gyroscope.html">Gyroscope</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classIntroSatLib_1_1Gyroscope.html">Gyroscope</a> &amp;&amp;other)</td></tr>
 <tr class="separator:ac2c7b9757d854de3cd773b1e624338ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a058947c146327b2d10e32c751fe19bbd"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1Gyroscope.html#a058947c146327b2d10e32c751fe19bbd">Init</a> () override</td></tr>
-<tr class="memdesc:a058947c146327b2d10e32c751fe19bbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация устройства на шине I2C.  <a href="classIntroSatLib_1_1Gyroscope.html#a058947c146327b2d10e32c751fe19bbd">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a058947c146327b2d10e32c751fe19bbd" id="r_a058947c146327b2d10e32c751fe19bbd"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a058947c146327b2d10e32c751fe19bbd">Init</a> () override</td></tr>
+<tr class="memdesc:a058947c146327b2d10e32c751fe19bbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация устройства на шине I2C.  <br /></td></tr>
 <tr class="separator:a058947c146327b2d10e32c751fe19bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68856e3c10482ed9680721bdc8394de0"><td class="memItemLeft" align="right" valign="top"><a id="a68856e3c10482ed9680721bdc8394de0" name="a68856e3c10482ed9680721bdc8394de0"></a>
+<tr class="memitem:a68856e3c10482ed9680721bdc8394de0" id="r_a68856e3c10482ed9680721bdc8394de0"><td class="memItemLeft" align="right" valign="top"><a id="a68856e3c10482ed9680721bdc8394de0" name="a68856e3c10482ed9680721bdc8394de0"></a>
 ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (Scale scale)</td></tr>
 <tr class="separator:a68856e3c10482ed9680721bdc8394de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23a2a790ae7cc64cbd8d0752cda74db7"><td class="memItemLeft" align="right" valign="top"><a id="a23a2a790ae7cc64cbd8d0752cda74db7" name="a23a2a790ae7cc64cbd8d0752cda74db7"></a>
+<tr class="memitem:a23a2a790ae7cc64cbd8d0752cda74db7" id="r_a23a2a790ae7cc64cbd8d0752cda74db7"><td class="memItemLeft" align="right" valign="top"><a id="a23a2a790ae7cc64cbd8d0752cda74db7" name="a23a2a790ae7cc64cbd8d0752cda74db7"></a>
 ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (Scale scale, FilterBandwidth filter)</td></tr>
 <tr class="separator:a23a2a790ae7cc64cbd8d0752cda74db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65609b7e929202720f88b0786615b554"><td class="memItemLeft" align="right" valign="top"><a id="a65609b7e929202720f88b0786615b554" name="a65609b7e929202720f88b0786615b554"></a>
+<tr class="memitem:a65609b7e929202720f88b0786615b554" id="r_a65609b7e929202720f88b0786615b554"><td class="memItemLeft" align="right" valign="top"><a id="a65609b7e929202720f88b0786615b554" name="a65609b7e929202720f88b0786615b554"></a>
 ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>SetScale</b> (Scale scale)</td></tr>
 <tr class="separator:a65609b7e929202720f88b0786615b554"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a85aa8ab9a4fd383baa8b93e53f8683"><td class="memItemLeft" align="right" valign="top"><a id="a7a85aa8ab9a4fd383baa8b93e53f8683" name="a7a85aa8ab9a4fd383baa8b93e53f8683"></a>
+<tr class="memitem:a7a85aa8ab9a4fd383baa8b93e53f8683" id="r_a7a85aa8ab9a4fd383baa8b93e53f8683"><td class="memItemLeft" align="right" valign="top"><a id="a7a85aa8ab9a4fd383baa8b93e53f8683" name="a7a85aa8ab9a4fd383baa8b93e53f8683"></a>
 ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>SetFilter</b> (FilterBandwidth filter)</td></tr>
 <tr class="separator:a7a85aa8ab9a4fd383baa8b93e53f8683"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9485a1f719872f24f4aa6e528d12c01b"><td class="memItemLeft" align="right" valign="top"><a id="a9485a1f719872f24f4aa6e528d12c01b" name="a9485a1f719872f24f4aa6e528d12c01b"></a>
+<tr class="memitem:a9485a1f719872f24f4aa6e528d12c01b" id="r_a9485a1f719872f24f4aa6e528d12c01b"><td class="memItemLeft" align="right" valign="top"><a id="a9485a1f719872f24f4aa6e528d12c01b" name="a9485a1f719872f24f4aa6e528d12c01b"></a>
 int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>RawX</b> ()</td></tr>
 <tr class="separator:a9485a1f719872f24f4aa6e528d12c01b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a711966abcdafecf9e3f8665384491abc"><td class="memItemLeft" align="right" valign="top"><a id="a711966abcdafecf9e3f8665384491abc" name="a711966abcdafecf9e3f8665384491abc"></a>
+<tr class="memitem:a711966abcdafecf9e3f8665384491abc" id="r_a711966abcdafecf9e3f8665384491abc"><td class="memItemLeft" align="right" valign="top"><a id="a711966abcdafecf9e3f8665384491abc" name="a711966abcdafecf9e3f8665384491abc"></a>
 int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>RawY</b> ()</td></tr>
 <tr class="separator:a711966abcdafecf9e3f8665384491abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef370fe6d96965c7a5119422426f9bfd"><td class="memItemLeft" align="right" valign="top"><a id="aef370fe6d96965c7a5119422426f9bfd" name="aef370fe6d96965c7a5119422426f9bfd"></a>
+<tr class="memitem:aef370fe6d96965c7a5119422426f9bfd" id="r_aef370fe6d96965c7a5119422426f9bfd"><td class="memItemLeft" align="right" valign="top"><a id="aef370fe6d96965c7a5119422426f9bfd" name="aef370fe6d96965c7a5119422426f9bfd"></a>
 int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>RawZ</b> ()</td></tr>
 <tr class="separator:aef370fe6d96965c7a5119422426f9bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65b045deefd554559a72bee3ddf0f237"><td class="memItemLeft" align="right" valign="top"><a id="a65b045deefd554559a72bee3ddf0f237" name="a65b045deefd554559a72bee3ddf0f237"></a>
+<tr class="memitem:a65b045deefd554559a72bee3ddf0f237" id="r_a65b045deefd554559a72bee3ddf0f237"><td class="memItemLeft" align="right" valign="top"><a id="a65b045deefd554559a72bee3ddf0f237" name="a65b045deefd554559a72bee3ddf0f237"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>X</b> ()</td></tr>
 <tr class="separator:a65b045deefd554559a72bee3ddf0f237"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a076b9c7b7f5988175150435f936fe6fe"><td class="memItemLeft" align="right" valign="top"><a id="a076b9c7b7f5988175150435f936fe6fe" name="a076b9c7b7f5988175150435f936fe6fe"></a>
+<tr class="memitem:a076b9c7b7f5988175150435f936fe6fe" id="r_a076b9c7b7f5988175150435f936fe6fe"><td class="memItemLeft" align="right" valign="top"><a id="a076b9c7b7f5988175150435f936fe6fe" name="a076b9c7b7f5988175150435f936fe6fe"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>Y</b> ()</td></tr>
 <tr class="separator:a076b9c7b7f5988175150435f936fe6fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a888a8feb2de951b6dfecd5a5e9c71457"><td class="memItemLeft" align="right" valign="top"><a id="a888a8feb2de951b6dfecd5a5e9c71457" name="a888a8feb2de951b6dfecd5a5e9c71457"></a>
+<tr class="memitem:a888a8feb2de951b6dfecd5a5e9c71457" id="r_a888a8feb2de951b6dfecd5a5e9c71457"><td class="memItemLeft" align="right" valign="top"><a id="a888a8feb2de951b6dfecd5a5e9c71457" name="a888a8feb2de951b6dfecd5a5e9c71457"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>Z</b> ()</td></tr>
 <tr class="separator:a888a8feb2de951b6dfecd5a5e9c71457"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -179,13 +194,13 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>Z</b> ()</td></tr>
         <tr>
           <td class="memname">ISL_StatusTypeDef IntroSatLib::Gyroscope::Init </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -201,12 +216,13 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>Z</b> ()</td></tr>
 </div>
 <hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li>src/<a class="el" href="Gyroscope_8h_source.html">Gyroscope.h</a></li>
-<li>src/Gyroscope.cpp</li>
+<li>src/<b>Gyroscope.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
 </small></address>
+</div><!-- doc-content -->
 </body>
 </html>

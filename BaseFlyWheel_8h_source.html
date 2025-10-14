@@ -3,12 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IntroSatLib: Исходный файл src/BaseFlyWheel.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -29,10 +33,15 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Создано системой Doxygen 1.9.5 -->
+<!-- Создано системой Doxygen 1.13.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,12 +49,17 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Поиск');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,6 +86,7 @@ $(function() {
 <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
+<div id="doc-content">
 <div class="header">
   <div class="headertitle"><div class="title">BaseFlyWheel.h</div></div>
 </div><!--header-->
@@ -84,7 +99,8 @@ $(function() {
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>IntroSatLib {</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1BaseFlyWheel.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="classIntroSatLib_1_1BaseFlyWheel.html">BaseFlyWheel</a>: <span class="keyword">private</span> <a class="code hl_class" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a> {</div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1BaseFlyWheel.html">    9</a></span><span class="keyword">class </span><a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#ae5f6ef4decc4beff723d519566ba6795">BaseFlyWheel</a>: <span class="keyword">private</span> <a class="code hl_function" href="classIntroSatLib_1_1I2CDevice.html#af43bdf2ba9e2fee2da27c9c7efcdbcb7">I2CDevice</a> {</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">enum</span> RegisterMap</div>
@@ -118,8 +134,8 @@ $(function() {
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">static</span> <span class="keyword">const</span> uint8_t BASE_ADDRESS = 0x38;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    uint8_t CheckVersion();</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classIntroSatLib_1_1BaseFlyWheel.html">BaseFlyWheel</a>(<span class="keyword">const</span> <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> &amp;i2c, uint8_t address = BASE_ADDRESS);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#ae5f6ef4decc4beff723d519566ba6795">BaseFlyWheel</a>(<span class="keyword">const</span> <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> &amp;i2c, uint8_t address = BASE_ADDRESS);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span></div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#abe42a407d7f3a248d34420893a045455">Init</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment">// TODO @Goldfor Надо описать что все эти методы делают</span></div>
@@ -131,11 +147,11 @@ $(function() {
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    uint8_t MinForceMode();</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    ISL_StatusTypeDef ReverseMode(uint8_t reverceMode);</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    uint8_t ReverseMode();</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span></div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#a786d0d5f17e18e37d1b2cd44fcde0d86">NeedSpeed</a>(int16_t needSpeed);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    int16_t <a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#a786d0d5f17e18e37d1b2cd44fcde0d86">NeedSpeed</a>();</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span></div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    int16_t <a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#aae974e08f86599e4c69c26dbd151b9a3">CurrentSpeed</a>();</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    ISL_StatusTypeDef MaxAbsSpeed(uint16_t maxAbsSpeed);</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    uint16_t MaxAbsSpeed();</div>
@@ -147,27 +163,29 @@ $(function() {
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">float</span> PID_I();</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    ISL_StatusTypeDef PID_D(<span class="keywordtype">float</span> d);</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">float</span> PID_D();</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_class" href="classIntroSatLib_1_1BaseFlyWheel.html">BaseFlyWheel</a>(<span class="keyword">const</span> <a class="code hl_class" href="classIntroSatLib_1_1BaseFlyWheel.html">BaseFlyWheel</a> &amp;other);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_class" href="classIntroSatLib_1_1BaseFlyWheel.html">BaseFlyWheel</a>(<a class="code hl_class" href="classIntroSatLib_1_1BaseFlyWheel.html">BaseFlyWheel</a> &amp;&amp;other);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_class" href="classIntroSatLib_1_1BaseFlyWheel.html">BaseFlyWheel</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classIntroSatLib_1_1BaseFlyWheel.html">BaseFlyWheel</a> &amp;other);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_class" href="classIntroSatLib_1_1BaseFlyWheel.html">BaseFlyWheel</a>&amp; operator=(<a class="code hl_class" href="classIntroSatLib_1_1BaseFlyWheel.html">BaseFlyWheel</a> &amp;&amp;other);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_class" href="classIntroSatLib_1_1BaseFlyWheel.html">~BaseFlyWheel</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#ae5f6ef4decc4beff723d519566ba6795">BaseFlyWheel</a>(<span class="keyword">const</span> <a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#ae5f6ef4decc4beff723d519566ba6795">BaseFlyWheel</a> &amp;other);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#ae5f6ef4decc4beff723d519566ba6795">BaseFlyWheel</a>(<a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#ae5f6ef4decc4beff723d519566ba6795">BaseFlyWheel</a> &amp;&amp;other);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#ae5f6ef4decc4beff723d519566ba6795">BaseFlyWheel</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#ae5f6ef4decc4beff723d519566ba6795">BaseFlyWheel</a> &amp;other);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#ae5f6ef4decc4beff723d519566ba6795">BaseFlyWheel</a>&amp; operator=(<a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#ae5f6ef4decc4beff723d519566ba6795">BaseFlyWheel</a> &amp;&amp;other);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_function" href="classIntroSatLib_1_1BaseFlyWheel.html#ae5f6ef4decc4beff723d519566ba6795">~BaseFlyWheel</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>};</div>
+</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>} <span class="comment">/* namespace IntroSatLib */</span></div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="preprocessor">#endif </span><span class="comment">/* BASEFLYWHEEL_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclassIntroSatLib_1_1BaseFlyWheel_html"><div class="ttname"><a href="classIntroSatLib_1_1BaseFlyWheel.html">IntroSatLib::BaseFlyWheel</a></div><div class="ttdef"><b>Definition:</b> BaseFlyWheel.h:9</div></div>
-<div class="ttc" id="aclassIntroSatLib_1_1BaseFlyWheel_html_a786d0d5f17e18e37d1b2cd44fcde0d86"><div class="ttname"><a href="classIntroSatLib_1_1BaseFlyWheel.html#a786d0d5f17e18e37d1b2cd44fcde0d86">IntroSatLib::BaseFlyWheel::NeedSpeed</a></div><div class="ttdeci">int16_t NeedSpeed()</div><div class="ttdoc">Чтение установленной скорости</div><div class="ttdef"><b>Definition:</b> BaseFlyWheel.cpp:139</div></div>
-<div class="ttc" id="aclassIntroSatLib_1_1BaseFlyWheel_html_aae974e08f86599e4c69c26dbd151b9a3"><div class="ttname"><a href="classIntroSatLib_1_1BaseFlyWheel.html#aae974e08f86599e4c69c26dbd151b9a3">IntroSatLib::BaseFlyWheel::CurrentSpeed</a></div><div class="ttdeci">int16_t CurrentSpeed()</div><div class="ttdoc">Чтение реальной скорости</div><div class="ttdef"><b>Definition:</b> BaseFlyWheel.cpp:153</div></div>
-<div class="ttc" id="aclassIntroSatLib_1_1BaseFlyWheel_html_abe42a407d7f3a248d34420893a045455"><div class="ttname"><a href="classIntroSatLib_1_1BaseFlyWheel.html#abe42a407d7f3a248d34420893a045455">IntroSatLib::BaseFlyWheel::Init</a></div><div class="ttdeci">ISL_StatusTypeDef Init() override</div><div class="ttdoc">Инициализация маховика</div><div class="ttdef"><b>Definition:</b> BaseFlyWheel.cpp:11</div></div>
-<div class="ttc" id="aclassIntroSatLib_1_1I2CDevice_html"><div class="ttname"><a href="classIntroSatLib_1_1I2CDevice.html">IntroSatLib::I2CDevice</a></div><div class="ttdef"><b>Definition:</b> I2CDevice.h:10</div></div>
-<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html">IntroSatLib::interfaces::I2C</a></div><div class="ttdef"><b>Definition:</b> I2C.h:94</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1BaseFlyWheel_html_a786d0d5f17e18e37d1b2cd44fcde0d86"><div class="ttname"><a href="classIntroSatLib_1_1BaseFlyWheel.html#a786d0d5f17e18e37d1b2cd44fcde0d86">IntroSatLib::BaseFlyWheel::NeedSpeed</a></div><div class="ttdeci">int16_t NeedSpeed()</div><div class="ttdoc">Чтение установленной скорости</div><div class="ttdef"><b>Определения</b> BaseFlyWheel.cpp:139</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1BaseFlyWheel_html_aae974e08f86599e4c69c26dbd151b9a3"><div class="ttname"><a href="classIntroSatLib_1_1BaseFlyWheel.html#aae974e08f86599e4c69c26dbd151b9a3">IntroSatLib::BaseFlyWheel::CurrentSpeed</a></div><div class="ttdeci">int16_t CurrentSpeed()</div><div class="ttdoc">Чтение реальной скорости</div><div class="ttdef"><b>Определения</b> BaseFlyWheel.cpp:153</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1BaseFlyWheel_html_abe42a407d7f3a248d34420893a045455"><div class="ttname"><a href="classIntroSatLib_1_1BaseFlyWheel.html#abe42a407d7f3a248d34420893a045455">IntroSatLib::BaseFlyWheel::Init</a></div><div class="ttdeci">ISL_StatusTypeDef Init() override</div><div class="ttdoc">Инициализация маховика</div><div class="ttdef"><b>Определения</b> BaseFlyWheel.cpp:11</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1BaseFlyWheel_html_ae5f6ef4decc4beff723d519566ba6795"><div class="ttname"><a href="classIntroSatLib_1_1BaseFlyWheel.html#ae5f6ef4decc4beff723d519566ba6795">IntroSatLib::BaseFlyWheel::BaseFlyWheel</a></div><div class="ttdeci">BaseFlyWheel(const interfaces::I2C &amp;i2c, uint8_t address=BASE_ADDRESS)</div><div class="ttdoc">Создание объекта маховика.</div><div class="ttdef"><b>Определения</b> BaseFlyWheel.cpp:5</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1I2CDevice_html_af43bdf2ba9e2fee2da27c9c7efcdbcb7"><div class="ttname"><a href="classIntroSatLib_1_1I2CDevice.html#af43bdf2ba9e2fee2da27c9c7efcdbcb7">IntroSatLib::I2CDevice::I2CDevice</a></div><div class="ttdeci">I2CDevice(interfaces::I2C *i2c, uint8_t address)</div><div class="ttdoc">Создание объекта @ref  I2CDevice.</div><div class="ttdef"><b>Определения</b> I2CDevice.cpp:78</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html">IntroSatLib::interfaces::I2C</a></div><div class="ttdef"><b>Определения</b> I2C.h:94</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
 </small></address>
+</div><!-- doc-content -->
 </body>
 </html>

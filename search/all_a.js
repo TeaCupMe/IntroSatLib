@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['lexicographic_5forder_0',['lexicographic_order',['../structIntroSatLib_1_1lexicographic__order.html',1,'IntroSatLib']]],
-  ['lightsensor_1',['LightSensor',['../classIntroSatLib_1_1LightSensor.html',1,'IntroSatLib::LightSensor'],['../classIntroSatLib_1_1LightSensor.html#ac69f0303c01fb4a5e4c82ac1fe212dd6',1,'IntroSatLib::LightSensor::LightSensor(const interfaces::I2C &amp;i2c, uint8_t address=BASE_ADDRESS)'],['../classIntroSatLib_1_1LightSensor.html#a2013b5dd08e3a28a0dd98b4c8ee8e825',1,'IntroSatLib::LightSensor::LightSensor(const LightSensor &amp;other)']]],
-  ['lis3mdl_2',['LIS3MDL',['../classIntroSatLib_1_1LIS3MDL.html',1,'IntroSatLib']]],
-  ['lm75a_3',['LM75A',['../classIntroSatLib_1_1LM75A.html',1,'IntroSatLib']]],
-  ['lsm6ds3_4',['LSM6DS3',['../classIntroSatLib_1_1LSM6DS3.html',1,'IntroSatLib']]]
+  ['magnetometerv2_0',['MagnetometerV2',['../classIntroSatLib_1_1MagnetometerV2.html',1,'IntroSatLib::MagnetometerV2'],['../classIntroSatLib_1_1MagnetometerV2.html#a98d45e84b673642dcdd1bd51758dfc5f',1,'IntroSatLib::MagnetometerV2::MagnetometerV2()']]],
+  ['motorflywheel_1',['MotorFlyWheel',['../classIntroSatLib_1_1MotorFlyWheel.html',1,'IntroSatLib::MotorFlyWheel'],['../classIntroSatLib_1_1MotorFlyWheel.html#a33c8ea079e962731392d98d9804f5f4a',1,'IntroSatLib::MotorFlyWheel::MotorFlyWheel(const interfaces::I2C &amp;i2c, uint8_t address=BASE_ADDRESS)'],['../classIntroSatLib_1_1MotorFlyWheel.html#a703ed1d91c00d6ea69a4f68cce74bf60',1,'IntroSatLib::MotorFlyWheel::MotorFlyWheel(const MotorFlyWheel &amp;other)']]],
+  ['ms5611_2',['MS5611',['../classIntroSatLib_1_1MS5611.html',1,'IntroSatLib']]]
 ];

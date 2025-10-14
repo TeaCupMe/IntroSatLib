@@ -3,12 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IntroSatLib: Исходный файл src/Adapter/I2C.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -29,10 +33,15 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Создано системой Doxygen 1.9.5 -->
+<!-- Создано системой Doxygen 1.13.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,12 +49,17 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Поиск');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,6 +86,7 @@ $(function() {
 <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5af6faee1e3de567d2d42561cd4ab828.html">Adapter</a></li>  </ul>
 </div>
 </div><!-- top -->
+<div id="doc-content">
 <div class="header">
   <div class="headertitle"><div class="title">I2C.h</div></div>
 </div><!--header-->
@@ -144,22 +159,22 @@ $(function() {
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#define ASSERT_I2C_HAVE() \</span></div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">if(!_hi2c) { \</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">    logText(&quot;Haven&#39;t i2c handle&quot;</span>); \</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    return ISL_StatusTypeDef::ISL_ERROR; \</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">    logText(&quot;Haven&#39;t i2c handle&quot;); \</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">    return ISL_StatusTypeDef::ISL_ERROR; \</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">}</span></div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#define LOG_I2C_ADDRESS() \</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">logText(&quot;Device in &quot;</span>); \</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>logHEX(deviceAddress);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">logText(&quot;Device in &quot;); \</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">logHEX(deviceAddress);</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#if LOGDATA</span></div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#define LOG_I2C_BUFFER(Sep, Data, Nbytes) { \</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">logText(&quot; - &quot;</span>); \</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>for(uint8_t i = 0; i &lt; Nbytes; i++) { \</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    logHEX(Data[i]); \</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    if (i != (Nbytes - 1)) logText(Sep); \</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>} \</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">logText(&quot; - &quot;); \</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">for(uint8_t i = 0; i &lt; Nbytes; i++) { \</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">    logHEX(Data[i]); \</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">    if (i != (Nbytes - 1)) logText(Sep); \</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">} \</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">}</span></div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#else</span></div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#define LOG_I2C_BUFFER(Sep, Data, Nbytes)</span></div>
@@ -169,7 +184,8 @@ $(function() {
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">namespace </span>IntroSatLib {</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">namespace </span>interfaces {</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1interfaces_1_1I2C.html">   94</a></span><span class="keyword">class </span><a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a> final {</div>
+<div class="foldopen" id="foldopen00094" data-start="{" data-end="};">
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1interfaces_1_1I2C.html">   94</a></span><span class="keyword">class </span><a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#a9ea2393fe97d7fe6de463de0e8f10ca3">I2C</a> final {</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keyword">enum class</span> I2CSpeed</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    {</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        Standard = 0,</div>
@@ -180,48 +196,51 @@ $(function() {
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    I2CSpeed _speed = I2CSpeed::Standard;</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    ISL_StatusTypeDef innerIsReady(uint8_t address);</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>(I2C_HANDLE_TYPE *hi2c);</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>(I2C_HANDLE_TYPE *hi2c, I2CSpeed speed);</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1interfaces_1_1I2C.html#ac3fe0460ef2dd3c62d8d52ee59e2107a">  132</a></span>    <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#ac3fe0460ef2dd3c62d8d52ee59e2107a">I2C</a>(I2C_HANDLE_TYPE &amp;hi2c): <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>(&amp;hi2c) {};</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1interfaces_1_1I2C.html#aad846784cae46458822911a2f8b7981a">  142</a></span>    <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#aad846784cae46458822911a2f8b7981a">I2C</a>(I2C_HANDLE_TYPE &amp;hi2c, I2CSpeed speed): <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>(&amp;hi2c, speed) {};</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#a9ea2393fe97d7fe6de463de0e8f10ca3">I2C</a>(I2C_HANDLE_TYPE *hi2c);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#a9ea2393fe97d7fe6de463de0e8f10ca3">I2C</a>(I2C_HANDLE_TYPE *hi2c, I2CSpeed speed);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1interfaces_1_1I2C.html#ac3fe0460ef2dd3c62d8d52ee59e2107a">  132</a></span>    <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#ac3fe0460ef2dd3c62d8d52ee59e2107a">I2C</a>(I2C_HANDLE_TYPE &amp;hi2c): <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#a9ea2393fe97d7fe6de463de0e8f10ca3">I2C</a>(&amp;hi2c) {};</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1interfaces_1_1I2C.html#aad846784cae46458822911a2f8b7981a">  142</a></span>    <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#aad846784cae46458822911a2f8b7981a">I2C</a>(I2C_HANDLE_TYPE &amp;hi2c, I2CSpeed speed): <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#a9ea2393fe97d7fe6de463de0e8f10ca3">I2C</a>(&amp;hi2c, speed) {};</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>(<span class="keyword">const</span> <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>&amp; other);</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>(<a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>&amp;&amp; other);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#a9ea2393fe97d7fe6de463de0e8f10ca3">I2C</a>(<span class="keyword">const</span> <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>&amp; other);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#a9ea2393fe97d7fe6de463de0e8f10ca3">I2C</a>(<a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>&amp;&amp; other);</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>&amp; other);</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>&amp; operator=(<a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>&amp;&amp; other);</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span></div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#a64471c45a45a6e3ab937d94f39c6a5c4">isReady</a>(uint8_t deviceAddress, uint8_t waitIsReady = 0);</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span></div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#aef45d561a44a3b82145745214efe0983">read</a>(uint8_t deviceAddress, uint8_t* data, uint8_t nBytes);</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span></div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#a80dafdc6eefa92778212e278535b4d08">readMem</a>(uint8_t deviceAddress, uint8_t reg, uint8_t* data, uint8_t nBytes);</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span></div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#a5bda56aafe3a54b5a21904727345cf72">write</a>(uint8_t deviceAddress, uint8_t* data, uint8_t nBytes);</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span></div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1interfaces_1_1I2C.html#a89dd04fca1b67d056be268ec37cd143a">writeMem</a>(uint8_t deviceAddress, uint8_t reg, uint8_t* data, uint8_t nBytes);</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">~I2C</a>();</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>};</div>
+</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>} <span class="comment">/* namespace intefaces */</span></div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>} <span class="comment">/* namespace IntroSatLib */</span></div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="preprocessor">#endif </span><span class="comment">/* ISL_I2C_ENABLED */</span><span class="preprocessor"></span></div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="preprocessor">#endif </span><span class="comment">/* ADAPTER_I2C_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html">IntroSatLib::interfaces::I2C</a></div><div class="ttdef"><b>Definition:</b> I2C.h:94</div></div>
-<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_a5bda56aafe3a54b5a21904727345cf72"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#a5bda56aafe3a54b5a21904727345cf72">IntroSatLib::interfaces::I2C::write</a></div><div class="ttdeci">ISL_StatusTypeDef write(uint8_t deviceAddress, uint8_t *data, uint8_t nBytes)</div><div class="ttdoc">Отправка запроса на запись NBytes байт на устройство</div><div class="ttdef"><b>Definition:</b> ARDUINO_I2C.cpp:204</div></div>
-<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_a64471c45a45a6e3ab937d94f39c6a5c4"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#a64471c45a45a6e3ab937d94f39c6a5c4">IntroSatLib::interfaces::I2C::isReady</a></div><div class="ttdeci">ISL_StatusTypeDef isReady(uint8_t deviceAddress, uint8_t waitIsReady=0)</div><div class="ttdoc">Проверка доступности устройства на шине к работе</div><div class="ttdef"><b>Definition:</b> ARDUINO_I2C.cpp:60</div></div>
-<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_a80dafdc6eefa92778212e278535b4d08"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#a80dafdc6eefa92778212e278535b4d08">IntroSatLib::interfaces::I2C::readMem</a></div><div class="ttdeci">ISL_StatusTypeDef readMem(uint8_t deviceAddress, uint8_t reg, uint8_t *data, uint8_t nBytes)</div><div class="ttdoc">Отправка запроса на чтение Nbytes байт из регистра Register устройства</div><div class="ttdef"><b>Definition:</b> ARDUINO_I2C.cpp:151</div></div>
-<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_a89dd04fca1b67d056be268ec37cd143a"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#a89dd04fca1b67d056be268ec37cd143a">IntroSatLib::interfaces::I2C::writeMem</a></div><div class="ttdeci">ISL_StatusTypeDef writeMem(uint8_t deviceAddress, uint8_t reg, uint8_t *data, uint8_t nBytes)</div><div class="ttdoc">Отправка запроса на запись NBytes байт в регистр Register устройства</div><div class="ttdef"><b>Definition:</b> ARDUINO_I2C.cpp:253</div></div>
-<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_aad846784cae46458822911a2f8b7981a"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#aad846784cae46458822911a2f8b7981a">IntroSatLib::interfaces::I2C::I2C</a></div><div class="ttdeci">I2C(I2C_HANDLE_TYPE &amp;hi2c, I2CSpeed speed)</div><div class="ttdoc">Конструктор объекта устройства на шине I2C.</div><div class="ttdef"><b>Definition:</b> I2C.h:142</div></div>
-<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_ac3fe0460ef2dd3c62d8d52ee59e2107a"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#ac3fe0460ef2dd3c62d8d52ee59e2107a">IntroSatLib::interfaces::I2C::I2C</a></div><div class="ttdeci">I2C(I2C_HANDLE_TYPE &amp;hi2c)</div><div class="ttdoc">Конструктор объекта устройства на шине I2C.</div><div class="ttdef"><b>Definition:</b> I2C.h:132</div></div>
-<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_aef45d561a44a3b82145745214efe0983"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#aef45d561a44a3b82145745214efe0983">IntroSatLib::interfaces::I2C::read</a></div><div class="ttdeci">ISL_StatusTypeDef read(uint8_t deviceAddress, uint8_t *data, uint8_t nBytes)</div><div class="ttdoc">Отправка запроса на чтение Nbytes байт с устройства</div><div class="ttdef"><b>Definition:</b> ARDUINO_I2C.cpp:99</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html">IntroSatLib::interfaces::I2C</a></div><div class="ttdef"><b>Определения</b> I2C.h:94</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_a5bda56aafe3a54b5a21904727345cf72"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#a5bda56aafe3a54b5a21904727345cf72">IntroSatLib::interfaces::I2C::write</a></div><div class="ttdeci">ISL_StatusTypeDef write(uint8_t deviceAddress, uint8_t *data, uint8_t nBytes)</div><div class="ttdoc">Отправка запроса на запись NBytes байт на устройство</div><div class="ttdef"><b>Определения</b> ARDUINO_I2C.cpp:204</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_a64471c45a45a6e3ab937d94f39c6a5c4"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#a64471c45a45a6e3ab937d94f39c6a5c4">IntroSatLib::interfaces::I2C::isReady</a></div><div class="ttdeci">ISL_StatusTypeDef isReady(uint8_t deviceAddress, uint8_t waitIsReady=0)</div><div class="ttdoc">Проверка доступности устройства на шине к работе</div><div class="ttdef"><b>Определения</b> ARDUINO_I2C.cpp:60</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_a80dafdc6eefa92778212e278535b4d08"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#a80dafdc6eefa92778212e278535b4d08">IntroSatLib::interfaces::I2C::readMem</a></div><div class="ttdeci">ISL_StatusTypeDef readMem(uint8_t deviceAddress, uint8_t reg, uint8_t *data, uint8_t nBytes)</div><div class="ttdoc">Отправка запроса на чтение Nbytes байт из регистра Register устройства</div><div class="ttdef"><b>Определения</b> ARDUINO_I2C.cpp:151</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_a89dd04fca1b67d056be268ec37cd143a"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#a89dd04fca1b67d056be268ec37cd143a">IntroSatLib::interfaces::I2C::writeMem</a></div><div class="ttdeci">ISL_StatusTypeDef writeMem(uint8_t deviceAddress, uint8_t reg, uint8_t *data, uint8_t nBytes)</div><div class="ttdoc">Отправка запроса на запись NBytes байт в регистр Register устройства</div><div class="ttdef"><b>Определения</b> ARDUINO_I2C.cpp:253</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_a9ea2393fe97d7fe6de463de0e8f10ca3"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#a9ea2393fe97d7fe6de463de0e8f10ca3">IntroSatLib::interfaces::I2C::I2C</a></div><div class="ttdeci">I2C(I2C_HANDLE_TYPE *hi2c)</div><div class="ttdoc">Конструктор объекта устройства на шине I2C.</div><div class="ttdef"><b>Определения</b> ARDUINO_I2C.cpp:10</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_aad846784cae46458822911a2f8b7981a"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#aad846784cae46458822911a2f8b7981a">IntroSatLib::interfaces::I2C::I2C</a></div><div class="ttdeci">I2C(I2C_HANDLE_TYPE &amp;hi2c, I2CSpeed speed)</div><div class="ttdoc">Конструктор объекта устройства на шине I2C.</div><div class="ttdef"><b>Определения</b> I2C.h:142</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_ac3fe0460ef2dd3c62d8d52ee59e2107a"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#ac3fe0460ef2dd3c62d8d52ee59e2107a">IntroSatLib::interfaces::I2C::I2C</a></div><div class="ttdeci">I2C(I2C_HANDLE_TYPE &amp;hi2c)</div><div class="ttdoc">Конструктор объекта устройства на шине I2C.</div><div class="ttdef"><b>Определения</b> I2C.h:132</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html_aef45d561a44a3b82145745214efe0983"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html#aef45d561a44a3b82145745214efe0983">IntroSatLib::interfaces::I2C::read</a></div><div class="ttdeci">ISL_StatusTypeDef read(uint8_t deviceAddress, uint8_t *data, uint8_t nBytes)</div><div class="ttdoc">Отправка запроса на чтение Nbytes байт с устройства</div><div class="ttdef"><b>Определения</b> ARDUINO_I2C.cpp:99</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
 </small></address>
+</div><!-- doc-content -->
 </body>
 </html>
