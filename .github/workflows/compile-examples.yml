@@ -80,6 +80,7 @@ jobs:
             doxyfile-path: './doxygen.conf'
 
       - name: Deploy
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/staging' || github.ref == 'refs/heads/actions'
         uses: peaceiris/actions-gh-pages@v4
         with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
