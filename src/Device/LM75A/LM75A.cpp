@@ -22,7 +22,7 @@ LM75A::LM75A(const interfaces::I2C &i2c, uint8_t address) :
 		I2CDevice(new interfaces::I2C(i2c), address) {
 }
 
-uint16_t LM75A::GetRawTemperature() {
+int16_t LM75A::GetRawTemperature() {
 	uint8_t raw[2];
 	ReadRegisterI2C(RegisterMap::TEMPERATURE, raw, 2);
 	int16_t data = raw[0] << 8 | raw[1];
@@ -30,11 +30,11 @@ uint16_t LM75A::GetRawTemperature() {
 }
 
 float LM75A::GetTemperature() {
-	return ((int16_t) GetRawTemperature()) / 256.0;
+	return (GetRawTemperature()) / 256.0;
 }
 
 int16_t LM75A::GetTemperatureTimes8() {
-	return (int16_t) GetRawTemperature() / 32;
+	return (GetRawTemperature()) / 32;
 }
 
 uint8_t LM75A::GetConfig() {

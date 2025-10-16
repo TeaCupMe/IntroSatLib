@@ -42,8 +42,8 @@ public:
 
 	ISL_StatusTypeDef Init();
 
-	uint16_t GetRawTemperature(); // TODO: make private
-	uint16_t GetTemperatureTimes8();
+	int16_t GetRawTemperature(); // TODO: make private
+	int16_t GetTemperatureTimes8();
 
 	float GetTemperature() override;
 	uint8_t GetConfig();
