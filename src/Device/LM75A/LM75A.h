@@ -42,17 +42,13 @@ public:
 
 	ISL_StatusTypeDef Init();
 
-	uint16_t GetRawTemperature(); // TODO: make private
-	uint16_t GetTemperatureTimes8();
+	int16_t GetRawTemperature(); // TODO: make private
+	int16_t GetTemperatureTimes8();
 
 	float GetTemperature() override;
-//	float GetTemperatureC() override;
-//	float GetTemperatureF() override;
 	uint8_t GetConfig();
-//	void Enable();
+
 	void PowerDown(bool shutdown);
-//	void DumpData(UART_HandleTypeDef* _uart);
-//	void DumpData(std::function<void (uint8_t*, uint16_t)> transmitMethod);
 
 };
 
