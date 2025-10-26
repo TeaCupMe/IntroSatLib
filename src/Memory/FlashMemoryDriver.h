@@ -58,7 +58,7 @@ public:
 	}
 
 	MemoryInitStatus Init(size_t size) override {
-		memoryPagesCount = (size + 1) / PageSize;
+		memoryPagesCount = (size + PageSize - 1) / PageSize;
 		if ((memoryPagesCount + memoryPagesUsed) > PageCount) return MEM_INIT_NOT_ENOUGH_SPACE;
 
 		memoryPages = new MemoryPage[memoryPagesCount];
