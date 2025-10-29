@@ -17,5 +17,9 @@
         "xiosbase": "cpp",
         "xmemory": "cpp",
         "istream": "cpp"
-    }
+    },
+    "C_Cpp.default.defines": [
+        "USE_HAL_DRIVER",
+        "STM32F103xB"
+    ]
 }
