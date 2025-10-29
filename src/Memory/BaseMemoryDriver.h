@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include "IntroSatLib_def.h"
+#include "Adapter/System.h"
 
 namespace IntroSatLib::memory {
 
@@ -18,9 +19,11 @@ enum MemoryOperationStatus {
 	MEM_BUSY,
 	MEM_FULL,
 	MEM_OUT_OF_RANGE,
+	MEM_INVALID_ADDRESS,
 	MEM_LOCKED,
 	MEM_TAKEN,
-	MEM_ERROR
+	MEM_ERROR,
+	MEM_NOT_ENOUGH_SPACE,
 };
 
 ISL_StatusTypeDef MemStatusToISLStatus(MemoryOperationStatus&& memStatus) {
@@ -35,7 +38,9 @@ ISL_StatusTypeDef MemStatusToISLStatus(MemoryOperationStatus&& memStatus) {
 
 	case MEM_FULL:
 	case MEM_OUT_OF_RANGE:
+	case MEM_INVALID_ADDRESS:
 	case MEM_LOCKED:
+	case MEM_NOT_ENOUGH_SPACE:
 	case MEM_ERROR:
 	case MEM_TAKEN:
 	default:
@@ -47,28 +52,40 @@ ISL_StatusTypeDef MemStatusToISLStatus(MemoryOperationStatus&& memStatus) {
 enum MemoryInitStatus {
 	MEM_INIT_OK,
 	MEM_INIT_NOT_ENOUGH_SPACE,
+	MEM_INIT_REPEAT,
 	MEM_INIT_ERROR
 
 };
 
-enum MemoryCellSize {
-	MEM_CELL_1B = 1,
-	MEM_CELL_2B = 2,
-	MEM_CELL_4B = 4
-};
+// enum MemoryCellSize {
+// 	MEM_CELL_1B = 1,
+// 	MEM_CELL_2B = 2,
+// 	MEM_CELL_4B = 4
+// };
 
-
+template <size_t CellSizeBytes>
 class MemoryDriver {
-	// TODO add state
-	MemoryCellSize cellSize = MEM_CELL_1B;
+	// using Cell = 
 public:
-//	MemoryDriver() = default;
+	typedef struct __attribute__((__packed__)) {
+		uint8_t data[CellSizeBytes];
+	} Cell;
+
+	const size_t CellSize = CellSizeBytes;
+	
+	// TODO add state
+public:
 	virtual MemoryInitStatus Init(size_t size) = 0;
-	virtual MemoryOperationStatus read(size_t local_addr, uint32_t* value) = 0;
-	virtual MemoryOperationStatus write(size_t local_addr, uint32_t value) = 0;
-//	virtual MemoryOperationStatus append(uint8_t value);
+	
+	virtual MemoryOperationStatus read(size_t local_addr, Cell* value) = 0;
+	virtual MemoryOperationStatus read(size_t local_addr, uint8_t* value, size_t len) = 0;
+	virtual MemoryOperationStatus write(size_t local_addr, Cell value) = 0;
+	virtual MemoryOperationStatus fill(size_t local_addr, size_t cellsCount) = 0;
+	virtual MemoryOperationStatus clear(size_t local_addr) = 0;
 	virtual bool IsEmpty(size_t local_addr) = 0;
+	virtual bool IsEmpty(size_t local_addr, size_t cellsCount) = 0;
 	virtual MemoryOperationStatus EraseAll() = 0;
+	virtual MemoryOperationStatus findEmptySpace(size_t cellsCount, size_t* foundAddress) = 0;
 
 };
 

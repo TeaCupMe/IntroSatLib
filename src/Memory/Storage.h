@@ -12,41 +12,26 @@
 
 namespace IntroSatLib::memory {
 
-template <size_t Size, typename DataType = uint8_t>
+template <typename Driver, size_t Size, typename DataType = uint8_t>
 class Storage {
 protected:
-//	__attribute__((__packed__))
-	struct __attribute__((__packed__)) StoredDataType {
-		uint16_t key;
-		uint16_t valid;
-		uint16_t length = sizeof(DataType);
-		DataType data;
-	};
+	constexpr size_t bytesSize = Size * sizeof(DataType);
 
-	size_t bytesSize = Size * sizeof(DataType);
-
-	MemoryDriver* drv;
+	Driver* drv;
 public:
 
-	Storage(MemoryDriver* _drv) {
-		this->drv = _drv;
+	Storage(Driver* _drv): drv(_drv) {
 	}
 
-	MemoryInitStatus Init() {
-		return this->drv->Init(this->bytesSize);
-	}
+	virtual MemoryInitStatus Init() = 0;
 
-	MemoryOperationStatus ClearStorage() {
-		return this->drv->EraseAll();
-	}
+	virtual MemoryOperationStatus ClearStorage() = 0;
 
-	MemoryOperationStatus get(size_t index, DataType* value) {
-		return MEM_OK;
-	}
+	virtual MemoryOperationStatus get(size_t index, DataType* value) = 0;
 
-	MemoryOperationStatus set(size_t index, DataType* value) {
-		return MEM_OK;
-	}
+	virtual MemoryOperationStatus store(size_t index, DataType value) = 0;
+
+	virtual MemoryOperationStatus find(size_t index, size_t* address, bool* found) = 0; // make private
 };
 
 
