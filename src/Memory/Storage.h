@@ -15,7 +15,7 @@ namespace IntroSatLib::memory {
 template <typename Driver, size_t Size, typename DataType = uint8_t>
 class Storage {
 protected:
-	constexpr size_t bytesSize = Size * sizeof(DataType);
+	const size_t bytesSize = Size * sizeof(DataType);
 
 	Driver* drv;
 public:
