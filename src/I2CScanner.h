@@ -21,12 +21,12 @@ namespace IntroSatLib {
 
 class I2CScanner final {
 public:
-    static void scanI2CFull(interfaces::I2C &i2c, interfaces::UART &uart) {
+    static void scanI2CFull(interfaces::I2C i2c, interfaces::UART uart) {
 		for (int i = 1; i<127; i++) {
 			char tx_buf[30] = {0};
 			sprintf(tx_buf, "Device at 0x%X: ", i);
-			uart.transmit((uint8_t*) tx_buf, strlen(tx_buf));
-			ISL_StatusTypeDef status = i2c.isReady(i);
+			printTextToUART(uart, tx_buf);
+			ISL_StatusTypeDef status = i2c.isReady(i<<1, 0);
 			switch (status) {
 			case ISL_OK:
 				sprintf(tx_buf, "OK\n");
@@ -44,11 +44,11 @@ public:
 				sprintf(tx_buf, "UNKNOWN\n");
 				break;
 			}
-			uart.transmit((uint8_t*) tx_buf, strlen(tx_buf));
+			printTextToUART(uart, tx_buf);
 
 		}
 	}
-	static void scanI2C(interfaces::I2C &i2c, interfaces::UART &uart) {
+	static void scanI2C(interfaces::I2C i2c, interfaces::UART uart) {
 		for (int i = 1; i < 127; i++) {
 			char tx_buf[30] = { 0 };
 			ISL_StatusTypeDef status = i2c.isReady(i << 1);
@@ -59,10 +59,10 @@ public:
 		}
 	}
 
-	static void scanDeviceRegisters(interfaces::I2C &i2c, uint8_t addr, uint8_t firstRegister, uint8_t nRegisters, interfaces::UART &uart) {
+	static void scanDeviceRegisters(interfaces::I2C i2c, uint8_t addr, uint8_t firstRegister, uint8_t nRegisters, interfaces::UART uart) {
 		char str[100];
 		sprintf(str, "Scanning registers of device at 0x%0X. From 0x%0X to 0x%0X\n\r", addr, firstRegister, firstRegister+nRegisters);
-		uart.transmit((uint8_t*) str, strlen(str));
+		printTextToUART(uart, str);
 
 		ISL_StatusTypeDef status = i2c.isReady(addr);
 		if (status != ISL_OK) {
@@ -86,7 +86,7 @@ public:
 		printTextToUART(uart, "Register scan Finished!\n");
 	}
 
-	static void scanDeviceRegistersBatch(interfaces::I2C &i2c, uint8_t addr, uint8_t firstRegister, uint8_t nRegisters, interfaces::UART &uart) {
+	static void scanDeviceRegistersBatch(interfaces::I2C i2c, uint8_t addr, uint8_t firstRegister, uint8_t nRegisters, interfaces::UART uart) {
 			char str[100];
 			sprintf(str, "Batch scanning registers of device at 0x%02X. From 0x%2X to 0x%02X\n\r", addr, firstRegister, firstRegister+nRegisters);
 			printTextToUART(uart, str);
@@ -106,7 +106,7 @@ public:
 		}
 private:
 	static void printTextToUART(interfaces::UART uart, const char* str) {
-			uart.transmit((uint8_t*)str, strlen(str));
+			uart.transmitAsync((uint8_t*)str, strlen(str));
 		}
 };
 }
