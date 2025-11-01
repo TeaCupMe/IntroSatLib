@@ -8,13 +8,13 @@
 #ifndef MEMORY_EMBEDDEDFLASHSTORAGE_H_
 #define MEMORY_EMBEDDEDFLASHSTORAGE_H_
 
+#include <Memory/EmbeddedFlashMemoryDriver.h>
 #include "Memory/Storage.h"
-#include "Memory/FlashMemoryDriver.h"
 namespace IntroSatLib::memory {
 
 
-template <size_t Size, typename DataType = uint8_t>
-class EmbeddedFlashStorage: protected Storage<EmbeddedFlashMemoryDriver, Size, DataType> {
+template <typename Driver, size_t Size, typename DataType = uint8_t>
+class FlashStorage: protected Storage<Driver, Size, DataType> {
 protected:
 	struct StoredDataType {
         uint16_t key;
@@ -27,7 +27,9 @@ protected:
 
 	size_t bytesSize = Size * sizeof(DataType);
 
-	EmbeddedFlashMemoryDriver* drv;
+	Driver* drv;
+    using ReadCell = typename Driver::ReadCell;
+	using WriteCell = typename Driver::WriteCell;
 
     MemoryOperationStatus invalidate(size_t key) {
         bool found = false;
@@ -48,7 +50,7 @@ protected:
     }
 public:
 	
-	EmbeddedFlashStorage(EmbeddedFlashMemoryDriver* flashDriver): Storage<EmbeddedFlashMemoryDriver, Size, DataType>(flashDriver) {
+	FlashStorage(Driver* flashDriver): Storage<Driver, Size, DataType>(flashDriver) {
 
 	}
 
@@ -89,7 +91,7 @@ public:
                     return MEM_OK;
                 } 
 
-                uint16_t size = 0;
+                ReadCell size;
                 status = this->drv->read(address + sizeof(_key), &size);
 
                 if (status != MEM_OK) {
@@ -121,9 +123,12 @@ public:
         if (memStatus != MEM_OK) return memStatus;
 
         memStatus = this->drv->findEmptySpace(StoredDataTypeSizeInCells, &address);
-
+        // WriteCell writeCell;
         for (size_t i = 0; i < StoredDataTypeSizeInCells; i++) {
-            memStatus = this->drv->write(address + i*sizeof(EmbeddedFlashCellSize), *(((EmbeddedFlashCellSize*)&stored)+i));
+            // for (size_t j = 0; j < EmbeddedFlashCellSize; j++) {
+            //     writeCell[j] = 
+            // }
+            memStatus = this->drv->write(address + i*EmbeddedFlashCellSize, *(((WriteCell*)&stored)+i));
             if (memStatus != MEM_OK) return memStatus;
         }
 
