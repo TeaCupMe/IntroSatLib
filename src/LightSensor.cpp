@@ -43,7 +43,10 @@ LightSensor& LightSensor::operator=(LightSensor &&other)
 // TODO Возвращать не просто 0, а результат проверки наличия датчика
 ISL_StatusTypeDef LightSensor::Init()
 {
-	return IsReady();
+	// return IsReady();
+	uint8_t buf[2];
+	WriteI2C(buf, 1);
+	return ReadI2C(buf, 2);
 }
 
 int16_t LightSensor::GetLight()
