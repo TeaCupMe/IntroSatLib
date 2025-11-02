@@ -26,7 +26,7 @@ public:
 			char tx_buf[30] = {0};
 			sprintf(tx_buf, "Device at 0x%X: ", i);
 			printTextToUART(uart, tx_buf);
-			ISL_StatusTypeDef status = i2c.isReady(i<<1, 0);
+			ISL_StatusTypeDef status = i2c.isReady(i);
 			switch (status) {
 			case ISL_OK:
 				sprintf(tx_buf, "OK\n");
@@ -51,7 +51,7 @@ public:
 	static void scanI2C(interfaces::I2C i2c, interfaces::UART uart) {
 		for (int i = 1; i < 127; i++) {
 			char tx_buf[30] = { 0 };
-			ISL_StatusTypeDef status = i2c.isReady(i << 1);
+			ISL_StatusTypeDef status = i2c.isReady(i);
 			if (status == ISL_OK) {
 				sprintf(tx_buf, "Device found at 0x%X\n\r", i);
 				uart.transmit((uint8_t*) tx_buf, strlen(tx_buf));
@@ -106,7 +106,7 @@ public:
 		}
 private:
 	static void printTextToUART(interfaces::UART uart, const char* str) {
-			uart.transmitAsync((uint8_t*)str, strlen(str));
+			uart.transmit((uint8_t*)str, strlen(str));
 		}
 };
 }
