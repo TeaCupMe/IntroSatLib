@@ -26,7 +26,7 @@ on:
   repository_dispatch:
 
 jobs:
-  build:
+  build-universal-examples:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -45,6 +45,8 @@ jobs:
           enable-deltas-report: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
           fqbn: ${{ matrix.fqbn }}
+          sketch-paths: 
+            "- examples/IntroSat"
           platforms: |
             - name: STMicroelectronics:stm32
               source-url: https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
@@ -68,7 +70,7 @@ jobs:
 
   generate-docs:
     runs-on: ubuntu-latest
-    needs: build
+    needs: build-universal-examples
 
     steps:
       - uses: actions/checkout@v4
@@ -80,7 +82,7 @@ jobs:
             doxyfile-path: './doxygen/doxygen.conf'
 
       - name: Deploy
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/staging' || github.ref == 'refs/heads/actions'
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/staging'
         uses: peaceiris/actions-gh-pages@v4
         with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
