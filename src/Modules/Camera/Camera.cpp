@@ -1,3 +1,4 @@
+#define INTROSATLIB_INTERNAL
 #include <Modules/Camera.h>
 
 namespace IntroSatLib {

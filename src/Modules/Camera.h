@@ -26,17 +26,6 @@ private:
 
     interfaces::UART* uart;
 
-    uint16_t width;
-    uint16_t height;
-    uint8_t exposure;
-    uint8_t chunkSize;
-
-    
-
-    // ISL_StatusTypeDef sendCommand(camera::commands::Command command) {
-    //     uart->transmit((uint8_t*) &command, sizeof(command));
-    // }
-
     template <typename Message>
     ISL_StatusTypeDef receiveMessage(Message* msg);
 
