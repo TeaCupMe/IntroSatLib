@@ -26,7 +26,7 @@ on:
   repository_dispatch:
 
 jobs:
-  build:
+  build-universal-examples:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -37,6 +37,7 @@ jobs:
           - MiniCore:avr:328:variant=modelPB
     steps:
       - uses: actions/checkout@v4
+
       - uses: arduino/compile-sketches@v1
         with:
           verbose: false
@@ -44,6 +45,8 @@ jobs:
           enable-deltas-report: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
           fqbn: ${{ matrix.fqbn }}
+          sketch-paths: 
+            "- examples/IntroSat"
           platforms: |
             - name: STMicroelectronics:stm32
               source-url: https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
@@ -52,12 +55,35 @@ jobs:
             - name: arduino:avr
           cli-compile-flags: |
             - --warnings="default"
+
       - name: Transform fqbn with awk
         id: get_fqbn
         run: |
           fqbn=$(echo "${{ matrix.fqbn }}" | awk 'gsub(/:/, "_")')
           echo "fqbn=$fqbn" >> $GITHUB_OUTPUT
+
       - uses: actions/upload-artifact@v4
         with:
           name: 'sketches-reports-${{ steps.get_fqbn.outputs.fqbn }}'
           path: sketches-reports
+
+
+  generate-docs:
+    runs-on: ubuntu-latest
+    needs: build-universal-examples
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate Doxygen files
+        uses: mattnotmitt/doxygen-action@edge
+        with:
+            working-directory: '.'
+            doxyfile-path: './doxygen/doxygen.conf'
+
+      - name: Deploy
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/staging'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./doxygen/html
