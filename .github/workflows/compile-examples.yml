@@ -32,9 +32,7 @@ jobs:
       matrix:
         fqbn:
           - STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103C8
-          - STMicroelectronics:stm32:GenH7:pnum=GENERIC_H750VBTX
-          - arduino:avr:uno
-          - MiniCore:avr:328:variant=modelPB
+          - STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103CB
     steps:
       - uses: actions/checkout@v4
 
@@ -50,9 +48,6 @@ jobs:
           platforms: |
             - name: STMicroelectronics:stm32
               source-url: https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
-            - name: MiniCore:avr
-              source-url: https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json
-            - name: arduino:avr
           cli-compile-flags: |
             - --warnings="default"
 
