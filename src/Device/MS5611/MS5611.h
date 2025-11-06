@@ -92,7 +92,7 @@ public:
 	void PROM_Print(UART_HandleTypeDef* uart);
 #endif
 
-	ISL_StatusTypeDef Init(OSR sensitivity, uint8_t force = 1);
+	ISL_StatusTypeDef Init(OSR sensitivity);
 	ISL_StatusTypeDef Init() override {
 		return Init(OSR::OSR_1024);
 	}
