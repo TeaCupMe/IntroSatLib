@@ -66,7 +66,7 @@ public:
 
 		ISL_StatusTypeDef status = i2c.isReady(addr);
 		if (status != ISL_OK) {
-			printTextToUART(uart, "Device not found!\n");
+			printTextToUART(uart, "Device if not available!\n");
 			return;
 		}
 		uint8_t val;
@@ -74,7 +74,6 @@ public:
 		printTextToUART(uart, "\t\t\t\t7 | 6 | 5 | 4 | 3 | 2 | 1 | 0");
 		for (int i = firstRegister; i < firstRegister + nRegisters; i++) {
 			status = i2c.readMem(addr, i, &val, 1);
-//			status = HAL_I2C_Mem_Read(_i2c, addr<<1, i, I2C_MEMADD_SIZE_8BIT, &val, 1, 1000);
 			if (status != ISL_OK) {
 				sprintf(str, "\tReg 0x%02X: Error", i);
 			} else {
@@ -93,11 +92,15 @@ public:
 
 			ISL_StatusTypeDef status = i2c.isReady(addr);
 			if (status != ISL_OK) {
-				printTextToUART(uart, "Device not found!\n");
+				printTextToUART(uart, "Device is not available!\n");
 				return;
 			}
 			uint8_t* val = new uint8_t[nRegisters];
-			i2c.readMem(addr, firstRegister, val, nRegisters);
+			status = i2c.readMem(addr, firstRegister, val, nRegisters);
+			if (status != ISL_OK) {
+				printTextToUART(uart, "Cant read device registers!\n");
+				return;
+			}
 			for (int i = 0; i < nRegisters; i++) {
 				sprintf(str, "\t Reg 0x%02X: \t0x%02X \t[" BYTE_TO_BINARY_PATTERN "]\n", i+firstRegister, val[i], BYTE_TO_BINARY(val[i]));
 				printTextToUART(uart, str);
