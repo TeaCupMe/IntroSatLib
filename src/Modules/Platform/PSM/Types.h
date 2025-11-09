@@ -70,6 +70,15 @@ struct __attribute__((__packed__)) ExtendedChannelInfo: ChannelInfo {
 	//	float powerUsage; // continuous integration??
 };
 
+enum PowerChannel: uint8_t {
+	POWER_CHANNEL_12V 		= 0x1,
+	POWER_CHANNEL_12V_IS 	= 0x2,
+	POWER_CHANNEL_3V3 		= 0x3,
+	POWER_CHANNEL_3V3_IS 	= 0x4,
+	POWER_CHANNEL_5V 		= 0x5,
+	POWER_CHANNEL_5V_IS 	= 0x6
+};
+
 } /* namespace platform::psm::types */
 
 #endif /* MODULES_PLATFORM_PSM_TYPES_H_ */
