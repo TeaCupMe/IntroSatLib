@@ -16,8 +16,8 @@ namespace IntroSatLib {
 class LIS2MDL : public BaseMagnetometer, protected I2CDevice {
 private:
 	static const uint8_t BASE_ADDRESS = 0x1E;
-	static const float _sens = 1.5f; // mGauss/LSB
-    static const uint8_t _scale = 50; // +- 50 Gauss
+	const float _sens = 1.5f; // mGauss/LSB
+    const uint8_t _scale = 50; // +- 50 Gauss
 
 	enum RegisterMap
 	{
