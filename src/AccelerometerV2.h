@@ -211,6 +211,14 @@ public:
     	return LSM6DS3::Temp();
     }
 
+	ISL_StatusTypeDef Disable() override {
+		return LSM6DS3::DisableAccel();
+	}
+
+	ISL_StatusTypeDef Enable() override {
+		return LSM6DS3::EnableAccel();
+	}
+
     ~AccelerometerV2() {};
 };
 

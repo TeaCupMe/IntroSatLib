@@ -38,3 +38,4 @@ tools/*
 doxygen/*
 !doxygen/doxygen-style.css
 !doxygen/doxygen.conf
+/.metadata/

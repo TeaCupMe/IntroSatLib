@@ -276,6 +276,15 @@ public:
 	 */
 	Quaternion<float> GetQuaternion();
 #endif
+
+	ISL_StatusTypeDef Disable() override {
+		return LSM6DS3::DisableGyro();
+	}
+
+	ISL_StatusTypeDef Enable() override {
+		return LSM6DS3::EnableGyro();
+	}
+
 	~GyroscopeV2() {};
 };
 

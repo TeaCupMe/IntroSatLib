@@ -172,6 +172,14 @@ namespace IntroSatLib
 		}
 #endif
 
+		ISL_StatusTypeDef Disable() override {
+			return LIS3MDL::Disable();
+		}
+
+		ISL_StatusTypeDef Enable() override {
+			return LIS3MDL::Enable();
+		}
+
 		~MagnetometerV2() {};
 	};
 

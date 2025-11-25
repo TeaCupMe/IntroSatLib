@@ -183,6 +183,15 @@ public:
     ISL_StatusTypeDef DeinitGyro();
     ISL_StatusTypeDef Deinit();
 
+	ISL_StatusTypeDef EnableGyro();
+	ISL_StatusTypeDef DisableGyro();
+
+	ISL_StatusTypeDef EnableAccel();
+	ISL_StatusTypeDef DisableAccel();
+
+	ISL_StatusTypeDef Disable() override;
+	ISL_StatusTypeDef Enable() override;
+
 	~LSM6DS3();
 };
 
