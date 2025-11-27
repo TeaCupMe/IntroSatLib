@@ -98,15 +98,15 @@ ISL_StatusTypeDef MS5611::ReadRawTemperature() {
 }
 
 float MS5611::GetTemperature() {
-	float T2 = 0;
+	int64_t T2 = 0;
 	ReadRawTemperature();
 	dT = (int32_t)(_raw_temperature) - (int32_t)((_koeff_prom[T_REF] << 8));
 	TEMP = 2000 + (dT * (((int32_t)_koeff_prom[TEMPSENS]) / ((float)(((uint32_t)0b1) << 23))));
-	_temperature = ((float)TEMP) / 100.0f;
-	if (_temperature < 20) {
-		T2 = ((uint64_t)dT * dT) / ((float)(((uint32_t)0b1) << 31));
+	if (TEMP < 2000) {
+		T2 = ((int64_t)dT * dT) / ((float)(((uint32_t)0b1) << 31));
 	}
-	_temperature -= - T2; //TODO wtf?
+	TEMP -= T2;
+	_temperature = ((float)TEMP) / 100.0f;
 	return _temperature;
 }
 
@@ -124,20 +124,19 @@ ISL_StatusTypeDef MS5611::ReadRawPressure() {
 }
 
 float MS5611::GetPressure() {
-	float OFF2 = 0;
-	float SENS2 = 0;
+	int64_t OFF2 = 0;
+	int64_t SENS2 = 0;
 	GetTemperature();
 	ReadRawPressure();
 	OFF = (((int64_t)_koeff_prom[OFF_T1]) << 16) + (dT * (((int64_t)_koeff_prom[TCO]) / ((float)(0b1 << 7))));
 	SENS =  (((int64_t)_koeff_prom[SENS_T1]) << 15) + (dT * (((int64_t)_koeff_prom[TCS]) / ((float)( 0b1 << 8))));
-	P = ((_raw_pressure * (((int64_t)SENS) / ((float)(((uint32_t)0b1) << 21)))) - OFF) / ((float)(((uint32_t)0b1) << 15));
-	if (_temperature < 20) {
-		OFF2 = 5 * (_temperature - 2000) * (_temperature - 2000) / 2.0f;
-		SENS2 = 5 * (_temperature - 2000) * (_temperature - 2000) / 4.0f;
+	if (TEMP < 2000) {
+		OFF2 = 5 * ((int64_t)(TEMP - 2000)) * (TEMP - 2000) / 2.0f;
+		SENS2 = 5 * ((int64_t)(TEMP - 2000)) * (TEMP - 2000) / 4.0f;
 	}
-	if (_temperature < -15) {
-		OFF2 += 7 * (_temperature + 1500)*(_temperature + 1500);
-		SENS2 += 11 * (_temperature + 1500)*(_temperature + 1500) / 2.0f;
+	if (TEMP < -1500) {
+		OFF2 += 7 * ((int64_t)(TEMP + 1500))*(TEMP + 1500);
+		SENS2 += 11 * ((int64_t)(TEMP + 1500))*(TEMP + 1500) / 2.0f;
 	}
 
 	OFF -= OFF2;
