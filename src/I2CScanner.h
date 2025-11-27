@@ -66,18 +66,18 @@ public:
 
 		ISL_StatusTypeDef status = i2c.isReady(addr);
 		if (status != ISL_OK) {
-			printTextToUART(uart, "Device if not available!\n\r");
+			printTextToUART(uart, "Device is not available!\n\r");
 			return;
 		}
 		uint8_t val;
-		printTextToUART(uart, "\t\t\tHEX\t  Binary");
+		printTextToUART(uart, "\t\t\tHEX\t         Binary\n\r");
 		printTextToUART(uart, "\t\t\t\t7 | 6 | 5 | 4 | 3 | 2 | 1 | 0\n\r");
 		for (int i = firstRegister; i < firstRegister + nRegisters; i++) {
 			status = i2c.readMem(addr, i, &val, 1);
 			if (status != ISL_OK) {
 				sprintf(str, "\tReg 0x%02X: Error", i);
 			} else {
-				sprintf(str, "\t Reg 0x%02X: \t0x%02X \t[" BYTE_TO_BINARY_PATTERN "]\n\r", i, val, BYTE_TO_BINARY(val));
+				sprintf(str, "\t Reg 0x%02X: \t0x%02X\t        [" BYTE_TO_BINARY_PATTERN "]\n\r", i, val, BYTE_TO_BINARY(val));
 			}
 
 			printTextToUART(uart, str);
@@ -98,14 +98,17 @@ public:
 			uint8_t* val = new uint8_t[nRegisters];
 			status = i2c.readMem(addr, firstRegister, val, nRegisters);
 			if (status != ISL_OK) {
-				printTextToUART(uart, "Cant read device registers!\n\r");
+				printTextToUART(uart, "Can't read device registers!\n\r");
 				return;
 			}
+
+			printTextToUART(uart, "\t\t\tHEX\t         Binary\n\r");
+			printTextToUART(uart, "\t\t\t\t7 | 6 | 5 | 4 | 3 | 2 | 1 | 0\n\r");
 			for (int i = 0; i < nRegisters; i++) {
-				sprintf(str, "\t Reg 0x%02X: \t0x%02X \t[" BYTE_TO_BINARY_PATTERN "]\n\r", i+firstRegister, val[i], BYTE_TO_BINARY(val[i]));
+				sprintf(str, "\t Reg 0x%02X: \t0x%02X\t        [" BYTE_TO_BINARY_PATTERN "]\n\r", i+firstRegister, val[i], BYTE_TO_BINARY(val[i]));
 				printTextToUART(uart, str);
 			}
-			printTextToUART(uart, "Register scan Finished!\n\r");
+			printTextToUART(uart, "Register scan finished!\n\r");
 		}
 private:
 	static void printTextToUART(interfaces::UART uart, const char* str) {
