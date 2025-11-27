@@ -1,6 +1,6 @@
 #define INTROSAT_INTERNAL
 
-#include "Bootloader.h"
+#include "ISL_Bootloader.h"
 
 char message_buffer[] = "Bootloader Mode\n\r";
 
