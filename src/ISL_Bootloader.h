@@ -3,18 +3,20 @@
 
 #include <stdint.h>
 
+// TODO move to stm32xxyy_hal.h
 // Set boot memory address depending on platform
-#ifdef STM32F4xx
+#if defined(ARDUINO_AVR_ATmega328)
+    #include "avr/eeprom.h"
+    #include "Arduino.h"
+    #define BOOT_ADDR 0x7e8e
+
+#elif defined(STM32F4xx)
     #include "stm32f4xx_hal.h"
     #define BOOT_ADDR 0x1FFFF000
-#endif
-
-#ifdef STM32F103xB
+#elif defined(STM32F103xB)
     #include "stm32f1xx_hal.h"
     #define BOOT_ADDR 0x1FFFF000
-#endif
-
-#ifdef STM32H750xx
+#elif defined(STM32H750xx)
     #include "stm32h7xx_hal.h"
     #define BOOT_ADDR 0x1FF09800
 #endif
