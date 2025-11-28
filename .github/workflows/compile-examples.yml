@@ -44,7 +44,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           fqbn: ${{ matrix.fqbn }}
           sketch-paths: 
-            "- examples/IntroSat"
+            "- legacy_codes"
           platforms: |
             - name: STMicroelectronics:stm32
               source-url: https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
@@ -59,7 +59,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: 'introsat-examples-reports-${{ steps.get_fqbn.outputs.fqbn }}'
+          name: 'introsat-legacy-codes-reports-${{ steps.get_fqbn.outputs.fqbn }}'
           path: sketches-reports
 
   build-examples-introsat:
@@ -81,7 +81,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           fqbn: ${{ matrix.fqbn }}
           sketch-paths: 
-            "- legacy_codes"
+            "- examples/IntroSat"
           platforms: |
             - name: STMicroelectronics:stm32
               source-url: https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
@@ -96,7 +96,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: 'legacy-codes-reports-${{ steps.get_fqbn.outputs.fqbn }}'
+          name: 'introsat-examples-reports-${{ steps.get_fqbn.outputs.fqbn }}'
           path: sketches-reports
 
   build-examples-introsat-platform:
@@ -132,7 +132,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: 'platform-sketches-reports-${{ steps.get_fqbn.outputs.fqbn }}'
+          name: 'introsat-platform-examples-reports-${{ steps.get_fqbn.outputs.fqbn }}'
           path: sketches-reports
 
   build-examples-introsat-pico:
@@ -170,7 +170,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: 'pico-sketches-reports-${{ steps.get_fqbn.outputs.fqbn }}'
+          name: 'introsat-pico-examples-reports-${{ steps.get_fqbn.outputs.fqbn }}'
           path: sketches-reports
 
 
