@@ -6,7 +6,7 @@
 namespace IntroSatLib {
 
 template <uint8_t CoilsCount = 4>
-class BaseStepperDirect: protected BaseStepper {
+class BaseStepperDirect: public BaseStepper {
 public:
     enum StepMode {
         FULLSTEP,
