@@ -187,9 +187,8 @@ jobs:
             working-directory: '.'
             doxyfile-path: './doxygen/doxygen.conf'
 
-      - name: Deploy
-        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/staging') && github.event.pull_request.merged == true
-        uses: peaceiris/actions-gh-pages@v4
+      - uses: actions/upload-artifact@v4
         with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./doxygen/html
+          name: 'IntroSatLib-docs'
+          path: './doxygen/'
+      
