@@ -16,6 +16,7 @@ on:
     paths:
       - ".github/workflows/compile-examples.yml"
       - "examples/**"
+      - "legacy_codes/**"
       - "src/**"
     branches: 
       - main

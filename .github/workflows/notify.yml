@@ -5,14 +5,12 @@ on:
     workflows: ["Compile Examples"]
     types: completed
     branches: 
-      - "main"
-      - "staging"
-      - "actions"
+      - "*"
 
 jobs:
   notify-on-failed:
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'failure'
+    # if: github.event.workflow_run.conclusion == 'failure'
     steps:
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
