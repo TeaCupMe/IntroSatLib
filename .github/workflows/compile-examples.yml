@@ -27,6 +27,7 @@ on:
 
 jobs:
   build-legacy-codes:
+    name: Build Legacy codes in Arduino IDE (F103C8, F103CB)
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -36,7 +37,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: arduino/compile-sketches@v1
+      - name: Compile sketches
+        uses: arduino/compile-sketches@v1
         with:
           verbose: false
           enable-warnings-report: true
@@ -57,12 +59,14 @@ jobs:
           fqbn=$(echo "${{ matrix.fqbn }}" | awk 'gsub(/:/, "_")')
           echo "fqbn=$fqbn" >> $GITHUB_OUTPUT
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload reports of generated sketches
+        uses: actions/upload-artifact@v4
         with:
           name: 'introsat-legacy-codes-reports-${{ steps.get_fqbn.outputs.fqbn }}'
           path: sketches-reports
 
   build-examples-introsat:
+    name: Build IntroSat examples for Arduino IDE (F103C8)
     runs-on: ubuntu-latest
     needs: build-legacy-codes
     strategy:
@@ -73,7 +77,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: arduino/compile-sketches@v1
+      - name: Compile sketches
+        uses: arduino/compile-sketches@v1
         with:
           verbose: false
           enable-warnings-report: true
@@ -94,12 +99,14 @@ jobs:
           fqbn=$(echo "${{ matrix.fqbn }}" | awk 'gsub(/:/, "_")')
           echo "fqbn=$fqbn" >> $GITHUB_OUTPUT
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload reports of generated sketches
+        uses: actions/upload-artifact@v4
         with:
           name: 'introsat-examples-reports-${{ steps.get_fqbn.outputs.fqbn }}'
           path: sketches-reports
 
   build-examples-introsat-platform:
+    name: Build IntroSat.Platform examples for Arduino IDE (H750VBx)
     runs-on: ubuntu-latest
     needs: build-legacy-codes
     strategy:
@@ -109,7 +116,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: arduino/compile-sketches@v1
+      - name: Compile sketches
+        uses: arduino/compile-sketches@v1
         with:
           verbose: false
           enable-warnings-report: true
@@ -130,12 +138,14 @@ jobs:
           fqbn=$(echo "${{ matrix.fqbn }}" | awk 'gsub(/:/, "_")')
           echo "fqbn=$fqbn" >> $GITHUB_OUTPUT
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload reports of generated sketches
+        uses: actions/upload-artifact@v4
         with:
           name: 'introsat-platform-examples-reports-${{ steps.get_fqbn.outputs.fqbn }}'
           path: sketches-reports
 
   build-examples-introsat-pico:
+    name: Build IntroSat.Pico examples for Arduino IDE (ATMega328PB)
     runs-on: ubuntu-latest
     needs: build-legacy-codes
     strategy:
@@ -146,7 +156,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: arduino/compile-sketches@v1
+      - name: Compile sketches
+        uses: arduino/compile-sketches@v1
         with:
           verbose: false
           enable-warnings-report: true
@@ -168,15 +179,68 @@ jobs:
           fqbn=$(echo "${{ matrix.fqbn }}" | awk 'gsub(/:/, "_")')
           echo "fqbn=$fqbn" >> $GITHUB_OUTPUT
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload reports of generated sketches
+        uses: actions/upload-artifact@v4
         with:
           name: 'introsat-pico-examples-reports-${{ steps.get_fqbn.outputs.fqbn }}'
           path: sketches-reports
 
+  list-examples-cubeide:
+    name: List available examples for CubeIDE
+    runs-on: ubuntu-latest
+    outputs:
+      folders: ${{ steps.list_examples.outputs.folders }}
+    steps:
+    - name: Checkout Obu-IntroSat/Examples-CubeIDE
+      uses: actions/checkout@v4
+      with:
+        repository: Obu-IntroSat/Examples-CubeIDE
+        token: ${{ secrets.OBU_EXAMPLES_CUBEIDE_TOKEN }}
+  
+    - name: List examples
+      id: list_examples
+      run: |
+        folders=$(find ./ -maxdepth 1 -mindepth 1 -type d ! -name '.*' ! -name 'IntroSatLib' -printf '%P\n' | jq -R -s -c 'split("\n")[:-1]')
+        echo "folders=$folders" >> "$GITHUB_OUTPUT"
+
+  build-examples-cubeide:
+    name: Build available examples for CubeIDE
+    runs-on: ubuntu-latest
+    needs: list-examples-cubeide
+    strategy:
+      matrix:
+        folder: ${{ fromJson(needs.list-examples-cubeide.outputs.folders) }}
+    steps:
+      - name: Checkout Obu-IntroSat/Examples-CubeIDE
+        uses: actions/checkout@v4
+        with:
+          repository: Obu-IntroSat/Examples-CubeIDE
+          token: ${{ secrets.OBU_EXAMPLES_CUBEIDE_TOKEN }}
+
+      - name: Checkout IntroSatLib 
+        uses: actions/checkout@v4
+        with:
+          path: IntroSatLib
+
+      - name: Build example
+        uses: xanderhendriks/action-build-stm32cubeide@v16.0
+        with:
+          project-path: ${{matrix.folder}}
+          project-target: '${{matrix.folder}}'
+
+      - name: Upload compiled binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'Compiled binary for ${{ matrix.folder }}'
+          path: ${{matrix.folder}}/Debug/*.elf
 
   generate-docs:
     runs-on: ubuntu-latest
-    needs: [build-examples-introsat, build-examples-introsat-pico, build-examples-introsat-platform]
+    needs: 
+      - build-examples-introsat
+      - build-examples-introsat-pico
+      - build-examples-introsat-platform
+      - build-examples-cubeide
 
     steps:
       - uses: actions/checkout@v4
@@ -187,9 +251,8 @@ jobs:
             working-directory: '.'
             doxyfile-path: './doxygen/doxygen.conf'
 
-      - name: Deploy
-        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/staging') && github.event.pull_request.merged == true
-        uses: peaceiris/actions-gh-pages@v4
+      - uses: actions/upload-artifact@v4
         with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./doxygen/html
+          name: 'IntroSatLib-docs'
+          path: './doxygen/'
+      
