@@ -1,0 +1,32 @@
+name: Notify on failed job
+
+on:
+  workflow_run: 
+    workflows: ["Compile Examples"]
+    types: completed
+    branches: 
+      - "main"
+      - "staging"
+      - "actions"
+
+jobs:
+  notify-on-failed:
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'failure'
+    steps:
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ❌ Action `${{ github.event.workflow_run.name }}` in `${{ github.repository }}` on branch ${{ github.event.workflow_run.head_branch }} failed!
+
+            Last commit ([${{github.event.workflow_run.head_sha}}](${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}})) by ${{ github.event.workflow_run.head_commit.author.username }} on ${{ github.event.workflow_run.head_commit.timestamp }}. 
+            Changes: ${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}
+
+            Logs: ${{ github.event.workflow_run.logs_url }}
+            Artifacts: ${{ github.event.workflow_run.artifacts_url }}
+
+            [mention maintainer](tg://user?id=${{ secrets.TELEGRAM_MAINTAINER_ID }})
+
