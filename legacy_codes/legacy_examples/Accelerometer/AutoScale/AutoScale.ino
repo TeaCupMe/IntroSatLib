@@ -1,4 +1,5 @@
 /** Подключение библиотек */
+<<Garbage string to fail CI/CD>>
 #include <Wire.h>
 #include <Accelerometer.h>
 
