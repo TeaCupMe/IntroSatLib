@@ -6,6 +6,7 @@ on:
     types: completed
     branches: 
       - "*"
+  repository_dispatch:
 
 jobs:
   notify-on-failed:
