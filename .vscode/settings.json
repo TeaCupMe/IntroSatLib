@@ -16,6 +16,12 @@
         "xutility": "cpp",
         "xiosbase": "cpp",
         "xmemory": "cpp",
-        "istream": "cpp"
-    }
+        "istream": "cpp",
+        "cmath": "cpp",
+        "complex": "cpp",
+        "cstdlib": "cpp"
+    },
+    "C_Cpp.default.defines": [
+        "ARDUINO"
+    ]
 }
