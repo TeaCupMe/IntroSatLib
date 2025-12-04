@@ -22,7 +22,7 @@ jobs:
           message: |
             ❌ Action `${{ github.event.workflow_run.name }}` in `${{ github.repository }}` on branch ${{ github.event.workflow_run.head_branch }} failed!
 
-            Last commit ([${{github.event.workflow_run.head_sha}}](${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}})) by ${{ github.event.workflow_run.head_commit.author.username }} on ${{ github.event.workflow_run.head_commit.timestamp. }}. 
+            Last commit ([${{github.event.workflow_run.head_sha}}](${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}})) by ${{ github.event.workflow_run.head_commit.author.username }} on ${{ github.event.workflow_run.head_commit.timestamp }}. 
             Changes: ${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}
 
             Logs: ${{ github.event.workflow_run.logs_url }}
