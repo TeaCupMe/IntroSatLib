@@ -37,7 +37,7 @@ jobs:
           - STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103C8
           - STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103CB
     steps:
-      - uses: actions/checkout@v4wdwww # CLEAR THIS
+      - uses: actions/checkout@v4wdwwww # CLEAR THIS
 
       - name: Compile sketches
         uses: arduino/compile-sketches@v1
