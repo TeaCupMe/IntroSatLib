@@ -37,7 +37,7 @@ jobs:
       - name: Get Build Workflow Jobs
         run: |
           curl \
-          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "${{ github.event.workflow_run.jobs_url }}"
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "${{ github.event.workflow_run.jobs_url }}" \
           -o ./artifacts/jobs.txt
 
       - name: Send Telegram message about failed job
