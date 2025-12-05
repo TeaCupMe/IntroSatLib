@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Create directory for downloaded files
         run: |
-          mkdir ./ardiofacts
+          mkdir ./artifacts
       - name: Download artifacts from failed workflow
         uses: actions/download-artifact@v4
         with:
