@@ -43,6 +43,8 @@ jobs:
           -o ./artifacts/jobs.txt
           # JOBS_DATA=$(cat ./artifacts/jobs.txt)
           # echo "jobs_data=$JOBS_DATA" >> "$GITHUB_OUTPUT"
+      - run: |
+          echo ${{ toJSON(github) }}
 
       - name: Send Telegram message about failed job
         uses: appleboy/telegram-action@master
@@ -60,7 +62,6 @@ jobs:
 
             Jobs: ${{ github.event.workflow_run.jobs_url }}
 
-            ${{ toJSON(github) }}
 
             [@Maintainer](tg://user?id=${{ secrets.TELEGRAM_MAINTAINER_ID }})
 
