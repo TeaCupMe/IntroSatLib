@@ -30,6 +30,13 @@ jobs:
           https://api.github.com/repos/OWNER/REPO/actions/runs/RUN_ID/logs \
           -o ./artifacts/run_logs.zip
 
+
+      - name: Get Build Workflow Jobs
+        run: |
+          curl \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "${{ github.event.workflow_run.jobs_url }}"
+          -o ./artifacts/jobs.txt
+
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
@@ -39,10 +46,12 @@ jobs:
           document: ./artifacts/**
           
           message: |
-            ❌ Action *${{ github.event.workflow_run.name }}* in *${{ github.repository }}* on branch ${{ github.event.workflow_run.head_branch }} failed!
+            ❌ Action *${{ github.event.workflow_run.name }}* in *${{ github.repository }}* on branch *[${{ github.event.workflow_run.head_branch }}](https://github.com/${{ github.repository }}/tree/${{ github.event.workflow_run.head_branch }})* failed!
 
             Last commit [${{ github.event.workflow_run.head_sha }}](https://github.com/${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}) by ${{ github.event.workflow_run.head_commit.author.name }} on ${{ github.event.workflow_run.head_commit.timestamp }}. 
-            Changes: https://github.com/${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}
+            Changes in last commit: https://github.com/${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}
+
+            Jobs: ${{ github.event.workflow_run.jobs_url }}
 
             [Maintainer](tg://user?id=${{ secrets.TELEGRAM_MAINTAINER_ID }})
 
