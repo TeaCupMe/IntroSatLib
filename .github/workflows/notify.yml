@@ -53,7 +53,7 @@ jobs:
           document: ./artifacts/**
           
           message: |
-            ❌ Action *${{ github.event.workflow_run.name }}* in *${{ github.repository }}* on branch *[${{ github.event.workflow_run.head_branch }}](https://github.com/${{ github.repository }}/tree/${{ github.event.workflow_run.head_branch }})* failed!
+            ❌ Action *${{ github.event.workflow_run.name }}* in *${{ github.repository }}* on branch [${{ github.event.workflow_run.head_branch }}](https://github.com/${{ github.repository }}/tree/${{ github.event.workflow_run.head_branch }}) failed!
 
             Last commit [${{ github.event.workflow_run.head_sha }}](https://github.com/${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}) by ${{ github.event.workflow_run.head_commit.committer.username }} on ${{ github.event.workflow_run.head_commit.timestamp }}. 
             Changes in last commit: https://github.com/${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}
