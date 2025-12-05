@@ -37,7 +37,7 @@ jobs:
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "${{ github.event.workflow_run.jobs_url }}"
           -o ./artifacts/jobs.txt
 
-      - name: send telegram message on push
+      - name: Send Telegram message about failed job
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
