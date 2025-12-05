@@ -11,22 +11,38 @@ on:
 jobs:
   notify-on-failed:
     runs-on: ubuntu-latest
-    # if: github.event.workflow_run.conclusion == 'failure'
+    if: github.event.workflow_run.conclusion == 'failure'
     steps:
+      - name: Download artifacts from failed workflow
+        uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ github.event.workflow_run.id }}
+          path: ./artifacts
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          merge-multiple: true
+      
+      - name: Download logs from failed workflow
+        run: |
+          curl -L -k \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          https://api.github.com/repos/OWNER/REPO/actions/runs/RUN_ID/logs \
+          -o ./artifacts/run_logs.zip
+
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown 
+          document: ./artifacts/**
+          
           message: |
-            ❌ Action `${{ github.event.workflow_run.name }}` in `${{ github.repository }}` on branch ${{ github.event.workflow_run.head_branch }} failed!
+            ❌ Action *${{ github.event.workflow_run.name }}* in *${{ github.repository }}* on branch ${{ github.event.workflow_run.head_branch }} failed!
+            
+            Last commit [${{ github.event.workflow_run.head_sha }}](https://${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}) by ${{ github.event.workflow_run.head_commit.author.name }} on ${{ github.event.workflow_run.head_commit.timestamp }}. 
+            Changes: https://github.com/${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}
 
-            Last commit ([${{github.event.workflow_run.head_sha}}](${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}})) by ${{ github.event.workflow_run.head_commit.author.username }} on ${{ github.event.workflow_run.head_commit.timestamp }}. 
-            Changes: ${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}
-
-            Logs: ${{ github.event.workflow_run.logs_url }}
-            Artifacts: ${{ github.event.workflow_run.artifacts_url }}
-
-            ![mention maintainer](tg://user?id=${{ secrets.TELEGRAM_MAINTAINER_ID }})
+            [Maintainer](tg://user?id=${{ secrets.TELEGRAM_MAINTAINER_ID }})
 
