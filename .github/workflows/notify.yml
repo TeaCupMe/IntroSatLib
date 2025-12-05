@@ -16,6 +16,7 @@ jobs:
       - name: Create directory for downloaded files
         run: |
           mkdir ./artifacts
+
       - name: Download artifacts from failed workflow
         uses: actions/download-artifact@v4
         with:
@@ -34,11 +35,14 @@ jobs:
           -o ./artifacts/run_logs.zip
 
 
-      - name: Get Build Workflow Jobs
+      - name: Get workflow jobs data
+        id: get-jobs
         run: |
           curl \
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "${{ github.event.workflow_run.jobs_url }}" \
           -o ./artifacts/jobs.txt
+          JOBS_DATA=$(cat ./artifacts/jobs.txt)
+          echo "jobs_data=$JOBS_DATA" >> "$GITHUB_OUTPUT"
 
       - name: Send Telegram message about failed job
         uses: appleboy/telegram-action@master
@@ -51,10 +55,10 @@ jobs:
           message: |
             ❌ Action *${{ github.event.workflow_run.name }}* in *${{ github.repository }}* on branch *[${{ github.event.workflow_run.head_branch }}](https://github.com/${{ github.repository }}/tree/${{ github.event.workflow_run.head_branch }})* failed!
 
-            Last commit [${{ github.event.workflow_run.head_sha }}](https://github.com/${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}) by ${{ github.event.workflow_run.head_commit.author.name }} on ${{ github.event.workflow_run.head_commit.timestamp }}. 
+            Last commit [${{ github.event.workflow_run.head_sha }}](https://github.com/${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}) by ${{ github.event.workflow_run.head_commit.committer.username }} on ${{ github.event.workflow_run.head_commit.timestamp }}. 
             Changes in last commit: https://github.com/${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}
 
             Jobs: ${{ github.event.workflow_run.jobs_url }}
 
-            [Maintainer](tg://user?id=${{ secrets.TELEGRAM_MAINTAINER_ID }})
+            [@Maintainer](tg://user?id=${{ secrets.TELEGRAM_MAINTAINER_ID }})
 
