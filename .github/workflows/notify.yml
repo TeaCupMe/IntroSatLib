@@ -60,8 +60,7 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          format: markdown 
-          document: ./artifacts/**
+          format: markdown
           
           message: |
             ❌ Action *${{ github.event.workflow_run.name }}* in *${{ github.repository }}* on branch [${{ github.event.workflow_run.head_branch }}](https://github.com/${{ github.repository }}/tree/${{ github.event.workflow_run.head_branch }}) failed!
@@ -69,8 +68,10 @@ jobs:
             [Last commit](https://github.com/${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}) by *${{ github.event.workflow_run.head_commit.author.name }}*. 
             Details: ${{ github.event.workflow_run.head_commit.message }}
 
-            Jobs: 
+            Jobs: `
             ${{ steps.get-jobs.outputs.jobs_data }}
+            `
+            More: 
 
             [@Maintainer](tg://user?id=${{ secrets.TELEGRAM_MAINTAINER_ID }})
 
