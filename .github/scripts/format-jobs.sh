@@ -1,8 +1,6 @@
 #!/bin/bash
-# script_dir="$(dirname "$(readlink -f "$0")")"
 
 if [[ -n "$1" ]]; then
-    # jobs=$(cat "${1}")
     jobs="${1}"
 fi
 
@@ -81,7 +79,6 @@ for((i=0;i<jobs_count;i++)); do
             step_status=$failed_badge
         fi
 
-
         # Get appropriate tree symbol
         if (( j == steps_count-1 )); then
             tree_symb="$tree_angle"
@@ -92,9 +89,5 @@ for((i=0;i<jobs_count;i++)); do
         echo " $tree_symb $step_status $step_name"
 
     done
-    
-    
-    # echo "$job_name"
-    # echo "$job_result"
 done
 

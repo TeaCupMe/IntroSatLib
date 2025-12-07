@@ -22,7 +22,6 @@ on:
       - main
       - staging
   schedule:
-    # Run every Tuesday at 8 AM UTC to catch breakage caused by changes to external resources (stm32duino).
     - cron: "0 3 * * MON"
   workflow_dispatch:
   repository_dispatch:
@@ -37,7 +36,7 @@ jobs:
           - STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103C8
           - STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103CB
     steps:
-      - uses: actions/checkout@v4 # CLEAR THIS
+      - uses: actions/checkout@v4
 
       - name: Compile sketches
         uses: arduino/compile-sketches@v1
