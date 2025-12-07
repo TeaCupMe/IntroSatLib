@@ -11,7 +11,7 @@ on:
 jobs:
   notify-on-failed:
     runs-on: ubuntu-latest
-    if: (github.event.workflow_run.event_name == 'schedule' && github.event.workflow_run.conclusion == 'failure') ||  (github.branch == 'actions')
+    #if: (github.event.workflow_run.event == 'schedule' && github.event.workflow_run.conclusion == 'failure') ||  (github.event.workflow_run.head_branch == 'actions')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -19,6 +19,8 @@ jobs:
       - name: Create directory for downloaded files
         run: |
           mkdir ./artifacts
+      - run: |
+          echo "${{ toJson(github.event.workflow_run) }}"
 
       - name: Download artifacts from failed workflow
         uses: actions/download-artifact@v4
@@ -75,7 +77,7 @@ jobs:
             [@Maintainer](tg://user?id=${{ secrets.TELEGRAM_MAINTAINER_ID }})
   notify-on-scheduled-success:
     runs-on: ubuntu-latest
-    if: (github.event.workflow_run.event_name == 'schedule' && github.event.workflow_run.conclusion == 'success') ||  (github.branch == 'actions')
+    if: (github.event.workflow_run.event == 'schedule' && github.event.workflow_run.conclusion == 'success') ||  (github.event.workflow_run.head_branch == 'actions')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
