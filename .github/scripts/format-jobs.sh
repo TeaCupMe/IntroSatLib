@@ -10,6 +10,7 @@ jobs_count=$(echo "$jobs" | jq '.total_count')
 jobs_skipped=$(echo "$jobs" | jq '[ .jobs[] | select(.conclusion == "skipped")] | length')
 
 echo "*$jobs_count* jobs total, *$jobs_skipped* jobs skipped"
+echo ""
 
 tree_vertical="│"
 tree_horizontal="─"
@@ -34,8 +35,11 @@ for((i=0;i<jobs_count;i++)); do
     # neutral, success, skipped, cancelled, timed_out, action_required, failure
     if [[ ${job_result} == *"succees"* ]]; then
         job_status=$success_badge
+        echo "$job_status *$job_name*"
+        continue
     elif [[ ${job_result} == *"neutral"* ]]; then
         job_status=$neutral_badge
+        echo "$job_status *$job_name*"
     elif [[ ${job_result} == *"skipped"* ]]; then
         continue
         job_status=$skipped_badge
@@ -45,13 +49,14 @@ for((i=0;i<jobs_count;i++)); do
         continue
     elif [[ ${job_result} == *"timed_out"* ]]; then
         job_status=$timed_out_badge
+        echo "$job_status *$job_name*"
     elif [[ ${job_result} == *"action_required"* ]]; then
         job_status=$action_required_badge
+        echo "$job_status *$job_name*"
     elif [[ ${job_result} == *"failure"* ]]; then
         job_status=$failed_badge
+        echo "$job_status *$job_name*"
     fi
-
-    echo "$job_status *$job_name*"
     
     steps=$(echo "$job" | jq ".steps")
     steps_count=$(echo "$steps" | jq ". | length")
@@ -80,9 +85,9 @@ for((i=0;i<jobs_count;i++)); do
 
         # Get appropriate tree symbol
         if (( j == steps_count-1 )); then
-            tree_symb=$tree_angle
+            tree_symb="$tree_angle $tree_horizontal"
         else
-            tree_symb=$tree_t
+            tree_symb="$tree_t $tree_horizontal"
         fi
 
         echo " $tree_symb $step_status $step_name"
