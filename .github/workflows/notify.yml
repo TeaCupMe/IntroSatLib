@@ -66,11 +66,10 @@ jobs:
           message: |
             ❌ Action *${{ github.event.workflow_run.name }}* in *${{ github.repository }}* on branch [${{ github.event.workflow_run.head_branch }}](https://github.com/${{ github.repository }}/tree/${{ github.event.workflow_run.head_branch }}) failed!
 
-            [Last commit](https://github.com/${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}) by *${{ github.event.workflow_run.head_commit.author.name }}* on ${{ github.event.workflow_run.head_commit.timestamp }}. 
+            [Last commit](https://github.com/${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}) by *${{ github.event.workflow_run.head_commit.author.name }}*. 
             Details: ${{ github.event.workflow_run.head_commit.message }}
 
-            Jobs: ${{ github.event.workflow_run.jobs_url }}
-
+            Jobs: 
             ${{ steps.get-jobs.outputs.jobs_data }}
 
             [@Maintainer](tg://user?id=${{ secrets.TELEGRAM_MAINTAINER_ID }})
