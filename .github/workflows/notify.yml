@@ -68,10 +68,10 @@ jobs:
             [Last commit](https://github.com/${{ github.repository }}/commit/${{github.event.workflow_run.head_sha}}) by *${{ github.event.workflow_run.head_commit.author.name }}*. 
             Details: ${{ github.event.workflow_run.head_commit.message }}
 
-            Jobs: `
+            Jobs: 
             ${{ steps.get-jobs.outputs.jobs_data }}
-            `
-            More: 
+
+            More: ${{ github.event.workflow_run.html_url }}
 
             [@Maintainer](tg://user?id=${{ secrets.TELEGRAM_MAINTAINER_ID }})
 
