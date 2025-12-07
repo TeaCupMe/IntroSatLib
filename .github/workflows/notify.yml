@@ -56,8 +56,8 @@ jobs:
 
       - name: Test jobs data
         run: |
-          echo ${{ steps.get-jobs.outputs.jobs_data }}
-           
+          echo ${{ toJson(steps.get-jobs.outputs) }}
+
 
       - name: Send Telegram message about failed job
         uses: appleboy/telegram-action@master
