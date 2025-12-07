@@ -10,7 +10,6 @@ jobs_count=$(echo "$jobs" | jq '.total_count')
 jobs_skipped=$(echo "$jobs" | jq '[ .jobs[] | select(.conclusion == "skipped")] | length')
 
 echo "*$jobs_count* jobs total, *$jobs_skipped* jobs skipped"
-echo -e "\n"
 
 tree_vertical="│"
 tree_horizontal="─"
@@ -31,7 +30,7 @@ for((i=0;i<jobs_count;i++)); do
     job=$(echo "$jobs" | jq ".jobs[$i]")
     job_name=$(echo "$job" | jq ".name")
     job_result=$(echo "$job" | jq ".conclusion")
-    
+    echo -e "\n"
     # neutral, success, skipped, cancelled, timed_out, action_required, failure
     if [[ ${job_result} == *"succees"* ]]; then
         job_status=$success_badge
@@ -95,7 +94,7 @@ for((i=0;i<jobs_count;i++)); do
 
         
     done
-    echo -e "\n"
+    
     
     # echo "$job_name"
     # echo "$job_result"
