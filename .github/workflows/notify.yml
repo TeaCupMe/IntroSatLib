@@ -47,7 +47,6 @@ jobs:
           # JOBS_DATA=$(cat ./artifacts/jobs.txt)
           chmod +x ./.github/scripts/format-jobs.sh
           echo "jobs_data=$(./.github/scripts/format-jobs.sh "$(cat ./artifacts/jobs.txt)")" >> "$GITHUB_OUTPUT"
-          echo "$jobs_data"
 
       - name: Send Telegram message about failed job
         uses: appleboy/telegram-action@master
