@@ -45,6 +45,7 @@ jobs:
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "${{ github.event.workflow_run.jobs_url }}" \
           -o ./artifacts/jobs.txt
           # JOBS_DATA=$(cat ./artifacts/jobs.txt)
+          chmod +x ./.github/scripts/format-jobs.sh
           echo "jobs_data=$(./.github/scripts/format-jobs.sh "$(cat ./artifacts/jobs.txt)")" >> "$GITHUB_OUTPUT"
           echo "$jobs_data"
 
