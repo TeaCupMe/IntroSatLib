@@ -37,7 +37,7 @@ jobs:
           - STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103C8
           - STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103CB
     steps:
-      - uses: actions/checkout@vswdssdw # CLEAR THIS
+      - uses: actions/checkout@v4 # CLEAR THIS
 
       - name: Compile sketches
         uses: arduino/compile-sketches@v1
@@ -189,7 +189,6 @@ jobs:
 
   list-examples-cubeide:
     name: List available examples for CubeIDE
-    needs: [build-legacy-codes]
     runs-on: ubuntu-latest
     outputs:
       folders: ${{ steps.list_examples.outputs.folders }}

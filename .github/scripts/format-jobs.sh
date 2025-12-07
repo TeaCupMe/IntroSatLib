@@ -91,8 +91,6 @@ for((i=0;i<jobs_count;i++)); do
 
         echo " $tree_symb $step_status $step_name"
 
-
-        
     done
     
     
