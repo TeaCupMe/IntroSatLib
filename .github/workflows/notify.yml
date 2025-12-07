@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.workflow_run.conclusion == 'failure'
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Create directory for downloaded files
         run: |
           mkdir ./artifacts
@@ -42,7 +45,7 @@ jobs:
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "${{ github.event.workflow_run.jobs_url }}" \
           -o ./artifacts/jobs.txt
           # JOBS_DATA=$(cat ./artifacts/jobs.txt)
-          # echo "jobs_data=$JOBS_DATA" >> "$GITHUB_OUTPUT"
+          echo "jobs_data=$(./.github/scripts/format-jobs.sh "$(cat ./artifacts/jobs.txt)")" >> "$GITHUB_OUTPUT"
 
       - name: Send Telegram message about failed job
         uses: appleboy/telegram-action@master
@@ -60,6 +63,7 @@ jobs:
 
             Jobs: ${{ github.event.workflow_run.jobs_url }}
 
+            ${{ steps.get-jobs.outputs.jobs_data }}
 
             [@Maintainer](tg://user?id=${{ secrets.TELEGRAM_MAINTAINER_ID }})
 
