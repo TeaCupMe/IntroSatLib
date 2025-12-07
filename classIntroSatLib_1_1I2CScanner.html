@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IntroSatLib: Исходный файл src/IS_Bluetooth.h</title>
+<title>IntroSatLib: Класс IntroSatLib::I2CScanner</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,34 +84,37 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+<li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a class="el" href="classIntroSatLib_1_1I2CScanner.html">I2CScanner</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">IS_Bluetooth.h</div></div>
+  <div class="summary">
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="classIntroSatLib_1_1I2CScanner-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс IntroSatLib::I2CScanner<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef IS_BLUETOOTH_H_</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define IS_BLUETOOTH_H_</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;ISL_Bootloader.h&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#endif </span><span class="comment">/* __cplusplus */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">// This method exists for backwards-compatibility</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">extern</span> <span class="keywordtype">void</span> enter_bootloader();</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#endif </span><span class="comment">/* __cplusplus */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#endif </span><span class="comment">/* IS_BLUETOOTH_H_ */</span><span class="preprocessor"></span></div>
-</div><!-- fragment --></div><!-- contents -->
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a1c8ec2546b249989a73dced2006bd4b2" id="r_a1c8ec2546b249989a73dced2006bd4b2"><td class="memItemLeft" align="right" valign="top"><a id="a1c8ec2546b249989a73dced2006bd4b2" name="a1c8ec2546b249989a73dced2006bd4b2"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>scanI2CFull</b> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> i2c, <a class="el" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a> uart)</td></tr>
+<tr class="separator:a1c8ec2546b249989a73dced2006bd4b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4841595ac0555d7854756d7a7c19a1f5" id="r_a4841595ac0555d7854756d7a7c19a1f5"><td class="memItemLeft" align="right" valign="top"><a id="a4841595ac0555d7854756d7a7c19a1f5" name="a4841595ac0555d7854756d7a7c19a1f5"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>scanI2C</b> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> i2c, <a class="el" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a> uart)</td></tr>
+<tr class="separator:a4841595ac0555d7854756d7a7c19a1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee4198b9bdc64ad3febe60e5b3de469d" id="r_aee4198b9bdc64ad3febe60e5b3de469d"><td class="memItemLeft" align="right" valign="top"><a id="aee4198b9bdc64ad3febe60e5b3de469d" name="aee4198b9bdc64ad3febe60e5b3de469d"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>scanDeviceRegisters</b> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> i2c, uint8_t addr, uint8_t firstRegister, uint8_t nRegisters, <a class="el" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a> uart)</td></tr>
+<tr class="separator:aee4198b9bdc64ad3febe60e5b3de469d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43e469c2519f100253815a6db34c7490" id="r_a43e469c2519f100253815a6db34c7490"><td class="memItemLeft" align="right" valign="top"><a id="a43e469c2519f100253815a6db34c7490" name="a43e469c2519f100253815a6db34c7490"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>scanDeviceRegistersBatch</b> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> i2c, uint8_t addr, uint8_t firstRegister, uint8_t nRegisters, <a class="el" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a> uart)</td></tr>
+<tr class="separator:a43e469c2519f100253815a6db34c7490"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>src/<a class="el" href="I2CScanner_8h_source.html">I2CScanner.h</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2

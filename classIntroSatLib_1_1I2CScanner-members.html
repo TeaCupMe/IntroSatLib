@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IntroSatLib: Исходный файл src/IS_Bluetooth.h</title>
+<title>IntroSatLib: Cписок членов класса</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,34 +84,22 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+<li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a class="el" href="classIntroSatLib_1_1I2CScanner.html">I2CScanner</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">IS_Bluetooth.h</div></div>
+  <div class="headertitle"><div class="title">IntroSatLib::I2CScanner Cписок членов класса</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef IS_BLUETOOTH_H_</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define IS_BLUETOOTH_H_</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;ISL_Bootloader.h&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#endif </span><span class="comment">/* __cplusplus */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">// This method exists for backwards-compatibility</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">extern</span> <span class="keywordtype">void</span> enter_bootloader();</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#endif </span><span class="comment">/* __cplusplus */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#endif </span><span class="comment">/* IS_BLUETOOTH_H_ */</span><span class="preprocessor"></span></div>
-</div><!-- fragment --></div><!-- contents -->
+
+<p>Полный список членов класса <a class="el" href="classIntroSatLib_1_1I2CScanner.html">IntroSatLib::I2CScanner</a>, включая наследуемые из базового класса</p>
+<table class="directory">
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>scanDeviceRegisters</b>(interfaces::I2C i2c, uint8_t addr, uint8_t firstRegister, uint8_t nRegisters, interfaces::UART uart) (определено в <a class="el" href="classIntroSatLib_1_1I2CScanner.html">IntroSatLib::I2CScanner</a>)</td><td class="entry"><a class="el" href="classIntroSatLib_1_1I2CScanner.html">IntroSatLib::I2CScanner</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>scanDeviceRegistersBatch</b>(interfaces::I2C i2c, uint8_t addr, uint8_t firstRegister, uint8_t nRegisters, interfaces::UART uart) (определено в <a class="el" href="classIntroSatLib_1_1I2CScanner.html">IntroSatLib::I2CScanner</a>)</td><td class="entry"><a class="el" href="classIntroSatLib_1_1I2CScanner.html">IntroSatLib::I2CScanner</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>scanI2C</b>(interfaces::I2C i2c, interfaces::UART uart) (определено в <a class="el" href="classIntroSatLib_1_1I2CScanner.html">IntroSatLib::I2CScanner</a>)</td><td class="entry"><a class="el" href="classIntroSatLib_1_1I2CScanner.html">IntroSatLib::I2CScanner</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>scanI2CFull</b>(interfaces::I2C i2c, interfaces::UART uart) (определено в <a class="el" href="classIntroSatLib_1_1I2CScanner.html">IntroSatLib::I2CScanner</a>)</td><td class="entry"><a class="el" href="classIntroSatLib_1_1I2CScanner.html">IntroSatLib::I2CScanner</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+</table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2

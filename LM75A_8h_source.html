@@ -137,28 +137,24 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1LM75A.html#ab33c6910e274b960115af14e9e6780a4">Init</a>();</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    uint16_t GetRawTemperature(); <span class="comment">// TODO: make private</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    uint16_t GetTemperatureTimes8();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    int16_t GetRawTemperature(); <span class="comment">// TODO: make private</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    int16_t GetTemperatureTimes8();</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">float</span> GetTemperature() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">//  float GetTemperatureC() override;</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">//  float GetTemperatureF() override;</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    uint8_t GetConfig();</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">//  void Enable();</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> PowerDown(<span class="keywordtype">bool</span> shutdown);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">//  void DumpData(UART_HandleTypeDef* _uart);</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">//  void DumpData(std::function&lt;void (uint8_t*, uint16_t)&gt; transmitMethod);</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    uint8_t GetConfig();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> PowerDown(<span class="keywordtype">bool</span> shutdown);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
 </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif </span><span class="comment">/* LM75A_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#endif </span><span class="comment">/* LM75A_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aclassIntroSatLib_1_1BaseTemperatureSensor_html"><div class="ttname"><a href="classIntroSatLib_1_1BaseTemperatureSensor.html">IntroSatLib::BaseTemperatureSensor</a></div><div class="ttdef"><b>Определения</b> BaseTemperatureSensor.h:15</div></div>
 <div class="ttc" id="aclassIntroSatLib_1_1I2CDevice_html_af43bdf2ba9e2fee2da27c9c7efcdbcb7"><div class="ttname"><a href="classIntroSatLib_1_1I2CDevice.html#af43bdf2ba9e2fee2da27c9c7efcdbcb7">IntroSatLib::I2CDevice::I2CDevice</a></div><div class="ttdeci">I2CDevice(interfaces::I2C *i2c, uint8_t address)</div><div class="ttdoc">Создание объекта @ref  I2CDevice.</div><div class="ttdef"><b>Определения</b> I2CDevice.cpp:78</div></div>
 <div class="ttc" id="aclassIntroSatLib_1_1LM75A_html_ab33c6910e274b960115af14e9e6780a4"><div class="ttname"><a href="classIntroSatLib_1_1LM75A.html#ab33c6910e274b960115af14e9e6780a4">IntroSatLib::LM75A::Init</a></div><div class="ttdeci">ISL_StatusTypeDef Init()</div><div class="ttdoc">Инициализация устройства на шине I2C.</div><div class="ttdef"><b>Определения</b> LM75A.cpp:12</div></div>
