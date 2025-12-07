@@ -10,7 +10,7 @@ jobs_count=$(echo "$jobs" | jq '.total_count')
 jobs_skipped=$(echo "$jobs" | jq '[ .jobs[] | select(.conclusion == "skipped")] | length')
 
 echo "*$jobs_count* jobs total, *$jobs_skipped* jobs skipped"
-echo ""
+echo -e "\n"
 
 tree_vertical="│"
 tree_horizontal="─"
@@ -85,9 +85,9 @@ for((i=0;i<jobs_count;i++)); do
 
         # Get appropriate tree symbol
         if (( j == steps_count-1 )); then
-            tree_symb="$tree_angle $tree_horizontal"
+            tree_symb="$tree_angle"
         else
-            tree_symb="$tree_t $tree_horizontal"
+            tree_symb="$tree_t"
         fi
 
         echo " $tree_symb $step_status $step_name"
@@ -95,7 +95,7 @@ for((i=0;i<jobs_count;i++)); do
 
         
     done
-    echo ""
+    echo -e "\n"
     
     # echo "$job_name"
     # echo "$job_result"
