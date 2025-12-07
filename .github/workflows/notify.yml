@@ -50,7 +50,7 @@ jobs:
 
           echo 'foo<<EOF' >> $GITHUB_OUTPUT
           echo "jobs_data=$JOBS_DATA" >> "$GITHUB_OUTPUT"
-          cho 'EOF' >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
 
       - name: Send Telegram message about failed job
         uses: appleboy/telegram-action@master
