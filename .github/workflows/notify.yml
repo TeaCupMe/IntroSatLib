@@ -48,15 +48,15 @@ jobs:
           chmod +x ./.github/scripts/format-jobs.sh
           JOBS_DATA=$(./.github/scripts/format-jobs.sh "$(cat ./artifacts/jobs.txt)")
 
-          echo 'foo<<EOF' >> $GITHUB_OUTPUT
-          echo "jobs_data=$JOBS_DATA" >> "$GITHUB_OUTPUT"
+          echo 'jobs_data<<EOF' >> $GITHUB_OUTPUT
+          echo "$JOBS_DATA" >> "$GITHUB_OUTPUT"
           echo 'EOF' >> $GITHUB_OUTPUT
 
           echo "$JOBS_DATA"
 
       - name: Test jobs data
         run: |
-          echo ${{ toJson(steps.get-jobs.outputs) }}
+          echo "${{ toJson(steps.get-jobs.outputs) }}"
 
 
       - name: Send Telegram message about failed job
