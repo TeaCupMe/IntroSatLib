@@ -5,7 +5,7 @@
  *      Author: samsa
  */
 
-#ifdef ARDUINO_AVR_ATmega328
+// #ifdef ARDUINO_AVR_ATmega328
 
 #include "Morse.h"
 
@@ -83,4 +83,4 @@ ISL_StatusTypeDef Morse::receive(uint8_t* rx_buffer, uint16_t* length) {
 
 } /* namespace IntroSatLib */
 
-#endif
+// #endif

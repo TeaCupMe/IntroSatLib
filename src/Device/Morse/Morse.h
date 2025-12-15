@@ -9,9 +9,9 @@
 #ifndef MORSE_H_
 #define MORSE_H_
 
-#ifndef ARDUINO_AVR_ATmega328
-    #error "This not yet supported"
-#else
+// #ifndef ARDUINO_AVR_ATmega328
+//     #error "This not yet supported"
+// #else
 
 #include "Device/IRTransceiver/IRTransceiver.h"
 
