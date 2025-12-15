@@ -24,20 +24,22 @@ ISL_StatusTypeDef IRTransceiver::Init(
 
     IrSender.begin(_transmit);
     IrReceiver.begin(_receive);
+
+    return ISL_OK;
 }
 
 ISL_StatusTypeDef IRTransceiver::Init(
     uint8_t receive,
     uint8_t transmit) {
-    Init(receive, transmit, ProtocolTimings());
+    return Init(receive, transmit, ProtocolTimings());
 }
 
 ISL_StatusTypeDef IRTransceiver::Init(ProtocolTimings timings) {
-    Init(RX_PIN_DEFAULT, TX_PIN_DEFAULT, timings);
+    return Init(RX_PIN_DEFAULT, TX_PIN_DEFAULT, timings);
 }
 
 ISL_StatusTypeDef IRTransceiver::Init() {
-    Init(RX_PIN_DEFAULT, TX_PIN_DEFAULT, ProtocolTimings());
+    return Init(RX_PIN_DEFAULT, TX_PIN_DEFAULT, ProtocolTimings());
 }
 
 
