@@ -30,7 +30,7 @@ for((i=0;i<jobs_count;i++)); do
     job_result=$(echo "$job" | jq ".conclusion")
     echo -e "\n"
     # neutral, success, skipped, cancelled, timed_out, action_required, failure
-    if [[ ${job_result} == *"succees"* ]]; then
+    if [[ ${job_result} == *"success"* ]]; then
         job_status=$success_badge
         echo "$job_status *$job_name*"
         continue
@@ -67,7 +67,7 @@ for((i=0;i<jobs_count;i++)); do
         step_end_time=$(echo "$step" | jq ".completed_at")
 
         # Get appropriate status badge
-        if [[ ${step_result} == *"succees"* ]]; then
+        if [[ ${step_result} == *"success"* ]]; then
             step_status=$success_badge
         elif [[ ${step_result} == *"skipped"* ]]; then
             step_status=$skipped_badge
