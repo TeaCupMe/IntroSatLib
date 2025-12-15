@@ -24,7 +24,7 @@ ISL_StatusTypeDef IntroSatLib::PicoStand::StepCW(int16_t steps)
 
 ISL_StatusTypeDef IntroSatLib::PicoStand::StepCCW(int16_t steps)
 {
-    return SetRegisterI2C(CMD_STEP_CW, (uint8_t*)&steps, 2);
+    return SetRegisterI2C(CMD_STEP_CCW, (uint8_t*)&steps, 2);
 }
 
 ISL_StatusTypeDef IntroSatLib::PicoStand::SetAngle(float angle)
