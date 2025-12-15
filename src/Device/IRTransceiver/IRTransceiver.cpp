@@ -5,7 +5,7 @@
  *      Author: samsa
  */
 
-#ifdef ARDUINO_AVR_ATmega328
+// #ifdef ARDUINO_AVR_ATmega328
 
 #include "IRTransceiver.h"
 #include "IRremote.hpp"
@@ -114,4 +114,4 @@ ISL_StatusTypeDef IRTransceiver::receive(uint8_t* rx_buffer, uint16_t* length) {
 
 } /* namespace IntroSatLib */
 
-#endif
+// #endif

@@ -47,6 +47,6 @@ public:
 
 } /* namespace IntroSatLib */
 
-#endif
+// #endif
 
 #endif /* MORSE_H_ */

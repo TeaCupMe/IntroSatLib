@@ -8,9 +8,9 @@
 #ifndef IR_TRANSCEIVER_H_
 #define IR_TRANSCEIVER_H_
 
-#ifndef ARDUINO_AVR_ATmega328
-    #error "This not yet supported"
-#else
+// #ifndef ARDUINO_AVR_ATmega328
+//     #error "This not yet supported"
+// #else
 
 #include "Device/Base/BaseTransceiver.h"
 // #include "Adapter/GPIO.h"
@@ -80,6 +80,6 @@ public:
 };
 
 } /* namespace IntroStratLib */
-#endif
+// #endif
 
 #endif /* IR_TRANSCEIVER_H_ */
