@@ -26,11 +26,11 @@ namespace IntroSatLib {
 #define TX_PIN_DEFAULT 3 // Пин, к которому подключён ИК-передатчик
 
 
-#define BIT_1_HIGH 15000 // Длительность mark для "1"
-#define BIT_1_LOW 5000   // Длительность space для "1"
-#define BIT_0_HIGH 5000  // Длительность mark для "0"
-#define BIT_0_LOW 5000   // Длительность space для "0"
-#define ERROR_SCALE 3000
+#define BIT_1_HIGH 1500 // Длительность mark для "1"
+#define BIT_1_LOW 500   // Длительность space для "1"
+#define BIT_0_HIGH 500  // Длительность mark для "0"
+#define BIT_0_LOW 500   // Длительность space для "0"
+#define ERROR_SCALE 300
 
 
 class IRTransceiver: public BaseTransceiver, protected Device {
