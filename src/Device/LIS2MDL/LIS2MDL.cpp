@@ -1,8 +1,8 @@
 /*
- * LIS3MDL.cpp
+ * LIS2MDL.h
  *
- *  Created on: Mar 18, 2025
- *      Author: unflesh
+ *  Created on: Nov 24, 2025
+ *      Author: samsa
  */
 
 #include "LIS2MDL.h"
@@ -11,21 +11,21 @@
 namespace IntroSatLib {
 
 
-LIS2MDL::LIS2MDL(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
+LIS2MDL::LIS2MDL(const interfaces::I2C &i2c): I2CDevice(new interfaces::I2C(i2c), BASE_ADDRESS)
 {
 }
 
-ISL_StatusTypeDef LIS2MDL::Init(uint8_t force)
+ISL_StatusTypeDef LIS2MDL::Init()
 {
 	system::Delay(15); // wait for powerup (can be 10)
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady());
-	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CFG_REG_A, 0b10001100))
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CFG_REG_A, 0b10001100));
 	system::Delay(1);
-	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CFG_REG_B, 0b00000000))
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CFG_REG_B, 0b00000000));
 	system::Delay(1);
-	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CFG_REG_C, 0b00010000))
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CFG_REG_C, 0b00010000));
 	system::Delay(1);
-	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::INT_CRTL_REG, 0b00000000))
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::INT_CRTL_REG, 0b00000000));
 	return IsReady();
 }
 

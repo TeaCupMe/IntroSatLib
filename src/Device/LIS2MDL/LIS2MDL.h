@@ -1,5 +1,5 @@
 /*
- * LIS3MDL.h
+ * LIS2MDL.h
  *
  *  Created on: Nov 24, 2025
  *      Author: samsa
@@ -17,7 +17,6 @@ class LIS2MDL : public BaseMagnetometer, protected I2CDevice {
 private:
 	static const uint8_t BASE_ADDRESS = 0x1E;
 	const float _sens = 1.5f; // mGauss/LSB
-    const uint8_t _scale = 50; // +- 50 Gauss
 
 	enum RegisterMap
 	{
@@ -46,15 +45,15 @@ private:
         TEMP_OUT_H_REG,
 	};
 
-	uint16_t _mx = 0;
-	uint16_t _my = 0;
-	uint16_t _mz = 0;
+	int16_t _mx = 0;
+	int16_t _my = 0;
+	int16_t _mz = 0;
 
 public:
 
-	LIS2MDL(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
+	LIS2MDL(const interfaces::I2C &i2c);
 
-	ISL_StatusTypeDef Init(uint8_t force = 1);
+	ISL_StatusTypeDef Init();
 
 	int16_t RawMX() override;
 	int16_t RawMY() override;
