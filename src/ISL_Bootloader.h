@@ -29,6 +29,10 @@
 	#warning "Calls to IntroSatLib::EnterBootloader() will have no effect"
 #endif
 
+namespace IntroSatLib {
+    
+}
+
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
