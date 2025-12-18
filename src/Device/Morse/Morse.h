@@ -40,7 +40,7 @@ public:
     ISL_StatusTypeDef transmit(uint8_t* tx_buffer, int length);
     ISL_StatusTypeDef receive(uint8_t* rx_buffer) {
         uint16_t length; // UNUSED
-        return IRTransceiver::receive(rx_buffer, &length);
+        return receive(rx_buffer, &length);
     }
     ISL_StatusTypeDef receive(uint8_t* rx_buffer, uint16_t* length);
 
