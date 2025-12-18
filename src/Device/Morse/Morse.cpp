@@ -62,7 +62,7 @@ ISL_StatusTypeDef Morse::receive(uint8_t* rx_buffer, uint16_t* length) {
     RETURN_STATUS_IF_NOT_OK_SILENT(IRTransceiver::receive(data, length)); //TODO: think about lehgth
 
     bool flag = false;
-    for (uint8_t i = 0; i < length; i++) {
+    for (uint8_t i = 0; i < *length; i++) {
         if (flag) break;
         switch (data[i])
         {
