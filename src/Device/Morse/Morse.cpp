@@ -77,6 +77,7 @@ ISL_StatusTypeDef Morse::receive(uint8_t* rx_buffer, uint16_t* length) {
             break;
         }
     }
+    data[*length] = '\0';
 
     return ISL_OK;
 }
