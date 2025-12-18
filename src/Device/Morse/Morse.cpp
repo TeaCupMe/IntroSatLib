@@ -42,7 +42,7 @@ ISL_StatusTypeDef Morse::transmit(uint8_t* tx_buffer, int length) {
         switch (tx_buffer[i])
         {
         case '.':
-        case '0':
+        case 'o':
             data[i] = 0;
             break;
         case '_':
