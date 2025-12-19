@@ -11,6 +11,7 @@ on:
       - main
       - examples
       - dev/*
+      - event/*
       - actions
   pull_request:
     paths:
@@ -21,6 +22,7 @@ on:
     branches: 
       - main
       - staging
+      - event/*
   schedule:
     - cron: "0 3 * * MON"
   workflow_dispatch:
