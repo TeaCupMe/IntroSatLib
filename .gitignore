@@ -36,5 +36,9 @@ tools/*
 
 # documentation
 doxygen/*
-!doxygen/doxygen-style.css
 !doxygen/doxygen.conf
+!doxygen/header.html
+!doxygen/logo.svg
+!doxygen/js
+!doxygen/styles
+
