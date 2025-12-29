@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>IntroSatLib: Класс IntroSatLib::CC1101WithDelay</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="dropdown.css" rel="stylesheet" type="text/css"/>
+<link href="theme-round.css" rel="stylesheet" type="text/css"/>
+<link href="theme-robot.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IntroSatLib
+   <!-- BEGIN PROJECT_NUMBER&#160;<span id="projectnumber">v0.0.24-rc2</span>END PROJECT_NUMBER -->
+   </div>
+  </td>
+    <!-- BEGIN version select -->
+    <td align="right">
+    <div class="dropdown">
+        <button class="dropbtn">Version v0.0.24-rc2</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+    <script type="text/javascript" src="./selectversion.js"></script>
+    </td>
+    <!-- END version select -->
+ </tr>
+ </tbody>
+</table>
+<div id="theme-selection">
+ <label for="theme-select">Theme:</label>
+ <select id="theme-select">
+  <option value="theme-default">Default</option>
+  <option value="theme-round">Round</option>
+  <option value="theme-robot">Robot</option>
+ </select>
+</div>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classIntroSatLib_1_1CC1101WithDelay.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classIntroSatLib_1_1CC1101WithDelay-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс IntroSatLib::CC1101WithDelay</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:IntroSatLib::CC1101WithDelay:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classIntroSatLib_1_1CC1101WithDelay__inherit__graph.svg" width="207" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ace0fc7236991415b64ddaf1c4fafbdbc" id="r_ace0fc7236991415b64ddaf1c4fafbdbc"><td class="memItemLeft" align="right" valign="top"><a id="ace0fc7236991415b64ddaf1c4fafbdbc" name="ace0fc7236991415b64ddaf1c4fafbdbc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CC1101WithDelay</b> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1SPI.html">interfaces::SPI</a> &amp;spi, <a class="el" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> &amp;scl, <a class="el" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> &amp;mosi, <a class="el" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> &amp;miso, <a class="el" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> &amp;reset)</td></tr>
+<tr class="separator:ace0fc7236991415b64ddaf1c4fafbdbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade9c5d8008b0fb7ba92e2151f5a7beed" id="r_ade9c5d8008b0fb7ba92e2151f5a7beed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade9c5d8008b0fb7ba92e2151f5a7beed">await</a> (uint8_t len) override</td></tr>
+<tr class="separator:ade9c5d8008b0fb7ba92e2151f5a7beed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a134dbb9f11a843b526515e709342e156" id="r_a134dbb9f11a843b526515e709342e156"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a134dbb9f11a843b526515e709342e156">setDRate</a> (float kD) override</td></tr>
+<tr class="separator:a134dbb9f11a843b526515e709342e156"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classIntroSatLib_1_1CC1101"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classIntroSatLib_1_1CC1101')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="classIntroSatLib_1_1CC1101.html">IntroSatLib::CC1101</a></td></tr>
+<tr class="memitem:a2c6cb4301da5579ac568af1435488f84 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a2c6cb4301da5579ac568af1435488f84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1CC1101.html#a2c6cb4301da5579ac568af1435488f84">CC1101</a> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1SPI.html">interfaces::SPI</a> &amp;spi, <a class="el" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> &amp;scl, <a class="el" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> &amp;mosi, <a class="el" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> &amp;miso, <a class="el" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> &amp;reset)</td></tr>
+<tr class="memdesc:a2c6cb4301da5579ac568af1435488f84 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта <a class="el" href="classIntroSatLib_1_1CC1101.html">CC1101</a>.  <br /></td></tr>
+<tr class="separator:a2c6cb4301da5579ac568af1435488f84 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1491c4d3833f3cfd2ce97e019064f8da inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a1491c4d3833f3cfd2ce97e019064f8da"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()</td></tr>
+<tr class="memdesc:a1491c4d3833f3cfd2ce97e019064f8da inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация <a class="el" href="classIntroSatLib_1_1CC1101.html">CC1101</a>. <br /></td></tr>
+<tr class="separator:a1491c4d3833f3cfd2ce97e019064f8da inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab96bc2a7664531b796090cb1397e7506 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_ab96bc2a7664531b796090cb1397e7506"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1CC1101.html#ab96bc2a7664531b796090cb1397e7506">setChannel</a> (uint8_t ch)</td></tr>
+<tr class="memdesc:ab96bc2a7664531b796090cb1397e7506 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выбора канала  <br /></td></tr>
+<tr class="separator:ab96bc2a7664531b796090cb1397e7506 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63fd6892fcd1b8a1b04b3cfbc387cb35 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a63fd6892fcd1b8a1b04b3cfbc387cb35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1CC1101.html#a63fd6892fcd1b8a1b04b3cfbc387cb35">setPacketLength</a> (uint8_t v)</td></tr>
+<tr class="memdesc:a63fd6892fcd1b8a1b04b3cfbc387cb35 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка длины пакета  <br /></td></tr>
+<tr class="separator:a63fd6892fcd1b8a1b04b3cfbc387cb35 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ab8e87f6c3b1a1fddcf0d7ff05f77a4 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a5ab8e87f6c3b1a1fddcf0d7ff05f77a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1CC1101.html#a5ab8e87f6c3b1a1fddcf0d7ff05f77a4">setCCMode</a> (uint8_t ccmode)</td></tr>
+<tr class="separator:a5ab8e87f6c3b1a1fddcf0d7ff05f77a4 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedac5916dbd33a1b731ea0ec414956e7 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_aedac5916dbd33a1b731ea0ec414956e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntroSatLib_1_1CC1101.html#aedac5916dbd33a1b731ea0ec414956e7">setModulation</a> (uint8_t modulation)</td></tr>
+<tr class="memdesc:aedac5916dbd33a1b731ea0ec414956e7 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выбор модуляции  <br /></td></tr>
+<tr class="separator:aedac5916dbd33a1b731ea0ec414956e7 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b066a924b686a90b5ebb0aa2e2b3e54 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a1b066a924b686a90b5ebb0aa2e2b3e54"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPA</b> (int p)</td></tr>
+<tr class="separator:a1b066a924b686a90b5ebb0aa2e2b3e54 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3653a54de7db0898ef40be20d0c0c97 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_aa3653a54de7db0898ef40be20d0c0c97"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMHZ</b> (float mhz)</td></tr>
+<tr class="separator:aa3653a54de7db0898ef40be20d0c0c97 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61931594e7f7cb636abac595bef82cb3 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a61931594e7f7cb636abac595bef82cb3"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setClb</b> (uint8_t b, uint8_t s, uint8_t e)</td></tr>
+<tr class="separator:a61931594e7f7cb636abac595bef82cb3 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb76e323d541f17cbcd426530a41e6d9 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_afb76e323d541f17cbcd426530a41e6d9"><td class="memItemLeft" align="right" valign="top">
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getCC1101</b> ()</td></tr>
+<tr class="separator:afb76e323d541f17cbcd426530a41e6d9 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00a64931ed7ba9d2c0ae69b0829eca71 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a00a64931ed7ba9d2c0ae69b0829eca71"><td class="memItemLeft" align="right" valign="top">
+State&#160;</td><td class="memItemRight" valign="bottom"><b>getMode</b> ()</td></tr>
+<tr class="separator:a00a64931ed7ba9d2c0ae69b0829eca71 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6ddee26e865545ec862593fcab9843e inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_ac6ddee26e865545ec862593fcab9843e"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSyncWord</b> (uint8_t sh, uint8_t sl)</td></tr>
+<tr class="separator:ac6ddee26e865545ec862593fcab9843e inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fdfd4b6fd5c391527a43ab54fe02dae inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a9fdfd4b6fd5c391527a43ab54fe02dae"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setAddr</b> (uint8_t v)</td></tr>
+<tr class="separator:a9fdfd4b6fd5c391527a43ab54fe02dae inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e071a4d0b225518ef8f2aefa74be579 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a0e071a4d0b225518ef8f2aefa74be579"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPQT</b> (uint8_t v)</td></tr>
+<tr class="separator:a0e071a4d0b225518ef8f2aefa74be579 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff7bad251d1e9998d79cf368e5f8f558 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_aff7bad251d1e9998d79cf368e5f8f558"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setCRC_AF</b> (uint8_t v)</td></tr>
+<tr class="separator:aff7bad251d1e9998d79cf368e5f8f558 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa15caa01133b78ee08dc08184caf9ac0 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_aa15caa01133b78ee08dc08184caf9ac0"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setAppendStatus</b> (uint8_t v)</td></tr>
+<tr class="separator:aa15caa01133b78ee08dc08184caf9ac0 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d4c8e832c7c485c519e8c2054e9fb05 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a0d4c8e832c7c485c519e8c2054e9fb05"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setAdrChk</b> (uint8_t v)</td></tr>
+<tr class="separator:a0d4c8e832c7c485c519e8c2054e9fb05 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4824122ed258119cd9a078805490aceb inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a4824122ed258119cd9a078805490aceb"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setWhiteData</b> (uint8_t v)</td></tr>
+<tr class="separator:a4824122ed258119cd9a078805490aceb inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37e0e1afdb590e0da9dced30d419ccac inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a37e0e1afdb590e0da9dced30d419ccac"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPktFormat</b> (uint8_t v)</td></tr>
+<tr class="separator:a37e0e1afdb590e0da9dced30d419ccac inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a283019ae19ff48a07489f1ba06e8b599 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a283019ae19ff48a07489f1ba06e8b599"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setCrc</b> (uint8_t v)</td></tr>
+<tr class="separator:a283019ae19ff48a07489f1ba06e8b599 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ec15007729bd3d2943c1aee86f7eb89 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a4ec15007729bd3d2943c1aee86f7eb89"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLengthConfig</b> (uint8_t v)</td></tr>
+<tr class="separator:a4ec15007729bd3d2943c1aee86f7eb89 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1ac0fe7fc3eed9420d62637705749eb inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_ad1ac0fe7fc3eed9420d62637705749eb"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setRxBW</b> (float f)</td></tr>
+<tr class="separator:ad1ac0fe7fc3eed9420d62637705749eb inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cbb7d25527ad3fc333d72dc020598fe inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a5cbb7d25527ad3fc333d72dc020598fe"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDcFilterOff</b> (uint8_t v)</td></tr>
+<tr class="separator:a5cbb7d25527ad3fc333d72dc020598fe inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4adf1bfc949393d5c143e8568ace7d8c inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a4adf1bfc949393d5c143e8568ace7d8c"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setManchester</b> (uint8_t v)</td></tr>
+<tr class="separator:a4adf1bfc949393d5c143e8568ace7d8c inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05658079076bb15d58ac2a1e830151f5 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a05658079076bb15d58ac2a1e830151f5"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSyncMode</b> (uint8_t v)</td></tr>
+<tr class="separator:a05658079076bb15d58ac2a1e830151f5 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03809e32241f0372e833d02e57c27e21 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a03809e32241f0372e833d02e57c27e21"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setFEC</b> (uint8_t v)</td></tr>
+<tr class="separator:a03809e32241f0372e833d02e57c27e21 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b17fa9f6b150cee833c0f8a8997f666 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a1b17fa9f6b150cee833c0f8a8997f666"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPRE</b> (uint8_t v)</td></tr>
+<tr class="separator:a1b17fa9f6b150cee833c0f8a8997f666 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bba215a52e0a935d28ae3b69440223b inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a6bba215a52e0a935d28ae3b69440223b"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setChsp</b> (float f)</td></tr>
+<tr class="separator:a6bba215a52e0a935d28ae3b69440223b inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01adcd44390a5a9884f075bfb0f07357 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a01adcd44390a5a9884f075bfb0f07357"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDeviation</b> (float d)</td></tr>
+<tr class="separator:a01adcd44390a5a9884f075bfb0f07357 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9ad1c573793619a8f5eb516da95a3e8 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_ac9ad1c573793619a8f5eb516da95a3e8"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Split_PKTCTRL1</b> ()</td></tr>
+<tr class="separator:ac9ad1c573793619a8f5eb516da95a3e8 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8cecbdfc40be85dd897ba91453b344a inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_aa8cecbdfc40be85dd897ba91453b344a"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Split_PKTCTRL0</b> ()</td></tr>
+<tr class="separator:aa8cecbdfc40be85dd897ba91453b344a inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0afaf6a08991715cd5500122748041eb inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a0afaf6a08991715cd5500122748041eb"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Split_MDMCFG4</b> ()</td></tr>
+<tr class="separator:a0afaf6a08991715cd5500122748041eb inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af89d2271be9b833fe029e1fda7d56312 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_af89d2271be9b833fe029e1fda7d56312"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Split_MDMCFG2</b> ()</td></tr>
+<tr class="separator:af89d2271be9b833fe029e1fda7d56312 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af94a76ea5af223fee50254ff0b30f63a inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_af94a76ea5af223fee50254ff0b30f63a"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Split_MDMCFG1</b> ()</td></tr>
+<tr class="separator:af94a76ea5af223fee50254ff0b30f63a inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25efb84ea21237e1d8c0c1d544057853 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a25efb84ea21237e1d8c0c1d544057853"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetTx</b> ()</td></tr>
+<tr class="separator:a25efb84ea21237e1d8c0c1d544057853 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b79603cc4ce637233076aef5987a8a5 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a8b79603cc4ce637233076aef5987a8a5"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetRx</b> ()</td></tr>
+<tr class="separator:a8b79603cc4ce637233076aef5987a8a5 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac0d7d3f745801b4b4b1979ceaf8d802 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_aac0d7d3f745801b4b4b1979ceaf8d802"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetTx</b> (float mhz)</td></tr>
+<tr class="separator:aac0d7d3f745801b4b4b1979ceaf8d802 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11243ccdf5587f74bf2e4a65946815bb inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a11243ccdf5587f74bf2e4a65946815bb"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetRx</b> (float mhz)</td></tr>
+<tr class="separator:a11243ccdf5587f74bf2e4a65946815bb inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eec24a97a7b2f6a9e8f90e6aa9d0fd7 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a8eec24a97a7b2f6a9e8f90e6aa9d0fd7"><td class="memItemLeft" align="right" valign="top">
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getRssi</b> ()</td></tr>
+<tr class="separator:a8eec24a97a7b2f6a9e8f90e6aa9d0fd7 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af97c9e69a69f784c822162bb409c0324 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_af97c9e69a69f784c822162bb409c0324"><td class="memItemLeft" align="right" valign="top">
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getLqi</b> ()</td></tr>
+<tr class="separator:af97c9e69a69f784c822162bb409c0324 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21d44dc1e195c41343c50f6b1f805b5d inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a21d44dc1e195c41343c50f6b1f805b5d"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSres</b> ()</td></tr>
+<tr class="separator:a21d44dc1e195c41343c50f6b1f805b5d inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accaf243ba4dc2a391549d582548402de inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_accaf243ba4dc2a391549d582548402de"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSidle</b> ()</td></tr>
+<tr class="separator:accaf243ba4dc2a391549d582548402de inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b26beb7b254a9fe33b2ea0489ce6689 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a4b26beb7b254a9fe33b2ea0489ce6689"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>goSleep</b> ()</td></tr>
+<tr class="separator:a4b26beb7b254a9fe33b2ea0489ce6689 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe8cfa76cfe3d526258b9a8f0527bd2c inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_afe8cfa76cfe3d526258b9a8f0527bd2c"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SendData</b> (const char *txchar)</td></tr>
+<tr class="separator:afe8cfa76cfe3d526258b9a8f0527bd2c inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79584c11f3b9548aa842d3421e67e904 inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_a79584c11f3b9548aa842d3421e67e904"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SendData</b> (uint8_t *txBuffer, uint8_t size)</td></tr>
+<tr class="separator:a79584c11f3b9548aa842d3421e67e904 inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5032ea138783c5aeeff3823818954ce inherit pub_methods_classIntroSatLib_1_1CC1101" id="r_ab5032ea138783c5aeeff3823818954ce"><td class="memItemLeft" align="right" valign="top">
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>CheckCRC</b> ()</td></tr>
+<tr class="separator:ab5032ea138783c5aeeff3823818954ce inherit pub_methods_classIntroSatLib_1_1CC1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Методы</h2>
+<a id="ade9c5d8008b0fb7ba92e2151f5a7beed" name="ade9c5d8008b0fb7ba92e2151f5a7beed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade9c5d8008b0fb7ba92e2151f5a7beed">&#9670;&#160;</a></span>await()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntroSatLib::CC1101WithDelay::await </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1CC1101.html">IntroSatLib::CC1101</a>.</p>
+
+</div>
+</div>
+<a id="a134dbb9f11a843b526515e709342e156" name="a134dbb9f11a843b526515e709342e156"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a134dbb9f11a843b526515e709342e156">&#9670;&#160;</a></span>setDRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntroSatLib::CC1101WithDelay::setDRate </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>kD</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Переопределяет метод предка <a class="el" href="classIntroSatLib_1_1CC1101.html">IntroSatLib::CC1101</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>src/Device/CC1101/<a class="el" href="CC1101_8h_source.html">CC1101.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a class="el" href="classIntroSatLib_1_1CC1101WithDelay.html">CC1101WithDelay</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

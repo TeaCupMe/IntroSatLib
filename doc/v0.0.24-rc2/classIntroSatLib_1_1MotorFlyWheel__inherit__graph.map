@@ -1,0 +1,9 @@
+<map id="IntroSatLib::MotorFlyWheel" name="IntroSatLib::MotorFlyWheel">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,226,183,252"/>
+<area shape="rect" id="Node000002" href="$classIntroSatLib_1_1BaseFlyWheel.html" title=" " alt="" coords="7,153,181,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,194,97,226,91,226,91,194"/>
+<area shape="rect" id="Node000003" href="$classIntroSatLib_1_1I2CDevice.html" title=" " alt="" coords="18,79,170,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="97,120,97,152,91,152,91,120"/>
+<area shape="rect" id="Node000004" href="$classIntroSatLib_1_1Device.html" title=" " alt="" coords="28,5,160,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="97,46,97,79,91,79,91,46"/>
+</map>
