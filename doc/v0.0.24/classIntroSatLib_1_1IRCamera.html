@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>IntroSatLib: Класс IntroSatLib::IRCamera</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="dropdown.css" rel="stylesheet" type="text/css"/>
+<link href="theme-round.css" rel="stylesheet" type="text/css"/>
+<link href="theme-robot.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IntroSatLib
+   <!-- BEGIN PROJECT_NUMBER&#160;<span id="projectnumber">v0.0.24</span>END PROJECT_NUMBER -->
+   </div>
+  </td>
+    <!-- BEGIN version select -->
+    <td align="right">
+    <div class="dropdown">
+        <button class="dropbtn">Version v0.0.24</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+    <script type="text/javascript" src="./selectversion.js"></script>
+    </td>
+    <!-- END version select -->
+ </tr>
+ </tbody>
+</table>
+<div id="theme-selection">
+ <label for="theme-select">Theme:</label>
+ <select id="theme-select">
+  <option value="theme-default">Default</option>
+  <option value="theme-round">Round</option>
+  <option value="theme-robot">Robot</option>
+ </select>
+</div>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classIntroSatLib_1_1IRCamera.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classIntroSatLib_1_1IRCamera-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс IntroSatLib::IRCamera</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:IntroSatLib::IRCamera:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classIntroSatLib_1_1IRCamera__inherit__graph.svg" width="163" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a1fc8cab3fcbd47bed763bdcc726aaeaf" id="r_a1fc8cab3fcbd47bed763bdcc726aaeaf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeaf">Framerate</a> { <a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e">FPS_10</a> = 0
+, <a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeafa81c8ccc55fb696606bbda356baa21d8d">FPS_1</a> = 1
+ }</td></tr>
+<tr class="memdesc:a1fc8cab3fcbd47bed763bdcc726aaeaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Количество кадров (обновлений данных) в секунду  <a href="#a1fc8cab3fcbd47bed763bdcc726aaeaf">Подробнее...</a><br /></td></tr>
+<tr class="separator:a1fc8cab3fcbd47bed763bdcc726aaeaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:afd42f1e0ad801f5fc4a9d3ce6d47001e" id="r_afd42f1e0ad801f5fc4a9d3ce6d47001e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd42f1e0ad801f5fc4a9d3ce6d47001e">IRCamera</a> (const <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> &amp;i2c, uint8_t address=BASE_ADDRESS)</td></tr>
+<tr class="memdesc:afd42f1e0ad801f5fc4a9d3ce6d47001e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта ИК-камеры.  <br /></td></tr>
+<tr class="separator:afd42f1e0ad801f5fc4a9d3ce6d47001e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dbcd4d50d4f16151b7926c138dc42eb" id="r_a1dbcd4d50d4f16151b7926c138dc42eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1dbcd4d50d4f16151b7926c138dc42eb">IRCamera</a> (const <a class="el" href="classIntroSatLib_1_1IRCamera.html">IRCamera</a> &amp;other)</td></tr>
+<tr class="memdesc:a1dbcd4d50d4f16151b7926c138dc42eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта ИК-камеры  <br /></td></tr>
+<tr class="separator:a1dbcd4d50d4f16151b7926c138dc42eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a029db9b77ff9c3528d6e17bb19b4bcad" id="r_a029db9b77ff9c3528d6e17bb19b4bcad"><td class="memItemLeft" align="right" valign="top"><a id="a029db9b77ff9c3528d6e17bb19b4bcad" name="a029db9b77ff9c3528d6e17bb19b4bcad"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IRCamera</b> (<a class="el" href="classIntroSatLib_1_1IRCamera.html">IRCamera</a> &amp;&amp;other)</td></tr>
+<tr class="separator:a029db9b77ff9c3528d6e17bb19b4bcad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8852e4ab026c47e8cca1319988f9f9d0" id="r_a8852e4ab026c47e8cca1319988f9f9d0"><td class="memItemLeft" align="right" valign="top"><a id="a8852e4ab026c47e8cca1319988f9f9d0" name="a8852e4ab026c47e8cca1319988f9f9d0"></a>
+<a class="el" href="classIntroSatLib_1_1IRCamera.html">IRCamera</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classIntroSatLib_1_1IRCamera.html">IRCamera</a> &amp;other)</td></tr>
+<tr class="separator:a8852e4ab026c47e8cca1319988f9f9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9d0c91268f9f07acc08f54178b03c3e" id="r_ae9d0c91268f9f07acc08f54178b03c3e"><td class="memItemLeft" align="right" valign="top"><a id="ae9d0c91268f9f07acc08f54178b03c3e" name="ae9d0c91268f9f07acc08f54178b03c3e"></a>
+<a class="el" href="classIntroSatLib_1_1IRCamera.html">IRCamera</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classIntroSatLib_1_1IRCamera.html">IRCamera</a> &amp;&amp;other)</td></tr>
+<tr class="separator:ae9d0c91268f9f07acc08f54178b03c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadede42c4e1754c2ff7e199c0f4b2f11" id="r_aadede42c4e1754c2ff7e199c0f4b2f11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadede42c4e1754c2ff7e199c0f4b2f11">useForceReset</a> (interfaces::GPIO_HANDLE_TYPE &amp;resetPort, uint16_t resetPin=0)</td></tr>
+<tr class="memdesc:aadede42c4e1754c2ff7e199c0f4b2f11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включает использование пина reset ИК-камеры.  <br /></td></tr>
+<tr class="separator:aadede42c4e1754c2ff7e199c0f4b2f11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53d5a93a40408726632323f59c009bd6" id="r_a53d5a93a40408726632323f59c009bd6"><td class="memItemLeft" align="right" valign="top"><a id="a53d5a93a40408726632323f59c009bd6" name="a53d5a93a40408726632323f59c009bd6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>useMirrored</b> ()</td></tr>
+<tr class="memdesc:a53d5a93a40408726632323f59c009bd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вывод картинки в отзеркаленном виде <br /></td></tr>
+<tr class="separator:a53d5a93a40408726632323f59c009bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade5050b97643e2d5d8e0d35162351137" id="r_ade5050b97643e2d5d8e0d35162351137"><td class="memItemLeft" align="right" valign="top"><a id="ade5050b97643e2d5d8e0d35162351137" name="ade5050b97643e2d5d8e0d35162351137"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>useNotMirrored</b> ()</td></tr>
+<tr class="memdesc:ade5050b97643e2d5d8e0d35162351137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вывод картинки в нормальном (не отзеркаленном) виде <br /></td></tr>
+<tr class="separator:ade5050b97643e2d5d8e0d35162351137"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa69d981be732d69815de21b44fd4b841" id="r_aa69d981be732d69815de21b44fd4b841"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa69d981be732d69815de21b44fd4b841">Init</a> () override</td></tr>
+<tr class="memdesc:aa69d981be732d69815de21b44fd4b841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация камеры с параметрами по умолчанию: <a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e">Framerate::FPS_10</a>.  <br /></td></tr>
+<tr class="separator:aa69d981be732d69815de21b44fd4b841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7259058545a6a6db61d601e12939881" id="r_aa7259058545a6a6db61d601e12939881"><td class="memItemLeft" align="right" valign="top">ISL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7259058545a6a6db61d601e12939881">Init</a> (<a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeaf">Framerate</a> framrate)</td></tr>
+<tr class="memdesc:aa7259058545a6a6db61d601e12939881"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация камеры с заданным количеством кадров в секунду  <br /></td></tr>
+<tr class="separator:aa7259058545a6a6db61d601e12939881"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65cf6e91d4c6db8635094486b51a5846" id="r_a65cf6e91d4c6db8635094486b51a5846"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65cf6e91d4c6db8635094486b51a5846">Read</a> ()</td></tr>
+<tr class="memdesc:a65cf6e91d4c6db8635094486b51a5846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Считывание значений с матрицы ИК-камеры во внутренний буффер.  <br /></td></tr>
+<tr class="separator:a65cf6e91d4c6db8635094486b51a5846"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35dc23801eb348de678b74b3cf5d94b0" id="r_a35dc23801eb348de678b74b3cf5d94b0"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35dc23801eb348de678b74b3cf5d94b0">getPixelRaw</a> (uint8_t x, uint8_t y)</td></tr>
+<tr class="memdesc:a35dc23801eb348de678b74b3cf5d94b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение необработанного значения пикселя  <br /></td></tr>
+<tr class="separator:a35dc23801eb348de678b74b3cf5d94b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a440c56a2f0f37442887191e6ae823d72" id="r_a440c56a2f0f37442887191e6ae823d72"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a440c56a2f0f37442887191e6ae823d72">getPixel</a> (uint8_t x, uint8_t y)</td></tr>
+<tr class="memdesc:a440c56a2f0f37442887191e6ae823d72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение значения пикселя  <br /></td></tr>
+<tr class="separator:a440c56a2f0f37442887191e6ae823d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Перечисления</h2>
+<a id="a1fc8cab3fcbd47bed763bdcc726aaeaf" name="a1fc8cab3fcbd47bed763bdcc726aaeaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fc8cab3fcbd47bed763bdcc726aaeaf">&#9670;&#160;</a></span>Framerate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeaf">IntroSatLib::IRCamera::Framerate</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Количество кадров (обновлений данных) в секунду </p>
+<table class="fieldtable">
+<tr><th colspan="3">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e" name="a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e"></a>FPS_10&#160;</td><td class="fieldinit">0&#160;</td><td class="fielddoc"><p>10 кадров в секунду </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1fc8cab3fcbd47bed763bdcc726aaeafa81c8ccc55fb696606bbda356baa21d8d" name="a1fc8cab3fcbd47bed763bdcc726aaeafa81c8ccc55fb696606bbda356baa21d8d"></a>FPS_1&#160;</td><td class="fieldinit">1&#160;</td><td class="fielddoc"><p>1 кадр в секунду </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="afd42f1e0ad801f5fc4a9d3ce6d47001e" name="afd42f1e0ad801f5fc4a9d3ce6d47001e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd42f1e0ad801f5fc4a9d3ce6d47001e">&#9670;&#160;</a></span>IRCamera() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::IRCamera::IRCamera </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>i2c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span><span class="paramdefsep"> = </span><span class="paramdefval">BASE_ADDRESS</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Создание объекта ИК-камеры. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Только в STM32CubeIDE </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hi2c</td><td>объект <b>I2C_HandleTypeDef</b> </td></tr>
+    <tr><td class="paramname">address</td><td>адрес ИК-камеры на шине I2C </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1dbcd4d50d4f16151b7926c138dc42eb" name="a1dbcd4d50d4f16151b7926c138dc42eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dbcd4d50d4f16151b7926c138dc42eb">&#9670;&#160;</a></span>IRCamera() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::IRCamera::IRCamera </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classIntroSatLib_1_1IRCamera.html">IRCamera</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Создание объекта ИК-камеры </p>
+<dl class="section note"><dt>Заметки</dt><dd>Только в Arduino IDE </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hi2c</td><td>объект <b>TwoWire</b> или <b>Wire</b> </td></tr>
+    <tr><td class="paramname">address</td><td>адрес ИК-камеры на шине I2C </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Только в Arduino IDE</dd></dl>
+<p>Создание объекта ИК-камеры на <b>I2C1</b> </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>адрес ИК-камеры на шине I2C</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Создание объекта ИК-камеры как копии другого объекта ИК-камеры</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>исходный объект для копирования </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a440c56a2f0f37442887191e6ae823d72" name="a440c56a2f0f37442887191e6ae823d72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a440c56a2f0f37442887191e6ae823d72">&#9670;&#160;</a></span>getPixel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::IRCamera::getPixel </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение значения пикселя </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Координата x пикселя </td></tr>
+    <tr><td class="paramname">y</td><td>Координата y пикселя </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Значение пикселя в диапазоне от 0 до 1 </dd></dl>
+
+</div>
+</div>
+<a id="a35dc23801eb348de678b74b3cf5d94b0" name="a35dc23801eb348de678b74b3cf5d94b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35dc23801eb348de678b74b3cf5d94b0">&#9670;&#160;</a></span>getPixelRaw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t IntroSatLib::IRCamera::getPixelRaw </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение необработанного значения пикселя </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Координата x пикселя </td></tr>
+    <tr><td class="paramname">y</td><td>Координата y пикселя </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Необработанное значение пикселя, 12 бит, right-aligned </dd></dl>
+
+</div>
+</div>
+<a id="aa69d981be732d69815de21b44fd4b841" name="aa69d981be732d69815de21b44fd4b841"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa69d981be732d69815de21b44fd4b841">&#9670;&#160;</a></span>Init() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::IRCamera::Init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Инициализация камеры с параметрами по умолчанию: <a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e">Framerate::FPS_10</a>. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>0, если инициализация завершена успешно </dd>
+<dd>
+1, если при инициализации возникла ошибка </dd></dl>
+
+<p>Переопределяет метод предка <a class="el" href="classIntroSatLib_1_1I2CDevice.html#ae90feb3286dce14b8b5b9179fbcc3cdd">IntroSatLib::I2CDevice</a>.</p>
+
+</div>
+</div>
+<a id="aa7259058545a6a6db61d601e12939881" name="aa7259058545a6a6db61d601e12939881"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7259058545a6a6db61d601e12939881">&#9670;&#160;</a></span>Init() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::IRCamera::Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a1fc8cab3fcbd47bed763bdcc726aaeaf">Framerate</a></td>          <td class="paramname"><span class="paramname"><em>framrate</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Инициализация камеры с заданным количеством кадров в секунду </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">framrate</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>0, если инициализация завершена успешно </dd>
+<dd>
+1, если при инициализации возникла ошибка </dd></dl>
+
+</div>
+</div>
+<a id="a65cf6e91d4c6db8635094486b51a5846" name="a65cf6e91d4c6db8635094486b51a5846"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65cf6e91d4c6db8635094486b51a5846">&#9670;&#160;</a></span>Read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t IntroSatLib::IRCamera::Read </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Считывание значений с матрицы ИК-камеры во внутренний буффер. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>0, если изображение считано успешно </dd>
+<dd>
+1, если считывании возникла ошибка </dd></dl>
+
+</div>
+</div>
+<a id="aadede42c4e1754c2ff7e199c0f4b2f11" name="aadede42c4e1754c2ff7e199c0f4b2f11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadede42c4e1754c2ff7e199c0f4b2f11">&#9670;&#160;</a></span>useForceReset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntroSatLib::IRCamera::useForceReset </td>
+          <td>(</td>
+          <td class="paramtype">interfaces::GPIO_HANDLE_TYPE &amp;</td>          <td class="paramname"><span class="paramname"><em>resetPort</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>resetPin</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Включает использование пина reset ИК-камеры. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resetPort</td><td>Порт, которому подключён контакт </td></tr>
+    <tr><td class="paramname">resetPin</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/Device/IRCamera/<a class="el" href="IRCamera_8h_source.html">IRCamera.h</a></li>
+<li>src/Device/IRCamera/<b>IRCamera.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a class="el" href="classIntroSatLib_1_1IRCamera.html">IRCamera</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>
