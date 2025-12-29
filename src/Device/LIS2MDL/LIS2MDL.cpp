@@ -60,17 +60,17 @@ int16_t LIS2MDL::RawMZ()
 float LIS2MDL::MX()
 {
 	RawMX();
-	return _mx * _sens;
+	return _mx * _sens / 1000;
 }
 float LIS2MDL::MY()
 {
 	RawMY();
-	return _my * _sens;
+	return _my * _sens / 1000;
 }
 float LIS2MDL::MZ()
 {
 	RawMZ();
-	return _mz * _sens;
+	return _mz * _sens / 1000;
 }
 
 
