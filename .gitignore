@@ -34,6 +34,9 @@
 # folder with local tools
 tools/*
 
+# IDEs
+.vscode/
+
 # documentation
 doxygen/*
 !doxygen/doxygen-style.css
