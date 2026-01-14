@@ -21,7 +21,7 @@ ISL_StatusTypeDef LIS2MDL::Init()
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady());
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CFG_REG_A, 0b10001100));
 	system::Delay(1);
-	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CFG_REG_B, 0b00000000));
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CFG_REG_B, 0b00010011));
 	system::Delay(1);
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CFG_REG_C, 0b00010000));
 	system::Delay(1);
