@@ -1,4 +1,9 @@
 #include "Gyroscope.h"
+#include "IntroSatLib_def.h"
+#include "Adapter/I2C.h"
+#include "Device/I2CDevice.h"
+
+#ifdef ISL_I2C_ENABLED
 
 namespace IntroSatLib {
 
@@ -123,3 +128,5 @@ float Gyroscope::Z()
 Gyroscope::~Gyroscope() { }
 
 }
+
+#endif /* ISL_I2C_ENABLED */

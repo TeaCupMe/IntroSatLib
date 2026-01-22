@@ -7,6 +7,10 @@
 
 #include "MS5611.h"
 #include "Adapter/System.h"
+#include "Adapter/I2C.h"
+#include "Device/I2CDevice.h"
+
+#ifdef ISL_I2C_ENABLED
 
 namespace IntroSatLib {
 
@@ -155,3 +159,4 @@ MS5611::~MS5611() {
 
 } /* namespace IntroStratLib */
 
+#endif /* ISL_I2C_ENABLED */

@@ -7,7 +7,10 @@
 
 #include "LSM6DS3.h"
 #include "Adapter/System.h"
+#include "Device/I2CDevice.h"
 #include "stdint.h"
+
+#ifdef ISL_I2C_ENABLED
 
 namespace IntroSatLib {
 
@@ -231,3 +234,4 @@ ISL_StatusTypeDef LSM6DS3::Deinit() {
 LSM6DS3::~LSM6DS3() { }
 
 } /* namespace IntroSatLib */
+#endif /* ISL_I2C_ENABLED */
