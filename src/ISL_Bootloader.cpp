@@ -38,7 +38,7 @@ void EnterBootloader(void)
         USART1->DR = *next_char;
     }
 
-    HAL_Delay(200); // Delay to send data through UART?
+    // HAL_Delay(200); // Must be commented for working in CubeIDE
 
     CLEAR_BIT(USART1->CR1, (USART_CR1_UE));
 #endif /** STM32F103xx */
