@@ -1,5 +1,10 @@
 #include "AK8963.h"
 #include "Adapter/System.h"
+#include "Adapter/I2C.h"
+#include "Device/I2CDevice.h"
+
+#ifdef ISL_I2C_ENABLED
+
 namespace IntroSatLib {
 
 //#ifndef ARDUINO
@@ -106,3 +111,5 @@ float AK8963::Z()
 AK8963::~AK8963() { }
 
 } /* namespace IntroSatLib */
+
+#endif /* ISL_I2C_ENABLED */

@@ -1,5 +1,8 @@
 #include "LightSensor.h"
+#include "Adapter/I2C.h"
+#include "Device/I2CDevice.h"
 
+#ifdef ISL_I2C_ENABLED
 namespace IntroSatLib {
 
 //#ifndef ARDUINO
@@ -60,3 +63,5 @@ int16_t LightSensor::GetLight()
 LightSensor::~LightSensor() { }
 
 } /* namespace IntroSatLib */
+
+#endif /* ISL_I2C_ENABLED */

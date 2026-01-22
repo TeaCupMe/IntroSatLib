@@ -1,5 +1,5 @@
 #include "I2CDevice.h"
-
+#ifdef ISL_I2C_ENABLED
 namespace IntroSatLib {
 
 ISL_StatusTypeDef I2CDevice::IsReady() {
@@ -122,3 +122,5 @@ I2CDevice::~I2CDevice()
 }
 
 } /* namespace IntroSatLib */
+
+#endif /* ISL_I2C_ENABLED */

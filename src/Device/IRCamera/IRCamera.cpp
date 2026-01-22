@@ -1,5 +1,10 @@
 #include "IRCamera.h"
 #include "Adapter/System.h"
+#include "Adapter/I2C.h"
+#include "Device/I2CDevice.h"
+
+#ifdef ISL_I2C_ENABLED
+
 namespace IntroSatLib {
 
 IRCamera::IRCamera(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
@@ -110,3 +115,5 @@ void IRCamera::tryReset()
 IRCamera::~IRCamera() { }
 
 }
+
+#endif /* ISL_I2C_ENABLED */

@@ -1,9 +1,8 @@
-#ifndef BASEDEVICE_H_
-#define BASEDEVICE_H_
+#ifndef I2CDEVICE_H_
+#define I2CDEVICE_H_
 
 #include "../Adapter/I2C.h"
 #include "Device.h"
-#ifdef I2C_ENABLED
 
 namespace IntroSatLib {
 
@@ -114,5 +113,4 @@ public:
 
 } /* namespace IntroSatLib */
 
-#endif /* I2C_ENABLED */
-#endif /* BASEDEVICE_H_ */
+#endif /* I2CDEVICE_H_ */

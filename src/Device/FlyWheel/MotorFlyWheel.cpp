@@ -1,4 +1,7 @@
 #include "MotorFlyWheel.h"
+#include "Adapter/I2C.h"
+
+#ifdef ISL_I2C_ENABLED
 
 namespace IntroSatLib {
 
@@ -36,3 +39,5 @@ MotorFlyWheel& MotorFlyWheel::operator=(MotorFlyWheel &&other)
 MotorFlyWheel::~MotorFlyWheel() { }
 
 } /* namespace IntroSatLib */
+
+#endif /* ISL_I2C_ENABLED */

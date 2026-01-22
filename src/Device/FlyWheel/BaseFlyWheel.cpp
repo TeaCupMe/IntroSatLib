@@ -1,4 +1,8 @@
 #include "BaseFlyWheel.h"
+#include "Adapter/I2C.h"
+#include "Device/I2CDevice.h"
+
+#ifdef ISL_I2C_ENABLED
 
 namespace IntroSatLib {
 
@@ -331,3 +335,5 @@ BaseFlyWheel& BaseFlyWheel::operator=(BaseFlyWheel &&other)
 BaseFlyWheel::~BaseFlyWheel() { }
 
 } /* namespace IntroSatLib */
+
+#endif /* ISL_I2C_ENABLED */
