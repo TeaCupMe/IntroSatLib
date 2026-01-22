@@ -6,6 +6,11 @@
  */
 
 #include "LM75A.h"
+#include "Adapter/I2C.h"
+#include "Adapter/System.h"
+#include "Device/I2CDevice.h"
+
+#ifdef ISL_I2C_ENABLED
 
 namespace IntroSatLib {
 
@@ -44,3 +49,4 @@ uint8_t LM75A::GetConfig() {
 }
 
 }
+#endif /* ISL_I2C_ENABLED */

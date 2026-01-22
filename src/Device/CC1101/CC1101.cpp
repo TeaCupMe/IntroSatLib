@@ -1,6 +1,9 @@
 #define INTROSATLIB_INTERNAL
 #include "CC1101.h"
-#ifdef ISL_SPI_ENABLED_NOT 
+#include "Adapter/SPI.h"
+
+#ifdef ISL_SPI_ENABLED_NOT
+
 namespace IntroSatLib {
 
 void CC1101::reset()
