@@ -64,7 +64,7 @@ private:
 	static const uint8_t BASE_ADDRESS = 0x77; /* another available address is 0x76 */
 	static constexpr float P_SEA_LEVEL = 1013.25f; // mbar
 
-	OSR _sensitivity = OSR::OSR_256;
+	OSR _osr = OSR::OSR_256;
 
 	uint16_t _koeff_prom[8]; /* PROM content array */
 	uint8_t _crc;
@@ -92,14 +92,14 @@ public:
 	void PROM_Print(UART_HandleTypeDef* uart);
 #endif
 
-	ISL_StatusTypeDef Init(OSR sensitivity);
+	ISL_StatusTypeDef Init(OSR );
 	ISL_StatusTypeDef Init() override {
-		return Init(OSR::OSR_1024);
+		return Init(OSR::OSR_2048);
 	}
 
 	uint8_t CalculateCRC();
 
-	ISL_StatusTypeDef SetSensitivity(OSR sensitivity);
+	ISL_StatusTypeDef SetOSR(OSR osr);
 
 	float GetPressure() override; // TODO: if error return NaN
 	float GetTemperature();
