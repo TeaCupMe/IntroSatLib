@@ -38,7 +38,7 @@
 			// define STM32-specific handle type for SPI
 			#define ISL_SPI_ENABLED
 			namespace IntroSatLib::interfaces {using SPI_HANDLE_TYPE = SPI_HandleTypeDef;}
-		#elif !defined(INTROSATLIB_INTERNAL)
+		#elif !defined(ISL_INTERNAL)
 			#error "SPI not enabled as part of HAL"
 		#endif
 
@@ -47,7 +47,7 @@
 		// #error "AMUR not yet supported"
 	/************ UNKNOWN ************/
 	#else
-		#ifndef INTROSATLIB_INTERNAL
+		#ifndef ISL_INTERNAL
 			#error Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros.  \
 			 		Currently supported systems are: stm32 with HAL, stm32duino. AVR planned for future support.
 		#endif

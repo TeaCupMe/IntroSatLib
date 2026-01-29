@@ -4,7 +4,7 @@
  *  Created on: Mar 6, 2025
  *      Author: Aleksey <TeaCupMe> Gilenko
  */
-#define INTROSATLIB_INTERNAL
+#define ISL_INTERNAL
 
 #include "Adapter/I2C.h"
 

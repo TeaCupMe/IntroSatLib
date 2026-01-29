@@ -39,7 +39,7 @@
 			#define	ISL_I2C_ENABLED
 			namespace IntroSatLib::interfaces {using I2C_HANDLE_TYPE = I2C_HandleTypeDef;}
 
-		#elif !defined(INTROSATLIB_INTERNAL)
+		#elif !defined(ISL_INTERNAL)
 			#error "I2C not enabled as part of HAL"
 		#endif
 
@@ -50,7 +50,7 @@
 
 	#else
 	/************ UNKNOWN ************/
-		#ifndef INTROSATLIB_INTERNAL
+		#ifndef ISL_INTERNAL
 			#error Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros.  \
 			 		Currently supported systems are: stm32 with HAL, stm32duino. AVR planned for future support.
 		#endif

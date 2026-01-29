@@ -1,4 +1,4 @@
-#define INTROSATLIB_INTERNAL
+#define ISL_INTERNAL
 #include "Adapter/UART.h"
 
 #if defined(ARDUINO) // If HAL SPI is enabled and no Arduino framework
