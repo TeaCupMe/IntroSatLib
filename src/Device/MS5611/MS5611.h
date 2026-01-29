@@ -88,8 +88,8 @@ public:
 
 	MS5611(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
 
-#if defined(DEBUG) && !defined(ARDUINO)
-	void PROM_Print(UART_HandleTypeDef* uart);
+#ifdef DEBUG
+	void GetPROM(uint16_t* buffer);
 #endif
 
 	ISL_StatusTypeDef Init(OSR );
