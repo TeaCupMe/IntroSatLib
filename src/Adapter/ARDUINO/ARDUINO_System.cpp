@@ -1,4 +1,4 @@
-#define INTROSATLIB_INTERNAL
+#define ISL_INTERNAL
 #include "Adapter/System.h"
 
 #ifdef ARDUINO

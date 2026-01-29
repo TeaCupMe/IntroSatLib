@@ -1,5 +1,10 @@
-#include "I2CDevice.h"
+#define ISL_INTERNAL
+
+#include "Adapter/I2C.h"
+
 #ifdef ISL_I2C_ENABLED
+
+#include "I2CDevice.h"
 namespace IntroSatLib {
 
 ISL_StatusTypeDef I2CDevice::IsReady() {

@@ -22,7 +22,7 @@
 #endif
 
 // raise warn if boot address is not set
-#if !defined(BOOT_ADDR) and !defined(INTROSATLIB_INTERNAL)
+#if !defined(BOOT_ADDR) and !defined(ISL_INTERNAL)
     // Looks like unsupported platform
 	#warning "IntroSatLib::EnterBootloader() not supported by selected package"
 	#warning "IntroSatLib::EnterBootloader() currently supports STM32F1xx, STM32F4xx, STM32H750xx."

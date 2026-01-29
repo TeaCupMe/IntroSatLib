@@ -1,4 +1,4 @@
-#define INTROSATLIB_INTERNAL
+#define ISL_INTERNAL
 #include "Adapter/SPI.h"
 
 #if defined(HAL_SPI_MODULE_ENABLED) && !defined(ARDUINO) // If HAL SPI is enabled and no Arduino framework
