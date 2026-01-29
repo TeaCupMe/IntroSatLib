@@ -1,4 +1,4 @@
-#define INTROSAT_INTERNAL
+#define ISL_INTERNAL
 
 #include "ISL_Bootloader.h"
 

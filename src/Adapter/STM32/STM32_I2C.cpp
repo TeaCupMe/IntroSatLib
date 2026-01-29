@@ -1,5 +1,5 @@
 
-#define INTROSATLIB_INTERNAL
+#define ISL_INTERNAL
 #include "Adapter/I2C.h"
 
 #if defined(HAL_I2C_MODULE_ENABLED) && !defined(ARDUINO)

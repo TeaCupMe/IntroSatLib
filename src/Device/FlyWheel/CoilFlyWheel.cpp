@@ -1,7 +1,10 @@
-#include "CoilFlyWheel.h"
+#define ISL_INTERNAL
+
 #include "Adapter/I2C.h"
 
 #ifdef ISL_I2C_ENABLED
+
+#include "CoilFlyWheel.h"
 
 namespace IntroSatLib {
 

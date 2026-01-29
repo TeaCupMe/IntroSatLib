@@ -4,13 +4,15 @@
  *  Created on: Mar 18, 2025
  *      Author: unflesh
  */
+#define ISL_INTERNAL
+
+#include "Adapter/I2C.h"
+
+#ifdef ISL_I2C_ENABLED
 
 #include "LIS3MDL.h"
 #include "Adapter/System.h"
-#include "Adapter/I2C.h"
 #include "Device/I2CDevice.h"
-
-#ifdef ISL_I2C_ENABLED
 
 namespace IntroSatLib {
 
