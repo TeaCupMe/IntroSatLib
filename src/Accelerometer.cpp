@@ -1,8 +1,9 @@
-#include "Accelerometer.h"
 #include "Adapter/I2C.h"
-#include "Device/I2CDevice.h"
 
 #ifdef ISL_I2C_ENABLED
+
+#include "Accelerometer.h"
+#include "Device/I2CDevice.h"
 
 namespace IntroSatLib {
 

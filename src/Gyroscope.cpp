@@ -1,24 +1,16 @@
-#include "Gyroscope.h"
-#include "IntroSatLib_def.h"
 #include "Adapter/I2C.h"
-#include "Device/I2CDevice.h"
 
 #ifdef ISL_I2C_ENABLED
 
+#include "Gyroscope.h"
+#include "IntroSatLib_def.h"
+#include "Device/I2CDevice.h"
+
 namespace IntroSatLib {
 
-//#ifndef ARDUINO
 Gyroscope::Gyroscope(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
 {
 }
-//#else
-//Gyroscope::Gyroscope(TwoWire &hi2c, uint8_t address): I2CDevice(hi2c, address)
-//{
-//}
-//Gyroscope::Gyroscope(uint8_t address): I2CDevice(address)
-//{
-//}
-//#endif
 
 Gyroscope::Gyroscope(const Gyroscope &other): I2CDevice(other)
 {

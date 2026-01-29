@@ -1,9 +1,10 @@
-#include "AK8963.h"
-#include "Adapter/System.h"
 #include "Adapter/I2C.h"
-#include "Device/I2CDevice.h"
 
 #ifdef ISL_I2C_ENABLED
+
+#include "AK8963.h"
+#include "Adapter/System.h"
+#include "Device/I2CDevice.h"
 
 namespace IntroSatLib {
 

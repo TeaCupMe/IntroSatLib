@@ -1,9 +1,12 @@
-#include "IRCamera.h"
-#include "Adapter/System.h"
+#define INTROSATLIB_INTERNAL
+
 #include "Adapter/I2C.h"
-#include "Device/I2CDevice.h"
+#include "Adapter/System.h"
 
 #ifdef ISL_I2C_ENABLED
+
+#include "IRCamera.h"
+#include "Device/I2CDevice.h"
 
 namespace IntroSatLib {
 

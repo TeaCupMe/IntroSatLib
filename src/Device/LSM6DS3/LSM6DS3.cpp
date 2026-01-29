@@ -4,13 +4,15 @@
  *  Created on: Mar 17, 2025
  *      Author: Goldfor
  */
+#define INTROSATLIB_INTERNAL
+
+#include "Adapter/I2C.h"
+
+#ifdef ISL_I2C_ENABLED
 
 #include "LSM6DS3.h"
 #include "Adapter/System.h"
 #include "Device/I2CDevice.h"
-#include "stdint.h"
-
-#ifdef ISL_I2C_ENABLED
 
 namespace IntroSatLib {
 

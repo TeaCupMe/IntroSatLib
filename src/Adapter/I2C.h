@@ -21,7 +21,7 @@
 	#if defined(AVR)
 	/************** AVR  **************/
 		//  This is not yet supported, but it is here for future reference.
-		//  AVR-series in Arduino IDE
+		//  AVR-series outside Arduino IDE
 		#error "Bare AVR outside of Arduino IDE is not yet supported"
 
 	#elif defined(USE_HAL_DRIVER) // TODO Change to more reusable symbol
@@ -50,19 +50,15 @@
 
 	#else
 	/************ UNKNOWN ************/
-	//#ifndef INTROSATLIB_INTERNAL
-		#error "Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros."
-		#error "Currently supported systems are: stm32 with HAL, stm32duino. AVR planned for future support."
-	//#endif
+		#ifndef INTROSATLIB_INTERNAL
+			#error Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros.  \
+			 		Currently supported systems are: stm32 with HAL, stm32duino. AVR planned for future support.
+		#endif
 	#endif
 #endif /* ARDUINO */
 
 
 #ifdef ISL_I2C_ENABLED
-#define I2C_ENABLED
-
-//#include <array>
-
 
 #define ASSERT_I2C_HAVE() \
 if(!_hi2c) { \
