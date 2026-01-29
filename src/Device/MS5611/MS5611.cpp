@@ -25,7 +25,7 @@ ISL_StatusTypeDef MS5611::Init(OSR osr) {
 	uint8_t tx_buf = CMD::RST;
 	RETURN_STATUS_IF_NOT_OK_SILENT(WriteI2C(&tx_buf, 1));
 	system::Delay(5);
-	RETURN_STATUS_IF_NOT_OK_SILENT(SetSensitivity(osr));
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetOSR(osr));
 	return ReadPROM();
 }
 
