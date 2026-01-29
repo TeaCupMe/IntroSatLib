@@ -19,13 +19,13 @@ namespace IntroSatLib {
 MS5611::MS5611(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address) {
 }
 
-ISL_StatusTypeDef MS5611::Init(OSR sensitivity) {
+ISL_StatusTypeDef MS5611::Init(OSR osr) {
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady())
 
 	uint8_t tx_buf = CMD::RST;
 	RETURN_STATUS_IF_NOT_OK_SILENT(WriteI2C(&tx_buf, 1));
 	system::Delay(5);
-	RETURN_STATUS_IF_NOT_OK_SILENT(SetSensitivity(sensitivity));
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetOSR(osr));
 	return ReadPROM();
 }
 
@@ -66,23 +66,15 @@ uint8_t MS5611::CalculateCRC() {
 	return (n_rem);
 }
 
-#if defined(DEBUG) && !defined(ARDUINO)
-void MS5611::PROM_Print(UART_HandleTypeDef* uart) {
-	char tx_buf[64];
-	for (uint8_t i = 0; i < 8; i++) {
-		sprintf(tx_buf, "%d\t", _koeff_prom[i]);
-		HAL_UART_Transmit(uart, (uint8_t*)tx_buf, strlen(tx_buf), 100);
-		for (uint8_t k = 0; k < 64; k++) {
-			tx_buf[k] = '\0';
-		}
-	}
-	HAL_UART_Transmit(uart, (uint8_t*)"\n", 1, 100);
+#ifdef DEBUG
+void MS5611::GetPROM(uint16_t* buffer) {
+	memcpy(buffer, _koeff_prom, 8 * sizeof(uint16_t));
 }
 #endif
 
-ISL_StatusTypeDef MS5611::SetSensitivity(OSR sensitivity) {
-	_sensitivity = sensitivity;
-	return ISL_OK;
+ISL_StatusTypeDef MS5611::SetOSR(OSR osr) {
+	_osr = osr;
+	return ISL_StatusTypeDef::ISL_OK;
 }
 
 ISL_StatusTypeDef MS5611::ReadADC() {
@@ -92,15 +84,13 @@ ISL_StatusTypeDef MS5611::ReadADC() {
 }
 
 ISL_StatusTypeDef MS5611::ReadRawTemperature() {
-	RETURN_STATUS_IF_NOT_OK_SILENT(WriteI2C(CMD::REQUEST_TEMPERATURE | _sensitivity));
-	system::Delay(30);
-	RETURN_STATUS_IF_NOT_OK_SILENT(ReadADC())
-
+	RETURN_STATUS_IF_NOT_OK_SILENT(WriteI2C(CMD::REQUEST_TEMPERATURE | _osr));
+	system::Delay(10);
 	uint8_t buf[3];
-	RETURN_STATUS_IF_NOT_OK_SILENT(ReadI2C(buf, 3));
+	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(CMD::ADC_READ, buf, 3));
 
 	_raw_temperature = (((uint32_t) buf[0]) << 16) | (((uint32_t) buf[1]) << 8) | ((uint32_t) buf[2]);
-	return ISL_OK;
+	return ISL_StatusTypeDef::ISL_OK;
 }
 
 float MS5611::GetTemperature() {
@@ -117,8 +107,8 @@ float MS5611::GetTemperature() {
 }
 
 ISL_StatusTypeDef MS5611::ReadRawPressure() {
-	RETURN_STATUS_IF_NOT_OK_SILENT(WriteI2C(CMD::REQUEST_PRESSURE + _sensitivity));
-	system::Delay(30);
+	RETURN_STATUS_IF_NOT_OK_SILENT(WriteI2C(CMD::REQUEST_PRESSURE | _osr));
+	system::Delay(10);
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadADC())
 
 	uint8_t buf[3];
