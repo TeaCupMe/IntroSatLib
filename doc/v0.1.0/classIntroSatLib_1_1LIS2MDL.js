@@ -1,0 +1,37 @@
+var classIntroSatLib_1_1LIS2MDL =
+[
+    [ "RegisterMap", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114", [
+      [ "OFFSET_X_REG_L", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a50b65d23995886c60ddddec7cf7f0216", null ],
+      [ "OFFSET_X_REG_H", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a8f5b5968a33ec84151c8f9ce43948fe3", null ],
+      [ "OFFSET_Y_REG_L", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a432b85a90c29e2c0a47bb558f0e37124", null ],
+      [ "OFFSET_Y_REG_H", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a5f7075d94cf88bd83ec78c1685f1bd7e", null ],
+      [ "OFFSET_Z_REG_L", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a3ea296546651c81c0eb53488ab4311bd", null ],
+      [ "OFFSET_Z_REG_H", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a1eca0b081a4f7a1fcef7c35adb35e27d", null ],
+      [ "WHO_AM_I", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a2ab92ceaeadb2969fbf7adc82886bb8c", null ],
+      [ "CFG_REG_A", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a3f113681d9fae60b84ebbc9cb5ecfb63", null ],
+      [ "CFG_REG_B", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a7497b96c493eaa8619f0e7a7abd42b6b", null ],
+      [ "CFG_REG_C", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a979b9c209cdcf64b345d255a001e14da", null ],
+      [ "INT_CRTL_REG", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a8e9deb0b312aec40780c546e145dd628", null ],
+      [ "INT_SOURCE_REG", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a9e076802d0f0b52cc5a5b42e57f8b65e", null ],
+      [ "INT_THS_L_REG", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a1dafca541f80bc7e55fb4a3fd84cd8af", null ],
+      [ "INT_THS_H_REG", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114ab7948d9a7afe62a86296a45b9140fd7c", null ],
+      [ "STATUS_REG", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a5f0d1ebe34eeb0e402b02a83f45008fd", null ],
+      [ "OUTX_L_REG", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114ab02ba804fd005b80c475124212bd576d", null ],
+      [ "OUTX_H_REG", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a8701efc2ef59d2d6efad739d8ed0e539", null ],
+      [ "OUTY_L_REG", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a874ca30ed034b072eb7afddb84324904", null ],
+      [ "OUTY_H_REG", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114aa6daae85aca2c7c55f96dc06ef60b3cd", null ],
+      [ "OUTZ_L_REG", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114aea4e1bc778bd5153a808643890e34ead", null ],
+      [ "OUTZ_H_REG", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a92489c09ca5a3a83de1d16df6c1c0e26", null ],
+      [ "TEMP_OUT_L_REG", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a7977157afe61bceed7d8d15e5dffd23f", null ],
+      [ "TEMP_OUT_H_REG", "classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114ab7b1c0798d6c54e94091976506bb806b", null ]
+    ] ],
+    [ "LIS2MDL", "classIntroSatLib_1_1LIS2MDL.html#ac9e789261ddcb0fb2c51a49694e1dec4", null ],
+    [ "~LIS2MDL", "classIntroSatLib_1_1LIS2MDL.html#a7bed4fa9b1d25eb87c91168055a2051a", null ],
+    [ "Init", "classIntroSatLib_1_1LIS2MDL.html#a6884bda94019b395f7867f6968748576", null ],
+    [ "MX", "classIntroSatLib_1_1LIS2MDL.html#ac0f87b7a88d37838d3c953734ef5b67c", null ],
+    [ "MY", "classIntroSatLib_1_1LIS2MDL.html#aea776b2774f60f782ed2ebd744905cbd", null ],
+    [ "MZ", "classIntroSatLib_1_1LIS2MDL.html#a7d60651dbd62b9aeabccafb413bf7f13", null ],
+    [ "RawMX", "classIntroSatLib_1_1LIS2MDL.html#ab16463d8f89748297e3f770f7ba106c9", null ],
+    [ "RawMY", "classIntroSatLib_1_1LIS2MDL.html#a863fceb2c9d990d99cb7d741acf0d7be", null ],
+    [ "RawMZ", "classIntroSatLib_1_1LIS2MDL.html#aba2580e010733ed0a7b5a9e988d43589", null ]
+];

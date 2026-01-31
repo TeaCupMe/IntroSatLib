@@ -1,0 +1,13 @@
+<map id="src/Device" name="src/Device">
+<area shape="rect" id="node2" href="dir_ac86e92e9fcedba7308e0cb60036c303.html" title="Base" alt="" coords="122,63,174,89"/>
+<area shape="rect" id="node3" href="dir_e42dab26d39f27dc6d8bb5a503c5b1b6.html" title="CC1101" alt="" coords="198,63,266,89"/>
+<area shape="rect" id="node4" href="dir_8a80dac32941871a6c0a734735d51354.html" title="FlyWheel" alt="" coords="290,63,364,89"/>
+<area shape="rect" id="node5" href="dir_bc2bfe795b7f351370c876ddd549d7a5.html" title="IRCamera" alt="" coords="388,63,468,89"/>
+<area shape="rect" id="node6" href="dir_e213a7e4c08f4e46dc2586834a792cdd.html" title="LIS2MDL" alt="" coords="492,63,569,89"/>
+<area shape="rect" id="node7" href="dir_47e0f4f8d2421ec61237f4f55d739615.html" title="LIS3MDL" alt="" coords="593,63,671,89"/>
+<area shape="rect" id="node8" href="dir_476aa5daec20dc589bd9f2f1520336cb.html" title="LM75A" alt="" coords="695,63,758,89"/>
+<area shape="rect" id="node9" href="dir_13507b2bca82c90041bdd884c0483adf.html" title="LSM6DS3" alt="" coords="782,63,863,89"/>
+<area shape="rect" id="node10" href="dir_5aa8c77ed69040d8121a50862c1443ba.html" title="MS5611" alt="" coords="888,63,957,89"/>
+<area shape="rect" id="clust2" href="dir_737e998198a830156af4433d00da986d.html" alt="" coords="27,52,968,99"/>
+<area shape="rect" id="clust1" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html" title="src" alt="" coords="16,16,979,110"/>
+</map>
