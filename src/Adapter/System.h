@@ -4,8 +4,12 @@
 // Include general Library definitions
 #include "IntroSatLib_def.h"
 
+#if defined(ISL_VIRTUAL)
+	#include <thread>  // Required for std::this_thread::sleep_for
+	#include <chrono>  // Required for duration types like std::chrono::seconds
 
-#ifdef ARDUINO
+
+#elif defined(ARDUINO)
 /*********************************/
 /********** Arduino IDE **********/
 /*********************************/
