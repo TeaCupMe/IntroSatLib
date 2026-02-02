@@ -4,6 +4,10 @@ project(mylib)
 # Define the source files for the library
 set(MYLIB_SOURCES
     src/Adapter/VIRTUAL/VIRTUAL_System.cpp
+    src/Adapter/VIRTUAL/VIRTUAL_I2C.cpp
+    src/Device/I2CDevice.cpp
+    src/Device/LSM6DS3/LSM6DS3.cpp
+    src/Device/LIS3MDL/LIS3MDL.cpp
     src/Logger.cpp
     # src/anotherfile.cpp
     # Add all source files here

@@ -5,7 +5,12 @@
 #include "IntroSatLib_def.h"
 
 
-#ifdef ARDUINO
+#if defined(ISL_VIRTUAL)
+	#include "v_core/v_interfaces/v_i2c.h"
+	#define	ISL_I2C_ENABLED
+	namespace IntroSatLib::interfaces {using I2C_HANDLE_TYPE = V_I2C;}
+
+#elif defined(ARDUINO)
 /*********************************/
 /********** Arduino IDE **********/
 /*********************************/

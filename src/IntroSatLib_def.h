@@ -10,6 +10,10 @@ enum ISL_StatusTypeDef {
 	ISL_TIMEOUT	= 0x03U
 };
 
+// ISL_StatusTypeDef operator|=(ISL_StatusTypeDef lhs, bool rhs) {
+// 	return rhs ? lhs : ISL_ERROR;
+// }
+
 #if !defined(UNUSED)
 #define UNUSED(X) (void) X      /* To avoid compiler warnings warnings */
 #endif /* UNUSED */

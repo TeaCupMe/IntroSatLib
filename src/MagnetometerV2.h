@@ -4,7 +4,7 @@
 //#include "Device/I2CDevice.h"
 //#include "../BaseDevice.h"
 #include "Device/LIS3MDL/LIS3MDL.h"
-#ifndef ARDUINO
+#if !defined(ARDUINO) && !defined(ISL_VIRTUAL)
 #include "Quaternion/Quaternion.h"
 #include <cmath>
 #include <array>
@@ -161,7 +161,7 @@ namespace IntroSatLib
 		float Z() {
 			return LIS3MDL::MZ();
 		}
-#ifndef ARDUINO	
+#if !defined(ARDUINO) && !defined(ISL_VIRTUAL)
 		// TODO @Goldfor @TeaCupMe Что тут получаем?
 		Quaternion<float> GetQuaternion() {
 			std::array<float, 3> buf;

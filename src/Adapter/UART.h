@@ -4,7 +4,12 @@
 // Include general Library definitions
 #include "IntroSatLib_def.h"
 
-#ifdef ARDUINO
+#if defined(ISL_VIRTUAL)
+	#include "v_core/v_interfaces/v_uart.h"
+	#define	ISL_UART_ENABLED
+	namespace IntroSatLib::interfaces {using UART_HANDLE_TYPE = V_UART;}
+
+#elif defined(ARDUINO)
 /*********************************/
 /********** Arduino IDE **********/
 /*********************************/

@@ -9,7 +9,7 @@
 #include "Adapter/System.h"
 #include <stdint.h>
 
-#ifndef ARDUINO
+#if !defined(ARDUINO) && !defined(ISL_VIRTUAL)
 #include "Quaternion/Quaternion.h"
 #endif
 
@@ -265,7 +265,7 @@ public:
 	void SetMinCutZ(float z) {
 		LSM6DS3::SetMinCutX(z);
 	}
-#ifndef ARDUINO
+#if !defined(ARDUINO) && !defined(ISL_VIRTUAL)
 	// TODO @TeaCupMe Описать более понятным языком
 	/**
 	 * @brief Получение изменения углового положения в виде набора кватернионов
