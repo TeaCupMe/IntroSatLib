@@ -5,7 +5,7 @@
 #include "IntroSatLib_def.h"
 
 #if defined(ISL_VIRTUAL)
-	#include "v_core/v_interfaces/v_uart.h"
+	#include "v_uart.h"
 	#define	ISL_UART_ENABLED
 	namespace IntroSatLib::interfaces {using UART_HANDLE_TYPE = V_UART;}
 
