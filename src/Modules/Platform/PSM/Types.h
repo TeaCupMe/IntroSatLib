@@ -1,10 +1,3 @@
-/*
- * Types.h
- *
- *  Created on: Nov 8, 2025
- *      Author: alesh
- */
-
 #ifndef MODULES_PLATFORM_PSM_TYPES_H_
 #define MODULES_PLATFORM_PSM_TYPES_H_
 #include <stdint.h>
