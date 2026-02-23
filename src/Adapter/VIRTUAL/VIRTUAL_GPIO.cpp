@@ -1,5 +1,5 @@
 #include "Adapter/GPIO.h"
-#if defined(ARDUINO)
+#if defined(ISL_VIRTUAL)
 
 IntroSatLib::interfaces::GPIO::GPIO(GPIO_HANDLE_TYPE* port, uint16_t pin): _port(nullptr), _pin(*port) { 
     UNUSED(pin);

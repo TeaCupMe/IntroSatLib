@@ -1,7 +1,7 @@
 #define ISL_INTERNAL
 #include "Adapter/UART.h"
 
-#if defined(ARDUINO) // If HAL SPI is enabled and no Arduino framework
+#if defined(ISL_VIRTUAL) // If HAL SPI is enabled and no Arduino framework
 
 uint8_t IntroSatLib::interfaces::UART::available() {
     return _huart->available(); // TODO implement for HAL??
