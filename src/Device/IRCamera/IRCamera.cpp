@@ -1,9 +1,9 @@
-#define ISL_INTERNAL
+#define SOURCE_USES_ADAPTER
 
 #include "Adapter/I2C.h"
 #include "Adapter/System.h"
 
-#ifdef ISL_I2C_ENABLED
+#ifdef ADAPTER_I2C_ENABLED
 
 #include "IRCamera.h"
 #include "Device/I2CDevice.h"
@@ -58,7 +58,7 @@ ISL_StatusTypeDef IRCamera::Init(Framerate framrate)
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(AMG88xx_RST, 0x3F))
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(AMG88xx_INTC, 0))
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(AMG88xx_FPSC, 0x01)) // this should be framerate
-	system::Delay(1000);
+	interfaces::system::Delay(1000);
 	return ISL_OK;
 }
 
@@ -110,13 +110,13 @@ void IRCamera::tryReset()
 {
 	if (!_reset.isValid()) { return; }
 	_reset.set();
-	system::Delay(100);
+	interfaces::system::Delay(100);
 	_reset.reset();
-	system::Delay(100);
+	interfaces::system::Delay(100);
 }
 
 IRCamera::~IRCamera() { }
 
 }
 
-#endif /* ISL_I2C_ENABLED */
+#endif /* ADAPTER_I2C_ENABLED */

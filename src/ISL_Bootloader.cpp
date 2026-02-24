@@ -1,4 +1,4 @@
-#define ISL_INTERNAL
+#define SOURCE_USES_ADAPTER
 
 #include "ISL_Bootloader.h"
 

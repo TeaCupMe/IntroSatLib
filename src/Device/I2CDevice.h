@@ -1,8 +1,10 @@
 #ifndef I2CDEVICE_H_
 #define I2CDEVICE_H_
 
-#include "../Adapter/I2C.h"
+
 #include "Device.h"
+#include "Adapter_def.h"
+#include "Adapter/I2C.h"
 
 namespace IntroSatLib {
 

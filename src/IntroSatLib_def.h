@@ -10,6 +10,8 @@ enum ISL_StatusTypeDef {
 	ISL_TIMEOUT	= 0x03U
 };
 
+#define ADAPTER_RETURN_STATUS_TYPE ISL_StatusTypeDef
+
 #if !defined(UNUSED)
 #define UNUSED(X) (void) X      /* To avoid compiler warnings warnings */
 #endif /* UNUSED */

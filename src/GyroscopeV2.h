@@ -107,7 +107,7 @@ public:
 	 * @returns 1, если при инициализации возникла ошибка
 	 */
 	ISL_StatusTypeDef Init(Scale scale, DataRate dataRate) {
-		_lastXTime = system::GetTick();
+		_lastXTime = interfaces::system::GetTick();
 		_lastYTime = _lastXTime;
 		_lastZTime = _lastXTime;
 		return LSM6DS3::InitGyro((LSM6DS3::ScaleGyro) scale, (LSM6DS3::DataRateGyro) dataRate);
@@ -195,7 +195,7 @@ public:
 	 */
 	float integrationX() {
 	   float speed = X();
-	   uint32_t time = system::GetTick();
+	   uint32_t time = interfaces::system::GetTick();
 	   uint32_t deltaTime = time - _lastXTime;
 	   float value = (_lastX + speed) * (deltaTime >> 1) * 0.001;
 	   _lastX = speed;
@@ -213,7 +213,7 @@ public:
 	 */
 	float integrationY() {
 		float speed = Y();
-		uint32_t time = system::GetTick();
+		uint32_t time = interfaces::system::GetTick();
 		uint32_t deltaTime = time - _lastYTime;
 		float value = (_lastY + speed) * (deltaTime >> 1) * 0.001;
 		_lastY = speed;
@@ -231,7 +231,7 @@ public:
 	 */
 	float integrationZ() {
 		float speed = Z();
-		uint32_t time = system::GetTick();
+		uint32_t time = interfaces::system::GetTick();
 		uint32_t deltaTime = time - _lastZTime;
 		float value = (_lastZ + speed) * (deltaTime >> 1) * 0.001;
 		_lastZ = speed;

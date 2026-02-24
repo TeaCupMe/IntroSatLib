@@ -1,8 +1,8 @@
-#define ISL_INTERNAL
+#define SOURCE_USES_ADAPTER
 
 #include "Adapter/I2C.h"
 
-#ifdef ISL_I2C_ENABLED
+#ifdef ADAPTER_I2C_ENABLED
 
 #include "CoilFlyWheel.h"
 
@@ -43,4 +43,4 @@ CoilFlyWheel::~CoilFlyWheel() { }
 
 } /* namespace IntroSatLib */
 
-#endif /* ISL_I2C_ENABLED */
+#endif /* ADAPTER_I2C_ENABLED */

@@ -1,8 +1,11 @@
-#define ISL_INTERNAL
+#define SOURCE_USES_ADAPTER
 
+#include "IntroSatLib.h"
+#include "Adapter_def.h"
 #include "Adapter/SPI.h"
+#include "Adapter/GPIO.h"
 
-#ifdef ISL_SPI_ENABLED
+#ifdef ADAPTER_SPI_ENABLED
 
 #include "Device/SPIDevice.h"
 
@@ -43,4 +46,4 @@ ISL_StatusTypeDef SPIDevice::TransmitReceiveSPI(uint8_t *out, uint8_t *in, uint8
     return spi.transfer(out, in, len);
 };
 }
-#endif /* ISL_SPI_ENABLED */
+#endif /* ADAPTER_SPI_ENABLED */

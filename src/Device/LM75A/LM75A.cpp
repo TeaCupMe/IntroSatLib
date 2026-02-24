@@ -4,11 +4,11 @@
  *  Created on: Mar 6, 2025
  *      Author: Aleksey <TeaCupMe> Gilenko
  */
-#define ISL_INTERNAL
+#define SOURCE_USES_ADAPTER
 
 #include "Adapter/I2C.h"
 
-#ifdef ISL_I2C_ENABLED
+#ifdef ADAPTER_I2C_ENABLED
 
 #include "LM75A.h"
 #include "Adapter/System.h"
@@ -49,4 +49,4 @@ uint8_t LM75A::GetConfig() {
 }
 
 }
-#endif /* ISL_I2C_ENABLED */
+#endif /* ADAPTER_I2C_ENABLED */

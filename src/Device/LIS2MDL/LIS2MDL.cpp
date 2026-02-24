@@ -4,11 +4,11 @@
  *  Created on: Nov 24, 2025
  *      Author: samsa
  */
-#define ISL_INTERNAL
+#define SOURCE_USES_ADAPTER
 
 #include "Adapter/I2C.h"
 
-#ifdef ISL_I2C_ENABLED
+#ifdef ADAPTER_I2C_ENABLED
 
 #include "LIS2MDL.h"
 #include "Device/I2CDevice.h"
@@ -23,14 +23,14 @@ LIS2MDL::LIS2MDL(interfaces::I2C i2c): I2CDevice(i2c, BASE_ADDRESS)
 
 ISL_StatusTypeDef LIS2MDL::Init()
 {
-	system::Delay(15); // wait for powerup (can be 10)
+	interfaces::system::Delay(15); // wait for powerup (can be 10)
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady());
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CFG_REG_A, 0b10001100));
-	system::Delay(1);
+	interfaces::system::Delay(1);
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CFG_REG_B, 0b00010011));
-	system::Delay(1);
+	interfaces::system::Delay(1);
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::CFG_REG_C, 0b00010000));
-	system::Delay(1);
+	interfaces::system::Delay(1);
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::INT_CRTL_REG, 0b00000000));
 	return IsReady();
 }
@@ -84,7 +84,7 @@ LIS2MDL::~LIS2MDL() { }
 
 } /* namespace IntroSatLib */
 
-#endif /* ISL_I2C_ENABLED */
+#endif /* ADAPTER_I2C_ENABLED */
 
 
 

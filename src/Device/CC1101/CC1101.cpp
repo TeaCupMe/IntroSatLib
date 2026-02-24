@@ -1,8 +1,8 @@
-#define ISL_INTERNAL
+#define SOURCE_USES_ADAPTER
 
 #include "Adapter/SPI.h"
 
-#ifdef ISL_SPI_ENABLED_NOT
+#ifdef ADAPTER_SPI_ENABLED_NOT
 
 #include "CC1101.h"
 
@@ -639,4 +639,4 @@ uint8_t CC1101::CheckCRC()
 }
 
 } /* namespace IntroSatLib */
-#endif /* ISL_SPI_ENABLED */
+#endif /* ADAPTER_SPI_ENABLED */

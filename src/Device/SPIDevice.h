@@ -1,10 +1,12 @@
 #ifndef DEVICE_SPIDEVICE_H_
 #define DEVICE_SPIDEVICE_H_
 
+#include "IntroSatLib.h"
+#include "Device/Device.h"
+
+#include "Adapter_def.h"
 #include "Adapter/SPI.h"
 #include "Adapter/GPIO.h"
-#include "Device/Device.h"
-#include "IntroSatLib_def.h"
 
 namespace IntroSatLib {
 

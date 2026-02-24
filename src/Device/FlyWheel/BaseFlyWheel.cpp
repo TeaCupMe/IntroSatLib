@@ -1,8 +1,8 @@
-#define ISL_INTERNAL
+#define SOURCE_USES_ADAPTER
 
 #include "Adapter/I2C.h"
 
-#ifdef ISL_I2C_ENABLED
+#ifdef ADAPTER_I2C_ENABLED
 
 #include "BaseFlyWheel.h"
 #include "Device/I2CDevice.h"
@@ -338,4 +338,4 @@ BaseFlyWheel::~BaseFlyWheel() { }
 
 } /* namespace IntroSatLib */
 
-#endif /* ISL_I2C_ENABLED */
+#endif /* ADAPTER_I2C_ENABLED */

@@ -4,11 +4,11 @@
  *  Created on: Mar 10, 2025
  *      Author: unflesh
  */
-#define ISL_INTERNAL
+#define SOURCE_USES_ADAPTER
 
 #include "Adapter/I2C.h"
 
-#ifdef ISL_I2C_ENABLED
+#ifdef ADAPTER_I2C_ENABLED
 
 #include "MS5611.h"
 #include "Adapter/System.h"
@@ -24,7 +24,7 @@ ISL_StatusTypeDef MS5611::Init(OSR osr) {
 
 	uint8_t tx_buf = CMD::RST;
 	RETURN_STATUS_IF_NOT_OK_SILENT(WriteI2C(&tx_buf, 1));
-	system::Delay(5);
+	interfaces::system::Delay(5);
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetOSR(osr));
 	return ReadPROM();
 }
@@ -79,13 +79,13 @@ ISL_StatusTypeDef MS5611::SetOSR(OSR osr) {
 
 ISL_StatusTypeDef MS5611::ReadADC() {
 	RETURN_STATUS_IF_NOT_OK_SILENT(WriteI2C(CMD::ADC_READ));
-	system::Delay(10);
+	interfaces::system::Delay(10);
 	return ISL_StatusTypeDef::ISL_OK;
 }
 
 ISL_StatusTypeDef MS5611::ReadRawTemperature() {
 	RETURN_STATUS_IF_NOT_OK_SILENT(WriteI2C(CMD::REQUEST_TEMPERATURE | _osr));
-	system::Delay(10);
+	interfaces::system::Delay(10);
 	uint8_t buf[3];
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(CMD::ADC_READ, buf, 3));
 
@@ -108,7 +108,7 @@ float MS5611::GetTemperature() {
 
 ISL_StatusTypeDef MS5611::ReadRawPressure() {
 	RETURN_STATUS_IF_NOT_OK_SILENT(WriteI2C(CMD::REQUEST_PRESSURE | _osr));
-	system::Delay(10);
+	interfaces::system::Delay(10);
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadADC())
 
 	uint8_t buf[3];
@@ -151,4 +151,4 @@ MS5611::~MS5611() {
 
 } /* namespace IntroStratLib */
 
-#endif /* ISL_I2C_ENABLED */
+#endif /* ADAPTER_I2C_ENABLED */

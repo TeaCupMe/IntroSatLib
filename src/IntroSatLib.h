@@ -10,7 +10,4 @@
 
 #include "IntroSatLib_def.h"
 
-
-
-
 #endif /* INTROSATLIB_H_ */

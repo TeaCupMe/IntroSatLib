@@ -1,5 +1,6 @@
 #ifndef LOGGER_H_
 #define LOGGER_H_
+#define LOG
 
 #include <stdint.h>
 #include "IntroSatLib_def.h"

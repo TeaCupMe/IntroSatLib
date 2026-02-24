@@ -1,8 +1,8 @@
-#define ISL_INTERNAL
+#define SOURCE_USES_ADAPTER
 
 #include "Adapter/I2C.h"
 
-#ifdef ISL_I2C_ENABLED
+#ifdef ADAPTER_I2C_ENABLED
 
 #include "AK8963.h"
 #include "Adapter/System.h"
@@ -42,14 +42,14 @@ AK8963& AK8963::operator=(AK8963&& other)
 ISL_StatusTypeDef AK8963::Init()
 {
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(0x0A, 0x00));
-	system::Delay(100);
+	interfaces::system::Delay(100);
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(0x0A, 0x0F)); // Fuse ROM
-	system::Delay(100);
+	interfaces::system::Delay(100);
 	RETURN_STATUS_IF_NOT_OK_SILENT(ReadCal());
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(0x0A, 0x00));
-	system::Delay(100);
+	interfaces::system::Delay(100);
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(0x0A, 0x06)); // Continuous measurement mode 2
-	system::Delay(100);
+	interfaces::system::Delay(100);
 	return ISL_StatusTypeDef::ISL_OK;
 }
 
@@ -115,4 +115,4 @@ AK8963::~AK8963() { }
 
 } /* namespace IntroSatLib */
 
-#endif /* ISL_I2C_ENABLED */
+#endif /* ADAPTER_I2C_ENABLED */

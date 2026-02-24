@@ -4,11 +4,13 @@
  *  Created on: Mar 17, 2025
  *      Author: Goldfor
  */
-#define ISL_INTERNAL
+#define SOURCE_USES_ADAPTER
 
+#include "IntroSatLib.h"
+#include "Adapter_def.h"
 #include "Adapter/I2C.h"
 
-#ifdef ISL_I2C_ENABLED
+#ifdef ADAPTER_I2C_ENABLED
 
 #include "LSM6DS3.h"
 #include "Adapter/System.h"
@@ -28,7 +30,7 @@ ISL_StatusTypeDef LSM6DS3::WhoAmI() {
 
 ISL_StatusTypeDef LSM6DS3::InitGyro(ScaleGyro sensitivityGyro, DataRateGyro dataRateGyro)
 {
-	system::Delay(15); // wait for power up
+	interfaces::system::Delay(15); // wait for power up
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady())
 	RETURN_STATUS_IF_NOT_OK_SILENT(WhoAmI())
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetScaleGyro(sensitivityGyro))
@@ -46,7 +48,7 @@ ISL_StatusTypeDef LSM6DS3::InitGyro()
 }
 
 ISL_StatusTypeDef LSM6DS3::InitAccel(ScaleAccel scaleAccel, DataRateAccel dataRateAccel, FilterBandwidthAccel filter) {
-	system::Delay(15); // wait for power up
+	interfaces::system::Delay(15); // wait for power up
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady())
 	RETURN_STATUS_IF_NOT_OK_SILENT(WhoAmI())
 	RETURN_STATUS_IF_NOT_OK_SILENT(SetScaleAccel(scaleAccel))
@@ -236,4 +238,4 @@ ISL_StatusTypeDef LSM6DS3::Deinit() {
 LSM6DS3::~LSM6DS3() { }
 
 } /* namespace IntroSatLib */
-#endif /* ISL_I2C_ENABLED */
+#endif /* ADAPTER_I2C_ENABLED */
