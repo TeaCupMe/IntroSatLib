@@ -96,9 +96,9 @@ float IRCamera::getPixel(uint8_t x, uint8_t y)
 	return ((float)getPixelRaw(x, y)) * _rawdeg;
 }
 
-void IRCamera::useForceReset(interfaces::GPIO_HANDLE_TYPE& resetPort, uint16_t resetPin)
+void IRCamera::useForceReset(interfaces::GPIO resetPin)
 {
-	_reset = new interfaces::GPIO(&resetPort, resetPin);
+	_reset = resetPin;
 }
 
 void IRCamera::useMirrored() { _mirror = 1; }
@@ -108,10 +108,10 @@ void IRCamera::useNotMirrored() { _mirror = 0; }
 
 void IRCamera::tryReset()
 {
-	if (_reset == nullptr) { return; }
-	_reset->set();
+	if (!_reset.isValid()) { return; }
+	_reset.set();
 	system::Delay(100);
-	_reset->reset();
+	_reset.reset();
 	system::Delay(100);
 }
 

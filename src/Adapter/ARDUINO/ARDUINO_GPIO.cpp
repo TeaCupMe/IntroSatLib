@@ -1,9 +1,7 @@
 #include "Adapter/GPIO.h"
 #if defined(ARDUINO)
 
-IntroSatLib::interfaces::GPIO::GPIO(GPIO_HANDLE_TYPE* port, uint16_t pin): _port(nullptr), _pin(*port) { 
-    UNUSED(pin);
-}
+IntroSatLib::interfaces::GPIO::GPIO(GPIO_HANDLE_TYPE pin): _pin(pin) { }
 
 uint8_t IntroSatLib::interfaces::GPIO::read() const
 { return digitalRead(_pin); }

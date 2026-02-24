@@ -34,7 +34,13 @@
 		#ifdef HAL_GPIO_MODULE_ENABLED
 			// define STM32-specific handle type for GPIO
 			#define ISL_GPIO_ENABLED
-			namespace IntroSatLib::interfaces {using GPIO_HANDLE_TYPE = GPIO_TypeDef;}
+			namespace IntroSatLib::interfaces {
+				using GPIO_HANDLE_TYPE = struct {
+					GPIO_TypeDef* port = nullptr;
+					uint16_t pin = 0;
+				};
+
+			}
 
 		#elif !defined(ISL_INTERNAL)
 			#error "GPIO not enabled as part of HAL"
@@ -60,14 +66,12 @@
 namespace IntroSatLib {
 namespace interfaces {
 
-
-
 class GPIO final {
 private:
-	GPIO_HANDLE_TYPE* _port = 0;
-	uint16_t _pin = 0;
+	GPIO_HANDLE_TYPE _pin;
 public:
-	GPIO(GPIO_HANDLE_TYPE* port, uint16_t pin = 0);
+	GPIO(GPIO_HANDLE_TYPE port);
+	GPIO() {}
 
 	uint8_t read() const;
 
@@ -78,7 +82,7 @@ public:
 
 	uint8_t wait(uint8_t state, uint16_t timeout = 0xFFFF) const {
 		using ::IntroSatLib::system::GetTick;
-		state = !!state;
+		state = !!state; // To convert any uint to 0 or 1
 		uint32_t startTime = ::IntroSatLib::system::GetTick();
 		while(read() != state)
 		{
@@ -89,6 +93,9 @@ public:
 
 	uint8_t waitReset(uint16_t timeout = 0xFFFF) const { return wait(0, timeout); }
 	uint8_t waitSet(uint16_t timeout = 0xFFFF) const { return wait(1, timeout); }
+	bool isValid() {
+		return _pin.port != nullptr;
+	}
 };
 
 } /* namespace intefaces */

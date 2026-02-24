@@ -1,6 +1,9 @@
-#include "Device/SPIDevice.h"
-#include "SPIDevice.h"
+#include "Adapter/SPI.h"
+
 #ifdef ISL_SPI_ENABLED
+
+#include "Device/SPIDevice.h"
+
 namespace IntroSatLib {
 
 SPIDevice::SPIDevice(interfaces::SPI _spi): spi(_spi) { }
@@ -9,18 +12,18 @@ ISL_StatusTypeDef SPIDevice::Init() {
 	return ISL_StatusTypeDef::ISL_OK;
 }
 
-void SPIDevice::SetCS(interfaces::GPIO* _cs, bool _csActiveLow) {
+void SPIDevice::SetCS(interfaces::GPIO _cs, bool _csActiveLow) {
     cs = _cs;
     useCs = true;
     csActiveLow = _csActiveLow;
 }
 
 void SPIDevice::Select() {
-    csActiveLow ? cs->reset() : cs->set();
+    useCs ? csActiveLow ? cs->reset() : cs->set() : (void)0;
 }
 
 void SPIDevice::Deselect() {
-    csActiveLow ? cs->set() : cs->reset();
+    useCs ? csActiveLow ? cs->set() : cs->reset() : (void)0;
 }
 
 ISL_StatusTypeDef SPIDevice::TransmitSPI(uint8_t *out, uint8_t len)

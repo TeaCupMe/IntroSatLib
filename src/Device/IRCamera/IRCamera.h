@@ -39,7 +39,7 @@ private:
 	uint8_t _framrate = 0;
 	uint8_t _mirror = 0;
 
-	interfaces::GPIO* _reset = nullptr;
+	interfaces::GPIO _reset;
 
 	int16_t _buffer[64] = {0};
 
@@ -100,7 +100,7 @@ public:
 	 * @param resetPort Порт, которому подключён контакт 
 	 * @param resetPin 
 	 */
-	void useForceReset(interfaces::GPIO_HANDLE_TYPE& resetPort, uint16_t resetPin = 0);
+	void useForceReset(interfaces::GPIO resetPin);
 
 	/**
 	 * @brief Вывод картинки в отзеркаленном виде

@@ -12,7 +12,7 @@ class SPIDevice: public Device {
 private:
     interfaces::SPI spi;
     bool useCs = false;
-    interfaces::GPIO* cs;
+    interfaces::GPIO cs;
     bool csActiveLow = true;
 
 public:
@@ -26,7 +26,7 @@ public:
     ISL_StatusTypeDef ReceiveSPI(uint8_t* in, uint8_t len);
     ISL_StatusTypeDef TransmitReceiveSPI(uint8_t* out, uint8_t* in, uint8_t len);
 
-    void SetCS(interfaces::GPIO* _cs, bool _csActiveLow = true);
+    void SetCS(interfaces::GPIO _cs, bool _csActiveLow = true);
 
 };
 
