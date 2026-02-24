@@ -19,11 +19,11 @@ void SPIDevice::SetCS(interfaces::GPIO _cs, bool _csActiveLow) {
 }
 
 void SPIDevice::Select() {
-    useCs ? csActiveLow ? cs->reset() : cs->set() : (void)0;
+    useCs ? csActiveLow ? cs.reset() : cs.set() : (void)0;
 }
 
 void SPIDevice::Deselect() {
-    useCs ? csActiveLow ? cs->set() : cs->reset() : (void)0;
+    useCs ? csActiveLow ? cs.set() : cs.reset() : (void)0;
 }
 
 ISL_StatusTypeDef SPIDevice::TransmitSPI(uint8_t *out, uint8_t len)
