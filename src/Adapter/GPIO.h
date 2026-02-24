@@ -93,9 +93,7 @@ public:
 
 	uint8_t waitReset(uint16_t timeout = 0xFFFF) const { return wait(0, timeout); }
 	uint8_t waitSet(uint16_t timeout = 0xFFFF) const { return wait(1, timeout); }
-	bool isValid() {
-		return _pin.port != nullptr;
-	}
+	bool isValid() const;
 };
 
 } /* namespace intefaces */

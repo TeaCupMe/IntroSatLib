@@ -9,6 +9,8 @@ uint8_t IntroSatLib::interfaces::GPIO::read() const
 void IntroSatLib::interfaces::GPIO::write(uint8_t state) const
 { if (_pin.port ) HAL_GPIO_WritePin(_pin.port, _pin.pin, state > 0 ? GPIO_PIN_SET : GPIO_PIN_RESET); }
 
+bool IntroSatLib::interfaces::GPIO::isValid() const 
+{ return _pin.port != nullptr; }
 
 
 #endif /* defined(HAL_GPIO_MODULE_ENABLED) && !defined(ARDUINO) */
