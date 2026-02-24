@@ -20,25 +20,8 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес датчика освещённости на шине I2C
 	 */
-	LightSensor(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
-//#else
-//	/**
-//	 * @brief Создание объекта датчика освещённости
-//	 * @note Только в Arduino IDE
-//	 *
-//	 * @param hi2c объект @b TwoWire или @b Wire
-//	 * @param address адрес датчика освещённости на шине I2C
-//	 */
-//	LightSensor(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
-//
-//	/**
-//	 * @brief Создание объекта датчика освещённости на @b I2C1
-//	 * @note Только в Arduino IDE
-//	 *
-//	 * @param address адрес датчика освещённости на шине I2C
-//	 */
-//	LightSensor(uint8_t address = BASE_ADDRESS);
-//#endif
+	LightSensor(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
+
 	/**
 	 * @brief Создание объекта датчика освещённости как копии другого объекта датчика освещённости
 	 * 
