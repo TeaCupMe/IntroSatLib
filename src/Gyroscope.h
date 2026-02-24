@@ -49,7 +49,7 @@ public:
 		F3600b
 	};
 
-	Gyroscope(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
+	Gyroscope(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
 
 	Gyroscope(const Gyroscope &other);
 	Gyroscope(Gyroscope &&other);

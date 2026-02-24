@@ -25,9 +25,7 @@ void LM75A::PowerDown(bool shutdown) {
 	//TODO implement
 }
 
-LM75A::LM75A(const interfaces::I2C &i2c, uint8_t address) :
-		I2CDevice(new interfaces::I2C(i2c), address) {
-}
+LM75A::LM75A(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address) { }
 
 int16_t LM75A::GetRawTemperature() {
 	uint8_t raw[2];

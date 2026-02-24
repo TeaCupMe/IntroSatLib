@@ -57,7 +57,6 @@ public:
 		FPS_1 = 1	/**< 1 кадр в секунду */
 	};
 
-//#ifndef ARDUINO
 	/**
 	 * @note Только в STM32CubeIDE
 	 * @brief Создание объекта ИК-камеры. 
@@ -65,25 +64,8 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес ИК-камеры на шине I2C
 	 */
-	IRCamera(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
-//#else
-//	/**
-//	 * @note Только в Arduino IDE
-//	 * @brief Создание объекта ИК-камеры
-//	 *
-//	 * @param hi2c объект @b TwoWire или @b Wire
-//	 * @param address адрес ИК-камеры на шине I2C
-//	 */
-//	IRCamera(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
-//
-//	/**
-//	 * @note Только в Arduino IDE
-//	 * @brief Создание объекта ИК-камеры на @b I2C1
-//	 *
-//	 * @param address адрес ИК-камеры на шине I2C
-//	 */
-//	IRCamera(uint8_t address = BASE_ADDRESS);
-//#endif
+	IRCamera(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
+
 	/**
 	 * @brief Создание объекта ИК-камеры как копии другого объекта ИК-камеры
 	 * 

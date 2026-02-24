@@ -9,9 +9,8 @@
 
 namespace IntroSatLib {
 
-BaseFlyWheel::BaseFlyWheel(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
+BaseFlyWheel::BaseFlyWheel(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address)
 {
-
 }
 
 

@@ -10,10 +10,10 @@
 
 namespace IntroSatLib {
 
-Gyroscope::Gyroscope(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
+Gyroscope::Gyroscope(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address)
 {
 }
-
+	
 Gyroscope::Gyroscope(const Gyroscope &other): I2CDevice(other)
 {
 	_sensitivity= other._sensitivity;
