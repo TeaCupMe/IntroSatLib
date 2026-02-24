@@ -16,7 +16,7 @@
 
 namespace IntroSatLib {
 
-MS5611::MS5611(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address) {
+MS5611::MS5611(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address) {
 }
 
 ISL_StatusTypeDef MS5611::Init(OSR osr) {

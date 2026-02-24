@@ -17,7 +17,7 @@
 namespace IntroSatLib {
 
 
-LIS2MDL::LIS2MDL(const interfaces::I2C &i2c): I2CDevice(new interfaces::I2C(i2c), BASE_ADDRESS)
+LIS2MDL::LIS2MDL(interfaces::I2C i2c): I2CDevice(i2c, BASE_ADDRESS)
 {
 }
 

@@ -9,7 +9,7 @@ namespace IntroSatLib {
 class I2CDevice: public Device 	{
 
 private:
-	interfaces::I2C *_i2c;
+	interfaces::I2C _i2c;
 
 protected:
 
@@ -88,7 +88,7 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef в STM32CubeIDE или @b Wire в Arduino IDE
 	 * @param address адрес устройства на шине I2C
 	 */
-	I2CDevice(interfaces::I2C *i2c, uint8_t address);
+	I2CDevice(interfaces::I2C i2c, uint8_t address);
 
 	/**
 	 * @brief Создание объекта @ref BaseDevice как копии другого объекта @ref BaseDevice
