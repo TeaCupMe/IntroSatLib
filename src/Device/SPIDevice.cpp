@@ -1,3 +1,5 @@
+#define ISL_INTERNAL
+
 #include "Adapter/SPI.h"
 
 #ifdef ISL_SPI_ENABLED
