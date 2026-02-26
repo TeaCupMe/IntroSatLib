@@ -7,94 +7,71 @@
 #include "ADS7830.h"
 #include "Adapter/I2C.h"
 #include "Device/I2CDevice.h"
+#include "stdint.h"
 
 namespace IntroSatLib {
-IntroSatLib::ADS7830::ADS7830(interfaces::I2C i2c, uint8_t address) : 
-        I2CDevice(i2c, address) {
+IntroSatLib::ADS7830::ADS7830(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address), BaseADC(channelCount) {
 }
 
-ISL_StatusTypeDef ADS7830::SendCommand(Channel channel = Channel::CH0, 
-                                       ReferenceMode ref = ReferenceMode::INTERNAL,
-                                       AdcOn on = AdcOn::ADC_OFF) {
+ISL_StatusTypeDef ADS7830::RequestConversion(Channel channel = Channel::CH0) {
     uint8_t cmd = 0x0;
-    cmd |= mode << 7;
     cmd |= channel << 4;
-    cmd |= ref << 3;
-    cmd |= on << 2;
+    cmd |= refMode << 3;
+    cmd |= adcOn << 2;
     return WriteI2C(cmd); 
 }
 
 ISL_StatusTypeDef ADS7830::Init() {
-    return SetRefInternal();
+    return UseInternalReference();
 }
 
 ISL_StatusTypeDef ADS7830::Init(float uRef) {
-    return SetRefExternal(uRef);
+    return UseExternalReference(uRef);
 }
 
-ISL_StatusTypeDef ADS7830::SetRefInternal() {
-    float uRef = 2.5f;
-    _coeffConvert = uRef / (1 << _resolution);
-    SetAdcOn(ADC_OFF);
-    _cmd &= 0b11110111;
-    _cmd |= ReferenceMode::REF_INTERNAL << 3;
-    ISL_StatusTypeDef status = WriteI2C(_cmd);
-    system::Delay(1); // depends on capacitor on REF_IN / REF_OUT pin
-    return status; 
+void ADS7830::SetAdcOn(AdcMode on) {
+    adcOn = on;
 }
 
-ISL_StatusTypeDef ADS7830::SetRefExternal(float uRef) {
-    _coeffConvert = uRef / (1 << _resolution);
-    SetAdcOn(ADC_OFF);
-    _cmd &= 0b11110111;
-    _cmd |= ReferenceMode::REF_EXTERNAL << 3;
-    ISL_StatusTypeDef status = WriteI2C(_cmd);
-    system::Delay(1); // depends on capacitor on REF_IN / REF_OUT pin
-    return status; 
+ISL_StatusTypeDef ADS7830::UseExternalReference(float refVoltage)
+{
+    refMode = ReferenceMode::REF_EXTERNAL;
+    uRef = refVoltage;
+    return ISL_StatusTypeDef::ISL_OK;
 }
 
-void ADS7830::SetAdcOn(AdcOn on) {
-//    uint8_t cmd = 0x0;
-    _cmd &= 0b11111011;
-    _cmd |= on << 2;
-//   return WriteI2C(cmd); 
+ISL_StatusTypeDef ADS7830::UseInternalReference()
+{
+    refMode = ReferenceMode::REF_INTERNAL;
+    uRef = 2.5f;
+    return ISL_StatusTypeDef::ISL_OK;    
 }
 
 ISL_StatusTypeDef ADS7830::PowerDown() {
-    _cmd &= 0b11110000;
-    return WriteI2C(_cmd);
+    adcOn = AdcMode::ADC_OFF;
+    return ISL_StatusTypeDef::ISL_OK;
 }
 
 uint8_t ADS7830::GetRawValue(Channel channel) {
     ISL_StatusTypeDef status;
     uint8_t buf;
 
-    SetAdcOn(AdcOn::ADC_ON);
-    SetMode(mode);
-    SetChannel(channel);
-
-    status = WriteI2C(_cmd);
+    status = RequestConversion(channel);
     if (status != ISL_OK)    
         return -1;
         
     status = ReadI2C(&buf);
     if (status != ISL_OK)    
         return -1;
-        
+    values[channel] = buf;
     return buf;
 }
 
     
 float ADS7830::GetValue(Channel channel) {
-    uint8_t buf;
-    buf = GetRawValue(channel, mode);
-    return ((float)buf) * _coeffConvert;
+    GetRawValue(channel);
+    return BaseADC::GetValue(channel);
 }
-
-float ADS7830::GetValue(float coeff, Channel channel) {
-    return coeff * GetValue(channel, mode);
-}
-
 }
 
 #endif /* ISL_I2C_ENABLED */
