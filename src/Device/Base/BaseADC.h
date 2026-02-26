@@ -6,13 +6,14 @@
 
 namespace IntroSatLib {
 
-//template <size_t Channels>
-class BaseADC {
+template <size_t ChannelCount>
+class BaseADC: public Device {
 
 private:
-    //uint8_t resolution;
+    const uint8_t resolution;
+    float coefficients[ChannelCount];
 public:
-	//virtual float GetValue(size_t channel) = 0;
+	virtual float GetValue(uint8_t channel) = 0;
 };
 }
 

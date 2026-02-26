@@ -1,19 +1,28 @@
+#define ISL_INTERNAL
+
+#include "Adapter/I2C.h"
+
+#ifdef ISL_I2C_ENABLED
+
 #include "ADS7830.h"
+#include "Adapter/I2C.h"
+#include "Device/I2CDevice.h"
 
 namespace IntroSatLib {
-IntroSatLib::ADS7830::ADS7830(const interfaces::I2C &i2c, uint8_t address) : 
-        I2CDevice(new interfaces::I2C(i2c), address) {
+IntroSatLib::ADS7830::ADS7830(interfaces::I2C i2c, uint8_t address) : 
+        I2CDevice(i2c, address) {
 }
 
-// ISL_StatusTypeDef ADS7830::SendCommand(Mode mode = Mode::SINGLE_ENDED, Channel channel = Channel::CH0, 
-//                                                     ReferenceMode ref = ReferenceMode::INTERNAL, AdcOn on = AdcOn::ADC_OFF) {
-//     uint8_t cmd = 0x0;
-//     cmd |= mode << 7;
-//     cmd |= channel << 4;
-//     cmd |= ref << 3;
-//     cmd |= on << 2;
-//     return WriteI2C(cmd); 
-// }
+ISL_StatusTypeDef ADS7830::SendCommand(Channel channel = Channel::CH0, 
+                                       ReferenceMode ref = ReferenceMode::INTERNAL,
+                                       AdcOn on = AdcOn::ADC_OFF) {
+    uint8_t cmd = 0x0;
+    cmd |= mode << 7;
+    cmd |= channel << 4;
+    cmd |= ref << 3;
+    cmd |= on << 2;
+    return WriteI2C(cmd); 
+}
 
 ISL_StatusTypeDef ADS7830::Init() {
     return SetRefInternal();
@@ -21,16 +30,6 @@ ISL_StatusTypeDef ADS7830::Init() {
 
 ISL_StatusTypeDef ADS7830::Init(float uRef) {
     return SetRefExternal(uRef);
-}
-
-void ADS7830::SetMode(Mode mode) {
-    _cmd &= 0b01111111;
-    _cmd |= mode << 7;
-}
-
-void ADS7830::SetChannel(Channel channel) {
-    _cmd &= 0b10001111;
-    _cmd |= channel << 4;
 }
 
 ISL_StatusTypeDef ADS7830::SetRefInternal() {
@@ -66,7 +65,7 @@ ISL_StatusTypeDef ADS7830::PowerDown() {
     return WriteI2C(_cmd);
 }
 
-uint8_t ADS7830::GetRawValue(Channel channel, Mode mode) {
+uint8_t ADS7830::GetRawValue(Channel channel) {
     ISL_StatusTypeDef status;
     uint8_t buf;
 
@@ -86,15 +85,17 @@ uint8_t ADS7830::GetRawValue(Channel channel, Mode mode) {
 }
 
     
-float ADS7830::GetValue(Channel channel, Mode mode) {
+float ADS7830::GetValue(Channel channel) {
     uint8_t buf;
     buf = GetRawValue(channel, mode);
     return ((float)buf) * _coeffConvert;
 }
 
-float ADS7830::GetValue(float coeff, Channel channel, Mode mode) {
+float ADS7830::GetValue(float coeff, Channel channel) {
     return coeff * GetValue(channel, mode);
 }
 
 }
+
+#endif /* ISL_I2C_ENABLED */
 
