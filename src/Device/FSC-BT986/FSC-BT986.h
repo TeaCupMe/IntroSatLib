@@ -4,8 +4,6 @@
 #include "Adapter/GPIO.h"
 #include "Adapter/UART.h"
 #include "Adapter/System.h"
-#include "Commands.h"
-#include <string.h>
 
 
 namespace IntroSatLib
@@ -28,8 +26,8 @@ private:
     interfaces::UART *_uart;
     FSC_BT986Pins _pins;
 
-    uint32_t timer;
-    uint16_t timeout = 1000;
+    // uint32_t timer;
+    // uint16_t timeout = 100;
 
 public:
 
@@ -43,10 +41,25 @@ public:
 
     }
 
-    uint16_t getTimeout() {return timeout;}
-    void setTimeout(uint16_t newTimeout) {timeout = newTimeout;}
+    uint16_t executeATCommand(uint8_t* command, uint8_t* rxbuffer, uint16_t length, uint16_t timeout = 0xFFFF);
 
-    uint16_t executeATCommand(uint8_t* command, uint8_t* rxbuffer, uint16_t length);
+    ISL_StatusTypeDef writePIN(uint8_t* pinCode, uint16_t timeout = 0xFFFF);
+    ISL_StatusTypeDef readPIN(uint8_t* rxbuffer, uint16_t timeout = 0xFFFF);
+
+    ISL_StatusTypeDef readMAC(uint8_t* rxbuffer, uint16_t timeout = 0xFFFF);
+    ISL_StatusTypeDef connect(uint8_t* mac, uint16_t timeout = 0xFFFF);
+
+    ISL_StatusTypeDef writePrgReset(uint16_t timeout = 0xFFFF);
+    ISL_StatusTypeDef writeHardReset(uint8_t state);
+
+    ISL_StatusTypeDef writeCommandMode();
+
+    ISL_StatusTypeDef writePrgTpMode(uint8_t state, uint16_t timeout = 0xFFFF);
+    ISL_StatusTypeDef writeHardTpMode(uint8_t state);
+
+    ISL_StatusTypeDef readStatus(uint8_t* rxbuffer);
+
+    ISL_StatusTypeDef writeHardDisconnect(uint8_t state);
 
 };
     
