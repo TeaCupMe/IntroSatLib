@@ -54,7 +54,7 @@ public:
 
 private:
     static const uint8_t BASE_ADDRESS = 0x48;
-    const uint8_t channelCount = 16;
+    static const uint8_t channelCount = 16;
 
     
     ReferenceMode refMode;

@@ -9,8 +9,8 @@ namespace IntroSatLib {
 class BaseADC: public Device {
 private: 
     uint8_t channelCount = 0;
-    constexpr float bitsToVolts(float bitValue) {
-        return (bitValue * uRef) / (0b1 << resolution);
+    constexpr float bitsToVolts(uint32_t bitValue) {
+        return (bitValue * uRef) / (0b1 << (resolution));
     }
 protected:
     float* coefficients;
@@ -21,12 +21,12 @@ protected:
     BaseADC(uint8_t _channelCount) {
         channelCount = _channelCount;
         coefficients = new float[_channelCount];
-        for (uint8_t i = 0; i < channelCount; i++) coefficients[i] = 1;
+        for (uint8_t i = 0; i < _channelCount; i++) coefficients[i] = 1;
         values = new uint32_t[_channelCount];
     }
     
 public:
-	virtual float GetValue(uint8_t channel) {
+	float GetValue(uint8_t channel) {
         if (channel >= channelCount) return 0;
         return bitsToVolts(values[channel]) * coefficients[channel];
     }
