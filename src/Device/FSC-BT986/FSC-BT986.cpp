@@ -1,6 +1,10 @@
+#define ISL_INTERNAL
+
+#include "Adapter/UART.h"
+#include "Adapter/GPIO.h"
+#if defined(ISL_UART_ENABLED) and defined(ISL_GPIO_ENABLED)
+
 #include "FSC-BT986.h"
-
-
 #include <stdarg.h>
 #include <string.h>
 #include "Commands.h"
@@ -60,3 +64,6 @@ namespace IntroSatLib {
     //     }
     // }
 }
+
+
+#endif
