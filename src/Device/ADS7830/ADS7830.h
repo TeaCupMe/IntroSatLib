@@ -45,7 +45,7 @@ public:
     };
 
     /**
-     * @brief Состояние АЦП
+     * @brief Состояние АЦП между измерениями
      */
     enum AdcMode : uint8_t {
         ADC_OFF = 0, /**< АЦП включён */
@@ -53,29 +53,96 @@ public:
     };
 
 private:
+    /**
+     * @brief Базовый адрес АЦП на шине I2C
+     */
     static const uint8_t BASE_ADDRESS = 0x48;
+
+    /**
+     * @brief Количество каналов АЦП
+     * 
+     */
     static const uint8_t channelCount = 16;
 
     
     ReferenceMode refMode;
     AdcMode adcOn;
 
-
-   ISL_StatusTypeDef RequestConversion(Channel channel);
+    /**
+     * @brief Отправка запроса на преобразование значения напряжения на канале 
+     * 
+     * @param channel канал АЦП
+     * @return ISL_StatusTypeDef результат запроса
+     */
+    ISL_StatusTypeDef RequestConversion(Channel channel);
 
 public:
+    /**
+     * @brief Конструктор объекта АЦП ADS7830 
+     * 
+     * @param i2c объект I2C, например: \c Wire (в Arduino IDE), \c &huart1 (в STM32CubeIDE)
+     * @param address 
+     */
     ADS7830(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
     
+    /**
+     * @brief Инициализация АЦП с внутренним опорным напряжением
+     * 
+     * @return ISL_StatusTypeDef результат инициализации
+     */
     ISL_StatusTypeDef Init() override;
+
+    /**
+     * @brief Инициализация АЦП с внешним опорным напряжением
+     * 
+     * @param uRef внешнее опорное напряжение (В)
+     * @return ISL_StatusTypeDef результат инициализации
+     */
     ISL_StatusTypeDef Init(float uRef);
 
+    /**
+     * @brief Установка состояния АЦП между измерениями: включён или выключен (режим power-down)
+     * 
+     * @param on Режим работы АЦП
+     */
     void SetAdcOn(AdcMode on);
 
+    /**
+     * @brief Использование внешнего опорного напряжения
+     * 
+     * @param refVoltage внешнее опорное напряжение (В)
+     * @return ISL_StatusTypeDef результат установки внешнего опорного напряжения
+     */
     ISL_StatusTypeDef UseExternalReference(float refVoltage = 2.5);
+
+    /**
+     * @brief Использование внутреннего опорного напряжения
+     * 
+     * @return ISL_StatusTypeDef результат установки внутреннего опорного напряжения
+     */
     ISL_StatusTypeDef UseInternalReference();
+
+    /**
+     * @brief Выключение АЦП (режим power-down)
+     * 
+     * @return ISL_StatusTypeDef результат выключения АЦП
+     */
     ISL_StatusTypeDef PowerDown();
     
+    /**
+     * @brief Получение значения напряжения на канале в вольтах
+     * 
+     * @param channel канал АЦП
+     * @return float значение напряжения в вольтах
+     */
     float GetValue(Channel channel);
+
+    /**
+     * @brief Получение необработанного значения с канала АЦП
+     * 
+     * @param channel канал АЦП
+     * @return uint8_t необработанное значение с канала АЦП
+     */
     uint8_t GetRawValue(Channel channel);
 };
 
