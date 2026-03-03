@@ -283,6 +283,7 @@ jobs:
       - build-examples-introsat-pico
       - build-examples-introsat-platform
       - build-examples-cubeide
+      - build-examples-mik32
 
     steps:
       - uses: actions/checkout@v4
