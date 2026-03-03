@@ -110,7 +110,7 @@ uint32_t W25Q::ReadID(void) {
 
 W25Q::W25Q(interfaces::SPI _spi): SPIDevice(_spi) { }
 
-#ifdef ISL_UART_ENABLED
+#if defined(ISL_UART_ENABLED) and defined(DEBUG)
 void W25Q::DumpChipInfo(interfaces::UART& uart) {
 	char str1[40];
 	uint32_t id = ReadID();
@@ -138,7 +138,7 @@ void W25Q::DumpChipInfo(interfaces::UART& uart) {
 	sprintf(str1, "\tHigh Capacity: %u\r\n", highCap);
 	uart.transmit((uint8_t*) str1, strlen(str1), 0x1000);
 }
-#endif /* ISL_UART_ENABLED */
+#endif /* defined(ISL_UART_ENABLED) and defined(DEBUG) */
 
 ISL_StatusTypeDef W25Q::ReadPage(uint8_t *data, uint32_t pageAddr, uint32_t offset, uint32_t sz) {
 	if (sz > pageSize)
