@@ -28,7 +28,7 @@ SOFTWARE.
 #include "Adapter/SPI.h"
 #include "Adapter/GPIO.h"
 
-// #if defined(ISL_SPI_ENABLED) and defined(ISL_GPIO_ENABLED)
+#if defined(ISL_SPI_ENABLED) and defined(ISL_GPIO_ENABLED)
 
 #include "math.h"
 #include "Device/CC1101/CC1101.h"
