@@ -1,8 +1,10 @@
 #define ISL_INTERNAL
 #include "Adapter/SPI.h"
-#include "SPI.h"
 
 #if defined(ARDUINO)
+
+#include "SPI.h"
+
 
 ISL_StatusTypeDef IntroSatLib::interfaces::SPI::transfer(const uint8_t* out, uint8_t* in, uint8_t len) {    
     // _hspi->beginTransaction(); // TODO Надо это делать, но ему нужен аргумент SPISettings. 
