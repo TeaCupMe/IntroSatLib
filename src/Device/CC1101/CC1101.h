@@ -284,5 +284,4 @@ private:
 
 };
 }
-#endif /* ISL_SPI_ENABLED */
 #endif /* ISL_CC1101_H_ */
