@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#define INTROSATLIB_INTERNAL
+#define ISL_INTERNAL
 #include "Adapter/System.h"
 #include "Adapter/SPI.h"
 #include "Adapter/GPIO.h"
