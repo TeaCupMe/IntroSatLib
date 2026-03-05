@@ -11,6 +11,11 @@
 
 namespace IntroSatLib {
 
+/**
+ * @brief Класс для работы с 8-канальным 8-битным АЦП ADS7830 по интерфейсу I2C.
+ * 
+ */
+
 class ADS7830: public BaseADC, protected I2CDevice {
 public:
     /**
@@ -110,10 +115,10 @@ public:
     /**
      * @brief Использование внешнего опорного напряжения
      * 
-     * @param refVoltage внешнее опорное напряжение (В)
+     * @param refVoltage внешнее опорное напряжение в вольтах
      * @return ISL_StatusTypeDef результат установки внешнего опорного напряжения
      */
-    ISL_StatusTypeDef UseExternalReference(float refVoltage = 2.5);
+    ISL_StatusTypeDef UseExternalReference(float refVoltage);
 
     /**
      * @brief Использование внутреннего опорного напряжения

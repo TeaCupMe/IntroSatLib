@@ -17,11 +17,11 @@ public:
      * 
      */
     enum Channel: uint8_t {
-        CH_VIN = ADS7830::Channel::CH0,
-        CH_VBAT = ADS7830::Channel::CH1,
-        CH_VOUT = ADS7830::Channel::CH2,
-        CH_CIN = ADS7830::Channel::CH3,
-        CH_COUT = ADS7830::Channel::CH4,
+        CH_VIN =    ADS7830::Channel::CH0, /**< Входное напряжение */
+        CH_VBAT =   ADS7830::Channel::CH1, /**< Напряжение на батарее */
+        CH_VOUT =   ADS7830::Channel::CH2, /**< Выходное напряжение (после преобразователя) */
+        CH_CIN =    ADS7830::Channel::CH3, /**< Входной ток */
+        CH_COUT =   ADS7830::Channel::CH4, /**< Выходной ток */
     };
 
     /**
