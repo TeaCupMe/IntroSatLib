@@ -4,8 +4,15 @@
  *  Created on: Mar 6, 2025
  *      Author: Aleksey <TeaCupMe> Gilenko
  */
+#define ISL_INTERNAL
+
+#include "Adapter/I2C.h"
+
+#ifdef ISL_I2C_ENABLED
 
 #include "LM75A.h"
+#include "Adapter/System.h"
+#include "Device/I2CDevice.h"
 
 namespace IntroSatLib {
 
@@ -18,9 +25,7 @@ void LM75A::PowerDown(bool shutdown) {
 	//TODO implement
 }
 
-LM75A::LM75A(const interfaces::I2C &i2c, uint8_t address) :
-		I2CDevice(new interfaces::I2C(i2c), address) {
-}
+LM75A::LM75A(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address) { }
 
 int16_t LM75A::GetRawTemperature() {
 	uint8_t raw[2];
@@ -44,3 +49,4 @@ uint8_t LM75A::GetConfig() {
 }
 
 }
+#endif /* ISL_I2C_ENABLED */

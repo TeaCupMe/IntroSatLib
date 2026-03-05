@@ -1,8 +1,16 @@
-#include "IRCamera.h"
+#define ISL_INTERNAL
+
+#include "Adapter/I2C.h"
 #include "Adapter/System.h"
+
+#ifdef ISL_I2C_ENABLED
+
+#include "IRCamera.h"
+#include "Device/I2CDevice.h"
+
 namespace IntroSatLib {
 
-IRCamera::IRCamera(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
+IRCamera::IRCamera(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address)
 {
 }
 
@@ -88,9 +96,9 @@ float IRCamera::getPixel(uint8_t x, uint8_t y)
 	return ((float)getPixelRaw(x, y)) * _rawdeg;
 }
 
-void IRCamera::useForceReset(interfaces::GPIO_HANDLE_TYPE& resetPort, uint16_t resetPin)
+void IRCamera::useForceReset(interfaces::GPIO resetPin)
 {
-	_reset = new interfaces::GPIO(&resetPort, resetPin);
+	_reset = resetPin;
 }
 
 void IRCamera::useMirrored() { _mirror = 1; }
@@ -100,13 +108,15 @@ void IRCamera::useNotMirrored() { _mirror = 0; }
 
 void IRCamera::tryReset()
 {
-	if (_reset == nullptr) { return; }
-	_reset->set();
+	if (!_reset.isValid()) { return; }
+	_reset.set();
 	system::Delay(100);
-	_reset->reset();
+	_reset.reset();
 	system::Delay(100);
 }
 
 IRCamera::~IRCamera() { }
 
 }
+
+#endif /* ISL_I2C_ENABLED */

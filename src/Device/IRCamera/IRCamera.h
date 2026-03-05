@@ -39,7 +39,7 @@ private:
 	uint8_t _framrate = 0;
 	uint8_t _mirror = 0;
 
-	interfaces::GPIO* _reset = nullptr;
+	interfaces::GPIO _reset;
 
 	int16_t _buffer[64] = {0};
 
@@ -57,7 +57,6 @@ public:
 		FPS_1 = 1	/**< 1 кадр в секунду */
 	};
 
-//#ifndef ARDUINO
 	/**
 	 * @note Только в STM32CubeIDE
 	 * @brief Создание объекта ИК-камеры. 
@@ -65,25 +64,8 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес ИК-камеры на шине I2C
 	 */
-	IRCamera(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
-//#else
-//	/**
-//	 * @note Только в Arduino IDE
-//	 * @brief Создание объекта ИК-камеры
-//	 *
-//	 * @param hi2c объект @b TwoWire или @b Wire
-//	 * @param address адрес ИК-камеры на шине I2C
-//	 */
-//	IRCamera(TwoWire &hi2c, uint8_t address = BASE_ADDRESS);
-//
-//	/**
-//	 * @note Только в Arduino IDE
-//	 * @brief Создание объекта ИК-камеры на @b I2C1
-//	 *
-//	 * @param address адрес ИК-камеры на шине I2C
-//	 */
-//	IRCamera(uint8_t address = BASE_ADDRESS);
-//#endif
+	IRCamera(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
+
 	/**
 	 * @brief Создание объекта ИК-камеры как копии другого объекта ИК-камеры
 	 * 
@@ -100,7 +82,7 @@ public:
 	 * @param resetPort Порт, которому подключён контакт 
 	 * @param resetPin 
 	 */
-	void useForceReset(interfaces::GPIO_HANDLE_TYPE& resetPort, uint16_t resetPin = 0);
+	void useForceReset(interfaces::GPIO resetPin);
 
 	/**
 	 * @brief Вывод картинки в отзеркаленном виде

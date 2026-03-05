@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com" viewBox="99 99 152 152">
+  <rect y="104" width="142" height="142" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 2px;" rx="8.953" ry="8.953" x="104"/>
+  <rect y="121" width="108" height="108" style="stroke: rgb(0, 0, 0); stroke-width: 2px; fill: rgb(255, 255, 255);" x="121"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-linejoin: round; stroke-width: 2px; transform-box: fill-box; transform-origin: 50% 50%;" d="M 104 100 H 121 L 125 104 V 121 L 121 125 H 104 L 100 121 V 104 L 104 100 Z" bx:shape="rect 100 100 25 25 1 4 4 2@920d8214"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-linejoin: round; stroke-width: 2; transform-origin: 237.5px 112.5px;" d="M 229 100 H 246 L 250 104 V 121 L 246 125 H 229 L 225 121 V 104 L 229 100 Z" bx:shape="rect 225 100 25 25 1 4 4 2@e1e799db"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-linejoin: round; stroke-width: 2; transform-origin: 112.5px 237.5px;" d="M 104 225 H 121 L 125 229 V 246 L 121 250 H 104 L 100 246 V 229 L 104 225 Z" bx:shape="rect 100 225 25 25 1 4 4 2@9f9e0483"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-linejoin: round; stroke-width: 2; transform-origin: 237.5px 237.5px;" d="M 229 225 H 246 L 250 229 V 246 L 246 250 H 229 L 225 246 V 229 L 229 225 Z" bx:shape="rect 225 225 25 25 1 4 4 2@6dad5cb8"/>
+  <path d="M 104 221 L 104 129 L 129 129 L 129 104 L 221 104 L 221 129 L 246 129 L 246 221 L 221 221 L 221 246 L 129 246 L 129 221 L 104 221 Z" style="stroke: rgb(0, 0, 0); stroke-width: 2; stroke-linejoin: bevel; stroke-linecap: square; fill: rgb(0, 94, 28);"/>
+  <text style="fill: rgb(172, 248, 0); font-family: Audiowide; font-size: 58.4px; paint-order: stroke; stroke: rgb(0, 0, 0); stroke-width: 4px; white-space: pre;" x="122.716" y="195.585">ISL</text>
+  <defs>
+    <style bx:fonts="Audiowide">@import url(https://fonts.googleapis.com/css2?family=Audiowide%3Aital%2Cwght%400%2C400&amp;display=swap);</style>
+  </defs>
+</svg>

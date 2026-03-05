@@ -1,8 +1,15 @@
+#define ISL_INTERNAL
+
+#include "Adapter/I2C.h"
+
+#ifdef ISL_I2C_ENABLED
+
 #include "Accelerometer.h"
+#include "Device/I2CDevice.h"
 
 namespace IntroSatLib {
 
-Accelerometer::Accelerometer(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
+Accelerometer::Accelerometer(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address)
 {
 }
 
@@ -106,3 +113,5 @@ float Accelerometer::Z()
 Accelerometer::~Accelerometer() { }
 
 }
+
+#endif /* ISL_I2C_ENABLED */

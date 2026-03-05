@@ -18,7 +18,7 @@
 	#if defined(AVR)
 	/************** AVR  **************/
 		//  This is not yet supported, but it is here for future reference.
-		//  AVR-series in Arduino IDE
+		//  AVR-series outside Arduino IDE
 		#error "Bare AVR outside of Arduino IDE is not yet supported"
 
 	#elif defined(USE_HAL_DRIVER) // TODO Change to more reusable symbol
@@ -34,9 +34,15 @@
 		#ifdef HAL_GPIO_MODULE_ENABLED
 			// define STM32-specific handle type for GPIO
 			#define ISL_GPIO_ENABLED
-			namespace IntroSatLib::interfaces {using GPIO_HANDLE_TYPE = GPIO_TypeDef;}
+			namespace IntroSatLib::interfaces {
+				using GPIO_HANDLE_TYPE = struct {
+					GPIO_TypeDef* port = nullptr;
+					uint16_t pin = 0;
+				};
 
-		#elif !defined(INTROSATLIB_INTERNAL)
+			}
+
+		#elif !defined(ISL_INTERNAL)
 			#error "GPIO not enabled as part of HAL"
 		#endif
 
@@ -47,10 +53,10 @@
 
 	#else
 	/************ UNKNOWN ************/
-	//#ifndef INTROSATLIB_INTERNAL
-		#error "Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros."
-		#error "Currently supported systems are: stm32 with HAL, stm32duino. AVR planned for future support."
-	//#endif
+		#ifndef ISL_INTERNAL
+			#error Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros.  \
+			 		Currently supported systems are: stm32 with HAL, stm32duino. AVR planned for future support.
+		#endif
 	#endif
 #endif /* ARDUINO */
 
@@ -60,14 +66,12 @@
 namespace IntroSatLib {
 namespace interfaces {
 
-
-
 class GPIO final {
 private:
-	GPIO_HANDLE_TYPE* _port = 0;
-	uint16_t _pin = 0;
+	GPIO_HANDLE_TYPE _pin;
 public:
-	GPIO(GPIO_HANDLE_TYPE* port, uint16_t pin = 0);
+	GPIO(GPIO_HANDLE_TYPE port);
+	GPIO() {}
 
 	uint8_t read() const;
 
@@ -78,7 +82,7 @@ public:
 
 	uint8_t wait(uint8_t state, uint16_t timeout = 0xFFFF) const {
 		using ::IntroSatLib::system::GetTick;
-		state = !!state;
+		state = !!state; // To convert any uint to 0 or 1
 		uint32_t startTime = ::IntroSatLib::system::GetTick();
 		while(read() != state)
 		{
@@ -89,13 +93,11 @@ public:
 
 	uint8_t waitReset(uint16_t timeout = 0xFFFF) const { return wait(0, timeout); }
 	uint8_t waitSet(uint16_t timeout = 0xFFFF) const { return wait(1, timeout); }
+	bool isValid() const;
 };
 
 } /* namespace intefaces */
 } /* namespace IntroSatLib */
-
-
-
 
 
 #endif /* ISL_GPIO_ENABLED */

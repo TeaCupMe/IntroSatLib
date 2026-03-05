@@ -4,14 +4,20 @@
  *  Created on: Mar 18, 2025
  *      Author: unflesh
  */
+#define ISL_INTERNAL
+
+#include "Adapter/I2C.h"
+
+#ifdef ISL_I2C_ENABLED
 
 #include "LIS3MDL.h"
 #include "Adapter/System.h"
+#include "Device/I2CDevice.h"
 
 namespace IntroSatLib {
 
 
-LIS3MDL::LIS3MDL(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
+LIS3MDL::LIS3MDL(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address)
 {
 }
 
@@ -99,5 +105,5 @@ LIS3MDL::~LIS3MDL() { }
 
 } /* namespace IntroSatLib */
 
-
+#endif /* ISL_I2C_ENABLED */
 

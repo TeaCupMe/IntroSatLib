@@ -33,7 +33,7 @@ private:
 
 public:
 
-	LM75A(const interfaces::I2C &i2c, uint8_t address = BASE_ADDRESS);
+	LM75A(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
 
 //	LM75A(const LM75A &other);
 //	LM75A(LM75A &&other);

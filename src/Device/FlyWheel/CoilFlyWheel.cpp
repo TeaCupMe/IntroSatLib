@@ -1,8 +1,14 @@
+#define ISL_INTERNAL
+
+#include "Adapter/I2C.h"
+
+#ifdef ISL_I2C_ENABLED
+
 #include "CoilFlyWheel.h"
 
 namespace IntroSatLib {
 
-CoilFlyWheel::CoilFlyWheel(const interfaces::I2C &i2c, uint8_t address): BaseFlyWheel(i2c, address)
+CoilFlyWheel::CoilFlyWheel(interfaces::I2C i2c, uint8_t address): BaseFlyWheel(i2c, address)
 {
 	_channel = 2;
 }
@@ -36,3 +42,5 @@ CoilFlyWheel& CoilFlyWheel::operator=(CoilFlyWheel &&other)
 CoilFlyWheel::~CoilFlyWheel() { }
 
 } /* namespace IntroSatLib */
+
+#endif /* ISL_I2C_ENABLED */

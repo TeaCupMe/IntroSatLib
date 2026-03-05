@@ -4,14 +4,19 @@
  *  Created on: Mar 17, 2025
  *      Author: Goldfor
  */
+#define ISL_INTERNAL
+
+#include "Adapter/I2C.h"
+
+#ifdef ISL_I2C_ENABLED
 
 #include "LSM6DS3.h"
 #include "Adapter/System.h"
-#include "stdint.h"
+#include "Device/I2CDevice.h"
 
 namespace IntroSatLib {
 
-LSM6DS3::LSM6DS3(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
+LSM6DS3::LSM6DS3(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address)
 {
 }
 
@@ -260,3 +265,4 @@ ISL_StatusTypeDef LSM6DS3::Enable() {
 LSM6DS3::~LSM6DS3() { }
 
 } /* namespace IntroSatLib */
+#endif /* ISL_I2C_ENABLED */

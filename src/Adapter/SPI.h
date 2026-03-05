@@ -21,8 +21,8 @@
 	#if defined(AVR)
 	/************** AVR  **************/
 		//  This is not yet supported, but it is here for future reference.
-		//  AVR-series in Arduino IDE
-		#error "AVR not yet supported"
+		//  AVR-series outside Arduino IDE
+		#error "Bare AVR outside of Arduino IDE is not yet supported"
 
 	#elif defined(USE_HAL_DRIVER)
 	/*****  STM32 and stm32duino ******/
@@ -38,7 +38,7 @@
 			// define STM32-specific handle type for SPI
 			#define ISL_SPI_ENABLED
 			namespace IntroSatLib::interfaces {using SPI_HANDLE_TYPE = SPI_HandleTypeDef;}
-		#elif !defined(INTROSATLIB_INTERNAL)
+		#elif !defined(ISL_INTERNAL)
 			#error "SPI not enabled as part of HAL"
 		#endif
 
@@ -47,10 +47,10 @@
 		// #error "AMUR not yet supported"
 	/************ UNKNOWN ************/
 	#else
-	// #ifndef INTROSATLIB_INTERNAL
-		#error "Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros."
-		#error "Currently supported systems are: stm32, stm32duino. AVR planned for future support."
-	// #endif
+		#ifndef ISL_INTERNAL
+			#error Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros.  \
+			 		Currently supported systems are: stm32 with HAL, stm32duino. AVR planned for future support.
+		#endif
 	#endif
 #endif
 
@@ -68,6 +68,7 @@ class SPI final {
 	SPI_HANDLE_TYPE *_hspi = 0;
 public:
  	SPI(SPI_HANDLE_TYPE *hspi): _hspi(hspi) { };
+	SPI(SPI_HANDLE_TYPE &hspi): SPI(&hspi) { };
 
 // STL not available in Arduino IDE by default
 #ifdef STL_AVAILABLE

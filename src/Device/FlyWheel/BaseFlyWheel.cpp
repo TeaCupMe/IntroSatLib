@@ -1,10 +1,16 @@
+#define ISL_INTERNAL
+
+#include "Adapter/I2C.h"
+
+#ifdef ISL_I2C_ENABLED
+
 #include "BaseFlyWheel.h"
+#include "Device/I2CDevice.h"
 
 namespace IntroSatLib {
 
-BaseFlyWheel::BaseFlyWheel(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
+BaseFlyWheel::BaseFlyWheel(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address)
 {
-
 }
 
 
@@ -331,3 +337,5 @@ BaseFlyWheel& BaseFlyWheel::operator=(BaseFlyWheel &&other)
 BaseFlyWheel::~BaseFlyWheel() { }
 
 } /* namespace IntroSatLib */
+
+#endif /* ISL_I2C_ENABLED */

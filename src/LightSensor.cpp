@@ -1,19 +1,17 @@
+#define ISL_INTERNAL
+
+#include "Adapter/I2C.h"
+
+#ifdef ISL_I2C_ENABLED
+
 #include "LightSensor.h"
+#include "Device/I2CDevice.h"
 
 namespace IntroSatLib {
 
-//#ifndef ARDUINO
-LightSensor::LightSensor(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
+LightSensor::LightSensor(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address)
 {
 }
-//#else
-//LightSensor::LightSensor(TwoWire &hi2c, uint8_t address): BaseDevice(hi2c, address)
-//{
-//}
-//LightSensor::LightSensor(uint8_t address): BaseDevice(address)
-//{
-//}
-//#endif
 
 LightSensor::LightSensor(const LightSensor &other): I2CDevice(other)
 {
@@ -60,3 +58,5 @@ int16_t LightSensor::GetLight()
 LightSensor::~LightSensor() { }
 
 } /* namespace IntroSatLib */
+
+#endif /* ISL_I2C_ENABLED */

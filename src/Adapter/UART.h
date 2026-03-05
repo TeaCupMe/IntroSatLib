@@ -10,6 +10,7 @@
 /*********************************/
 	#include "Arduino.h"
 	#include <HardwareSerial.h>
+	#define	ISL_UART_ENABLED
 	namespace IntroSatLib::interfaces {using UART_HANDLE_TYPE = HardwareSerial;}
 
 #else
@@ -20,8 +21,8 @@
 	#if defined(AVR)
 	/************** AVR  **************/
 		//  This is not yet supported, but it is here for future reference.
-		//  AVR-series in Arduino IDE
-		#error "AVR not yet supported"
+		//  AVR-series outside Arduino IDE
+		#error "Bare AVR outside of Arduino IDE is not yet supported"
 
 	#elif defined(USE_HAL_DRIVER)
 	/*****  STM32 and stm32duino ******/
@@ -35,8 +36,9 @@
 
 		#ifdef HAL_UART_MODULE_ENABLED
 			// define STM32-specific handle type for UART
+			#define	ISL_UART_ENABLED
 			namespace IntroSatLib::interfaces {using UART_HANDLE_TYPE = UART_HandleTypeDef;}
-		#elif !defined(INTROSATLIB_INTERNAL)
+		#elif !defined(ISL_INTERNAL)
 			#error "UART not enabled as part of HAL"
 		#endif
 
@@ -45,15 +47,15 @@
 		// #error "AMUR not yet supported"
 	/************ UNKNOWN ************/
 	#else
-	// #ifndef INTROSATLIB_INTERNAL
-		#error "Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros."
-		#error "Currently supported systems are: stm32, stm32duino. AVR planned for future support."
-	// #endif
+		#ifndef ISL_INTERNAL
+			#error Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros.  \
+			 		Currently supported systems are: stm32 with HAL, stm32duino. AVR planned for future support.
+		#endif
 	#endif
 #endif
 
-// #ifdef UART_HANDLE_TYPE
-#define UART_ENABLED
+#ifdef ISL_UART_ENABLED
+
 #include "Adapter/System.h"
 
 #define ASSERT_UART_HAVE() \
@@ -140,6 +142,6 @@ public:
 } /* namespace intefaces */
 } /* namespace IntroSatLib */
 
-// #endif /* UART_HANDLE_TYPE */
+#endif /* ISL_UART_ENABLED */
 
 #endif /* ADAPTER_UART_H_ */

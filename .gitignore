@@ -34,8 +34,14 @@
 # folder with local tools
 tools/*
 
+# IDEs
+.vscode/
+
 # documentation
 doxygen/*
-!doxygen/doxygen-style.css
 !doxygen/doxygen.conf
-/.metadata/
+!doxygen/header.html
+!doxygen/logo.svg
+!doxygen/js
+!doxygen/styles
+

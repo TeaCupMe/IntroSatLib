@@ -1,9 +1,17 @@
+#define ISL_INTERNAL
+
+#include "Adapter/I2C.h"
+
+#ifdef ISL_I2C_ENABLED
+
 #include "AK8963.h"
 #include "Adapter/System.h"
+#include "Device/I2CDevice.h"
+
 namespace IntroSatLib {
 
 //#ifndef ARDUINO
-AK8963::AK8963(const interfaces::I2C &i2c, uint8_t address): I2CDevice(new interfaces::I2C(i2c), address)
+AK8963::AK8963(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address)
 {
 }
 
@@ -106,3 +114,5 @@ float AK8963::Z()
 AK8963::~AK8963() { }
 
 } /* namespace IntroSatLib */
+
+#endif /* ISL_I2C_ENABLED */
