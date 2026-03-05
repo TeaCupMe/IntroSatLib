@@ -198,14 +198,11 @@ public:
 		ADDR_FILTER_MODE_CHECK_BC_0_255 = 3 /* Address check, 0 and 255 broadcast */
 	};
 
-	CC1101(interfaces::SPI _spi, interfaces::GPIO csPin) :
-			SPIDevice(_spi, csPin) {}
+	CC1101(interfaces::SPI _spi, interfaces::GPIO csPin): SPIDevice(_spi, csPin) {}
 
-	Status Init(Modulation mod = MOD_ASK_OOK,
-				    double freq = 433.5,
-				   double drate = 4.0);
+	Status Init(Modulation mod, double freq, double drate);
 
-	ISL_StatusTypeDef Init() {
+	ISL_StatusTypeDef Init() override {
 		return Init(MOD_ASK_OOK, 433.5, 4) == Status::STATUS_OK ? ISL_StatusTypeDef::ISL_OK : ISL_StatusTypeDef::ISL_ERROR;
 	}
 
