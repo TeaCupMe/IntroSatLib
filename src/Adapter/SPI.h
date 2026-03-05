@@ -68,6 +68,7 @@ class SPI final {
 	SPI_HANDLE_TYPE *_hspi = 0;
 public:
  	SPI(SPI_HANDLE_TYPE *hspi): _hspi(hspi) { };
+	SPI(SPI_HANDLE_TYPE &hspi): SPI(&hspi) { };
 
 // STL not available in Arduino IDE by default
 #ifdef STL_AVAILABLE
