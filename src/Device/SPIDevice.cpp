@@ -10,6 +10,12 @@ namespace IntroSatLib {
 
 SPIDevice::SPIDevice(interfaces::SPI _spi): spi(_spi) { }
 
+SPIDevice::SPIDevice(interfaces::SPI _spi, interfaces::GPIO _cs, bool _csActiveLow): spi(_spi), cs(_cs)
+{
+    useCs = true;
+    csActiveLow = _csActiveLow;
+}
+
 ISL_StatusTypeDef SPIDevice::Init() {
 	return ISL_StatusTypeDef::ISL_OK;
 }
@@ -32,6 +38,11 @@ ISL_StatusTypeDef SPIDevice::TransmitSPI(uint8_t *out, uint8_t len)
 {
     uint8_t* temp = new uint8_t[len];
     return spi.transfer(out, temp, len);
+}
+ISL_StatusTypeDef SPIDevice::TransmitByteSPI(uint8_t out)
+{
+    uint8_t temp;
+    return spi.transfer(&out, &temp, 1);
 }
 ISL_StatusTypeDef SPIDevice::ReceiveSPI(uint8_t *in, uint8_t len)
 {

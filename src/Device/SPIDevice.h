@@ -20,9 +20,11 @@ public:
     void Deselect();
 
     SPIDevice(interfaces::SPI _spi);
+    SPIDevice(interfaces::SPI _spi, interfaces::GPIO _cs, bool _csActiveLow = true);
     virtual ISL_StatusTypeDef Init() override;
     
     ISL_StatusTypeDef TransmitSPI(uint8_t* out, uint8_t len);
+    ISL_StatusTypeDef TransmitByteSPI(uint8_t out);
     ISL_StatusTypeDef ReceiveSPI(uint8_t* in, uint8_t len);
     ISL_StatusTypeDef TransmitReceiveSPI(uint8_t* out, uint8_t* in, uint8_t len);
 
