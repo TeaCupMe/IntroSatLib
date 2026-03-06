@@ -52,7 +52,7 @@ public:
 
 	LIS3MDL(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
 
-	ISL_StatusTypeDef Init(Scale scale, uint8_t force = 1);
+	ISL_StatusTypeDef Init(Scale scale);
 	ISL_StatusTypeDef Init() override {
 		return Init(Scale::G16);
 	}
@@ -66,6 +66,9 @@ public:
 	float MX() override;
 	float MY() override;
 	float MZ() override;
+
+	ISL_StatusTypeDef Disable() override;
+	ISL_StatusTypeDef Enable() override;
 
 	~LIS3MDL();
 };

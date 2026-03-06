@@ -21,7 +21,7 @@ LIS3MDL::LIS3MDL(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address)
 {
 }
 
-ISL_StatusTypeDef LIS3MDL::Init(Scale scale, uint8_t force)
+ISL_StatusTypeDef LIS3MDL::Init(Scale scale)
 {
 	system::Delay(15); // wait for powerup
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady());
@@ -92,6 +92,14 @@ float LIS3MDL::MZ()
 	return e / _rawg;
 }
 
+
+ISL_StatusTypeDef LIS3MDL::Disable() {
+	return SetRegisterI2C(RegisterMap::CTRL_REG3, 0x03);
+}
+
+ISL_StatusTypeDef LIS3MDL::Enable() {
+	return SetRegisterI2C(RegisterMap::CTRL_REG3, 0x00);
+}
 
 LIS3MDL::~LIS3MDL() { }
 
