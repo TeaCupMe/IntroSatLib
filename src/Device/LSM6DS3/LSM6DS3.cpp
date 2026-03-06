@@ -233,6 +233,35 @@ ISL_StatusTypeDef LSM6DS3::Deinit() {
 	return DeinitGyro();
 }
 
+
+ISL_StatusTypeDef LSM6DS3::DisableGyro() {
+	return SetRegisterI2C(RegisterMap::CTRL2_G, 0x00);
+}
+
+ISL_StatusTypeDef LSM6DS3::EnableGyro() {
+	return InitGyro(_scaleGyro, _dataRateGyro);
+}
+
+
+ISL_StatusTypeDef LSM6DS3::DisableAccel() {
+	return SetRegisterI2C(RegisterMap::CTRL1_XL, 0x00);
+}
+
+ISL_StatusTypeDef LSM6DS3::EnableAccel() {
+	return InitAccel(_scaleAccel, _dataRateAccel, _filterBandwidthAccel);
+}
+
+
+ISL_StatusTypeDef LSM6DS3::Disable() {
+	RETURN_STATUS_IF_NOT_OK_SILENT(DisableAccel());
+	return DisableGyro();
+}
+
+ISL_StatusTypeDef LSM6DS3::Enable() {
+	RETURN_STATUS_IF_NOT_OK_SILENT(EnableAccel());
+	return EnableGyro();
+}
+
 LSM6DS3::~LSM6DS3() { }
 
 } /* namespace IntroSatLib */
