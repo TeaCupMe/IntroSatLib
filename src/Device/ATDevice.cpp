@@ -4,8 +4,15 @@
 #if defined(ISL_UART_ENABLED)
 
 #include "ATDevice.h"
-#include <cstring>
-#include <string>
+
+#if __has_include(<cstring>)
+    #include <cstring>
+#elif __has_include(<string.h>)
+    #include <string.h>
+#else
+    #error "You need to write strlen() yourself :)"
+#endif
+
 
 namespace IntroSatLib {
 

@@ -33,8 +33,9 @@ public:
 
     FSC_BT986(
         interfaces::UART uart,
-        FSC_BT986Pins pins
-    ): ATDevice(uart, 64), _pins(pins)
+        FSC_BT986Pins pins,
+        const uint16_t bsize
+    ): ATDevice(uart, bsize), _pins(pins)
     { }
 
     ISL_StatusTypeDef Init() {

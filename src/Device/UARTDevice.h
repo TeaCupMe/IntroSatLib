@@ -1,7 +1,7 @@
 #ifndef UARTDEVICE_H_
 #define UARTDEVICE_H_
 
-#include "../Adapter/UART.h"
+#include "Adapter/UART.h"
 #include "Device.h"
 
 namespace IntroSatLib {

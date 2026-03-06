@@ -1,7 +1,8 @@
 #define ISL_INTERNAL
 
 #include "Adapter/UART.h"
-#if defined(ISL_UART_ENABLED)
+#include "Adapter/GPIO.h"
+#if defined(ISL_UART_ENABLED) and defined(ISL_GPIO_ENABLED)
 
 #include "FSC-BT986.h"
 
@@ -31,16 +32,8 @@ namespace IntroSatLib {
         return readAT((uint8_t*)"REBOOT", (state == 0) ? (uint8_t*)'0' : (uint8_t*)'1', timeout);
     }
 
-}
-#endif
 
-
-#include "Adapter/GPIO.h"
-#if defined(ISL_GPIO_ENABLED)
-
-#include "FSC-BT986.h"
-
-namespace IntroSatLib {
+    
 
     ISL_StatusTypeDef FSC_BT986::writeHardReset(uint8_t state) {
         if (_pins._reset.isValid()) {
