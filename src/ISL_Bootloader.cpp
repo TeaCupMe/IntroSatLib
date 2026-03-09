@@ -14,7 +14,6 @@ void EnterBootloader(void)
 	Serial.flush();
 	#endif /** HAVE_HWSERIAL0 */
 
-	eeprom_write_byte((uint8_t*)52, 0); // Set flag to stay in bootloader after reset
     cli();
     SP = RAMEND;
     SREG = 0;
