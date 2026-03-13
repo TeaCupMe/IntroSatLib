@@ -7,6 +7,33 @@
 #include "FSC-BT986.h"
 
 namespace IntroSatLib {
+
+    ISL_StatusTypeDef FSC_BT986::Init() {
+
+        //TODO 
+        // RETURN_STATUS_IF_NOT_OK_SILENT(writeAT((uint8_t*) "PIOCFG", 
+        //             (pins.mode.isValid()) ? (uint8_t*)"1" : (uint8_t*)"0",
+        //             (pins.disconnect.isValid()) ? (uint8_t*)"1" : (uint8_t*)"0"
+        //         ));
+
+
+        writeHardMode(1);
+        writePrgMode(1);
+
+        RETURN_STATUS_IF_NOT_OK_SILENT(writeAT((uint8_t*) "BTEN", (uint8_t*)"1"));
+        RETURN_STATUS_IF_NOT_OK_SILENT(writeAT((uint8_t*) "LPM", (uint8_t*)"0"));
+        // RETURN_STATUS_IF_NOT_OK_SILENT(writeAT((uint8_t*) "COD", (uint8_t*)"240404"));
+        RETURN_STATUS_IF_NOT_OK_SILENT(writeAT((uint8_t*) "FLOWCTL", (uint8_t*)"0"));
+        RETURN_STATUS_IF_NOT_OK_SILENT(writeAT((uint8_t*) "SSP", (uint8_t*)"1"));
+        RETURN_STATUS_IF_NOT_OK_SILENT(writeAT((uint8_t*) "MODE", (uint8_t*)"1"));
+        RETURN_STATUS_IF_NOT_OK_SILENT(writeAT((uint8_t*) "SECURITY", (uint8_t*)"1"));
+        RETURN_STATUS_IF_NOT_OK_SILENT(writeAT((uint8_t*) "SPPCFG", (uint8_t*)"0"));
+
+        writeHardMode(0);
+        writePrgMode(0);
+        
+        return ISL_OK;
+    }
     
     ISL_StatusTypeDef FSC_BT986::writePIN(uint8_t* pinCode, uint16_t timeout) {
         return writeAT((uint8_t*)"PIN", pinCode, timeout);
@@ -24,38 +51,38 @@ namespace IntroSatLib {
         return writeAT((uint8_t*)"SPPCONN", mac, timeout);
     }
 
-    ISL_StatusTypeDef FSC_BT986::writePrgReset(uint16_t timeout) {
-        return readAT((uint8_t*)"REBOOT", NULL, timeout);
+    ISL_StatusTypeDef FSC_BT986::writePrgReboot(uint16_t timeout) {
+        return writeAT((uint8_t*)"REBOOT", nullptr, timeout);
     }
 
     ISL_StatusTypeDef FSC_BT986::writePrgMode(uint8_t state, uint16_t timeout) {
-        return readAT((uint8_t*)"REBOOT", (state == 0) ? (uint8_t*)'0' : (uint8_t*)'1', timeout);
+        return writeAT((uint8_t*)"TPMODE", (state == 0) ? (uint8_t*)"0" : (uint8_t*)"1", timeout);
     }
 
 
-    
 
-    ISL_StatusTypeDef FSC_BT986::writeHardReset(uint8_t state) {
-        if (_pins._reset.isValid()) {
-            _pins._reset.write(state);
+
+    ISL_StatusTypeDef FSC_BT986::writeHardReboot(uint8_t state) {
+        if (pins.reset.isValid()) {
+            pins.reset.write(state);
             return ISL_OK;
         } else {return ISL_ERROR;}
     }
 
     ISL_StatusTypeDef FSC_BT986::writeHardMode(uint8_t state) {
-        if (_pins._mode.isValid()) {
-            _pins._mode.write(state);
+        if (pins.mode.isValid()) {
+            pins.mode.write(state);
             return ISL_OK;
         } else {return ISL_ERROR;}
     }
 
     uint8_t FSC_BT986::readStatus() {
-        _pins._status.read();
+        pins.status.read();
     }
 
     ISL_StatusTypeDef FSC_BT986::writeHardDisconnect(uint8_t state) {
-        if (_pins._disconnect.isValid()) {
-            _pins._disconnect.write(state);
+        if (pins.disconnect.isValid()) {
+            pins.disconnect.write(state);
             return ISL_OK;
         } else {return ISL_ERROR;}
     }
