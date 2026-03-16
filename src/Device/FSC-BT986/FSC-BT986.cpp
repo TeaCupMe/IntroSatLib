@@ -50,13 +50,20 @@ namespace IntroSatLib {
     }
 
     ISL_StatusTypeDef FSC_BT986::writePrgReboot(uint16_t timeout) {
-        return writeAT("REBOOT", (uint16_t)timeout);
+        return writeAT("REBOOT", timeout);
     }
 
     ISL_StatusTypeDef FSC_BT986::writePrgMode(uint8_t state, uint16_t timeout) {
         return writeAT("TPMODE", timeout, (state == 0) ? (uint8_t*)"0" : (uint8_t*)"1");
     }
 
+    ISL_StatusTypeDef FSC_BT986::releaseConnections(uint16_t timeout) {
+        return writeAT("DSCA", timeout);
+    }
+
+    ISL_StatusTypeDef FSC_BT986::restore(uint16_t timeout) {
+        return writeAT("RESTORE", timeout);
+    }
 
 
 
