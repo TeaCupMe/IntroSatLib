@@ -36,16 +36,16 @@ public:
 
     ISL_StatusTypeDef Init();
 
-    ISL_StatusTypeDef writePIN(uint8_t* pinCode, uint16_t timeout=0xFFFF);
-    ISL_StatusTypeDef readPIN(uint8_t* rxbuff, uint16_t timeout=0xFFFF);
+    ISL_StatusTypeDef writePIN(uint8_t* pinCode, uint16_t timeout=DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef readPIN(uint8_t* rxbuff, uint16_t timeout=DEFAULT_TIMEOUT);
 
-    ISL_StatusTypeDef readMAC(uint8_t* rxbuff, uint16_t timeout=0xFFFF);
-    ISL_StatusTypeDef connect(uint8_t* mac, uint16_t timeout=0xFFFF);
+    ISL_StatusTypeDef readMAC(uint8_t* rxbuff, uint16_t timeout=DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef connect(uint8_t* mac, uint16_t timeout=DEFAULT_TIMEOUT);
 
-    ISL_StatusTypeDef writePrgReboot(uint16_t timeout=0xFFFF);
+    ISL_StatusTypeDef writePrgReboot(uint16_t timeout=DEFAULT_TIMEOUT);
     ISL_StatusTypeDef writeHardReboot(uint8_t state);
 
-    ISL_StatusTypeDef writePrgMode(uint8_t state, uint16_t timeout=0xFFFF);
+    ISL_StatusTypeDef writePrgMode(uint8_t state, uint16_t timeout=DEFAULT_TIMEOUT);
     ISL_StatusTypeDef writeHardMode(uint8_t state);
 
     uint8_t readStatus();
