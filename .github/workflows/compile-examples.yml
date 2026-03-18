@@ -106,6 +106,47 @@ jobs:
           name: 'introsat-examples-reports-${{ steps.get_fqbn.outputs.fqbn }}'
           path: sketches-reports
 
+  build-examples-mik32:
+    name: Build IntroSat examples for Arduino IDE (MIK32_Amur)
+    runs-on: ubuntu-latest
+    needs: build-legacy-codes
+    strategy:
+      matrix:
+        fqbn:
+          - Elron:MIK32_Amur:aceUno32Mb
+          - Elron:MIK32_Amur:aceUno16Mb
+          - Elron:MIK32_Amur:aceUno8Mb
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile sketches
+        uses: arduino/compile-sketches@v1
+        with:
+          verbose: false
+          enable-warnings-report: true
+          enable-deltas-report: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          fqbn: ${{ matrix.fqbn }}
+          sketch-paths: 
+            "- examples/MIK32"
+          platforms: |
+            - name: Elron:MIK32_Amur
+              source-url: https://elron.tech/files/package_elbear_beta_index.json
+          cli-compile-flags: |
+            - --warnings="default"
+
+      - name: Transform fqbn with awk
+        id: get_fqbn
+        run: |
+          fqbn=$(echo "${{ matrix.fqbn }}" | awk 'gsub(/:/, "_")')
+          echo "fqbn=$fqbn" >> $GITHUB_OUTPUT
+
+      - name: Upload reports of generated sketches
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'introsat-examples-reports-${{ steps.get_fqbn.outputs.fqbn }}'
+          path: sketches-reports
+
   build-examples-introsat-platform:
     name: Build IntroSat.Platform examples for Arduino IDE (H750VBx)
     runs-on: ubuntu-latest
@@ -242,6 +283,7 @@ jobs:
       - build-examples-introsat-pico
       - build-examples-introsat-platform
       - build-examples-cubeide
+      - build-examples-mik32
 
     steps:
       - uses: actions/checkout@v4
