@@ -28,7 +28,9 @@ ISL_StatusTypeDef IntroSatLib::interfaces::UART::receive(uint8_t* rx_buf, uint16
 
 ISL_StatusTypeDef IntroSatLib::interfaces::UART::transmit(uint8_t* tx_buf, uint16_t count, uint16_t timeout) {
     ISL_StatusTypeDef status = _huart->write(tx_buf, count) == count ? ISL_OK : ISL_ERROR;
+    #ifdef SERIAL_TX_BUFFER_SIZE
     while (_huart->availableForWrite() < SERIAL_TX_BUFFER_SIZE - 1);
+    #endif
     return status;
 }
 

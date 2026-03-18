@@ -68,15 +68,14 @@ ISL_StatusTypeDef AK8963::ReadCal()
 ISL_StatusTypeDef AK8963::Read()
 {
 	uint8_t buf[7];
-	ISL_StatusTypeDef status = ISL_StatusTypeDef::ISL_OK;
-	if ((status = ReadRegisterI2C(0x03, buf, 7)) != ISL_StatusTypeDef::ISL_OK) { return status; }
-//	ReadRegisterI2C(0x03, buf, 7);
+	RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(0x03, buf, 7));
 	if (!(buf[6] & 0x08))
 	{
 		_x = (buf[1] << 8) | buf[0];
 		_y = (buf[3] << 8) | buf[2];
 		_z = (buf[5] << 8) | buf[4];
 	}
+	return ISL_StatusTypeDef::ISL_OK;
 }
 
 
