@@ -164,18 +164,18 @@ int16_t LSM6DS3::RawGZ()
 
 float LSM6DS3::GX()
 {
-	float e = RawGX() * (1 << _scaleGyro);
+	float e = ((float) RawGX()) * (1 << _scaleGyro);
 	return cutMin(e * _rawdps, _cutX);
 }
 
 float LSM6DS3::GY()
 {
-	float e = RawGY() * (1 << _scaleGyro);
+	float e = ((float) RawGY()) * (1 << _scaleGyro);
 	return cutMin(e * _rawdps, _cutY);
 }
 float LSM6DS3::GZ()
 {
-	float e = RawGZ() * (1 << _scaleGyro);
+	float e = ((float) RawGZ()) * (1 << _scaleGyro);
 	return cutMin(e * _rawdps, _cutZ);
 }
 
