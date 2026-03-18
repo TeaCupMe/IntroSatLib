@@ -7,7 +7,7 @@
 // Set boot memory address depending on platform
 #if defined(ARDUINO_AVR_ATmega328)
     #include "Arduino.h"
-    #define BOOT_ADDR 0x7e8e
+    #define BOOT_ADDR 0x7e92
 
 #elif defined(STM32F4xx)
     #include "stm32f4xx_hal.h"
