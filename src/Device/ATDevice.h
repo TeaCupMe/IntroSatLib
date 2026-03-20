@@ -31,8 +31,8 @@ private:
 protected:
     uint16_t buff_size; /**< \~russian Размер внутреннего буфера для команд */
 
-    /** \~russian Таймаут по умолчанию (100 мс) */
-    static constexpr uint16_t DEFAULT_TIMEOUT = 100;
+    /** \~russian Таймаут по умолчанию (500 мс) */
+    static constexpr uint16_t DEFAULT_TIMEOUT = 500;
     
     /** \~russian Размер буфера по умолчанию (128 байт) */
     static constexpr uint16_t DEFAULT_BSIZE = 128;
@@ -145,7 +145,7 @@ public:
     ISL_StatusTypeDef writeAT(const char* cmd, uint16_t timeout, Args... args) {
         uint8_t buff[buff_size], message[buff_size];
 
-        RETURN_STATUS_IF_NOT_OK_SILENT(AT_CMD(message, buff_size, cmd, args...))
+        RETURN_STATUS_IF_NOT_OK_SILENT(AT_CMD(message, buff_size, cmd, args...));
         
         RETURN_STATUS_IF_NOT_OK_SILENT(executeATCommand(message, buff, buff_size, timeout));
         return (strstr((char*)buff, AT_OK) != nullptr) ? ISL_OK : ISL_ERROR;
@@ -191,9 +191,8 @@ public:
         memcpy(ptr, cmd, cmd_len);
         ptr += cmd_len;
 
+        RETURN_STATUS_IF_NOT_OK_SILENT(AT_CMD_EQL(&ptr, &end, num_args));
         if (num_args > 0) {
-            RETURN_STATUS_IF_NOT_OK_SILENT(AT_CMD_EQL(&ptr, &end, num_args));
-            
             const char* params[] = { reinterpret_cast<const char*>(args)... };
             for (uint8_t i = 0; i < num_args; i++) {
                 if (i > 0) 

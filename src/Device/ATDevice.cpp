@@ -27,9 +27,11 @@ namespace IntroSatLib {
     }
 
     ISL_StatusTypeDef ATDevice::AT_CMD_EQL(uint8_t** ptr, uint8_t** end, uint8_t nargs) {
-        if (*ptr + 1 >= *end) return ISL_ERROR;
-        **ptr = '=';
-        *ptr += 1;
+        if (nargs > 0) {
+            if (*ptr + 1 >= *end) return ISL_ERROR;
+            **ptr = '=';
+            *ptr += 1;
+        }
         return ISL_OK;
     }
 
@@ -65,7 +67,7 @@ namespace IntroSatLib {
     ISL_StatusTypeDef ATDevice::readAT(const char* cmd, uint8_t* rxbuff, uint16_t rxbuff_len, uint16_t timeout) {
         uint8_t buff[buff_size], message[buff_size];
         if (AT_CMD(message, buff_size, cmd) == ISL_OK) {
-            executeATCommand(message, buff, rxbuff_len, timeout);
+            RETURN_STATUS_IF_NOT_OK_SILENT(executeATCommand(message, buff, rxbuff_len, timeout));
             if (strstr((char*)buff, AT_ERROR) != nullptr) return ISL_ERROR;
 
             memcpy(rxbuff, buff, rxbuff_len);

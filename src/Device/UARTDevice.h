@@ -18,6 +18,9 @@ private:
 
 protected:
 
+    /** \~russian Таймаут по умолчанию (100 мс) */
+    static constexpr uint16_t DEFAULT_TIMEOUT = 100;
+
 public:
     /**
      * \~russian @brief Конструктор класса UARTDevice
@@ -42,20 +45,20 @@ public:
      * 
      * \~russian @param buf Указатель на буфер с данными для отправки
      * \~russian @param nBytes Количество байт для отправки
-     * \~russian @param timeout Таймаут операции в миллисекундах (по умолчанию 0xFFFF)
+     * \~russian @param timeout Таймаут операции в миллисекундах (по умолчанию DEFAULT_TIMEOUT)
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef WriteUART(uint8_t* buf, uint8_t nBytes, uint16_t timeout = 0xFFFF);
+    ISL_StatusTypeDef WriteUART(uint8_t* buf, uint8_t nBytes, uint16_t timeout = DEFAULT_TIMEOUT);
 
     /**
      * \~russian @brief Чтение данных из UART
      * 
      * \~russian @param buf Указатель на буфер для приема данных
      * \~russian @param nBytes Количество байт для чтения (по умолчанию 1)
-     * \~russian @param timeout Таймаут операции в миллисекундах (по умолчанию 0xFFFF)
+     * \~russian @param timeout Таймаут операции в миллисекундах (по умолчанию DEFAULT_TIMEOUT)
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef ReadUART(uint8_t* buf, uint8_t nBytes = 1, uint16_t timeout = 0xFFFF);
+    ISL_StatusTypeDef ReadUART(uint8_t* buf, uint8_t nBytes = 1, uint16_t timeout = DEFAULT_TIMEOUT);
 
     /**
      * \~russian @brief Проверка наличия данных в приемном буфере UART
