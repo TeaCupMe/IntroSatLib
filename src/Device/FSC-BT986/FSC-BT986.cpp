@@ -82,7 +82,7 @@ namespace IntroSatLib {
     }
 
     uint8_t FSC_BT986::readStatus() {
-        pins.status.read();
+        return pins.status.read();
     }
 
     ISL_StatusTypeDef FSC_BT986::writeHardDisconnect(uint8_t state) {
