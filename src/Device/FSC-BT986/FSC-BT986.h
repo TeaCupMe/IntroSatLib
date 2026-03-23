@@ -39,6 +39,10 @@ public:
 private:
     FSC_BT986Pins pins; /**< \~russian Структура с пинами модуля */
 
+    /** \~russian Время удержания пина по умолчанию */
+    static constexpr uint16_t DEFAULT_PIN_TIMEOUT = 20;
+
+
 public:
 
     /**
@@ -106,15 +110,14 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef writePrgReboot(uint16_t timeout=DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef reboot(uint16_t timeout=DEFAULT_TIMEOUT);
 
     /**
      * \~russian @brief Аппаратная перезагрузка модуля (через пин reset)
      * 
-     * \~russian @param state Состояние пина (0 - сброс, 1 - рабочий режим)
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef writeHardReset(uint8_t state);
+    ISL_StatusTypeDef hardReset();
 
     /**
      * \~russian @brief Программное переключение режима работы (через AT-команду)
@@ -123,7 +126,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef writePrgMode(uint8_t state, uint16_t timeout=DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef setPrgMode(uint8_t state, uint16_t timeout=DEFAULT_TIMEOUT);
 
     /**
      * \~russian @brief Аппаратное переключение режима работы (через пин mode)
@@ -131,14 +134,15 @@ public:
      * \~russian @param state Состояние пина mode
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef writeHardMode(uint8_t state);
+    ISL_StatusTypeDef setHardMode(uint8_t state);
 
     /**
      * \~russian @brief Чтение статуса модуля через пин status
      * 
+     * \~russian @param rxbuff указатель на буфер для приема значения
      * \~russian @return Текущее состояние пина status
      */
-    uint8_t readStatus();
+    ISL_StatusTypeDef readStatus(uint8_t* rxbuff);
 
     /**
      * \~russian @brief Аппаратное принудительное отключение (через пин disconnect)
@@ -146,7 +150,7 @@ public:
      * \~russian @param state Состояние пина disconnect (0 - /, 1 - disconnected)
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef writeHardDisconnect(uint8_t state);
+    ISL_StatusTypeDef hardDisconnect();
 
     /**
      * \~russian @brief Освобождение всех активных соединений

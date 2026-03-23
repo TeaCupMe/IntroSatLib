@@ -16,8 +16,8 @@ namespace IntroSatLib {
                 ));
 
 
-        writeHardMode(1);
-        writePrgMode(1);
+        setHardMode(1);
+        setPrgMode(1);
 
         RETURN_STATUS_IF_NOT_OK_SILENT(writeAT("BTEN", (uint8_t*)"1"));
         RETURN_STATUS_IF_NOT_OK_SILENT(writeAT("LPM", (uint8_t*)"0"));
@@ -27,8 +27,8 @@ namespace IntroSatLib {
         RETURN_STATUS_IF_NOT_OK_SILENT(writeAT("SECURITY", (uint8_t*)"1"));
         RETURN_STATUS_IF_NOT_OK_SILENT(writeAT("SPPCFG", (uint8_t*)"0"));
 
-        writeHardMode(0);
-        writePrgMode(0);
+        setHardMode(0);
+        setPrgMode(0);
         
         return ISL_OK;
     }
@@ -49,11 +49,11 @@ namespace IntroSatLib {
         return writeAT("SPPCONN", timeout, mac);
     }
 
-    ISL_StatusTypeDef FSC_BT986::writePrgReboot(uint16_t timeout) {
+    ISL_StatusTypeDef FSC_BT986::reboot(uint16_t timeout) {
         return writeAT("REBOOT", timeout);
     }
 
-    ISL_StatusTypeDef FSC_BT986::writePrgMode(uint8_t state, uint16_t timeout) {
+    ISL_StatusTypeDef FSC_BT986::setPrgMode(uint8_t state, uint16_t timeout) {
         return writeAT("TPMODE", timeout, (state == 0) ? (uint8_t*)"0" : (uint8_t*)"1");
     }
 
@@ -67,29 +67,39 @@ namespace IntroSatLib {
 
 
 
-    ISL_StatusTypeDef FSC_BT986::writeHardReset(uint8_t state) {
+    ISL_StatusTypeDef FSC_BT986::hardReset() {
         if (pins.reset.isValid()) {
-            pins.reset.write(state);
+            pins.reset.write(0);
+            system::Delay(DEFAULT_PIN_TIMEOUT);
+            pins.reset.write(1);
             return ISL_OK;
-        } else {return ISL_ERROR;}
+        }
+        return ISL_ERROR;
     }
 
-    ISL_StatusTypeDef FSC_BT986::writeHardMode(uint8_t state) {
+    ISL_StatusTypeDef FSC_BT986::setHardMode(uint8_t state) {
         if (pins.mode.isValid()) {
             pins.mode.write(state);
             return ISL_OK;
         } else {return ISL_ERROR;}
     }
 
-    uint8_t FSC_BT986::readStatus() {
-        return pins.status.read();
+    ISL_StatusTypeDef FSC_BT986::readStatus(uint8_t* rxbuff) {
+        if (pins.status.isValid()) {
+            *rxbuff = pins.status.read();
+            return ISL_OK;
+        }
+        return ISL_ERROR;
     }
 
-    ISL_StatusTypeDef FSC_BT986::writeHardDisconnect(uint8_t state) {
+    ISL_StatusTypeDef FSC_BT986::hardDisconnect() {
         if (pins.disconnect.isValid()) {
-            pins.disconnect.write(state);
+            pins.disconnect.write(1);
+            system::Delay(DEFAULT_PIN_TIMEOUT);
+            pins.disconnect.write(0);
             return ISL_OK;
-        } else {return ISL_ERROR;}
+        }
+        return ISL_ERROR;
     }
 
 }
