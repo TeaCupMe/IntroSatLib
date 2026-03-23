@@ -114,7 +114,7 @@ public:
      * \~russian @param state Состояние пина (0 - сброс, 1 - рабочий режим)
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef writeHardReboot(uint8_t state);
+    ISL_StatusTypeDef writeHardReset(uint8_t state);
 
     /**
      * \~russian @brief Программное переключение режима работы (через AT-команду)

@@ -67,7 +67,7 @@ namespace IntroSatLib {
 
 
 
-    ISL_StatusTypeDef FSC_BT986::writeHardReboot(uint8_t state) {
+    ISL_StatusTypeDef FSC_BT986::writeHardReset(uint8_t state) {
         if (pins.reset.isValid()) {
             pins.reset.write(state);
             return ISL_OK;
