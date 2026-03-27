@@ -36,12 +36,53 @@ public:
         interfaces::GPIO mode = interfaces::GPIO();        /**< \~russian Пин выбора режима работы */
     };
 
+    /**
+     * \~russian @brief Режимы работы bluetooth модуля
+     */
+    enum class MODE: uint8_t
+    {
+        THROUGHPUT = 0, /**< \~russian Режим передачи данных */
+        COMMAND = 1     /**< \~russian Командный режим (AT-команды) */
+    };
+
+    /**
+     * \~russian @brief Способ переключения режима работы
+     */
+    enum class MODE_CHANGE: uint8_t
+    {
+        NONE = 0b00,                    /**< \~russian Нет переключения */
+        HARDWARE = 0b01,                /**< \~russian Только аппаратное (пин mode) */
+        SOFTWARE = 0b10,                /**< \~russian Только программное (AT-команда) */
+        HARDWARE_AND_SOFTWARE = 0b11    /**< \~russian Оба способа */
+    };
+
 private:
     FSC_BT986Pins pins; /**< \~russian Структура с пинами модуля */
 
-    /** \~russian Время удержания пина по умолчанию */
+    MODE_CHANGE modeChange = MODE_CHANGE::NONE; /**< \~russian Выбранный способ переключения режима */
+    MODE currentMode = MODE::COMMAND;           /**< \~russian Текущий режим работы модуля */
+
+    /** \~russian Время удержания пина по умолчанию (мс) */
     static constexpr uint16_t DEFAULT_PIN_TIMEOUT = 20;
 
+    /**
+     * \~russian @brief Программное переключение режима работы (через AT-команду)
+     * 
+     * \~russian @param state Режим работы модуля (0 - throughput, 1 - command)
+     * \~russian @param timeout Таймаут операции в миллисекундах
+     * \~russian @return Статус выполнения операции
+     */
+    ISL_StatusTypeDef setModePrg(MODE mode, uint16_t timeout=DEFAULT_TIMEOUT);
+
+    /**
+     * \~russian @brief Аппаратное переключение режима работы (через пин mode)
+     * 
+     * \~russian @param state Состояние пина mode
+     * \~russian @return Статус выполнения операции
+     */
+    ISL_StatusTypeDef setModeHard(MODE mode);
+
+protected:
 
 public:
 
@@ -55,18 +96,52 @@ public:
     FSC_BT986(
         interfaces::UART uart,
         FSC_BT986Pins _pins,
-        const uint16_t bsize
-    ): ATDevice(uart, bsize), pins(_pins) { }
+        const uint16_t bsize = DEFAULT_BSIZE
+    ): ATDevice(uart, bsize), pins(_pins)
+    { };
 
     /**
-     * \~russian @brief Инициализация Bluetooth-модуля
+     * \~russian @brief Инициализация Bluetooth-модуля с указанием начального режима
      * 
      * \~russian Выполняет необходимую последовательность действий для
      * \~russian корректного запуска и настройки модуля.
      * 
+     * \~russian @param mode Начальный режим работы модуля
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef Init();
+    ISL_StatusTypeDef Init(MODE mode);
+
+    /**
+     * \~russian @brief Инициализация Bluetooth-модуля в режиме передачи данных
+     * 
+     * \~russian @return Статус выполнения операции
+     */
+    ISL_StatusTypeDef Init() override { return Init(MODE::THROUGHPUT); }
+
+
+     /**
+     * \~russian @brief Установка способа переключения режимов
+     * 
+     * \~russian @param newModeChange Способ переключения
+     */
+    void setModeChange(MODE_CHANGE newModeChange) { modeChange = newModeChange; }
+
+    /**
+     * \~russian @brief Получение текущего способа переключения режимов
+     * 
+     * \~russian @return Текущий способ переключения
+     */
+    MODE_CHANGE getModeChange() { return modeChange; }
+
+    /**
+     * \~russian @brief Переключение режима работы модуля
+     * 
+     * \~russian Выполняет переключение в зависимости от установленного способа (modeChange)
+     * 
+     * \~russian @param mode Новый режим работы
+     * \~russian @return Статус выполнения операции
+     */
+    ISL_StatusTypeDef setMode(MODE mode);
 
     /**
      * \~russian @brief Установка PIN-кода для Bluetooth-соединения
@@ -75,7 +150,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef writePIN(uint8_t* pinCode, uint16_t timeout=DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef setPIN(uint8_t* pinCode, uint16_t timeout=DEFAULT_TIMEOUT);
 
     /**
      * \~russian @brief Чтение текущего PIN-кода модуля
@@ -105,6 +180,14 @@ public:
     ISL_StatusTypeDef connect(uint8_t* mac, uint16_t timeout=DEFAULT_TIMEOUT);
 
     /**
+     * \~russian @brief Освобождение всех активных соединений
+     * 
+     * \~russian @param timeout Таймаут операции в миллисекундах
+     * \~russian @return Статус выполнения операции
+     */
+    ISL_StatusTypeDef releaseConnections(uint16_t timeout=DEFAULT_TIMEOUT);
+
+    /**
      * \~russian @brief Программная перезагрузка модуля (через AT-команду)
      * 
      * \~russian @param timeout Таймаут операции в миллисекундах
@@ -118,23 +201,6 @@ public:
      * \~russian @return Статус выполнения операции
      */
     ISL_StatusTypeDef hardReset();
-
-    /**
-     * \~russian @brief Программное переключение режима работы (через AT-команду)
-     * 
-     * \~russian @param state Режим работы модуля (0 - througput, 1 - command)
-     * \~russian @param timeout Таймаут операции в миллисекундах
-     * \~russian @return Статус выполнения операции
-     */
-    ISL_StatusTypeDef setPrgMode(uint8_t state, uint16_t timeout=DEFAULT_TIMEOUT);
-
-    /**
-     * \~russian @brief Аппаратное переключение режима работы (через пин mode)
-     * 
-     * \~russian @param state Состояние пина mode
-     * \~russian @return Статус выполнения операции
-     */
-    ISL_StatusTypeDef setHardMode(uint8_t state);
 
     /**
      * \~russian @brief Чтение статуса модуля через пин status
@@ -151,14 +217,6 @@ public:
      * \~russian @return Статус выполнения операции
      */
     ISL_StatusTypeDef hardDisconnect();
-
-    /**
-     * \~russian @brief Освобождение всех активных соединений
-     * 
-     * \~russian @param timeout Таймаут операции в миллисекундах
-     * \~russian @return Статус выполнения операции
-     */
-    ISL_StatusTypeDef releaseConnections(uint16_t timeout=DEFAULT_TIMEOUT);
 
     /**
      * \~russian @brief Сброс до заводских настроек модуля (требуется reboot)
