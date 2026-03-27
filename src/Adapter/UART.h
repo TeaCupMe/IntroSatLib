@@ -90,6 +90,13 @@ public:
 	ISL_StatusTypeDef receive(uint8_t* rx_buf, uint16_t count, uint16_t timeout = 1000);
 	ISL_StatusTypeDef transmit(uint8_t* tx_buf, uint16_t count, uint16_t timeout = 1000);
 	ISL_StatusTypeDef transmitAsync(uint8_t* tx_buf, uint16_t count);
+	
+	void flushRX() {
+		uint8_t temp;
+		while (available()) {
+			receive(&temp, 1, 5);
+		}
+	}
 
 	// В Arduino API есть аналоги - find() и findUntil(). Делают похожую вещь, маловероятно, что сильно оптимальнее. 
 	// https://docs.arduino.cc/language-reference/en/functions/communication/serial/find/
