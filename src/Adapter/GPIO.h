@@ -35,7 +35,7 @@
 			// define STM32-specific handle type for GPIO
 			#define ISL_GPIO_ENABLED
 			namespace IntroSatLib::interfaces {
-				using GPIO_HANDLE_TYPE = struct {
+				struct GPIO_HANDLE_TYPE {
 					GPIO_TypeDef* port = nullptr;
 					uint16_t pin = 0;
 				};
@@ -70,7 +70,7 @@ class GPIO final {
 private:
 	GPIO_HANDLE_TYPE _pin;
 public:
-	GPIO(GPIO_HANDLE_TYPE port);
+	GPIO(GPIO_HANDLE_TYPE pin);
 	GPIO() {}
 
 	uint8_t read() const;
