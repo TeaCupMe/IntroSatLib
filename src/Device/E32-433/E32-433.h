@@ -37,7 +37,7 @@ public:
         uint8_t CHAN = 0x17;
         uint8_t OPTION = 0x40;
 
-        E32_Settings() {}
+        E32_Settings() { }
 
         E32_Settings(uint8_t* buff)
         : HEAD(buff[0]), 
@@ -160,10 +160,13 @@ private:
     E32_Settings currentSettings;
     MODE currentMode;
 
-
     static constexpr uint8_t MAX_CHANNEL = 0x1F;
 
 protected:
+
+    static constexpr uint16_t DEFAULT_TIMEOUT = 1000;
+
+    ISL_StatusTypeDef readSettingsRaw(uint8_t* rxbuff, uint16_t timeout);
 
 public:
 
@@ -177,7 +180,9 @@ public:
 
     ISL_StatusTypeDef setMode(MODE mode);
 
-    ISL_StatusTypeDef readParams(uint8_t* rxbuff, uint16_t timeout=DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef readSettings(uint8_t* rxbuff, uint16_t timeout = DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef readSettings(E32_Settings& settings, uint16_t timeout = DEFAULT_TIMEOUT);
+
     ISL_StatusTypeDef readVersion(uint8_t* rxbuff, uint16_t timeout=DEFAULT_TIMEOUT);
     ISL_StatusTypeDef reset(uint16_t timeout=DEFAULT_TIMEOUT);
 

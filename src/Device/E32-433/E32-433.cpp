@@ -17,7 +17,7 @@ namespace IntroSatLib {
     
         // E32_SettingsBytes data;
         uint8_t buff[6];
-        RETURN_STATUS_IF_NOT_OK_SILENT(readParams(buff, DEFAULT_TIMEOUT));
+        RETURN_STATUS_IF_NOT_OK_SILENT(readSettings(buff, DEFAULT_TIMEOUT));
         currentSettings = buff;
         
         return ISL_OK;  
@@ -36,7 +36,8 @@ namespace IntroSatLib {
         return ISL_ERROR;
     }
 
-    ISL_StatusTypeDef E32_433::readParams(uint8_t* rxbuff, uint16_t timeout)
+
+    ISL_StatusTypeDef E32_433::readSettingsRaw(uint8_t* rxbuff, uint16_t timeout)
     {
         uint8_t buff;
         if (pins.AUX.isValid()) { while(!pins.AUX.read()); }
@@ -45,8 +46,27 @@ namespace IntroSatLib {
         uint8_t message[3] = {(uint8_t)CMD_HEAD::GET_PARAMETERS, (uint8_t)CMD_HEAD::GET_PARAMETERS, (uint8_t)CMD_HEAD::GET_PARAMETERS};
         RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(message, 3, timeout));
         RETURN_STATUS_IF_NOT_OK_SILENT(ReadUART(rxbuff, 6, timeout));
+        if (rxbuff[0] == (uint8_t)CMD_HEAD::SET_PARAMETERS_SAVE)
+        {
+            currentSettings = rxbuff;
+            return ISL_OK;
+        }
+        return ISL_ERROR;
+    }
+
+    ISL_StatusTypeDef E32_433::readSettings(uint8_t* rxbuff, uint16_t timeout)
+    {
+        return readSettingsRaw(rxbuff, timeout);
+    }
+
+    ISL_StatusTypeDef E32_433::readSettings(E32_Settings& settings, uint16_t timeout)
+    {
+        uint8_t buffer[6];
+        RETURN_STATUS_IF_NOT_OK_SILENT(readSettingsRaw(buffer, timeout));
+        settings = buffer;
         return ISL_OK;
     }
+
 
     ISL_StatusTypeDef E32_433::readVersion(uint8_t* rxbuff, uint16_t timeout)
     {
@@ -75,8 +95,13 @@ namespace IntroSatLib {
         uint8_t data[6];
         settings.toBytes(data);
         RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(data, 6, timeout));
-        currentSettings = data;
-        return ISL_OK;
+        RETURN_STATUS_IF_NOT_OK_SILENT(ReadUART(data, 6, timeout));
+        if (data[0] == (uint8_t)CMD_HEAD::SET_PARAMETERS_SAVE)
+        {
+            currentSettings = data;
+            return ISL_OK;
+        }
+        return ISL_ERROR;
     }
 
 
