@@ -26,6 +26,7 @@ function applyThemeClass(idx) {
 	// Select synchronisieren, falls vorhanden
 	const select = document.getElementById('theme-select');
 	if (select) select.value = THEME_CLASSES[idx];
+	location.reload();
 }
 
 function setThemeByName(themeName) {
