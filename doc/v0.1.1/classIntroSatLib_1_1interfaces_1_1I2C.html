@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>IntroSatLib: Класс IntroSatLib::interfaces::I2C</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="dropdown.css" rel="stylesheet" type="text/css"/>
+<link href="theme-round.css" rel="stylesheet" type="text/css"/>
+<link href="theme-robot.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IntroSatLib
+   <!-- BEGIN PROJECT_NUMBER&#160;<span id="projectnumber">v0.1.1</span>END PROJECT_NUMBER -->
+   </div>
+  </td>
+    <!-- BEGIN version select -->
+    <td align="right">
+    <div class="dropdown">
+        <button class="dropbtn">Version v0.1.1</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+    <script type="text/javascript" src="./selectversion.js"></script>
+    </td>
+    <!-- END version select -->
+ </tr>
+ </tbody>
+</table>
+<div id="theme-selection">
+ <label for="theme-select">Theme:</label>
+ <select id="theme-select">
+  <option value="theme-default">Default</option>
+  <option value="theme-round">Round</option>
+  <option value="theme-robot">Robot</option>
+ </select>
+</div>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classIntroSatLib_1_1interfaces_1_1I2C.html','','classIntroSatLib_1_1interfaces_1_1I2C-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс IntroSatLib::interfaces::I2C<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a9ea2393fe97d7fe6de463de0e8f10ca3" id="r_a9ea2393fe97d7fe6de463de0e8f10ca3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9ea2393fe97d7fe6de463de0e8f10ca3">I2C</a> (I2C_HANDLE_TYPE *hi2c)</td></tr>
+<tr class="memdesc:a9ea2393fe97d7fe6de463de0e8f10ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор объекта устройства на шине <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>.  <br /></td></tr>
+<tr class="memitem:ad28e07329c0a34640b9590de0b1a4537" id="r_ad28e07329c0a34640b9590de0b1a4537"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad28e07329c0a34640b9590de0b1a4537">I2C</a> (I2C_HANDLE_TYPE *hi2c, I2CSpeed speed)</td></tr>
+<tr class="memdesc:ad28e07329c0a34640b9590de0b1a4537"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор объекта устройства на шине <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>.  <br /></td></tr>
+<tr class="memitem:ac3fe0460ef2dd3c62d8d52ee59e2107a" id="r_ac3fe0460ef2dd3c62d8d52ee59e2107a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac3fe0460ef2dd3c62d8d52ee59e2107a">I2C</a> (I2C_HANDLE_TYPE &amp;hi2c)</td></tr>
+<tr class="memdesc:ac3fe0460ef2dd3c62d8d52ee59e2107a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор объекта устройства на шине <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>.  <br /></td></tr>
+<tr class="memitem:aad846784cae46458822911a2f8b7981a" id="r_aad846784cae46458822911a2f8b7981a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aad846784cae46458822911a2f8b7981a">I2C</a> (I2C_HANDLE_TYPE &amp;hi2c, I2CSpeed speed)</td></tr>
+<tr class="memdesc:aad846784cae46458822911a2f8b7981a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор объекта устройства на шине <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>.  <br /></td></tr>
+<tr class="memitem:a7340369ec16c2f0e089dc6db4460efe8" id="r_a7340369ec16c2f0e089dc6db4460efe8"><td class="memItemLeft"><a id="a7340369ec16c2f0e089dc6db4460efe8" name="a7340369ec16c2f0e089dc6db4460efe8"></a>
+&#160;</td><td class="memItemRight"><b>I2C</b> (const I2C &amp;other)</td></tr>
+<tr class="memitem:a88ce40e9e793651ff66b0bfd8850c01d" id="r_a88ce40e9e793651ff66b0bfd8850c01d"><td class="memItemLeft"><a id="a88ce40e9e793651ff66b0bfd8850c01d" name="a88ce40e9e793651ff66b0bfd8850c01d"></a>
+&#160;</td><td class="memItemRight"><b>I2C</b> (I2C &amp;&amp;other)</td></tr>
+<tr class="memitem:a7100409531ab37b752fc4283f6f61669" id="r_a7100409531ab37b752fc4283f6f61669"><td class="memItemLeft"><a id="a7100409531ab37b752fc4283f6f61669" name="a7100409531ab37b752fc4283f6f61669"></a>
+<a class="el" href="#a9ea2393fe97d7fe6de463de0e8f10ca3">I2C</a> &amp;&#160;</td><td class="memItemRight"><b>operator=</b> (const <a class="el" href="#a9ea2393fe97d7fe6de463de0e8f10ca3">I2C</a> &amp;other)</td></tr>
+<tr class="memitem:a057a32e72e4971c9c831875ecd205bd3" id="r_a057a32e72e4971c9c831875ecd205bd3"><td class="memItemLeft"><a id="a057a32e72e4971c9c831875ecd205bd3" name="a057a32e72e4971c9c831875ecd205bd3"></a>
+<a class="el" href="#a9ea2393fe97d7fe6de463de0e8f10ca3">I2C</a> &amp;&#160;</td><td class="memItemRight"><b>operator=</b> (<a class="el" href="#a9ea2393fe97d7fe6de463de0e8f10ca3">I2C</a> &amp;&amp;other)</td></tr>
+<tr class="memitem:a64471c45a45a6e3ab937d94f39c6a5c4" id="r_a64471c45a45a6e3ab937d94f39c6a5c4"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a64471c45a45a6e3ab937d94f39c6a5c4">isReady</a> (uint8_t deviceAddress, uint8_t waitIsReady=0)</td></tr>
+<tr class="memdesc:a64471c45a45a6e3ab937d94f39c6a5c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка доступности устройства на шине к работе  <br /></td></tr>
+<tr class="memitem:aef45d561a44a3b82145745214efe0983" id="r_aef45d561a44a3b82145745214efe0983"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#aef45d561a44a3b82145745214efe0983">read</a> (uint8_t deviceAddress, uint8_t *data, uint8_t nBytes)</td></tr>
+<tr class="memdesc:aef45d561a44a3b82145745214efe0983"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправка запроса на чтение Nbytes байт с устройства  <br /></td></tr>
+<tr class="memitem:a80dafdc6eefa92778212e278535b4d08" id="r_a80dafdc6eefa92778212e278535b4d08"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a80dafdc6eefa92778212e278535b4d08">readMem</a> (uint8_t deviceAddress, uint8_t reg, uint8_t *data, uint8_t nBytes)</td></tr>
+<tr class="memdesc:a80dafdc6eefa92778212e278535b4d08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправка запроса на чтение Nbytes байт из регистра Register устройства  <br /></td></tr>
+<tr class="memitem:a5bda56aafe3a54b5a21904727345cf72" id="r_a5bda56aafe3a54b5a21904727345cf72"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a5bda56aafe3a54b5a21904727345cf72">write</a> (uint8_t deviceAddress, uint8_t *data, uint8_t nBytes)</td></tr>
+<tr class="memdesc:a5bda56aafe3a54b5a21904727345cf72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправка запроса на запись NBytes байт на устройство  <br /></td></tr>
+<tr class="memitem:a89dd04fca1b67d056be268ec37cd143a" id="r_a89dd04fca1b67d056be268ec37cd143a"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a89dd04fca1b67d056be268ec37cd143a">writeMem</a> (uint8_t deviceAddress, uint8_t reg, uint8_t *data, uint8_t nBytes)</td></tr>
+<tr class="memdesc:a89dd04fca1b67d056be268ec37cd143a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправка запроса на запись NBytes байт в регистр Register устройства  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="a9ea2393fe97d7fe6de463de0e8f10ca3" name="a9ea2393fe97d7fe6de463de0e8f10ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ea2393fe97d7fe6de463de0e8f10ca3">&#9670;&#160;</a></span>I2C() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::interfaces::I2C::I2C </td>
+          <td>(</td>
+          <td class="paramtype">I2C_HANDLE_TYPE *</td>          <td class="paramname"><span class="paramname"><em>hi2c</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор объекта устройства на шине <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Только в STM32CubeIDE </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hi2c</td><td>объект <b>I2C_HandleTypeDef</b> </td></tr>
+    <tr><td class="paramname">address</td><td>адрес устройства на шине <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad28e07329c0a34640b9590de0b1a4537" name="ad28e07329c0a34640b9590de0b1a4537"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad28e07329c0a34640b9590de0b1a4537">&#9670;&#160;</a></span>I2C() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::interfaces::I2C::I2C </td>
+          <td>(</td>
+          <td class="paramtype">I2C_HANDLE_TYPE *</td>          <td class="paramname"><span class="paramname"><em>hi2c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">I2CSpeed</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор объекта устройства на шине <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Только в STM32CubeIDE </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hi2c</td><td>объект <b>I2C_HandleTypeDef</b> </td></tr>
+    <tr><td class="paramname">address</td><td>адрес устройства на шине <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a> </td></tr>
+    <tr><td class="paramname">speed</td><td>скорость <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac3fe0460ef2dd3c62d8d52ee59e2107a" name="ac3fe0460ef2dd3c62d8d52ee59e2107a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3fe0460ef2dd3c62d8d52ee59e2107a">&#9670;&#160;</a></span>I2C() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::interfaces::I2C::I2C </td>
+          <td>(</td>
+          <td class="paramtype">I2C_HANDLE_TYPE &amp;</td>          <td class="paramname"><span class="paramname"><em>hi2c</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор объекта устройства на шине <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Только в STM32CubeIDE </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hi2c</td><td>объект <b>I2C_HandleTypeDef</b> </td></tr>
+    <tr><td class="paramname">address</td><td>адрес устройства на шине <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aad846784cae46458822911a2f8b7981a" name="aad846784cae46458822911a2f8b7981a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad846784cae46458822911a2f8b7981a">&#9670;&#160;</a></span>I2C() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::interfaces::I2C::I2C </td>
+          <td>(</td>
+          <td class="paramtype">I2C_HANDLE_TYPE &amp;</td>          <td class="paramname"><span class="paramname"><em>hi2c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">I2CSpeed</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор объекта устройства на шине <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a>. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Только в STM32CubeIDE </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hi2c</td><td>объект <b>I2C_HandleTypeDef</b> </td></tr>
+    <tr><td class="paramname">address</td><td>адрес устройства на шине <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a> </td></tr>
+    <tr><td class="paramname">speed</td><td>скорость <a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a64471c45a45a6e3ab937d94f39c6a5c4" name="a64471c45a45a6e3ab937d94f39c6a5c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64471c45a45a6e3ab937d94f39c6a5c4">&#9670;&#160;</a></span>isReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::interfaces::I2C::isReady </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>deviceAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>waitIsReady</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Проверка доступности устройства на шине к работе </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">waitIsReady</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>0, если устройство доступно </dd>
+<dd>
+1, если с устройством произошла ошибка </dd></dl>
+
+</div>
+</div>
+<a id="aef45d561a44a3b82145745214efe0983" name="aef45d561a44a3b82145745214efe0983"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef45d561a44a3b82145745214efe0983">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::interfaces::I2C::read </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>deviceAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>nBytes</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отправка запроса на чтение Nbytes байт с устройства </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">Data</td><td>Указатель на первый байт (/<b>uint8_t</b> ) массива, в которую будет записан результат. В случае </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Nbytes</td><td>Количество байт для чтения </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения чтения </dd></dl>
+
+</div>
+</div>
+<a id="a80dafdc6eefa92778212e278535b4d08" name="a80dafdc6eefa92778212e278535b4d08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80dafdc6eefa92778212e278535b4d08">&#9670;&#160;</a></span>readMem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::interfaces::I2C::readMem </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>deviceAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>nBytes</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отправка запроса на чтение Nbytes байт из регистра Register устройства </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Register</td><td>Адрес регистра для чтения </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Data</td><td>Указатель на первый байт (/<b>uint8_t</b> ) массива, в который будет записан результат. В случае </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Nbytes</td><td>Количество байт для чтения </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>HAL_StatusTypeDef </dd></dl>
+
+</div>
+</div>
+<a id="a5bda56aafe3a54b5a21904727345cf72" name="a5bda56aafe3a54b5a21904727345cf72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bda56aafe3a54b5a21904727345cf72">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::interfaces::I2C::write </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>deviceAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>nBytes</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отправка запроса на запись NBytes байт на устройство </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Data</td><td>Указатель на первый байт(/<b>uint8_t</b>) массива данных для записи </td></tr>
+    <tr><td class="paramname">Nbytes</td><td>Количество байт для записи </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>HAL_StatusTypeDef </dd></dl>
+
+</div>
+</div>
+<a id="a89dd04fca1b67d056be268ec37cd143a" name="a89dd04fca1b67d056be268ec37cd143a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89dd04fca1b67d056be268ec37cd143a">&#9670;&#160;</a></span>writeMem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::interfaces::I2C::writeMem </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>deviceAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>nBytes</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отправка запроса на запись NBytes байт в регистр Register устройства </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Register</td><td>Адрес регистра для записи </td></tr>
+    <tr><td class="paramname">Data</td><td>Указатель на первый байт(/<b>uint8_t</b>) массива данных для записи </td></tr>
+    <tr><td class="paramname">Nbytes</td><td>Количество байт для записи </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>HAL_StatusTypeDef </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/Adapter/<a class="el" href="I2C_8h_source.html">I2C.h</a></li>
+<li>src/Adapter/ARDUINO/<b>ARDUINO_I2C.cpp</b></li>
+<li>src/Adapter/STM32/<b>STM32_I2C.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><b>interfaces</b></li><li class="navelem"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html">I2C</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>
