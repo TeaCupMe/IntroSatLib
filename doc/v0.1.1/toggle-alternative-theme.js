@@ -26,12 +26,13 @@ function applyThemeClass(idx) {
 	// Select synchronisieren, falls vorhanden
 	const select = document.getElementById('theme-select');
 	if (select) select.value = THEME_CLASSES[idx];
-	location.reload();
 }
 
 function setThemeByName(themeName) {
 	const idx = THEME_CLASSES.indexOf(themeName);
 	applyThemeClass(idx === -1 ? 0 : idx);
+	location.reload();
+
 }
 
 
