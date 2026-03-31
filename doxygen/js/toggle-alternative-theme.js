@@ -31,6 +31,8 @@ function applyThemeClass(idx) {
 function setThemeByName(themeName) {
 	const idx = THEME_CLASSES.indexOf(themeName);
 	applyThemeClass(idx === -1 ? 0 : idx);
+	location.reload();
+
 }
 
 

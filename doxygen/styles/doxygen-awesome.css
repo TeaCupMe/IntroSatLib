@@ -2434,6 +2434,8 @@ div.qindex {
 
 #nav-path {
     width: 100%;
+    position: absolute;
+    z-index: 1;
 }
 
 #nav-path ul {
