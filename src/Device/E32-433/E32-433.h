@@ -162,6 +162,8 @@ private:
 
     static constexpr uint8_t MAX_CHANNEL = 0x1F;
 
+    ISL_StatusTypeDef waitAUX(uint16_t timeout=DEFAULT_TIMEOUT);
+
 protected:
 
     static constexpr uint16_t DEFAULT_TIMEOUT = 1000;

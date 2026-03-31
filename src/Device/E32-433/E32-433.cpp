@@ -11,7 +11,7 @@ namespace IntroSatLib {
 
     ISL_StatusTypeDef E32_433::Init()
     {
-        if (pins.AUX.isValid()) { while(!pins.AUX.read()); }
+        waitAUX();
 
         RETURN_STATUS_IF_NOT_OK_SILENT(setMode(currentMode));
     
@@ -25,7 +25,7 @@ namespace IntroSatLib {
 
     ISL_StatusTypeDef E32_433::setMode(MODE mode)
     {
-        if (pins.AUX.isValid()) { while(!pins.AUX.read()); }
+        waitAUX();
         if (pins.M0.isValid() && pins.M1.isValid())
         {
             pins.M0.write((uint8_t)mode & 0b1);
@@ -37,14 +37,33 @@ namespace IntroSatLib {
     }
 
 
+    ISL_StatusTypeDef E32_433::waitAUX(uint16_t timeout)
+    {
+        uint32_t start;
+        if (pins.AUX.isValid()) {
+            start = system::GetTick();
+            while(!pins.AUX.read()) {
+                if((system::GetTick() - start) > timeout) return ISL_TIMEOUT;
+                system::Delay(1);
+            }
+        }
+        return ISL_OK;
+    }
+
+
     ISL_StatusTypeDef E32_433::readSettingsRaw(uint8_t* rxbuff, uint16_t timeout)
     {
         uint8_t buff;
-        if (pins.AUX.isValid()) { while(!pins.AUX.read()); }
+        waitAUX(timeout);
         while(available()) ReadUART(&buff, 1, 10);
 
-        uint8_t message[3] = {(uint8_t)CMD_HEAD::GET_PARAMETERS, (uint8_t)CMD_HEAD::GET_PARAMETERS, (uint8_t)CMD_HEAD::GET_PARAMETERS};
+        uint8_t message[3] = {
+            (uint8_t)CMD_HEAD::GET_PARAMETERS,
+            (uint8_t)CMD_HEAD::GET_PARAMETERS,
+            (uint8_t)CMD_HEAD::GET_PARAMETERS
+        };
         RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(message, 3, timeout));
+        waitAUX(timeout);
         RETURN_STATUS_IF_NOT_OK_SILENT(ReadUART(rxbuff, 6, timeout));
         if (rxbuff[0] == (uint8_t)CMD_HEAD::SET_PARAMETERS_SAVE)
         {
@@ -71,10 +90,14 @@ namespace IntroSatLib {
     ISL_StatusTypeDef E32_433::readVersion(uint8_t* rxbuff, uint16_t timeout)
     {
         uint8_t buff;
-        if (pins.AUX.isValid()) { while(!pins.AUX.read()); }
+        waitAUX(timeout);
         while(available()) ReadUART(&buff, 1, 10);
 
-        uint8_t message[3] = {(uint8_t)CMD_HEAD::GET_VERSION, (uint8_t)CMD_HEAD::GET_VERSION, (uint8_t)CMD_HEAD::GET_VERSION};
+        uint8_t message[3] = {
+            (uint8_t)CMD_HEAD::GET_VERSION, 
+            (uint8_t)CMD_HEAD::GET_VERSION, 
+            (uint8_t)CMD_HEAD::GET_VERSION
+        };
         RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(message, 3, timeout));
         RETURN_STATUS_IF_NOT_OK_SILENT(ReadUART(rxbuff, 4, timeout));
         return ISL_OK;
@@ -82,19 +105,27 @@ namespace IntroSatLib {
 
     ISL_StatusTypeDef E32_433::reset(uint16_t timeout)
     {
-        if (pins.AUX.isValid()) { while(!pins.AUX.read()); }
-    	uint8_t message[3] = {(uint8_t)CMD_HEAD::SET_RESET, (uint8_t)CMD_HEAD::SET_RESET, (uint8_t)CMD_HEAD::SET_RESET};
+        waitAUX(timeout);
+    	uint8_t message[3] = {
+            (uint8_t)CMD_HEAD::SET_RESET, 
+            (uint8_t)CMD_HEAD::SET_RESET, 
+            (uint8_t)CMD_HEAD::SET_RESET
+        };
 		RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(message, 3, timeout));
         return ISL_OK; 
     }
 
     ISL_StatusTypeDef E32_433::setSettings(E32_Settings settings, uint16_t timeout)
     {
-        if (pins.AUX.isValid()) { while(!pins.AUX.read()); }
+        uint8_t buff;
+        waitAUX(timeout);
+        while(available()) ReadUART(&buff, 1, 10);
 
         uint8_t data[6];
         settings.toBytes(data);
         RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(data, 6, timeout));
+        waitAUX(timeout);
+        
         RETURN_STATUS_IF_NOT_OK_SILENT(ReadUART(data, 6, timeout));
         if (data[0] == (uint8_t)CMD_HEAD::SET_PARAMETERS_SAVE)
         {
