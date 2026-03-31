@@ -29,9 +29,9 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    background: var(--side-nav-background);
-    padding: 5px 2px 5px 8px;
-    box-shadow: 0 -4px 4px -2px var(--side-nav-background);
+    /* background: var(--side-nav-background); */
+    padding: 4px 2px 4px 4px;
+    /* box-shadow: 0 -4px 4px -2px var(--side-nav-background); */
     display: flex;
 }
 
