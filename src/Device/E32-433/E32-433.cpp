@@ -44,7 +44,6 @@ namespace IntroSatLib {
             start = system::GetTick();
             while(!pins.AUX.read()) {
                 if((system::GetTick() - start) > timeout) return ISL_TIMEOUT;
-                system::Delay(1);
             }
         }
         return ISL_OK;
