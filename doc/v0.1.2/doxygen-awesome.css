@@ -821,6 +821,7 @@ html.dark-mode iframe#MSearchResults {
 
     #doc-content {
         margin-left: 0 !important;
+        scrollbar-width: none !important;
     }
 
     #top {

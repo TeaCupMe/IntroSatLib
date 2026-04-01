@@ -28,7 +28,7 @@
 #theme-selection {
     position: fixed;
     bottom: 0;
-    left: 0;
+    right: 15%;
     /* background: var(--side-nav-background); */
     padding: 4px 2px 4px 4px;
     /* box-shadow: 0 -4px 4px -2px var(--side-nav-background); */
@@ -126,4 +126,11 @@ html.dark-mode #theme-select {
         bottom: 0;
         background: var(--page-background-color);
     }
+}
+
+#page-nav-contents {
+    overflow-x: clip !important;
+    overflow-y: auto !important;
+    scrollbar-width: none !important;
+    height: calc(100% - 20px) !important;
 }
