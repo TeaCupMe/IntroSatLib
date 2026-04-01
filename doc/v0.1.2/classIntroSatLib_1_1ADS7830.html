@@ -1,0 +1,632 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="IntroSatLib" />
+<meta property="og:image" content="https://github.com/user-attachments/assets/b9565746-a0e4-46ce-b2e8-ef371b14b845" />
+<meta property="og:description" content="Документация библиотеки IntroSatLib" />
+<meta property="og:url" content="https://teacupme.github.io/IntroSatLib/doc/v0.1.1/" />
+<!-- END opengraph metadata -->
+<title>IntroSatLib: Класс IntroSatLib::ADS7830</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="dropdown.css" rel="stylesheet" type="text/css"/>
+<link href="theme-round.css" rel="stylesheet" type="text/css"/>
+<link href="theme-robot.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IntroSatLib
+   <!-- BEGIN PROJECT_NUMBER&#160;<span id="projectnumber">v0.1.2</span>END PROJECT_NUMBER -->
+   </div>
+  </td>
+    <!-- BEGIN version select -->
+    <td align="right">
+    <div class="dropdown">
+        <button class="dropbtn">Version v0.1.2</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+    <script type="text/javascript" src="./selectversion.js"></script>
+    </td>
+    <!-- END version select -->
+ </tr>
+ </tbody>
+</table>
+<div id="theme-selection">
+ <label for="theme-select">Theme:</label>
+ <select id="theme-select">
+  <option value="theme-default">Default</option>
+  <option value="theme-round">Round</option>
+  <option value="theme-robot">Robot</option>
+ </select>
+</div>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classIntroSatLib_1_1ADS7830.html','','classIntroSatLib_1_1ADS7830-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс IntroSatLib::ADS7830</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс для работы с 8-канальным 8-битным АЦП <a class="el" href="classIntroSatLib_1_1ADS7830.html" title="Класс для работы с 8-канальным 8-битным АЦП ADS7830 по интерфейсу I2C.">ADS7830</a> по интерфейсу I2C.  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ADS7830_8h_source.html">ADS7830.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:IntroSatLib::ADS7830:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classIntroSatLib_1_1ADS7830__inherit__graph.svg" width="334" height="258"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:ae5be1d6d9fb0cf38aa55853c981a95ca" id="r_ae5be1d6d9fb0cf38aa55853c981a95ca"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95ca">Channel</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caa55538ab7d289c66655bbe977dfd5966c">CH_DIFF_1_TO_0</a> = 0b0000
+, <a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caae0f0bf2fabd8cf50b81e2061ffe7530b">CH_DIFF_0_TO_1</a> = 0b0100
+, <a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caa2b91ee01807472bcfcf4f43a1313ee96">CH_DIFF_3_TO_2</a> = 0b0001
+, <a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caa27897a871ef1ff7a2d6d3dec7cdc2b28">CH_DIFF_2_TO_3</a> = 0b0101
+, <br />
+&#160;&#160;<a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caafd1908ddfd13a8760957cddef616a8c5">CH_DIFF_5_TO_4</a> = 0b0010
+, <a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caa14f19f8c599d4b07191435696a14c1d0">CH_DIFF_4_TO_5</a> = 0b0110
+, <a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caa3721852aa132c3d798e9d770d43598d0">CH_DIFF_7_TO_6</a> = 0b0011
+, <a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caab59dc5f80e8c74f5288f7b3396ec95d6">CH_DIFF_6_TO_7</a> = 0b0111
+, <br />
+&#160;&#160;<a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caa3ce88c5992b9028767b5ef17a2428926">CH0</a> = 0b1000
+, <a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caaaed2a56f6ade1e2f9cfc70a095214ce9">CH1</a> = 0b1100
+, <a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caac750197f04820048afd6a31f542f5efe">CH2</a> = 0b1001
+, <a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caabfef36299e762e547594df2b90f45885">CH3</a> = 0b1101
+, <br />
+&#160;&#160;<a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caac063c8d696acf659bc00167689208cce">CH4</a> = 0b1010
+, <a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caa3a199dc85edfe504583669f84366e1f4">CH5</a> = 0b1110
+, <a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caa644ef47c64d86a77b160009cb4863241">CH6</a> = 0b1011
+, <a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95caabc174ecbc310e12238e3c4d7fd9be4ab">CH7</a> = 0b1111
+<br />
+ }</td></tr>
+<tr class="memdesc:ae5be1d6d9fb0cf38aa55853c981a95ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Канал измерения  <a href="#ae5be1d6d9fb0cf38aa55853c981a95ca">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a2439638e9404763332ce63ce1174b2f6" id="r_a2439638e9404763332ce63ce1174b2f6"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a2439638e9404763332ce63ce1174b2f6">ReferenceMode</a> : uint8_t { <a class="el" href="#a2439638e9404763332ce63ce1174b2f6a7ec609e4dc5b981a90744b1b29824407">REF_EXTERNAL</a> = 0b0
+, <a class="el" href="#a2439638e9404763332ce63ce1174b2f6a40aea76edf4e440a3dde3249d83665d8">REF_INTERNAL</a> = 0b1
+ }</td></tr>
+<tr class="memdesc:a2439638e9404763332ce63ce1174b2f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Опорное напряжение  <a href="#a2439638e9404763332ce63ce1174b2f6">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a5e86aa0061941b86bf59635a3c799e87" id="r_a5e86aa0061941b86bf59635a3c799e87"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a5e86aa0061941b86bf59635a3c799e87">AdcMode</a> : uint8_t { <a class="el" href="#a5e86aa0061941b86bf59635a3c799e87a485d0c752e25b5af3d56987bd5589e3e">ADC_OFF</a> = 0
+, <a class="el" href="#a5e86aa0061941b86bf59635a3c799e87ae31f186bf1f1abd84c3ee35dc2d88d47">ADC_ON</a> = 1
+ }</td></tr>
+<tr class="memdesc:a5e86aa0061941b86bf59635a3c799e87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Состояние АЦП между измерениями  <a href="#a5e86aa0061941b86bf59635a3c799e87">Подробнее...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:abf7a0b4a57a2a22e31693e7ed11dd1d3" id="r_abf7a0b4a57a2a22e31693e7ed11dd1d3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abf7a0b4a57a2a22e31693e7ed11dd1d3">ADS7830</a> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> i2c, uint8_t address=BASE_ADDRESS)</td></tr>
+<tr class="memdesc:abf7a0b4a57a2a22e31693e7ed11dd1d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор объекта АЦП <a class="el" href="classIntroSatLib_1_1ADS7830.html" title="Класс для работы с 8-канальным 8-битным АЦП ADS7830 по интерфейсу I2C.">ADS7830</a>.  <br /></td></tr>
+<tr class="memitem:a75ecf924b2950b3add85def0edfd900f" id="r_a75ecf924b2950b3add85def0edfd900f"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a75ecf924b2950b3add85def0edfd900f">Init</a> () override</td></tr>
+<tr class="memdesc:a75ecf924b2950b3add85def0edfd900f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация АЦП с внутренним опорным напряжением  <br /></td></tr>
+<tr class="memitem:a7a136319c13918bb819a1afd40e498b1" id="r_a7a136319c13918bb819a1afd40e498b1"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a7a136319c13918bb819a1afd40e498b1">Init</a> (float uRef)</td></tr>
+<tr class="memdesc:a7a136319c13918bb819a1afd40e498b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация АЦП с внешним опорным напряжением  <br /></td></tr>
+<tr class="memitem:a0ec2e06769eaf9ffe1589c8aa68e2836" id="r_a0ec2e06769eaf9ffe1589c8aa68e2836"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0ec2e06769eaf9ffe1589c8aa68e2836">SetAdcOn</a> (<a class="el" href="#a5e86aa0061941b86bf59635a3c799e87">AdcMode</a> on)</td></tr>
+<tr class="memdesc:a0ec2e06769eaf9ffe1589c8aa68e2836"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка состояния АЦП между измерениями: включён или выключен (режим power-down).  <br /></td></tr>
+<tr class="memitem:a860aeedc40ea718f9d12b5f325503a71" id="r_a860aeedc40ea718f9d12b5f325503a71"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a860aeedc40ea718f9d12b5f325503a71">UseExternalReference</a> (float refVoltage)</td></tr>
+<tr class="memdesc:a860aeedc40ea718f9d12b5f325503a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Использование внешнего опорного напряжения  <br /></td></tr>
+<tr class="memitem:a5516a58f709a0d9a8b93970e811ed95e" id="r_a5516a58f709a0d9a8b93970e811ed95e"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a5516a58f709a0d9a8b93970e811ed95e">UseInternalReference</a> ()</td></tr>
+<tr class="memdesc:a5516a58f709a0d9a8b93970e811ed95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Использование внутреннего опорного напряжения  <br /></td></tr>
+<tr class="memitem:a5b0b1750b21951a9629dc5022cad747f" id="r_a5b0b1750b21951a9629dc5022cad747f"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a5b0b1750b21951a9629dc5022cad747f">PowerDown</a> ()</td></tr>
+<tr class="memdesc:a5b0b1750b21951a9629dc5022cad747f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выключение АЦП (режим power-down).  <br /></td></tr>
+<tr class="memitem:aea905a29722d07080d5a63fe64a712f5" id="r_aea905a29722d07080d5a63fe64a712f5"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aea905a29722d07080d5a63fe64a712f5">GetValue</a> (<a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95ca">Channel</a> channel)</td></tr>
+<tr class="memdesc:aea905a29722d07080d5a63fe64a712f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение значения напряжения на канале в вольтах  <br /></td></tr>
+<tr class="memitem:a57ee7bdf12777e1d600c204c107d4503" id="r_a57ee7bdf12777e1d600c204c107d4503"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a57ee7bdf12777e1d600c204c107d4503">GetRawValue</a> (<a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95ca">Channel</a> channel)</td></tr>
+<tr class="memdesc:a57ee7bdf12777e1d600c204c107d4503"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение необработанного значения с канала АЦП  <br /></td></tr>
+<tr class="inherit_header pub_methods_classIntroSatLib_1_1BaseADC"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classIntroSatLib_1_1BaseADC')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="classIntroSatLib_1_1BaseADC.html">IntroSatLib::BaseADC</a></td></tr>
+<tr class="memitem:abe967c207879f0016728d6360efefde0 inherit pub_methods_classIntroSatLib_1_1BaseADC" id="r_abe967c207879f0016728d6360efefde0"><td class="memItemLeft">
+float&#160;</td><td class="memItemRight"><b>GetValue</b> (uint8_t channel)</td></tr>
+<tr class="memitem:a0f70520ddf6a8b284104be0cf3bb2188 inherit pub_methods_classIntroSatLib_1_1BaseADC" id="r_a0f70520ddf6a8b284104be0cf3bb2188"><td class="memItemLeft">
+ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>InitChannel</b> (uint8_t channel, float coefficient)</td></tr>
+<tr class="memitem:ac4fe585bbd5c35a8c83813dd404a9449 inherit pub_methods_classIntroSatLib_1_1BaseADC" id="r_ac4fe585bbd5c35a8c83813dd404a9449"><td class="memItemLeft">
+uint32_t *&#160;</td><td class="memItemRight"><b>GetValuesPointer</b> ()</td></tr>
+<tr class="inherit_header pub_methods_classIntroSatLib_1_1Device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classIntroSatLib_1_1Device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="classIntroSatLib_1_1Device.html">IntroSatLib::Device</a></td></tr>
+<tr class="memitem:a8f687ec7a9822ccc409037bf1cc6c59f inherit pub_methods_classIntroSatLib_1_1Device" id="r_a8f687ec7a9822ccc409037bf1cc6c59f"><td class="memItemLeft">
+Device::DeviceState&#160;</td><td class="memItemRight"><b>GetState</b> ()</td></tr>
+<tr class="memitem:aa6f6a4c96b8d377ac6a020f903558694 inherit pub_methods_classIntroSatLib_1_1Device" id="r_aa6f6a4c96b8d377ac6a020f903558694"><td class="memItemLeft">
+virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>Enable</b> ()</td></tr>
+<tr class="memitem:aa9b38286b66f8990cf5c79f3732fd64d inherit pub_methods_classIntroSatLib_1_1Device" id="r_aa9b38286b66f8990cf5c79f3732fd64d"><td class="memItemLeft">
+virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>Disable</b> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
+Дополнительные унаследованные члены</h2></td></tr>
+<tr class="inherit_header pro_methods_classIntroSatLib_1_1BaseADC"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classIntroSatLib_1_1BaseADC')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные члены унаследованные от <a class="el" href="classIntroSatLib_1_1BaseADC.html">IntroSatLib::BaseADC</a></td></tr>
+<tr class="memitem:a16ccf44ab2b39886e5b04c3e3bf38c26 inherit pro_methods_classIntroSatLib_1_1BaseADC" id="r_a16ccf44ab2b39886e5b04c3e3bf38c26"><td class="memItemLeft">
+&#160;</td><td class="memItemRight"><b>BaseADC</b> (uint8_t _channelCount)</td></tr>
+<tr class="inherit_header pro_methods_classIntroSatLib_1_1Device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classIntroSatLib_1_1Device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные члены унаследованные от <a class="el" href="classIntroSatLib_1_1Device.html">IntroSatLib::Device</a></td></tr>
+<tr class="memitem:a250a0d27735ec18cd3771666b6efc9c7 inherit pro_methods_classIntroSatLib_1_1Device" id="r_a250a0d27735ec18cd3771666b6efc9c7"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>setState</b> (Device::DeviceState state)</td></tr>
+<tr class="inherit_header pro_methods_classIntroSatLib_1_1I2CDevice"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classIntroSatLib_1_1I2CDevice')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные члены унаследованные от <a class="el" href="classIntroSatLib_1_1I2CDevice.html">IntroSatLib::I2CDevice</a></td></tr>
+<tr class="memitem:aaee00904588c8e89d08b7b3644f87454 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_aaee00904588c8e89d08b7b3644f87454"><td class="memItemLeft">
+ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>IsReady</b> ()</td></tr>
+<tr class="memitem:ab9bbd2d50ab5023042ec65c9dfb0f5e0 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_ab9bbd2d50ab5023042ec65c9dfb0f5e0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#ab9bbd2d50ab5023042ec65c9dfb0f5e0">CheckRegisterI2C</a> (uint8_t reg, uint8_t value)</td></tr>
+<tr class="memdesc:ab9bbd2d50ab5023042ec65c9dfb0f5e0 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if register contents equal to <b>value</b>  <br /></td></tr>
+<tr class="memitem:a8b79aa811b553b8b7619468b98641717 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a8b79aa811b553b8b7619468b98641717"><td class="memItemLeft">
+ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>WriteI2C</b> (uint8_t byte)</td></tr>
+<tr class="memitem:aa5da3e3a54bdc96eb51d8a6e2a7e12a9 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_aa5da3e3a54bdc96eb51d8a6e2a7e12a9"><td class="memItemLeft">
+ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>WriteI2C</b> (uint8_t *buf, uint8_t nByte)</td></tr>
+<tr class="memitem:af9e008eb70a8363046a3edab69739c25 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_af9e008eb70a8363046a3edab69739c25"><td class="memItemLeft">
+ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>ReadI2C</b> (uint8_t *buf, uint8_t nBytes=1)</td></tr>
+<tr class="memitem:a75a425174537da2b67e781844a4efbc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a75a425174537da2b67e781844a4efbc6"><td class="memItemLeft">
+ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>ReadRegisterI2C</b> (uint8_t reg, uint8_t *data)</td></tr>
+<tr class="memitem:abc2bab9655f94499cbca2ef53f0343b7 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_abc2bab9655f94499cbca2ef53f0343b7"><td class="memItemLeft">
+ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>ReadRegisterI2C</b> (uint8_t reg, uint8_t *data, uint8_t nBytes)</td></tr>
+<tr class="memitem:a130dbf430e1bc9da54c2ccb7efa72984 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a130dbf430e1bc9da54c2ccb7efa72984"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#a130dbf430e1bc9da54c2ccb7efa72984">GetRegisterI2C</a> (uint8_t reg) __attribute__((deprecated(&quot;This method does not check if I2C read happened correctly&quot;)))</td></tr>
+<tr class="memdesc:a130dbf430e1bc9da54c2ccb7efa72984 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает значение из регистра устройства  <br /></td></tr>
+<tr class="memitem:a5d47e8d51ed58bf0eb9a1206aad7e656 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a5d47e8d51ed58bf0eb9a1206aad7e656"><td class="memItemLeft">
+ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>SetRegisterI2C</b> (uint8_t reg, uint8_t *value, uint8_t nBytes)</td></tr>
+<tr class="memitem:af82a37de690643f588385af356fb5d60 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_af82a37de690643f588385af356fb5d60"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#af82a37de690643f588385af356fb5d60">SetRegisterI2C</a> (uint8_t reg, uint8_t value)</td></tr>
+<tr class="memdesc:af82a37de690643f588385af356fb5d60 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись значения в регистр устройства  <br /></td></tr>
+<tr class="memitem:aa80cb32cbbebff532293fea39770bfc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_aa80cb32cbbebff532293fea39770bfc6"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#aa80cb32cbbebff532293fea39770bfc6">SetBitRegisterI2C</a> (uint8_t reg, uint8_t bit)</td></tr>
+<tr class="memdesc:aa80cb32cbbebff532293fea39770bfc6 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение 1.  <br /></td></tr>
+<tr class="memitem:aa2f949a2162badc6d2b85a55781a1cac inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_aa2f949a2162badc6d2b85a55781a1cac"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#aa2f949a2162badc6d2b85a55781a1cac">ResetBitRegisterI2C</a> (uint8_t reg, uint8_t bit)</td></tr>
+<tr class="memdesc:aa2f949a2162badc6d2b85a55781a1cac inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение 0.  <br /></td></tr>
+<tr class="memitem:a7b38314890d95d28a6d6177076e81cb2 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a7b38314890d95d28a6d6177076e81cb2"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#a7b38314890d95d28a6d6177076e81cb2">BitRegisterI2C</a> (uint8_t reg, uint8_t bit, uint8_t value)</td></tr>
+<tr class="memdesc:a7b38314890d95d28a6d6177076e81cb2 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка одного бита регистра в значение по условию value.  <br /></td></tr>
+<tr class="memitem:a5e09a13cba895f65977ea46119104200 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a5e09a13cba895f65977ea46119104200"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#a5e09a13cba895f65977ea46119104200">I2CDevice</a> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> i2c, uint8_t address)</td></tr>
+<tr class="memdesc:a5e09a13cba895f65977ea46119104200 inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта <b>@ref</b>  <a class="el" href="classIntroSatLib_1_1I2CDevice.html">I2CDevice</a>.  <br /></td></tr>
+<tr class="memitem:a168d5c83b720d8b9859689fb07a4c80c inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a168d5c83b720d8b9859689fb07a4c80c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1I2CDevice.html#a168d5c83b720d8b9859689fb07a4c80c">I2CDevice</a> (const I2CDevice &amp;other)</td></tr>
+<tr class="memdesc:a168d5c83b720d8b9859689fb07a4c80c inherit pro_methods_classIntroSatLib_1_1I2CDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание объекта BaseDevice как копии другого объекта BaseDevice.  <br /></td></tr>
+<tr class="memitem:a8a9cdabcd7339291d28d877f65507546 inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a8a9cdabcd7339291d28d877f65507546"><td class="memItemLeft">
+&#160;</td><td class="memItemRight"><b>I2CDevice</b> (I2CDevice &amp;&amp;other)</td></tr>
+<tr class="memitem:abae57f30f83bf34d2e3fcec43067b00b inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_abae57f30f83bf34d2e3fcec43067b00b"><td class="memItemLeft">
+<a class="el" href="classIntroSatLib_1_1I2CDevice.html#a5e09a13cba895f65977ea46119104200">I2CDevice</a> &amp;&#160;</td><td class="memItemRight"><b>operator=</b> (const <a class="el" href="classIntroSatLib_1_1I2CDevice.html#a5e09a13cba895f65977ea46119104200">I2CDevice</a> &amp;other)</td></tr>
+<tr class="memitem:a731b1566a1dacd02e9c7948d1a3ee27c inherit pro_methods_classIntroSatLib_1_1I2CDevice" id="r_a731b1566a1dacd02e9c7948d1a3ee27c"><td class="memItemLeft">
+<a class="el" href="classIntroSatLib_1_1I2CDevice.html#a5e09a13cba895f65977ea46119104200">I2CDevice</a> &amp;&#160;</td><td class="memItemRight"><b>operator=</b> (<a class="el" href="classIntroSatLib_1_1I2CDevice.html#a5e09a13cba895f65977ea46119104200">I2CDevice</a> &amp;&amp;other)</td></tr>
+<tr class="inherit_header pro_attribs_classIntroSatLib_1_1BaseADC"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classIntroSatLib_1_1BaseADC')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные данные унаследованные от <a class="el" href="classIntroSatLib_1_1BaseADC.html">IntroSatLib::BaseADC</a></td></tr>
+<tr class="memitem:a4a19d7513a603340027881d945dd44dc inherit pro_attribs_classIntroSatLib_1_1BaseADC" id="r_a4a19d7513a603340027881d945dd44dc"><td class="memItemLeft">
+float *&#160;</td><td class="memItemRight"><b>coefficients</b></td></tr>
+<tr class="memitem:ab3e6f0f389c4d1a6eed890add985bcce inherit pro_attribs_classIntroSatLib_1_1BaseADC" id="r_ab3e6f0f389c4d1a6eed890add985bcce"><td class="memItemLeft">
+uint32_t *&#160;</td><td class="memItemRight"><b>values</b></td></tr>
+<tr class="memitem:ad5c8af83fe630706063b9acd0bf062a3 inherit pro_attribs_classIntroSatLib_1_1BaseADC" id="r_ad5c8af83fe630706063b9acd0bf062a3"><td class="memItemLeft">
+float&#160;</td><td class="memItemRight"><b>uRef</b></td></tr>
+<tr class="memitem:ac05fba2d40405358252b6ee455bc0f13 inherit pro_attribs_classIntroSatLib_1_1BaseADC" id="r_ac05fba2d40405358252b6ee455bc0f13"><td class="memItemLeft">
+uint8_t&#160;</td><td class="memItemRight"><b>resolution</b> = 8</td></tr>
+<tr class="inherit_header pro_attribs_classIntroSatLib_1_1I2CDevice"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classIntroSatLib_1_1I2CDevice')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные данные унаследованные от <a class="el" href="classIntroSatLib_1_1I2CDevice.html">IntroSatLib::I2CDevice</a></td></tr>
+<tr class="memitem:aecd8aa363bb35678b59c973b42a41c12 inherit pro_attribs_classIntroSatLib_1_1I2CDevice" id="r_aecd8aa363bb35678b59c973b42a41c12"><td class="memItemLeft">
+uint8_t&#160;</td><td class="memItemRight"><b>_address</b></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс для работы с 8-канальным 8-битным АЦП <a class="el" href="classIntroSatLib_1_1ADS7830.html" title="Класс для работы с 8-канальным 8-битным АЦП ADS7830 по интерфейсу I2C.">ADS7830</a> по интерфейсу I2C. </p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Перечисления</h2>
+<a id="a5e86aa0061941b86bf59635a3c799e87" name="a5e86aa0061941b86bf59635a3c799e87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e86aa0061941b86bf59635a3c799e87">&#9670;&#160;</a></span>AdcMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a5e86aa0061941b86bf59635a3c799e87">IntroSatLib::ADS7830::AdcMode</a> : uint8_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Состояние АЦП между измерениями </p>
+<table class="fieldtable">
+<tr><th colspan="3">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a5e86aa0061941b86bf59635a3c799e87a485d0c752e25b5af3d56987bd5589e3e" name="a5e86aa0061941b86bf59635a3c799e87a485d0c752e25b5af3d56987bd5589e3e"></a>ADC_OFF&#160;</td><td class="fieldinit">0&#160;</td><td class="fielddoc"><p>АЦП включён </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5e86aa0061941b86bf59635a3c799e87ae31f186bf1f1abd84c3ee35dc2d88d47" name="a5e86aa0061941b86bf59635a3c799e87ae31f186bf1f1abd84c3ee35dc2d88d47"></a>ADC_ON&#160;</td><td class="fieldinit">1&#160;</td><td class="fielddoc"><p>АЦП выключен (режим power-down) </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ae5be1d6d9fb0cf38aa55853c981a95ca" name="ae5be1d6d9fb0cf38aa55853c981a95ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5be1d6d9fb0cf38aa55853c981a95ca">&#9670;&#160;</a></span>Channel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95ca">IntroSatLib::ADS7830::Channel</a> : uint8_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Канал измерения </p>
+<table class="fieldtable">
+<tr><th colspan="3">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caa55538ab7d289c66655bbe977dfd5966c" name="ae5be1d6d9fb0cf38aa55853c981a95caa55538ab7d289c66655bbe977dfd5966c"></a>CH_DIFF_1_TO_0&#160;</td><td class="fieldinit">0b0000&#160;</td><td class="fielddoc"><p>Разность напряжений CH1-CH0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caae0f0bf2fabd8cf50b81e2061ffe7530b" name="ae5be1d6d9fb0cf38aa55853c981a95caae0f0bf2fabd8cf50b81e2061ffe7530b"></a>CH_DIFF_0_TO_1&#160;</td><td class="fieldinit">0b0100&#160;</td><td class="fielddoc"><p>Дифференциальное измерение, CH0-CH1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caa2b91ee01807472bcfcf4f43a1313ee96" name="ae5be1d6d9fb0cf38aa55853c981a95caa2b91ee01807472bcfcf4f43a1313ee96"></a>CH_DIFF_3_TO_2&#160;</td><td class="fieldinit">0b0001&#160;</td><td class="fielddoc"><p>Дифференциальное измерение, CH3-CH2 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caa27897a871ef1ff7a2d6d3dec7cdc2b28" name="ae5be1d6d9fb0cf38aa55853c981a95caa27897a871ef1ff7a2d6d3dec7cdc2b28"></a>CH_DIFF_2_TO_3&#160;</td><td class="fieldinit">0b0101&#160;</td><td class="fielddoc"><p>Дифференциальное измерение, CH2-CH3 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caafd1908ddfd13a8760957cddef616a8c5" name="ae5be1d6d9fb0cf38aa55853c981a95caafd1908ddfd13a8760957cddef616a8c5"></a>CH_DIFF_5_TO_4&#160;</td><td class="fieldinit">0b0010&#160;</td><td class="fielddoc"><p>Дифференциальное измерение, CH5-CH4 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caa14f19f8c599d4b07191435696a14c1d0" name="ae5be1d6d9fb0cf38aa55853c981a95caa14f19f8c599d4b07191435696a14c1d0"></a>CH_DIFF_4_TO_5&#160;</td><td class="fieldinit">0b0110&#160;</td><td class="fielddoc"><p>Дифференциальное измерение, CH4-CH5 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caa3721852aa132c3d798e9d770d43598d0" name="ae5be1d6d9fb0cf38aa55853c981a95caa3721852aa132c3d798e9d770d43598d0"></a>CH_DIFF_7_TO_6&#160;</td><td class="fieldinit">0b0011&#160;</td><td class="fielddoc"><p>Дифференциальное измерение, CH7-CH6 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caab59dc5f80e8c74f5288f7b3396ec95d6" name="ae5be1d6d9fb0cf38aa55853c981a95caab59dc5f80e8c74f5288f7b3396ec95d6"></a>CH_DIFF_6_TO_7&#160;</td><td class="fieldinit">0b0111&#160;</td><td class="fielddoc"><p>Дифференциальное измерение, CH6-CH7 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caa3ce88c5992b9028767b5ef17a2428926" name="ae5be1d6d9fb0cf38aa55853c981a95caa3ce88c5992b9028767b5ef17a2428926"></a>CH0&#160;</td><td class="fieldinit">0b1000&#160;</td><td class="fielddoc"><p>Напряжение на канале CH0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caaaed2a56f6ade1e2f9cfc70a095214ce9" name="ae5be1d6d9fb0cf38aa55853c981a95caaaed2a56f6ade1e2f9cfc70a095214ce9"></a>CH1&#160;</td><td class="fieldinit">0b1100&#160;</td><td class="fielddoc"><p>Напряжение на канале CH1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caac750197f04820048afd6a31f542f5efe" name="ae5be1d6d9fb0cf38aa55853c981a95caac750197f04820048afd6a31f542f5efe"></a>CH2&#160;</td><td class="fieldinit">0b1001&#160;</td><td class="fielddoc"><p>Напряжение на канале CH2 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caabfef36299e762e547594df2b90f45885" name="ae5be1d6d9fb0cf38aa55853c981a95caabfef36299e762e547594df2b90f45885"></a>CH3&#160;</td><td class="fieldinit">0b1101&#160;</td><td class="fielddoc"><p>Напряжение на канале CH3 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caac063c8d696acf659bc00167689208cce" name="ae5be1d6d9fb0cf38aa55853c981a95caac063c8d696acf659bc00167689208cce"></a>CH4&#160;</td><td class="fieldinit">0b1010&#160;</td><td class="fielddoc"><p>Напряжение на канале CH4 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caa3a199dc85edfe504583669f84366e1f4" name="ae5be1d6d9fb0cf38aa55853c981a95caa3a199dc85edfe504583669f84366e1f4"></a>CH5&#160;</td><td class="fieldinit">0b1110&#160;</td><td class="fielddoc"><p>Напряжение на канале CH5 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caa644ef47c64d86a77b160009cb4863241" name="ae5be1d6d9fb0cf38aa55853c981a95caa644ef47c64d86a77b160009cb4863241"></a>CH6&#160;</td><td class="fieldinit">0b1011&#160;</td><td class="fielddoc"><p>Напряжение на канале CH6 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae5be1d6d9fb0cf38aa55853c981a95caabc174ecbc310e12238e3c4d7fd9be4ab" name="ae5be1d6d9fb0cf38aa55853c981a95caabc174ecbc310e12238e3c4d7fd9be4ab"></a>CH7&#160;</td><td class="fieldinit">0b1111&#160;</td><td class="fielddoc"><p>Напряжение на канале CH7 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a2439638e9404763332ce63ce1174b2f6" name="a2439638e9404763332ce63ce1174b2f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2439638e9404763332ce63ce1174b2f6">&#9670;&#160;</a></span>ReferenceMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a2439638e9404763332ce63ce1174b2f6">IntroSatLib::ADS7830::ReferenceMode</a> : uint8_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Опорное напряжение </p>
+<table class="fieldtable">
+<tr><th colspan="3">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a2439638e9404763332ce63ce1174b2f6a7ec609e4dc5b981a90744b1b29824407" name="a2439638e9404763332ce63ce1174b2f6a7ec609e4dc5b981a90744b1b29824407"></a>REF_EXTERNAL&#160;</td><td class="fieldinit">0b0&#160;</td><td class="fielddoc"><p>Внешнее опорного напряжение (пин REF<sub>IN</sub>) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2439638e9404763332ce63ce1174b2f6a40aea76edf4e440a3dde3249d83665d8" name="a2439638e9404763332ce63ce1174b2f6a40aea76edf4e440a3dde3249d83665d8"></a>REF_INTERNAL&#160;</td><td class="fieldinit">0b1&#160;</td><td class="fielddoc"><p>Внутреннее опорного напряжение (+2.5В) </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="abf7a0b4a57a2a22e31693e7ed11dd1d3" name="abf7a0b4a57a2a22e31693e7ed11dd1d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf7a0b4a57a2a22e31693e7ed11dd1d3">&#9670;&#160;</a></span>ADS7830()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::ADS7830::ADS7830 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a></td>          <td class="paramname"><span class="paramname"><em>i2c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span><span class="paramdefsep"> = </span><span class="paramdefval">BASE_ADDRESS</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор объекта АЦП <a class="el" href="classIntroSatLib_1_1ADS7830.html" title="Класс для работы с 8-канальным 8-битным АЦП ADS7830 по интерфейсу I2C.">ADS7830</a>. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i2c</td><td>объект I2C, например: <code>Wire</code> (в Arduino IDE), <code>&amp;huart1</code> (в STM32CubeIDE) </td></tr>
+    <tr><td class="paramname">address</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a57ee7bdf12777e1d600c204c107d4503" name="a57ee7bdf12777e1d600c204c107d4503"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57ee7bdf12777e1d600c204c107d4503">&#9670;&#160;</a></span>GetRawValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t IntroSatLib::ADS7830::GetRawValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95ca">Channel</a></td>          <td class="paramname"><span class="paramname"><em>channel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение необработанного значения с канала АЦП </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>канал АЦП </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>uint8_t необработанное значение с канала АЦП </dd></dl>
+
+</div>
+</div>
+<a id="aea905a29722d07080d5a63fe64a712f5" name="aea905a29722d07080d5a63fe64a712f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea905a29722d07080d5a63fe64a712f5">&#9670;&#160;</a></span>GetValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IntroSatLib::ADS7830::GetValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ae5be1d6d9fb0cf38aa55853c981a95ca">Channel</a></td>          <td class="paramname"><span class="paramname"><em>channel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получение значения напряжения на канале в вольтах </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>канал АЦП </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>float значение напряжения в вольтах </dd></dl>
+
+</div>
+</div>
+<a id="a75ecf924b2950b3add85def0edfd900f" name="a75ecf924b2950b3add85def0edfd900f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75ecf924b2950b3add85def0edfd900f">&#9670;&#160;</a></span>Init() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::ADS7830::Init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Инициализация АЦП с внутренним опорным напряжением </p>
+<dl class="section return"><dt>Возвращает</dt><dd>ISL_StatusTypeDef результат инициализации </dd></dl>
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1Device.html">IntroSatLib::Device</a>.</p>
+
+<p>Переопределяется в <a class="el" href="classIntroSatLib_1_1PicoADC.html#a84cf1548b22174b2d27d34bde12bbf83">IntroSatLib::PicoADC</a>.</p>
+
+</div>
+</div>
+<a id="a7a136319c13918bb819a1afd40e498b1" name="a7a136319c13918bb819a1afd40e498b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a136319c13918bb819a1afd40e498b1">&#9670;&#160;</a></span>Init() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::ADS7830::Init </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>uRef</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Инициализация АЦП с внешним опорным напряжением </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uRef</td><td>внешнее опорное напряжение (В) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>ISL_StatusTypeDef результат инициализации </dd></dl>
+
+</div>
+</div>
+<a id="a5b0b1750b21951a9629dc5022cad747f" name="a5b0b1750b21951a9629dc5022cad747f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b0b1750b21951a9629dc5022cad747f">&#9670;&#160;</a></span>PowerDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::ADS7830::PowerDown </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Выключение АЦП (режим power-down). </p>
+<dl class="section return"><dt>Возвращает</dt><dd>ISL_StatusTypeDef результат выключения АЦП </dd></dl>
+
+</div>
+</div>
+<a id="a0ec2e06769eaf9ffe1589c8aa68e2836" name="a0ec2e06769eaf9ffe1589c8aa68e2836"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ec2e06769eaf9ffe1589c8aa68e2836">&#9670;&#160;</a></span>SetAdcOn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntroSatLib::ADS7830::SetAdcOn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a5e86aa0061941b86bf59635a3c799e87">AdcMode</a></td>          <td class="paramname"><span class="paramname"><em>on</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка состояния АЦП между измерениями: включён или выключен (режим power-down). </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">on</td><td>Режим работы АЦП </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a860aeedc40ea718f9d12b5f325503a71" name="a860aeedc40ea718f9d12b5f325503a71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a860aeedc40ea718f9d12b5f325503a71">&#9670;&#160;</a></span>UseExternalReference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::ADS7830::UseExternalReference </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>refVoltage</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Использование внешнего опорного напряжения </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">refVoltage</td><td>внешнее опорное напряжение в вольтах </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>ISL_StatusTypeDef результат установки внешнего опорного напряжения </dd></dl>
+
+</div>
+</div>
+<a id="a5516a58f709a0d9a8b93970e811ed95e" name="a5516a58f709a0d9a8b93970e811ed95e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5516a58f709a0d9a8b93970e811ed95e">&#9670;&#160;</a></span>UseInternalReference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::ADS7830::UseInternalReference </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Использование внутреннего опорного напряжения </p>
+<dl class="section return"><dt>Возвращает</dt><dd>ISL_StatusTypeDef результат установки внутреннего опорного напряжения </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/Device/ADS7830/<a class="el" href="ADS7830_8h_source.html">ADS7830.h</a></li>
+<li>src/Device/ADS7830/<b>ADS7830.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a href="classIntroSatLib_1_1ADS7830.html">ADS7830</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>
