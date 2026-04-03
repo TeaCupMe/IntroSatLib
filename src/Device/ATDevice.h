@@ -29,13 +29,13 @@ class ATDevice: public UARTDevice {
 private:
 
 protected:
-    uint16_t buff_size; /**< \~russian Размер внутреннего буфера для команд */
+    uint16_t buffSize; /**< \~russian Размер внутреннего буфера для команд */
 
     /** \~russian Таймаут по умолчанию (500 мс) */
-    static constexpr uint16_t DEFAULT_TIMEOUT = 500;
+    static constexpr uint16_t defaultTimeout = 500;
     
     /** \~russian Размер буфера по умолчанию (128 байт) */
-    static constexpr uint16_t DEFAULT_BSIZE = 128;
+    static constexpr uint16_t defaultBSize = 128;
 
     /**
      * \~russian @brief Виртуальная функция завершения AT-команды
@@ -48,7 +48,7 @@ protected:
      * \~russian @param nargs Количество аргументов команды
      * \~russian @return Статус выполнения операции
      */
-    virtual ISL_StatusTypeDef AT_CMD_END(uint8_t** ptr, uint8_t** end, uint8_t nargs);
+    virtual ISL_StatusTypeDef ATCommandEnd(uint8_t** ptr, uint8_t** end, uint8_t nargs);
 
     /**
      * \~russian @brief Виртуальная функция разделителя аргументов AT-команды
@@ -61,7 +61,7 @@ protected:
      * \~russian @param nargs Количество аргументов команды
      * \~russian @return Статус выполнения операции
      */
-    virtual ISL_StatusTypeDef AT_CMD_SEP(uint8_t** ptr, uint8_t** end, uint8_t nargs);
+    virtual ISL_StatusTypeDef ATCommandSeparator(uint8_t** ptr, uint8_t** end, uint8_t nargs);
 
     /**
      * \~russian @brief Виртуальная функция символа равенства AT-команды
@@ -74,7 +74,7 @@ protected:
      * \~russian @param nargs Количество аргументов команды
      * \~russian @return Статус выполнения операции
      */
-    virtual ISL_StatusTypeDef AT_CMD_EQL(uint8_t** ptr, uint8_t** end, uint8_t nargs);
+    virtual ISL_StatusTypeDef ATCommandEquale(uint8_t** ptr, uint8_t** end, uint8_t nargs);
 
     /**
      * \~russian @brief Виртуальная функция начала AT-команды
@@ -87,7 +87,7 @@ protected:
      * \~russian @param nargs Количество аргументов команды
      * \~russian @return Статус выполнения операции
      */
-    virtual ISL_StatusTypeDef AT_CMD_START(uint8_t** ptr, uint8_t** end, uint8_t nargs);
+    virtual ISL_StatusTypeDef ATCommandStart(uint8_t** ptr, uint8_t** end, uint8_t nargs);
 
     /**
      * \~russian @brief Выполнение AT-команды
@@ -103,18 +103,18 @@ protected:
     ISL_StatusTypeDef executeATCommand(uint8_t* command, 
                                         uint8_t* rxbuff, 
                                         uint16_t length, 
-                                        uint16_t timeout=DEFAULT_TIMEOUT);
+                                        uint16_t timeout=defaultTimeout);
 
 public:
     /**
      * \~russian @brief Конструктор класса ATDevice
      * 
      * \~russian @param uart Ссылка на объект UART интерфейса
-     * \~russian @param bsize Размер внутреннего буфера (по умолчанию DEFAULT_BSIZE)
+     * \~russian @param bsize Размер внутреннего буфера (по умолчанию defaultBSize)
      */
     ATDevice(interfaces::UART uart, 
-            const uint16_t bsize = DEFAULT_BSIZE) : UARTDevice(uart), 
-                                                    buff_size(bsize) {}
+            const uint16_t bsize = defaultBSize) : UARTDevice(uart), 
+                                                    buffSize(bsize) {}
 
     /**
      * \~russian @brief выполнение AT-команды с целью чтения данных
@@ -126,8 +126,8 @@ public:
      * \~russian @return Статус выполнения операции
      */
     ISL_StatusTypeDef readAT(const char* cmd, uint8_t* rxbuff, 
-                            uint16_t rxbuff_len = DEFAULT_BSIZE, 
-                            uint16_t timeout=DEFAULT_TIMEOUT);
+                            uint16_t rxbuff_len = defaultBSize, 
+                            uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief выполнение AT-команды с целью записи данных/выполнения действия
@@ -143,11 +143,11 @@ public:
      */
     template<typename... Args>
     ISL_StatusTypeDef writeAT(const char* cmd, uint16_t timeout, Args... args) {
-        uint8_t buff[buff_size], message[buff_size];
+        uint8_t buff[buffSize], message[buffSize];
 
-        RETURN_STATUS_IF_NOT_OK_SILENT(AT_CMD(message, buff_size, cmd, args...));
+        RETURN_STATUS_IF_NOT_OK_SILENT(ATCommand(message, buffSize, cmd, args...));
         
-        RETURN_STATUS_IF_NOT_OK_SILENT(executeATCommand(message, buff, buff_size, timeout));
+        RETURN_STATUS_IF_NOT_OK_SILENT(executeATCommand(message, buff, buffSize, timeout));
         return (strstr((char*)buff, AT_OK) != nullptr) ? ISL_OK : ISL_ERROR;
     }
 
@@ -162,7 +162,7 @@ public:
      */
     template<typename... Args>
     ISL_StatusTypeDef writeAT(const char* cmd, Args... args) {
-        return writeAT(cmd, DEFAULT_TIMEOUT, args...);
+        return writeAT(cmd, defaultTimeout, args...);
     }
 
     /**
@@ -173,30 +173,30 @@ public:
      * 
      * \~russian @tparam Args Типы параметров команды
      * \~russian @param buff Указатель на буфер для формирования команды
-     * \~russian @param buff_size Размер буфера
+     * \~russian @param buffSize Размер буфера
      * \~russian @param cmd Строка с именем AT-команды
      * \~russian @param args Параметры команды
      * \~russian @return Статус выполнения операции
      */
     template<typename... Args>
-    ISL_StatusTypeDef AT_CMD(uint8_t* buff, uint8_t buff_size, const char* cmd, Args... args) {
+    ISL_StatusTypeDef ATCommand(uint8_t* buff, uint8_t buffSize, const char* cmd, Args... args) {
         uint8_t* ptr = buff;
-        uint8_t* end = buff + buff_size;
+        uint8_t* end = buff + buffSize;
         constexpr uint8_t num_args = sizeof...(args);
         
-        RETURN_STATUS_IF_NOT_OK_SILENT(AT_CMD_START(&ptr, &end, num_args));
+        RETURN_STATUS_IF_NOT_OK_SILENT(ATCommandStart(&ptr, &end, num_args));
         
         uint8_t cmd_len = strlen(cmd);
         if (ptr + cmd_len >= end) return ISL_ERROR;
         memcpy(ptr, cmd, cmd_len);
         ptr += cmd_len;
 
-        RETURN_STATUS_IF_NOT_OK_SILENT(AT_CMD_EQL(&ptr, &end, num_args));
+        RETURN_STATUS_IF_NOT_OK_SILENT(ATCommandEquale(&ptr, &end, num_args));
         if (num_args > 0) {
             const char* params[] = { reinterpret_cast<const char*>(args)... };
             for (uint8_t i = 0; i < num_args; i++) {
                 if (i > 0) 
-                    RETURN_STATUS_IF_NOT_OK_SILENT(AT_CMD_SEP(&ptr, &end, num_args));
+                    RETURN_STATUS_IF_NOT_OK_SILENT(ATCommandSeparator(&ptr, &end, num_args));
                 
                 uint8_t param_len = strlen(params[i]);
                 if (ptr + param_len >= end) return ISL_ERROR;
@@ -205,7 +205,7 @@ public:
             }
         }
 
-        return AT_CMD_END(&ptr, &end, num_args);
+        return ATCommandEnd(&ptr, &end, num_args);
     }
 };
 

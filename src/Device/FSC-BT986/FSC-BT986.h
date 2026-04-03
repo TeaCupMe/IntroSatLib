@@ -39,31 +39,31 @@ public:
     /**
      * \~russian @brief Режимы работы bluetooth модуля
      */
-    enum class MODE: uint8_t
+    enum class Mode: uint8_t
     {
-        THROUGHPUT = 0, /**< \~russian Режим передачи данных */
-        COMMAND = 1     /**< \~russian Командный режим (AT-команды) */
+        Throughput = 0, /**< \~russian Режим передачи данных */
+        Command = 1     /**< \~russian Командный режим (AT-команды) */
     };
 
     /**
      * \~russian @brief Способ переключения режима работы
      */
-    enum class MODE_CHANGE: uint8_t
+    enum class ModeChange: uint8_t
     {
-        NONE = 0b00,                    /**< \~russian Нет переключения */
-        HARDWARE = 0b01,                /**< \~russian Только аппаратное (пин mode) */
-        SOFTWARE = 0b10,                /**< \~russian Только программное (AT-команда) */
-        HARDWARE_AND_SOFTWARE = 0b11    /**< \~russian Оба способа */
+        None = 0b00,                    /**< \~russian Нет переключения */
+        Hardware = 0b01,                /**< \~russian Только аппаратное (пин mode) */
+        Software = 0b10,                /**< \~russian Только программное (AT-команда) */
+        HardwareAndSoftware = 0b11    /**< \~russian Оба способа */
     };
 
 private:
     FSC_BT986Pins pins; /**< \~russian Структура с пинами модуля */
 
-    MODE_CHANGE modeChange = MODE_CHANGE::NONE; /**< \~russian Выбранный способ переключения режима */
-    MODE currentMode = MODE::COMMAND;           /**< \~russian Текущий режим работы модуля */
+    ModeChange modeChange = ModeChange::None; /**< \~russian Выбранный способ переключения режима */
+    Mode currentMode = Mode::Command;           /**< \~russian Текущий режим работы модуля */
 
     /** \~russian Время удержания пина по умолчанию (мс) */
-    static constexpr uint16_t DEFAULT_PIN_TIMEOUT = 20;
+    static constexpr uint16_t defaultPinTimeout = 20;
 
     /**
      * \~russian @brief Программное переключение режима работы (через AT-команду)
@@ -72,7 +72,7 @@ private:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef setModePrg(MODE mode, uint16_t timeout=DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef setModePrg(Mode mode, uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief Аппаратное переключение режима работы (через пин mode)
@@ -80,7 +80,7 @@ private:
      * \~russian @param state Состояние пина mode
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef setModeHard(MODE mode);
+    ISL_StatusTypeDef setModeHard(Mode mode);
 
 protected:
 
@@ -96,7 +96,7 @@ public:
     FSC_BT986(
         interfaces::UART uart,
         FSC_BT986Pins _pins,
-        const uint16_t bsize = DEFAULT_BSIZE
+        const uint16_t bsize = defaultBSize
     ): ATDevice(uart, bsize), pins(_pins)
     { };
 
@@ -109,14 +109,14 @@ public:
      * \~russian @param mode Начальный режим работы модуля
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef Init(MODE mode);
+    ISL_StatusTypeDef Init(Mode mode);
 
     /**
      * \~russian @brief Инициализация Bluetooth-модуля в режиме передачи данных
      * 
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef Init() override { return Init(MODE::THROUGHPUT); }
+    ISL_StatusTypeDef Init() override { return Init(Mode::Throughput); }
 
 
      /**
@@ -124,14 +124,14 @@ public:
      * 
      * \~russian @param newModeChange Способ переключения
      */
-    void setModeChange(MODE_CHANGE newModeChange) { modeChange = newModeChange; }
+    void setModeChange(ModeChange newModeChange) { modeChange = newModeChange; }
 
     /**
      * \~russian @brief Получение текущего способа переключения режимов
      * 
      * \~russian @return Текущий способ переключения
      */
-    MODE_CHANGE getModeChange() { return modeChange; }
+    ModeChange getModeChange() { return modeChange; }
 
     /**
      * \~russian @brief Переключение режима работы модуля
@@ -139,9 +139,10 @@ public:
      * \~russian Выполняет переключение в зависимости от установленного способа (modeChange)
      * 
      * \~russian @param mode Новый режим работы
+     * \~russian @param withSave требуется ли запоминать новое состояние
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef setMode(MODE mode);
+    ISL_StatusTypeDef setMode(Mode mode, bool withSave=true);
 
     /**
      * \~russian @brief Установка PIN-кода для Bluetooth-соединения
@@ -150,7 +151,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef setPIN(uint8_t* pinCode, uint16_t timeout=DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef setPIN(uint8_t* pinCode, uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief Чтение текущего PIN-кода модуля
@@ -159,7 +160,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef readPIN(uint8_t* rxbuff, uint16_t timeout=DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef readPIN(uint8_t* rxbuff, uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief Чтение MAC-адреса Bluetooth-модуля
@@ -168,7 +169,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef readMAC(uint8_t* rxbuff, uint16_t timeout=DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef readMAC(uint8_t* rxbuff, uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief Подключение к другому Bluetooth-устройству по MAC-адресу
@@ -177,7 +178,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef connect(uint8_t* mac, uint16_t timeout=DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef connect(uint8_t* mac, uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief Освобождение всех активных соединений
@@ -185,7 +186,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef releaseConnections(uint16_t timeout=DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef releaseConnections(uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief Программная перезагрузка модуля (через AT-команду)
@@ -193,7 +194,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef reboot(uint16_t timeout=DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef reboot(uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief Аппаратная перезагрузка модуля (через пин reset)
@@ -224,7 +225,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef restore(uint16_t timeout=DEFAULT_TIMEOUT);
+    ISL_StatusTypeDef restore(uint16_t timeout=defaultTimeout);
 };
     
 } // namespace IntroSatLib
