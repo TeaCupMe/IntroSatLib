@@ -145,58 +145,69 @@ public:
 
 private:
 
+    static constexpr uint8_t maxChannel = 0x1F;
+    static constexpr uint16_t defaultBSize = 1024;
+    static constexpr uint16_t txDelay = 350;
+
+    uint32_t lastTransactionTime = 0;
+    uint32_t transactionCompleteTimeout = 0;
+
     E32Pins pins;
     E32Settings currentSettings;
-    Mode currentMode;
+    Mode currentMode = Mode::Normal;
+    uint8_t LoRaRxBuff[defaultBSize];
 
-    static constexpr uint8_t maxChannel = 0x1F;
-
-    ISL_StatusTypeDef waitAUX(uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef WaitAUX(uint8_t level, uint16_t timeout=defaultTimeout);
+    void WaitForReady(uint32_t afterAuxTime);
 
 protected:
 
     static constexpr uint16_t defaultTimeout = 1000;
 
-    ISL_StatusTypeDef readSettingsRaw(uint8_t* rxbuff, uint16_t timeout);
+    ISL_StatusTypeDef ReadSettingsRaw(uint8_t* rxbuff, uint16_t timeout);
 
 public:
 
     E32_433(
         interfaces::UART uart, 
-        E32Pins _pins,
-        Mode mode = Mode::Normal
-    ): UARTDevice(uart), pins(_pins), currentMode(mode) {}
+        E32Pins pins
+    ): UARTDevice(uart), pins(pins) {}
 
-    ISL_StatusTypeDef Init();
+    ISL_StatusTypeDef Init() { Init(Mode::Normal); }
+    ISL_StatusTypeDef Init(Mode mode, uint16_t timeout = defaultTimeout);
 
-    ISL_StatusTypeDef setMode(Mode mode);
+    ISL_StatusTypeDef TransmitLoRa(uint8_t* txbuff, uint16_t length, uint16_t timeout=defaultTimeout);
+    // ISL_StatusTypeDef TransmitAsyncLoRa(uint8_t* txbuff, uint16_t length);
+    ISL_StatusTypeDef ReceiveLoRa(uint8_t* rxbuff, uint16_t length, uint16_t timeout=defaultTimeout);
 
-    ISL_StatusTypeDef readSettings(uint8_t* rxbuff, uint16_t timeout = defaultTimeout);
-    ISL_StatusTypeDef readSettings(E32Settings& settings, uint16_t timeout = defaultTimeout);
+    ISL_StatusTypeDef SetMode(Mode mode);
 
-    ISL_StatusTypeDef readVersion(uint8_t* rxbuff, uint16_t timeout=defaultTimeout);
-    ISL_StatusTypeDef reset(uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef ReadSettings(uint8_t* rxbuff, uint16_t timeout = defaultTimeout);
+    ISL_StatusTypeDef ReadSettings(E32Settings& settings, uint16_t timeout = defaultTimeout);
 
-    ISL_StatusTypeDef setSettings(E32Settings settings, uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef ReadVersion(uint8_t* rxbuff, uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef Reset(uint16_t timeout=defaultTimeout);
 
-    ISL_StatusTypeDef setAddr(uint16_t addr, uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef SetSettings(E32Settings settings, uint16_t timeout=defaultTimeout);
 
-    ISL_StatusTypeDef setSPEDByte(uint8_t sped, uint16_t timeout=defaultTimeout);
-	ISL_StatusTypeDef setUARTParity(UARTParity parity = UARTParity::None, uint16_t timeout=defaultTimeout);
-	ISL_StatusTypeDef setUARTBaudrate(UARTBaudrate baudrate = UARTBaudrate::BR_9600, uint16_t timeout=defaultTimeout);
-	ISL_StatusTypeDef setAirDatarate(AirDatarate datarate = AirDatarate::DR_2400, uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef SetAddr(uint16_t addr, uint16_t timeout=defaultTimeout);
 
-	ISL_StatusTypeDef setChannel(uint8_t channel, uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef SetSPEDByte(uint8_t sped, uint16_t timeout=defaultTimeout);
+	ISL_StatusTypeDef SetUARTParity(UARTParity parity = UARTParity::None, uint16_t timeout=defaultTimeout);
+	ISL_StatusTypeDef SetUARTBaudrate(UARTBaudrate baudrate = UARTBaudrate::BR_9600, uint16_t timeout=defaultTimeout);
+	ISL_StatusTypeDef SetAirDatarate(AirDatarate datarate = AirDatarate::DR_2400, uint16_t timeout=defaultTimeout);
 
-    ISL_StatusTypeDef setOPTIONByte(uint8_t option, uint16_t timeout=defaultTimeout);
-	ISL_StatusTypeDef setFixedTransmission(AddressingMode mode = AddressingMode::Transparent, uint16_t timeout=defaultTimeout);
-    ISL_StatusTypeDef setIODriveMode(IODriveMode mode = IODriveMode::Opencollector, uint16_t timeout=defaultTimeout);
-	ISL_StatusTypeDef setWakeUpTime(WakeUpTime wtime = WakeUpTime::T_250ms, uint16_t timeout=defaultTimeout);
-	ISL_StatusTypeDef setFEC(FEC fec = FEC::Enabled, uint16_t timeout=defaultTimeout);
-    ISL_StatusTypeDef setTxPower(TxPower power = TxPower::Max, uint16_t timeout=defaultTimeout);
+	ISL_StatusTypeDef SetChannel(uint8_t channel, uint16_t timeout=defaultTimeout);
+
+    ISL_StatusTypeDef SetOPTIONByte(uint8_t option, uint16_t timeout=defaultTimeout);
+	ISL_StatusTypeDef SetFixedTransmission(AddressingMode mode = AddressingMode::Transparent, uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef SetIODriveMode(IODriveMode mode = IODriveMode::Opencollector, uint16_t timeout=defaultTimeout);
+	ISL_StatusTypeDef SetWakeUpTime(WakeUpTime wtime = WakeUpTime::T_250ms, uint16_t timeout=defaultTimeout);
+	ISL_StatusTypeDef SetFEC(FEC fec = FEC::Enabled, uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef SetTxPower(TxPower power = TxPower::Max, uint16_t timeout=defaultTimeout);
 
 };
 
 } // namespace IntroSatLib
 
-#endif E32_433_H_
+#endif // E32_433_H_
