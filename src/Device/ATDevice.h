@@ -100,7 +100,7 @@ protected:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef executeATCommand(uint8_t* command, 
+    ISL_StatusTypeDef ExecuteATCommand(uint8_t* command, 
                                         uint8_t* rxbuff, 
                                         uint16_t length, 
                                         uint16_t timeout=defaultTimeout);
@@ -125,7 +125,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef readAT(const char* cmd, uint8_t* rxbuff, 
+    ISL_StatusTypeDef ReadAT(const char* cmd, uint8_t* rxbuff, 
                             uint16_t rxbuff_len = defaultBSize, 
                             uint16_t timeout=defaultTimeout);
 
@@ -142,12 +142,12 @@ public:
      * \~russian @return Статус выполнения операции
      */
     template<typename... Args>
-    ISL_StatusTypeDef writeAT(const char* cmd, uint16_t timeout, Args... args) {
+    ISL_StatusTypeDef WriteAT(const char* cmd, uint16_t timeout, Args... args) {
         uint8_t buff[buffSize], message[buffSize];
 
         RETURN_STATUS_IF_NOT_OK_SILENT(ATCommand(message, buffSize, cmd, args...));
         
-        RETURN_STATUS_IF_NOT_OK_SILENT(executeATCommand(message, buff, buffSize, timeout));
+        RETURN_STATUS_IF_NOT_OK_SILENT(ExecuteATCommand(message, buff, buffSize, timeout));
         return (strstr((char*)buff, AT_OK) != nullptr) ? ISL_OK : ISL_ERROR;
     }
 
@@ -161,8 +161,8 @@ public:
      * \~russian @return Статус выполнения операции
      */
     template<typename... Args>
-    ISL_StatusTypeDef writeAT(const char* cmd, Args... args) {
-        return writeAT(cmd, defaultTimeout, args...);
+    ISL_StatusTypeDef WriteAT(const char* cmd, Args... args) {
+        return WriteAT(cmd, defaultTimeout, args...);
     }
 
     /**

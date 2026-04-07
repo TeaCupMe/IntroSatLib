@@ -64,7 +64,7 @@ public:
      * \~russian @brief Проверка наличия данных в приемном буфере UART
      * \~russian @return Количество доступных для чтения байт
      */
-    uint8_t available();
+    uint8_t Available();
 };
 
 } /* namespace IntroSatLib */

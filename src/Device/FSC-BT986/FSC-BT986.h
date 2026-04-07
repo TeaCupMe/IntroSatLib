@@ -72,7 +72,7 @@ private:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef setModePrg(Mode mode, uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef SetModePrg(Mode mode, uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief Аппаратное переключение режима работы (через пин mode)
@@ -80,7 +80,7 @@ private:
      * \~russian @param state Состояние пина mode
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef setModeHard(Mode mode);
+    ISL_StatusTypeDef SetModeHard(Mode mode);
 
 protected:
 
@@ -124,7 +124,7 @@ public:
      * 
      * \~russian @param newModeChange Способ переключения
      */
-    void setModeChange(ModeChange newModeChange) { modeChange = newModeChange; }
+    void SetModeChange(ModeChange newModeChange) { modeChange = newModeChange; }
 
     /**
      * \~russian @brief Получение текущего способа переключения режимов
@@ -142,7 +142,7 @@ public:
      * \~russian @param withSave требуется ли запоминать новое состояние
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef setMode(Mode mode, bool withSave=true);
+    ISL_StatusTypeDef SetMode(Mode mode, bool withSave=true);
 
     /**
      * \~russian @brief Установка PIN-кода для Bluetooth-соединения
@@ -151,7 +151,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef setPIN(uint8_t* pinCode, uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef SetPIN(uint8_t* pinCode, uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief Чтение текущего PIN-кода модуля
@@ -160,7 +160,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef readPIN(uint8_t* rxbuff, uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef ReadPIN(uint8_t* rxbuff, uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief Чтение MAC-адреса Bluetooth-модуля
@@ -169,7 +169,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef readMAC(uint8_t* rxbuff, uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef ReadMAC(uint8_t* rxbuff, uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief Подключение к другому Bluetooth-устройству по MAC-адресу
@@ -178,7 +178,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef connect(uint8_t* mac, uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef Connect(uint8_t* mac, uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief Освобождение всех активных соединений
@@ -186,7 +186,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef releaseConnections(uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef ReleaseConnections(uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief Программная перезагрузка модуля (через AT-команду)
@@ -194,14 +194,14 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef reboot(uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef Reboot(uint16_t timeout=defaultTimeout);
 
     /**
      * \~russian @brief Аппаратная перезагрузка модуля (через пин reset)
      * 
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef hardReset();
+    ISL_StatusTypeDef HardReset();
 
     /**
      * \~russian @brief Чтение статуса модуля через пин status
@@ -209,7 +209,7 @@ public:
      * \~russian @param rxbuff указатель на буфер для приема значения
      * \~russian @return Текущее состояние пина status
      */
-    ISL_StatusTypeDef readStatus(uint8_t* rxbuff);
+    ISL_StatusTypeDef ReadStatus(uint8_t* rxbuff);
 
     /**
      * \~russian @brief Аппаратное принудительное отключение (через пин disconnect)
@@ -217,15 +217,15 @@ public:
      * \~russian @param state Состояние пина disconnect (0 - /, 1 - disconnected)
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef hardDisconnect();
+    ISL_StatusTypeDef HardDisconnect();
 
     /**
-     * \~russian @brief Сброс до заводских настроек модуля (требуется reboot)
+     * \~russian @brief Сброс до заводских настроек модуля (требуется Reboot)
      * 
      * \~russian @param timeout Таймаут операции в миллисекундах
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef restore(uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef Restore(uint16_t timeout=defaultTimeout);
 };
     
 } // namespace IntroSatLib

@@ -51,9 +51,9 @@ namespace IntroSatLib {
 
 
 
-    ISL_StatusTypeDef ATDevice::executeATCommand(uint8_t* command, uint8_t* rxbuff, uint16_t length, uint16_t timeout) {
+    ISL_StatusTypeDef ATDevice::ExecuteATCommand(uint8_t* command, uint8_t* rxbuff, uint16_t length, uint16_t timeout) {
         uint8_t buff;
-        while(available()) ReadUART(&buff, 1, 10);
+        while(Available()) ReadUART(&buff, 1, 10);
 
         RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(command, strlen((const char*)command), timeout));
         
@@ -64,10 +64,10 @@ namespace IntroSatLib {
     }
 
 
-    ISL_StatusTypeDef ATDevice::readAT(const char* cmd, uint8_t* rxbuff, uint16_t rxbuff_len, uint16_t timeout) {
+    ISL_StatusTypeDef ATDevice::ReadAT(const char* cmd, uint8_t* rxbuff, uint16_t rxbuff_len, uint16_t timeout) {
         uint8_t buff[buffSize], message[buffSize];
         if (ATCommand(message, buffSize, cmd) == ISL_OK) {
-            RETURN_STATUS_IF_NOT_OK_SILENT(executeATCommand(message, buff, rxbuff_len, timeout));
+            RETURN_STATUS_IF_NOT_OK_SILENT(ExecuteATCommand(message, buff, rxbuff_len, timeout));
             if (strstr((char*)buff, AT_ERROR) != nullptr) return ISL_ERROR;
 
             memcpy(rxbuff, buff, rxbuff_len);
