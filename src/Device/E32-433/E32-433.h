@@ -173,11 +173,10 @@ public:
         E32Pins pins
     ): UARTDevice(uart), pins(pins) {}
 
-    ISL_StatusTypeDef Init() { Init(Mode::Normal); }
+    ISL_StatusTypeDef Init() { return Init(Mode::Normal); }
     ISL_StatusTypeDef Init(Mode mode, uint16_t timeout = defaultTimeout);
 
     ISL_StatusTypeDef TransmitLoRa(uint8_t* txbuff, uint16_t length, uint16_t timeout=defaultTimeout);
-    // ISL_StatusTypeDef TransmitAsyncLoRa(uint8_t* txbuff, uint16_t length);
     ISL_StatusTypeDef ReceiveLoRa(uint8_t* rxbuff, uint16_t length, uint16_t timeout=defaultTimeout);
 
     ISL_StatusTypeDef SetMode(Mode mode);
