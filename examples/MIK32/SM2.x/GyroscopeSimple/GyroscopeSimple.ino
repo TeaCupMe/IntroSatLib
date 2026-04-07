@@ -1,6 +1,6 @@
 // Подключение библиотек
 #include <Wire.h>
-#include <GyroscopeV2.h>
+#include <Gyroscope.h>
 #include <IS_Bluetooth.h>
 
 /* одключение пространства имён библиотеки,
@@ -10,11 +10,11 @@ using namespace IntroSatLib;
 /* Создаём переменную scale для настройки диапазона измерения гироскопа.
 Диапазон измерений задаётся в градусах в секунду.
 Доступные диапазоны: DPS0250, DPS0500, DPS1000, DPS2000. */
-GyroscopeV2::Scale scale = GyroscopeV2::Scale::DPS1000;
+Gyroscope<2>::Scale scale = Gyroscope<2>::Scale::DPS1000;
 
 // Создание объекта гироскопа
 // 0x6B - адрес, может быть другим
-GyroscopeV2 gyro(Wire, 0x6B);
+Gyroscope<2> gyro(Wire, 0x6B);
 
 void setup() {
   // Включение Serial для вывода данных

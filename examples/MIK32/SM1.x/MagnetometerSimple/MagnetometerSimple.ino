@@ -1,6 +1,6 @@
 // Подключение библиотек
 #include <Wire.h>
-#include <AK8963.h>
+#include <Magnetometer.h>
 #include <IS_Bluetooth.h>
 
 /* Подключение пространства имён библиотеки,
@@ -8,7 +8,7 @@
 using namespace IntroSatLib;
 
 // Создание объекта магнитометра
-AK8963 magn(Wire);
+Magnetometer<1> magn(Wire);
 
 void setup() {
 	// Включение Serial для вывода данных

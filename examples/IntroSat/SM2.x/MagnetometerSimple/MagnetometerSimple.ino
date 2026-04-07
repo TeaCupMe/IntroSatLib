@@ -1,6 +1,6 @@
 // Подключение библиотек
 #include <Wire.h>
-#include <MagnetometerV2.h>
+#include <Magnetometer.h>
 #include <IS_Bluetooth.h>
 
 /* Подключение пространства имён библиотеки,
@@ -10,12 +10,12 @@ using namespace IntroSatLib;
 /* Создаём переменную scale для настройки диапазона измерения магнитометра.
 Диапазон измерений задаётся в Гауссах.
 Доступные диапазоны: G4, G8, G12, G16. */
-MagnetometerV2::Scale scale = MagnetometerV2::Scale::G12;
+Magnetometer<2>::Scale scale = Magnetometer<2>::Scale::G12;
 
 /* Создание объекта магнитометра 
 0x1E - адрес магнитометра, 
 Начиная с версии датчика SM2.3, адрес может быть другим */
-MagnetometerV2 magn(Wire, 0x1E);
+Magnetometer<2> magn(Wire, 0x1E);
 
 void setup()
 {
@@ -26,7 +26,7 @@ void setup()
   Wire.begin();
 
   /* Инициализация датчика с настройкой диапазона измерения
-	Аргумент scale относится к перечислению MagnetometerV2::Scale
+	Аргумент scale относится к перечислению Magnetometer<2>::Scale
 	При вызове метода Init() без аргументов, будет установлен 
 	диапазон имзерения по умолчанию (G16, соответствующий +-16 Гаусс) */ 
   uint8_t status = magn.Init(scale);

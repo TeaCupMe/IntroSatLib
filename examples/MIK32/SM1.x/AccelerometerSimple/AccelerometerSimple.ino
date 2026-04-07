@@ -10,11 +10,11 @@ using namespace IntroSatLib;
 /* Создаём переменную scale для настройки диапазона измерения акселерометра.
 Диапазон измерений задаётся в единицах ускорения свободного падения.
 Доступные диапазоны: twoG, fourG, eightG, sixteenG. */
-Accelerometer::Scale scale = Accelerometer::Scale::fourG;
+Accelerometer<1>::Scale scale = Accelerometer<1>::Scale::fourG;
 
 // Создание объекта акселерометра
 // 0x68 - адрес акселерометра, может быть другим
-Accelerometer accel(Wire, 0x68);
+Accelerometer<1> accel(Wire, 0x68);
 
 void setup() {
 	// Включение Serial для вывода данных
@@ -24,7 +24,7 @@ void setup() {
 	Wire.begin();
 
 	/* Инициализация датчика с настройкой диапазона измерения
-	Аргумент scale относится к перечислению Accelerometer::Scale
+	Аргумент scale относится к перечислению Accelerometer<1>::Scale
 	При вызове метода Init() без аргументов, будет установлен 
 	диапазон имзерения по умолчанию (twoG) */ 
 	uint8_t status = accel.Init(scale);

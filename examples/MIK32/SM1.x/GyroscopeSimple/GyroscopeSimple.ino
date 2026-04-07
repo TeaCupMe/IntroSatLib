@@ -10,11 +10,11 @@ using namespace IntroSatLib;
 /* Создаём переменную scale для настройки диапазона измерения гироскопа.
 Диапазон измерений задаётся в градусах в секунду.
 Доступные диапазоны: DPS0250, DPS0500, DPS1000, DPS2000. */
-Gyroscope::Scale scale = Gyroscope::Scale::DPS1000;
+Gyroscope<1>::Scale scale = Gyroscope<1>::Scale::DPS1000;
 
 // Создание объекта гироскопа
 // 0x68 - адрес, может быть другим
-Gyroscope gyro(Wire, 0x68);
+Gyroscope<1> gyro(Wire, 0x68);
 
 void setup() {
   // Включение Serial для вывода данных
@@ -24,7 +24,7 @@ void setup() {
   Wire.begin();
 
   /* Инициализация датчика с настройкой диапазона измерения
-  Аргумент scale относится к перечислению Gyroscope::Scale
+  Аргумент scale относится к перечислению Gyroscope<1>::Scale
   При вызове метода Init() без аргументов, будет установлен 
   диапазон имзерения по умолчанию (DPS2000, соответствующий +-2000 град/с) */
   uint8_t status = gyro.Init(scale);

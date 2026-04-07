@@ -1,6 +1,6 @@
 // Подключение библиотек
 #include <Wire.h>
-#include <AccelerometerV2.h>
+#include <Accelerometer.h>
 #include <IS_Bluetooth.h>
 
 /* Подключение пространства имён библиотеки,
@@ -10,11 +10,11 @@ using namespace IntroSatLib;
 /* Создаём переменную scale для настройки диапазона измерения акселерометра.
 Диапазон измерений задаётся в единицах ускорения свободного падения.
 Доступные диапазоны: twoG, fourG, eightG, sixteenG. */
-AccelerometerV2::Scale scale = AccelerometerV2::Scale::eightG;
+Accelerometer<2>::Scale scale = Accelerometer<2>::Scale::eightG;
 
 // Создание объекта акселерометра
 // 0x6B - адрес акселерометра, может быть другим
-AccelerometerV2 accel(Wire, 0x6B);
+Accelerometer<2> accel(Wire, 0x6B);
 
 void setup()
 {
