@@ -103,7 +103,7 @@ namespace IntroSatLib {
 
         uint8_t buff;
         RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1, timeout));
-        while(available()) ReadUART(&buff, 1, 10);
+        while(Available()) ReadUART(&buff, 1, 10);
 
         uint8_t message[3] = {
             (uint8_t)CommandHead::GetParameters,
@@ -141,7 +141,7 @@ namespace IntroSatLib {
 
         uint8_t buff;
         RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1, timeout));
-        while(available()) ReadUART(&buff, 1, 10);
+        while(Available()) ReadUART(&buff, 1, 10);
 
         uint8_t message[3] = {
             (uint8_t)CommandHead::GetVersion, 
@@ -174,7 +174,7 @@ namespace IntroSatLib {
 
         uint8_t buff;
         RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1, timeout));
-        while(available()) ReadUART(&buff, 1, 10);
+        while(Available()) ReadUART(&buff, 1, 10);
 
         uint8_t data[6];
 
