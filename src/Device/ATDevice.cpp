@@ -26,7 +26,7 @@ namespace IntroSatLib {
         return ISL_OK;
     }
 
-    ISL_StatusTypeDef ATDevice::ATCommandEquale(uint8_t** ptr, uint8_t** end, uint8_t nargs) {
+    ISL_StatusTypeDef ATDevice::ATCommandEquals(uint8_t** ptr, uint8_t** end, uint8_t nargs) {
         if (nargs > 0) {
             if (*ptr + 1 >= *end) return ISL_ERROR;
             **ptr = '=';

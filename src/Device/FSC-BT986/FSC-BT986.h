@@ -131,7 +131,7 @@ public:
      * 
      * \~russian @return Текущий способ переключения
      */
-    ModeChange getModeChange() { return modeChange; }
+    ModeChange GetModeChange() { return modeChange; }
 
     /**
      * \~russian @brief Переключение режима работы модуля

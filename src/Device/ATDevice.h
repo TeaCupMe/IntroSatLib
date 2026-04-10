@@ -74,7 +74,7 @@ protected:
      * \~russian @param nargs Количество аргументов команды
      * \~russian @return Статус выполнения операции
      */
-    virtual ISL_StatusTypeDef ATCommandEquale(uint8_t** ptr, uint8_t** end, uint8_t nargs);
+    virtual ISL_StatusTypeDef ATCommandEquals(uint8_t** ptr, uint8_t** end, uint8_t nargs);
 
     /**
      * \~russian @brief Виртуальная функция начала AT-команды
@@ -191,7 +191,7 @@ public:
         memcpy(ptr, cmd, cmd_len);
         ptr += cmd_len;
 
-        RETURN_STATUS_IF_NOT_OK_SILENT(ATCommandEquale(&ptr, &end, num_args));
+        RETURN_STATUS_IF_NOT_OK_SILENT(ATCommandEquals(&ptr, &end, num_args));
         if (num_args > 0) {
             const char* params[] = { reinterpret_cast<const char*>(args)... };
             for (uint8_t i = 0; i < num_args; i++) {
