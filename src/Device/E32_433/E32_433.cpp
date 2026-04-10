@@ -101,9 +101,8 @@ namespace IntroSatLib {
     {
         if (currentMode != Mode::Sleep) return ISL_ERROR;
 
-        uint8_t buff;
         RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1, timeout));
-        while(Available()) ReadUART(&buff, 1, 10);
+        FlushRX();
 
         uint8_t message[3] = {
             (uint8_t)CommandHead::GetParameters,
@@ -139,9 +138,8 @@ namespace IntroSatLib {
     {
         if (currentMode != Mode::Sleep) return ISL_ERROR;
 
-        uint8_t buff;
         RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1, timeout));
-        while(Available()) ReadUART(&buff, 1, 10);
+        FlushRX();
 
         uint8_t message[3] = {
             (uint8_t)CommandHead::GetVersion, 
@@ -172,9 +170,8 @@ namespace IntroSatLib {
     {
         if (currentMode != Mode::Sleep) return ISL_ERROR;
 
-        uint8_t buff;
         RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1, timeout));
-        while(Available()) ReadUART(&buff, 1, 10);
+        FlushRX();
 
         uint8_t data[6];
 
