@@ -4,7 +4,7 @@
 #include "Adapter/GPIO.h"
 #if defined(ISL_UART_ENABLED) and defined(ISL_GPIO_ENABLED)
 
-#include "FSC-BT986.h"
+#include "FSC_BT986.h"
 
 namespace IntroSatLib {
 
