@@ -15,7 +15,7 @@ namespace IntroSatLib {
         return _uart.receive(buf, nBytes, timeout);
     }
 
-    uint8_t UARTDevice::available() {
+    uint8_t UARTDevice::Available() {
         return _uart.available();
     }
 

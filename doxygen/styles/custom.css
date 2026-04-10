@@ -28,10 +28,10 @@
 #theme-selection {
     position: fixed;
     bottom: 0;
-    left: 0;
-    background: var(--side-nav-background);
-    padding: 5px 2px 5px 8px;
-    box-shadow: 0 -4px 4px -2px var(--side-nav-background);
+    right: 15%;
+    /* background: var(--side-nav-background); */
+    padding: 4px 2px 4px 4px;
+    /* box-shadow: 0 -4px 4px -2px var(--side-nav-background); */
     display: flex;
 }
 
@@ -126,4 +126,11 @@ html.dark-mode #theme-select {
         bottom: 0;
         background: var(--page-background-color);
     }
+}
+
+#page-nav-contents {
+    overflow-x: clip !important;
+    overflow-y: auto !important;
+    scrollbar-width: none !important;
+    height: calc(100% - 20px) !important;
 }
