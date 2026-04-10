@@ -4,7 +4,7 @@
 
 #ifdef ISL_UART_ENABLED
 
-#include "E32-433.h"
+#include "E32_433.h"
 
 
 namespace IntroSatLib {
