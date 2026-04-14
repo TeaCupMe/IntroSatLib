@@ -65,6 +65,11 @@ public:
      * \~russian @return Количество доступных для чтения байт
      */
     uint8_t Available();
+
+    /**
+     * \~russian @brief Очистка входного буфера UART
+     */
+    void FlushRX();
 };
 
 } /* namespace IntroSatLib */

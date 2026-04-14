@@ -19,6 +19,10 @@ namespace IntroSatLib {
         return _uart.available();
     }
 
+    void UARTDevice::FlushRX() {
+        return _uart.flushRX();
+    }
+
 }
 
 #endif
