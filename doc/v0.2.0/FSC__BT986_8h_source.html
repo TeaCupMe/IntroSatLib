@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="IntroSatLib" />
+<meta property="og:image" content="https://github.com/user-attachments/assets/b9565746-a0e4-46ce-b2e8-ef371b14b845" />
+<meta property="og:description" content="Документация библиотеки IntroSatLib" />
+<meta property="og:url" content="https://teacupme.github.io/IntroSatLib/doc/v0.1.1/" />
+<!-- END opengraph metadata -->
+<title>IntroSatLib: Исходный файл src/Device/FSC_BT986/FSC_BT986.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="dropdown.css" rel="stylesheet" type="text/css"/>
+<link href="theme-round.css" rel="stylesheet" type="text/css"/>
+<link href="theme-robot.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IntroSatLib
+   <!-- BEGIN PROJECT_NUMBER&#160;<span id="projectnumber">v0.2.0</span>END PROJECT_NUMBER -->
+   </div>
+  </td>
+    <!-- BEGIN version select -->
+    <td align="right">
+    <div class="dropdown">
+        <button class="dropbtn">Version v0.2.0</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+    <script type="text/javascript" src="./selectversion.js"></script>
+    </td>
+    <!-- END version select -->
+ </tr>
+ </tbody>
+</table>
+<div id="theme-selection">
+ <label for="theme-select">Theme:</label>
+ <select id="theme-select">
+  <option value="theme-default">Default</option>
+  <option value="theme-round">Round</option>
+  <option value="theme-robot">Robot</option>
+ </select>
+</div>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('FSC__BT986_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">FSC_BT986.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef FSC_BT986_</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define FSC_BT986_</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Adapter/GPIO.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Adapter/UART.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;Adapter/System.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;Device/ATDevice.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span>IntroSatLib</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span></div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1FSC__BT986.html">   18</a></span><span class="keyword">class </span><a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#a79178a54415013a494cfcc350bf229b6">FSC_BT986</a> : <span class="keyword">public</span> <a class="code hl_function" href="classIntroSatLib_1_1ATDevice.html#ada6e834d81c6eae571fb4ad3d52f9c35">ATDevice</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html">   31</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html">FSC_BT986Pins</a></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html#aa4ec36317b44943d3785df4939d27a51">   33</a></span>        <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> <a class="code hl_variable" href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html#aa4ec36317b44943d3785df4939d27a51">reset</a> = <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a>();       </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html#a25b215a144cacf6f8923452071f34d61">   34</a></span>        <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> <a class="code hl_variable" href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html#a25b215a144cacf6f8923452071f34d61">status</a> = <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a>();      </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html#a969a9eaa42a3dc19304b2dc07a3a1de3">   35</a></span>        <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> <a class="code hl_variable" href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html#a969a9eaa42a3dc19304b2dc07a3a1de3">disconnect</a> = <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a>();  </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html#a06c6841eb9a1a00ffdb45e16a38f12b4">   36</a></span>        <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> <a class="code hl_variable" href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html#a06c6841eb9a1a00ffdb45e16a38f12b4">mode</a> = <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a>();        </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    };</div>
+</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fc">   42</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fc">Mode</a>: uint8_t</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fca0b85467ebafa7ca3c47e82dc38184484">   44</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fca0b85467ebafa7ca3c47e82dc38184484">Throughput</a> = 0, </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fcaee97be03cb04119af45014d815621ce1">   45</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fcaee97be03cb04119af45014d815621ce1">Command</a> = 1     </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    };</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0">   51</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0">ModeChange</a>: uint8_t</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0a6adf97f83acf6453d4a6a4b1070f3754">   53</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0a6adf97f83acf6453d4a6a4b1070f3754">None</a> = 0b00,                    </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0a3c02a379965ab0dfcd77b1c484450433">   54</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0a3c02a379965ab0dfcd77b1c484450433">Hardware</a> = 0b01,                </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0a719d067b229178f03bcfa1da4ac4dede">   55</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0a719d067b229178f03bcfa1da4ac4dede">Software</a> = 0b10,                </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0a9ad88690d6525a922a9c77fff78ec08e">   56</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0a9ad88690d6525a922a9c77fff78ec08e">HardwareAndSoftware</a> = 0b11    </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    };</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    FSC_BT986Pins pins; </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_enumeration" href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0">ModeChange</a> modeChange = <a class="code hl_enumvalue" href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0a6adf97f83acf6453d4a6a4b1070f3754">ModeChange::None</a>; </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_enumeration" href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fc">Mode</a> currentMode = <a class="code hl_enumvalue" href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fcaee97be03cb04119af45014d815621ce1">Mode::Command</a>;           </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint16_t defaultPinTimeout = 20;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    ISL_StatusTypeDef SetModePrg(<a class="code hl_enumeration" href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fc">Mode</a> mode, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    ISL_StatusTypeDef SetModeHard(<a class="code hl_enumeration" href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fc">Mode</a> mode);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1FSC__BT986.html#a79178a54415013a494cfcc350bf229b6">   96</a></span>    <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#a79178a54415013a494cfcc350bf229b6">FSC_BT986</a>(</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a> uart,</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_struct" href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html">FSC_BT986Pins</a> _pins,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keyword">const</span> uint16_t bsize = <a class="code hl_variable" href="classIntroSatLib_1_1ATDevice.html#ae42118f55a883209f9f4faf045e2d52c">defaultBSize</a></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    ): <a class="code hl_function" href="classIntroSatLib_1_1ATDevice.html#ada6e834d81c6eae571fb4ad3d52f9c35">ATDevice</a>(uart, bsize), pins(_pins)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    { };</div>
+</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#ae3de10d4587e58bf5b63b2c4053ed8d6">Init</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fc">Mode</a> mode);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1FSC__BT986.html#ae3de10d4587e58bf5b63b2c4053ed8d6">  119</a></span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#ae3de10d4587e58bf5b63b2c4053ed8d6">Init</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#ae3de10d4587e58bf5b63b2c4053ed8d6">Init</a>(<a class="code hl_enumvalue" href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fca0b85467ebafa7ca3c47e82dc38184484">Mode::Throughput</a>); }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1FSC__BT986.html#af2f87e73a03ad57a53a95e20d918bab5">  127</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#af2f87e73a03ad57a53a95e20d918bab5">SetModeChange</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0">ModeChange</a> newModeChange) { modeChange = newModeChange; }</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1FSC__BT986.html#acf77578cc66da1ad3b06a295c8559984">  134</a></span>    <a class="code hl_enumeration" href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0">ModeChange</a> <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#acf77578cc66da1ad3b06a295c8559984">GetModeChange</a>() { <span class="keywordflow">return</span> modeChange; }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#a0cdbe62dd3e0bdef92f27eb0cd05657d">SetMode</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fc">Mode</a> mode, <span class="keywordtype">bool</span> withSave=<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#a03dd1186fc296e9bb218212d340a3ad4">SetPIN</a>(uint8_t* pinCode, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#a478c8a176ebaa7c53129c8d101cf9ceb">ReadPIN</a>(uint8_t* rxbuff, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#a04c732b53f6ccdfedd24c7e8f7fd5fa4">ReadMAC</a>(uint8_t* rxbuff, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#a97c3db94df40af1c0deb30b31c17a525">Connect</a>(uint8_t* mac, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#a7ba4ebd8d3b010730f0cf006f67b8d93">ReleaseConnections</a>(uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#ad45894358439bfa166948c563235db5b">Reboot</a>(uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#ab62ec22bda270a08229ffc5b63406d1b">HardReset</a>();</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#a21f28c095b57d85207c074b232f12547">ReadStatus</a>(uint8_t* rxbuff);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#ac2bb4cded03da642feeef6bd5de5f1cf">HardDisconnect</a>();</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1FSC__BT986.html#aa921b8fbad12d703b13989bf61326ba6">Restore</a>(uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>);</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>};</div>
+</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>} <span class="comment">// namespace IntroSatLib</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="preprocessor">#endif </span><span class="comment">/* FSC_BT986_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aclassIntroSatLib_1_1ATDevice_html_ad9035c563bde5ee112351e01d840d976"><div class="ttname"><a href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">IntroSatLib::ATDevice::defaultTimeout</a></div><div class="ttdeci">static constexpr uint16_t defaultTimeout</div><div class="ttdef"><b>Определения</b> ATDevice.h:35</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1ATDevice_html_ada6e834d81c6eae571fb4ad3d52f9c35"><div class="ttname"><a href="classIntroSatLib_1_1ATDevice.html#ada6e834d81c6eae571fb4ad3d52f9c35">IntroSatLib::ATDevice::ATDevice</a></div><div class="ttdeci">ATDevice(interfaces::UART uart, const uint16_t bsize=defaultBSize)</div><div class="ttdoc">Конструктор класса ATDevice.</div><div class="ttdef"><b>Определения</b> ATDevice.h:115</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1ATDevice_html_ae42118f55a883209f9f4faf045e2d52c"><div class="ttname"><a href="classIntroSatLib_1_1ATDevice.html#ae42118f55a883209f9f4faf045e2d52c">IntroSatLib::ATDevice::defaultBSize</a></div><div class="ttdeci">static constexpr uint16_t defaultBSize</div><div class="ttdef"><b>Определения</b> ATDevice.h:38</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a03dd1186fc296e9bb218212d340a3ad4"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a03dd1186fc296e9bb218212d340a3ad4">IntroSatLib::FSC_BT986::SetPIN</a></div><div class="ttdeci">ISL_StatusTypeDef SetPIN(uint8_t *pinCode, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Установка PIN-кода для Bluetooth-соединения</div><div class="ttdef"><b>Определения</b> FSC_BT986.cpp:73</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a04c732b53f6ccdfedd24c7e8f7fd5fa4"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a04c732b53f6ccdfedd24c7e8f7fd5fa4">IntroSatLib::FSC_BT986::ReadMAC</a></div><div class="ttdeci">ISL_StatusTypeDef ReadMAC(uint8_t *rxbuff, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Чтение MAC-адреса Bluetooth-модуля</div><div class="ttdef"><b>Определения</b> FSC_BT986.cpp:89</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a095238b6bf7d1a2378cb3a45595acfa0"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0">IntroSatLib::FSC_BT986::ModeChange</a></div><div class="ttdeci">ModeChange</div><div class="ttdoc">Способ переключения режима работы</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:52</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a095238b6bf7d1a2378cb3a45595acfa0a3c02a379965ab0dfcd77b1c484450433"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0a3c02a379965ab0dfcd77b1c484450433">IntroSatLib::FSC_BT986::ModeChange::Hardware</a></div><div class="ttdeci">@ Hardware</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:54</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a095238b6bf7d1a2378cb3a45595acfa0a6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0a6adf97f83acf6453d4a6a4b1070f3754">IntroSatLib::FSC_BT986::ModeChange::None</a></div><div class="ttdeci">@ None</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:53</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a095238b6bf7d1a2378cb3a45595acfa0a719d067b229178f03bcfa1da4ac4dede"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0a719d067b229178f03bcfa1da4ac4dede">IntroSatLib::FSC_BT986::ModeChange::Software</a></div><div class="ttdeci">@ Software</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:55</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a095238b6bf7d1a2378cb3a45595acfa0a9ad88690d6525a922a9c77fff78ec08e"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a095238b6bf7d1a2378cb3a45595acfa0a9ad88690d6525a922a9c77fff78ec08e">IntroSatLib::FSC_BT986::ModeChange::HardwareAndSoftware</a></div><div class="ttdeci">@ HardwareAndSoftware</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:56</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a0cdbe62dd3e0bdef92f27eb0cd05657d"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a0cdbe62dd3e0bdef92f27eb0cd05657d">IntroSatLib::FSC_BT986::SetMode</a></div><div class="ttdeci">ISL_StatusTypeDef SetMode(Mode mode, bool withSave=true)</div><div class="ttdoc">Переключение режима работы модуля</div><div class="ttdef"><b>Определения</b> FSC_BT986.cpp:11</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a21f28c095b57d85207c074b232f12547"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a21f28c095b57d85207c074b232f12547">IntroSatLib::FSC_BT986::ReadStatus</a></div><div class="ttdeci">ISL_StatusTypeDef ReadStatus(uint8_t *rxbuff)</div><div class="ttdoc">Чтение статуса модуля через пин status.</div><div class="ttdef"><b>Определения</b> FSC_BT986.cpp:142</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a478c8a176ebaa7c53129c8d101cf9ceb"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a478c8a176ebaa7c53129c8d101cf9ceb">IntroSatLib::FSC_BT986::ReadPIN</a></div><div class="ttdeci">ISL_StatusTypeDef ReadPIN(uint8_t *rxbuff, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Чтение текущего PIN-кода модуля</div><div class="ttdef"><b>Определения</b> FSC_BT986.cpp:81</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a4ce4af1f0070eaa8e0717e71c38c82fc"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fc">IntroSatLib::FSC_BT986::Mode</a></div><div class="ttdeci">Mode</div><div class="ttdoc">Режимы работы bluetooth модуля</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:43</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a4ce4af1f0070eaa8e0717e71c38c82fca0b85467ebafa7ca3c47e82dc38184484"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fca0b85467ebafa7ca3c47e82dc38184484">IntroSatLib::FSC_BT986::Mode::Throughput</a></div><div class="ttdeci">@ Throughput</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:44</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a4ce4af1f0070eaa8e0717e71c38c82fcaee97be03cb04119af45014d815621ce1"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a4ce4af1f0070eaa8e0717e71c38c82fcaee97be03cb04119af45014d815621ce1">IntroSatLib::FSC_BT986::Mode::Command</a></div><div class="ttdeci">@ Command</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:45</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a79178a54415013a494cfcc350bf229b6"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a79178a54415013a494cfcc350bf229b6">IntroSatLib::FSC_BT986::FSC_BT986</a></div><div class="ttdeci">FSC_BT986(interfaces::UART uart, FSC_BT986Pins _pins, const uint16_t bsize=defaultBSize)</div><div class="ttdoc">Конструктор класса FSC_BT986.</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:96</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a7ba4ebd8d3b010730f0cf006f67b8d93"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a7ba4ebd8d3b010730f0cf006f67b8d93">IntroSatLib::FSC_BT986::ReleaseConnections</a></div><div class="ttdeci">ISL_StatusTypeDef ReleaseConnections(uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Освобождение всех активных соединений</div><div class="ttdef"><b>Определения</b> FSC_BT986.cpp:113</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_a97c3db94df40af1c0deb30b31c17a525"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#a97c3db94df40af1c0deb30b31c17a525">IntroSatLib::FSC_BT986::Connect</a></div><div class="ttdeci">ISL_StatusTypeDef Connect(uint8_t *mac, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Подключение к другому Bluetooth-устройству по MAC-адресу</div><div class="ttdef"><b>Определения</b> FSC_BT986.cpp:97</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_aa921b8fbad12d703b13989bf61326ba6"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#aa921b8fbad12d703b13989bf61326ba6">IntroSatLib::FSC_BT986::Restore</a></div><div class="ttdeci">ISL_StatusTypeDef Restore(uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Сброс до заводских настроек модуля (требуется Reboot).</div><div class="ttdef"><b>Определения</b> FSC_BT986.cpp:121</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_ab62ec22bda270a08229ffc5b63406d1b"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#ab62ec22bda270a08229ffc5b63406d1b">IntroSatLib::FSC_BT986::HardReset</a></div><div class="ttdeci">ISL_StatusTypeDef HardReset()</div><div class="ttdoc">Аппаратная перезагрузка модуля (через пин reset).</div><div class="ttdef"><b>Определения</b> FSC_BT986.cpp:131</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_ac2bb4cded03da642feeef6bd5de5f1cf"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#ac2bb4cded03da642feeef6bd5de5f1cf">IntroSatLib::FSC_BT986::HardDisconnect</a></div><div class="ttdeci">ISL_StatusTypeDef HardDisconnect()</div><div class="ttdoc">Аппаратное принудительное отключение (через пин disconnect).</div><div class="ttdef"><b>Определения</b> FSC_BT986.cpp:151</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_acf77578cc66da1ad3b06a295c8559984"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#acf77578cc66da1ad3b06a295c8559984">IntroSatLib::FSC_BT986::GetModeChange</a></div><div class="ttdeci">ModeChange GetModeChange()</div><div class="ttdoc">Получение текущего способа переключения режимов</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:134</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_ad45894358439bfa166948c563235db5b"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#ad45894358439bfa166948c563235db5b">IntroSatLib::FSC_BT986::Reboot</a></div><div class="ttdeci">ISL_StatusTypeDef Reboot(uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Программная перезагрузка модуля (через AT-команду).</div><div class="ttdef"><b>Определения</b> FSC_BT986.cpp:105</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_ae3de10d4587e58bf5b63b2c4053ed8d6"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#ae3de10d4587e58bf5b63b2c4053ed8d6">IntroSatLib::FSC_BT986::Init</a></div><div class="ttdeci">ISL_StatusTypeDef Init() override</div><div class="ttdoc">Инициализация Bluetooth-модуля в режиме передачи данных</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:119</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1FSC__BT986_html_af2f87e73a03ad57a53a95e20d918bab5"><div class="ttname"><a href="classIntroSatLib_1_1FSC__BT986.html#af2f87e73a03ad57a53a95e20d918bab5">IntroSatLib::FSC_BT986::SetModeChange</a></div><div class="ttdeci">void SetModeChange(ModeChange newModeChange)</div><div class="ttdoc">Установка способа переключения режимов</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:127</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1GPIO_html"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1GPIO.html">IntroSatLib::interfaces::GPIO</a></div><div class="ttdef"><b>Определения</b> GPIO.h:69</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1UART_html"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1UART.html">IntroSatLib::interfaces::UART</a></div><div class="ttdef"><b>Определения</b> UART.h:83</div></div>
+<div class="ttc" id="astructIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins_html"><div class="ttname"><a href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html">IntroSatLib::FSC_BT986::FSC_BT986Pins</a></div><div class="ttdoc">Структура, описывающая пины модуля</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:32</div></div>
+<div class="ttc" id="astructIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins_html_a06c6841eb9a1a00ffdb45e16a38f12b4"><div class="ttname"><a href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html#a06c6841eb9a1a00ffdb45e16a38f12b4">IntroSatLib::FSC_BT986::FSC_BT986Pins::mode</a></div><div class="ttdeci">interfaces::GPIO mode</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:36</div></div>
+<div class="ttc" id="astructIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins_html_a25b215a144cacf6f8923452071f34d61"><div class="ttname"><a href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html#a25b215a144cacf6f8923452071f34d61">IntroSatLib::FSC_BT986::FSC_BT986Pins::status</a></div><div class="ttdeci">interfaces::GPIO status</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:34</div></div>
+<div class="ttc" id="astructIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins_html_a969a9eaa42a3dc19304b2dc07a3a1de3"><div class="ttname"><a href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html#a969a9eaa42a3dc19304b2dc07a3a1de3">IntroSatLib::FSC_BT986::FSC_BT986Pins::disconnect</a></div><div class="ttdeci">interfaces::GPIO disconnect</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:35</div></div>
+<div class="ttc" id="astructIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins_html_aa4ec36317b44943d3785df4939d27a51"><div class="ttname"><a href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html#aa4ec36317b44943d3785df4939d27a51">IntroSatLib::FSC_BT986::FSC_BT986Pins::reset</a></div><div class="ttdeci">interfaces::GPIO reset</div><div class="ttdef"><b>Определения</b> FSC_BT986.h:33</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>src</b></li><li class="navelem"><b>Device</b></li><li class="navelem"><b>FSC_BT986</b></li><li class="navelem"><b>FSC_BT986.h</b></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

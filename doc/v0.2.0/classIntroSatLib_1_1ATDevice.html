@@ -1,0 +1,795 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="IntroSatLib" />
+<meta property="og:image" content="https://github.com/user-attachments/assets/b9565746-a0e4-46ce-b2e8-ef371b14b845" />
+<meta property="og:description" content="Документация библиотеки IntroSatLib" />
+<meta property="og:url" content="https://teacupme.github.io/IntroSatLib/doc/v0.1.1/" />
+<!-- END opengraph metadata -->
+<title>IntroSatLib: Класс IntroSatLib::ATDevice</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="dropdown.css" rel="stylesheet" type="text/css"/>
+<link href="theme-round.css" rel="stylesheet" type="text/css"/>
+<link href="theme-robot.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IntroSatLib
+   <!-- BEGIN PROJECT_NUMBER&#160;<span id="projectnumber">v0.2.0</span>END PROJECT_NUMBER -->
+   </div>
+  </td>
+    <!-- BEGIN version select -->
+    <td align="right">
+    <div class="dropdown">
+        <button class="dropbtn">Version v0.2.0</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+    <script type="text/javascript" src="./selectversion.js"></script>
+    </td>
+    <!-- END version select -->
+ </tr>
+ </tbody>
+</table>
+<div id="theme-selection">
+ <label for="theme-select">Theme:</label>
+ <select id="theme-select">
+  <option value="theme-default">Default</option>
+  <option value="theme-round">Round</option>
+  <option value="theme-robot">Robot</option>
+ </select>
+</div>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classIntroSatLib_1_1ATDevice.html','','classIntroSatLib_1_1ATDevice-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс IntroSatLib::ATDevice</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Базовый класс для устройств, использующих AT-команды  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ATDevice_8h_source.html">ATDevice.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:IntroSatLib::ATDevice:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classIntroSatLib_1_1ATDevice__inherit__graph.svg" width="179" height="258"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ada6e834d81c6eae571fb4ad3d52f9c35" id="r_ada6e834d81c6eae571fb4ad3d52f9c35"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ada6e834d81c6eae571fb4ad3d52f9c35">ATDevice</a> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a> uart, const uint16_t bsize=<a class="el" href="#ae42118f55a883209f9f4faf045e2d52c">defaultBSize</a>)</td></tr>
+<tr class="memdesc:ada6e834d81c6eae571fb4ad3d52f9c35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="classIntroSatLib_1_1ATDevice.html" title="Базовый класс для устройств, использующих AT-команды">ATDevice</a>.  <br /></td></tr>
+<tr class="memitem:a655d7e26ea692d594f5a4bbffeae4d63" id="r_a655d7e26ea692d594f5a4bbffeae4d63"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a655d7e26ea692d594f5a4bbffeae4d63">ReadAT</a> (const char *cmd, uint8_t *rxbuff, uint16_t rxbuff_len=<a class="el" href="#ae42118f55a883209f9f4faf045e2d52c">defaultBSize</a>, uint16_t timeout=<a class="el" href="#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a655d7e26ea692d594f5a4bbffeae4d63"><td class="mdescLeft">&#160;</td><td class="mdescRight">выполнение AT-команды с целью чтения данных  <br /></td></tr>
+<tr class="memitem:a08ffc1f15c5ae9e8b433b8cbd21ac112" id="r_a08ffc1f15c5ae9e8b433b8cbd21ac112"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a08ffc1f15c5ae9e8b433b8cbd21ac112 template"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a08ffc1f15c5ae9e8b433b8cbd21ac112">WriteAT</a> (const char *cmd, uint16_t timeout, Args... args)</td></tr>
+<tr class="memdesc:a08ffc1f15c5ae9e8b433b8cbd21ac112"><td class="mdescLeft">&#160;</td><td class="mdescRight">выполнение AT-команды с целью записи данных/выполнения действия  <br /></td></tr>
+<tr class="memitem:a369058a6b773ea9ae022c39df94ab810" id="r_a369058a6b773ea9ae022c39df94ab810"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a369058a6b773ea9ae022c39df94ab810 template"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a369058a6b773ea9ae022c39df94ab810">WriteAT</a> (const char *cmd, Args... args)</td></tr>
+<tr class="memdesc:a369058a6b773ea9ae022c39df94ab810"><td class="mdescLeft">&#160;</td><td class="mdescRight">выполнение AT-команды с целью записи данных/выполнения действия (с таймаутом по умолчанию)  <br /></td></tr>
+<tr class="memitem:acf64bc63b522aed1dababd60c6c35fca" id="r_acf64bc63b522aed1dababd60c6c35fca"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:acf64bc63b522aed1dababd60c6c35fca template"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#acf64bc63b522aed1dababd60c6c35fca">ATCommand</a> (uint8_t *buff, uint8_t <a class="el" href="#ade63be0d08cf4f5cc30a26a960d1595a">buffSize</a>, const char *cmd, Args... args)</td></tr>
+<tr class="memdesc:acf64bc63b522aed1dababd60c6c35fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Формирование AT-команды в буфере  <br /></td></tr>
+<tr class="inherit_header pub_methods_classIntroSatLib_1_1UARTDevice"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classIntroSatLib_1_1UARTDevice')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="classIntroSatLib_1_1UARTDevice.html">IntroSatLib::UARTDevice</a></td></tr>
+<tr class="memitem:aff5503123da8b4ccb3b401ed963f0bf3 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_aff5503123da8b4ccb3b401ed963f0bf3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#aff5503123da8b4ccb3b401ed963f0bf3">UARTDevice</a> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a> uart)</td></tr>
+<tr class="memdesc:aff5503123da8b4ccb3b401ed963f0bf3 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="classIntroSatLib_1_1UARTDevice.html" title="Базовый класс для устройств, использующих UART интерфейс">UARTDevice</a>.  <br /></td></tr>
+<tr class="memitem:a566923f741ec74470ede3396c3906427 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_a566923f741ec74470ede3396c3906427"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#a566923f741ec74470ede3396c3906427">UARTDevice</a> (const UARTDevice &amp;other)</td></tr>
+<tr class="memdesc:a566923f741ec74470ede3396c3906427 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор копирования  <br /></td></tr>
+<tr class="memitem:a9858a8b8dccb9ce8d6ea166d61650053 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_a9858a8b8dccb9ce8d6ea166d61650053"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#a9858a8b8dccb9ce8d6ea166d61650053">UARTDevice</a> (UARTDevice &amp;&amp;other)</td></tr>
+<tr class="memdesc:a9858a8b8dccb9ce8d6ea166d61650053 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор перемещения  <br /></td></tr>
+<tr class="memitem:affed7c5ddbac8b9792cadba2cc6cea0b inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_affed7c5ddbac8b9792cadba2cc6cea0b"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#affed7c5ddbac8b9792cadba2cc6cea0b">WriteUART</a> (uint8_t *buf, uint8_t nBytes, uint16_t timeout=<a class="el" href="classIntroSatLib_1_1UARTDevice.html#ad6f83f3b2adc002169a779d765f9ccf4">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:affed7c5ddbac8b9792cadba2cc6cea0b inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправка данных через UART.  <br /></td></tr>
+<tr class="memitem:a011a59cb06cd88db6345209b99abac9f inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_a011a59cb06cd88db6345209b99abac9f"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#a011a59cb06cd88db6345209b99abac9f">ReadUART</a> (uint8_t *buf, uint8_t nBytes=1, uint16_t timeout=<a class="el" href="classIntroSatLib_1_1UARTDevice.html#ad6f83f3b2adc002169a779d765f9ccf4">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a011a59cb06cd88db6345209b99abac9f inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение данных из UART.  <br /></td></tr>
+<tr class="memitem:ac86a8ba6b226c65f836fbd690e2d2bd8 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_ac86a8ba6b226c65f836fbd690e2d2bd8"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#ac86a8ba6b226c65f836fbd690e2d2bd8">Available</a> ()</td></tr>
+<tr class="memdesc:ac86a8ba6b226c65f836fbd690e2d2bd8 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка наличия данных в приемном буфере UART.  <br /></td></tr>
+<tr class="memitem:a23c231fa209821e2622c8d9b72a55c23 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_a23c231fa209821e2622c8d9b72a55c23"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>FlushRX</b> ()</td></tr>
+<tr class="memdesc:a23c231fa209821e2622c8d9b72a55c23 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Очистка входного буфера UART. <br /></td></tr>
+<tr class="inherit_header pub_methods_classIntroSatLib_1_1Device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classIntroSatLib_1_1Device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="classIntroSatLib_1_1Device.html">IntroSatLib::Device</a></td></tr>
+<tr class="memitem:a868cb050a621ba8536210a2055061b21 inherit pub_methods_classIntroSatLib_1_1Device" id="r_a868cb050a621ba8536210a2055061b21"><td class="memItemLeft">virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1Device.html#a868cb050a621ba8536210a2055061b21">Init</a> ()=0</td></tr>
+<tr class="memitem:a8f687ec7a9822ccc409037bf1cc6c59f inherit pub_methods_classIntroSatLib_1_1Device" id="r_a8f687ec7a9822ccc409037bf1cc6c59f"><td class="memItemLeft">
+Device::DeviceState&#160;</td><td class="memItemRight"><b>GetState</b> ()</td></tr>
+<tr class="memitem:aa6f6a4c96b8d377ac6a020f903558694 inherit pub_methods_classIntroSatLib_1_1Device" id="r_aa6f6a4c96b8d377ac6a020f903558694"><td class="memItemLeft">
+virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>Enable</b> ()</td></tr>
+<tr class="memitem:aa9b38286b66f8990cf5c79f3732fd64d inherit pub_methods_classIntroSatLib_1_1Device" id="r_aa9b38286b66f8990cf5c79f3732fd64d"><td class="memItemLeft">
+virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>Disable</b> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr class="memitem:a76fa713828e4cc648f745e0d05b1e886" id="r_a76fa713828e4cc648f745e0d05b1e886"><td class="memItemLeft">virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a76fa713828e4cc648f745e0d05b1e886">ATCommandEnd</a> (uint8_t **ptr, uint8_t **end, uint8_t nargs)</td></tr>
+<tr class="memdesc:a76fa713828e4cc648f745e0d05b1e886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальная функция завершения AT-команды  <br /></td></tr>
+<tr class="memitem:aacf7b0694a38876d11377bede3a72754" id="r_aacf7b0694a38876d11377bede3a72754"><td class="memItemLeft">virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#aacf7b0694a38876d11377bede3a72754">ATCommandSeparator</a> (uint8_t **ptr, uint8_t **end, uint8_t nargs)</td></tr>
+<tr class="memdesc:aacf7b0694a38876d11377bede3a72754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальная функция разделителя аргументов AT-команды  <br /></td></tr>
+<tr class="memitem:a63cbaa6c5be590bae50f54835016fd87" id="r_a63cbaa6c5be590bae50f54835016fd87"><td class="memItemLeft">virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a63cbaa6c5be590bae50f54835016fd87">ATCommandEquals</a> (uint8_t **ptr, uint8_t **end, uint8_t nargs)</td></tr>
+<tr class="memdesc:a63cbaa6c5be590bae50f54835016fd87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальная функция символа равенства AT-команды  <br /></td></tr>
+<tr class="memitem:a9b31fd3835920a09a9cf6a46456c13ef" id="r_a9b31fd3835920a09a9cf6a46456c13ef"><td class="memItemLeft">virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a9b31fd3835920a09a9cf6a46456c13ef">ATCommandStart</a> (uint8_t **ptr, uint8_t **end, uint8_t nargs)</td></tr>
+<tr class="memdesc:a9b31fd3835920a09a9cf6a46456c13ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальная функция начала AT-команды  <br /></td></tr>
+<tr class="memitem:a682b42f9e6eebfe1d02b1128bf08c4e5" id="r_a682b42f9e6eebfe1d02b1128bf08c4e5"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a682b42f9e6eebfe1d02b1128bf08c4e5">ExecuteATCommand</a> (uint8_t *command, uint8_t *rxbuff, uint16_t length, uint16_t timeout=<a class="el" href="#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a682b42f9e6eebfe1d02b1128bf08c4e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выполнение AT-команды  <br /></td></tr>
+<tr class="inherit_header pro_methods_classIntroSatLib_1_1Device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classIntroSatLib_1_1Device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные члены унаследованные от <a class="el" href="classIntroSatLib_1_1Device.html">IntroSatLib::Device</a></td></tr>
+<tr class="memitem:a250a0d27735ec18cd3771666b6efc9c7 inherit pro_methods_classIntroSatLib_1_1Device" id="r_a250a0d27735ec18cd3771666b6efc9c7"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>setState</b> (Device::DeviceState state)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Защищенные данные</h2></td></tr>
+<tr class="memitem:ade63be0d08cf4f5cc30a26a960d1595a" id="r_ade63be0d08cf4f5cc30a26a960d1595a"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ade63be0d08cf4f5cc30a26a960d1595a">buffSize</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-attribs" class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Статические защищенные данные</h2></td></tr>
+<tr class="memitem:ad9035c563bde5ee112351e01d840d976" id="r_ad9035c563bde5ee112351e01d840d976"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a> = 500</td></tr>
+<tr class="memitem:ae42118f55a883209f9f4faf045e2d52c" id="r_ae42118f55a883209f9f4faf045e2d52c"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ae42118f55a883209f9f4faf045e2d52c">defaultBSize</a> = 128</td></tr>
+<tr class="inherit_header pro_static_attribs_classIntroSatLib_1_1UARTDevice"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_static_attribs_classIntroSatLib_1_1UARTDevice')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Статические защищенные данные унаследованные от <a class="el" href="classIntroSatLib_1_1UARTDevice.html">IntroSatLib::UARTDevice</a></td></tr>
+<tr class="memitem:ad6f83f3b2adc002169a779d765f9ccf4 inherit pro_static_attribs_classIntroSatLib_1_1UARTDevice" id="r_ad6f83f3b2adc002169a779d765f9ccf4"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#ad6f83f3b2adc002169a779d765f9ccf4">defaultTimeout</a> = 100</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Базовый класс для устройств, использующих AT-команды </p>
+<p>Класс <a class="el" href="classIntroSatLib_1_1ATDevice.html" title="Базовый класс для устройств, использующих AT-команды">ATDevice</a> наследуется от <a class="el" href="classIntroSatLib_1_1UARTDevice.html" title="Базовый класс для устройств, использующих UART интерфейс">UARTDevice</a> и предоставляет функциональность для формирования и выполнения AT-команд. Поддерживает шаблонные методы для работы с различным количеством параметров команд. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="ada6e834d81c6eae571fb4ad3d52f9c35" name="ada6e834d81c6eae571fb4ad3d52f9c35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada6e834d81c6eae571fb4ad3d52f9c35">&#9670;&#160;</a></span>ATDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::ATDevice::ATDevice </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a></td>          <td class="paramname"><span class="paramname"><em>uart</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint16_t</td>          <td class="paramname"><span class="paramname"><em>bsize</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#ae42118f55a883209f9f4faf045e2d52c">defaultBSize</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор класса <a class="el" href="classIntroSatLib_1_1ATDevice.html" title="Базовый класс для устройств, использующих AT-команды">ATDevice</a>. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uart</td><td>Ссылка на объект UART интерфейса </td></tr>
+    <tr><td class="paramname">bsize</td><td>Размер внутреннего буфера (по умолчанию defaultBSize) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="acf64bc63b522aed1dababd60c6c35fca" name="acf64bc63b522aed1dababd60c6c35fca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf64bc63b522aed1dababd60c6c35fca">&#9670;&#160;</a></span>ATCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::ATDevice::ATCommand </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>buff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>buffSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args...</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Формирование AT-команды в буфере </p>
+<p>Шаблонный метод для формирования AT-команды с параметрами в предоставленном буфере.</p>
+<dl class="tparams"><dt>Параметры шаблона</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Args</td><td>Типы параметров команды </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buff</td><td>Указатель на буфер для формирования команды </td></tr>
+    <tr><td class="paramname"><a class="el" href="#ade63be0d08cf4f5cc30a26a960d1595a">buffSize</a></td><td>Размер буфера </td></tr>
+    <tr><td class="paramname">cmd</td><td>Строка с именем AT-команды </td></tr>
+    <tr><td class="paramname">args</td><td>Параметры команды </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a76fa713828e4cc648f745e0d05b1e886" name="a76fa713828e4cc648f745e0d05b1e886"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76fa713828e4cc648f745e0d05b1e886">&#9670;&#160;</a></span>ATCommandEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::ATDevice::ATCommandEnd </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t **</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t **</td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>nargs</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Виртуальная функция завершения AT-команды </p>
+<p>Может быть переопределена в классах-наследниках для изменения завершающей последовательности команды.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Указатель на указатель на текущую позицию в буфере </td></tr>
+    <tr><td class="paramname">end</td><td>Указатель на указатель на конец буфера </td></tr>
+    <tr><td class="paramname">nargs</td><td>Количество аргументов команды </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a63cbaa6c5be590bae50f54835016fd87" name="a63cbaa6c5be590bae50f54835016fd87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63cbaa6c5be590bae50f54835016fd87">&#9670;&#160;</a></span>ATCommandEquals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::ATDevice::ATCommandEquals </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t **</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t **</td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>nargs</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Виртуальная функция символа равенства AT-команды </p>
+<p>Может быть переопределена в классах-наследниках для изменения символа, отделяющего команду от аргументов.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Указатель на указатель на текущую позицию в буфере </td></tr>
+    <tr><td class="paramname">end</td><td>Указатель на указатель на конец буфера </td></tr>
+    <tr><td class="paramname">nargs</td><td>Количество аргументов команды </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="aacf7b0694a38876d11377bede3a72754" name="aacf7b0694a38876d11377bede3a72754"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacf7b0694a38876d11377bede3a72754">&#9670;&#160;</a></span>ATCommandSeparator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::ATDevice::ATCommandSeparator </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t **</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t **</td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>nargs</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Виртуальная функция разделителя аргументов AT-команды </p>
+<p>Может быть переопределена в классах-наследниках для изменения символа-разделителя между аргументами.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Указатель на указатель на текущую позицию в буфере </td></tr>
+    <tr><td class="paramname">end</td><td>Указатель на указатель на конец буфера </td></tr>
+    <tr><td class="paramname">nargs</td><td>Количество аргументов команды </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a9b31fd3835920a09a9cf6a46456c13ef" name="a9b31fd3835920a09a9cf6a46456c13ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b31fd3835920a09a9cf6a46456c13ef">&#9670;&#160;</a></span>ATCommandStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::ATDevice::ATCommandStart </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t **</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t **</td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>nargs</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Виртуальная функция начала AT-команды </p>
+<p>Может быть переопределена в классах-наследниках для изменения начальной последовательности команды.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Указатель на указатель на текущую позицию в буфере </td></tr>
+    <tr><td class="paramname">end</td><td>Указатель на указатель на конец буфера </td></tr>
+    <tr><td class="paramname">nargs</td><td>Количество аргументов команды </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a682b42f9e6eebfe1d02b1128bf08c4e5" name="a682b42f9e6eebfe1d02b1128bf08c4e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a682b42f9e6eebfe1d02b1128bf08c4e5">&#9670;&#160;</a></span>ExecuteATCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::ATDevice::ExecuteATCommand </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>command</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>rxbuff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Выполнение AT-команды </p>
+<p>Отправляет сформированную команду через UART и получает ответ.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>Указатель на буфер с командой </td></tr>
+    <tr><td class="paramname">rxbuff</td><td>Указатель на буфер для приема ответа </td></tr>
+    <tr><td class="paramname">length</td><td>Размер буфера приема </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции в миллисекундах </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a655d7e26ea692d594f5a4bbffeae4d63" name="a655d7e26ea692d594f5a4bbffeae4d63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a655d7e26ea692d594f5a4bbffeae4d63">&#9670;&#160;</a></span>ReadAT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::ATDevice::ReadAT </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>rxbuff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>rxbuff_len</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#ae42118f55a883209f9f4faf045e2d52c">defaultBSize</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>выполнение AT-команды с целью чтения данных </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>Строка с AT-командой </td></tr>
+    <tr><td class="paramname">rxbuff</td><td>Указатель на буфер для приема ответа </td></tr>
+    <tr><td class="paramname">rxbuff_len</td><td>Размер буфера приема </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции в миллисекундах </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a369058a6b773ea9ae022c39df94ab810" name="a369058a6b773ea9ae022c39df94ab810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a369058a6b773ea9ae022c39df94ab810">&#9670;&#160;</a></span>WriteAT() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::ATDevice::WriteAT </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args...</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>выполнение AT-команды с целью записи данных/выполнения действия (с таймаутом по умолчанию) </p>
+<dl class="tparams"><dt>Параметры шаблона</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Args</td><td>Типы параметров команды </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>Строка с именем AT-команды </td></tr>
+    <tr><td class="paramname">args</td><td>Параметры команды </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a08ffc1f15c5ae9e8b433b8cbd21ac112" name="a08ffc1f15c5ae9e8b433b8cbd21ac112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08ffc1f15c5ae9e8b433b8cbd21ac112">&#9670;&#160;</a></span>WriteAT() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::ATDevice::WriteAT </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args...</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>выполнение AT-команды с целью записи данных/выполнения действия </p>
+<p>Шаблонный метод для отправки AT-команд с произвольным количеством параметров.</p>
+<dl class="tparams"><dt>Параметры шаблона</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Args</td><td>Типы параметров команды </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>Строка с именем AT-команды </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции в миллисекундах </td></tr>
+    <tr><td class="paramname">args</td><td>Параметры команды </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Данные класса</h2>
+<a id="ade63be0d08cf4f5cc30a26a960d1595a" name="ade63be0d08cf4f5cc30a26a960d1595a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade63be0d08cf4f5cc30a26a960d1595a">&#9670;&#160;</a></span>buffSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t IntroSatLib::ATDevice::buffSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Размер внутреннего буфера для команд </p>
+
+</div>
+</div>
+<a id="ae42118f55a883209f9f4faf045e2d52c" name="ae42118f55a883209f9f4faf045e2d52c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae42118f55a883209f9f4faf045e2d52c">&#9670;&#160;</a></span>defaultBSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t IntroSatLib::ATDevice::defaultBSize = 128</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Размер буфера по умолчанию (128 байт) </p>
+
+</div>
+</div>
+<a id="ad9035c563bde5ee112351e01d840d976" name="ad9035c563bde5ee112351e01d840d976"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9035c563bde5ee112351e01d840d976">&#9670;&#160;</a></span>defaultTimeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t IntroSatLib::ATDevice::defaultTimeout = 500</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Таймаут по умолчанию (500 мс) </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/Device/<a class="el" href="ATDevice_8h_source.html">ATDevice.h</a></li>
+<li>src/Device/<b>ATDevice.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a href="classIntroSatLib_1_1ATDevice.html">ATDevice</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

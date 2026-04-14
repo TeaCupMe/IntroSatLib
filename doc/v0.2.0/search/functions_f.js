@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['rawmx_0',['RawMX',['../classIntroSatLib_1_1LIS2MDL.html#ab16463d8f89748297e3f770f7ba106c9',1,'IntroSatLib::LIS2MDL']]],
+  ['rawmy_1',['RawMY',['../classIntroSatLib_1_1LIS2MDL.html#a863fceb2c9d990d99cb7d741acf0d7be',1,'IntroSatLib::LIS2MDL']]],
+  ['rawmz_2',['RawMZ',['../classIntroSatLib_1_1LIS2MDL.html#aba2580e010733ed0a7b5a9e988d43589',1,'IntroSatLib::LIS2MDL']]],
+  ['rawx_3',['RawX',['../classIntroSatLib_1_1Accelerometer.html#afb952b6c8e9c653e5a4d1b9247cd3905',1,'IntroSatLib::Accelerometer::RawX()'],['../classIntroSatLib_1_1AccelerometerV2.html#af411108897b7bc80ba06910016c36754',1,'IntroSatLib::AccelerometerV2::RawX()'],['../classIntroSatLib_1_1GyroscopeV2.html#aeb342c38d639cba5e64f63d633309a3d',1,'IntroSatLib::GyroscopeV2::RawX()'],['../classIntroSatLib_1_1MagnetometerV2.html#ae360a4e2af6ff62acfbed160c41cc4db',1,'IntroSatLib::MagnetometerV2::RawX()']]],
+  ['rawy_4',['RawY',['../classIntroSatLib_1_1Accelerometer.html#acb687931641ac34087e969c2efbb0606',1,'IntroSatLib::Accelerometer::RawY()'],['../classIntroSatLib_1_1AccelerometerV2.html#af8788daec748c71d7b0dc79ec6eab07e',1,'IntroSatLib::AccelerometerV2::RawY()'],['../classIntroSatLib_1_1GyroscopeV2.html#a636e1f39da7f2219a283f52a6948c65a',1,'IntroSatLib::GyroscopeV2::RawY()'],['../classIntroSatLib_1_1MagnetometerV2.html#a2dc810500c4fd738b51d6d47e50bfb3f',1,'IntroSatLib::MagnetometerV2::RawY()']]],
+  ['rawz_5',['RawZ',['../classIntroSatLib_1_1Accelerometer.html#a8561c8c4397e2588ae56bd2fff66a9ec',1,'IntroSatLib::Accelerometer::RawZ()'],['../classIntroSatLib_1_1AccelerometerV2.html#a5c64be636f093c40a55c2a9cebb88177',1,'IntroSatLib::AccelerometerV2::RawZ()'],['../classIntroSatLib_1_1GyroscopeV2.html#a5d3fbac3b7a704d9830d211e91285424',1,'IntroSatLib::GyroscopeV2::RawZ()'],['../classIntroSatLib_1_1MagnetometerV2.html#a6c248b532384d5c3df294be8ee8893ad',1,'IntroSatLib::MagnetometerV2::RawZ()']]],
+  ['read_6',['Read',['../classIntroSatLib_1_1IRCamera.html#a65cf6e91d4c6db8635094486b51a5846',1,'IntroSatLib::IRCamera::Read()'],['../classIntroSatLib_1_1MagnetometerV2.html#a94d39754263e7bf5cd1caf7bffc4e8b8',1,'IntroSatLib::MagnetometerV2::Read()']]],
+  ['read_7',['read',['../classIntroSatLib_1_1interfaces_1_1I2C.html#aef45d561a44a3b82145745214efe0983',1,'IntroSatLib::interfaces::I2C']]],
+  ['readat_8',['ReadAT',['../classIntroSatLib_1_1ATDevice.html#a655d7e26ea692d594f5a4bbffeae4d63',1,'IntroSatLib::ATDevice']]],
+  ['readmac_9',['ReadMAC',['../classIntroSatLib_1_1FSC__BT986.html#a04c732b53f6ccdfedd24c7e8f7fd5fa4',1,'IntroSatLib::FSC_BT986']]],
+  ['readmem_10',['readMem',['../classIntroSatLib_1_1interfaces_1_1I2C.html#a80dafdc6eefa92778212e278535b4d08',1,'IntroSatLib::interfaces::I2C']]],
+  ['readpin_11',['ReadPIN',['../classIntroSatLib_1_1FSC__BT986.html#a478c8a176ebaa7c53129c8d101cf9ceb',1,'IntroSatLib::FSC_BT986']]],
+  ['readsettings_12',['ReadSettings',['../classIntroSatLib_1_1E32__433.html#aff877150d586f03db82d7095d9d59564',1,'IntroSatLib::E32_433::ReadSettings(uint8_t *rxbuff, uint16_t timeout=defaultTimeout)'],['../classIntroSatLib_1_1E32__433.html#aa5119661df91f382d9f3f84befc784b1',1,'IntroSatLib::E32_433::ReadSettings(E32Settings &amp;settings, uint16_t timeout=defaultTimeout)']]],
+  ['readsettingsraw_13',['ReadSettingsRaw',['../classIntroSatLib_1_1E32__433.html#ade3d92b9b7442334551b041da2561a27',1,'IntroSatLib::E32_433']]],
+  ['readstatus_14',['ReadStatus',['../classIntroSatLib_1_1FSC__BT986.html#a21f28c095b57d85207c074b232f12547',1,'IntroSatLib::FSC_BT986']]],
+  ['readuart_15',['ReadUART',['../classIntroSatLib_1_1UARTDevice.html#a011a59cb06cd88db6345209b99abac9f',1,'IntroSatLib::UARTDevice']]],
+  ['readversion_16',['ReadVersion',['../classIntroSatLib_1_1E32__433.html#a7622f46de3a4a9b6e396eead1e934358',1,'IntroSatLib::E32_433']]],
+  ['real_17',['real',['../classIntroSatLib_1_1Quaternion.html#a68b92d21aafd9fc7f38c704fbd4416f4',1,'IntroSatLib::Quaternion']]],
+  ['reboot_18',['Reboot',['../classIntroSatLib_1_1FSC__BT986.html#ad45894358439bfa166948c563235db5b',1,'IntroSatLib::FSC_BT986']]],
+  ['receivelora_19',['ReceiveLoRa',['../classIntroSatLib_1_1E32__433.html#a2b0038f27c4fd9fb3e1b452bac0c3a7f',1,'IntroSatLib::E32_433']]],
+  ['releaseconnections_20',['ReleaseConnections',['../classIntroSatLib_1_1FSC__BT986.html#a7ba4ebd8d3b010730f0cf006f67b8d93',1,'IntroSatLib::FSC_BT986']]],
+  ['reset_21',['Reset',['../classIntroSatLib_1_1E32__433.html#abecbe1bc23ed663ceb0e839e40b3a89c',1,'IntroSatLib::E32_433']]],
+  ['resetbitregisteri2c_22',['ResetBitRegisterI2C',['../classIntroSatLib_1_1I2CDevice.html#aa2f949a2162badc6d2b85a55781a1cac',1,'IntroSatLib::I2CDevice']]],
+  ['restore_23',['Restore',['../classIntroSatLib_1_1FSC__BT986.html#aa921b8fbad12d703b13989bf61326ba6',1,'IntroSatLib::FSC_BT986']]]
+];

@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="IntroSatLib" />
+<meta property="og:image" content="https://github.com/user-attachments/assets/b9565746-a0e4-46ce-b2e8-ef371b14b845" />
+<meta property="og:description" content="Документация библиотеки IntroSatLib" />
+<meta property="og:url" content="https://teacupme.github.io/IntroSatLib/doc/v0.1.1/" />
+<!-- END opengraph metadata -->
+<title>IntroSatLib: Исходный файл src/Device/E32_433/E32_433.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="dropdown.css" rel="stylesheet" type="text/css"/>
+<link href="theme-round.css" rel="stylesheet" type="text/css"/>
+<link href="theme-robot.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IntroSatLib
+   <!-- BEGIN PROJECT_NUMBER&#160;<span id="projectnumber">v0.2.0</span>END PROJECT_NUMBER -->
+   </div>
+  </td>
+    <!-- BEGIN version select -->
+    <td align="right">
+    <div class="dropdown">
+        <button class="dropbtn">Version v0.2.0</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+    <script type="text/javascript" src="./selectversion.js"></script>
+    </td>
+    <!-- END version select -->
+ </tr>
+ </tbody>
+</table>
+<div id="theme-selection">
+ <label for="theme-select">Theme:</label>
+ <select id="theme-select">
+  <option value="theme-default">Default</option>
+  <option value="theme-round">Round</option>
+  <option value="theme-robot">Robot</option>
+ </select>
+</div>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('E32__433_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">E32_433.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="foldopen" id="foldopen00001" data-start="{" data-end="}">
+<div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a6f8e27c2522b66aeb1b86cdcd5f152ac">    1</a></span><span class="preprocessor">#ifndef E32_433_H_</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define E32_433_H_</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Device/UARTDevice.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Adapter/GPIO.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>IntroSatLib</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html">   16</a></span><span class="keyword">class </span><a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a71f200bcce4ff91248fa0ed6f6184395">E32_433</a> : <span class="keyword">public</span> <a class="code hl_function" href="classIntroSatLib_1_1UARTDevice.html#aff5503123da8b4ccb3b401ed963f0bf3">UARTDevice</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span></div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structIntroSatLib_1_1E32__433_1_1E32Pins.html">   28</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structIntroSatLib_1_1E32__433_1_1E32Pins.html">E32Pins</a></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> M0;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> M1;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> AUX;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    };</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#ace62f0acac2d1bd32ccd45f63caa515a">   44</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#ace62f0acac2d1bd32ccd45f63caa515a">Mode</a>: uint8_t</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        Normal = 0,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        Wakeup = 1,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        PowerSave = 2,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        Sleep = 3</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    };</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">typedef</span> <span class="keyword">struct </span>__attribute__((packed)) E32Settings</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        uint8_t head = 0xC0;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        uint16_t addr = 0x00;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        uint8_t sped = 0x1A;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        uint8_t chan = 0x17;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        uint8_t option = 0x40;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        E32Settings() { }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        E32Settings(uint8_t* buff)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        : head(buff[0]), </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>          addr(((uint16_t)buff[1]) &lt;&lt; 8 | buff[2]), </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>          sped(buff[3]), </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>          chan(buff[4]), </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>          option(buff[5])</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        { }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        E32Settings(uint8_t head, uint16_t addr, uint8_t sped, uint8_t chan, uint8_t option)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        : head(head), addr(addr), sped(sped), chan(chan), option(option)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        { }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        E32Settings&amp; operator=(uint8_t* bytes)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            head = bytes[0];</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            addr = ((uint16_t)bytes[1]) &lt;&lt; 8 | bytes[2];</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            sped = bytes[3];</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            chan = bytes[4];</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            option = bytes[5];</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    };</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span></div>
+<div class="foldopen" id="foldopen00123" data-start="{" data-end="};">
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a211b27cd13123f94d0cb46fba215b090">  123</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#a211b27cd13123f94d0cb46fba215b090">CommandHead</a> : uint8_t</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        SetParametersSave = 0xC0,</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        GetParameters,</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        SetParametersNoSave,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        GetVersion,</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#abecbe1bc23ed663ceb0e839e40b3a89c">Reset</a></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    };</div>
+</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span></div>
+<div class="foldopen" id="foldopen00135" data-start="{" data-end="};">
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a11e05ac10d47ddcb82bb9961b2639048">  135</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#a11e05ac10d47ddcb82bb9961b2639048">UARTParity</a> : uint8_t</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a11e05ac10d47ddcb82bb9961b2639048a6adf97f83acf6453d4a6a4b1070f3754">  137</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#a11e05ac10d47ddcb82bb9961b2639048a6adf97f83acf6453d4a6a4b1070f3754">None</a> = 0 &lt;&lt; 6,    </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a11e05ac10d47ddcb82bb9961b2639048a37b6bd7fe61d651735cec3d3b0356c66">  138</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#a11e05ac10d47ddcb82bb9961b2639048a37b6bd7fe61d651735cec3d3b0356c66">Odd</a> = 0b01 &lt;&lt; 6,  </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a11e05ac10d47ddcb82bb9961b2639048a35537fbc25d87ffe59e4f35fefcd34b7">  139</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#a11e05ac10d47ddcb82bb9961b2639048a35537fbc25d87ffe59e4f35fefcd34b7">Even</a> = 0b10 &lt;&lt; 6  </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    };</div>
+</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    </div>
+<div class="foldopen" id="foldopen00145" data-start="{" data-end="};">
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a9e97cc1138c8b3f471939e51cea6da12">  145</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#a9e97cc1138c8b3f471939e51cea6da12">UARTBaudrate</a> : uint8_t</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    {</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        BR_1200 = 0,</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        BR_2400 = 0b001 &lt;&lt; 3,</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        BR_4800 = 0b010 &lt;&lt; 3,</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        BR_9600 = 0b011 &lt;&lt; 3,</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        BR_19200 = 0b100 &lt;&lt; 3,</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        BR_38400 = 0b101 &lt;&lt; 3,</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        BR_57600 = 0b110 &lt;&lt; 3,</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        BR_115200 = 0b111 &lt;&lt; 3</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    };</div>
+</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    </div>
+<div class="foldopen" id="foldopen00160" data-start="{" data-end="};">
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a36d320b12196b07a173667fdf7f23549">  160</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#a36d320b12196b07a173667fdf7f23549">AirDatarate</a> : uint8_t</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        DR_300 = 0,</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        DR_1200 = 0b001,</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        DR_2400 = 0b010,</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        DR_4800 = 0b011,</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        DR_9600 = 0b100,</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        DR_19200 = 0b101</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    };</div>
+</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span></div>
+<div class="foldopen" id="foldopen00177" data-start="{" data-end="};">
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#abe471b9e44dbf787c731e192ffd79bce">  177</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#abe471b9e44dbf787c731e192ffd79bce">AddressingMode</a> : uint8_t</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        Transparent = 0,</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        Fixed = 0b1 &lt;&lt; 7</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    };</div>
+</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    </div>
+<div class="foldopen" id="foldopen00186" data-start="{" data-end="};">
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#aad261efd2e3dfd8b23e924ad021c39de">  186</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#aad261efd2e3dfd8b23e924ad021c39de">IODriveMode</a> : uint8_t</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    {</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#aad261efd2e3dfd8b23e924ad021c39dea2360a90eb0384907cfc92f76acb84caa">  188</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#aad261efd2e3dfd8b23e924ad021c39dea2360a90eb0384907cfc92f76acb84caa">Opencollector</a> = 0,  </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#aad261efd2e3dfd8b23e924ad021c39deaed64b86115a749020e42820712c21706">  189</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#aad261efd2e3dfd8b23e924ad021c39deaed64b86115a749020e42820712c21706">Pushpull</a> = 0b1 &lt;&lt; 6 </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    };</div>
+</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    </div>
+<div class="foldopen" id="foldopen00195" data-start="{" data-end="};">
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a3dda745389827e20bbf8370ca220ddc5">  195</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#a3dda745389827e20bbf8370ca220ddc5">WakeUpTime</a> : uint8_t</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    {</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        T_250ms = 0,</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        T_500ms = 0b001 &lt;&lt; 3,</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        T_750ms = 0b010 &lt;&lt; 3,</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        T_1000ms = 0b011 &lt;&lt; 3,</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        T_1250ms = 0b100 &lt;&lt; 3,</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        T_1500ms = 0b101 &lt;&lt; 3,</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        T_1750ms = 0b110 &lt;&lt; 3,</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        T_2000ms = 0b111 &lt;&lt; 3</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    };</div>
+</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    </div>
+<div class="foldopen" id="foldopen00210" data-start="{" data-end="};">
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a2bf5546ad86ce8db7d6477115ac48588">  210</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#a2bf5546ad86ce8db7d6477115ac48588">FEC</a> : uint8_t</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    {</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a2bf5546ad86ce8db7d6477115ac48588ab9f5c797ebbf55adccdd8539a65a0241">  212</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#a2bf5546ad86ce8db7d6477115ac48588ab9f5c797ebbf55adccdd8539a65a0241">Disabled</a> = 0,  </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a2bf5546ad86ce8db7d6477115ac48588a00d23a76e43b46dae9ec7aa9dcbebb32">  213</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#a2bf5546ad86ce8db7d6477115ac48588a00d23a76e43b46dae9ec7aa9dcbebb32">Enabled</a> = 0b1 &lt;&lt; 2  </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    };</div>
+</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    </div>
+<div class="foldopen" id="foldopen00219" data-start="{" data-end="};">
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5d">  219</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5d">TxPower</a> : uint8_t</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    {</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5da6a061313d22e51e0f25b7cd4dc065233">  221</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5da6a061313d22e51e0f25b7cd4dc065233">Max</a> = 0,   </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5da55c6b09cbca39ef0cdb728eb112a5049">  222</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5da55c6b09cbca39ef0cdb728eb112a5049">Mid</a> = 0b01,  </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5da28d0edd045e05cf5af64e35ae0c4c6ef">  223</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5da28d0edd045e05cf5af64e35ae0c4c6ef">Low</a> = 0b10,  </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5da91efa9e46e4c6cbb78d9fd0a773cc6d5">  224</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5da91efa9e46e4c6cbb78d9fd0a773cc6d5">Eco</a> = 0b11   </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    };</div>
+</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint8_t maxChannel = 0x1F;        </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint16_t defaultBSize = 1024;     </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint16_t txDelay = 350;           </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    uint32_t lastTransactionTime = 0;          </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    uint32_t transactionCompleteTimeout = 0;   </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    E32Pins pins;                              </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    E32Settings currentSettings;               </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#ace62f0acac2d1bd32ccd45f63caa515a">Mode</a> currentMode = Mode::Normal;           </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    ISL_StatusTypeDef WaitAUX(uint8_t level, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">  250</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint16_t <a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a> = 1000;  </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#ade3d92b9b7442334551b041da2561a27">ReadSettingsRaw</a>(uint8_t* rxbuff, uint16_t timeout);</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span></div>
+<div class="foldopen" id="foldopen00267" data-start="{" data-end="}">
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a71f200bcce4ff91248fa0ed6f6184395">  267</a></span>    <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a71f200bcce4ff91248fa0ed6f6184395">E32_433</a>(</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        <a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a> uart, </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        <a class="code hl_struct" href="structIntroSatLib_1_1E32__433_1_1E32Pins.html">E32Pins</a> pins</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    ): <a class="code hl_function" href="classIntroSatLib_1_1UARTDevice.html#aff5503123da8b4ccb3b401ed963f0bf3">UARTDevice</a>(uart), pins(pins) {}</div>
+</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1E32__433.html#a77b213655fa39d6b6a22f084487dba80">  276</a></span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a77b213655fa39d6b6a22f084487dba80">Init</a>() { <span class="keywordflow">return</span> <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a77b213655fa39d6b6a22f084487dba80">Init</a>(Mode::Normal); }</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a77b213655fa39d6b6a22f084487dba80">Init</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#ace62f0acac2d1bd32ccd45f63caa515a">Mode</a> mode, uint16_t timeout = <a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a92b4ce2f1d06d9a12fdf15d6582a5e9b">TransmitLoRa</a>(uint8_t* txbuff, uint16_t length, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a2b0038f27c4fd9fb3e1b452bac0c3a7f">ReceiveLoRa</a>(uint8_t* rxbuff, uint16_t length, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#ad859757ee5da6597bc85e3cd60b68b0a">SetMode</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#ace62f0acac2d1bd32ccd45f63caa515a">Mode</a> mode);</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#aff877150d586f03db82d7095d9d59564">ReadSettings</a>(uint8_t* rxbuff, uint16_t timeout = <a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#aff877150d586f03db82d7095d9d59564">ReadSettings</a>(E32Settings&amp; settings, uint16_t timeout = <a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span></div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a7622f46de3a4a9b6e396eead1e934358">ReadVersion</a>(uint8_t* rxbuff, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#abecbe1bc23ed663ceb0e839e40b3a89c">Reset</a>(uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span></div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a44a7b6f7d83a203459d6989361891d87">SetSettings</a>(E32Settings settings, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span></div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a86d13c5b42ac1fd78c2450bdf03164de">SetAddr</a>(uint16_t addr, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span></div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#af2b4aef952a3d21b4983dd2453967d65">SetSPEDByte</a>(uint8_t sped, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    </div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a0c0e8a5f59dd256be768bba5cf0a3431">SetUARTParity</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#a11e05ac10d47ddcb82bb9961b2639048">UARTParity</a> parity = <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#a11e05ac10d47ddcb82bb9961b2639048a6adf97f83acf6453d4a6a4b1070f3754">UARTParity::None</a>, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>    </div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a4f2b880698249c3599265fc5224e4e34">SetUARTBaudrate</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#a9e97cc1138c8b3f471939e51cea6da12">UARTBaudrate</a> baudrate = UARTBaudrate::BR_9600, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>    </div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a531aac324e0630b411f9bd4974c2622a">SetAirDatarate</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#a36d320b12196b07a173667fdf7f23549">AirDatarate</a> datarate = AirDatarate::DR_2400, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span></div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a9dde658b0c38800679d177f766863f5d">SetChannel</a>(uint8_t channel, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span></div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#aea21860a2817b0767d3e878ce7d6fa8e">SetOPTIONByte</a>(uint8_t option, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>    </div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a5086d831233427241c5cda8ab005273d">SetFixedTransmission</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#abe471b9e44dbf787c731e192ffd79bce">AddressingMode</a> mode = AddressingMode::Transparent, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    </div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#adc71a448283774c0315ff2d259007fa4">SetIODriveMode</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#aad261efd2e3dfd8b23e924ad021c39de">IODriveMode</a> mode = <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#aad261efd2e3dfd8b23e924ad021c39dea2360a90eb0384907cfc92f76acb84caa">IODriveMode::Opencollector</a>, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>    </div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#abcf4b87f48c548de1fe6a863ebf04d3e">SetWakeUpTime</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#a3dda745389827e20bbf8370ca220ddc5">WakeUpTime</a> wtime = WakeUpTime::T_250ms, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>    </div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a4da6006a10a893672cd254eeaac0915a">SetFEC</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#a2bf5546ad86ce8db7d6477115ac48588">FEC</a> fec = <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#a2bf5546ad86ce8db7d6477115ac48588a00d23a76e43b46dae9ec7aa9dcbebb32">FEC::Enabled</a>, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>    </div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1E32__433.html#a021f6c1b5cf95b3a1b44fdf928de1d40">SetTxPower</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5d">TxPower</a> power = <a class="code hl_enumvalue" href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5da6a061313d22e51e0f25b7cd4dc065233">TxPower::Max</a>, uint16_t timeout=<a class="code hl_variable" href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>);</div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span> </div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>};</div>
+</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span> </div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>} <span class="comment">// namespace IntroSatLib</span></div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span> </div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span><span class="preprocessor">#endif </span><span class="comment">// E32_433_H_</span></div>
+</div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a021f6c1b5cf95b3a1b44fdf928de1d40"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a021f6c1b5cf95b3a1b44fdf928de1d40">IntroSatLib::E32_433::SetTxPower</a></div><div class="ttdeci">ISL_StatusTypeDef SetTxPower(TxPower power=TxPower::Max, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Установка выходной мощности передатчика</div><div class="ttdef"><b>Определения</b> E32_433.cpp:301</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a0c0e8a5f59dd256be768bba5cf0a3431"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a0c0e8a5f59dd256be768bba5cf0a3431">IntroSatLib::E32_433::SetUARTParity</a></div><div class="ttdeci">ISL_StatusTypeDef SetUARTParity(UARTParity parity=UARTParity::None, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Установка режима четности UART.</div><div class="ttdef"><b>Определения</b> E32_433.cpp:216</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a11e05ac10d47ddcb82bb9961b2639048"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a11e05ac10d47ddcb82bb9961b2639048">IntroSatLib::E32_433::UARTParity</a></div><div class="ttdeci">UARTParity</div><div class="ttdoc">Перечисление режимов контроля четности UART.</div><div class="ttdef"><b>Определения</b> E32_433.h:136</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a11e05ac10d47ddcb82bb9961b2639048a35537fbc25d87ffe59e4f35fefcd34b7"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a11e05ac10d47ddcb82bb9961b2639048a35537fbc25d87ffe59e4f35fefcd34b7">IntroSatLib::E32_433::UARTParity::Even</a></div><div class="ttdeci">@ Even</div><div class="ttdoc">Четный контроль</div><div class="ttdef"><b>Определения</b> E32_433.h:139</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a11e05ac10d47ddcb82bb9961b2639048a37b6bd7fe61d651735cec3d3b0356c66"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a11e05ac10d47ddcb82bb9961b2639048a37b6bd7fe61d651735cec3d3b0356c66">IntroSatLib::E32_433::UARTParity::Odd</a></div><div class="ttdeci">@ Odd</div><div class="ttdoc">Нечетный контроль</div><div class="ttdef"><b>Определения</b> E32_433.h:138</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a11e05ac10d47ddcb82bb9961b2639048a6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a11e05ac10d47ddcb82bb9961b2639048a6adf97f83acf6453d4a6a4b1070f3754">IntroSatLib::E32_433::UARTParity::None</a></div><div class="ttdeci">@ None</div><div class="ttdoc">Без контроля четности</div><div class="ttdef"><b>Определения</b> E32_433.h:137</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a211b27cd13123f94d0cb46fba215b090"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a211b27cd13123f94d0cb46fba215b090">IntroSatLib::E32_433::CommandHead</a></div><div class="ttdeci">CommandHead</div><div class="ttdoc">Заголовки команд для работы с регистрами</div><div class="ttdef"><b>Определения</b> E32_433.h:124</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a2b0038f27c4fd9fb3e1b452bac0c3a7f"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a2b0038f27c4fd9fb3e1b452bac0c3a7f">IntroSatLib::E32_433::ReceiveLoRa</a></div><div class="ttdeci">ISL_StatusTypeDef ReceiveLoRa(uint8_t *rxbuff, uint16_t length, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Прием данных через LoRa.</div><div class="ttdef"><b>Определения</b> E32_433.cpp:85</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a2bf5546ad86ce8db7d6477115ac48588"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a2bf5546ad86ce8db7d6477115ac48588">IntroSatLib::E32_433::FEC</a></div><div class="ttdeci">FEC</div><div class="ttdoc">Включение/отключение FEC (Forward Error Correction).</div><div class="ttdef"><b>Определения</b> E32_433.h:211</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a2bf5546ad86ce8db7d6477115ac48588a00d23a76e43b46dae9ec7aa9dcbebb32"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a2bf5546ad86ce8db7d6477115ac48588a00d23a76e43b46dae9ec7aa9dcbebb32">IntroSatLib::E32_433::FEC::Enabled</a></div><div class="ttdeci">@ Enabled</div><div class="ttdoc">FEC включен</div><div class="ttdef"><b>Определения</b> E32_433.h:213</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a2bf5546ad86ce8db7d6477115ac48588ab9f5c797ebbf55adccdd8539a65a0241"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a2bf5546ad86ce8db7d6477115ac48588ab9f5c797ebbf55adccdd8539a65a0241">IntroSatLib::E32_433::FEC::Disabled</a></div><div class="ttdeci">@ Disabled</div><div class="ttdoc">FEC отключен</div><div class="ttdef"><b>Определения</b> E32_433.h:212</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a36d320b12196b07a173667fdf7f23549"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a36d320b12196b07a173667fdf7f23549">IntroSatLib::E32_433::AirDatarate</a></div><div class="ttdeci">AirDatarate</div><div class="ttdoc">Перечисление скоростей передачи данных в эфире</div><div class="ttdef"><b>Определения</b> E32_433.h:161</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a3dda745389827e20bbf8370ca220ddc5"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a3dda745389827e20bbf8370ca220ddc5">IntroSatLib::E32_433::WakeUpTime</a></div><div class="ttdeci">WakeUpTime</div><div class="ttdoc">Время пробуждения из спящего режима</div><div class="ttdef"><b>Определения</b> E32_433.h:196</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a44a7b6f7d83a203459d6989361891d87"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a44a7b6f7d83a203459d6989361891d87">IntroSatLib::E32_433::SetSettings</a></div><div class="ttdeci">ISL_StatusTypeDef SetSettings(E32Settings settings, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Установка полных настроек модуля</div><div class="ttdef"><b>Определения</b> E32_433.cpp:169</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a4da6006a10a893672cd254eeaac0915a"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a4da6006a10a893672cd254eeaac0915a">IntroSatLib::E32_433::SetFEC</a></div><div class="ttdeci">ISL_StatusTypeDef SetFEC(FEC fec=FEC::Enabled, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Включение/отключение FEC.</div><div class="ttdef"><b>Определения</b> E32_433.cpp:292</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a4f2b880698249c3599265fc5224e4e34"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a4f2b880698249c3599265fc5224e4e34">IntroSatLib::E32_433::SetUARTBaudrate</a></div><div class="ttdeci">ISL_StatusTypeDef SetUARTBaudrate(UARTBaudrate baudrate=UARTBaudrate::BR_9600, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Установка скорости UART.</div><div class="ttdef"><b>Определения</b> E32_433.cpp:225</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a5086d831233427241c5cda8ab005273d"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a5086d831233427241c5cda8ab005273d">IntroSatLib::E32_433::SetFixedTransmission</a></div><div class="ttdeci">ISL_StatusTypeDef SetFixedTransmission(AddressingMode mode=AddressingMode::Transparent, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Установка режима адресации</div><div class="ttdef"><b>Определения</b> E32_433.cpp:265</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a531aac324e0630b411f9bd4974c2622a"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a531aac324e0630b411f9bd4974c2622a">IntroSatLib::E32_433::SetAirDatarate</a></div><div class="ttdeci">ISL_StatusTypeDef SetAirDatarate(AirDatarate datarate=AirDatarate::DR_2400, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Установка скорости передачи в эфире</div><div class="ttdef"><b>Определения</b> E32_433.cpp:234</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a6ae52caf960b798f8de10faa965f2b5d"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5d">IntroSatLib::E32_433::TxPower</a></div><div class="ttdeci">TxPower</div><div class="ttdoc">Уровни выходной мощности передатчика</div><div class="ttdef"><b>Определения</b> E32_433.h:220</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a6ae52caf960b798f8de10faa965f2b5da28d0edd045e05cf5af64e35ae0c4c6ef"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5da28d0edd045e05cf5af64e35ae0c4c6ef">IntroSatLib::E32_433::TxPower::Low</a></div><div class="ttdeci">@ Low</div><div class="ttdoc">Низкая мощность</div><div class="ttdef"><b>Определения</b> E32_433.h:223</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a6ae52caf960b798f8de10faa965f2b5da55c6b09cbca39ef0cdb728eb112a5049"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5da55c6b09cbca39ef0cdb728eb112a5049">IntroSatLib::E32_433::TxPower::Mid</a></div><div class="ttdeci">@ Mid</div><div class="ttdoc">Средняя мощность</div><div class="ttdef"><b>Определения</b> E32_433.h:222</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a6ae52caf960b798f8de10faa965f2b5da6a061313d22e51e0f25b7cd4dc065233"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5da6a061313d22e51e0f25b7cd4dc065233">IntroSatLib::E32_433::TxPower::Max</a></div><div class="ttdeci">@ Max</div><div class="ttdoc">Максимальная мощность</div><div class="ttdef"><b>Определения</b> E32_433.h:221</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a6ae52caf960b798f8de10faa965f2b5da91efa9e46e4c6cbb78d9fd0a773cc6d5"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a6ae52caf960b798f8de10faa965f2b5da91efa9e46e4c6cbb78d9fd0a773cc6d5">IntroSatLib::E32_433::TxPower::Eco</a></div><div class="ttdeci">@ Eco</div><div class="ttdoc">Экономичный режим</div><div class="ttdef"><b>Определения</b> E32_433.h:224</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a71f200bcce4ff91248fa0ed6f6184395"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a71f200bcce4ff91248fa0ed6f6184395">IntroSatLib::E32_433::E32_433</a></div><div class="ttdeci">E32_433(interfaces::UART uart, E32Pins pins)</div><div class="ttdoc">Конструктор класса E32_433.</div><div class="ttdef"><b>Определения</b> E32_433.h:267</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a7622f46de3a4a9b6e396eead1e934358"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a7622f46de3a4a9b6e396eead1e934358">IntroSatLib::E32_433::ReadVersion</a></div><div class="ttdeci">ISL_StatusTypeDef ReadVersion(uint8_t *rxbuff, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Чтение версии прошивки модуля</div><div class="ttdef"><b>Определения</b> E32_433.cpp:137</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a77b213655fa39d6b6a22f084487dba80"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a77b213655fa39d6b6a22f084487dba80">IntroSatLib::E32_433::Init</a></div><div class="ttdeci">ISL_StatusTypeDef Init()</div><div class="ttdoc">Инициализация модуля в нормальном режиме</div><div class="ttdef"><b>Определения</b> E32_433.h:276</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a86d13c5b42ac1fd78c2450bdf03164de"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a86d13c5b42ac1fd78c2450bdf03164de">IntroSatLib::E32_433::SetAddr</a></div><div class="ttdeci">ISL_StatusTypeDef SetAddr(uint16_t addr, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Установка адреса модуля</div><div class="ttdef"><b>Определения</b> E32_433.cpp:197</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a92b4ce2f1d06d9a12fdf15d6582a5e9b"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a92b4ce2f1d06d9a12fdf15d6582a5e9b">IntroSatLib::E32_433::TransmitLoRa</a></div><div class="ttdeci">ISL_StatusTypeDef TransmitLoRa(uint8_t *txbuff, uint16_t length, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Передача данных через LoRa.</div><div class="ttdef"><b>Определения</b> E32_433.cpp:60</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a9dde658b0c38800679d177f766863f5d"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a9dde658b0c38800679d177f766863f5d">IntroSatLib::E32_433::SetChannel</a></div><div class="ttdeci">ISL_StatusTypeDef SetChannel(uint8_t channel, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Установка рабочего канала</div><div class="ttdef"><b>Определения</b> E32_433.cpp:244</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_a9e97cc1138c8b3f471939e51cea6da12"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#a9e97cc1138c8b3f471939e51cea6da12">IntroSatLib::E32_433::UARTBaudrate</a></div><div class="ttdeci">UARTBaudrate</div><div class="ttdoc">Перечисление скоростей UART интерфейса</div><div class="ttdef"><b>Определения</b> E32_433.h:146</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_aad261efd2e3dfd8b23e924ad021c39de"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#aad261efd2e3dfd8b23e924ad021c39de">IntroSatLib::E32_433::IODriveMode</a></div><div class="ttdeci">IODriveMode</div><div class="ttdoc">Режимы работы вывода AUX.</div><div class="ttdef"><b>Определения</b> E32_433.h:187</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_aad261efd2e3dfd8b23e924ad021c39dea2360a90eb0384907cfc92f76acb84caa"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#aad261efd2e3dfd8b23e924ad021c39dea2360a90eb0384907cfc92f76acb84caa">IntroSatLib::E32_433::IODriveMode::Opencollector</a></div><div class="ttdeci">@ Opencollector</div><div class="ttdoc">Открытый коллектор</div><div class="ttdef"><b>Определения</b> E32_433.h:188</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_aad261efd2e3dfd8b23e924ad021c39deaed64b86115a749020e42820712c21706"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#aad261efd2e3dfd8b23e924ad021c39deaed64b86115a749020e42820712c21706">IntroSatLib::E32_433::IODriveMode::Pushpull</a></div><div class="ttdeci">@ Pushpull</div><div class="ttdoc">Двухтактный выход</div><div class="ttdef"><b>Определения</b> E32_433.h:189</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_abcf4b87f48c548de1fe6a863ebf04d3e"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#abcf4b87f48c548de1fe6a863ebf04d3e">IntroSatLib::E32_433::SetWakeUpTime</a></div><div class="ttdeci">ISL_StatusTypeDef SetWakeUpTime(WakeUpTime wtime=WakeUpTime::T_250ms, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Установка времени пробуждения</div><div class="ttdef"><b>Определения</b> E32_433.cpp:283</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_abe471b9e44dbf787c731e192ffd79bce"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#abe471b9e44dbf787c731e192ffd79bce">IntroSatLib::E32_433::AddressingMode</a></div><div class="ttdeci">AddressingMode</div><div class="ttdoc">Перечисление режимов адресации</div><div class="ttdef"><b>Определения</b> E32_433.h:178</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_abecbe1bc23ed663ceb0e839e40b3a89c"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#abecbe1bc23ed663ceb0e839e40b3a89c">IntroSatLib::E32_433::Reset</a></div><div class="ttdeci">ISL_StatusTypeDef Reset(uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Программный сброс модуля</div><div class="ttdef"><b>Определения</b> E32_433.cpp:155</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_acaf77ee2ee240240096929a4830d2258"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#acaf77ee2ee240240096929a4830d2258">IntroSatLib::E32_433::defaultTimeout</a></div><div class="ttdeci">static constexpr uint16_t defaultTimeout</div><div class="ttdef"><b>Определения</b> E32_433.h:250</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_ace62f0acac2d1bd32ccd45f63caa515a"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#ace62f0acac2d1bd32ccd45f63caa515a">IntroSatLib::E32_433::Mode</a></div><div class="ttdeci">Mode</div><div class="ttdoc">Перечисление режимов работы модуля</div><div class="ttdef"><b>Определения</b> E32_433.h:45</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_ad859757ee5da6597bc85e3cd60b68b0a"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#ad859757ee5da6597bc85e3cd60b68b0a">IntroSatLib::E32_433::SetMode</a></div><div class="ttdeci">ISL_StatusTypeDef SetMode(Mode mode)</div><div class="ttdoc">Установка режима работы модуля</div><div class="ttdef"><b>Определения</b> E32_433.cpp:27</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_adc71a448283774c0315ff2d259007fa4"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#adc71a448283774c0315ff2d259007fa4">IntroSatLib::E32_433::SetIODriveMode</a></div><div class="ttdeci">ISL_StatusTypeDef SetIODriveMode(IODriveMode mode=IODriveMode::Opencollector, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Установка режима вывода AUX.</div><div class="ttdef"><b>Определения</b> E32_433.cpp:274</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_ade3d92b9b7442334551b041da2561a27"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#ade3d92b9b7442334551b041da2561a27">IntroSatLib::E32_433::ReadSettingsRaw</a></div><div class="ttdeci">ISL_StatusTypeDef ReadSettingsRaw(uint8_t *rxbuff, uint16_t timeout)</div><div class="ttdoc">Чтение сырых настроек модуля</div><div class="ttdef"><b>Определения</b> E32_433.cpp:100</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_aea21860a2817b0767d3e878ce7d6fa8e"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#aea21860a2817b0767d3e878ce7d6fa8e">IntroSatLib::E32_433::SetOPTIONByte</a></div><div class="ttdeci">ISL_StatusTypeDef SetOPTIONByte(uint8_t option, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Установка байта дополнительных опций OPTION.</div><div class="ttdef"><b>Определения</b> E32_433.cpp:256</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_af2b4aef952a3d21b4983dd2453967d65"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#af2b4aef952a3d21b4983dd2453967d65">IntroSatLib::E32_433::SetSPEDByte</a></div><div class="ttdeci">ISL_StatusTypeDef SetSPEDByte(uint8_t sped, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Установка байта настроек скорости SPED.</div><div class="ttdef"><b>Определения</b> E32_433.cpp:207</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1E32__433_html_aff877150d586f03db82d7095d9d59564"><div class="ttname"><a href="classIntroSatLib_1_1E32__433.html#aff877150d586f03db82d7095d9d59564">IntroSatLib::E32_433::ReadSettings</a></div><div class="ttdeci">ISL_StatusTypeDef ReadSettings(uint8_t *rxbuff, uint16_t timeout=defaultTimeout)</div><div class="ttdoc">Чтение настроек в массив байт</div><div class="ttdef"><b>Определения</b> E32_433.cpp:123</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1UARTDevice_html_aff5503123da8b4ccb3b401ed963f0bf3"><div class="ttname"><a href="classIntroSatLib_1_1UARTDevice.html#aff5503123da8b4ccb3b401ed963f0bf3">IntroSatLib::UARTDevice::UARTDevice</a></div><div class="ttdeci">UARTDevice(interfaces::UART uart)</div><div class="ttdoc">Конструктор класса UARTDevice.</div><div class="ttdef"><b>Определения</b> UARTDevice.h:29</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1GPIO_html"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1GPIO.html">IntroSatLib::interfaces::GPIO</a></div><div class="ttdef"><b>Определения</b> GPIO.h:69</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1UART_html"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1UART.html">IntroSatLib::interfaces::UART</a></div><div class="ttdef"><b>Определения</b> UART.h:83</div></div>
+<div class="ttc" id="astructIntroSatLib_1_1E32__433_1_1E32Pins_html"><div class="ttname"><a href="structIntroSatLib_1_1E32__433_1_1E32Pins.html">IntroSatLib::E32_433::E32Pins</a></div><div class="ttdoc">Структура, описывающая пины управления модулем</div><div class="ttdef"><b>Определения</b> E32_433.h:29</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>src</b></li><li class="navelem"><b>Device</b></li><li class="navelem"><b>E32_433</b></li><li class="navelem"><b>E32_433.h</b></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>
