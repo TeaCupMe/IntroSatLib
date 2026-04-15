@@ -9,9 +9,7 @@ namespace IntroSatLib {
 /**
  * @brief Класс для работы с акселлерометром на платах SM 2.x и IntroSat.Pico
  * @example IntroSat/SM2.x/AccelerometerSimple/AccelerometerSimple.ino
- * 
  */
-
 class AccelerometerV2: private LSM6DS3 {
 private:
 	static const uint8_t BASE_ADDRESS = 0x6B;
