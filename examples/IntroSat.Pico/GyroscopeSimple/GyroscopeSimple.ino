@@ -56,7 +56,7 @@ void loop() {
   if (Serial.available()) {
     if (Serial.read() == 'b') {
       // Если пришёл символ 'b', переходим в режим перепрошивки
-      ISL_Bootloader();
+      EnterBootloader();
     }
   }
 
