@@ -3,13 +3,14 @@
 #include "Adapter/GPIO.h"
 #if defined(ISL_GPIO_ENABLED)
 
-#include "Device/IRTransceiver/IRTransceiver.h"
+#include "Device/ISLIRTransmitter/ISLIRTransmitter.h"
 #include "Adapter/System.h"
 
 namespace IntroSatLib
 {
 
     
+
 
 
 }
