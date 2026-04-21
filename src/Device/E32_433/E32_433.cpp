@@ -62,15 +62,17 @@ namespace IntroSatLib {
         RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1, timeout));
         system::Delay(10);
 
+        const uint8_t BLOCK_SIZE = 255;
+
         uint8_t *ptr = txbuff;
-        for (uint8_t i = 0; i < (length / 512); i++ )
+        for (uint8_t i = 0; i < (length / BLOCK_SIZE); i++ )
         {
-            RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(ptr, 512, timeout));
+            RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(ptr, BLOCK_SIZE, timeout));
             RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1, timeout));
-            ptr += 512;
+            ptr += BLOCK_SIZE;
         }
 
-        uint16_t tail = length % 512;
+        uint16_t tail = length % BLOCK_SIZE;
         if (tail)
         {
             RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(ptr, tail, timeout));
