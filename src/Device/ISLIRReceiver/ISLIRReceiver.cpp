@@ -37,44 +37,8 @@ namespace IntroSatLib
 
     ISL_StatusTypeDef ISLIRReceiver::Decode(uint16_t* rawData, uint16_t rawLength, uint8_t* rxbuff, uint16_t rxLength)
     {
-        return decoder.Decode(rawData, rawLength, rxbuff, rxLength);
+        return decoder->Decode(rawData, rawLength, rxbuff, rxLength);
     }
-
-
-    // ISL_StatusTypeDef ISLIRReceiver::Decode(uint16_t* rawData, uint16_t rawLength, uint8_t* rxbuff, uint8_t* bytesResieved)
-    // {
-    //     uint16_t itr = 0;
-    //     while ((abs((int32_t)rawData[itr] - timings.markStart) >= timings.errorScale ||
-    //            abs((int32_t)rawData[itr+1] - timings.spaceStart) >= timings.errorScale) &&
-    //            itr < rawLength)
-    //         itr += 2;
-
-    //     *bytesResieved = 0;
-    //     for (uint16_t i = itr+2; (i-itr)/2 - 1 < rawLength; i += 2)
-    //     {
-    //         if (abs((int32_t)rawData[i] - timings.mark1) < timings.errorScale && 
-    //             abs((int32_t)rawData[i+1] - timings.space1) < timings.errorScale)
-    //         {
-    //             Serial.printf("1: %d\n", (i-itr)/2 - 1);
-    //             rxbuff[(i-itr)/2 - 1] = 1;
-    //             *bytesResieved += 1;
-    //         }
-    //         else if (abs((int32_t)rawData[i] - timings.mark0) < timings.errorScale && 
-    //                  abs((int32_t)rawData[i+1] - timings.space0) < timings.errorScale)
-    //         {
-    //             Serial.printf("0: %d\n", (i-itr)/2 - 1);
-    //             rxbuff[(i-itr)/2 - 1] = 0;
-    //             *bytesResieved += 1;
-    //         }
-    //         else if (abs((int32_t)rawData[i] - timings.markEnd) < timings.errorScale)
-    //         {
-    //             break;
-    //         }
-    //         else return ISL_ERROR;
-    //     }
-
-    //     return ISL_OK;
-    // }
 
 
     ISL_StatusTypeDef ISLIRReceiver::ReceiveIR(uint8_t* buff, uint8_t length, uint16_t timeout)

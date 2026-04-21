@@ -1,5 +1,6 @@
 #define ISL_INTERNAL
 
+#include <stdlib.h>
 #include "Device/ISLIRDecoder/ISLIRDecoder.h"
 
 namespace IntroSatLib
@@ -12,7 +13,7 @@ namespace IntroSatLib
                abs((int32_t)rawData[itr+1] - timings.spaceStart) >= timings.errorScale) &&
                itr < rawLength)
             itr += 2;
-
+            
         for (uint16_t i = itr+2; (i-itr)/2 - 1 < rxLength && i < rawLength; i += 2)
         {
             if (abs((int32_t)rawData[i] - timings.mark1) < timings.errorScale && 

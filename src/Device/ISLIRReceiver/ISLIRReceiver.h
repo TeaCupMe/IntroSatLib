@@ -14,18 +14,6 @@ class ISLIRReceiver : Device
 {
 public:
 
-    struct ProtocolTimings {
-        uint16_t markStart = 30;
-        uint16_t spaceStart = 10;
-        uint16_t mark0 = 10;
-        uint16_t space0 = 10;
-        uint16_t mark1 = 20;
-        uint16_t space1 = 10;
-        uint16_t markEnd = 30;
-        uint16_t spaceEnd = 10;
-        uint16_t errorScale = 5;
-    };
-
 protected:
 
 private:
@@ -34,27 +22,26 @@ private:
     uint16_t maxPulseWidth = 100;
 
     interfaces::GPIO receivePin;
-    BaseIRDecoder decoder;
-    // ProtocolTimings timings;
+    ISLIRDecoder defaultDecoder;
+    BaseIRDecoder* decoder;
 
-    // ISL_StatusTypeDef GetRawData(uint16_t* buff, uint16_t length, uint16_t timeout=defaultTimeout);
-
-    // ISL_StatusTypeDef Decode(uint16_t* rawData, uint16_t rawLength, uint8_t* rxbuff);
+    ISL_StatusTypeDef GetRawData(uint16_t* buff, uint16_t length, uint16_t timeout=defaultTimeout);
+    ISL_StatusTypeDef Decode(uint16_t* rawData, uint16_t rawLength, uint8_t* rxbuff, uint16_t rxLength);
 
 public:
 
-    ISLIRReceiver(interfaces::GPIO _receivePin, BaseIRDecoder _decoder) : receivePin(_receivePin),
-                                                                            decoder(_decoder) { }
+    ISLIRReceiver(interfaces::GPIO _receivePin, BaseIRDecoder* _decoder = nullptr)
+        : receivePin(_receivePin), decoder(_decoder ? _decoder : &defaultDecoder) { }
 
     ISL_StatusTypeDef Init() { }
 
     ISL_StatusTypeDef ReceiveIR(uint8_t* buff, uint8_t length, uint16_t timeout=defaultTimeout);
 
-    uint16_t GetmaxPulseWidth() { return maxPulseWidth; }
+    uint16_t GetMaxPulseWidth() { return maxPulseWidth; }
     void setMaxPulseWidth(uint16_t newMaxPulseWidth) { maxPulseWidth = newMaxPulseWidth; }
 
-    ISL_StatusTypeDef GetRawData(uint16_t* buff, uint16_t length, uint16_t timeout=defaultTimeout);
-    ISL_StatusTypeDef Decode(uint16_t* rawData, uint16_t rawLength, uint8_t* rxbuff, uint16_t rxLength);
+    // ISL_StatusTypeDef GetRawData(uint16_t* buff, uint16_t length, uint16_t timeout=defaultTimeout);
+    // ISL_StatusTypeDef Decode(uint16_t* rawData, uint16_t rawLength, uint8_t* rxbuff, uint16_t rxLength);
 
 };
 
