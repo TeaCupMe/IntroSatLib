@@ -284,6 +284,12 @@ public:
     ISL_StatusTypeDef Init(Mode mode, uint16_t timeout = defaultTimeout);
 
     /**
+     * \~russian @brief Проверка готовности модуля к передаче/приему
+     * \~russian @return Статус готовности к передаче/приему
+     */
+    inline bool IsReady() { return system::GetTick() - lastTransactionTime >= transactionCompleteTimeout; }
+
+    /**
      * \~russian @brief Передача данных через LoRa
      * \~russian @param txbuff Указатель на буфер с данными для передачи
      * \~russian @param length Длина передаваемых данных
