@@ -91,7 +91,7 @@ namespace IntroSatLib {
         uint16_t itr = 0;
         RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(0, timeout));
 
-        while((Available() || pins.AUX.waitReset(timeout) == ISL_OK) && itr < length) {
+        while((itr < length) && (Available() || pins.AUX.waitReset(timeout) == ISL_OK)) {
             ReadUART(rxbuff + itr, 1, timeout);
             itr++;
         }
