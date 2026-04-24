@@ -33,7 +33,7 @@ public:
     ISLIRReceiver(interfaces::GPIO _receivePin, BaseIRDecoder* _decoder = nullptr)
         : receivePin(_receivePin), decoder(_decoder ? _decoder : &defaultDecoder) { }
 
-    ISL_StatusTypeDef Init() { }
+    ISL_StatusTypeDef Init() { return ISL_OK; }
 
     ISL_StatusTypeDef ReceiveIR(uint8_t* buff, uint8_t length, uint16_t timeout=defaultTimeout);
 

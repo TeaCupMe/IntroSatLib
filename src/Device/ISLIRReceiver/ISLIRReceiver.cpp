@@ -47,7 +47,7 @@ namespace IntroSatLib
         RETURN_STATUS_IF_NOT_OK_SILENT(GetRawData(rawBuff, 128, timeout));
 
         uint8_t nbytes;
-        RETURN_STATUS_IF_NOT_OK_SILENT(Decode(rawBuff, (uint16_t)length*2, buff, &nbytes));
+        RETURN_STATUS_IF_NOT_OK_SILENT(Decode(rawBuff, 128, buff, length));
         return ISL_OK;
     }
 
