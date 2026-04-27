@@ -26,7 +26,7 @@ namespace IntroSatLib {
 
     ISL_StatusTypeDef E32_433::SetMode(Mode mode)
     {
-        if (system::GetTick() - lastTransactionTime < transactionCompleteTimeout) return ISL_BUSY;
+        if (!IsReady()) return ISL_BUSY;
 
         RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1));
         if (pins.M0.isValid() && pins.M1.isValid())
@@ -62,15 +62,17 @@ namespace IntroSatLib {
         RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1, timeout));
         system::Delay(10);
 
+        const uint16_t BLOCK_SIZE = 512;
+
         uint8_t *ptr = txbuff;
-        for (uint8_t i = 0; i < (length / 512); i++ )
+        for (uint8_t i = 0; i < (length / BLOCK_SIZE); i++ )
         {
-            RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(ptr, 512, timeout));
+            RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(ptr, BLOCK_SIZE, timeout));
             RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1, timeout));
-            ptr += 512;
+            ptr += BLOCK_SIZE;
         }
 
-        uint16_t tail = length % 512;
+        uint16_t tail = length % BLOCK_SIZE;
         if (tail)
         {
             RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(ptr, tail, timeout));
@@ -84,11 +86,12 @@ namespace IntroSatLib {
 
     ISL_StatusTypeDef E32_433::ReceiveLoRa(uint8_t* rxbuff, uint16_t length, uint16_t timeout)
     {
-        if (system::GetTick() - lastTransactionTime < transactionCompleteTimeout) return ISL_BUSY;
-        RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(0, timeout));
+        if (!IsReady()) return ISL_BUSY;
 
         uint16_t itr = 0;
-        while(pins.AUX.read() == 0 && itr <= length) {
+        RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(0, timeout));
+
+        while((itr < length) && (Available() || pins.AUX.waitReset(timeout) == ISL_OK)) {
             ReadUART(rxbuff + itr, 1, timeout);
             itr++;
         }
