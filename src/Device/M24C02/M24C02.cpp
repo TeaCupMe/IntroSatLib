@@ -18,7 +18,18 @@ ISL_StatusTypeDef M24C02::Read(uint32_t addr, uint8_t *data, uint16_t len)
 		return ISL_ERROR;
 	}
 
-	return ReadRegisterI2C(static_cast<uint8_t>(addr), data, len);
+	// Split into 16-byte frames, since STM32 I2C buffer has only 16 bytes
+	size_t fullFrames = len / 16;
+
+
+	for (size_t i{0}; i < fullFrames; ++i)
+	{
+		RETURN_STATUS_IF_NOT_OK_SILENT(ReadRegisterI2C(static_cast<uint8_t>(addr) + i*16, &data[i*16], 16));
+	}
+
+//	if ()
+
+	return ReadRegisterI2C(static_cast<uint8_t>(addr) + fullFrames * 16, &data[fullFrames * 16], len - 16*fullFrames);
 }
 
 ISL_StatusTypeDef M24C02::Write(uint32_t addr, uint8_t *data, uint16_t len)
@@ -28,7 +39,16 @@ ISL_StatusTypeDef M24C02::Write(uint32_t addr, uint8_t *data, uint16_t len)
 		return ISL_ERROR;
 	}
 
-	ISL_StatusTypeDef status = SetRegisterI2C(static_cast<uint8_t>(addr), data, len);
+	// Split into 16-byte frames, since STM32 I2C buffer has only 16 bytes
+	size_t fullFrames = len / 16;
+
+	for (size_t i{0}; i < fullFrames; ++i)
+	{
+		RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(static_cast<uint8_t>(addr) + i*16, &data[i*16], 16));
+		system::Delay(5);
+	}
+
+	ISL_StatusTypeDef status = SetRegisterI2C(static_cast<uint8_t>(addr) + fullFrames * 16, &data[fullFrames * 16], len - 16*fullFrames);
 	system::Delay(5);
 	return status;
 }

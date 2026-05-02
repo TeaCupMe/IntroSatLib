@@ -112,11 +112,11 @@ public:
 		TWENTY_FOUR_BYTES
 	};
 
-	enum AddressFilteringMode {
-		ADDR_FILTER_MODE_NONE = 0, /* No address check */
-		ADDR_FILTER_MODE_CHECK = 1, /* Address check, no broadcast */
-		ADDR_FILTER_MODE_CHECK_BC_0 = 2, /* Address check, 0 broadcast */
-		ADDR_FILTER_MODE_CHECK_BC_0_255 = 3 /* Address check, 0 and 255 broadcast */
+	enum class AddressFilteringMode : uint8_t {
+		NONE = 0, 			/* No address check */
+		CHECK = 1, 			/* Address check, no broadcast */
+		CHECK_BC_0 = 2, 	/* Address check, 0 broadcast */
+		CHECK_BC_0_255 = 3 	/* Address check, 0 and 255 broadcast */
 	};
 
 	CC1101(interfaces::SPI _spi, interfaces::GPIO csPin): SPIDevice(_spi, csPin) {}
@@ -193,7 +193,7 @@ private:
 	State currentState = STATE_IDLE;
 	Modulation mod = Modulation::M_2FSK;
 	PacketLengthMode pktLenMode = PacketLengthMode::FIXED;
-	AddressFilteringMode addrFilterMode = ADDR_FILTER_MODE_NONE;
+	AddressFilteringMode addrFilterMode = AddressFilteringMode::NONE;
 	bool recvCallback = false;
 
 	double freq = 433.5;

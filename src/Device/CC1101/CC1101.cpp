@@ -343,7 +343,7 @@ void CC1101::setPacketLengthMode(PacketLengthMode mode, uint8_t length) {
 void CC1101::setAddressFilteringMode(AddressFilteringMode mode) {
 	this->addrFilterMode = mode;
 
-	writeRegField(ConfigRegister::PKTCTRL1, (uint8_t) mode, 1, 0);
+	writeRegField(ConfigRegister::PKTCTRL1, static_cast<uint8_t>(mode), 1, 0);
 }
 
 void CC1101::setCrc(bool enable) {
@@ -396,7 +396,7 @@ CC1101::Status CC1101::transmit(uint8_t *data, size_t length, uint8_t addr) {
 	size_t curPktLen = length;
 	Status ret = STATUS_OK;
 
-	if (addrFilterMode != ADDR_FILTER_MODE_NONE) {
+	if (addrFilterMode != AddressFilteringMode::NONE) {
 		curPktLen++;
 	}
 
@@ -423,7 +423,7 @@ CC1101::Status CC1101::transmit(uint8_t *data, size_t length, uint8_t addr) {
 		break;
 	}
 
-	if (addrFilterMode != ADDR_FILTER_MODE_NONE) {
+	if (addrFilterMode != AddressFilteringMode::NONE) {
 		writeReg(ConfigRegister::FIFO, addr);
 		bytesSent++;
 	}
@@ -496,7 +496,7 @@ CC1101::Status CC1101::receive(uint8_t *data, size_t length, size_t *read,
 
 	uint8_t dataRead = 0, dataLength = curPktLen;
 
-	if (addrFilterMode != ADDR_FILTER_MODE_NONE) {
+	if (addrFilterMode != AddressFilteringMode::NONE) {
 		waitForBytesInFifo();
 		(void) readReg(ConfigRegister::FIFO);
 		bytesRead++;
