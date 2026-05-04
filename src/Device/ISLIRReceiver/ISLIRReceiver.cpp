@@ -31,14 +31,14 @@ namespace IntroSatLib
             outputRawBuffN = rawBuffN;
             currentState = State::Idle;
 
-            Serial.println("End in space: ");
+            // Serial.println("End in space: ");
             for (uint16_t i = 0; i < rawBuffN; i++)
             {
                 outputRawBuff[i] = rawBuff[i];
-                Serial.print(rawBuff[i]);
-                Serial.print(" ");
+                // Serial.print(rawBuff[i]);
+                // Serial.print(" ");
             }
-            Serial.println();
+            // Serial.println();
 
             return;
         } else
@@ -62,14 +62,14 @@ namespace IntroSatLib
             outputRawBuffN = rawBuffN;
             currentState = State::Idle;
 
-            Serial.println("End in bit");
+            // Serial.println("End in bit");
             for (uint16_t i = 0; i < rawBuffN; i++)
             {
                 outputRawBuff[i] = rawBuff[i];
-                Serial.print(rawBuff[i]);
-                Serial.print(" ");
+                // Serial.print(rawBuff[i]);
+                // Serial.print(" ");
             }
-            Serial.println();
+            // Serial.println();
 
             return;
         } else
