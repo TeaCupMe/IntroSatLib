@@ -4,6 +4,8 @@
 #if defined(ISL_GPIO_ENABLED)
 
 #include "Device/ISLIRTransmitter/ISLIRTransmitter.h"
+
+#if defined(ARDUINO)
 #include "Adapter/System.h"
 
 namespace IntroSatLib
@@ -15,6 +17,9 @@ namespace IntroSatLib
 
         uint16_t buff[defaultBSize];
         uint16_t n = GenerateRawTxData(txBuff, nBits, buff, defaultBSize);
+
+        uint8_t oldSREG = SREG;
+        cli();
 
         Tone(txPin, 38000);
         DelaySource(timings.markStart);
@@ -30,6 +35,8 @@ namespace IntroSatLib
         Tone(txPin, 38000);
         DelaySource(timings.maxSpaceWidth);
         NoTone(txPin);
+
+        SREG = oldSREG;
 
         return ISL_OK;
     }
@@ -58,4 +65,5 @@ namespace IntroSatLib
 
 }
 
+#endif
 #endif

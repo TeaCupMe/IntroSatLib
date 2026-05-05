@@ -1,9 +1,11 @@
 #define ISL_INTERNAL
 
 #include "Adapter/GPIO.h"
-#if defined(ISL_GPIO_ENABLED) && defined(ARDUINO)
+#if defined(ISL_GPIO_ENABLED)
 
 #include "Device/ISLIRReceiver/ISLIRReceiver.h"
+
+#if defined(ARDUINO)
 #include "Adapter/System.h"
 
 namespace IntroSatLib
@@ -74,7 +76,7 @@ namespace IntroSatLib
         return;
     }
 
-    ISL_StatusTypeDef ISLIRReceiver::ProcessReceiving()
+    void ISLIRReceiver::ProcessReceiving()
     {
         uint8_t oldSREG = SREG;
         cli();
@@ -101,7 +103,7 @@ namespace IntroSatLib
         }
 
         SREG = oldSREG;
-        return ISL_OK;
+        return;
     }
 
 
@@ -146,4 +148,5 @@ namespace IntroSatLib
 
 }
 
+#endif
 #endif

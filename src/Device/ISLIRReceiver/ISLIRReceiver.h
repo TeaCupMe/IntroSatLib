@@ -1,6 +1,8 @@
 #ifndef ISLIRRECEIVER_H_
 #define ISLIRRECEIVER_H_
 
+#if defined(ARDUINO)
+
 #include "Device/Device.h"
 #include "Adapter/GPIO.h"
 #include "Device/ISLIRProtocol/ISLIRProtocol.h"
@@ -61,7 +63,7 @@ public:
         return ISL_OK;
     }
 
-    ISL_StatusTypeDef ProcessReceiving();
+    void ProcessReceiving();
 
     void SetTimeSource(uint32_t (*_TimeSource)()) { TimeSource = _TimeSource; }
 
@@ -75,4 +77,5 @@ public:
 
 }
 
+#endif
 #endif

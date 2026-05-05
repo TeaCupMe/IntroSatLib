@@ -1,6 +1,8 @@
 #ifndef ISLIRTRANSMITTER_H_
 #define ISLIRTRANSMITTER_H_
 
+#if defined(ARDUINO)
+
 #include "Device/Device.h"
 #include "Adapter/GPIO.h"
 #include "Device/ISLIRProtocol/ISLIRProtocol.h"
@@ -43,5 +45,5 @@ public:
 
 }
 
-
+#endif
 #endif
