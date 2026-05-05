@@ -1,7 +1,7 @@
 #ifndef ISLIRTRANSMITTER_H_
 #define ISLIRTRANSMITTER_H_
 
-#if defined(ARDUINO)
+#if defined(ARDUINO_AVR_ATmega328)
 
 #include "Device/Device.h"
 #include "Adapter/GPIO.h"

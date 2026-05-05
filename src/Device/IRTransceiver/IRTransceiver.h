@@ -1,7 +1,7 @@
 #ifndef IRTRANSCEIVER_H_
 #define IRTRANSCEIVER_H_
 
-#if defined(ARDUINO)
+#if defined(ARDUINO_AVR_ATmega328)
 
 #include "Device/ISLIRReceiver/ISLIRReceiver.h"
 #include "Device/ISLIRTransmitter/ISLIRTransmitter.h"

@@ -5,7 +5,7 @@
 
 #include "Device/ISLIRTransmitter/ISLIRTransmitter.h"
 
-#if defined(ARDUINO)
+#if defined(ARDUINO_AVR_ATmega328)
 #include "Adapter/System.h"
 
 namespace IntroSatLib
