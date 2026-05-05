@@ -1,7 +1,7 @@
 #define ISL_INTERNAL
 
 #include "Adapter/GPIO.h"
-#if defined(ISL_GPIO_ENABLED)
+#if defined(ISL_GPIO_ENABLED) && defined(ARDUINO)
 
 #include "Device/ISLIRReceiver/ISLIRReceiver.h"
 #include "Adapter/System.h"
@@ -14,6 +14,8 @@ namespace IntroSatLib
     {
         if (receivePin.read() == 0)
         {
+            uint16_t delta = (uint16_t)(newT-oldT);
+            if (abs(delta - timings.markStart) <= timings.errorScale)
             rawBuffN = 0;
             currentState = State::RecvBit;
         }
@@ -25,20 +27,16 @@ namespace IntroSatLib
     {
 
         uint16_t delta = (uint16_t)(newT-oldT);
-        if (delta > timings.maxSpaceWidth)
+        if (delta > timings.maxSpaceWidth - timings.errorScale)
         {
             available = true;
             outputRawBuffN = rawBuffN;
             currentState = State::Idle;
 
-            // Serial.println("End in space: ");
             for (uint16_t i = 0; i < rawBuffN; i++)
             {
                 outputRawBuff[i] = rawBuff[i];
-                // Serial.print(rawBuff[i]);
-                // Serial.print(" ");
             }
-            // Serial.println();
 
             return;
         } else
@@ -46,8 +44,6 @@ namespace IntroSatLib
             rawBuff[rawBuffN] = delta;
             rawBuffN++;
             currentState = State::RecvBit;
-
-            // Serial.printf("Space length: \t%d\n", delta);
         }
 
         return;
@@ -56,20 +52,16 @@ namespace IntroSatLib
     void ISLIRReceiver::RecvBitStateProcess()
     {
         uint16_t delta = (uint16_t)(newT-oldT);
-        if (delta > timings.maxMarkWidth)
+        if (delta > timings.maxMarkWidth - timings.errorScale)
         {
             available = true;
             outputRawBuffN = rawBuffN;
             currentState = State::Idle;
 
-            // Serial.println("End in bit");
             for (uint16_t i = 0; i < rawBuffN; i++)
             {
                 outputRawBuff[i] = rawBuff[i];
-                // Serial.print(rawBuff[i]);
-                // Serial.print(" ");
             }
-            // Serial.println();
 
             return;
         } else
@@ -131,14 +123,24 @@ namespace IntroSatLib
     {
         for (uint16_t i = 0; (i < rawLength) && (i/16 < rxLength); i+=2)
         {
-            if (abs(rawData[i] - timings.mark0) <= timings.errorScale)
+            if (abs((int32_t)rawData[i] - (int32_t)timings.mark0) <= timings.errorScale)
             {
                 rxbuff[i/16] &= ~(0b1 << (i/2));
-            } else if (abs(rawData[i] - timings.mark1) <= timings.errorScale)
+            } else if (abs((int32_t)rawData[i] - (int32_t)timings.mark1) <= timings.errorScale)
             {
-                rxbuff[i/16] |= 0b1 << (i/2);
-            } else { return ISL_ERROR; }
+                rxbuff[i/16] |= (0b1 << (i/2));
+            } else {
+                return ISL_ERROR; 
+            }
         }
+        return ISL_OK;
+    }
+
+    ISL_StatusTypeDef ISLIRReceiver::GetMessage(uint8_t* rxbuff, uint16_t rxLength)
+    {
+        uint16_t buff[defaultBSize];
+        RETURN_STATUS_IF_NOT_OK_SILENT(GetRawData(buff, defaultBSize));
+        RETURN_STATUS_IF_NOT_OK_SILENT(ISLDecode(buff, defaultBSize, rxbuff, rxLength));
         return ISL_OK;
     }
 
