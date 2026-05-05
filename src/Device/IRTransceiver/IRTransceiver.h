@@ -16,8 +16,6 @@ public:
 protected:
 
 private:
-
-    static constexpr uint16_t defaultTimeout = 100;
  
     ISLIRReceiver receiver;
     ISLIRTransmitter transmitter;

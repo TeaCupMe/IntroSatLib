@@ -41,6 +41,13 @@ public:
 
     ISL_StatusTypeDef Transmit(uint8_t* txBuff, uint16_t length);
 
+    void SetTone(void (*_Tone)(interfaces::GPIO tonePin, uint16_t frequency)) { Tone = _Tone; }
+    void SetNoTone(void (*_NoTone)(interfaces::GPIO tonePin)) { NoTone = _NoTone; }
+    void SetDelaySource(void (*_DelaySource)(uint32_t time)) { DelaySource = _DelaySource; }
+
+    void SetModulationFrequence(uint16_t _frequence) { modulationFrequence = _frequence; }
+    uint16_t GetModulationFrequence() { return modulationFrequence; }
+
 };
 
 }
