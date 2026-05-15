@@ -13,30 +13,13 @@ namespace IntroSatLib
 
     ISL_StatusTypeDef ISLIRTransmitter::Transmit(uint8_t* txBuff, uint16_t nBits)
     {
-        if (nBits/8 > defaultBSize) return ISL_ERROR;
-
-        uint16_t buff[defaultBSize];
-        uint16_t n = GenerateRawTxData(txBuff, nBits, buff, defaultBSize);
-
-        uint8_t oldSREG = SREG;
-        cli();
-
-        Tone(txPin, 38000);
-        DelaySource(timings.markStart);
-        NoTone(txPin);
-        DelaySource(timings.spaceStart);
-        for (uint16_t i = 0; i < n; i+=2)
+        uint16_t itr = 0;
+        for (; itr < (nBits/8); ++itr)
         {
-            Tone(txPin, 38000);
-            DelaySource(buff[i]);
-            NoTone(txPin);
-            DelaySource(buff[i+1]);
+            RETURN_STATUS_IF_NOT_OK_SILENT(SendByte(txBuff[itr]));
+            DelaySource(100);
         }
-        Tone(txPin, 38000);
-        DelaySource(timings.maxSpaceWidth);
-        NoTone(txPin);
-
-        SREG = oldSREG;
+        if (nBits%8 != 0) RETURN_STATUS_IF_NOT_OK_SILENT(SendByte(txBuff[itr]));
 
         return ISL_OK;
     }
@@ -59,6 +42,40 @@ namespace IntroSatLib
         }
 
         return nBits*2 > length ? length : nBits*2;
+    }
+
+
+    ISL_StatusTypeDef ISLIRTransmitter::SendByte(uint8_t byte)
+    {
+        uint16_t buff[16];
+        uint16_t n = GenerateRawTxData(&byte, 8, buff, 16);
+        if (n != 16) return ISL_ERROR;
+
+        // Serial.print("Raw:\t");
+        // for (uint16_t i = 0; i < n; ++i)
+        // {
+        //     Serial.print(buff[i]);
+        //     Serial.print(" ");
+        // }
+        // Serial.println();
+
+        Tone(txPin, 38000);
+        DelaySource(timings.markStart);
+        NoTone(txPin);
+        DelaySource(timings.spaceStart);
+        for (uint16_t i = 0; i < n; i+=2)
+        {
+            Tone(txPin, 38000);
+            DelaySource(buff[i]);
+            NoTone(txPin);
+            DelaySource(buff[i+1]);
+        }
+        Tone(txPin, 38000);
+        DelaySource(timings.maxMarkWidth);
+        NoTone(txPin);
+        DelaySource(timings.maxSpaceWidth);
+
+        return ISL_OK;
     }
 
 

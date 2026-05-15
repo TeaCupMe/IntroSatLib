@@ -32,6 +32,7 @@ private:
     void (*DelaySource)(uint32_t time) {system::Delay};
 
     uint16_t GenerateRawTxData(uint8_t* txBuff, uint16_t nBits, uint16_t* buff, uint16_t length);
+    ISL_StatusTypeDef SendByte(uint8_t byte);
 
 public:
 
