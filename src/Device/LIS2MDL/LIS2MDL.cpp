@@ -79,6 +79,18 @@ float LIS2MDL::MZ()
 	return _mz * _sens / 1000;
 }
 
+ISL_StatusTypeDef LIS2MDL::SetOffsetRawX(int16_t offsetX) {
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::OFFSET_X_REG_L, (uint8_t*)&offsetX, 2));
+	return IsReady();
+}
+ISL_StatusTypeDef LIS2MDL::SetOffsetRawY(int16_t offsetY) {
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::OFFSET_Y_REG_L, (uint8_t*)&offsetY, 2));
+	return IsReady();
+}
+ISL_StatusTypeDef LIS2MDL::SetOffsetRawZ(int16_t offsetZ) {
+	RETURN_STATUS_IF_NOT_OK_SILENT(SetRegisterI2C(RegisterMap::OFFSET_Z_REG_L, (uint8_t*)&offsetZ, 2));
+	return IsReady();
+}
 
 LIS2MDL::~LIS2MDL() { }
 
