@@ -43,7 +43,6 @@ public:
     /**
      * @brief Опорное напряжение
      */
-
     enum ReferenceMode: uint8_t {
         REF_EXTERNAL = 0b0, /**< Внешнее опорного напряжение (пин REF<sub>IN</sub>) */
         REF_INTERNAL = 0b1  /**< Внутреннее опорного напряжение (+2.5В) */
@@ -80,6 +79,14 @@ private:
      * @return ISL_StatusTypeDef результат запроса
      */
     ISL_StatusTypeDef RequestConversion(Channel channel);
+
+    /**
+    * @brief Получение значения с канала АЦП
+    * 
+    * @param channel канал АЦП
+    * @return ISL_StatusTypeDef результат получения значения с канала
+    */  
+    ISL_StatusTypeDef PollChannel(uint8_t channel) override;
 
 public:
     /**
@@ -133,22 +140,6 @@ public:
      * @return ISL_StatusTypeDef результат выключения АЦП
      */
     ISL_StatusTypeDef PowerDown();
-    
-    /**
-     * @brief Получение значения напряжения на канале в вольтах
-     * 
-     * @param channel канал АЦП
-     * @return float значение напряжения в вольтах
-     */
-    float GetValue(Channel channel);
-
-    /**
-     * @brief Получение необработанного значения с канала АЦП
-     * 
-     * @param channel канал АЦП
-     * @return uint8_t необработанное значение с канала АЦП
-     */
-    uint8_t GetRawValue(Channel channel);
 };
 
 }
