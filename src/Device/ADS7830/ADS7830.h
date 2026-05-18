@@ -85,7 +85,7 @@ public:
     /**
      * @brief Конструктор объекта АЦП ADS7830 
      * 
-     * @param i2c объект I2C, например: \c Wire (в Arduino IDE), \c &huart1 (в STM32CubeIDE)
+     * @param i2c объект I2C, например: \c Wire (в Arduino IDE), \c &hi2c1 (в STM32CubeIDE)
      * @param address 
      */
     ADS7830(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
