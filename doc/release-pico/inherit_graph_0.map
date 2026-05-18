@@ -1,0 +1,67 @@
+<map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
+<area shape="rect" id="Node000000" href="$classIntroSatLib_1_1BaseAccelerometer.html" title=" " alt="" coords="185,5,390,31"/>
+<area shape="rect" id="Node000001" href="$classIntroSatLib_1_1LSM6DS3.html" title=" " alt="" coords="450,55,601,80"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="368,32,461,51,459,57,367,37"/>
+<area shape="rect" id="Node000002" href="$classIntroSatLib_1_1AccelerometerV2.html" title=" " alt="" coords="661,31,853,56"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="616,55,661,51,661,56,617,61"/>
+<area shape="rect" id="Node000003" href="$classIntroSatLib_1_1GyroscopeV2.html" title=" " alt="" coords="672,80,842,106"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="617,75,672,81,672,86,617,80"/>
+<area shape="rect" id="Node000031" href="$classIntroSatLib_1_1BaseBarometer.html" title=" " alt="" coords="197,104,378,130"/>
+<area shape="rect" id="Node000030" href="$classIntroSatLib_1_1MS5611.html" title=" " alt="" coords="456,104,595,130"/>
+<area shape="poly" id="edge4_Node000031_Node000030" title=" " alt="" coords="394,114,455,114,455,120,394,120"/>
+<area shape="rect" id="Node000004" href="$classIntroSatLib_1_1BaseGyroscope.html" title=" " alt="" coords="196,55,379,80"/>
+<area shape="poly" id="edge5_Node000004_Node000001" title=" " alt="" coords="394,65,450,65,450,70,394,70"/>
+<area shape="rect" id="Node000024" href="$classIntroSatLib_1_1BaseMagnetometer.html" title=" " alt="" coords="185,179,390,204"/>
+<area shape="rect" id="Node000023" href="$classIntroSatLib_1_1LIS2MDL.html" title="LIS2MDL \ Этот класс отвечает за взаимодействие с магнитометром LIS2MDL через шину I2C." alt="" coords="452,203,599,228"/>
+<area shape="poly" id="edge6_Node000024_Node000023" title=" " alt="" coords="405,201,452,205,451,211,405,206"/>
+<area shape="rect" id="Node000025" href="$classIntroSatLib_1_1LIS3MDL.html" title=" " alt="" coords="452,153,599,179"/>
+<area shape="poly" id="edge7_Node000024_Node000025" title=" " alt="" coords="405,176,451,171,452,177,405,182"/>
+<area shape="rect" id="Node000026" href="$classIntroSatLib_1_1MagnetometerV2.html" title=" " alt="" coords="662,153,852,179"/>
+<area shape="poly" id="edge8_Node000025_Node000026" title=" " alt="" coords="615,164,661,164,661,169,615,169"/>
+<area shape="rect" id="Node000028" href="$classIntroSatLib_1_1BaseTemperatureSensor.html" title=" " alt="" coords="190,532,384,573"/>
+<area shape="rect" id="Node000027" href="$classIntroSatLib_1_1LM75A.html" title=" " alt="" coords="459,548,592,574"/>
+<area shape="poly" id="edge9_Node000028_Node000027" title=" " alt="" coords="400,554,459,556,459,561,400,559"/>
+<area shape="rect" id="Node000008" href="$classIntroSatLib_1_1Device.html" title=" " alt="" coords="5,647,137,672"/>
+<area shape="rect" id="Node000007" href="$classIntroSatLib_1_1BaseADC.html" title=" " alt="" coords="213,597,362,623"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="145,640,227,621,228,626,146,645"/>
+<area shape="rect" id="Node000005" href="$classIntroSatLib_1_1I2CDevice.html" title=" " alt="" coords="212,351,363,376"/>
+<area shape="poly" id="edge12_Node000008_Node000005" title=" " alt="" coords="89,632,274,375,279,378,93,635"/>
+<area shape="rect" id="Node000009" href="$classIntroSatLib_1_1RadioTransceiver.html" title=" " alt="" coords="191,647,384,672"/>
+<area shape="poly" id="edge27_Node000008_Node000009" title=" " alt="" coords="152,657,191,657,191,662,152,662"/>
+<area shape="rect" id="Node000010" href="$classIntroSatLib_1_1SPIDevice.html" title=" " alt="" coords="211,696,364,722"/>
+<area shape="poly" id="edge28_Node000008_Node000010" title=" " alt="" coords="146,674,228,693,227,698,145,679"/>
+<area shape="rect" id="Node000012" href="$classIntroSatLib_1_1UARTDevice.html" title="Базовый класс для устройств, использующих UART интерфейс" alt="" coords="204,745,371,771"/>
+<area shape="poly" id="edge30_Node000008_Node000012" title=" " alt="" coords="102,680,140,707,186,732,216,742,214,747,184,737,137,712,98,684"/>
+<area shape="rect" id="Node000006" href="$classIntroSatLib_1_1ADS7830.html" title="Класс для работы с 8&#45;канальным 8&#45;битным АЦП ADS7830 по интерфейсу I2C." alt="" coords="452,597,599,623"/>
+<area shape="poly" id="edge11_Node000007_Node000006" title=" " alt="" coords="377,608,452,608,452,613,377,613"/>
+<area shape="poly" id="edge24_Node000005_Node000001" title=" " alt="" coords="307,337,347,282,388,216,400,180,405,149,413,120,422,105,436,89,452,79,455,83,440,94,427,108,418,122,410,150,406,181,392,218,351,285,311,340"/>
+<area shape="poly" id="edge26_Node000005_Node000030" title=" " alt="" coords="305,337,388,215,408,174,418,156,436,139,456,128,458,132,440,143,422,160,413,177,392,218,309,340"/>
+<area shape="poly" id="edge21_Node000005_Node000023" title=" " alt="" coords="309,337,364,287,399,260,437,237,463,226,465,231,439,242,402,265,368,291,313,341"/>
+<area shape="poly" id="edge22_Node000005_Node000025" title=" " alt="" coords="302,336,355,262,393,222,437,188,459,177,461,182,439,192,397,226,359,266,306,339"/>
+<area shape="poly" id="edge23_Node000005_Node000027" title=" " alt="" coords="306,388,359,461,397,501,439,535,461,545,459,550,437,539,393,505,355,465,302,391"/>
+<area shape="poly" id="edge13_Node000005_Node000006" title=" " alt="" coords="308,388,384,505,440,584,458,594,456,599,436,588,380,508,303,391"/>
+<area shape="rect" id="Node000016" href="$classIntroSatLib_1_1AK8963.html" title=" " alt="" coords="457,400,594,426"/>
+<area shape="poly" id="edge14_Node000005_Node000016" title=" " alt="" coords="368,377,461,397,459,402,367,383"/>
+<area shape="rect" id="Node000017" href="$classIntroSatLib_1_1Accelerometer.html" title=" " alt="" coords="438,449,613,475"/>
+<area shape="poly" id="edge15_Node000005_Node000017" title=" " alt="" coords="326,382,379,409,439,436,471,446,469,451,437,441,377,414,324,387"/>
+<area shape="rect" id="Node000018" href="$classIntroSatLib_1_1BaseFlyWheel.html" title=" " alt="" coords="438,499,613,524"/>
+<area shape="poly" id="edge16_Node000005_Node000018" title=" " alt="" coords="313,386,368,436,402,462,439,485,465,496,463,501,437,490,399,467,364,440,309,390"/>
+<area shape="rect" id="Node000021" href="$classIntroSatLib_1_1Gyroscope.html" title=" " alt="" coords="449,252,602,278"/>
+<area shape="poly" id="edge19_Node000005_Node000021" title=" " alt="" coords="324,340,377,313,437,286,469,276,471,281,439,291,379,318,326,345"/>
+<area shape="rect" id="Node000022" href="$classIntroSatLib_1_1IRCamera.html" title=" " alt="" coords="451,301,600,327"/>
+<area shape="poly" id="edge20_Node000005_Node000022" title=" " alt="" coords="367,344,459,325,461,330,368,350"/>
+<area shape="rect" id="Node000029" href="$classIntroSatLib_1_1LightSensor.html" title=" " alt="" coords="445,351,606,376"/>
+<area shape="poly" id="edge25_Node000005_Node000029" title=" " alt="" coords="378,361,445,361,445,366,378,366"/>
+<area shape="rect" id="Node000019" href="$classIntroSatLib_1_1CoilFlyWheel.html" title=" " alt="" coords="674,475,840,500"/>
+<area shape="poly" id="edge17_Node000018_Node000019" title=" " alt="" coords="628,498,673,493,674,499,629,504"/>
+<area shape="rect" id="Node000020" href="$classIntroSatLib_1_1MotorFlyWheel.html" title=" " alt="" coords="668,524,846,550"/>
+<area shape="poly" id="edge18_Node000018_Node000020" title=" " alt="" coords="629,520,668,524,668,530,628,525"/>
+<area shape="rect" id="Node000011" href="$classIntroSatLib_1_1CC1101.html" title=" " alt="" coords="457,696,594,722"/>
+<area shape="poly" id="edge29_Node000010_Node000011" title=" " alt="" coords="380,706,457,706,457,712,380,712"/>
+<area shape="rect" id="Node000013" href="$classIntroSatLib_1_1ATDevice.html" title="Базовый класс для устройств, использующих AT&#45;команды" alt="" coords="452,795,600,820"/>
+<area shape="poly" id="edge31_Node000012_Node000013" title=" " alt="" coords="368,772,461,791,459,797,367,777"/>
+<area shape="rect" id="Node000015" href="$classIntroSatLib_1_1E32__433.html" title="Класс для управления LoRa модулем E32&#45;433." alt="" coords="455,745,596,771"/>
+<area shape="poly" id="edge33_Node000012_Node000015" title=" " alt="" coords="386,756,454,756,454,761,386,761"/>
+<area shape="rect" id="Node000014" href="$classIntroSatLib_1_1FSC__BT986.html" title="Класс драйвера Bluetooth&#45;модуля FSC&#45;BT986." alt="" coords="676,795,838,820"/>
+<area shape="poly" id="edge32_Node000013_Node000014" title=" " alt="" coords="615,805,675,805,675,810,615,810"/>
+</map>

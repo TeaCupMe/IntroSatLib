@@ -1,0 +1,827 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="IntroSatLib" />
+<meta property="og:image" content="https://github.com/user-attachments/assets/b9565746-a0e4-46ce-b2e8-ef371b14b845" />
+<meta property="og:description" content="Документация библиотеки IntroSatLib" />
+<meta property="og:url" content="https://teacupme.github.io/IntroSatLib/doc/v0.1.1/" />
+<!-- END opengraph metadata -->
+<title>IntroSatLib: Класс IntroSatLib::FSC_BT986</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="dropdown.css" rel="stylesheet" type="text/css"/>
+<link href="theme-round.css" rel="stylesheet" type="text/css"/>
+<link href="theme-robot.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IntroSatLib
+   <!-- BEGIN PROJECT_NUMBER&#160;<span id="projectnumber">release-pico</span>END PROJECT_NUMBER -->
+   </div>
+  </td>
+    <!-- BEGIN version select -->
+    <td align="right">
+    <div class="dropdown">
+        <button class="dropbtn">Version release-pico</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+    <script type="text/javascript" src="./selectversion.js"></script>
+    </td>
+    <!-- END version select -->
+ </tr>
+ </tbody>
+</table>
+<div id="theme-selection">
+ <label for="theme-select">Theme:</label>
+ <select id="theme-select">
+  <option value="theme-default">Default</option>
+  <option value="theme-round">Round</option>
+  <option value="theme-robot">Robot</option>
+ </select>
+</div>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classIntroSatLib_1_1FSC__BT986.html','','classIntroSatLib_1_1FSC__BT986-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс IntroSatLib::FSC_BT986</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс драйвера Bluetooth-модуля FSC-BT986.  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="FSC__BT986_8h_source.html">FSC_BT986.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:IntroSatLib::FSC_BT986:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classIntroSatLib_1_1FSC__BT986__inherit__graph.svg" width="179" height="258"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:FSC_5FBT986Pins" id="r_FSC_5FBT986Pins"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html">FSC_BT986Pins</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, описывающая пины модуля  <a href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html#details">Подробнее...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a4ce4af1f0070eaa8e0717e71c38c82fc" id="r_a4ce4af1f0070eaa8e0717e71c38c82fc"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a4ce4af1f0070eaa8e0717e71c38c82fc">Mode</a> : uint8_t { <a class="el" href="#a4ce4af1f0070eaa8e0717e71c38c82fca0b85467ebafa7ca3c47e82dc38184484">Throughput</a> = 0
+, <a class="el" href="#a4ce4af1f0070eaa8e0717e71c38c82fcaee97be03cb04119af45014d815621ce1">Command</a> = 1
+ }</td></tr>
+<tr class="memdesc:a4ce4af1f0070eaa8e0717e71c38c82fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Режимы работы bluetooth модуля  <a href="#a4ce4af1f0070eaa8e0717e71c38c82fc">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a095238b6bf7d1a2378cb3a45595acfa0" id="r_a095238b6bf7d1a2378cb3a45595acfa0"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a095238b6bf7d1a2378cb3a45595acfa0">ModeChange</a> : uint8_t { <a class="el" href="#a095238b6bf7d1a2378cb3a45595acfa0a6adf97f83acf6453d4a6a4b1070f3754">None</a> = 0b00
+, <a class="el" href="#a095238b6bf7d1a2378cb3a45595acfa0a3c02a379965ab0dfcd77b1c484450433">Hardware</a> = 0b01
+, <a class="el" href="#a095238b6bf7d1a2378cb3a45595acfa0a719d067b229178f03bcfa1da4ac4dede">Software</a> = 0b10
+, <a class="el" href="#a095238b6bf7d1a2378cb3a45595acfa0a9ad88690d6525a922a9c77fff78ec08e">HardwareAndSoftware</a> = 0b11
+ }</td></tr>
+<tr class="memdesc:a095238b6bf7d1a2378cb3a45595acfa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Способ переключения режима работы  <a href="#a095238b6bf7d1a2378cb3a45595acfa0">Подробнее...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a79178a54415013a494cfcc350bf229b6" id="r_a79178a54415013a494cfcc350bf229b6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a79178a54415013a494cfcc350bf229b6">FSC_BT986</a> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a> uart, <a class="el" href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html">FSC_BT986Pins</a> _pins, const uint16_t bsize=<a class="el" href="classIntroSatLib_1_1ATDevice.html#ae42118f55a883209f9f4faf045e2d52c">defaultBSize</a>)</td></tr>
+<tr class="memdesc:a79178a54415013a494cfcc350bf229b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="classIntroSatLib_1_1FSC__BT986.html" title="Класс драйвера Bluetooth-модуля FSC-BT986.">FSC_BT986</a>.  <br /></td></tr>
+<tr class="memitem:a5275014677755815785287e477d26cad" id="r_a5275014677755815785287e477d26cad"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a5275014677755815785287e477d26cad">Init</a> (<a class="el" href="#a4ce4af1f0070eaa8e0717e71c38c82fc">Mode</a> mode)</td></tr>
+<tr class="memdesc:a5275014677755815785287e477d26cad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация Bluetooth-модуля с указанием начального режима  <br /></td></tr>
+<tr class="memitem:ae3de10d4587e58bf5b63b2c4053ed8d6" id="r_ae3de10d4587e58bf5b63b2c4053ed8d6"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#ae3de10d4587e58bf5b63b2c4053ed8d6">Init</a> () override</td></tr>
+<tr class="memdesc:ae3de10d4587e58bf5b63b2c4053ed8d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация Bluetooth-модуля в режиме передачи данных  <br /></td></tr>
+<tr class="memitem:af2f87e73a03ad57a53a95e20d918bab5" id="r_af2f87e73a03ad57a53a95e20d918bab5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af2f87e73a03ad57a53a95e20d918bab5">SetModeChange</a> (<a class="el" href="#a095238b6bf7d1a2378cb3a45595acfa0">ModeChange</a> newModeChange)</td></tr>
+<tr class="memdesc:af2f87e73a03ad57a53a95e20d918bab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка способа переключения режимов  <br /></td></tr>
+<tr class="memitem:acf77578cc66da1ad3b06a295c8559984" id="r_acf77578cc66da1ad3b06a295c8559984"><td class="memItemLeft"><a class="el" href="#a095238b6bf7d1a2378cb3a45595acfa0">ModeChange</a>&#160;</td><td class="memItemRight"><a class="el" href="#acf77578cc66da1ad3b06a295c8559984">GetModeChange</a> ()</td></tr>
+<tr class="memdesc:acf77578cc66da1ad3b06a295c8559984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение текущего способа переключения режимов  <br /></td></tr>
+<tr class="memitem:a0cdbe62dd3e0bdef92f27eb0cd05657d" id="r_a0cdbe62dd3e0bdef92f27eb0cd05657d"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a0cdbe62dd3e0bdef92f27eb0cd05657d">SetMode</a> (<a class="el" href="#a4ce4af1f0070eaa8e0717e71c38c82fc">Mode</a> mode, bool withSave=true)</td></tr>
+<tr class="memdesc:a0cdbe62dd3e0bdef92f27eb0cd05657d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переключение режима работы модуля  <br /></td></tr>
+<tr class="memitem:a03dd1186fc296e9bb218212d340a3ad4" id="r_a03dd1186fc296e9bb218212d340a3ad4"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a03dd1186fc296e9bb218212d340a3ad4">SetPIN</a> (uint8_t *pinCode, uint16_t timeout=<a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a03dd1186fc296e9bb218212d340a3ad4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка PIN-кода для Bluetooth-соединения  <br /></td></tr>
+<tr class="memitem:a478c8a176ebaa7c53129c8d101cf9ceb" id="r_a478c8a176ebaa7c53129c8d101cf9ceb"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a478c8a176ebaa7c53129c8d101cf9ceb">ReadPIN</a> (uint8_t *rxbuff, uint16_t timeout=<a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a478c8a176ebaa7c53129c8d101cf9ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение текущего PIN-кода модуля  <br /></td></tr>
+<tr class="memitem:a04c732b53f6ccdfedd24c7e8f7fd5fa4" id="r_a04c732b53f6ccdfedd24c7e8f7fd5fa4"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a04c732b53f6ccdfedd24c7e8f7fd5fa4">ReadMAC</a> (uint8_t *rxbuff, uint16_t timeout=<a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a04c732b53f6ccdfedd24c7e8f7fd5fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение MAC-адреса Bluetooth-модуля  <br /></td></tr>
+<tr class="memitem:a97c3db94df40af1c0deb30b31c17a525" id="r_a97c3db94df40af1c0deb30b31c17a525"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a97c3db94df40af1c0deb30b31c17a525">Connect</a> (uint8_t *mac, uint16_t timeout=<a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a97c3db94df40af1c0deb30b31c17a525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подключение к другому Bluetooth-устройству по MAC-адресу  <br /></td></tr>
+<tr class="memitem:a7ba4ebd8d3b010730f0cf006f67b8d93" id="r_a7ba4ebd8d3b010730f0cf006f67b8d93"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a7ba4ebd8d3b010730f0cf006f67b8d93">ReleaseConnections</a> (uint16_t timeout=<a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a7ba4ebd8d3b010730f0cf006f67b8d93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Освобождение всех активных соединений  <br /></td></tr>
+<tr class="memitem:ad45894358439bfa166948c563235db5b" id="r_ad45894358439bfa166948c563235db5b"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#ad45894358439bfa166948c563235db5b">Reboot</a> (uint16_t timeout=<a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:ad45894358439bfa166948c563235db5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Программная перезагрузка модуля (через AT-команду).  <br /></td></tr>
+<tr class="memitem:ab62ec22bda270a08229ffc5b63406d1b" id="r_ab62ec22bda270a08229ffc5b63406d1b"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#ab62ec22bda270a08229ffc5b63406d1b">HardReset</a> ()</td></tr>
+<tr class="memdesc:ab62ec22bda270a08229ffc5b63406d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Аппаратная перезагрузка модуля (через пин reset).  <br /></td></tr>
+<tr class="memitem:a21f28c095b57d85207c074b232f12547" id="r_a21f28c095b57d85207c074b232f12547"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a21f28c095b57d85207c074b232f12547">ReadStatus</a> (uint8_t *rxbuff)</td></tr>
+<tr class="memdesc:a21f28c095b57d85207c074b232f12547"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение статуса модуля через пин status.  <br /></td></tr>
+<tr class="memitem:ac2bb4cded03da642feeef6bd5de5f1cf" id="r_ac2bb4cded03da642feeef6bd5de5f1cf"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#ac2bb4cded03da642feeef6bd5de5f1cf">HardDisconnect</a> ()</td></tr>
+<tr class="memdesc:ac2bb4cded03da642feeef6bd5de5f1cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Аппаратное принудительное отключение (через пин disconnect).  <br /></td></tr>
+<tr class="memitem:aa921b8fbad12d703b13989bf61326ba6" id="r_aa921b8fbad12d703b13989bf61326ba6"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#aa921b8fbad12d703b13989bf61326ba6">Restore</a> (uint16_t timeout=<a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:aa921b8fbad12d703b13989bf61326ba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сброс до заводских настроек модуля (требуется Reboot).  <br /></td></tr>
+<tr class="inherit_header pub_methods_classIntroSatLib_1_1ATDevice"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classIntroSatLib_1_1ATDevice')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="classIntroSatLib_1_1ATDevice.html">IntroSatLib::ATDevice</a></td></tr>
+<tr class="memitem:ada6e834d81c6eae571fb4ad3d52f9c35 inherit pub_methods_classIntroSatLib_1_1ATDevice" id="r_ada6e834d81c6eae571fb4ad3d52f9c35"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1ATDevice.html#ada6e834d81c6eae571fb4ad3d52f9c35">ATDevice</a> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a> uart, const uint16_t bsize=<a class="el" href="classIntroSatLib_1_1ATDevice.html#ae42118f55a883209f9f4faf045e2d52c">defaultBSize</a>)</td></tr>
+<tr class="memdesc:ada6e834d81c6eae571fb4ad3d52f9c35 inherit pub_methods_classIntroSatLib_1_1ATDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="classIntroSatLib_1_1ATDevice.html" title="Базовый класс для устройств, использующих AT-команды">ATDevice</a>.  <br /></td></tr>
+<tr class="memitem:a655d7e26ea692d594f5a4bbffeae4d63 inherit pub_methods_classIntroSatLib_1_1ATDevice" id="r_a655d7e26ea692d594f5a4bbffeae4d63"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1ATDevice.html#a655d7e26ea692d594f5a4bbffeae4d63">ReadAT</a> (const char *cmd, uint8_t *rxbuff, uint16_t rxbuff_len=<a class="el" href="classIntroSatLib_1_1ATDevice.html#ae42118f55a883209f9f4faf045e2d52c">defaultBSize</a>, uint16_t timeout=<a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a655d7e26ea692d594f5a4bbffeae4d63 inherit pub_methods_classIntroSatLib_1_1ATDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">выполнение AT-команды с целью чтения данных  <br /></td></tr>
+<tr class="memitem:a08ffc1f15c5ae9e8b433b8cbd21ac112 inherit pub_methods_classIntroSatLib_1_1ATDevice" id="r_a08ffc1f15c5ae9e8b433b8cbd21ac112"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a08ffc1f15c5ae9e8b433b8cbd21ac112 inherit pub_methods_classIntroSatLib_1_1ATDevice template"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1ATDevice.html#a08ffc1f15c5ae9e8b433b8cbd21ac112">WriteAT</a> (const char *cmd, uint16_t timeout, Args... args)</td></tr>
+<tr class="memdesc:a08ffc1f15c5ae9e8b433b8cbd21ac112 inherit pub_methods_classIntroSatLib_1_1ATDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">выполнение AT-команды с целью записи данных/выполнения действия  <br /></td></tr>
+<tr class="memitem:a369058a6b773ea9ae022c39df94ab810 inherit pub_methods_classIntroSatLib_1_1ATDevice" id="r_a369058a6b773ea9ae022c39df94ab810"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a369058a6b773ea9ae022c39df94ab810 inherit pub_methods_classIntroSatLib_1_1ATDevice template"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1ATDevice.html#a369058a6b773ea9ae022c39df94ab810">WriteAT</a> (const char *cmd, Args... args)</td></tr>
+<tr class="memdesc:a369058a6b773ea9ae022c39df94ab810 inherit pub_methods_classIntroSatLib_1_1ATDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">выполнение AT-команды с целью записи данных/выполнения действия (с таймаутом по умолчанию)  <br /></td></tr>
+<tr class="memitem:acf64bc63b522aed1dababd60c6c35fca inherit pub_methods_classIntroSatLib_1_1ATDevice" id="r_acf64bc63b522aed1dababd60c6c35fca"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:acf64bc63b522aed1dababd60c6c35fca inherit pub_methods_classIntroSatLib_1_1ATDevice template"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1ATDevice.html#acf64bc63b522aed1dababd60c6c35fca">ATCommand</a> (uint8_t *buff, uint8_t <a class="el" href="classIntroSatLib_1_1ATDevice.html#ade63be0d08cf4f5cc30a26a960d1595a">buffSize</a>, const char *cmd, Args... args)</td></tr>
+<tr class="memdesc:acf64bc63b522aed1dababd60c6c35fca inherit pub_methods_classIntroSatLib_1_1ATDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Формирование AT-команды в буфере  <br /></td></tr>
+<tr class="inherit_header pub_methods_classIntroSatLib_1_1UARTDevice"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classIntroSatLib_1_1UARTDevice')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="classIntroSatLib_1_1UARTDevice.html">IntroSatLib::UARTDevice</a></td></tr>
+<tr class="memitem:aff5503123da8b4ccb3b401ed963f0bf3 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_aff5503123da8b4ccb3b401ed963f0bf3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#aff5503123da8b4ccb3b401ed963f0bf3">UARTDevice</a> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a> uart)</td></tr>
+<tr class="memdesc:aff5503123da8b4ccb3b401ed963f0bf3 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="classIntroSatLib_1_1UARTDevice.html" title="Базовый класс для устройств, использующих UART интерфейс">UARTDevice</a>.  <br /></td></tr>
+<tr class="memitem:a566923f741ec74470ede3396c3906427 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_a566923f741ec74470ede3396c3906427"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#a566923f741ec74470ede3396c3906427">UARTDevice</a> (const UARTDevice &amp;other)</td></tr>
+<tr class="memdesc:a566923f741ec74470ede3396c3906427 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор копирования  <br /></td></tr>
+<tr class="memitem:a9858a8b8dccb9ce8d6ea166d61650053 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_a9858a8b8dccb9ce8d6ea166d61650053"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#a9858a8b8dccb9ce8d6ea166d61650053">UARTDevice</a> (UARTDevice &amp;&amp;other)</td></tr>
+<tr class="memdesc:a9858a8b8dccb9ce8d6ea166d61650053 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор перемещения  <br /></td></tr>
+<tr class="memitem:a4749718a37ae97a023e03e6a6e938601 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_a4749718a37ae97a023e03e6a6e938601"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#a4749718a37ae97a023e03e6a6e938601">WriteUART</a> (uint8_t *buf, uint16_t nBytes, uint16_t timeout=<a class="el" href="classIntroSatLib_1_1UARTDevice.html#ad6f83f3b2adc002169a779d765f9ccf4">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a4749718a37ae97a023e03e6a6e938601 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправка данных через UART.  <br /></td></tr>
+<tr class="memitem:a059cc2cfd768a7dad3c2392acdc32aa3 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_a059cc2cfd768a7dad3c2392acdc32aa3"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#a059cc2cfd768a7dad3c2392acdc32aa3">ReadUART</a> (uint8_t *buf, uint16_t nBytes=1, uint16_t timeout=<a class="el" href="classIntroSatLib_1_1UARTDevice.html#ad6f83f3b2adc002169a779d765f9ccf4">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a059cc2cfd768a7dad3c2392acdc32aa3 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение данных из UART.  <br /></td></tr>
+<tr class="memitem:ac86a8ba6b226c65f836fbd690e2d2bd8 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_ac86a8ba6b226c65f836fbd690e2d2bd8"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#ac86a8ba6b226c65f836fbd690e2d2bd8">Available</a> ()</td></tr>
+<tr class="memdesc:ac86a8ba6b226c65f836fbd690e2d2bd8 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка наличия данных в приемном буфере UART.  <br /></td></tr>
+<tr class="memitem:a23c231fa209821e2622c8d9b72a55c23 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_a23c231fa209821e2622c8d9b72a55c23"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>FlushRX</b> ()</td></tr>
+<tr class="memdesc:a23c231fa209821e2622c8d9b72a55c23 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Очистка входного буфера UART. <br /></td></tr>
+<tr class="inherit_header pub_methods_classIntroSatLib_1_1Device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classIntroSatLib_1_1Device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="classIntroSatLib_1_1Device.html">IntroSatLib::Device</a></td></tr>
+<tr class="memitem:a8f687ec7a9822ccc409037bf1cc6c59f inherit pub_methods_classIntroSatLib_1_1Device" id="r_a8f687ec7a9822ccc409037bf1cc6c59f"><td class="memItemLeft">
+Device::DeviceState&#160;</td><td class="memItemRight"><b>GetState</b> ()</td></tr>
+<tr class="memitem:aa6f6a4c96b8d377ac6a020f903558694 inherit pub_methods_classIntroSatLib_1_1Device" id="r_aa6f6a4c96b8d377ac6a020f903558694"><td class="memItemLeft">
+virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>Enable</b> ()</td></tr>
+<tr class="memitem:aa9b38286b66f8990cf5c79f3732fd64d inherit pub_methods_classIntroSatLib_1_1Device" id="r_aa9b38286b66f8990cf5c79f3732fd64d"><td class="memItemLeft">
+virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>Disable</b> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
+Дополнительные унаследованные члены</h2></td></tr>
+<tr class="inherit_header pro_methods_classIntroSatLib_1_1ATDevice"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classIntroSatLib_1_1ATDevice')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные члены унаследованные от <a class="el" href="classIntroSatLib_1_1ATDevice.html">IntroSatLib::ATDevice</a></td></tr>
+<tr class="memitem:a76fa713828e4cc648f745e0d05b1e886 inherit pro_methods_classIntroSatLib_1_1ATDevice" id="r_a76fa713828e4cc648f745e0d05b1e886"><td class="memItemLeft">virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1ATDevice.html#a76fa713828e4cc648f745e0d05b1e886">ATCommandEnd</a> (uint8_t **ptr, uint8_t **end, uint8_t nargs)</td></tr>
+<tr class="memdesc:a76fa713828e4cc648f745e0d05b1e886 inherit pro_methods_classIntroSatLib_1_1ATDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальная функция завершения AT-команды  <br /></td></tr>
+<tr class="memitem:aacf7b0694a38876d11377bede3a72754 inherit pro_methods_classIntroSatLib_1_1ATDevice" id="r_aacf7b0694a38876d11377bede3a72754"><td class="memItemLeft">virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1ATDevice.html#aacf7b0694a38876d11377bede3a72754">ATCommandSeparator</a> (uint8_t **ptr, uint8_t **end, uint8_t nargs)</td></tr>
+<tr class="memdesc:aacf7b0694a38876d11377bede3a72754 inherit pro_methods_classIntroSatLib_1_1ATDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальная функция разделителя аргументов AT-команды  <br /></td></tr>
+<tr class="memitem:a63cbaa6c5be590bae50f54835016fd87 inherit pro_methods_classIntroSatLib_1_1ATDevice" id="r_a63cbaa6c5be590bae50f54835016fd87"><td class="memItemLeft">virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1ATDevice.html#a63cbaa6c5be590bae50f54835016fd87">ATCommandEquals</a> (uint8_t **ptr, uint8_t **end, uint8_t nargs)</td></tr>
+<tr class="memdesc:a63cbaa6c5be590bae50f54835016fd87 inherit pro_methods_classIntroSatLib_1_1ATDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальная функция символа равенства AT-команды  <br /></td></tr>
+<tr class="memitem:a9b31fd3835920a09a9cf6a46456c13ef inherit pro_methods_classIntroSatLib_1_1ATDevice" id="r_a9b31fd3835920a09a9cf6a46456c13ef"><td class="memItemLeft">virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1ATDevice.html#a9b31fd3835920a09a9cf6a46456c13ef">ATCommandStart</a> (uint8_t **ptr, uint8_t **end, uint8_t nargs)</td></tr>
+<tr class="memdesc:a9b31fd3835920a09a9cf6a46456c13ef inherit pro_methods_classIntroSatLib_1_1ATDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Виртуальная функция начала AT-команды  <br /></td></tr>
+<tr class="memitem:a682b42f9e6eebfe1d02b1128bf08c4e5 inherit pro_methods_classIntroSatLib_1_1ATDevice" id="r_a682b42f9e6eebfe1d02b1128bf08c4e5"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1ATDevice.html#a682b42f9e6eebfe1d02b1128bf08c4e5">ExecuteATCommand</a> (uint8_t *command, uint8_t *rxbuff, uint16_t length, uint16_t timeout=<a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a682b42f9e6eebfe1d02b1128bf08c4e5 inherit pro_methods_classIntroSatLib_1_1ATDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выполнение AT-команды  <br /></td></tr>
+<tr class="inherit_header pro_methods_classIntroSatLib_1_1Device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classIntroSatLib_1_1Device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные члены унаследованные от <a class="el" href="classIntroSatLib_1_1Device.html">IntroSatLib::Device</a></td></tr>
+<tr class="memitem:a250a0d27735ec18cd3771666b6efc9c7 inherit pro_methods_classIntroSatLib_1_1Device" id="r_a250a0d27735ec18cd3771666b6efc9c7"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>setState</b> (Device::DeviceState state)</td></tr>
+<tr class="inherit_header pro_attribs_classIntroSatLib_1_1ATDevice"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classIntroSatLib_1_1ATDevice')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные данные унаследованные от <a class="el" href="classIntroSatLib_1_1ATDevice.html">IntroSatLib::ATDevice</a></td></tr>
+<tr class="memitem:ade63be0d08cf4f5cc30a26a960d1595a inherit pro_attribs_classIntroSatLib_1_1ATDevice" id="r_ade63be0d08cf4f5cc30a26a960d1595a"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1ATDevice.html#ade63be0d08cf4f5cc30a26a960d1595a">buffSize</a></td></tr>
+<tr class="inherit_header pro_static_attribs_classIntroSatLib_1_1ATDevice"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_static_attribs_classIntroSatLib_1_1ATDevice')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Статические защищенные данные унаследованные от <a class="el" href="classIntroSatLib_1_1ATDevice.html">IntroSatLib::ATDevice</a></td></tr>
+<tr class="memitem:ad9035c563bde5ee112351e01d840d976 inherit pro_static_attribs_classIntroSatLib_1_1ATDevice" id="r_ad9035c563bde5ee112351e01d840d976"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a> = 500</td></tr>
+<tr class="memitem:ae42118f55a883209f9f4faf045e2d52c inherit pro_static_attribs_classIntroSatLib_1_1ATDevice" id="r_ae42118f55a883209f9f4faf045e2d52c"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1ATDevice.html#ae42118f55a883209f9f4faf045e2d52c">defaultBSize</a> = 128</td></tr>
+<tr class="inherit_header pro_static_attribs_classIntroSatLib_1_1UARTDevice"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_static_attribs_classIntroSatLib_1_1UARTDevice')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Статические защищенные данные унаследованные от <a class="el" href="classIntroSatLib_1_1UARTDevice.html">IntroSatLib::UARTDevice</a></td></tr>
+<tr class="memitem:ad6f83f3b2adc002169a779d765f9ccf4 inherit pro_static_attribs_classIntroSatLib_1_1UARTDevice" id="r_ad6f83f3b2adc002169a779d765f9ccf4"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#ad6f83f3b2adc002169a779d765f9ccf4">defaultTimeout</a> = 100</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс драйвера Bluetooth-модуля FSC-BT986. </p>
+<p>Обеспечивает функционал для работы с Bluetooth-модулем FSC-BT986 </p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Перечисления</h2>
+<a id="a4ce4af1f0070eaa8e0717e71c38c82fc" name="a4ce4af1f0070eaa8e0717e71c38c82fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ce4af1f0070eaa8e0717e71c38c82fc">&#9670;&#160;</a></span>Mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a4ce4af1f0070eaa8e0717e71c38c82fc">IntroSatLib::FSC_BT986::Mode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Режимы работы bluetooth модуля </p>
+<table class="fieldtable">
+<tr><th colspan="3">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a4ce4af1f0070eaa8e0717e71c38c82fca0b85467ebafa7ca3c47e82dc38184484" name="a4ce4af1f0070eaa8e0717e71c38c82fca0b85467ebafa7ca3c47e82dc38184484"></a>Throughput&#160;</td><td class="fieldinit">0&#160;</td><td class="fielddoc"><p>Режим передачи данных </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4ce4af1f0070eaa8e0717e71c38c82fcaee97be03cb04119af45014d815621ce1" name="a4ce4af1f0070eaa8e0717e71c38c82fcaee97be03cb04119af45014d815621ce1"></a>Command&#160;</td><td class="fieldinit">1&#160;</td><td class="fielddoc"><p>Командный режим (AT-команды) </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a095238b6bf7d1a2378cb3a45595acfa0" name="a095238b6bf7d1a2378cb3a45595acfa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a095238b6bf7d1a2378cb3a45595acfa0">&#9670;&#160;</a></span>ModeChange</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a095238b6bf7d1a2378cb3a45595acfa0">IntroSatLib::FSC_BT986::ModeChange</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Способ переключения режима работы </p>
+<table class="fieldtable">
+<tr><th colspan="3">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a095238b6bf7d1a2378cb3a45595acfa0a6adf97f83acf6453d4a6a4b1070f3754" name="a095238b6bf7d1a2378cb3a45595acfa0a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fieldinit">0b00&#160;</td><td class="fielddoc"><p>Нет переключения </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a095238b6bf7d1a2378cb3a45595acfa0a3c02a379965ab0dfcd77b1c484450433" name="a095238b6bf7d1a2378cb3a45595acfa0a3c02a379965ab0dfcd77b1c484450433"></a>Hardware&#160;</td><td class="fieldinit">0b01&#160;</td><td class="fielddoc"><p>Только аппаратное (пин mode) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a095238b6bf7d1a2378cb3a45595acfa0a719d067b229178f03bcfa1da4ac4dede" name="a095238b6bf7d1a2378cb3a45595acfa0a719d067b229178f03bcfa1da4ac4dede"></a>Software&#160;</td><td class="fieldinit">0b10&#160;</td><td class="fielddoc"><p>Только программное (AT-команда) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a095238b6bf7d1a2378cb3a45595acfa0a9ad88690d6525a922a9c77fff78ec08e" name="a095238b6bf7d1a2378cb3a45595acfa0a9ad88690d6525a922a9c77fff78ec08e"></a>HardwareAndSoftware&#160;</td><td class="fieldinit">0b11&#160;</td><td class="fielddoc"><p>Оба способа </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="a79178a54415013a494cfcc350bf229b6" name="a79178a54415013a494cfcc350bf229b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79178a54415013a494cfcc350bf229b6">&#9670;&#160;</a></span>FSC_BT986()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::FSC_BT986::FSC_BT986 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a></td>          <td class="paramname"><span class="paramname"><em>uart</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structIntroSatLib_1_1FSC__BT986_1_1FSC__BT986Pins.html">FSC_BT986Pins</a></td>          <td class="paramname"><span class="paramname"><em>_pins</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint16_t</td>          <td class="paramname"><span class="paramname"><em>bsize</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classIntroSatLib_1_1ATDevice.html#ae42118f55a883209f9f4faf045e2d52c">defaultBSize</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор класса <a class="el" href="classIntroSatLib_1_1FSC__BT986.html" title="Класс драйвера Bluetooth-модуля FSC-BT986.">FSC_BT986</a>. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uart</td><td>Ссылка на объект UART интерфейса для связи с модулем </td></tr>
+    <tr><td class="paramname">_pins</td><td>Структура с пинами для аппаратного управления модулем </td></tr>
+    <tr><td class="paramname">bsize</td><td>Размер буфера для AT-команд/приема данных </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a97c3db94df40af1c0deb30b31c17a525" name="a97c3db94df40af1c0deb30b31c17a525"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97c3db94df40af1c0deb30b31c17a525">&#9670;&#160;</a></span>Connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::FSC_BT986::Connect </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>mac</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Подключение к другому Bluetooth-устройству по MAC-адресу </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mac</td><td>Указатель на строку с MAC-адресом целевого устройства </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции в миллисекундах </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="acf77578cc66da1ad3b06a295c8559984" name="acf77578cc66da1ad3b06a295c8559984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf77578cc66da1ad3b06a295c8559984">&#9670;&#160;</a></span>GetModeChange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a095238b6bf7d1a2378cb3a45595acfa0">ModeChange</a> IntroSatLib::FSC_BT986::GetModeChange </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение текущего способа переключения режимов </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Текущий способ переключения </dd></dl>
+
+</div>
+</div>
+<a id="ac2bb4cded03da642feeef6bd5de5f1cf" name="ac2bb4cded03da642feeef6bd5de5f1cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2bb4cded03da642feeef6bd5de5f1cf">&#9670;&#160;</a></span>HardDisconnect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::FSC_BT986::HardDisconnect </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Аппаратное принудительное отключение (через пин disconnect). </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>Состояние пина disconnect (0 - /, 1 - disconnected) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="ab62ec22bda270a08229ffc5b63406d1b" name="ab62ec22bda270a08229ffc5b63406d1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab62ec22bda270a08229ffc5b63406d1b">&#9670;&#160;</a></span>HardReset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::FSC_BT986::HardReset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Аппаратная перезагрузка модуля (через пин reset). </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="ae3de10d4587e58bf5b63b2c4053ed8d6" name="ae3de10d4587e58bf5b63b2c4053ed8d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3de10d4587e58bf5b63b2c4053ed8d6">&#9670;&#160;</a></span>Init() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::FSC_BT986::Init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Инициализация Bluetooth-модуля в режиме передачи данных </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1Device.html">IntroSatLib::Device</a>.</p>
+
+</div>
+</div>
+<a id="a5275014677755815785287e477d26cad" name="a5275014677755815785287e477d26cad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5275014677755815785287e477d26cad">&#9670;&#160;</a></span>Init() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::FSC_BT986::Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a4ce4af1f0070eaa8e0717e71c38c82fc">Mode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Инициализация Bluetooth-модуля с указанием начального режима </p>
+<p>Выполняет необходимую последовательность действий для корректного запуска и настройки модуля.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>Начальный режим работы модуля </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a04c732b53f6ccdfedd24c7e8f7fd5fa4" name="a04c732b53f6ccdfedd24c7e8f7fd5fa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04c732b53f6ccdfedd24c7e8f7fd5fa4">&#9670;&#160;</a></span>ReadMAC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::FSC_BT986::ReadMAC </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>rxbuff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Чтение MAC-адреса Bluetooth-модуля </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rxbuff</td><td>Указатель на буфер для приема MAC-адреса (до 28 байт) </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции в миллисекундах </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a478c8a176ebaa7c53129c8d101cf9ceb" name="a478c8a176ebaa7c53129c8d101cf9ceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a478c8a176ebaa7c53129c8d101cf9ceb">&#9670;&#160;</a></span>ReadPIN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::FSC_BT986::ReadPIN </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>rxbuff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Чтение текущего PIN-кода модуля </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rxbuff</td><td>Указатель на буфер для приема PIN-кода (до 30 байт) </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции в миллисекундах </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a21f28c095b57d85207c074b232f12547" name="a21f28c095b57d85207c074b232f12547"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21f28c095b57d85207c074b232f12547">&#9670;&#160;</a></span>ReadStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::FSC_BT986::ReadStatus </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>rxbuff</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Чтение статуса модуля через пин status. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rxbuff</td><td>указатель на буфер для приема значения </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Текущее состояние пина status </dd></dl>
+
+</div>
+</div>
+<a id="ad45894358439bfa166948c563235db5b" name="ad45894358439bfa166948c563235db5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad45894358439bfa166948c563235db5b">&#9670;&#160;</a></span>Reboot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::FSC_BT986::Reboot </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Программная перезагрузка модуля (через AT-команду). </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Таймаут операции в миллисекундах </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a7ba4ebd8d3b010730f0cf006f67b8d93" name="a7ba4ebd8d3b010730f0cf006f67b8d93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ba4ebd8d3b010730f0cf006f67b8d93">&#9670;&#160;</a></span>ReleaseConnections()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::FSC_BT986::ReleaseConnections </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Освобождение всех активных соединений </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Таймаут операции в миллисекундах </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="aa921b8fbad12d703b13989bf61326ba6" name="aa921b8fbad12d703b13989bf61326ba6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa921b8fbad12d703b13989bf61326ba6">&#9670;&#160;</a></span>Restore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::FSC_BT986::Restore </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сброс до заводских настроек модуля (требуется Reboot). </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Таймаут операции в миллисекундах </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a0cdbe62dd3e0bdef92f27eb0cd05657d" name="a0cdbe62dd3e0bdef92f27eb0cd05657d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cdbe62dd3e0bdef92f27eb0cd05657d">&#9670;&#160;</a></span>SetMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::FSC_BT986::SetMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a4ce4af1f0070eaa8e0717e71c38c82fc">Mode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>withSave</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Переключение режима работы модуля </p>
+<p>Выполняет переключение в зависимости от установленного способа (modeChange)</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>Новый режим работы </td></tr>
+    <tr><td class="paramname">withSave</td><td>требуется ли запоминать новое состояние </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="af2f87e73a03ad57a53a95e20d918bab5" name="af2f87e73a03ad57a53a95e20d918bab5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2f87e73a03ad57a53a95e20d918bab5">&#9670;&#160;</a></span>SetModeChange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntroSatLib::FSC_BT986::SetModeChange </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a095238b6bf7d1a2378cb3a45595acfa0">ModeChange</a></td>          <td class="paramname"><span class="paramname"><em>newModeChange</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установка способа переключения режимов </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newModeChange</td><td>Способ переключения </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a03dd1186fc296e9bb218212d340a3ad4" name="a03dd1186fc296e9bb218212d340a3ad4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03dd1186fc296e9bb218212d340a3ad4">&#9670;&#160;</a></span>SetPIN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::FSC_BT986::SetPIN </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>pinCode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classIntroSatLib_1_1ATDevice.html#ad9035c563bde5ee112351e01d840d976">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка PIN-кода для Bluetooth-соединения </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pinCode</td><td>Указатель на строку с PIN-кодом </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции в миллисекундах </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/Device/FSC_BT986/<a class="el" href="FSC__BT986_8h_source.html">FSC_BT986.h</a></li>
+<li>src/Device/FSC_BT986/<b>FSC_BT986.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a href="classIntroSatLib_1_1FSC__BT986.html">FSC_BT986</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>
