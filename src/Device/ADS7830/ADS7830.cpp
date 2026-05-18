@@ -52,26 +52,18 @@ ISL_StatusTypeDef ADS7830::PowerDown() {
     return ISL_StatusTypeDef::ISL_OK;
 }
 
-uint8_t ADS7830::GetRawValue(Channel channel) {
-    ISL_StatusTypeDef status;
-    uint8_t buf;
+ISL_StatusTypeDef ADS7830::PollChannel(uint8_t channel) {
+    uint8_t buf = 0;
+    if (channel >= channelCount) return ISL_StatusTypeDef::ISL_ERROR;
 
-    status = RequestConversion(channel);
-    if (status != ISL_OK)    
-        return -1;
+    if (RequestConversion(static_cast<Channel>(channel)) != ISL_OK) return ISL_StatusTypeDef::ISL_ERROR;
         
-    status = ReadI2C(&buf);
-    if (status != ISL_OK)    
-        return -1;
+    if (ReadI2C(&buf) != ISL_OK) buf = 0;
+    
     values[channel] = buf;
-    return buf;
+    return ISL_StatusTypeDef::ISL_OK;
 }
 
-    
-float ADS7830::GetValue(Channel channel) {
-    GetRawValue(channel);
-    return BaseADC::GetValue(channel);
-}
 }
 
 #endif /* ISL_I2C_ENABLED */
