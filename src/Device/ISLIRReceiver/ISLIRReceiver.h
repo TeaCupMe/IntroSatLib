@@ -37,6 +37,7 @@ private:
     volatile State currentState = State::None;
     volatile uint8_t currentLogicLvl;
     volatile uint32_t oldT = 0, newT = 0;
+    volatile uint16_t delta = 0;
     uint32_t (*TimeSource)() {system::GetTick};
 
     interfaces::GPIO receivePin;
@@ -47,7 +48,7 @@ private:
     volatile bool available = false;
     volatile uint16_t outputRawBuffHead = 0;
     volatile uint16_t outputRawBuffTail = 0;
-    volatile uint16_t outputRawBuff[defaultBSize];
+    volatile uint16_t outputRawBuff[defaultOutputBSize];
     volatile bool gettingDataFlag = false;
 
     volatile uint16_t readingStart = 0;

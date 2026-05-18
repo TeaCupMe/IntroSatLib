@@ -21,6 +21,7 @@ namespace IntroSatLib
             outputRawBuffTail = (outputRawBuffTail + 1) % defaultOutputBSize;
         }
         outputRawBuff[outputRawBuffHead] = value;
+        // Serial.println(outputRawBuff[outputRawBuffHead]);
         outputRawBuffHead = nextHead;
         return ISL_OK;
     }
@@ -42,7 +43,7 @@ namespace IntroSatLib
     {
         if (receivePin.read() == 1)
         {
-            uint16_t delta = (uint16_t)(newT-oldT);
+            // uint16_t delta = (uint16_t)(newT-oldT);
             if (abs(delta - timings.markStart) <= timings.errorScale)
             {
                 // Serial.println("Go to PreRecv");
@@ -56,7 +57,7 @@ namespace IntroSatLib
 
     void ISLIRReceiver::PreRecvStateProcess()
     {
-        uint16_t delta = (uint16_t)(newT-oldT);
+        // uint16_t delta = (uint16_t)(newT-oldT);
         if (abs(delta - timings.spaceStart) <= timings.errorScale)
         {
             // Serial.println("Go to RecvBit");
@@ -71,7 +72,7 @@ namespace IntroSatLib
 
     void ISLIRReceiver::RecvSpaceStateProcess()
     {
-        uint16_t delta = (uint16_t)(newT-oldT);
+        // uint16_t delta = (uint16_t)(newT-oldT);
         if (delta > timings.maxSpaceWidth - timings.errorScale)
         {
             // available = true;
@@ -110,7 +111,7 @@ namespace IntroSatLib
 
     void ISLIRReceiver::RecvBitStateProcess()
     {
-        uint16_t delta = (uint16_t)(newT-oldT);
+        // uint16_t delta = (uint16_t)(newT-oldT);
         if (delta > timings.maxMarkWidth - timings.errorScale)
         {
             // available = true;
@@ -122,8 +123,19 @@ namespace IntroSatLib
                 for (uint16_t i = 0; i < rawBuffN; i++)
                 {
                     put(rawBuff[i]);
+                    // Serial.println(rawBuff[i]);
                 }
             }
+
+            // Serial.println("Buff after saving:");
+            // for (uint16_t i = 0; i < defaultOutputBSize; ++i)
+            // {
+            //     Serial.print(outputRawBuff[i]);
+            //     Serial.print("\t");
+            //     Serial.flush();
+            //     if (i%8 == 7) Serial.println();
+            // }
+            // Serial.println();
 
             // Serial.println("Bit");
             // for (uint16_t i = 0; i < defaultBSize; ++i) 
@@ -140,6 +152,7 @@ namespace IntroSatLib
             {
                 rawBuff[rawBuffN] = delta;
                 rawBuffN++;
+                // Serial.println(delta);
             }
             currentState = State::RecvSpace;
         }
@@ -152,10 +165,25 @@ namespace IntroSatLib
         uint8_t oldSREG = SREG;
         cli();
 
-        oldT = newT;
-        newT = TimeSource();
+        // oldT = newT;
+        // newT = TimeSource();
 
-        // uint16_t delta = (uint16_t)(newT-oldT);
+        // Снять текущее время, не трогая старые метки
+        uint32_t currentTime = TimeSource();
+        delta = (uint16_t)(currentTime - newT); // newT хранит время последнего *принятого* перепада
+
+        // Порог фильтрации: всё, что короче errorScale (или, например, 5), считаем помехой
+        if (delta < timings.errorScale) {
+            // Помеха – игнорируем, ничего не обновляем
+            // Serial.println(delta);
+            SREG = oldSREG;
+            return;
+        }
+
+        // Достоверный перепад: обновляем временные метки
+        oldT = newT;
+        newT = currentTime;
+        
         // Serial.println(delta);
         switch (currentState)
         {
@@ -193,17 +221,18 @@ namespace IntroSatLib
 
         if (!Available()) return ISL_ERROR;
 
-        Serial.println("Buff prefer:");
-        for (uint16_t i = 0; i < defaultOutputBSize; ++i)
-        {
-            Serial.print(outputRawBuff[i]);
-            Serial.print("\t");
-            if (i%8 == 7) Serial.println();
-        }
-        Serial.println();
+        // Serial.println("Buff prefer:");
+        // for (uint16_t i = 0; i < defaultOutputBSize; ++i)
+        // {
+        //     Serial.print(outputRawBuff[i]);
+        //     Serial.print("\t");
+        //     Serial.flush();
+        //     if (i%8 == 7) Serial.println();
+        // }
+        // Serial.println();
 
         uint16_t itr;
-        for (itr = 0; (itr < length); itr++)
+        for (itr = 0; (itr < length); ++itr)
         {
             // Serial.print(itr);
             // Serial.print("\t");
@@ -213,14 +242,15 @@ namespace IntroSatLib
             // Serial.println(*(buff + itr));
         }
 
-        Serial.println("Buff after:");
-        for (uint16_t i = 0; i < defaultOutputBSize; ++i)
-        {
-            Serial.print(outputRawBuff[i]);
-            Serial.print("\t");
-            if (i%8 == 7) Serial.println();
-        }
-        Serial.println();
+        // Serial.println("Buff after:");
+        // for (uint16_t i = 0; i < defaultOutputBSize; ++i)
+        // {
+        //     Serial.print(outputRawBuff[i]);
+        //     Serial.print("\t");
+        //     Serial.flush();
+        //     if (i%8 == 7) Serial.println();
+        // }
+        // Serial.println();
 
 
         if (outputRawBuffHead == outputRawBuffTail) available = false;
@@ -236,20 +266,20 @@ namespace IntroSatLib
         Serial.println("Decoding");
         for (uint16_t i = 0; (i < rawLength) && (i/16 < rxLength); i+=2)
         {
-            Serial.print(i);
-            Serial.print("\t");
-            Serial.print(rawData[i]);
-            Serial.print("\t");
+            // Serial.print(i);
+            // Serial.print("\t");
+            // Serial.print(rawData[i]);
+            // Serial.print("\t");
             if (abs((int32_t)rawData[i] - (int32_t)timings.mark0) <= timings.errorScale)
             {
                 rxbuff[i/16] &= ~(0b1 << ((i%16)/2));
-                Serial.print("0 to ");
-                Serial.println(i/16);
+                // Serial.print("0 to ");
+                // Serial.println(i/16);
             } else if (abs((int32_t)rawData[i] - (int32_t)timings.mark1) <= timings.errorScale)
             {
                 rxbuff[i/16] |= (0b1 << ((i%16)/2));
-                Serial.print("1 to ");
-                Serial.println(i/16);
+                // Serial.print("1 to ");
+                // Serial.println(i/16);
             } else {
                 return ISL_ERROR; 
             }
