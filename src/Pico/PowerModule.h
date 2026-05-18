@@ -6,8 +6,8 @@
 
 namespace IntroSatLib {
 /**
- * @brief Класс для работы с платой питания IntroSat.Pico.
- * 
+ * \~russian @brief Класс для работы с платой питания IntroSat.Pico.
+ * \~english @brief Class for interfacing with the IntroSat.Pico power board.
  */
 class PowerModule {
 private:
@@ -16,29 +16,38 @@ private:
 public:
 
     /**
-     * @brief Каналы АЦП на плате питания IntroSat.Pico.
-     * 
+     * \~russian @brief Каналы АЦП на плате питания IntroSat.Pico.
+     * \~english @brief ADC channels on the IntroSat.Pico power board.
      */
     enum class AdcChannel : uint8_t {
-        CH_VIN =  ADS7830::Channel::CH0, /**< Входное напряжение */
-        CH_VBAT = ADS7830::Channel::CH1, /**< Напряжение на батарее */
-        CH_VOUT = ADS7830::Channel::CH2, /**< Выходное напряжение (после преобразователя) */
-        CH_CIN =  ADS7830::Channel::CH3, /**< Входной ток */
-        CH_COUT = ADS7830::Channel::CH4, /**< Выходной ток */
+        CH_VIN =  ADS7830::Channel::CH0, /**< \~russian Входное напряжение 
+                                              \~english Input voltage */
+        CH_VBAT = ADS7830::Channel::CH1, /**< \~russian Напряжение на батарее 
+                                              \~english Battery voltage */
+        CH_VOUT = ADS7830::Channel::CH2, /**< \~russian Выходное напряжение (после преобразователя) 
+                                              \~english Output voltage */
+        CH_CIN =  ADS7830::Channel::CH3, /**< \~russian Входной ток 
+                                              \~english Input current */
+        CH_COUT = ADS7830::Channel::CH4, /**< \~russian Выходной ток 
+                                              \~english Output current */
     };
 
     /**
-     * @brief Конструктор объекта для работы с платой питания IntroSat.Pico
+     * \~russian @brief Конструктор объекта для работы с платой питания IntroSat.Pico
+     * \~english @brief Constructor of the object for interfacing with the IntroSat.Pico power board
      * 
-     * @param i2c объект I2C, например \c Wire или \c Wire1
+     * \~russian @param i2c объект I2C, например \c Wire или \c Wire1
+     * \~english @param i2c I2C object, for example \c Wire or \c Wire1
      */
     PowerModule(interfaces::I2C i2c) : adc(i2c) 
     {}
 
     /**
-     * @brief Инициализация платы питания IntroSat.Pico
+     * \~russian @brief Инициализация платы питания IntroSat.Pico
+     * \~english @brief Initialize the IntroSat.Pico power board
      * 
-     * @return ISL_StatusTypeDef результат инициализации
+     * \~russian @return ISL_StatusTypeDef результат инициализации
+     * \~english @return ISL_StatusTypeDef initialization result
      */
     ISL_StatusTypeDef Init() {
         RETURN_STATUS_IF_NOT_OK_SILENT(adc.Init());
@@ -52,45 +61,55 @@ public:
     }
 
     /**
-     * @brief Получение входного напряжения(с солнечных панелей) на плате питания IntroSat.Pico
+     * \~russian @brief Получение входного напряжения(с солнечных панелей) на плате питания IntroSat.Pico
+     * \~english @brief Get the input voltage (from solar panels) on the IntroSat.Pico power board
      * 
-     * @return float значение напряжения в вольтах
+     * \~russian @return float значение напряжения в вольтах
+     * \~english @return float voltage value in volts
      */
     float GetVIN() {
         return adc.GetValue(static_cast<ADS7830::Channel>(AdcChannel::CH_VIN));
     }
 
     /**
-     * @brief Получение напряжения на батарее на плате питания IntroSat.Pico
+     * \~russian @brief Получение напряжения на батарее на плате питания IntroSat.Pico
+     * \~english @brief Get the battery voltage on the IntroSat.Pico power board
      * 
-     * @return float значение напряжения в вольтах
+     * \~russian @return float значение напряжения в вольтах
+     * \~english @return float voltage value in volts
      */
     float GetVBAT() {
         return adc.GetValue(static_cast<ADS7830::Channel>(AdcChannel::CH_VBAT));
     }
 
     /**
-     * @brief Получение выходного напряжения на плате питания IntroSat.Pico
+     * \~russian @brief Получение выходного напряжения на плате питания IntroSat.Pico
+     * \~english @brief Get the output voltage on the IntroSat.Pico power board
      * 
-     * @return float значение напряжения в вольтах
+     * \~russian @return float значение напряжения в вольтах
+     * \~english @return float voltage value in volts
      */
     float GetVOUT() {
         return adc.GetValue(static_cast<ADS7830::Channel>(AdcChannel::CH_VOUT));
     }
 
     /**
-     * @brief Получение входного тока(тока зарядки от солнечных панелей) на плате питания IntroSat.Pico
+     * \~russian @brief Получение входного тока(тока зарядки от солнечных панелей) на плате питания IntroSat.Pico
+     * \~english @brief Get the input current (charging current from solar panels) on the IntroSat.Pico power board
      * 
-     * @return float значение тока в миллиамперах
+     * \~russian @return float значение тока в миллиамперах
+     * \~english @return float current value in milliamps
      */
     float GetCIN() {
         return adc.GetValue(static_cast<ADS7830::Channel>(AdcChannel::CH_CIN));
     }
 
     /**
-     * @brief Получение выходного тока на плате питания IntroSat.Pico
+     * \~russian @brief Получение выходного тока на плате питания IntroSat.Pico
+     * \~english @brief Get the output current on the IntroSat.Pico power board
      * 
-     * @return float значение тока в миллиамперах
+     * \~russian @return float значение тока в миллиамперах
+     * \~english @return float current value in milliamps
      */
     float GetCOUT() {
         return adc.GetValue(static_cast<ADS7830::Channel>(AdcChannel::CH_COUT));
