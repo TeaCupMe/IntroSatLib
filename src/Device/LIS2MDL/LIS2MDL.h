@@ -155,22 +155,22 @@ public:
 	float MY() override;
     /**
     * @brief Получить значение по оси Z в Гауссах
-    * @return Значение по оси Y в Гауссах
+    * @return Значение по оси Z в Гауссах
     */
 	float MZ() override;
 
     /**
-    * @brief Записать сырое значение смщения нуля для показаний по оси X 
+    * @brief Записать сырое значение смещения нуля для показаний по оси X 
     * @return Статус выполнения метода ISL
     */
 	ISL_StatusTypeDef SetOffsetRawX(int16_t offsetX);
     /**
-    * @brief Записать сырое значение смщения нуля для показаний по оси Y 
+    * @brief Записать сырое значение смещения нуля для показаний по оси Y 
     * @return Статус выполнения метода ISL
     */
 	ISL_StatusTypeDef SetOffsetRawY(int16_t offsetY);
     /**
-    * @brief Записать сырое значение смщения нуля для показаний по оси Z 
+    * @brief Записать сырое значение смещения нуля для показаний по оси Z 
     * @return Статус выполнения метода ISL
     */
 	ISL_StatusTypeDef SetOffsetRawZ(int16_t offsetZ);
