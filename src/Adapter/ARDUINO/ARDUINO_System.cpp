@@ -12,6 +12,14 @@ void IntroSatLib::system::Delay(uint32_t milliseconds) {
 	delay(milliseconds);
 }
 
+uint32_t IntroSatLib::system::GetMicros() {
+	return micros();
+}
+
+void IntroSatLib::system::DelayMicroseconds(uint32_t microseconds) {
+	delayMicroseconds(microseconds);
+}
+
 #endif /* ARDUINO */
 
 
