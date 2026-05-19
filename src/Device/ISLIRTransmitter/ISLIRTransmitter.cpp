@@ -13,12 +13,10 @@ namespace IntroSatLib
 
     ISL_StatusTypeDef ISLIRTransmitter::Transmit(uint8_t* txBuff, uint16_t nbytes)
     {
-        uint16_t itr = 0;
-        for (; itr < nbytes; ++itr)
+        for (uint16_t itr = 0; itr < nbytes; ++itr)
         {
             RETURN_STATUS_IF_NOT_OK_SILENT(SendByte(txBuff[itr]));
         }
-        // if (nBits%8 != 0) RETURN_STATUS_IF_NOT_OK_SILENT(SendByte(txBuff[itr]));
 
         return ISL_OK;
     }
@@ -49,14 +47,6 @@ namespace IntroSatLib
         uint16_t buff[16];
         uint16_t n = GenerateRawTxData(&byte, 8, buff, 16);
         if (n != 16) return ISL_ERROR;
-
-        // Serial.print("Raw:\t");
-        // for (uint16_t i = 0; i < n; ++i)
-        // {
-        //     Serial.print(buff[i]);
-        //     Serial.print(" ");
-        // }
-        // Serial.println();
 
         Tone(txPin, 38000);
         DelaySource(timings.markStart);

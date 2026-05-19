@@ -30,34 +30,27 @@ private:
 
     IRProtocol::ProtocolTimings timings = IRProtocol::ProtocolTimings();
 
-    static constexpr uint16_t defaultTimeout = 1000;
     static constexpr uint16_t defaultBSize = 16;
     static constexpr uint16_t defaultOutputBSize = 65;
 
-    volatile State currentState = State::None;
-    volatile uint8_t currentLogicLvl;
-    volatile uint32_t oldT = 0, newT = 0;
-    volatile uint16_t delta = 0;
+    State currentState = State::None;
+    uint32_t newT = 0;
+    uint16_t delta = 0;
     uint32_t (*TimeSource)() {system::GetTick};
 
     interfaces::GPIO receivePin;
 
-    volatile uint16_t rawBuffN = 0;
-    volatile uint16_t rawBuff[defaultBSize];
+    uint16_t rawBuffN = 0;
+    uint16_t rawBuff[defaultBSize];
 
-    volatile bool available = false;
     volatile uint16_t outputRawBuffHead = 0;
     volatile uint16_t outputRawBuffTail = 0;
-    volatile uint16_t outputRawBuff[defaultOutputBSize];
-    volatile bool gettingDataFlag = false;
+    volatile uint8_t outputRawBuff[defaultOutputBSize];
+    volatile bool readingDataFlag = false;
 
-    volatile uint16_t readingStart = 0;
-    volatile uint16_t readingEnd = 0;
-
-    ISL_StatusTypeDef put(uint16_t value);
-    ISL_StatusTypeDef putPackage(uint16_t* values, uint16_t plength);
-    // ISL_StatusTypeDef get(uint16_t *value);
-    ISL_StatusTypeDef pop(uint16_t *value);
+    // ISL_StatusTypeDef putPackage(uint16_t* values, uint16_t plength);
+    ISL_StatusTypeDef put(uint8_t value);
+    ISL_StatusTypeDef pop(uint8_t *value);
 
     void IDLEStateProcess();
     void PreRecvStateProcess();
@@ -66,10 +59,7 @@ private:
 
 public:
 
-    ISLIRReceiver(interfaces::GPIO _receivePin) : receivePin(_receivePin)
-    {
-        currentLogicLvl = receivePin.read();
-    }
+    ISLIRReceiver(interfaces::GPIO _receivePin) : receivePin(_receivePin) { }
 
     ISL_StatusTypeDef Init()
     { 
@@ -82,9 +72,9 @@ public:
     void SetTimeSource(uint32_t (*_TimeSource)()) { TimeSource = _TimeSource; }
 
     uint16_t Available();
-    uint16_t GetRawData(uint16_t* buff, uint16_t length);
-    ISL_StatusTypeDef ISLDecode(uint16_t* rawData, uint16_t rawLength, uint8_t* rxbuff, uint16_t rxLength);
-    ISL_StatusTypeDef GetMessage(uint8_t* rxbuff, uint16_t rxLength);
+    uint16_t GetData(uint8_t* buff, uint16_t length);
+    // ISL_StatusTypeDef ISLDecode(uint16_t* rawData, uint16_t rawLength, uint8_t* rxbuff, uint16_t rxLength);
+    // ISL_StatusTypeDef GetMessage(uint8_t* rxbuff, uint16_t rxLength);
 
 };
 

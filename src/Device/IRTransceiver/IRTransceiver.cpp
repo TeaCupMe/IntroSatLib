@@ -27,24 +27,14 @@ namespace IntroSatLib
         return receiver.ProcessReceiving();
     }
 
-    bool IRTransceiver::Available()
+    uint16_t IRTransceiver::Available()
     {
         return receiver.Available();
     }
     
-    ISL_StatusTypeDef IRTransceiver::GetRawData(uint16_t* buff, uint16_t length)
+    ISL_StatusTypeDef IRTransceiver::GetData(uint8_t* buff, uint16_t length)
     {
-        return receiver.GetRawData(buff, length);
-    }
-
-    ISL_StatusTypeDef IRTransceiver::ISLDecode(uint16_t* rawData, uint16_t rawLength, uint8_t* rxbuff, uint16_t rxLength)
-    {
-        return receiver.ISLDecode(rawData, rawLength, rxbuff, rxLength);
-    }
-
-    ISL_StatusTypeDef IRTransceiver::GetMessage(uint8_t* rxbuff, uint16_t rxLength)
-    {
-        return receiver.GetMessage(rxbuff, rxLength);
+        return receiver.GetData(buff, length);
     }
 
 }
