@@ -31,7 +31,7 @@ private:
     IRProtocol::ProtocolTimings timings = IRProtocol::ProtocolTimings();
 
     static constexpr uint16_t defaultBSize = 16;
-    static constexpr uint16_t defaultOutputBSize = 65;
+    static constexpr uint16_t defaultOutputBSize = 64;
 
     State currentState = State::None;
     uint32_t newT = 0;
@@ -48,7 +48,6 @@ private:
     volatile uint8_t outputRawBuff[defaultOutputBSize];
     volatile bool readingDataFlag = false;
 
-    // ISL_StatusTypeDef putPackage(uint16_t* values, uint16_t plength);
     ISL_StatusTypeDef put(uint8_t value);
     ISL_StatusTypeDef pop(uint8_t *value);
 
@@ -62,7 +61,7 @@ public:
     ISLIRReceiver(interfaces::GPIO _receivePin) : receivePin(_receivePin) { }
 
     ISL_StatusTypeDef Init()
-    { 
+    {
         currentState = State::Idle;
         return ISL_OK;
     }
@@ -73,11 +72,8 @@ public:
 
     uint16_t Available();
     uint16_t GetData(uint8_t* buff, uint16_t length);
-    // ISL_StatusTypeDef ISLDecode(uint16_t* rawData, uint16_t rawLength, uint8_t* rxbuff, uint16_t rxLength);
-    // ISL_StatusTypeDef GetMessage(uint8_t* rxbuff, uint16_t rxLength);
 
 };
-
 
 }
 

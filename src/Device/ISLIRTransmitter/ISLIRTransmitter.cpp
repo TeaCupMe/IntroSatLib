@@ -67,8 +67,6 @@ namespace IntroSatLib
         return ISL_OK;
     }
 
-
-
 }
 
 #endif

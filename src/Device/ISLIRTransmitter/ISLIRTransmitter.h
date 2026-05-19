@@ -22,8 +22,6 @@ private:
 
     interfaces::GPIO txPin;
 
-    static constexpr uint16_t defaultBSize = 16;
-
     IRProtocol::ProtocolTimings timings = IRProtocol::ProtocolTimings();
     uint16_t modulationFrequence;
 

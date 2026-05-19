@@ -15,37 +15,12 @@ namespace IntroSatLib
         uint16_t nextHead = (outputRawBuffHead + 1) % defaultOutputBSize;
         if (nextHead == outputRawBuffTail) 
         {
-            // return ISL_ERROR;
-            // outputRawBuff[outputRawBuffTail] = 0;
             outputRawBuffTail = (outputRawBuffTail + 1) % defaultOutputBSize;
         }
         outputRawBuff[outputRawBuffHead] = value;
-        // Serial.println(outputRawBuff[outputRawBuffHead]);
         outputRawBuffHead = nextHead;
         return ISL_OK;
     }
-
-    // ISL_StatusTypeDef ISLIRReceiver::putPackage(uint16_t* values, uint16_t plength)
-    // {
-    //     uint16_t nextHead = (outputRawBuffHead + plength);
-    //     if (outputRawBuffHead < outputRawBuffTail && nextHead >= outputRawBuffTail)
-    //     {
-    //         outputRawBuffTail = (nextHead % defaultOutputBSize + 1);
-    //     }
-    //     nextHead = nextHead % defaultOutputBSize;
-    //     if (outputRawBuffHead >= outputRawBuffTail && nextHead >= outputRawBuffTail && nextHead < outputRawBuffHead)
-    //     {
-    //         outputRawBuffTail = nextHead + 1;
-    //     }
-        
-    //     for (uint16_t i = 0; i < plength; ++i)
-    //     {
-    //         outputRawBuff[(outputRawBuffHead + i) % defaultOutputBSize] = values[i];
-    //     }
-    //     outputRawBuffHead = nextHead;
-
-    //     return ISL_OK;
-    // }
 
     ISL_StatusTypeDef ISLIRReceiver::pop(uint8_t *value)
     {
@@ -94,8 +69,6 @@ namespace IntroSatLib
 
             if (!readingDataFlag)
             {
-                // putPackage(rawBuff, rawBuffN);
-
                 uint8_t data = 0;
                 for (uint8_t i = 0; (i < rawBuffN); i+=2)
                 {
@@ -135,8 +108,6 @@ namespace IntroSatLib
 
             if (!readingDataFlag)
             {
-                // putPackage(rawBuff, rawBuffN);
-
                 uint8_t data = 0;
                 for (uint8_t i = 0; (i < rawBuffN); i+=2)
                 {
@@ -223,33 +194,6 @@ namespace IntroSatLib
         readingDataFlag = false;
         return itr;
     }
-
-
-    // ISL_StatusTypeDef ISLIRReceiver::ISLDecode(uint16_t* rawData, uint16_t rawLength, uint8_t* rxbuff, uint16_t rxLength)
-    // {
-    //     for (uint16_t i = 0; (i < rawLength) && (i/16 < rxLength); i+=2)
-    //     {
-    //         if (abs((int32_t)rawData[i] - (int32_t)timings.mark0) <= timings.errorScale)
-    //         {
-    //             rxbuff[i/16] &= ~(0b1 << ((i%16)/2));
-    //         } else if (abs((int32_t)rawData[i] - (int32_t)timings.mark1) <= timings.errorScale)
-    //         {
-    //             rxbuff[i/16] |= (0b1 << ((i%16)/2));
-    //         } else
-    //         {
-    //             return ISL_ERROR; 
-    //         }
-    //     }
-    //     return ISL_OK;
-    // }
-
-    // ISL_StatusTypeDef ISLIRReceiver::GetMessage(uint8_t* rxbuff, uint16_t rxLength)
-    // {
-    //     uint16_t buff[defaultOutputBSize];
-    //     uint16_t n = GetData(buff, rxLength*16);
-    //     RETURN_STATUS_IF_NOT_OK_SILENT(ISLDecode(buff, n, rxbuff, rxLength));
-    //     return ISL_OK;
-    // }
 
     uint16_t ISLIRReceiver::Available()
     {
