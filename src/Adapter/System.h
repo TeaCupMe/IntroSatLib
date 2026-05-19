@@ -26,7 +26,6 @@
 
 		// Include hal for supported STM32 platforms
 		#include "./STM32/stm32xxyy_hal.h"
-		#include "dwt.h"
 
 		#ifndef HAL_MODULE_ENABLED
 			#error "HAL not enabled"
