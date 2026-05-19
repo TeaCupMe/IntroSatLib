@@ -11,15 +11,14 @@
 namespace IntroSatLib
 {
 
-    ISL_StatusTypeDef ISLIRTransmitter::Transmit(uint8_t* txBuff, uint16_t nBits)
+    ISL_StatusTypeDef ISLIRTransmitter::Transmit(uint8_t* txBuff, uint16_t nbytes)
     {
         uint16_t itr = 0;
-        for (; itr < (nBits/8); ++itr)
+        for (; itr < nbytes; ++itr)
         {
             RETURN_STATUS_IF_NOT_OK_SILENT(SendByte(txBuff[itr]));
-            DelaySource(100);
         }
-        if (nBits%8 != 0) RETURN_STATUS_IF_NOT_OK_SILENT(SendByte(txBuff[itr]));
+        // if (nBits%8 != 0) RETURN_STATUS_IF_NOT_OK_SILENT(SendByte(txBuff[itr]));
 
         return ISL_OK;
     }

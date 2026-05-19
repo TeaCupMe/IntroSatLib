@@ -40,7 +40,7 @@ public:
                                                                             modulationFrequence(frequence) { }
     ISL_StatusTypeDef Init() { return ISL_OK; }
 
-    ISL_StatusTypeDef Transmit(uint8_t* txBuff, uint16_t length);
+    ISL_StatusTypeDef Transmit(uint8_t* txBuff, uint16_t nbytes);
 
     void SetTone(void (*_Tone)(interfaces::GPIO tonePin, uint16_t frequency)) { Tone = _Tone; }
     void SetNoTone(void (*_NoTone)(interfaces::GPIO tonePin)) { NoTone = _NoTone; }

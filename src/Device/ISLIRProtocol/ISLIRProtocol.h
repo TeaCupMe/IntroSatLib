@@ -15,7 +15,7 @@ namespace IntroSatLib
             uint16_t space0 = 10;
             uint16_t space1 = 10;
             uint16_t errorScale = 5;
-            uint16_t maxSpaceWidth = 30;
+            uint16_t maxSpaceWidth = 100;
             uint16_t maxMarkWidth = 30;
         };
     }

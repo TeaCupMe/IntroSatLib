@@ -81,7 +81,7 @@ public:
 
     void SetTimeSource(uint32_t (*_TimeSource)()) { TimeSource = _TimeSource; }
 
-    bool Available() { return available; }
+    uint16_t Available();
     uint16_t GetRawData(uint16_t* buff, uint16_t length);
     ISL_StatusTypeDef ISLDecode(uint16_t* rawData, uint16_t rawLength, uint8_t* rxbuff, uint16_t rxLength);
     ISL_StatusTypeDef GetMessage(uint8_t* rxbuff, uint16_t rxLength);
