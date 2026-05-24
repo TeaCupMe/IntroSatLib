@@ -5,7 +5,7 @@
 #include "Pico/PowerModule.h"
 
 // Включаем пространство имён библиотеки для работы с пикосатами (и кубсатами тоже :))
-using namespace IntroSatLib;
+using namespace IntroSatLib::Pico;
 
 
 // Создаём объект для управления АЦП

@@ -4,7 +4,7 @@
 #include "Adapter/I2C.h"
 #include "Device/ADS7830/ADS7830.h"
 
-namespace IntroSatLib {
+namespace IntroSatLib::Pico {
 /**
  * \~russian @brief Класс для работы с платой питания IntroSat.Pico.
  * \~english @brief Class for interfacing with the IntroSat.Pico power board.
