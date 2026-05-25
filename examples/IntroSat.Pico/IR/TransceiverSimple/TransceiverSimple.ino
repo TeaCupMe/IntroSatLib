@@ -1,5 +1,5 @@
 // Подключаем заголовочные файлы IntroSatLib.
-#include <IS_Bluetooth.h>
+#include "IntroSatLib.h"
 #include <ISL_Bootloader.h>
 // Заголовочный файл класса ИК-приёмопередатчика.
 #include <Device/IRTransceiver/IRTransceiver.h>
