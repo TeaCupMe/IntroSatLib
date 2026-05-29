@@ -91,6 +91,8 @@ public:
 
 	ISL_StatusTypeDef waitReset(uint16_t timeout = 0xFFFF) const { return wait(0, timeout); }
 	ISL_StatusTypeDef waitSet(uint16_t timeout = 0xFFFF) const { return wait(1, timeout); }
+	void tone(GPIO_HANDLE_TYPE pin, uint16_t frequency);
+	void noTone(GPIO_HANDLE_TYPE pin);
 	bool isValid() const;
 };
 
