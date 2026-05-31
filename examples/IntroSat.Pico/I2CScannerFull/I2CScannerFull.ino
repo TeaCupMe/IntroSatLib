@@ -3,8 +3,8 @@
 #include <I2CScanner.h>
 #include <IS_Bluetooth.h>
 
-#define ADDR 0x1E       //Адрес уствойства для считывания регистров
-#define FIRST_REG 0x20  //Стартовый регистор
+#define ADDR 0x1E       //Адрес устройства для считывания регистров
+#define FIRST_REG 0x20  //Стартовый регистр
 #define COUNT_REG 3     //Количество считываемых регистров
 
 /* Подключение пространства имён библиотеки,
@@ -16,7 +16,7 @@ I2CScanner Scanner;
 
 void setup() {
   // Включение Serial для вывода данных
-  Serial.begin(115200,SERIAL_8E1);
+  Serial.begin(115200);
 
   // Инициализация Wire - I2C1
   Wire.begin();
