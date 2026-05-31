@@ -14,12 +14,12 @@ void setup() {
     pinMode(CC1101_CS_PIN, OUTPUT);
 
     Serial.begin(115200);
-    Serial.println(F("Starting..."));
+    Serial.println(F("Инициализация..."));
     SPI.begin();
     
 
-    if (radio.Init() == CC1101::STATUS_CHIP_NOT_FOUND) {
-        Serial.println(F("Chip not found!"));
+    if (radio.Init() != 0) {
+        Serial.println(F("Ошибка инициализации!"));
         while (true) { delay(1000); }
     }
 
