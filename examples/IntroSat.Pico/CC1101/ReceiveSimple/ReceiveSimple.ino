@@ -48,7 +48,7 @@ void loop() {
         Serial.print(F(" bytes: "));
         Serial.write(buffer, receivedLength);
         Serial.print(" [RSSI: ");
-        Serial.print(radio.getRssi());
+        Serial.print(radio.getRSSI());
         Serial.println(" dBm]");
     }
 
