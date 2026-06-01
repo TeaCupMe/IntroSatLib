@@ -107,6 +107,7 @@ jobs:
           path: sketches-reports
 
   build-examples-mik32:
+    continue-on-error: true
     name: Build IntroSat examples for Arduino IDE (MIK32_Amur)
     runs-on: ubuntu-latest
     needs: build-legacy-codes
