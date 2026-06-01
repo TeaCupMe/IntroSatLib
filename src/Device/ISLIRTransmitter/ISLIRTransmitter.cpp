@@ -4,8 +4,6 @@
 #if defined(ISL_GPIO_ENABLED)
 
 #include "Device/ISLIRTransmitter/ISLIRTransmitter.h"
-
-#if defined(ARDUINO_AVR_ATmega328)
 #include "Adapter/System.h"
 
 namespace IntroSatLib
@@ -48,20 +46,20 @@ namespace IntroSatLib
         uint16_t n = GenerateRawTxData(&byte, 8, buff, 16);
         if (n != 16) return ISL_ERROR;
 
-        Tone(txPin, 38000);
+        txPin.tone(38000);
         DelaySource(timings.markStart);
-        NoTone(txPin);
+        txPin.noTone();
         DelaySource(timings.spaceStart);
         for (uint16_t i = 0; i < n; i+=2)
         {
-            Tone(txPin, 38000);
+            txPin.tone(38000);
             DelaySource(buff[i]);
-            NoTone(txPin);
+            txPin.noTone();
             DelaySource(buff[i+1]);
         }
-        Tone(txPin, 38000);
+        txPin.tone(38000);
         DelaySource(timings.maxMarkWidth);
-        NoTone(txPin);
+        txPin.noTone();
         DelaySource(timings.maxSpaceWidth);
 
         return ISL_OK;
@@ -69,5 +67,4 @@ namespace IntroSatLib
 
 }
 
-#endif
 #endif

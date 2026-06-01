@@ -1,8 +1,6 @@
 #ifndef ISLIRRECEIVER_H_
 #define ISLIRRECEIVER_H_
 
-#if defined(ARDUINO_AVR_ATmega328)
-
 #include "Device/Device.h"
 #include "Adapter/GPIO.h"
 #include "Device/ISLIRProtocol/ISLIRProtocol.h"
@@ -166,5 +164,4 @@ public:
 
 }
 
-#endif
 #endif

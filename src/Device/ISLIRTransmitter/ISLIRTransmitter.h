@@ -1,8 +1,6 @@
 #ifndef ISLIRTRANSMITTER_H_
 #define ISLIRTRANSMITTER_H_
 
-#if defined(ARDUINO_AVR_ATmega328)
-
 #include "Device/Device.h"
 #include "Adapter/GPIO.h"
 #include "Device/ISLIRProtocol/ISLIRProtocol.h"
@@ -31,8 +29,6 @@ private:
     IRProtocol::ProtocolTimings timings = IRProtocol::ProtocolTimings(); ///< \~russian Параметры протокола
     uint16_t modulationFrequence;     ///< \~russian Частота модуляции (Гц), по умолчанию 38000
 
-    void (*Tone)(interfaces::GPIO tonePin, uint16_t frequency) { tone };   ///< \~russian Функция включения несущей
-    void (*NoTone)(interfaces::GPIO tonePin) { noTone };                   ///< \~russian Функция выключения несущей
     void (*DelaySource)(uint32_t time) {system::Delay};                    ///< \~russian Функция задержки (мкс или мс)
 
     /**
@@ -89,20 +85,6 @@ public:
 
     /**
      * \~russian
-     * @brief Назначить функцию включения несущей.
-     * @param _Tone Указатель на функцию с сигнатурой void(interfaces::GPIO, uint16_t).
-     */
-    void SetTone(void (*_Tone)(interfaces::GPIO tonePin, uint16_t frequency)) { Tone = _Tone; }
-
-    /**
-     * \~russian
-     * @brief Назначить функцию выключения несущей.
-     * @param _NoTone Указатель на функцию с сигнатурой void(interfaces::GPIO).
-     */
-    void SetNoTone(void (*_NoTone)(interfaces::GPIO tonePin)) { NoTone = _NoTone; }
-
-    /**
-     * \~russian
      * @brief Назначить функцию задержки.
      * @param _DelaySource Указатель на функцию с сигнатурой void(uint32_t).
      */
@@ -125,5 +107,4 @@ public:
 
 }
 
-#endif
 #endif

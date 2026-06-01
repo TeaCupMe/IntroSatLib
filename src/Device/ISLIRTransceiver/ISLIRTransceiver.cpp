@@ -1,6 +1,4 @@
 #include "Device/ISLIRTransceiver/ISLIRTransceiver.h"
-
-#if defined(ARDUINO_AVR_ATmega328)
 #include "Adapter/System.h"
 
 namespace IntroSatLib
@@ -38,16 +36,6 @@ ISL_StatusTypeDef ISLIRTransceiver::Transmit(uint8_t* txBuff, uint16_t nbytes)
     return transmitter.Transmit(txBuff, nbytes);
 }
 
-void ISLIRTransceiver::SetTone(void (*Tone)(interfaces::GPIO tonePin, uint16_t frequency))
-{
-    transmitter.SetTone(Tone);
-}
-
-void ISLIRTransceiver::SetNoTone(void (*NoTone)(interfaces::GPIO tonePin))
-{
-    transmitter.SetNoTone(NoTone);
-}
-
 void ISLIRTransceiver::SetDelaySource(void (*DelaySource)(uint32_t time))
 {
     transmitter.SetDelaySource(DelaySource);
@@ -64,5 +52,3 @@ uint16_t ISLIRTransceiver::GetModulationFrequence()
 }
 
 } // namespace IntroSatLib
-
-#endif // ARDUINO_AVR_ATmega328

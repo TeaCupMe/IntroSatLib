@@ -1,8 +1,6 @@
 #ifndef IRTRANSCEIVER_H_
 #define IRTRANSCEIVER_H_
 
-#if defined(ARDUINO_AVR_ATmega328)
-
 #include "Device/ISLIRReceiver/ISLIRReceiver.h"
 #include "Device/ISLIRTransmitter/ISLIRTransmitter.h"
 
@@ -92,20 +90,6 @@ public:
 
     /**
      * \~russian
-     * @brief Назначить функцию Tone (включение несущей) передатчику.
-     * @param Tone Указатель на функцию.
-     */
-    void SetTone(void (*Tone)(interfaces::GPIO tonePin, uint16_t frequency));
-
-    /**
-     * \~russian
-     * @brief Назначить функцию NoTone (выключение несущей) передатчику.
-     * @param NoTone Указатель на функцию.
-     */
-    void SetNoTone(void (*NoTone)(interfaces::GPIO tonePin));
-
-    /**
-     * \~russian
      * @brief Назначить функцию задержки передатчику.
      * @param DelaySource Указатель на функцию.
      */
@@ -128,5 +112,4 @@ public:
 
 } // namespace IntroSatLib
 
-#endif // ARDUINO_AVR_ATmega328
 #endif // IRTRANSCEIVER_H_
