@@ -3,6 +3,7 @@
 #include "Adapter/GPIO.h"
 #if defined(ISL_GPIO_ENABLED)
 
+#include <math.h>
 #include "Device/ISLIRReceiver/ISLIRReceiver.h"
 #include "Adapter/System.h"
 
