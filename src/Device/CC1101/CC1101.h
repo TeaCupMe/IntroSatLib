@@ -154,6 +154,11 @@ public:
 	void setSyncWord(uint16_t sync);
 
 	Status transmit(uint8_t *data, size_t length, uint8_t addr = 0);
+	Status transmit(const uint8_t *data, size_t length, uint8_t addr = 0)
+	{
+		return transmit(const_cast<uint8_t*>(data), length, addr);
+	}
+
 	Status receive(uint8_t *data, size_t length, size_t *read = nullptr,
 			uint8_t addr = 0);
 	int8_t getRSSI();
