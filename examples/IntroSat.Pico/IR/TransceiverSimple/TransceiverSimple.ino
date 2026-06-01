@@ -1,13 +1,13 @@
 // Подключаем заголовочные файлы IntroSatLib.
 #include "IntroSatLib.h"
-#include <Device/IRTransceiver/IRTransceiver.h> // Подключаем заголовочный файл класса ИК-приёмопередатчика
+#include <Device/ISLIRTransceiver/ISLIRTransceiver.h> // Подключаем заголовочный файл класса ИК-приёмопередатчика
 
 // Используем пространство имён IntroSatLib, чтобы не писать его перед каждым идентификатором.
 using namespace IntroSatLib;
 
 // Создаём объект ИК-приёмопередатчика.
 // Пин RX – PD2, пин TX – PD3.
-IRTransceiver transceiver(PD2, PD3);
+ISLIRTransceiver transceiver(PD2, PD3);
 
 // Буфер для приёма данных (максимум 64 байта).
 uint8_t rxBuff[64];

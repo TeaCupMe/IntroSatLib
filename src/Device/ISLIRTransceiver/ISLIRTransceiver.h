@@ -17,7 +17,7 @@ namespace IntroSatLib
  * ISLIRTransmitter, предоставляя единый интерфейс. Позволяет
  * принимать и отправлять данные в одном устройстве.
  */
-class IRTransceiver : Device
+class ISLIRTransceiver : Device
 {
 private:
     ISLIRReceiver receiver;         ///< \~russian Экземпляр приёмника
@@ -31,7 +31,7 @@ public:
      * @param txPin Пин для передачи ИК-сигналов.
      * @param modulationFreq Частота модуляции передатчика (по умолчанию 38000 Гц).
      */
-    IRTransceiver(interfaces::GPIO rxPin, interfaces::GPIO txPin, uint16_t modulationFreq = 38000)
+    ISLIRTransceiver(interfaces::GPIO rxPin, interfaces::GPIO txPin, uint16_t modulationFreq = 38000)
         : receiver(rxPin)
         , transmitter(txPin, modulationFreq)
     { };
