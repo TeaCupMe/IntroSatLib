@@ -1,6 +1,5 @@
 // Подключаем заголовочные файлы IntroSatLib.
 #include "IntroSatLib.h"
-#include <ISL_Bootloader.h>
 #include <Device/ISLIRReceiver/ISLIRReceiver.h>  // Подключаем заголовочный файл класса ИК-приёмника
 
 using namespace IntroSatLib;       // Пространство имён, чтобы не писать IntroSatLib::
@@ -15,7 +14,7 @@ uint8_t buff[64];
 // Обработчик прерывания от ИК-приёмника.
 // Вызывается при изменении уровня на пине PD2.
 // Передаёт управление методу ProcessReceiving() для сбора пакета.
-void receive()
+void receiveISR()
 {
   receiver.ProcessReceiving();
 }
@@ -31,7 +30,7 @@ void setup()
 
   // Привязываем прерывание INT0 (пин 2) к функции receive.
   // CHANGE – прерывание по любому изменению сигнала (фронт/спад).
-  attachInterrupt(0, receive, CHANGE);
+  attachInterrupt(0, receiveISR, CHANGE);
 }
 
 void loop() 
@@ -54,17 +53,6 @@ void loop()
       Serial.print(" ");
     }
     Serial.println();
-  }
-
-  // ----------------------- КОМАНДЫ ПОЛЬЗОВАТЕЛЯ -----------------------
-  // Проверяем, отправил ли пользователь что-то в последовательный порт.
-  if (Serial.available()) {
-    String msg = Serial.readString();   // Читаем строку до символа перевода строки
-
-    // Если введена буква "b", выполняем переход в бутлоадер.
-    if (msg == "b") {
-      EnterBootloader();
-    }
   }
 
   // Пауза 1 секунда, чтобы не нагружать процессор непрерывным опросом.

@@ -1,6 +1,5 @@
 // Подключаем заголовочные файлы IntroSatLib.
 #include "IntroSatLib.h"
-#include <ISL_Bootloader.h>
 #include <Device/ISLIRTransmitter/ISLIRTransmitter.h> // Подключаем заголовочный файл класса ИК-передатчика
 
 using namespace IntroSatLib;       // Пространство имён, чтобы не писать IntroSatLib::
@@ -28,28 +27,20 @@ void loop()
     // Читаем строку до символа перевода строки.
     String input = Serial.readString();
 
-    // Специальная команда "b" — переход в бутлоадер.
-    if (input == "b")
+    // Готовим массив для передачи – строго по количеству символов,
+    // без нуль-терминатора, потому что передаётся "сырая" строка.
+    uint8_t txBuff[input.length()];
+    // Копируем символы во временный буфер.
+    for (unsigned int i = 0; i < input.length(); i++)
     {
-      EnterBootloader();
+      txBuff[i] = (uint8_t)input[i];
     }
-    else if (input.length() > 0)
-    {
-      // Готовим массив для передачи – строго по количеству символов,
-      // без нуль-терминатора, потому что передаётся "сырая" строка.
-      uint8_t txBuff[input.length()];
-      // Копируем символы во временный буфер.
-      for (unsigned int i = 0; i < input.length(); i++)
-      {
-        txBuff[i] = (uint8_t)input[i];
-      }
 
-      // Информируем пользователя.
-      Serial.print("Transmitting: ");
-      Serial.println(input);
-      // Передаём ИК-посылку с содержимым буфера.
-      transmitter.Transmit(txBuff, input.length());
-    }
+    // Информируем пользователя.
+    Serial.print("Transmitting: ");
+    Serial.println(input);
+    // Передаём ИК-посылку с содержимым буфера.
+    transmitter.Transmit(txBuff, input.length());
   }
 
 }
