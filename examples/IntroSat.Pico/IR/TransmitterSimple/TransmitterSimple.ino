@@ -1,21 +1,18 @@
 // Подключаем заголовочные файлы IntroSatLib.
 #include "IntroSatLib.h"
 #include <ISL_Bootloader.h>
-// Заголовочный файл класса ИК-передатчика.
-#include <Device/ISLIRTransmitter/ISLIRTransmitter.h>
+#include <Device/ISLIRTransmitter/ISLIRTransmitter.h> // Подключаем заголовочный файл класса ИК-передатчика
 
 using namespace IntroSatLib;       // Пространство имён, чтобы не писать IntroSatLib::
 
 // Создаём объект ИК-передатчика, подключённого к пину PD3.
 // Только передача, прием отсутствует.
-ISLIRTransmitter transmitter(interfaces::GPIO(PD3));
+ISLIRTransmitter transmitter(PD3);
 
 void setup()
 {
-  // Инициализируем последовательный порт для связи с компьютером (скорость 9600 бод).
-  Serial.begin(9600);
-  // Пауза 1 секунда – даём время железу стабилизироваться.
-  delay(1000);
+  // Инициализируем последовательный порт для связи с компьютером (скорость 115200 бод).
+  Serial.begin(115200);
 
   // Инициализируем ИК-передатчик.
   transmitter.Init();

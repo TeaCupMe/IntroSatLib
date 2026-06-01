@@ -1,15 +1,14 @@
 // Подключаем заголовочные файлы IntroSatLib.
 #include "IntroSatLib.h"
 #include <ISL_Bootloader.h>
-// Заголовочный файл класса ИК-приёмопередатчика.
-#include <Device/IRTransceiver/IRTransceiver.h>
+#include <Device/IRTransceiver/IRTransceiver.h> // Подключаем заголовочный файл класса ИК-приёмопередатчика
 
 // Используем пространство имён IntroSatLib, чтобы не писать его перед каждым идентификатором.
 using namespace IntroSatLib;
 
 // Создаём объект ИК-приёмопередатчика.
 // Пин RX – PD2, пин TX – PD3.
-IRTransceiver transceiver(interfaces::GPIO(PD2), interfaces::GPIO(PD3));
+IRTransceiver transceiver(PD2, PD3);
 
 // Буфер для приёма данных (максимум 64 байта).
 uint8_t rxBuff[64];
@@ -25,10 +24,8 @@ void receiveISR()
 
 void setup()
 {
-  // Инициализируем последовательный порт для связи с компьютером (скорость 9600 бод).
-  Serial.begin(9600);
-  // Пауза 1 секунда – даём время железу стабилизироваться.
-  delay(1000);
+  // Инициализируем последовательный порт для связи с компьютером (скорость 115200 бод).
+  Serial.begin(115200);
 
   // Инициализируем ИК-приёмопередатчик (настройка GPIO, таймеров и т.п.).
   transceiver.Init();

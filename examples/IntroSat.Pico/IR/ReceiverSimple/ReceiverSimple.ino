@@ -1,13 +1,13 @@
 // Подключаем заголовочные файлы IntroSatLib.
 #include "IntroSatLib.h"
 #include <ISL_Bootloader.h>
-#include <Device/ISLIRReceiver/ISLIRReceiver.h>  // Класс ИК-приёмника
+#include <Device/ISLIRReceiver/ISLIRReceiver.h>  // Подключаем заголовочный файл класса ИК-приёмника
 
 using namespace IntroSatLib;       // Пространство имён, чтобы не писать IntroSatLib::
 
 // Создаём объект ИК-приёмника, подключённого к пину PD2 (INT0 на Arduino Uno).
 // Только приём, передача отсутствует.
-ISLIRReceiver receiver(interfaces::GPIO(PD2));
+ISLIRReceiver receiver(PD2);
 
 // Буфер для принятых данных, до 64 байт.
 uint8_t buff[64];
@@ -22,9 +22,8 @@ void receive()
 
 void setup() 
 {
-  // Инициализация последовательного порта для вывода информации (9600 бод).
-  Serial.begin(9600);
-  delay(1000);   // Пауза 1 секунда для стабилизации
+  // Инициализация последовательного порта для вывода информации (115200 бод).
+  Serial.begin(115200);
 
   // Инициализация ИК-приёмника.
   receiver.Init();
