@@ -139,13 +139,10 @@ namespace IntroSatLib
 
     void ISLIRReceiver::ProcessReceiving()
     {
-        uint8_t oldSREG = SREG;
-        cli();
         uint32_t currentTime = TimeSource();
         delta = (uint16_t)(currentTime - newT);
 
         if (delta < timings.errorScale) {
-            SREG = oldSREG;
             return;
         }
 
@@ -173,7 +170,6 @@ namespace IntroSatLib
                 break;
         }
 
-        SREG = oldSREG;
         return;
     }
 

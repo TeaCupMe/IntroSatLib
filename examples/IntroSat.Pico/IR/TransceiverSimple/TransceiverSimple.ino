@@ -18,7 +18,10 @@ uint8_t rxBuff[64];
 // который занимается сбором и декодированием ИК-пакетов.
 void receiveISR()
 {
-  transceiver.ProcessReceiving();
+  uint8_t oldSREG = SREG;           // Сохранение значения регистра состояния
+  cli();                            // Отключение перрываний
+  transceiver.ProcessReceiving();   // Прием данных
+  SREG = oldSREG;                   // Восстановление значения регистра состояния
 }
 
 void setup()

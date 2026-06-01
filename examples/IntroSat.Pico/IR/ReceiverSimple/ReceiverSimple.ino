@@ -16,7 +16,10 @@ uint8_t buff[64];
 // Передаёт управление методу ProcessReceiving() для сбора пакета.
 void receiveISR()
 {
-  receiver.ProcessReceiving();
+  uint8_t oldSREG = SREG;       // Сохранение значения регистра состояния
+  cli();                        // Отключение перрываний
+  receiver.ProcessReceiving();  // Прием данных
+  SREG = oldSREG;               // Восстановление значения регистра состояния
 }
 
 void setup() 
