@@ -13,6 +13,7 @@ ISL_StatusTypeDef ISLIRTransceiver::Init()
 
 void ISLIRTransceiver::ProcessReceiving()
 {
+    if (isTransmittng) return;
     receiver.ProcessReceiving();
 }
 
@@ -33,7 +34,10 @@ uint16_t ISLIRTransceiver::GetData(uint8_t* buff, uint16_t length)
 
 ISL_StatusTypeDef ISLIRTransceiver::Transmit(uint8_t* txBuff, uint16_t nbytes)
 {
-    return transmitter.Transmit(txBuff, nbytes);
+    isTransmittng = true;
+    ISL_StatusTypeDef status = transmitter.Transmit(txBuff, nbytes);
+    isTransmittng = false;
+    return status;
 }
 
 void ISLIRTransceiver::SetDelaySource(void (*DelaySource)(uint32_t time))

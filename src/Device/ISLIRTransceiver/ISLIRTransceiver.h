@@ -21,6 +21,8 @@ private:
     ISLIRReceiver receiver;         ///< \~russian Экземпляр приёмника
     ISLIRTransmitter transmitter;   ///< \~russian Экземпляр передатчика
 
+    volatile bool isTransmittng = false;    ///< \~russian Флаг передачи
+
 public:
     /**
      * \~russian
