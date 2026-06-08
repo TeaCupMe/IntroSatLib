@@ -34,6 +34,8 @@ ISL_StatusTypeDef M24C02::Read(uint32_t addr, uint8_t *data, uint16_t len)
 
 ISL_StatusTypeDef M24C02::Write(uint32_t addr, uint8_t *data, uint16_t len)
 {
+	if (readOnly) return ISL_StatusTypeDef::ISL_ERROR;
+
 	if (addr + len > memorySize)
 	{
 		return ISL_ERROR;
@@ -55,6 +57,8 @@ ISL_StatusTypeDef M24C02::Write(uint32_t addr, uint8_t *data, uint16_t len)
 
 ISL_StatusTypeDef M24C02::FullErase()
 {
+	if (readOnly) return ISL_StatusTypeDef::ISL_ERROR;
+
 	uint8_t* temp = new uint8_t[16]{0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
 	for (uint8_t i = 0; i < 16; i++)
 	{
