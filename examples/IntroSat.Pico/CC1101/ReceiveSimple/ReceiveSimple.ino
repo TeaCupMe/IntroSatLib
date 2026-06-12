@@ -40,7 +40,7 @@ void setup() {
 }
 
 void loop() {
-    CC1101::Status status = radio.receive(buffer, 1, &receivedLength);
+    CC1101::Status status = radio.receive(buffer, 64, &receivedLength);
         
     if (status == CC1101::STATUS_OK) {
         Serial.print(F("Received "));
