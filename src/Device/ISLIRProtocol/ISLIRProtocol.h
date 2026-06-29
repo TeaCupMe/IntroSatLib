@@ -23,7 +23,7 @@ namespace IntroSatLib
             uint16_t space1 = 10;      ///< \~russian Длительность пробела для бита 1
             uint16_t errorScale = 5;   ///< \~russian Допустимое отклонение длительности (scale factor)
             uint16_t maxSpaceWidth = 100; ///< \~russian Максимальная длительность пробела
-            uint16_t maxMarkWidth = 30;   ///< \~russian Максимальная длительность маркера
+            uint16_t maxMarkWidth = 40;   ///< \~russian Максимальная длительность маркера
         };
     }
 }

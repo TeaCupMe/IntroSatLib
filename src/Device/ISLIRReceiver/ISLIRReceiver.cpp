@@ -38,7 +38,7 @@ namespace IntroSatLib
     {
         if (receivePin.read() == 1)
         {
-            if (abs(delta - timings.markStart) <= timings.errorScale)
+            if (abs((int32_t)delta - timings.markStart) <= timings.errorScale)
             {
                 currentState = State::PreRecv;
             }
@@ -49,7 +49,7 @@ namespace IntroSatLib
 
     void ISLIRReceiver::PreRecvStateProcess()
     {
-        if (abs(delta - timings.spaceStart) <= timings.errorScale)
+        if (abs((int32_t)delta - timings.spaceStart) <= timings.errorScale)
         {
             rawBuffN = 0;
             currentState = State::RecvBit;
