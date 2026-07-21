@@ -1,0 +1,5 @@
+<map id="IntroSatLib::ISLIRTransceiver" name="IntroSatLib::ISLIRTransceiver">
+<area shape="rect" id="Node000001" title="Приёмо&#45;передатчик ИК&#45;сигналов (трансивер)." alt="" coords="5,79,211,104"/>
+<area shape="rect" id="Node000002" href="$classIntroSatLib_1_1Device.html" title=" " alt="" coords="35,5,181,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,44,111,79,105,79,105,44"/>
+</map>
