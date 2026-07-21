@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="IntroSatLib" />
+<meta property="og:image" content="https://github.com/user-attachments/assets/b9565746-a0e4-46ce-b2e8-ef371b14b845" />
+<meta property="og:description" content="Документация библиотеки IntroSatLib" />
+<meta property="og:url" content="https://teacupme.github.io/IntroSatLib/doc/v0.1.1/" />
+<!-- END opengraph metadata -->
+<title>IntroSatLib: Класс IntroSatLib::CC1101</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="dropdown.css" rel="stylesheet" type="text/css"/>
+<link href="theme-round.css" rel="stylesheet" type="text/css"/>
+<link href="theme-robot.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IntroSatLib
+   <!-- BEGIN PROJECT_NUMBER&#160;<span id="projectnumber">cicd</span>END PROJECT_NUMBER -->
+   </div>
+  </td>
+    <!-- BEGIN version select -->
+    <td align="right">
+    <div class="dropdown">
+        <button class="dropbtn">Version cicd</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+    <script type="text/javascript" src="./selectversion.js"></script>
+    </td>
+    <!-- END version select -->
+ </tr>
+ </tbody>
+</table>
+<div id="theme-selection">
+ <label for="theme-select">Theme:</label>
+ <select id="theme-select">
+  <option value="theme-default">Default</option>
+  <option value="theme-round">Round</option>
+  <option value="theme-robot">Robot</option>
+ </select>
+</div>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classIntroSatLib_1_1CC1101.html','','classIntroSatLib_1_1CC1101-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс IntroSatLib::CC1101</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:IntroSatLib::CC1101:</div>
+<div class="dyncontent">
+<div class="center"><!-- SVG 0 --></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:ad8a768f18cd5320e550c6b9a68b14ab6" id="r_ad8a768f18cd5320e550c6b9a68b14ab6"><td class="memItemLeft"><a id="ad8a768f18cd5320e550c6b9a68b14ab6" name="ad8a768f18cd5320e550c6b9a68b14ab6"></a>enum &#160;</td><td class="memItemRight"><b>Status</b> { <br />
+&#160;&#160;<b>STATUS_OK</b> = 0
+, <b>STATUS_INVALID_PARAM</b>
+, <b>STATUS_CHIP_NOT_FOUND</b>
+, <b>STATUS_BAD_STATE</b>
+, <br />
+&#160;&#160;<b>STATUS_LENGTH_TOO_SMALL</b>
+, <b>STATUS_LENGTH_TOO_BIG</b>
+, <b>STATUS_CRC_MISMATCH</b>
+, <b>STATUS_TXFIFO_UNDERFLOW</b>
+, <br />
+&#160;&#160;<b>STATUS_RXFIFO_OVERFLOW</b>
+<br />
+ }</td></tr>
+<tr class="memitem:a522e2a4f3e301143a3aded34fd331f1b" id="r_a522e2a4f3e301143a3aded34fd331f1b"><td class="memItemLeft"><a id="a522e2a4f3e301143a3aded34fd331f1b" name="a522e2a4f3e301143a3aded34fd331f1b"></a>enum &#160;</td><td class="memItemRight"><b>State</b> { <br />
+&#160;&#160;<b>STATE_IDLE</b> = 0
+, <b>STATE_RX</b> = 1
+, <b>STATE_TX</b> = 2
+, <b>STATE_FSTXON</b> = 3
+, <br />
+&#160;&#160;<b>STATE_CALIBRATE</b> = 4
+, <b>STATE_SETTLING</b> = 5
+, <b>STATE_RXFIFO_OVERFLOW</b> = 6
+, <b>STATE_TXFIFO_UNDERFLOW</b> = 7
+<br />
+ }</td></tr>
+<tr class="memitem:a58b00f67c6bdeb611d29655bd24841c5" id="r_a58b00f67c6bdeb611d29655bd24841c5"><td class="memItemLeft"><a id="a58b00f67c6bdeb611d29655bd24841c5" name="a58b00f67c6bdeb611d29655bd24841c5"></a>enum &#160;</td><td class="memItemRight"><b>Modulation</b> { <br />
+&#160;&#160;<b>MOD_2FSK</b> = 0
+, <b>MOD_GFSK</b> = 1
+, <b>MOD_ASK_OOK</b> = 3
+, <b>MOD_4FSK</b> = 4
+, <br />
+&#160;&#160;<b>MOD_MSK</b> = 7
+<br />
+ }</td></tr>
+<tr class="memitem:a6028783042659e97522c875143f54680" id="r_a6028783042659e97522c875143f54680"><td class="memItemLeft"><a id="a6028783042659e97522c875143f54680" name="a6028783042659e97522c875143f54680"></a>enum &#160;</td><td class="memItemRight"><b>SyncMode</b> { <br />
+&#160;&#160;<b>SYNC_MODE_NO_PREAMBLE</b> = 0
+, <b>SYNC_MODE_15_16</b> = 1
+, <b>SYNC_MODE_16_16</b> = 2
+, <b>SYNC_MODE_30_32</b> = 3
+, <br />
+&#160;&#160;<b>SYNC_MODE_NO_PREAMBLE_CS</b> = 4
+, <b>SYNC_MODE_15_16_CS</b> = 5
+, <b>SYNC_MODE_16_16_CS</b> = 6
+, <b>SYNC_MODE_30_32_CS</b> = 7
+<br />
+ }</td></tr>
+<tr class="memitem:a584957a8f54c1ea8c665dd226f433f64" id="r_a584957a8f54c1ea8c665dd226f433f64"><td class="memItemLeft"><a id="a584957a8f54c1ea8c665dd226f433f64" name="a584957a8f54c1ea8c665dd226f433f64"></a>enum &#160;</td><td class="memItemRight"><b>PacketLengthMode</b> { <b>PKT_LEN_MODE_FIXED</b> = 0
+, <b>PKT_LEN_MODE_VARIABLE</b> = 1
+ }</td></tr>
+<tr class="memitem:a4288907010b89b3c8d03a7ff8915aa7b" id="r_a4288907010b89b3c8d03a7ff8915aa7b"><td class="memItemLeft"><a id="a4288907010b89b3c8d03a7ff8915aa7b" name="a4288907010b89b3c8d03a7ff8915aa7b"></a>enum &#160;</td><td class="memItemRight"><b>AddressFilteringMode</b> { <b>ADDR_FILTER_MODE_NONE</b> = 0
+, <b>ADDR_FILTER_MODE_CHECK</b> = 1
+, <b>ADDR_FILTER_MODE_CHECK_BC_0</b> = 2
+, <b>ADDR_FILTER_MODE_CHECK_BC_0_255</b> = 3
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ada1372ebd5dacc97d61062fc221665cd" id="r_ada1372ebd5dacc97d61062fc221665cd"><td class="memItemLeft"><a id="ada1372ebd5dacc97d61062fc221665cd" name="ada1372ebd5dacc97d61062fc221665cd"></a>
+&#160;</td><td class="memItemRight"><b>CC1101</b> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1SPI.html">interfaces::SPI</a> _spi, <a class="el" href="classIntroSatLib_1_1interfaces_1_1GPIO.html">interfaces::GPIO</a> csPin)</td></tr>
+<tr class="memitem:a23e8b1e097b6f32cc21a23b63499468c" id="r_a23e8b1e097b6f32cc21a23b63499468c"><td class="memItemLeft"><a id="a23e8b1e097b6f32cc21a23b63499468c" name="a23e8b1e097b6f32cc21a23b63499468c"></a>
+Status&#160;</td><td class="memItemRight"><b>Init</b> (Modulation mod, double freq, double drate)</td></tr>
+<tr class="memitem:a4d6a1564fd03767d0dd430510128590f" id="r_a4d6a1564fd03767d0dd430510128590f"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a4d6a1564fd03767d0dd430510128590f">Init</a> () override</td></tr>
+<tr class="memitem:a6625b1cb538ff0776ce774896285d4fc" id="r_a6625b1cb538ff0776ce774896285d4fc"><td class="memItemLeft"><a id="a6625b1cb538ff0776ce774896285d4fc" name="a6625b1cb538ff0776ce774896285d4fc"></a>
+uint8_t&#160;</td><td class="memItemRight"><b>getChipPartNumber</b> ()</td></tr>
+<tr class="memitem:ad930c1810f1f781332ab8d12224198dc" id="r_ad930c1810f1f781332ab8d12224198dc"><td class="memItemLeft"><a id="ad930c1810f1f781332ab8d12224198dc" name="ad930c1810f1f781332ab8d12224198dc"></a>
+uint8_t&#160;</td><td class="memItemRight"><b>getChipVersion</b> ()</td></tr>
+<tr class="memitem:ab8de5cae7147f0d980d9589559045859" id="r_ab8de5cae7147f0d980d9589559045859"><td class="memItemLeft"><a id="ab8de5cae7147f0d980d9589559045859" name="ab8de5cae7147f0d980d9589559045859"></a>
+void&#160;</td><td class="memItemRight"><b>setModulation</b> (Modulation mod)</td></tr>
+<tr class="memitem:ac5750267ab04cd9f7f4e11a43e543e77" id="r_ac5750267ab04cd9f7f4e11a43e543e77"><td class="memItemLeft"><a id="ac5750267ab04cd9f7f4e11a43e543e77" name="ac5750267ab04cd9f7f4e11a43e543e77"></a>
+Status&#160;</td><td class="memItemRight"><b>setFrequency</b> (double freq)</td></tr>
+<tr class="memitem:a725d20f8a505358754a4ac1c7030c753" id="r_a725d20f8a505358754a4ac1c7030c753"><td class="memItemLeft"><a id="a725d20f8a505358754a4ac1c7030c753" name="a725d20f8a505358754a4ac1c7030c753"></a>
+Status&#160;</td><td class="memItemRight"><b>setFrequencyDeviation</b> (double dev)</td></tr>
+<tr class="memitem:ab96bc2a7664531b796090cb1397e7506" id="r_ab96bc2a7664531b796090cb1397e7506"><td class="memItemLeft"><a id="ab96bc2a7664531b796090cb1397e7506" name="ab96bc2a7664531b796090cb1397e7506"></a>
+void&#160;</td><td class="memItemRight"><b>setChannel</b> (uint8_t ch)</td></tr>
+<tr class="memitem:a6ef3cbb4108526cd74343916e1297fc4" id="r_a6ef3cbb4108526cd74343916e1297fc4"><td class="memItemLeft"><a id="a6ef3cbb4108526cd74343916e1297fc4" name="a6ef3cbb4108526cd74343916e1297fc4"></a>
+Status&#160;</td><td class="memItemRight"><b>setChannelSpacing</b> (double sp)</td></tr>
+<tr class="memitem:aef32f29269b3ec71ba6971bc4e94d8db" id="r_aef32f29269b3ec71ba6971bc4e94d8db"><td class="memItemLeft"><a id="aef32f29269b3ec71ba6971bc4e94d8db" name="aef32f29269b3ec71ba6971bc4e94d8db"></a>
+Status&#160;</td><td class="memItemRight"><b>setDataRate</b> (double drate)</td></tr>
+<tr class="memitem:ac978e5e802043a776e86158c77fbc5c4" id="r_ac978e5e802043a776e86158c77fbc5c4"><td class="memItemLeft"><a id="ac978e5e802043a776e86158c77fbc5c4" name="ac978e5e802043a776e86158c77fbc5c4"></a>
+Status&#160;</td><td class="memItemRight"><b>setRxBandwidth</b> (double bw)</td></tr>
+<tr class="memitem:a1ab4600664f22669ccb56d7bf630321b" id="r_a1ab4600664f22669ccb56d7bf630321b"><td class="memItemLeft"><a id="a1ab4600664f22669ccb56d7bf630321b" name="a1ab4600664f22669ccb56d7bf630321b"></a>
+void&#160;</td><td class="memItemRight"><b>setOutputPower</b> (int8_t power)</td></tr>
+<tr class="memitem:acdda3c386b2f70754cf4485b065e671a" id="r_acdda3c386b2f70754cf4485b065e671a"><td class="memItemLeft"><a id="acdda3c386b2f70754cf4485b065e671a" name="acdda3c386b2f70754cf4485b065e671a"></a>
+void&#160;</td><td class="memItemRight"><b>setCrc</b> (bool enable)</td></tr>
+<tr class="memitem:a4f9d5e6c7a8b78c805a72f5a323927ec" id="r_a4f9d5e6c7a8b78c805a72f5a323927ec"><td class="memItemLeft"><a id="a4f9d5e6c7a8b78c805a72f5a323927ec" name="a4f9d5e6c7a8b78c805a72f5a323927ec"></a>
+void&#160;</td><td class="memItemRight"><b>setDataWhitening</b> (bool enable)</td></tr>
+<tr class="memitem:acc0ace9a6a2c27f507fef2065fea8aba" id="r_acc0ace9a6a2c27f507fef2065fea8aba"><td class="memItemLeft"><a id="acc0ace9a6a2c27f507fef2065fea8aba" name="acc0ace9a6a2c27f507fef2065fea8aba"></a>
+Status&#160;</td><td class="memItemRight"><b>setManchester</b> (bool enable)</td></tr>
+<tr class="memitem:ad3851f13c39738363531bf8163b92f92" id="r_ad3851f13c39738363531bf8163b92f92"><td class="memItemLeft"><a id="ad3851f13c39738363531bf8163b92f92" name="ad3851f13c39738363531bf8163b92f92"></a>
+Status&#160;</td><td class="memItemRight"><b>setFEC</b> (bool enable)</td></tr>
+<tr class="memitem:a38a1e71f437ddc9b28b735c230b9be0d" id="r_a38a1e71f437ddc9b28b735c230b9be0d"><td class="memItemLeft"><a id="a38a1e71f437ddc9b28b735c230b9be0d" name="a38a1e71f437ddc9b28b735c230b9be0d"></a>
+void&#160;</td><td class="memItemRight"><b>setAddressFilteringMode</b> (AddressFilteringMode mode)</td></tr>
+<tr class="memitem:a80aaf0a752c98874a7f9963ccc337cef" id="r_a80aaf0a752c98874a7f9963ccc337cef"><td class="memItemLeft"><a id="a80aaf0a752c98874a7f9963ccc337cef" name="a80aaf0a752c98874a7f9963ccc337cef"></a>
+void&#160;</td><td class="memItemRight"><b>setPacketLengthMode</b> (PacketLengthMode mode, uint8_t length=255)</td></tr>
+<tr class="memitem:ac0298e9894263f4c4291afff2e2a55ee" id="r_ac0298e9894263f4c4291afff2e2a55ee"><td class="memItemLeft"><a id="ac0298e9894263f4c4291afff2e2a55ee" name="ac0298e9894263f4c4291afff2e2a55ee"></a>
+void&#160;</td><td class="memItemRight"><b>setSyncMode</b> (SyncMode mode)</td></tr>
+<tr class="memitem:a2cfb39e82834afedd88818b070efe70c" id="r_a2cfb39e82834afedd88818b070efe70c"><td class="memItemLeft"><a id="a2cfb39e82834afedd88818b070efe70c" name="a2cfb39e82834afedd88818b070efe70c"></a>
+Status&#160;</td><td class="memItemRight"><b>setPreambleLength</b> (uint8_t length)</td></tr>
+<tr class="memitem:a1d4dac9ab948f1f0c1664cec36529af1" id="r_a1d4dac9ab948f1f0c1664cec36529af1"><td class="memItemLeft"><a id="a1d4dac9ab948f1f0c1664cec36529af1" name="a1d4dac9ab948f1f0c1664cec36529af1"></a>
+void&#160;</td><td class="memItemRight"><b>setSyncWord</b> (uint16_t sync)</td></tr>
+<tr class="memitem:a67129d41b96a1061d120cf30c7720dce" id="r_a67129d41b96a1061d120cf30c7720dce"><td class="memItemLeft"><a id="a67129d41b96a1061d120cf30c7720dce" name="a67129d41b96a1061d120cf30c7720dce"></a>
+Status&#160;</td><td class="memItemRight"><b>transmit</b> (uint8_t *data, size_t length, uint8_t addr=0)</td></tr>
+<tr class="memitem:a142dd6a911fd678a49aaca39945cdfcb" id="r_a142dd6a911fd678a49aaca39945cdfcb"><td class="memItemLeft"><a id="a142dd6a911fd678a49aaca39945cdfcb" name="a142dd6a911fd678a49aaca39945cdfcb"></a>
+Status&#160;</td><td class="memItemRight"><b>receive</b> (uint8_t *data, size_t length, size_t *read=nullptr, uint8_t addr=0)</td></tr>
+<tr class="memitem:a452ff63673b4747fa45eaeaefb53e0f2" id="r_a452ff63673b4747fa45eaeaefb53e0f2"><td class="memItemLeft"><a id="a452ff63673b4747fa45eaeaefb53e0f2" name="a452ff63673b4747fa45eaeaefb53e0f2"></a>
+int8_t&#160;</td><td class="memItemRight"><b>getRSSI</b> ()</td></tr>
+<tr class="memitem:af10cb0c8ab0ebad1d46386a9a04a63da" id="r_af10cb0c8ab0ebad1d46386a9a04a63da"><td class="memItemLeft"><a id="af10cb0c8ab0ebad1d46386a9a04a63da" name="af10cb0c8ab0ebad1d46386a9a04a63da"></a>
+uint8_t&#160;</td><td class="memItemRight"><b>getLQI</b> ()</td></tr>
+<tr class="memitem:a0787325cfcbbfe6c946261c6245f2bec" id="r_a0787325cfcbbfe6c946261c6245f2bec"><td class="memItemLeft"><a id="a0787325cfcbbfe6c946261c6245f2bec" name="a0787325cfcbbfe6c946261c6245f2bec"></a>
+void&#160;</td><td class="memItemRight"><b>receiveCallback</b> (void(*func)(void))</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a4d6a1564fd03767d0dd430510128590f" name="a4d6a1564fd03767d0dd430510128590f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d6a1564fd03767d0dd430510128590f">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::CC1101::Init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Переопределяет метод предка <a class="el" href="classIntroSatLib_1_1SPIDevice.html">IntroSatLib::SPIDevice</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/Device/CC1101/<a class="el" href="CC1101_8h_source.html">CC1101.h</a></li>
+<li>src/Device/CC1101/<b>CC1101.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a href="classIntroSatLib_1_1CC1101.html">CC1101</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

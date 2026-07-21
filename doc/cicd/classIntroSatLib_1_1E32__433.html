@@ -1,0 +1,1439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="IntroSatLib" />
+<meta property="og:image" content="https://github.com/user-attachments/assets/b9565746-a0e4-46ce-b2e8-ef371b14b845" />
+<meta property="og:description" content="Документация библиотеки IntroSatLib" />
+<meta property="og:url" content="https://teacupme.github.io/IntroSatLib/doc/v0.1.1/" />
+<!-- END opengraph metadata -->
+<title>IntroSatLib: Класс IntroSatLib::E32_433</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="dropdown.css" rel="stylesheet" type="text/css"/>
+<link href="theme-round.css" rel="stylesheet" type="text/css"/>
+<link href="theme-robot.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IntroSatLib
+   <!-- BEGIN PROJECT_NUMBER&#160;<span id="projectnumber">cicd</span>END PROJECT_NUMBER -->
+   </div>
+  </td>
+    <!-- BEGIN version select -->
+    <td align="right">
+    <div class="dropdown">
+        <button class="dropbtn">Version cicd</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+    <script type="text/javascript" src="./selectversion.js"></script>
+    </td>
+    <!-- END version select -->
+ </tr>
+ </tbody>
+</table>
+<div id="theme-selection">
+ <label for="theme-select">Theme:</label>
+ <select id="theme-select">
+  <option value="theme-default">Default</option>
+  <option value="theme-round">Round</option>
+  <option value="theme-robot">Robot</option>
+ </select>
+</div>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classIntroSatLib_1_1E32__433.html','','classIntroSatLib_1_1E32__433-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс IntroSatLib::E32_433</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс для управления LoRa модулем E32-433.  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="E32__433_8h_source.html">E32_433.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:IntroSatLib::E32_433:</div>
+<div class="dyncontent">
+<div class="center"><!-- SVG 0 --></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:E32Pins" id="r_E32Pins"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structIntroSatLib_1_1E32__433_1_1E32Pins.html">E32Pins</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, описывающая пины управления модулем  <a href="structIntroSatLib_1_1E32__433_1_1E32Pins.html#details">Подробнее...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:ace62f0acac2d1bd32ccd45f63caa515a" id="r_ace62f0acac2d1bd32ccd45f63caa515a"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#ace62f0acac2d1bd32ccd45f63caa515a">Mode</a> : uint8_t { <b>Normal</b> = 0
+, <b>Wakeup</b> = 1
+, <b>PowerSave</b> = 2
+, <b>Sleep</b> = 3
+ }</td></tr>
+<tr class="memdesc:ace62f0acac2d1bd32ccd45f63caa515a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Перечисление режимов работы модуля  <a href="#ace62f0acac2d1bd32ccd45f63caa515a">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a211b27cd13123f94d0cb46fba215b090" id="r_a211b27cd13123f94d0cb46fba215b090"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a211b27cd13123f94d0cb46fba215b090">CommandHead</a> : uint8_t { <br />
+&#160;&#160;<b>SetParametersSave</b> = 0xC0
+, <b>GetParameters</b>
+, <b>SetParametersNoSave</b>
+, <b>GetVersion</b>
+, <br />
+&#160;&#160;<b>Reset</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:a211b27cd13123f94d0cb46fba215b090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Заголовки команд для работы с регистрами  <a href="#a211b27cd13123f94d0cb46fba215b090">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a11e05ac10d47ddcb82bb9961b2639048" id="r_a11e05ac10d47ddcb82bb9961b2639048"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a11e05ac10d47ddcb82bb9961b2639048">UARTParity</a> : uint8_t { <a class="el" href="#a11e05ac10d47ddcb82bb9961b2639048a6adf97f83acf6453d4a6a4b1070f3754">None</a> = 0 &lt;&lt; 6
+, <a class="el" href="#a11e05ac10d47ddcb82bb9961b2639048a37b6bd7fe61d651735cec3d3b0356c66">Odd</a> = 0b01 &lt;&lt; 6
+, <a class="el" href="#a11e05ac10d47ddcb82bb9961b2639048a35537fbc25d87ffe59e4f35fefcd34b7">Even</a> = 0b10 &lt;&lt; 6
+ }</td></tr>
+<tr class="memdesc:a11e05ac10d47ddcb82bb9961b2639048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Перечисление режимов контроля четности UART.  <a href="#a11e05ac10d47ddcb82bb9961b2639048">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a9e97cc1138c8b3f471939e51cea6da12" id="r_a9e97cc1138c8b3f471939e51cea6da12"><td class="memItemLeft"><a id="a9e97cc1138c8b3f471939e51cea6da12" name="a9e97cc1138c8b3f471939e51cea6da12"></a>enum class &#160;</td><td class="memItemRight"><a class="el" href="#a9e97cc1138c8b3f471939e51cea6da12">UARTBaudrate</a> : uint8_t { <br />
+&#160;&#160;<b>BR_1200</b> = 0
+, <b>BR_2400</b> = 0b001 &lt;&lt; 3
+, <b>BR_4800</b> = 0b010 &lt;&lt; 3
+, <b>BR_9600</b> = 0b011 &lt;&lt; 3
+, <br />
+&#160;&#160;<b>BR_19200</b> = 0b100 &lt;&lt; 3
+, <b>BR_38400</b> = 0b101 &lt;&lt; 3
+, <b>BR_57600</b> = 0b110 &lt;&lt; 3
+, <b>BR_115200</b> = 0b111 &lt;&lt; 3
+<br />
+ }</td></tr>
+<tr class="memdesc:a9e97cc1138c8b3f471939e51cea6da12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Перечисление скоростей UART интерфейса <br /></td></tr>
+<tr class="memitem:a36d320b12196b07a173667fdf7f23549" id="r_a36d320b12196b07a173667fdf7f23549"><td class="memItemLeft"><a id="a36d320b12196b07a173667fdf7f23549" name="a36d320b12196b07a173667fdf7f23549"></a>enum class &#160;</td><td class="memItemRight"><a class="el" href="#a36d320b12196b07a173667fdf7f23549">AirDatarate</a> : uint8_t { <br />
+&#160;&#160;<b>DR_300</b> = 0
+, <b>DR_1200</b> = 0b001
+, <b>DR_2400</b> = 0b010
+, <b>DR_4800</b> = 0b011
+, <br />
+&#160;&#160;<b>DR_9600</b> = 0b100
+, <b>DR_19200</b> = 0b101
+<br />
+ }</td></tr>
+<tr class="memdesc:a36d320b12196b07a173667fdf7f23549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Перечисление скоростей передачи данных в эфире <br /></td></tr>
+<tr class="memitem:abe471b9e44dbf787c731e192ffd79bce" id="r_abe471b9e44dbf787c731e192ffd79bce"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#abe471b9e44dbf787c731e192ffd79bce">AddressingMode</a> : uint8_t { <b>Transparent</b> = 0
+, <b>Fixed</b> = 0b1 &lt;&lt; 7
+ }</td></tr>
+<tr class="memdesc:abe471b9e44dbf787c731e192ffd79bce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Перечисление режимов адресации  <a href="#abe471b9e44dbf787c731e192ffd79bce">Подробнее...</a><br /></td></tr>
+<tr class="memitem:aad261efd2e3dfd8b23e924ad021c39de" id="r_aad261efd2e3dfd8b23e924ad021c39de"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#aad261efd2e3dfd8b23e924ad021c39de">IODriveMode</a> : uint8_t { <a class="el" href="#aad261efd2e3dfd8b23e924ad021c39dea2360a90eb0384907cfc92f76acb84caa">Opencollector</a> = 0
+, <a class="el" href="#aad261efd2e3dfd8b23e924ad021c39deaed64b86115a749020e42820712c21706">Pushpull</a> = 0b1 &lt;&lt; 6
+ }</td></tr>
+<tr class="memdesc:aad261efd2e3dfd8b23e924ad021c39de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Режимы работы вывода AUX.  <a href="#aad261efd2e3dfd8b23e924ad021c39de">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a3dda745389827e20bbf8370ca220ddc5" id="r_a3dda745389827e20bbf8370ca220ddc5"><td class="memItemLeft"><a id="a3dda745389827e20bbf8370ca220ddc5" name="a3dda745389827e20bbf8370ca220ddc5"></a>enum class &#160;</td><td class="memItemRight"><a class="el" href="#a3dda745389827e20bbf8370ca220ddc5">WakeUpTime</a> : uint8_t { <br />
+&#160;&#160;<b>T_250ms</b> = 0
+, <b>T_500ms</b> = 0b001 &lt;&lt; 3
+, <b>T_750ms</b> = 0b010 &lt;&lt; 3
+, <b>T_1000ms</b> = 0b011 &lt;&lt; 3
+, <br />
+&#160;&#160;<b>T_1250ms</b> = 0b100 &lt;&lt; 3
+, <b>T_1500ms</b> = 0b101 &lt;&lt; 3
+, <b>T_1750ms</b> = 0b110 &lt;&lt; 3
+, <b>T_2000ms</b> = 0b111 &lt;&lt; 3
+<br />
+ }</td></tr>
+<tr class="memdesc:a3dda745389827e20bbf8370ca220ddc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Время пробуждения из спящего режима <br /></td></tr>
+<tr class="memitem:a2bf5546ad86ce8db7d6477115ac48588" id="r_a2bf5546ad86ce8db7d6477115ac48588"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588">FEC</a> : uint8_t { <a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588ab9f5c797ebbf55adccdd8539a65a0241">Disabled</a> = 0
+, <a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588a00d23a76e43b46dae9ec7aa9dcbebb32">Enabled</a> = 0b1 &lt;&lt; 2
+ }</td></tr>
+<tr class="memdesc:a2bf5546ad86ce8db7d6477115ac48588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включение/отключение <a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588" title="Включение/отключение FEC (Forward Error Correction).">FEC</a> (Forward Error Correction).  <a href="#a2bf5546ad86ce8db7d6477115ac48588">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a6ae52caf960b798f8de10faa965f2b5d" id="r_a6ae52caf960b798f8de10faa965f2b5d"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a6ae52caf960b798f8de10faa965f2b5d">TxPower</a> : uint8_t { <a class="el" href="#a6ae52caf960b798f8de10faa965f2b5da6a061313d22e51e0f25b7cd4dc065233">Max</a> = 0
+, <a class="el" href="#a6ae52caf960b798f8de10faa965f2b5da55c6b09cbca39ef0cdb728eb112a5049">Mid</a> = 0b01
+, <a class="el" href="#a6ae52caf960b798f8de10faa965f2b5da28d0edd045e05cf5af64e35ae0c4c6ef">Low</a> = 0b10
+, <a class="el" href="#a6ae52caf960b798f8de10faa965f2b5da91efa9e46e4c6cbb78d9fd0a773cc6d5">Eco</a> = 0b11
+ }</td></tr>
+<tr class="memdesc:a6ae52caf960b798f8de10faa965f2b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Уровни выходной мощности передатчика  <a href="#a6ae52caf960b798f8de10faa965f2b5d">Подробнее...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a6f8e27c2522b66aeb1b86cdcd5f152ac" id="r_a6f8e27c2522b66aeb1b86cdcd5f152ac"><td class="memItemLeft">struct&#160;</td><td class="memItemRight"><a class="el" href="#a6f8e27c2522b66aeb1b86cdcd5f152ac">__attribute__</a> ((packed)) E32Settings</td></tr>
+<tr class="memdesc:a6f8e27c2522b66aeb1b86cdcd5f152ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура настроек модуля E32-433.  <br /></td></tr>
+<tr class="memitem:a71f200bcce4ff91248fa0ed6f6184395" id="r_a71f200bcce4ff91248fa0ed6f6184395"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a71f200bcce4ff91248fa0ed6f6184395">E32_433</a> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a> uart, <a class="el" href="structIntroSatLib_1_1E32__433_1_1E32Pins.html">E32Pins</a> pins)</td></tr>
+<tr class="memdesc:a71f200bcce4ff91248fa0ed6f6184395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="classIntroSatLib_1_1E32__433.html" title="Класс для управления LoRa модулем E32-433.">E32_433</a>.  <br /></td></tr>
+<tr class="memitem:a77b213655fa39d6b6a22f084487dba80" id="r_a77b213655fa39d6b6a22f084487dba80"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a77b213655fa39d6b6a22f084487dba80">Init</a> ()</td></tr>
+<tr class="memdesc:a77b213655fa39d6b6a22f084487dba80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация модуля в нормальном режиме  <br /></td></tr>
+<tr class="memitem:a7d2caeef6655565c9691066599788fb5" id="r_a7d2caeef6655565c9691066599788fb5"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a7d2caeef6655565c9691066599788fb5">Init</a> (<a class="el" href="#ace62f0acac2d1bd32ccd45f63caa515a">Mode</a> mode, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a7d2caeef6655565c9691066599788fb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация модуля с указанием режима  <br /></td></tr>
+<tr class="memitem:a96d3911b72f348e2415d981d0dbd4ecb" id="r_a96d3911b72f348e2415d981d0dbd4ecb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a96d3911b72f348e2415d981d0dbd4ecb">IsReady</a> ()</td></tr>
+<tr class="memdesc:a96d3911b72f348e2415d981d0dbd4ecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка готовности модуля к передаче/приему  <br /></td></tr>
+<tr class="memitem:a92b4ce2f1d06d9a12fdf15d6582a5e9b" id="r_a92b4ce2f1d06d9a12fdf15d6582a5e9b"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a92b4ce2f1d06d9a12fdf15d6582a5e9b">TransmitLoRa</a> (uint8_t *txbuff, uint16_t length, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a92b4ce2f1d06d9a12fdf15d6582a5e9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Передача данных через LoRa.  <br /></td></tr>
+<tr class="memitem:a2b0038f27c4fd9fb3e1b452bac0c3a7f" id="r_a2b0038f27c4fd9fb3e1b452bac0c3a7f"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a2b0038f27c4fd9fb3e1b452bac0c3a7f">ReceiveLoRa</a> (uint8_t *rxbuff, uint16_t length, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a2b0038f27c4fd9fb3e1b452bac0c3a7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Прием данных через LoRa.  <br /></td></tr>
+<tr class="memitem:ad859757ee5da6597bc85e3cd60b68b0a" id="r_ad859757ee5da6597bc85e3cd60b68b0a"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#ad859757ee5da6597bc85e3cd60b68b0a">SetMode</a> (<a class="el" href="#ace62f0acac2d1bd32ccd45f63caa515a">Mode</a> mode)</td></tr>
+<tr class="memdesc:ad859757ee5da6597bc85e3cd60b68b0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка режима работы модуля  <br /></td></tr>
+<tr class="memitem:aff877150d586f03db82d7095d9d59564" id="r_aff877150d586f03db82d7095d9d59564"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#aff877150d586f03db82d7095d9d59564">ReadSettings</a> (uint8_t *rxbuff, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:aff877150d586f03db82d7095d9d59564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение настроек в массив байт  <br /></td></tr>
+<tr class="memitem:aa5119661df91f382d9f3f84befc784b1" id="r_aa5119661df91f382d9f3f84befc784b1"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#aa5119661df91f382d9f3f84befc784b1">ReadSettings</a> (E32Settings &amp;settings, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:aa5119661df91f382d9f3f84befc784b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение настроек в структуру  <br /></td></tr>
+<tr class="memitem:a7622f46de3a4a9b6e396eead1e934358" id="r_a7622f46de3a4a9b6e396eead1e934358"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a7622f46de3a4a9b6e396eead1e934358">ReadVersion</a> (uint8_t *rxbuff, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a7622f46de3a4a9b6e396eead1e934358"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение версии прошивки модуля  <br /></td></tr>
+<tr class="memitem:abecbe1bc23ed663ceb0e839e40b3a89c" id="r_abecbe1bc23ed663ceb0e839e40b3a89c"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#abecbe1bc23ed663ceb0e839e40b3a89c">Reset</a> (uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:abecbe1bc23ed663ceb0e839e40b3a89c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Программный сброс модуля  <br /></td></tr>
+<tr class="memitem:a44a7b6f7d83a203459d6989361891d87" id="r_a44a7b6f7d83a203459d6989361891d87"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a44a7b6f7d83a203459d6989361891d87">SetSettings</a> (E32Settings settings, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a44a7b6f7d83a203459d6989361891d87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка полных настроек модуля  <br /></td></tr>
+<tr class="memitem:a86d13c5b42ac1fd78c2450bdf03164de" id="r_a86d13c5b42ac1fd78c2450bdf03164de"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a86d13c5b42ac1fd78c2450bdf03164de">SetAddr</a> (uint16_t addr, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a86d13c5b42ac1fd78c2450bdf03164de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка адреса модуля  <br /></td></tr>
+<tr class="memitem:af2b4aef952a3d21b4983dd2453967d65" id="r_af2b4aef952a3d21b4983dd2453967d65"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#af2b4aef952a3d21b4983dd2453967d65">SetSPEDByte</a> (uint8_t sped, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:af2b4aef952a3d21b4983dd2453967d65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка байта настроек скорости SPED.  <br /></td></tr>
+<tr class="memitem:a0c0e8a5f59dd256be768bba5cf0a3431" id="r_a0c0e8a5f59dd256be768bba5cf0a3431"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a0c0e8a5f59dd256be768bba5cf0a3431">SetUARTParity</a> (<a class="el" href="#a11e05ac10d47ddcb82bb9961b2639048">UARTParity</a> parity=<a class="el" href="#a11e05ac10d47ddcb82bb9961b2639048a6adf97f83acf6453d4a6a4b1070f3754">UARTParity::None</a>, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a0c0e8a5f59dd256be768bba5cf0a3431"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка режима четности UART.  <br /></td></tr>
+<tr class="memitem:a4f2b880698249c3599265fc5224e4e34" id="r_a4f2b880698249c3599265fc5224e4e34"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a4f2b880698249c3599265fc5224e4e34">SetUARTBaudrate</a> (<a class="el" href="#a9e97cc1138c8b3f471939e51cea6da12">UARTBaudrate</a> baudrate=UARTBaudrate::BR_9600, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a4f2b880698249c3599265fc5224e4e34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка скорости UART.  <br /></td></tr>
+<tr class="memitem:a531aac324e0630b411f9bd4974c2622a" id="r_a531aac324e0630b411f9bd4974c2622a"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a531aac324e0630b411f9bd4974c2622a">SetAirDatarate</a> (<a class="el" href="#a36d320b12196b07a173667fdf7f23549">AirDatarate</a> datarate=AirDatarate::DR_2400, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a531aac324e0630b411f9bd4974c2622a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка скорости передачи в эфире  <br /></td></tr>
+<tr class="memitem:a9dde658b0c38800679d177f766863f5d" id="r_a9dde658b0c38800679d177f766863f5d"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a9dde658b0c38800679d177f766863f5d">SetChannel</a> (uint8_t channel, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a9dde658b0c38800679d177f766863f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка рабочего канала  <br /></td></tr>
+<tr class="memitem:aea21860a2817b0767d3e878ce7d6fa8e" id="r_aea21860a2817b0767d3e878ce7d6fa8e"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#aea21860a2817b0767d3e878ce7d6fa8e">SetOPTIONByte</a> (uint8_t option, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:aea21860a2817b0767d3e878ce7d6fa8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка байта дополнительных опций OPTION.  <br /></td></tr>
+<tr class="memitem:a5086d831233427241c5cda8ab005273d" id="r_a5086d831233427241c5cda8ab005273d"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a5086d831233427241c5cda8ab005273d">SetFixedTransmission</a> (<a class="el" href="#abe471b9e44dbf787c731e192ffd79bce">AddressingMode</a> mode=AddressingMode::Transparent, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a5086d831233427241c5cda8ab005273d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка режима адресации  <br /></td></tr>
+<tr class="memitem:adc71a448283774c0315ff2d259007fa4" id="r_adc71a448283774c0315ff2d259007fa4"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#adc71a448283774c0315ff2d259007fa4">SetIODriveMode</a> (<a class="el" href="#aad261efd2e3dfd8b23e924ad021c39de">IODriveMode</a> mode=<a class="el" href="#aad261efd2e3dfd8b23e924ad021c39dea2360a90eb0384907cfc92f76acb84caa">IODriveMode::Opencollector</a>, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:adc71a448283774c0315ff2d259007fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка режима вывода AUX.  <br /></td></tr>
+<tr class="memitem:abcf4b87f48c548de1fe6a863ebf04d3e" id="r_abcf4b87f48c548de1fe6a863ebf04d3e"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#abcf4b87f48c548de1fe6a863ebf04d3e">SetWakeUpTime</a> (<a class="el" href="#a3dda745389827e20bbf8370ca220ddc5">WakeUpTime</a> wtime=WakeUpTime::T_250ms, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:abcf4b87f48c548de1fe6a863ebf04d3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка времени пробуждения  <br /></td></tr>
+<tr class="memitem:a4da6006a10a893672cd254eeaac0915a" id="r_a4da6006a10a893672cd254eeaac0915a"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a4da6006a10a893672cd254eeaac0915a">SetFEC</a> (<a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588">FEC</a> fec=<a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588a00d23a76e43b46dae9ec7aa9dcbebb32">FEC::Enabled</a>, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a4da6006a10a893672cd254eeaac0915a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включение/отключение <a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588" title="Включение/отключение FEC (Forward Error Correction).">FEC</a>.  <br /></td></tr>
+<tr class="memitem:a021f6c1b5cf95b3a1b44fdf928de1d40" id="r_a021f6c1b5cf95b3a1b44fdf928de1d40"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a021f6c1b5cf95b3a1b44fdf928de1d40">SetTxPower</a> (<a class="el" href="#a6ae52caf960b798f8de10faa965f2b5d">TxPower</a> power=<a class="el" href="#a6ae52caf960b798f8de10faa965f2b5da6a061313d22e51e0f25b7cd4dc065233">TxPower::Max</a>, uint16_t timeout=<a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a021f6c1b5cf95b3a1b44fdf928de1d40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка выходной мощности передатчика  <br /></td></tr>
+<tr class="inherit_header pub_methods_classIntroSatLib_1_1UARTDevice"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classIntroSatLib_1_1UARTDevice')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="classIntroSatLib_1_1UARTDevice.html">IntroSatLib::UARTDevice</a></td></tr>
+<tr class="memitem:aff5503123da8b4ccb3b401ed963f0bf3 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_aff5503123da8b4ccb3b401ed963f0bf3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#aff5503123da8b4ccb3b401ed963f0bf3">UARTDevice</a> (<a class="el" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a> uart)</td></tr>
+<tr class="memdesc:aff5503123da8b4ccb3b401ed963f0bf3 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="classIntroSatLib_1_1UARTDevice.html" title="Базовый класс для устройств, использующих UART интерфейс">UARTDevice</a>.  <br /></td></tr>
+<tr class="memitem:a566923f741ec74470ede3396c3906427 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_a566923f741ec74470ede3396c3906427"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#a566923f741ec74470ede3396c3906427">UARTDevice</a> (const UARTDevice &amp;other)</td></tr>
+<tr class="memdesc:a566923f741ec74470ede3396c3906427 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор копирования  <br /></td></tr>
+<tr class="memitem:a9858a8b8dccb9ce8d6ea166d61650053 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_a9858a8b8dccb9ce8d6ea166d61650053"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#a9858a8b8dccb9ce8d6ea166d61650053">UARTDevice</a> (UARTDevice &amp;&amp;other)</td></tr>
+<tr class="memdesc:a9858a8b8dccb9ce8d6ea166d61650053 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор перемещения  <br /></td></tr>
+<tr class="memitem:a4749718a37ae97a023e03e6a6e938601 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_a4749718a37ae97a023e03e6a6e938601"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#a4749718a37ae97a023e03e6a6e938601">WriteUART</a> (uint8_t *buf, uint16_t nBytes, uint16_t timeout=<a class="el" href="classIntroSatLib_1_1UARTDevice.html#ad6f83f3b2adc002169a779d765f9ccf4">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a4749718a37ae97a023e03e6a6e938601 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправка данных через UART.  <br /></td></tr>
+<tr class="memitem:a059cc2cfd768a7dad3c2392acdc32aa3 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_a059cc2cfd768a7dad3c2392acdc32aa3"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#a059cc2cfd768a7dad3c2392acdc32aa3">ReadUART</a> (uint8_t *buf, uint16_t nBytes=1, uint16_t timeout=<a class="el" href="classIntroSatLib_1_1UARTDevice.html#ad6f83f3b2adc002169a779d765f9ccf4">defaultTimeout</a>)</td></tr>
+<tr class="memdesc:a059cc2cfd768a7dad3c2392acdc32aa3 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение данных из UART.  <br /></td></tr>
+<tr class="memitem:ac86a8ba6b226c65f836fbd690e2d2bd8 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_ac86a8ba6b226c65f836fbd690e2d2bd8"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#ac86a8ba6b226c65f836fbd690e2d2bd8">Available</a> ()</td></tr>
+<tr class="memdesc:ac86a8ba6b226c65f836fbd690e2d2bd8 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка наличия данных в приемном буфере UART.  <br /></td></tr>
+<tr class="memitem:a23c231fa209821e2622c8d9b72a55c23 inherit pub_methods_classIntroSatLib_1_1UARTDevice" id="r_a23c231fa209821e2622c8d9b72a55c23"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>FlushRX</b> ()</td></tr>
+<tr class="memdesc:a23c231fa209821e2622c8d9b72a55c23 inherit pub_methods_classIntroSatLib_1_1UARTDevice"><td class="mdescLeft">&#160;</td><td class="mdescRight">Очистка входного буфера UART. <br /></td></tr>
+<tr class="inherit_header pub_methods_classIntroSatLib_1_1Device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classIntroSatLib_1_1Device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="classIntroSatLib_1_1Device.html">IntroSatLib::Device</a></td></tr>
+<tr class="memitem:a8f687ec7a9822ccc409037bf1cc6c59f inherit pub_methods_classIntroSatLib_1_1Device" id="r_a8f687ec7a9822ccc409037bf1cc6c59f"><td class="memItemLeft">
+Device::DeviceState&#160;</td><td class="memItemRight"><b>GetState</b> ()</td></tr>
+<tr class="memitem:aa6f6a4c96b8d377ac6a020f903558694 inherit pub_methods_classIntroSatLib_1_1Device" id="r_aa6f6a4c96b8d377ac6a020f903558694"><td class="memItemLeft">
+virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>Enable</b> ()</td></tr>
+<tr class="memitem:aa9b38286b66f8990cf5c79f3732fd64d inherit pub_methods_classIntroSatLib_1_1Device" id="r_aa9b38286b66f8990cf5c79f3732fd64d"><td class="memItemLeft">
+virtual ISL_StatusTypeDef&#160;</td><td class="memItemRight"><b>Disable</b> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr class="memitem:ade3d92b9b7442334551b041da2561a27" id="r_ade3d92b9b7442334551b041da2561a27"><td class="memItemLeft">ISL_StatusTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#ade3d92b9b7442334551b041da2561a27">ReadSettingsRaw</a> (uint8_t *rxbuff, uint16_t timeout)</td></tr>
+<tr class="memdesc:ade3d92b9b7442334551b041da2561a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение сырых настроек модуля  <br /></td></tr>
+<tr class="inherit_header pro_methods_classIntroSatLib_1_1Device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classIntroSatLib_1_1Device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные члены унаследованные от <a class="el" href="classIntroSatLib_1_1Device.html">IntroSatLib::Device</a></td></tr>
+<tr class="memitem:a250a0d27735ec18cd3771666b6efc9c7 inherit pro_methods_classIntroSatLib_1_1Device" id="r_a250a0d27735ec18cd3771666b6efc9c7"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>setState</b> (Device::DeviceState state)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-attribs" class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Статические защищенные данные</h2></td></tr>
+<tr class="memitem:acaf77ee2ee240240096929a4830d2258" id="r_acaf77ee2ee240240096929a4830d2258"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a> = 1000</td></tr>
+<tr class="inherit_header pro_static_attribs_classIntroSatLib_1_1UARTDevice"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_static_attribs_classIntroSatLib_1_1UARTDevice')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Статические защищенные данные унаследованные от <a class="el" href="classIntroSatLib_1_1UARTDevice.html">IntroSatLib::UARTDevice</a></td></tr>
+<tr class="memitem:ad6f83f3b2adc002169a779d765f9ccf4 inherit pro_static_attribs_classIntroSatLib_1_1UARTDevice" id="r_ad6f83f3b2adc002169a779d765f9ccf4"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="classIntroSatLib_1_1UARTDevice.html#ad6f83f3b2adc002169a779d765f9ccf4">defaultTimeout</a> = 100</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс для управления LoRa модулем E32-433. </p>
+<p>Реализует функционал работы с трансивером E32-433 через UART интерфейс. Позволяет настраивать параметры, передавать и принимать данные. </p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Перечисления</h2>
+<a id="abe471b9e44dbf787c731e192ffd79bce" name="abe471b9e44dbf787c731e192ffd79bce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe471b9e44dbf787c731e192ffd79bce">&#9670;&#160;</a></span>AddressingMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#abe471b9e44dbf787c731e192ffd79bce">IntroSatLib::E32_433::AddressingMode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Перечисление режимов адресации </p>
+<p>Определяет способ адресации при передаче:</p><ul>
+<li>Transparent: прозрачный режим (все пакеты принимаются)</li>
+<li>Fixed: фиксированная адресация (только адресные пакеты) </li>
+</ul>
+
+</div>
+</div>
+<a id="a211b27cd13123f94d0cb46fba215b090" name="a211b27cd13123f94d0cb46fba215b090"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a211b27cd13123f94d0cb46fba215b090">&#9670;&#160;</a></span>CommandHead</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a211b27cd13123f94d0cb46fba215b090">IntroSatLib::E32_433::CommandHead</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Заголовки команд для работы с регистрами </p>
+<p>Определяет коды команд для взаимодействия с модулем:</p><ul>
+<li>SetParametersSave: установка параметров с сохранением</li>
+<li>GetParameters: чтение параметров</li>
+<li>SetParametersNoSave: установка параметров без сохранения</li>
+<li>GetVersion: чтение версии прошивки</li>
+<li>Reset: программный сброс модуля </li>
+</ul>
+
+</div>
+</div>
+<a id="a2bf5546ad86ce8db7d6477115ac48588" name="a2bf5546ad86ce8db7d6477115ac48588"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bf5546ad86ce8db7d6477115ac48588">&#9670;&#160;</a></span>FEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588">IntroSatLib::E32_433::FEC</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Включение/отключение <a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588" title="Включение/отключение FEC (Forward Error Correction).">FEC</a> (Forward Error Correction). </p>
+<table class="fieldtable">
+<tr><th colspan="3">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a2bf5546ad86ce8db7d6477115ac48588ab9f5c797ebbf55adccdd8539a65a0241" name="a2bf5546ad86ce8db7d6477115ac48588ab9f5c797ebbf55adccdd8539a65a0241"></a>Disabled&#160;</td><td class="fieldinit">0&#160;</td><td class="fielddoc"><p><a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588" title="Включение/отключение FEC (Forward Error Correction).">FEC</a> отключен </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2bf5546ad86ce8db7d6477115ac48588a00d23a76e43b46dae9ec7aa9dcbebb32" name="a2bf5546ad86ce8db7d6477115ac48588a00d23a76e43b46dae9ec7aa9dcbebb32"></a>Enabled&#160;</td><td class="fieldinit">0b1 &lt;&lt; 2&#160;</td><td class="fielddoc"><p><a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588" title="Включение/отключение FEC (Forward Error Correction).">FEC</a> включен </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="aad261efd2e3dfd8b23e924ad021c39de" name="aad261efd2e3dfd8b23e924ad021c39de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad261efd2e3dfd8b23e924ad021c39de">&#9670;&#160;</a></span>IODriveMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#aad261efd2e3dfd8b23e924ad021c39de">IntroSatLib::E32_433::IODriveMode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Режимы работы вывода AUX. </p>
+<table class="fieldtable">
+<tr><th colspan="3">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="aad261efd2e3dfd8b23e924ad021c39dea2360a90eb0384907cfc92f76acb84caa" name="aad261efd2e3dfd8b23e924ad021c39dea2360a90eb0384907cfc92f76acb84caa"></a>Opencollector&#160;</td><td class="fieldinit">0&#160;</td><td class="fielddoc"><p>Открытый коллектор </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aad261efd2e3dfd8b23e924ad021c39deaed64b86115a749020e42820712c21706" name="aad261efd2e3dfd8b23e924ad021c39deaed64b86115a749020e42820712c21706"></a>Pushpull&#160;</td><td class="fieldinit">0b1 &lt;&lt; 6&#160;</td><td class="fielddoc"><p>Двухтактный выход </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ace62f0acac2d1bd32ccd45f63caa515a" name="ace62f0acac2d1bd32ccd45f63caa515a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace62f0acac2d1bd32ccd45f63caa515a">&#9670;&#160;</a></span>Mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ace62f0acac2d1bd32ccd45f63caa515a">IntroSatLib::E32_433::Mode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Перечисление режимов работы модуля </p>
+<p>Определяет доступные режимы работы E32-433:</p><ul>
+<li>Normal: нормальный режим (M0=0, M1=0)</li>
+<li>Wakeup: режим пробуждения (M0=1, M1=0)</li>
+<li>PowerSave: энергосберегающий режим (M0=0, M1=1)</li>
+<li>Sleep: спящий режим (M0=1, M1=1) </li>
+</ul>
+
+</div>
+</div>
+<a id="a6ae52caf960b798f8de10faa965f2b5d" name="a6ae52caf960b798f8de10faa965f2b5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ae52caf960b798f8de10faa965f2b5d">&#9670;&#160;</a></span>TxPower</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a6ae52caf960b798f8de10faa965f2b5d">IntroSatLib::E32_433::TxPower</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Уровни выходной мощности передатчика </p>
+<table class="fieldtable">
+<tr><th colspan="3">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a6ae52caf960b798f8de10faa965f2b5da6a061313d22e51e0f25b7cd4dc065233" name="a6ae52caf960b798f8de10faa965f2b5da6a061313d22e51e0f25b7cd4dc065233"></a>Max&#160;</td><td class="fieldinit">0&#160;</td><td class="fielddoc"><p>Максимальная мощность </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6ae52caf960b798f8de10faa965f2b5da55c6b09cbca39ef0cdb728eb112a5049" name="a6ae52caf960b798f8de10faa965f2b5da55c6b09cbca39ef0cdb728eb112a5049"></a>Mid&#160;</td><td class="fieldinit">0b01&#160;</td><td class="fielddoc"><p>Средняя мощность </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6ae52caf960b798f8de10faa965f2b5da28d0edd045e05cf5af64e35ae0c4c6ef" name="a6ae52caf960b798f8de10faa965f2b5da28d0edd045e05cf5af64e35ae0c4c6ef"></a>Low&#160;</td><td class="fieldinit">0b10&#160;</td><td class="fielddoc"><p>Низкая мощность </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6ae52caf960b798f8de10faa965f2b5da91efa9e46e4c6cbb78d9fd0a773cc6d5" name="a6ae52caf960b798f8de10faa965f2b5da91efa9e46e4c6cbb78d9fd0a773cc6d5"></a>Eco&#160;</td><td class="fieldinit">0b11&#160;</td><td class="fielddoc"><p>Экономичный режим </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a11e05ac10d47ddcb82bb9961b2639048" name="a11e05ac10d47ddcb82bb9961b2639048"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11e05ac10d47ddcb82bb9961b2639048">&#9670;&#160;</a></span>UARTParity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a11e05ac10d47ddcb82bb9961b2639048">IntroSatLib::E32_433::UARTParity</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Перечисление режимов контроля четности UART. </p>
+<table class="fieldtable">
+<tr><th colspan="3">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a11e05ac10d47ddcb82bb9961b2639048a6adf97f83acf6453d4a6a4b1070f3754" name="a11e05ac10d47ddcb82bb9961b2639048a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fieldinit">0 &lt;&lt; 6&#160;</td><td class="fielddoc"><p>Без контроля четности </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a11e05ac10d47ddcb82bb9961b2639048a37b6bd7fe61d651735cec3d3b0356c66" name="a11e05ac10d47ddcb82bb9961b2639048a37b6bd7fe61d651735cec3d3b0356c66"></a>Odd&#160;</td><td class="fieldinit">0b01 &lt;&lt; 6&#160;</td><td class="fielddoc"><p>Нечетный контроль </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a11e05ac10d47ddcb82bb9961b2639048a35537fbc25d87ffe59e4f35fefcd34b7" name="a11e05ac10d47ddcb82bb9961b2639048a35537fbc25d87ffe59e4f35fefcd34b7"></a>Even&#160;</td><td class="fieldinit">0b10 &lt;&lt; 6&#160;</td><td class="fielddoc"><p>Четный контроль </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="a71f200bcce4ff91248fa0ed6f6184395" name="a71f200bcce4ff91248fa0ed6f6184395"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71f200bcce4ff91248fa0ed6f6184395">&#9670;&#160;</a></span>E32_433()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntroSatLib::E32_433::E32_433 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classIntroSatLib_1_1interfaces_1_1UART.html">interfaces::UART</a></td>          <td class="paramname"><span class="paramname"><em>uart</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structIntroSatLib_1_1E32__433_1_1E32Pins.html">E32Pins</a></td>          <td class="paramname"><span class="paramname"><em>pins</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор класса <a class="el" href="classIntroSatLib_1_1E32__433.html" title="Класс для управления LoRa модулем E32-433.">E32_433</a>. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uart</td><td>Интерфейс UART для связи с модулем </td></tr>
+    <tr><td class="paramname">pins</td><td>Структура с пинами управления </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a6f8e27c2522b66aeb1b86cdcd5f152ac" name="a6f8e27c2522b66aeb1b86cdcd5f152ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f8e27c2522b66aeb1b86cdcd5f152ac">&#9670;&#160;</a></span>__attribute__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct IntroSatLib::E32_433::__attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(packed)</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Структура настроек модуля E32-433. </p>
+<p>Содержит параметры конфигурации модуля размером 6 байт:</p><ul>
+<li>head: заголовок команды (0xC0 для установки параметров)</li>
+<li>addr: адрес модуля (16 бит)</li>
+<li>sped: настройки скорости UART и эфира</li>
+<li>chan: номер канала (0x00-0x1F)</li>
+<li>option: дополнительные опции (режим адресации, вывод, <a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588" title="Включение/отключение FEC (Forward Error Correction).">FEC</a>, мощность) </li>
+</ul>
+<p>Конструктор из массива байт </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buff</td><td>Указатель на массив из 6 байт с настройками</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Конструктор с явным указанием параметров </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td>Заголовок команды </td></tr>
+    <tr><td class="paramname">addr</td><td>Адрес модуля </td></tr>
+    <tr><td class="paramname">sped</td><td>Байт настроек скорости </td></tr>
+    <tr><td class="paramname">chan</td><td>Номер канала </td></tr>
+    <tr><td class="paramname">option</td><td>Байт дополнительных опций</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Оператор присваивания из массива байт </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bytes</td><td>Указатель на массив из 6 байт </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Ссылка на текущий объект</dd></dl>
+
+</div>
+</div>
+<a id="a77b213655fa39d6b6a22f084487dba80" name="a77b213655fa39d6b6a22f084487dba80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77b213655fa39d6b6a22f084487dba80">&#9670;&#160;</a></span>Init() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::Init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Инициализация модуля в нормальном режиме </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+<p>Замещает <a class="el" href="classIntroSatLib_1_1Device.html">IntroSatLib::Device</a>.</p>
+
+</div>
+</div>
+<a id="a7d2caeef6655565c9691066599788fb5" name="a7d2caeef6655565c9691066599788fb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d2caeef6655565c9691066599788fb5">&#9670;&#160;</a></span>Init() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ace62f0acac2d1bd32ccd45f63caa515a">Mode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Инициализация модуля с указанием режима </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>Режим работы модуля </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a96d3911b72f348e2415d981d0dbd4ecb" name="a96d3911b72f348e2415d981d0dbd4ecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96d3911b72f348e2415d981d0dbd4ecb">&#9670;&#160;</a></span>IsReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IntroSatLib::E32_433::IsReady </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверка готовности модуля к передаче/приему </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус готовности к передаче/приему </dd></dl>
+
+</div>
+</div>
+<a id="aa5119661df91f382d9f3f84befc784b1" name="aa5119661df91f382d9f3f84befc784b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5119661df91f382d9f3f84befc784b1">&#9670;&#160;</a></span>ReadSettings() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::ReadSettings </td>
+          <td>(</td>
+          <td class="paramtype">E32Settings &amp;</td>          <td class="paramname"><span class="paramname"><em>settings</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Чтение настроек в структуру </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">settings</td><td>Ссылка на структуру для сохранения настроек </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="aff877150d586f03db82d7095d9d59564" name="aff877150d586f03db82d7095d9d59564"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff877150d586f03db82d7095d9d59564">&#9670;&#160;</a></span>ReadSettings() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::ReadSettings </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>rxbuff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Чтение настроек в массив байт </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rxbuff</td><td>Буфер для приема настроек (6 байт) </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="ade3d92b9b7442334551b041da2561a27" name="ade3d92b9b7442334551b041da2561a27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade3d92b9b7442334551b041da2561a27">&#9670;&#160;</a></span>ReadSettingsRaw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::ReadSettingsRaw </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>rxbuff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Чтение сырых настроек модуля </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rxbuff</td><td>Буфер для приема данных </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a7622f46de3a4a9b6e396eead1e934358" name="a7622f46de3a4a9b6e396eead1e934358"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7622f46de3a4a9b6e396eead1e934358">&#9670;&#160;</a></span>ReadVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::ReadVersion </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>rxbuff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Чтение версии прошивки модуля </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rxbuff</td><td>Буфер для приема версии </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a2b0038f27c4fd9fb3e1b452bac0c3a7f" name="a2b0038f27c4fd9fb3e1b452bac0c3a7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b0038f27c4fd9fb3e1b452bac0c3a7f">&#9670;&#160;</a></span>ReceiveLoRa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::ReceiveLoRa </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>rxbuff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Прием данных через LoRa. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rxbuff</td><td>Указатель на буфер для приема данных </td></tr>
+    <tr><td class="paramname">length</td><td>Размер буфера приема данных </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="abecbe1bc23ed663ceb0e839e40b3a89c" name="abecbe1bc23ed663ceb0e839e40b3a89c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abecbe1bc23ed663ceb0e839e40b3a89c">&#9670;&#160;</a></span>Reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::Reset </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Программный сброс модуля </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a86d13c5b42ac1fd78c2450bdf03164de" name="a86d13c5b42ac1fd78c2450bdf03164de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86d13c5b42ac1fd78c2450bdf03164de">&#9670;&#160;</a></span>SetAddr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::SetAddr </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка адреса модуля </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>Новый адрес (0x0000-0xFFFF) </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a531aac324e0630b411f9bd4974c2622a" name="a531aac324e0630b411f9bd4974c2622a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a531aac324e0630b411f9bd4974c2622a">&#9670;&#160;</a></span>SetAirDatarate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::SetAirDatarate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a36d320b12196b07a173667fdf7f23549">AirDatarate</a></td>          <td class="paramname"><span class="paramname"><em>datarate</em></span><span class="paramdefsep"> = </span><span class="paramdefval">AirDatarate::DR_2400</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка скорости передачи в эфире </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">datarate</td><td>Скорость в эфире </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a9dde658b0c38800679d177f766863f5d" name="a9dde658b0c38800679d177f766863f5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dde658b0c38800679d177f766863f5d">&#9670;&#160;</a></span>SetChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::SetChannel </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка рабочего канала </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Номер канала (0-31) </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a4da6006a10a893672cd254eeaac0915a" name="a4da6006a10a893672cd254eeaac0915a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4da6006a10a893672cd254eeaac0915a">&#9670;&#160;</a></span>SetFEC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::SetFEC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588">FEC</a></td>          <td class="paramname"><span class="paramname"><em>fec</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588a00d23a76e43b46dae9ec7aa9dcbebb32">FEC::Enabled</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Включение/отключение <a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588" title="Включение/отключение FEC (Forward Error Correction).">FEC</a>. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fec</td><td>Состояние <a class="el" href="#a2bf5546ad86ce8db7d6477115ac48588" title="Включение/отключение FEC (Forward Error Correction).">FEC</a> </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a5086d831233427241c5cda8ab005273d" name="a5086d831233427241c5cda8ab005273d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5086d831233427241c5cda8ab005273d">&#9670;&#160;</a></span>SetFixedTransmission()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::SetFixedTransmission </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#abe471b9e44dbf787c731e192ffd79bce">AddressingMode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span><span class="paramdefsep"> = </span><span class="paramdefval">AddressingMode::Transparent</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка режима адресации </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>Режим адресации </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="adc71a448283774c0315ff2d259007fa4" name="adc71a448283774c0315ff2d259007fa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc71a448283774c0315ff2d259007fa4">&#9670;&#160;</a></span>SetIODriveMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::SetIODriveMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#aad261efd2e3dfd8b23e924ad021c39de">IODriveMode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#aad261efd2e3dfd8b23e924ad021c39dea2360a90eb0384907cfc92f76acb84caa">IODriveMode::Opencollector</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка режима вывода AUX. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>Режим работы вывода </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="ad859757ee5da6597bc85e3cd60b68b0a" name="ad859757ee5da6597bc85e3cd60b68b0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad859757ee5da6597bc85e3cd60b68b0a">&#9670;&#160;</a></span>SetMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::SetMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ace62f0acac2d1bd32ccd45f63caa515a">Mode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка режима работы модуля </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>Новый режим работы </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="aea21860a2817b0767d3e878ce7d6fa8e" name="aea21860a2817b0767d3e878ce7d6fa8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea21860a2817b0767d3e878ce7d6fa8e">&#9670;&#160;</a></span>SetOPTIONByte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::SetOPTIONByte </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>option</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка байта дополнительных опций OPTION. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">option</td><td>Байт опций </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a44a7b6f7d83a203459d6989361891d87" name="a44a7b6f7d83a203459d6989361891d87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44a7b6f7d83a203459d6989361891d87">&#9670;&#160;</a></span>SetSettings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::SetSettings </td>
+          <td>(</td>
+          <td class="paramtype">E32Settings</td>          <td class="paramname"><span class="paramname"><em>settings</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка полных настроек модуля </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">settings</td><td>Структура с новыми настройками </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="af2b4aef952a3d21b4983dd2453967d65" name="af2b4aef952a3d21b4983dd2453967d65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2b4aef952a3d21b4983dd2453967d65">&#9670;&#160;</a></span>SetSPEDByte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::SetSPEDByte </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>sped</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка байта настроек скорости SPED. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sped</td><td>Байт настроек </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a021f6c1b5cf95b3a1b44fdf928de1d40" name="a021f6c1b5cf95b3a1b44fdf928de1d40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a021f6c1b5cf95b3a1b44fdf928de1d40">&#9670;&#160;</a></span>SetTxPower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::SetTxPower </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a6ae52caf960b798f8de10faa965f2b5d">TxPower</a></td>          <td class="paramname"><span class="paramname"><em>power</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a6ae52caf960b798f8de10faa965f2b5da6a061313d22e51e0f25b7cd4dc065233">TxPower::Max</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка выходной мощности передатчика </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">power</td><td>Уровень мощности </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a4f2b880698249c3599265fc5224e4e34" name="a4f2b880698249c3599265fc5224e4e34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f2b880698249c3599265fc5224e4e34">&#9670;&#160;</a></span>SetUARTBaudrate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::SetUARTBaudrate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a9e97cc1138c8b3f471939e51cea6da12">UARTBaudrate</a></td>          <td class="paramname"><span class="paramname"><em>baudrate</em></span><span class="paramdefsep"> = </span><span class="paramdefval">UARTBaudrate::BR_9600</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка скорости UART. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">baudrate</td><td>Скорость UART </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a0c0e8a5f59dd256be768bba5cf0a3431" name="a0c0e8a5f59dd256be768bba5cf0a3431"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c0e8a5f59dd256be768bba5cf0a3431">&#9670;&#160;</a></span>SetUARTParity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::SetUARTParity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a11e05ac10d47ddcb82bb9961b2639048">UARTParity</a></td>          <td class="paramname"><span class="paramname"><em>parity</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a11e05ac10d47ddcb82bb9961b2639048a6adf97f83acf6453d4a6a4b1070f3754">UARTParity::None</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка режима четности UART. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parity</td><td>Режим контроля четности </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="abcf4b87f48c548de1fe6a863ebf04d3e" name="abcf4b87f48c548de1fe6a863ebf04d3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcf4b87f48c548de1fe6a863ebf04d3e">&#9670;&#160;</a></span>SetWakeUpTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::SetWakeUpTime </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a3dda745389827e20bbf8370ca220ddc5">WakeUpTime</a></td>          <td class="paramname"><span class="paramname"><em>wtime</em></span><span class="paramdefsep"> = </span><span class="paramdefval">WakeUpTime::T_250ms</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установка времени пробуждения </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wtime</td><td>Время пробуждения </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a id="a92b4ce2f1d06d9a12fdf15d6582a5e9b" name="a92b4ce2f1d06d9a12fdf15d6582a5e9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92b4ce2f1d06d9a12fdf15d6582a5e9b">&#9670;&#160;</a></span>TransmitLoRa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISL_StatusTypeDef IntroSatLib::E32_433::TransmitLoRa </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>txbuff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acaf77ee2ee240240096929a4830d2258">defaultTimeout</a></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Передача данных через LoRa. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">txbuff</td><td>Указатель на буфер с данными для передачи </td></tr>
+    <tr><td class="paramname">length</td><td>Длина передаваемых данных </td></tr>
+    <tr><td class="paramname">timeout</td><td>Таймаут операции </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Статус выполнения операции </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Данные класса</h2>
+<a id="acaf77ee2ee240240096929a4830d2258" name="acaf77ee2ee240240096929a4830d2258"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaf77ee2ee240240096929a4830d2258">&#9670;&#160;</a></span>defaultTimeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t IntroSatLib::E32_433::defaultTimeout = 1000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Таймаут по умолчанию в мс </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/Device/E32_433/<a class="el" href="E32__433_8h_source.html">E32_433.h</a></li>
+<li>src/Device/E32_433/<b>E32_433.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>IntroSatLib</b></li><li class="navelem"><a href="classIntroSatLib_1_1E32__433.html">E32_433</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>
