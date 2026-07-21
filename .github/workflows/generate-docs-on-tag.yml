@@ -35,6 +35,9 @@ jobs:
         with:
           version: "1.16.1"
       
+      - name: Install GraphViz
+        run: sudo apt-get install graphviz
+      
       - name: Generate Doxygen files
         run: doxygen ./doxygen/doxygen.conf
 
