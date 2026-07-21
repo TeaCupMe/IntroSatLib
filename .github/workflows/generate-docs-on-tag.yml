@@ -25,6 +25,10 @@ jobs:
       - name: Remove outdated directory listing from root
         run: |
           rm -f ./pages/doc/index.html
+      
+      - name: Remove outdated docs for current ref
+        run: |
+          rm -f -r ./pages/doc/${{ github.ref_name }}
 
       - run: |
           echo "OUTPUT_DIRECTORY=./pages/doc/${{ github.ref_name }}" >> ./doxygen/doxygen.conf
