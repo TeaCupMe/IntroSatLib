@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="IntroSatLib" />
+<meta property="og:image" content="https://github.com/user-attachments/assets/b9565746-a0e4-46ce-b2e8-ef371b14b845" />
+<meta property="og:description" content="Документация библиотеки IntroSatLib" />
+<meta property="og:url" content="https://teacupme.github.io/IntroSatLib/doc/v0.1.1/" />
+<!-- END opengraph metadata -->
+<title>IntroSatLib: Члены классов</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="dropdown.css" rel="stylesheet" type="text/css"/>
+<link href="theme-round.css" rel="stylesheet" type="text/css"/>
+<link href="theme-robot.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IntroSatLib
+   <!-- BEGIN PROJECT_NUMBER&#160;<span id="projectnumber">v0.2.1</span>END PROJECT_NUMBER -->
+   </div>
+  </td>
+    <!-- BEGIN version select -->
+    <td align="right">
+    <div class="dropdown">
+        <button class="dropbtn">Version v0.2.1</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+    <script type="text/javascript" src="./selectversion.js"></script>
+    </td>
+    <!-- END version select -->
+ </tr>
+ </tbody>
+</table>
+<div id="theme-selection">
+ <label for="theme-select">Theme:</label>
+ <select id="theme-select">
+  <option value="theme-default">Default</option>
+  <option value="theme-round">Round</option>
+  <option value="theme-robot">Robot</option>
+ </select>
+</div>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('functions_f.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="textblock">Список всех документированных членов классов со ссылками на документацию по классу для каждого члена.</div><br/>
+<div class="qindex"><a class="qindex" href="functions.html#index_a">A</a><div class="alphasepar"></div><a class="qindex" href="functions_b.html#index_b">B</a><div class="alphasepar"></div><a class="qindex" href="functions_c.html#index_c">C</a><div class="alphasepar"></div><a class="qindex" href="functions_d.html#index_d">D</a><div class="alphasepar"></div><a class="qindex" href="functions_e.html#index_e">E</a><div class="alphasepar"></div><a class="qindex" href="functions_f.html#index_f">F</a><div class="alphasepar"></div><a class="qindex" href="functions_g.html#index_g">G</a><div class="alphasepar"></div><a class="qindex" href="functions_h.html#index_h">H</a><div class="alphasepar"></div><a class="qindex" href="functions_i.html#index_i">I</a><div class="alphasepar"></div><a class="qindex" href="functions_l.html#index_l">L</a><div class="alphasepar"></div><a class="qindex" href="functions_m.html#index_m">M</a><div class="alphasepar"></div><a class="qindex" href="functions_n.html#index_n">N</a><div class="alphasepar"></div><a class="qindex" href="functions_o.html#index_o">O</a><div class="alphasepar"></div><a class="qindex" href="functions_p.html#index_p">P</a><div class="alphasepar"></div><a class="qindex" href="functions_q.html#index_q">Q</a><div class="alphasepar"></div><a class="qindex" href="functions_r.html#index_r">R</a><div class="alphasepar"></div><a class="qindex" href="functions_s.html#index_s">S</a><div class="alphasepar"></div><a class="qindex" href="functions_t.html#index_t">T</a><div class="alphasepar"></div><a class="qindex" href="functions_u.html#index_u">U</a><div class="alphasepar"></div><a class="qindex" href="functions_v.html#index_v">V</a><div class="alphasepar"></div><a class="qindex" href="functions_w.html#index_w">W</a><div class="alphasepar"></div><a class="qindex" href="functions_x.html#index_x">X</a><div class="alphasepar"></div><a class="qindex" href="functions_y.html#index_y">Y</a><div class="alphasepar"></div><a class="qindex" href="functions_z.html#index_z">Z</a><div class="alphasepar"></div><a class="qindex" href="functions__.html#index__">_</a><div class="alphasepar"></div><a class="qindex" href="functions_~.html#index_~">~</a></div>
+
+
+<h3 class="doxsection"><a id="index_f" name="index_f"></a>- f -</h3><ul>
+<li>F0005&#160;:&#160;<a class="el" href="classIntroSatLib_1_1Accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a727d2878726bafb50dd7d1834fde9790">IntroSatLib::Accelerometer</a></li>
+<li>F0010&#160;:&#160;<a class="el" href="classIntroSatLib_1_1Accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a04c1b9cf38902af15073a165e9560b54">IntroSatLib::Accelerometer</a></li>
+<li>F0021&#160;:&#160;<a class="el" href="classIntroSatLib_1_1Accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a4df9453eaa7a271daa2cecc1bd04eea0">IntroSatLib::Accelerometer</a></li>
+<li>F0045&#160;:&#160;<a class="el" href="classIntroSatLib_1_1Accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a88e190ffa5946db5e050f81bd4203406">IntroSatLib::Accelerometer</a></li>
+<li>F0099&#160;:&#160;<a class="el" href="classIntroSatLib_1_1Accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a5b65e6404c0baa19a24fb148faaff9bd">IntroSatLib::Accelerometer</a></li>
+<li>F0218&#160;:&#160;<a class="el" href="classIntroSatLib_1_1Accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a14d9209450d842c49c02bd104aaf0e55">IntroSatLib::Accelerometer</a></li>
+<li>F0218b&#160;:&#160;<a class="el" href="classIntroSatLib_1_1Accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a2bc3878837d33530a5d1f936dd135170">IntroSatLib::Accelerometer</a></li>
+<li>F0420&#160;:&#160;<a class="el" href="classIntroSatLib_1_1Accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a9540c80c4aacb1e71510977e1904bfdf">IntroSatLib::Accelerometer</a></li>
+<li>F050H&#160;:&#160;<a class="el" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835a5ad7490d75f72eeaa09ac3a7e765b17a">IntroSatLib::AccelerometerV2</a></li>
+<li>F100H&#160;:&#160;<a class="el" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835a96ebe41795a6728552a8a0be56598e08">IntroSatLib::AccelerometerV2</a></li>
+<li>F1046&#160;:&#160;<a class="el" href="classIntroSatLib_1_1Accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0a46bbc588c81c5e040c7b79f3de1aa0f6">IntroSatLib::Accelerometer</a></li>
+<li>F200H&#160;:&#160;<a class="el" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835ab68b35f970d9237adcabb0977dd6f2c9">IntroSatLib::AccelerometerV2</a></li>
+<li>F400H&#160;:&#160;<a class="el" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835a2e5bec24269ac51d9cb73ee5fcc2f82d">IntroSatLib::AccelerometerV2</a></li>
+<li>F_104_Hz&#160;:&#160;<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776abdc899b99c6041ddaac011e9509384dd">IntroSatLib::GyroscopeV2</a></li>
+<li>F_13_Hz&#160;:&#160;<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776a4496a5345b9d078b1a3cc7f478af5e88">IntroSatLib::GyroscopeV2</a></li>
+<li>F_1666_Hz&#160;:&#160;<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776a99a2b1c87b4b80a35301f87ae7d0c434">IntroSatLib::GyroscopeV2</a></li>
+<li>F_208_Hz&#160;:&#160;<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776a98b89f819d2f837ddf7677c482e1d643">IntroSatLib::GyroscopeV2</a></li>
+<li>F_26_Hz&#160;:&#160;<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776a64ef558a170750e4504f53aa81a0b9c6">IntroSatLib::GyroscopeV2</a></li>
+<li>F_416_Hz&#160;:&#160;<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776a554bdf6dabb1cef0715cd3af5474bf8b">IntroSatLib::GyroscopeV2</a></li>
+<li>F_52_Hz&#160;:&#160;<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776afc66624b147ae4f9010ecb34da16dbff">IntroSatLib::GyroscopeV2</a></li>
+<li>F_833_Hz&#160;:&#160;<a class="el" href="classIntroSatLib_1_1GyroscopeV2.html#a6264fcade03afe83c704010e7f355776af1b042c80a89c842a048abba952f09f0">IntroSatLib::GyroscopeV2</a></li>
+<li>FB_A_100_Hz&#160;:&#160;<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5a96980961cb1fe3325dd51fea3ebd2ea9">IntroSatLib::LSM6DS3</a></li>
+<li>FB_A_200_Hz&#160;:&#160;<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5aa0ba983f8e2dd7f664581c755ca4dc85">IntroSatLib::LSM6DS3</a></li>
+<li>FB_A_400_Hz&#160;:&#160;<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5a1715eee8a8c7c0ffcf0d7c1d52678b7d">IntroSatLib::LSM6DS3</a></li>
+<li>FB_A_50_Hz&#160;:&#160;<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5ad08826ea2c352b34d3692f961508e8af">IntroSatLib::LSM6DS3</a></li>
+<li>FEC&#160;:&#160;<a class="el" href="classIntroSatLib_1_1E32__433.html#a2bf5546ad86ce8db7d6477115ac48588">IntroSatLib::E32_433</a></li>
+<li>FilterBandwidth&#160;:&#160;<a class="el" href="classIntroSatLib_1_1Accelerometer.html#abb0ab0a96031515ed9a96b08f21a41c0">IntroSatLib::Accelerometer</a>, <a class="el" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835">IntroSatLib::AccelerometerV2</a></li>
+<li>FilterBandwidthAccel&#160;:&#160;<a class="el" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5">IntroSatLib::LSM6DS3</a></li>
+<li>FlushRX()&#160;:&#160;<a class="el" href="classIntroSatLib_1_1UARTDevice.html#a23c231fa209821e2622c8d9b72a55c23">IntroSatLib::UARTDevice</a></li>
+<li>fourG&#160;:&#160;<a class="el" href="classIntroSatLib_1_1Accelerometer.html#a546db6400715485ed2e27ecddd954ff3ae5787409626eba69b9d67a64a63aa42d">IntroSatLib::Accelerometer</a>, <a class="el" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6fa296d1cfd7d54d5ddbe71fa8b772a4d4e">IntroSatLib::AccelerometerV2</a>, <a class="el" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7ebaa98601b8af450600432db088e5a96398">IntroSatLib::LSM6DS3</a></li>
+<li>FPS_1&#160;:&#160;<a class="el" href="classIntroSatLib_1_1IRCamera.html#a1fc8cab3fcbd47bed763bdcc726aaeafa81c8ccc55fb696606bbda356baa21d8d">IntroSatLib::IRCamera</a></li>
+<li>FPS_10&#160;:&#160;<a class="el" href="classIntroSatLib_1_1IRCamera.html#a1fc8cab3fcbd47bed763bdcc726aaeafa904f466d1a0b58999145a5307c77767e">IntroSatLib::IRCamera</a></li>
+<li>Framerate&#160;:&#160;<a class="el" href="classIntroSatLib_1_1IRCamera.html#a1fc8cab3fcbd47bed763bdcc726aaeaf">IntroSatLib::IRCamera</a></li>
+<li>FSC_BT986()&#160;:&#160;<a class="el" href="classIntroSatLib_1_1FSC__BT986.html#a79178a54415013a494cfcc350bf229b6">IntroSatLib::FSC_BT986</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

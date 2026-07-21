@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="IntroSatLib" />
+<meta property="og:image" content="https://github.com/user-attachments/assets/b9565746-a0e4-46ce-b2e8-ef371b14b845" />
+<meta property="og:description" content="Документация библиотеки IntroSatLib" />
+<meta property="og:url" content="https://teacupme.github.io/IntroSatLib/doc/v0.1.1/" />
+<!-- END opengraph metadata -->
+<title>IntroSatLib: Члены классов</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="dropdown.css" rel="stylesheet" type="text/css"/>
+<link href="theme-round.css" rel="stylesheet" type="text/css"/>
+<link href="theme-robot.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IntroSatLib
+   <!-- BEGIN PROJECT_NUMBER&#160;<span id="projectnumber">v0.2.1</span>END PROJECT_NUMBER -->
+   </div>
+  </td>
+    <!-- BEGIN version select -->
+    <td align="right">
+    <div class="dropdown">
+        <button class="dropbtn">Version v0.2.1</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+    <script type="text/javascript" src="./selectversion.js"></script>
+    </td>
+    <!-- END version select -->
+ </tr>
+ </tbody>
+</table>
+<div id="theme-selection">
+ <label for="theme-select">Theme:</label>
+ <select id="theme-select">
+  <option value="theme-default">Default</option>
+  <option value="theme-round">Round</option>
+  <option value="theme-robot">Robot</option>
+ </select>
+</div>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('functions_c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="textblock">Список всех документированных членов классов со ссылками на документацию по классу для каждого члена.</div><br/>
+<div class="qindex"><a class="qindex" href="functions.html#index_a">A</a><div class="alphasepar"></div><a class="qindex" href="functions_b.html#index_b">B</a><div class="alphasepar"></div><a class="qindex" href="functions_c.html#index_c">C</a><div class="alphasepar"></div><a class="qindex" href="functions_d.html#index_d">D</a><div class="alphasepar"></div><a class="qindex" href="functions_e.html#index_e">E</a><div class="alphasepar"></div><a class="qindex" href="functions_f.html#index_f">F</a><div class="alphasepar"></div><a class="qindex" href="functions_g.html#index_g">G</a><div class="alphasepar"></div><a class="qindex" href="functions_h.html#index_h">H</a><div class="alphasepar"></div><a class="qindex" href="functions_i.html#index_i">I</a><div class="alphasepar"></div><a class="qindex" href="functions_l.html#index_l">L</a><div class="alphasepar"></div><a class="qindex" href="functions_m.html#index_m">M</a><div class="alphasepar"></div><a class="qindex" href="functions_n.html#index_n">N</a><div class="alphasepar"></div><a class="qindex" href="functions_o.html#index_o">O</a><div class="alphasepar"></div><a class="qindex" href="functions_p.html#index_p">P</a><div class="alphasepar"></div><a class="qindex" href="functions_q.html#index_q">Q</a><div class="alphasepar"></div><a class="qindex" href="functions_r.html#index_r">R</a><div class="alphasepar"></div><a class="qindex" href="functions_s.html#index_s">S</a><div class="alphasepar"></div><a class="qindex" href="functions_t.html#index_t">T</a><div class="alphasepar"></div><a class="qindex" href="functions_u.html#index_u">U</a><div class="alphasepar"></div><a class="qindex" href="functions_v.html#index_v">V</a><div class="alphasepar"></div><a class="qindex" href="functions_w.html#index_w">W</a><div class="alphasepar"></div><a class="qindex" href="functions_x.html#index_x">X</a><div class="alphasepar"></div><a class="qindex" href="functions_y.html#index_y">Y</a><div class="alphasepar"></div><a class="qindex" href="functions_z.html#index_z">Z</a><div class="alphasepar"></div><a class="qindex" href="functions__.html#index__">_</a><div class="alphasepar"></div><a class="qindex" href="functions_~.html#index_~">~</a></div>
+
+
+<h3 class="doxsection"><a id="index_c" name="index_c"></a>- c -</h3><ul>
+<li>c1()&#160;:&#160;<a class="el" href="classIntroSatLib_1_1Quaternion.html#a1d104f7674162ec98c184a4a2aff8584">IntroSatLib::Quaternion&lt; T &gt;</a></li>
+<li>CFG_REG_A&#160;:&#160;<a class="el" href="classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a3f113681d9fae60b84ebbc9cb5ecfb63">IntroSatLib::LIS2MDL</a></li>
+<li>CFG_REG_B&#160;:&#160;<a class="el" href="classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a7497b96c493eaa8619f0e7a7abd42b6b">IntroSatLib::LIS2MDL</a></li>
+<li>CFG_REG_C&#160;:&#160;<a class="el" href="classIntroSatLib_1_1LIS2MDL.html#a2192c3eaf3b2e0c7506d5b3dd4d82114a979b9c209cdcf64b345d255a001e14da">IntroSatLib::LIS2MDL</a></li>
+<li>CH0&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caa3ce88c5992b9028767b5ef17a2428926">IntroSatLib::ADS7830</a></li>
+<li>CH1&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caaaed2a56f6ade1e2f9cfc70a095214ce9">IntroSatLib::ADS7830</a></li>
+<li>CH2&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caac750197f04820048afd6a31f542f5efe">IntroSatLib::ADS7830</a></li>
+<li>CH3&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caabfef36299e762e547594df2b90f45885">IntroSatLib::ADS7830</a></li>
+<li>CH4&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caac063c8d696acf659bc00167689208cce">IntroSatLib::ADS7830</a></li>
+<li>CH5&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caa3a199dc85edfe504583669f84366e1f4">IntroSatLib::ADS7830</a></li>
+<li>CH6&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caa644ef47c64d86a77b160009cb4863241">IntroSatLib::ADS7830</a></li>
+<li>CH7&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caabc174ecbc310e12238e3c4d7fd9be4ab">IntroSatLib::ADS7830</a></li>
+<li>CH_CIN&#160;:&#160;<a class="el" href="classIntroSatLib_1_1PicoADC.html#affdd117cab9314dc9149caa802ee8bd2a68c7d00cb73e73deb73c319b704d27bf">IntroSatLib::PicoADC</a></li>
+<li>CH_COUT&#160;:&#160;<a class="el" href="classIntroSatLib_1_1PicoADC.html#affdd117cab9314dc9149caa802ee8bd2a326a969c1f08cef878ced52e321285fc">IntroSatLib::PicoADC</a></li>
+<li>CH_DIFF_0_TO_1&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caae0f0bf2fabd8cf50b81e2061ffe7530b">IntroSatLib::ADS7830</a></li>
+<li>CH_DIFF_1_TO_0&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caa55538ab7d289c66655bbe977dfd5966c">IntroSatLib::ADS7830</a></li>
+<li>CH_DIFF_2_TO_3&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caa27897a871ef1ff7a2d6d3dec7cdc2b28">IntroSatLib::ADS7830</a></li>
+<li>CH_DIFF_3_TO_2&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caa2b91ee01807472bcfcf4f43a1313ee96">IntroSatLib::ADS7830</a></li>
+<li>CH_DIFF_4_TO_5&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caa14f19f8c599d4b07191435696a14c1d0">IntroSatLib::ADS7830</a></li>
+<li>CH_DIFF_5_TO_4&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caafd1908ddfd13a8760957cddef616a8c5">IntroSatLib::ADS7830</a></li>
+<li>CH_DIFF_6_TO_7&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caab59dc5f80e8c74f5288f7b3396ec95d6">IntroSatLib::ADS7830</a></li>
+<li>CH_DIFF_7_TO_6&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95caa3721852aa132c3d798e9d770d43598d0">IntroSatLib::ADS7830</a></li>
+<li>CH_VBAT&#160;:&#160;<a class="el" href="classIntroSatLib_1_1PicoADC.html#affdd117cab9314dc9149caa802ee8bd2adf3313efe2c95c9a49d7bc99eaeca2e3">IntroSatLib::PicoADC</a></li>
+<li>CH_VIN&#160;:&#160;<a class="el" href="classIntroSatLib_1_1PicoADC.html#affdd117cab9314dc9149caa802ee8bd2a7d9b2cac49fe9cfb80330b1f89f1d45a">IntroSatLib::PicoADC</a></li>
+<li>CH_VOUT&#160;:&#160;<a class="el" href="classIntroSatLib_1_1PicoADC.html#affdd117cab9314dc9149caa802ee8bd2a4840b9390be388fc97cfb74f6bfcd5cc">IntroSatLib::PicoADC</a></li>
+<li>Channel&#160;:&#160;<a class="el" href="classIntroSatLib_1_1ADS7830.html#ae5be1d6d9fb0cf38aa55853c981a95ca">IntroSatLib::ADS7830</a>, <a class="el" href="classIntroSatLib_1_1PicoADC.html#affdd117cab9314dc9149caa802ee8bd2">IntroSatLib::PicoADC</a></li>
+<li>CheckRegisterI2C()&#160;:&#160;<a class="el" href="classIntroSatLib_1_1I2CDevice.html#ab9bbd2d50ab5023042ec65c9dfb0f5e0">IntroSatLib::I2CDevice</a></li>
+<li>CoilFlyWheel()&#160;:&#160;<a class="el" href="classIntroSatLib_1_1CoilFlyWheel.html#a8820c295bc608f4527e2a7ceabd1b732">IntroSatLib::CoilFlyWheel</a></li>
+<li>CommandHead&#160;:&#160;<a class="el" href="classIntroSatLib_1_1E32__433.html#a211b27cd13123f94d0cb46fba215b090">IntroSatLib::E32_433</a></li>
+<li>Connect()&#160;:&#160;<a class="el" href="classIntroSatLib_1_1FSC__BT986.html#a97c3db94df40af1c0deb30b31c17a525">IntroSatLib::FSC_BT986</a></li>
+<li>CurrentSpeed()&#160;:&#160;<a class="el" href="classIntroSatLib_1_1BaseFlyWheel.html#aae974e08f86599e4c69c26dbd151b9a3">IntroSatLib::BaseFlyWheel</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>
