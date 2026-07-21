@@ -1,11 +1,11 @@
 <map id="IntroSatLib::UARTDevice" name="IntroSatLib::UARTDevice">
-<area shape="rect" id="Node000001" title="Базовый класс для устройств, использующих UART интерфейс" alt="" coords="87,79,254,105"/>
-<area shape="rect" id="Node000003" href="$classIntroSatLib_1_1ATDevice.html" title="Базовый класс для устройств, использующих AT&#45;команды" alt="" coords="12,153,161,178"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="147,117,102,154,99,150,143,113"/>
-<area shape="rect" id="Node000005" href="$classIntroSatLib_1_1E32__433.html" title="Класс для управления LoRa модулем E32&#45;433." alt="" coords="185,153,326,178"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="198,113,243,150,240,154,195,117"/>
-<area shape="rect" id="Node000002" href="$classIntroSatLib_1_1Device.html" title=" " alt="" coords="105,5,236,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,46,173,79,168,79,168,46"/>
-<area shape="rect" id="Node000004" href="$classIntroSatLib_1_1FSC__BT986.html" title="Класс драйвера Bluetooth&#45;модуля FSC&#45;BT986." alt="" coords="5,226,168,252"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="89,194,89,226,84,226,84,194"/>
+<area shape="rect" id="Node000001" title="Базовый класс для устройств, использующих UART интерфейс" alt="" coords="92,79,272,104"/>
+<area shape="rect" id="Node000003" href="$classIntroSatLib_1_1ATDevice.html" title="Базовый класс для устройств, использующих AT&#45;команды" alt="" coords="11,152,172,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,115,108,154,105,150,155,110"/>
+<area shape="rect" id="Node000005" href="$classIntroSatLib_1_1E32__433.html" title="Класс для управления LoRa модулем E32&#45;433." alt="" coords="197,152,351,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="209,110,261,150,257,154,206,114"/>
+<area shape="rect" id="Node000002" href="$classIntroSatLib_1_1Device.html" title=" " alt="" coords="109,5,255,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,44,185,79,179,79,179,44"/>
+<area shape="rect" id="Node000004" href="$classIntroSatLib_1_1FSC__BT986.html" title="Класс драйвера Bluetooth&#45;модуля FSC&#45;BT986." alt="" coords="5,225,177,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,191,94,225,89,225,89,191"/>
 </map>

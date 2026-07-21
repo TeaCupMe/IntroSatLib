@@ -1,12 +1,12 @@
 <map id="IntroSatLib::PicoADC" name="IntroSatLib::PicoADC">
-<area shape="rect" id="Node000001" title="Класс для работы с АЦП на плате питания IntroSat.Pico." alt="" coords="94,226,238,252"/>
-<area shape="rect" id="Node000002" href="$classIntroSatLib_1_1ADS7830.html" title="Класс для работы с 8&#45;канальным 8&#45;битным АЦП ADS7830 по интерфейсу I2C." alt="" coords="93,153,239,178"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,194,169,226,164,226,164,194"/>
-<area shape="rect" id="Node000003" href="$classIntroSatLib_1_1BaseADC.html" title=" " alt="" coords="5,79,154,105"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,113,153,150,150,154,104,117"/>
-<area shape="rect" id="Node000004" href="$classIntroSatLib_1_1Device.html" title=" " alt="" coords="100,5,232,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="141,43,96,81,92,77,138,39"/>
-<area shape="rect" id="Node000005" href="$classIntroSatLib_1_1I2CDevice.html" title=" " alt="" coords="177,79,328,105"/>
-<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="194,39,240,77,237,81,191,43"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="228,117,182,154,179,150,225,113"/>
+<area shape="rect" id="Node000001" title="Класс для работы с АЦП на плате питания IntroSat.Pico." alt="" coords="101,225,256,251"/>
+<area shape="rect" id="Node000002" href="$classIntroSatLib_1_1ADS7830.html" title="Класс для работы с 8&#45;канальным 8&#45;битным АЦП ADS7830 по интерфейсу I2C." alt="" coords="99,152,258,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,191,181,225,176,225,176,191"/>
+<area shape="rect" id="Node000003" href="$classIntroSatLib_1_1BaseADC.html" title=" " alt="" coords="5,79,165,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="113,110,165,150,162,154,109,114"/>
+<area shape="rect" id="Node000004" href="$classIntroSatLib_1_1Device.html" title=" " alt="" coords="106,5,251,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="155,41,102,81,99,76,151,37"/>
+<area shape="rect" id="Node000005" href="$classIntroSatLib_1_1I2CDevice.html" title=" " alt="" coords="190,79,357,104"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="206,37,259,76,256,81,203,41"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="249,114,196,154,193,150,246,110"/>
 </map>

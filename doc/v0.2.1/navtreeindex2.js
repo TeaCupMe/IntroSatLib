@@ -118,7 +118,7 @@ var NAVTREEINDEX2 =
 "structIntroSatLib_1_1IRProtocol_1_1ProtocolTimings.html#ae1be43ed45896d9045aed25381890191":[4,0,0,1,0,2],
 "structIntroSatLib_1_1IRProtocol_1_1ProtocolTimings.html#affb476478e2a24825c6e88c4c5258ac5":[4,0,0,1,0,0],
 "structIntroSatLib_1_1Vector3.html":[4,0,0,42],
-"structIntroSatLib_1_1hash.html":[4,0,0,21],
-"structIntroSatLib_1_1interfaces_1_1GPIO__HANDLE__TYPE.html":[4,0,0,0,1],
-"structIntroSatLib_1_1lexicographic__order.html":[4,0,0,28]
+"structIntroSatLib_1_1hash.html":[4,0,0,40],
+"structIntroSatLib_1_1interfaces_1_1GPIO__HANDLE__TYPE.html":[4,0,0,0,0],
+"structIntroSatLib_1_1lexicographic__order.html":[4,0,0,41]
 };

@@ -1,9 +1,9 @@
 <map id="IntroSatLib::BaseAccelerometer" name="IntroSatLib::BaseAccelerometer">
-<area shape="rect" id="Node000001" title=" " alt="" coords="100,5,305,31"/>
-<area shape="rect" id="Node000002" href="$classIntroSatLib_1_1LSM6DS3.html" title=" " alt="" coords="127,79,278,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,46,205,79,200,79,200,46"/>
-<area shape="rect" id="Node000003" href="$classIntroSatLib_1_1AccelerometerV2.html" title=" " alt="" coords="5,153,197,178"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="174,116,120,154,117,150,171,112"/>
-<area shape="rect" id="Node000004" href="$classIntroSatLib_1_1GyroscopeV2.html" title=" " alt="" coords="220,153,390,178"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="233,111,289,150,286,154,230,116"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="110,5,337,31"/>
+<area shape="rect" id="Node000002" href="$classIntroSatLib_1_1LSM6DS3.html" title=" " alt="" coords="143,79,304,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,44,226,79,221,79,221,44"/>
+<area shape="rect" id="Node000003" href="$classIntroSatLib_1_1AccelerometerV2.html" title=" " alt="" coords="5,152,217,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="195,114,131,154,128,150,192,109"/>
+<area shape="rect" id="Node000004" href="$classIntroSatLib_1_1GyroscopeV2.html" title=" " alt="" coords="242,152,429,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="255,109,318,150,316,154,252,114"/>
 </map>

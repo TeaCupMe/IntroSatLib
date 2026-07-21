@@ -61,6 +61,6 @@ var NAVTREEINDEX =
 "classIntroSatLib_1_1interfaces_1_1I2C.html#a64471c45a45a6e3ab937d94f39c6a5c4"
 ];
 
-const SYNCONMSG = 'нажмите на выключить для синхронизации панелей';
-const SYNCOFFMSG = 'нажмите на включить для синхронизации панелей';
-const LISTOFALLMEMBERS = 'Полный список членов класса';
+var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';
+var SYNCOFFMSG = 'нажмите на включить для синхронизации панелей';
+var LISTOFALLMEMBERS = 'Полный список членов класса';
