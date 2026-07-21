@@ -25,16 +25,25 @@ jobs:
       - name: Remove outdated directory listing from root
         run: |
           rm -f ./pages/doc/index.html
+      
+      - name: Remove outdated docs for current ref
+        run: |
+          rm -f -r ./pages/doc/${{ github.ref_name }}
 
       - run: |
           echo "OUTPUT_DIRECTORY=./pages/doc/${{ github.ref_name }}" >> ./doxygen/doxygen.conf
           echo "PROJECT_NUMBER=${{ github.ref_name }}" >> ./doxygen/doxygen.conf  
 
-      - name: Generate Doxygen files
-        uses: mattnotmitt/doxygen-action@edge
+      - name: Install Doxygen
+        uses: ssciwr/doxygen-install@v2
         with:
-          working-directory: '.'
-          doxyfile-path: './doxygen/doxygen.conf'
+          version: "1.16.1"
+      
+      - name: Install GraphViz
+        run: sudo apt-get install graphviz
+      
+      - name: Generate Doxygen files
+        run: doxygen ./doxygen/doxygen.conf
 
       - name: Upload generated docs as artifact
         uses: actions/upload-artifact@v4
