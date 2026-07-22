@@ -2,7 +2,7 @@
 #include "Device/CC1101/CC1101.h"
 #include <SPI.h>
 
-#define CC1101_CS_PIN 2
+#define CC1101_CS_PIN 4
 
 using namespace IntroSatLib;
 

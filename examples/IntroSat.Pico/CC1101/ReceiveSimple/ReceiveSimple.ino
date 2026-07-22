@@ -2,13 +2,13 @@
 #include "Device/CC1101/CC1101.h"
 #include <SPI.h>
 
-#define CC1101_CS_PIN 2
+#define CC1101_CS_PIN 4
 
 using namespace IntroSatLib;
 
 CC1101 radio(SPI, CC1101_CS_PIN);
 uint8_t buffer[64];
-size_t receivedLength = 0;
+uint8_t receivedLength = 0;
 
 void setup() {
     pinMode(CC1101_CS_PIN, OUTPUT);
