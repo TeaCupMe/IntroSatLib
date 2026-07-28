@@ -18,11 +18,6 @@ private:
 	bool readOnly{false};
 
 public:
-//	M24C02(interfaces::I2C i2c_, interfaces::GPIO wc, uint8_t address = BASE_ADDRESS): I2CDevice(i2c_, address), wcPin(wc)
-//	{
-//		memorySize = MEMORY_SIZE;
-//	}
-
 	M24C02(interfaces::I2C i2c_, interfaces::GPIO_HANDLE_TYPE wc, uint8_t address = BASE_ADDRESS):
 		I2CDevice(i2c_, address),
 		wcPin(wc)
