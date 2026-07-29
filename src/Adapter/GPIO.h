@@ -80,19 +80,19 @@ public:
 	void reset() const { write(0); }
 	void set() const { write(1); }
 
-	uint8_t wait(uint8_t state, uint16_t timeout = 0xFFFF) const {
-		using ::IntroSatLib::system::GetTick;
-		state = !!state; // To convert any uint to 0 or 1
+	ISL_StatusTypeDef wait(bool state, uint16_t timeout = 0xFFFF) const {
 		uint32_t startTime = ::IntroSatLib::system::GetTick();
 		while(read() != state)
 		{
-			if ((system::GetTick() - startTime) > timeout) { return 1; }
+			if ((system::GetTick() - startTime) > timeout) { return ISL_StatusTypeDef::ISL_TIMEOUT; }
 		}
-		return 0;
+		return ISL_StatusTypeDef::ISL_OK;
 	};
 
-	uint8_t waitReset(uint16_t timeout = 0xFFFF) const { return wait(0, timeout); }
-	uint8_t waitSet(uint16_t timeout = 0xFFFF) const { return wait(1, timeout); }
+	ISL_StatusTypeDef waitReset(uint16_t timeout = 0xFFFF) const { return wait(0, timeout); }
+	ISL_StatusTypeDef waitSet(uint16_t timeout = 0xFFFF) const { return wait(1, timeout); }
+	void tone( uint16_t frequency);
+	void noTone();
 	bool isValid() const;
 };
 

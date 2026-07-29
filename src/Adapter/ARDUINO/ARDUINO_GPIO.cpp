@@ -12,5 +12,10 @@ void IntroSatLib::interfaces::GPIO::write(uint8_t state) const
 bool IntroSatLib::interfaces::GPIO::isValid() const 
 { return _pin != 0; }
 
+void IntroSatLib::interfaces::GPIO::tone(uint16_t frequency)
+{ ::tone(_pin, frequency); }
+
+void IntroSatLib::interfaces::GPIO::noTone()
+{ ::noTone(_pin);}
 
 #endif /* defined(HAL_GPIO_MODULE_ENABLED) && !defined(ARDUINO) */

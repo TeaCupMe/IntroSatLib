@@ -48,7 +48,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах (по умолчанию defaultTimeout)
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef WriteUART(uint8_t* buf, uint8_t nBytes, uint16_t timeout = defaultTimeout);
+    ISL_StatusTypeDef WriteUART(uint8_t* buf, uint16_t nBytes, uint16_t timeout = defaultTimeout);
 
     /**
      * \~russian @brief Чтение данных из UART
@@ -58,7 +58,7 @@ public:
      * \~russian @param timeout Таймаут операции в миллисекундах (по умолчанию defaultTimeout)
      * \~russian @return Статус выполнения операции
      */
-    ISL_StatusTypeDef ReadUART(uint8_t* buf, uint8_t nBytes = 1, uint16_t timeout = defaultTimeout);
+    ISL_StatusTypeDef ReadUART(uint8_t* buf, uint16_t nBytes = 1, uint16_t timeout = defaultTimeout);
 
     /**
      * \~russian @brief Проверка наличия данных в приемном буфере UART
