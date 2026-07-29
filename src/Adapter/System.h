@@ -50,7 +50,10 @@
 namespace IntroSatLib {
 	namespace system {
 		uint32_t GetTick();
+		const auto GetMillis = GetTick; // Alias for GetTick, as millis() is more common in Arduino and HAL_GetTick() is more common in STM32 HAL
+		uint32_t GetMicros();
 		void Delay(uint32_t milliseconds);
+		void DelayMicroseconds(uint32_t microseconds);
 	};
 };
 
