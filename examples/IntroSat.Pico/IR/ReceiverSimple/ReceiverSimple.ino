@@ -17,7 +17,7 @@ uint8_t buff[64];
 void receiveISR()
 {
   uint8_t oldSREG = SREG;       // Сохранение значения регистра состояния
-  cli();                        // Отключение перрываний
+  cli();                        // Отключение прерываний
   receiver.ProcessReceiving();  // Прием данных
   SREG = oldSREG;               // Восстановление значения регистра состояния
 }

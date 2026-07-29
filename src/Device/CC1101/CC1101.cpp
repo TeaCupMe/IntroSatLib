@@ -488,7 +488,7 @@ CC1101::Status CC1101::transmit(uint8_t *data, size_t length, uint8_t addr) {
   return ret;
 }
 
-CC1101::Status CC1101::receive(uint8_t *data, size_t length, size_t *read, uint8_t addr) {
+CC1101::Status CC1101::receive(uint8_t *data, size_t length, uint16_t *read, uint8_t addr) {
   if (length > 255) {
     return STATUS_LENGTH_TOO_BIG;
   }
