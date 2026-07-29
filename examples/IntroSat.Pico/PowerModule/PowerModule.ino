@@ -1,21 +1,22 @@
 // Подключаем библиотеку для перепрошивки пикосата по Bluetooth
-#include <IS_Bluetooth.h>
-// Подключаем библиотеку для работы с АЦП
-#include "PicoADC.h"
+#include "IntroSatLib.h"
+#include <ISL_Bootloader.h>
+// Подключаем библиотеку для работы с платой питания IntroSat.Pico
+#include "Pico/PowerModule.h"
 
-// Включаем пространство имён библиотеки для работы с пикосатами (и кубсатами тоже :))
-using namespace IntroSatLib;
+// Включаем пространство имён библиотеки для работы с пикосатами
+using namespace IntroSatLib::Pico;
 
 
 // Создаём объект для управления АЦП
-//    PicoADC - название класса для управления АЦП на плате питания (с ионисторами или с аккумулятором)
+//    PowerModule - название класса для управления платой питания (с ионисторами или с аккумулятором)
 //    Wire - объект для управления шиной I2C пикосата 
-PicoADC adc(Wire);
+PowerModule powerModule(Wire);
 
 void setup() {
   // Инициализируем обмен данными с пикоспутником по UART
-  // 57600 - скорость обмена данными, измеряется в бод (биты в секунду)
-  Serial.begin(57600);
+  // 115200 - скорость обмена данными, измеряется в бод (биты в секунду)
+  Serial.begin(115200);
 
   //  Инициализируем работу с I2C
   Wire.begin();
@@ -23,8 +24,8 @@ void setup() {
   // Инициализируем АЦП. 
   // Если при инициализации произошла ошибка,
   // выводим соответствующее сообщение.
-  if (adc.Init() != 0) {
-    Serial.println("Ошибка! Не удалось инициализировать ацп!");
+  if (powerModule.Init() != 0) {
+    Serial.println("Ошибка! Не удалось инициализировать плату питания!");
   }
 
   // Метод print() позволяет выводить в монитор порта
@@ -51,7 +52,7 @@ void loop() {
       // GetVBAT() - метод для получения значения напряжения на аккумуляторе или ионисторах в вольтах
       // Возвращает значение типа данных float.
       Serial.print("VBAT [V]: ");
-      Serial.println(adc.GetVBAT());
+      Serial.println(powerModule.GetVBAT());
     }
     
     // Если получаем команду "icon", 
@@ -60,7 +61,7 @@ void loop() {
       // GetCOUT() - метод для получения значения тока потребления с платы питания в миллиамперах
       // Возвращает значение типа данных float.
       Serial.print("I consumption [mA]: ");
-      Serial.println(adc.GetCOUT());
+      Serial.println(powerModule.GetCOUT());
     }
 
     // Если получаем команду "ich", 
@@ -69,7 +70,7 @@ void loop() {
       // GetCIN() - метод для получения тока зарядки с платы питания в миллиамперах
       // Возвращает значение типа данных float.
       Serial.print("I charge [mA]: ");
-      Serial.println(adc.GetCIN());
+      Serial.println(powerModule.GetCIN());
     }
 
     // Если получаем команду "vin", 
@@ -78,7 +79,7 @@ void loop() {
       // GetVIN() - метод для получения напряжения на солнечных панелях с платы питания в вольтах
       // Возвращает значение типа данных float.
       Serial.print("VIN [V]: ");
-      Serial.println(adc.GetVIN());
+      Serial.println(powerModule.GetVIN());
     }
 
     // Если получаем команду "vout", 
@@ -87,7 +88,7 @@ void loop() {
       // GetVOUT() - метод для получения напряжения на выходе преобразователя на плате питания в вольтах
       // Возвращает значение типа данных float.
       Serial.print("VOUT [V]: ");
-      Serial.println(adc.GetVOUT());
+      Serial.println(powerModule.GetVOUT());
     } 
   }
 }
