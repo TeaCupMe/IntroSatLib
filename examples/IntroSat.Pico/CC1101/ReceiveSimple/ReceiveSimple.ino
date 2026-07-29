@@ -8,7 +8,7 @@ using namespace IntroSatLib;
 
 CC1101 radio(SPI, CC1101_CS_PIN);
 uint8_t buffer[64];
-uint8_t receivedLength = 0;
+uint16_t receivedLength = 0;
 
 void setup() {
     pinMode(CC1101_CS_PIN, OUTPUT);
