@@ -24,7 +24,7 @@ uint32_t IntroSatLib::system::GetMicros() {
         asm volatile("nop");
     } while (ms != HAL_GetTick());
 
-    return ms * 1000 - st / ((SysTick->LOAD + 1) / 1000);
+    return (ms + 1) * 1000 - st / ((SysTick->LOAD + 1) / 1000);
 }
 
 void IntroSatLib::system::DelayMicroseconds(uint32_t microseconds) {
