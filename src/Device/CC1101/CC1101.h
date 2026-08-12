@@ -203,7 +203,23 @@ public:
 	Status Init(Modulation mod, double freq, double drate);
 
 	ISL_StatusTypeDef Init() override {
-		return Init(MOD_ASK_OOK, 433.5, 4) == Status::STATUS_OK ? ISL_StatusTypeDef::ISL_OK : ISL_StatusTypeDef::ISL_ERROR;
+		if (Init(MOD_ASK_2FSK, 433.5, 1.5) != Status::STATUS_OK) 
+		{
+			return ISL_StatusTypeDef::ISL_ERROR;
+		}
+		
+		setOutputPower(0);
+		setPacketLengthMode(CC1101::PKT_LEN_MODE_VARIABLE);
+		setAddressFilteringMode(CC1101::ADDR_FILTER_MODE_NONE);
+		setPreambleLength(64);
+		setSyncWord(0x1234);
+		setSyncMode(CC1101::SYNC_MODE_16_16);
+		setCrc(true);
+		setDataWhitening(true);
+		setManchester(false);
+		setFEC(false);
+
+		return ISL_StatusTypeDef::ISL_OK;
 	}
 
 	uint8_t getChipPartNumber();
