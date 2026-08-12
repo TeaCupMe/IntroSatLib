@@ -8,6 +8,7 @@
 ## Оглавление
 
 - [Установка](#установка)
+- [CMake](#cmake)
 - [Использование](#использование)
 - [Полезные ссылки](#полезные-ссылки)
 
@@ -46,6 +47,131 @@
 Шаг 4. Во вкладке `Includes` добавьте папку `IntroSatLib/src/` через кнопку `Add...`. Не забудьте поставить галочки `Add to all languages` и `Add to all configurations`.
 
 Шаг 5. Во вкладке `Source Locations` добавьте папку `IntroSatLib/src/` через кнопку `Add...`
+
+## CMake
+
+Для CMake требуется версия 3.20 или новее. Библиотека использует C++17 и
+поддерживает два backend: `ARDUINO` и `STM32_HAL`. Одновременно можно выбрать
+только один backend.
+
+`IntroSatLib::IntroSatLib` — INTERFACE-агрегатор всех компонентов. Чтобы
+собирать только нужные драйверы, можно линковать отдельные STATIC targets:
+
+- `IntroSatLib::Core` — адаптеры платформы, системные функции и логирование;
+- `IntroSatLib::Device` — общие I2C/SPI/UART/AT классы устройств;
+- `IntroSatLib::Facade` — legacy-фасады верхнего уровня;
+- `IntroSatLib::ADS7830`, `IntroSatLib::CC1101`, `IntroSatLib::E32_433`,
+  `IntroSatLib::FlyWheel`, `IntroSatLib::FSC_BT986`,
+  `IntroSatLib::IRCamera`, `IntroSatLib::LIS2MDL`, `IntroSatLib::LIS3MDL`,
+  `IntroSatLib::LM75A`, `IntroSatLib::LSM6DS3`, `IntroSatLib::M24C02`,
+  `IntroSatLib::MS5611` и `IntroSatLib::ISLIR*` — отдельные устройства.
+
+Зависимости `Device → Core` и `устройство → Device` подключаются транзитивно.
+
+Arduino Core и STM32 HAL/CMSIS библиотека не скачивает. Родительский проект
+прошивки должен заранее создать target, который передаёт необходимые include
+directories, compile definitions и библиотеки.
+
+### Подключение через add_subdirectory
+
+Для Arduino target зависимости должен предоставлять как минимум `Arduino.h`,
+`Wire.h`, `SPI.h` и соответствующие реализации:
+
+```cmake
+# Target создаётся CMake-интеграцией используемого Arduino Core.
+add_library(firmware_arduino_framework INTERFACE)
+target_link_libraries(
+	firmware_arduino_framework
+	INTERFACE ArduinoCore Wire SPI
+)
+
+set(INTROSATLIB_BACKEND ARDUINO CACHE STRING "" FORCE)
+set(
+	INTROSATLIB_ARDUINO_TARGET
+	firmware_arduino_framework
+	CACHE STRING ""
+	FORCE
+)
+add_subdirectory(external/IntroSatLib)
+
+target_link_libraries(firmware PRIVATE IntroSatLib::IntroSatLib)
+```
+
+Вместо агрегатора можно выбрать только нужные драйверы:
+
+```cmake
+target_link_libraries(firmware PRIVATE
+	IntroSatLib::LIS2MDL
+	IntroSatLib::LSM6DS3
+)
+```
+
+Для STM32 target зависимости должен предоставлять HAL/CMSIS headers,
+chip-specific define (например, `STM32F103xB`), `USE_HAL_DRIVER` и включённые
+HAL-модули:
+
+```cmake
+# Обычно этот target создаётся CMake-проектом, сгенерированным CubeMX.
+add_library(firmware_stm32_hal INTERFACE)
+target_include_directories(firmware_stm32_hal INTERFACE
+	"${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F1xx_HAL_Driver/Inc"
+	"${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/Device/ST/STM32F1xx/Include"
+	"${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/Include"
+)
+target_compile_definitions(firmware_stm32_hal INTERFACE
+	USE_HAL_DRIVER
+	STM32F103xB
+)
+
+set(INTROSATLIB_BACKEND STM32_HAL CACHE STRING "" FORCE)
+set(
+	INTROSATLIB_STM32_HAL_TARGET
+	firmware_stm32_hal
+	CACHE STRING ""
+	FORCE
+)
+add_subdirectory(external/IntroSatLib)
+
+target_link_libraries(firmware PRIVATE IntroSatLib::IntroSatLib)
+```
+
+### Установка и find_package
+
+После конфигурации в составе родительского проекта пакет можно установить:
+
+```sh
+cmake --build build
+cmake --install build --prefix /path/to/prefix
+```
+
+Установленный пакет запоминает выбранный backend и точное имя framework-target.
+Потребитель должен создать target с тем же именем до `find_package`:
+
+```cmake
+add_library(firmware_stm32_hal INTERFACE)
+# Настройка HAL/CMSIS target аналогична примеру выше.
+
+find_package(IntroSatLib 0.2 CONFIG REQUIRED)
+target_link_libraries(firmware PRIVATE IntroSatLib::IntroSatLib)
+```
+
+### Документация
+
+При установленных Doxygen и Graphviz можно добавить target документации:
+
+```cmake
+set(INTROSATLIB_BUILD_DOCS ON CACHE BOOL "" FORCE)
+# ...выбор backend и framework-target...
+add_subdirectory(external/IntroSatLib)
+```
+
+Документация генерируется командой `cmake --build build --target docs` в
+`doxygen/gen`.
+
+Sketches из `examples/` и `legacy_codes/` продолжают собираться Arduino CLI и
+STM32CubeIDE. Они не являются CMake targets, поскольку требуют конкретных
+Arduino board packages либо сгенерированного CubeMX-проекта.
 
 ## Использование
 

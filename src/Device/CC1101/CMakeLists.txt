@@ -1,0 +1,2 @@
+introsatlib_add_static_component(IntroSatLib_CC1101 CC1101 CC1101.cpp)
+target_link_libraries(IntroSatLib_CC1101 PUBLIC IntroSatLib::Device)

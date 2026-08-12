@@ -1,0 +1,50 @@
+introsatlib_add_static_component(
+	IntroSatLib_Device
+	Device
+	ATDevice.cpp
+	I2CDevice.cpp
+	RadioTransceiver.cpp
+	SPIDevice.cpp
+	UARTDevice.cpp
+)
+target_link_libraries(IntroSatLib_Device PUBLIC IntroSatLib::Core)
+
+add_subdirectory(Base)
+add_subdirectory(ADS7830)
+add_subdirectory(CC1101)
+add_subdirectory(E32_433)
+add_subdirectory(FlyWheel)
+add_subdirectory(FSC_BT986)
+add_subdirectory(IRCamera)
+add_subdirectory(ISLIRProtocol)
+add_subdirectory(ISLIRReceiver)
+add_subdirectory(ISLIRTransmitter)
+add_subdirectory(ISLIRTransceiver)
+add_subdirectory(LIS2MDL)
+add_subdirectory(LIS3MDL)
+add_subdirectory(LM75A)
+add_subdirectory(LSM6DS3)
+add_subdirectory(M24C02)
+add_subdirectory(MS5611)
+
+set(
+	INTROSATLIB_DEVICE_TARGETS
+	IntroSatLib::Base
+	IntroSatLib::ADS7830
+	IntroSatLib::CC1101
+	IntroSatLib::E32_433
+	IntroSatLib::FlyWheel
+	IntroSatLib::FSC_BT986
+	IntroSatLib::IRCamera
+	IntroSatLib::ISLIRProtocol
+	IntroSatLib::ISLIRReceiver
+	IntroSatLib::ISLIRTransmitter
+	IntroSatLib::ISLIRTransceiver
+	IntroSatLib::LIS2MDL
+	IntroSatLib::LIS3MDL
+	IntroSatLib::LM75A
+	IntroSatLib::LSM6DS3
+	IntroSatLib::M24C02
+	IntroSatLib::MS5611
+	PARENT_SCOPE
+)

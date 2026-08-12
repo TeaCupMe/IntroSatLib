@@ -1,0 +1,26 @@
+@PACKAGE_INIT@
+
+set(IntroSatLib_BACKEND "@INTROSATLIB_BACKEND@")
+set(IntroSatLib_FRAMEWORK_TARGET "@INTROSATLIB_FRAMEWORK_TARGET@")
+
+if(NOT TARGET "${IntroSatLib_FRAMEWORK_TARGET}")
+	set(IntroSatLib_FOUND FALSE)
+	set(
+		IntroSatLib_NOT_FOUND_MESSAGE
+		"IntroSatLib was built with the ${IntroSatLib_BACKEND} backend and "
+		"requires framework target '${IntroSatLib_FRAMEWORK_TARGET}'. "
+		"Create that target before calling find_package(IntroSatLib)."
+	)
+	return()
+endif()
+
+if(NOT TARGET IntroSatLib::Framework)
+	add_library(IntroSatLib::Framework INTERFACE IMPORTED)
+endif()
+set_property(
+	TARGET IntroSatLib::Framework
+	PROPERTY INTERFACE_LINK_LIBRARIES "${IntroSatLib_FRAMEWORK_TARGET}"
+)
+
+include("${CMAKE_CURRENT_LIST_DIR}/IntroSatLibTargets.cmake")
+check_required_components(IntroSatLib)
