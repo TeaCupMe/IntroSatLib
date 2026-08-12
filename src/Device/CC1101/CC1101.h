@@ -203,7 +203,7 @@ public:
 	Status Init(Modulation mod, double freq, double drate);
 
 	ISL_StatusTypeDef Init() override {
-		if (Init(MOD_ASK_2FSK, 433.5, 1.5) != Status::STATUS_OK) 
+		if (Init(MOD_2FSK, 433.5, 1.5) != Status::STATUS_OK) 
 		{
 			return ISL_StatusTypeDef::ISL_ERROR;
 		}
