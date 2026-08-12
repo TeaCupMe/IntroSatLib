@@ -1,56 +1,61 @@
+// Подключение библиотек
 #include "IntroSatLib.h"
 #include "Device/CC1101/CC1101.h"
 #include <SPI.h>
 
+// Объявляем пин CS для CC1101
 #define CC1101_CS_PIN 4
 
+/* Подключение пространства имён библиотеки,
+чтобы постоянно не писать IntroSatLib:: */
 using namespace IntroSatLib;
 
-CC1101 radio(SPI, CC1101_CS_PIN);
-uint8_t buffer[64];
-uint16_t receivedLength = 0;
+// Создаём переменные
+CC1101 radio(SPI, CC1101_CS_PIN); // Объект для работы с CC1101 по SPI
+uint8_t buffer[64]; // Буфер для сохранения принятых данных
+uint16_t receivedLength = 0; // Переменная для хранения количества принятых байт
 
 void setup() {
+    // Указываем режим работы пина CS для CC1101
     pinMode(CC1101_CS_PIN, OUTPUT);
 
+    // Включение Serial для вывода данных
     Serial.begin(115200);
     Serial.println(F("Инициализация..."));
-    SPI.begin();
     
+    // Инициализация SPI
+    SPI.begin();
 
+    /* Инициализация CC1101 с параметрами по умолчанию:
+            Частота: 433.5 МГц
+            Модуляция: 2FSK
+            Скорость: 1.5 КБ/с
+    */
     if (radio.Init() != 0) {
+        // При ошибке инициализации - выводим сообщение
         Serial.println(F("Ошибка инициализации!"));
         while (true) { delay(1000); }
     }
 
-    radio.setModulation(CC1101::MOD_2FSK);
+    // Выставляем частоту работы 433.8 МГц
     radio.setFrequency(433.8);
-    radio.setDataRate(1.5);
-    radio.setOutputPower(0);
-
-    radio.setPacketLengthMode(CC1101::PKT_LEN_MODE_VARIABLE);
-    radio.setAddressFilteringMode(CC1101::ADDR_FILTER_MODE_NONE);
-    radio.setPreambleLength(64);
-    radio.setSyncWord(0x1234);
-    radio.setSyncMode(CC1101::SYNC_MODE_16_16);
-    radio.setCrc(true);
-    radio.setDataWhitening(true);
-    radio.setManchester(false);
-    radio.setFEC(false);
 }
 
 void loop() {
+    // Пробуем принять данные
     CC1101::Status status = radio.receive(buffer, 64, &receivedLength);
         
+    // При успешном приёме выводим данные
     if (status == CC1101::STATUS_OK) {
-        Serial.print(F("Received "));
+        Serial.print("Received ");
         Serial.print(receivedLength);
-        Serial.print(F(" bytes: "));
+        Serial.print(" bytes: ");
         Serial.write(buffer, receivedLength);
         Serial.print(" [RSSI: ");
         Serial.print(radio.getRSSI());
         Serial.println(" dBm]");
     }
 
+    // Ждём 1 секунду
     delay(1000);
 }
