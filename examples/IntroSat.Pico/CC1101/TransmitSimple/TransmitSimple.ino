@@ -16,25 +16,10 @@ void setup() {
   SPI.begin();
   
 
-  if (radio.Init() == CC1101::STATUS_CHIP_NOT_FOUND) {
+  if (radio.Init() != 0) {
     Serial.println(F("Chip not found!"));
     while (true) { delay(1000); }
   }
-
-  radio.setModulation(CC1101::MOD_2FSK);
-  radio.setFrequency(433.8);
-  radio.setDataRate(1.5);
-  radio.setOutputPower(0);
-
-  radio.setPacketLengthMode(CC1101::PKT_LEN_MODE_VARIABLE);
-  radio.setAddressFilteringMode(CC1101::ADDR_FILTER_MODE_NONE);
-  radio.setPreambleLength(64);
-  radio.setSyncWord(0x1234);
-  radio.setSyncMode(CC1101::SYNC_MODE_16_16);
-  radio.setCrc(true);
-  radio.setDataWhitening(true);
-  radio.setManchester(false);
-  radio.setFEC(false);
 }
 
 int counter = 0;
