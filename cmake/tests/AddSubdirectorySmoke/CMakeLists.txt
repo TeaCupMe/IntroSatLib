@@ -1,9 +1,14 @@
 cmake_minimum_required(VERSION 3.20)
 project(IntroSatLibAddSubdirectorySmoke LANGUAGES CXX)
 
-add_library(smoke_framework INTERFACE)
-set(INTROSATLIB_ARDUINO_TARGET smoke_framework CACHE STRING "" FORCE)
-set(INTROSATLIB_STM32_HAL_TARGET smoke_framework CACHE STRING "" FORCE)
+if(INTROSATLIB_BACKEND STREQUAL "ARDUINO")
+	add_library(smoke_platform INTERFACE)
+	set(INTROSATLIB_PLATFORM_TARGET smoke_platform CACHE STRING "" FORCE)
+else()
+	# Exercises automatic STM32 platform-target detection.
+	add_library(stm32cubemx INTERFACE)
+endif()
+set(INTROSATLIB_ENABLE_INSTALL OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(
 	"${CMAKE_CURRENT_LIST_DIR}/../../.."

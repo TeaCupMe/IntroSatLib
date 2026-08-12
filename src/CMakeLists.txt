@@ -33,14 +33,16 @@ function(introsatlib_add_static_component target export_name)
 			"$<BUILD_INTERFACE:${INTROSATLIB_SRC_DIR}>"
 			"$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/IntroSatLib>"
 	)
-	install(
-		TARGETS "${target}"
-		EXPORT IntroSatLibTargets
-		ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-		LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-		RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
-		INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/IntroSatLib"
-	)
+	if(INTROSATLIB_ENABLE_INSTALL)
+		install(
+			TARGETS "${target}"
+			EXPORT IntroSatLibTargets
+			ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+			LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+			RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+			INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/IntroSatLib"
+		)
+	endif()
 endfunction()
 
 function(introsatlib_add_interface_component target export_name)
@@ -54,7 +56,9 @@ function(introsatlib_add_interface_component target export_name)
 			"$<BUILD_INTERFACE:${INTROSATLIB_SRC_DIR}>"
 			"$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/IntroSatLib>"
 	)
-	install(TARGETS "${target}" EXPORT IntroSatLibTargets)
+	if(INTROSATLIB_ENABLE_INSTALL)
+		install(TARGETS "${target}" EXPORT IntroSatLibTargets)
+	endif()
 endfunction()
 
 introsatlib_add_static_component(
@@ -69,7 +73,7 @@ target_compile_definitions(
 	IntroSatLib_Core
 	PUBLIC "${INTROSATLIB_BACKEND_DEFINITION}"
 )
-target_link_libraries(IntroSatLib_Core PUBLIC IntroSatLib::Framework)
+target_link_libraries(IntroSatLib_Core PUBLIC IntroSatLib::Platform)
 
 add_subdirectory(Device)
 
@@ -93,8 +97,10 @@ target_link_libraries(
 		IntroSatLib::Core
 )
 
-install(
-	DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/"
-	DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/IntroSatLib"
-	FILES_MATCHING PATTERN "*.h"
-)
+if(INTROSATLIB_ENABLE_INSTALL)
+	install(
+		DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/"
+		DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/IntroSatLib"
+		FILES_MATCHING PATTERN "*.h"
+	)
+endif()

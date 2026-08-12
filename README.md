@@ -87,7 +87,7 @@ target_link_libraries(
 
 set(INTROSATLIB_BACKEND ARDUINO CACHE STRING "" FORCE)
 set(
-	INTROSATLIB_ARDUINO_TARGET
+	INTROSATLIB_PLATFORM_TARGET
 	firmware_arduino_framework
 	CACHE STRING ""
 	FORCE
@@ -108,49 +108,46 @@ target_link_libraries(firmware PRIVATE
 
 Для STM32 target зависимости должен предоставлять HAL/CMSIS headers,
 chip-specific define (например, `STM32F103xB`), `USE_HAL_DRIVER` и включённые
-HAL-модули:
+HAL-модули. Если target называется `stm32cubemx`, библиотека обнаруживает его
+автоматически:
 
 ```cmake
-# Обычно этот target создаётся CMake-проектом, сгенерированным CubeMX.
-add_library(firmware_stm32_hal INTERFACE)
-target_include_directories(firmware_stm32_hal INTERFACE
-	"${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc"
-	"${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F1xx_HAL_Driver/Inc"
-	"${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/Device/ST/STM32F1xx/Include"
-	"${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/Include"
-)
-target_compile_definitions(firmware_stm32_hal INTERFACE
-	USE_HAL_DRIVER
-	STM32F103xB
-)
-
+# Создаёт target stm32cubemx.
+add_subdirectory(cmake/stm32cubemx)
 set(INTROSATLIB_BACKEND STM32_HAL CACHE STRING "" FORCE)
-set(
-	INTROSATLIB_STM32_HAL_TARGET
-	firmware_stm32_hal
-	CACHE STRING ""
-	FORCE
-)
 add_subdirectory(external/IntroSatLib)
 
 target_link_libraries(firmware PRIVATE IntroSatLib::IntroSatLib)
 ```
 
+При другом имени platform-target задайте его явно:
+
+```cmake
+set(INTROSATLIB_PLATFORM_TARGET firmware_stm32_hal CACHE STRING "" FORCE)
+```
+
 ### Установка и find_package
 
-После конфигурации в составе родительского проекта пакет можно установить:
+При подключении через `add_subdirectory` install-правила по умолчанию
+отключены. При самостоятельной сборке библиотеки они включены автоматически.
+В родительском проекте их можно включить явно:
 
-```sh
+```cmake
+set(INTROSATLIB_ENABLE_INSTALL ON CACHE BOOL "" FORCE)
+```
+
+После конфигурации пакет устанавливается обычными командами:
+
+```shell
 cmake --build build
 cmake --install build --prefix /path/to/prefix
 ```
 
-Установленный пакет запоминает выбранный backend и точное имя framework-target.
+Установленный пакет запоминает выбранный backend и точное имя platform-target.
 Потребитель должен создать target с тем же именем до `find_package`:
 
 ```cmake
-add_library(firmware_stm32_hal INTERFACE)
-# Настройка HAL/CMSIS target аналогична примеру выше.
+add_subdirectory(cmake/stm32cubemx)
 
 find_package(IntroSatLib 0.2 CONFIG REQUIRED)
 target_link_libraries(firmware PRIVATE IntroSatLib::IntroSatLib)
@@ -162,7 +159,7 @@ target_link_libraries(firmware PRIVATE IntroSatLib::IntroSatLib)
 
 ```cmake
 set(INTROSATLIB_BUILD_DOCS ON CACHE BOOL "" FORCE)
-# ...выбор backend и framework-target...
+# ...выбор backend и platform-target...
 add_subdirectory(external/IntroSatLib)
 ```
 
