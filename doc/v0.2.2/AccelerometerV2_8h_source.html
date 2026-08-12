@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="IntroSatLib" />
+<meta property="og:image" content="https://github.com/user-attachments/assets/b9565746-a0e4-46ce-b2e8-ef371b14b845" />
+<meta property="og:description" content="Документация библиотеки IntroSatLib" />
+<meta property="og:url" content="https://teacupme.github.io/IntroSatLib/doc/v0.1.1/" />
+<!-- END opengraph metadata -->
+<title>IntroSatLib: Исходный файл src/AccelerometerV2.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="dropdown.css" rel="stylesheet" type="text/css"/>
+<link href="theme-round.css" rel="stylesheet" type="text/css"/>
+<link href="theme-robot.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IntroSatLib
+   <!-- BEGIN PROJECT_NUMBER&#160;<span id="projectnumber">v0.2.2</span>END PROJECT_NUMBER -->
+   </div>
+  </td>
+    <!-- BEGIN version select -->
+    <td align="right">
+    <div class="dropdown">
+        <button class="dropbtn">Version v0.2.2</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+    <script type="text/javascript" src="./selectversion.js"></script>
+    </td>
+    <!-- END version select -->
+ </tr>
+ </tbody>
+</table>
+<div id="theme-selection">
+ <label for="theme-select">Theme:</label>
+ <select id="theme-select">
+  <option value="theme-default">Default</option>
+  <option value="theme-round">Round</option>
+  <option value="theme-robot">Robot</option>
+ </select>
+</div>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('AccelerometerV2_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">AccelerometerV2.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef ACCELEROMETERV2_H_</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define ACCELEROMETERV2_H_</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Device/LSM6DS3/LSM6DS3.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//#include &quot;../BaseDevice.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>IntroSatLib {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html">    9</a></span><span class="keyword">class </span><a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#a031832b8660450992dc1e50169d59705">AccelerometerV2</a>: <span class="keyword">private</span> LSM6DS3 {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">static</span> <span class="keyword">const</span> uint8_t BASE_ADDRESS = 0x6B;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6f">   17</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6f">Scale</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6faf865b46a57087bb80188ad48a807ad22">   19</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6faf865b46a57087bb80188ad48a807ad22">twoG</a> = 0,       </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6fa296d1cfd7d54d5ddbe71fa8b772a4d4e">   20</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6fa296d1cfd7d54d5ddbe71fa8b772a4d4e">fourG</a> = 2,      </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6fa4a84557e082d519a336ad86e72f7a2b3">   21</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6fa4a84557e082d519a336ad86e72f7a2b3">eightG</a> = 3,     </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6fa8de6d2cbae99ba3b936ea8a75ac468ae">   22</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6fa8de6d2cbae99ba3b936ea8a75ac468ae">sixteenG</a> = 1    </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    };</div>
+</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835">   29</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835">FilterBandwidth</a></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835a2e5bec24269ac51d9cb73ee5fcc2f82d">   31</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835a2e5bec24269ac51d9cb73ee5fcc2f82d">F400H</a> = 0, </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835ab68b35f970d9237adcabb0977dd6f2c9">   32</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835ab68b35f970d9237adcabb0977dd6f2c9">F200H</a> = 1, </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835a96ebe41795a6728552a8a0be56598e08">   33</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835a96ebe41795a6728552a8a0be56598e08">F100H</a> = 2, </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835a5ad7490d75f72eeaa09ac3a7e765b17a">   34</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835a5ad7490d75f72eeaa09ac3a7e765b17a">F050H</a> = 3  </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    };</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">// TODO @TeaCupMe я бы привёл к стилю, что всё в герцах - DR1K66H, DR3K33H и так далее. Спорный моментик</span></div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5">   45</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5">DataRate</a></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a6c76cb64f3d128e888f3585e6551aba5">   47</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a6c76cb64f3d128e888f3585e6551aba5">DR12_5H</a> = 1,      </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a8703e148a292eccf6d084927a7f55e3b">   48</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a8703e148a292eccf6d084927a7f55e3b">DR26H</a> = 2,        </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a1e40aa01d9cd66c448358a04114f0ba6">   49</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a1e40aa01d9cd66c448358a04114f0ba6">DR52H</a> = 3,        </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5ac85241d7e0e33c88baaa8e440b2de113">   50</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5ac85241d7e0e33c88baaa8e440b2de113">DR104H</a> = 4,       </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5ac12117c58700047677b1b1d36baa1405">   51</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5ac12117c58700047677b1b1d36baa1405">DR208H</a> = 5,       </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a9e2899af69a7dae7bd19ca4fcf86318a">   52</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a9e2899af69a7dae7bd19ca4fcf86318a">DR416H</a> = 6,       </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5aa193b0081c6f95911e16987c68766de1">   53</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5aa193b0081c6f95911e16987c68766de1">DR833H</a> = 7,       </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5ac6396ef9eb3fc0f1ead5d007b5561fab">   54</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5ac6396ef9eb3fc0f1ead5d007b5561fab">DR1_66KH</a> = 8,     </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a413292da15452a8b0be826d6d453c7bc">   55</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a413292da15452a8b0be826d6d453c7bc">DR3_33KH</a> = 9,     </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a5cf7ab40bece0f88779bd0c77572f1d3">   56</a></span>        <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a5cf7ab40bece0f88779bd0c77572f1d3">DR6_66KH</a> = 10,    </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    };</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    uint8_t _scale = 0;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a031832b8660450992dc1e50169d59705">   68</a></span>    <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#a031832b8660450992dc1e50169d59705">AccelerometerV2</a>(<a class="code hl_class" href="classIntroSatLib_1_1interfaces_1_1I2C.html">interfaces::I2C</a> i2c, uint8_t address = BASE_ADDRESS): LSM6DS3(i2c, address) {};</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span></div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#afbb7adea32a06980998cc6741a1b7568">   76</a></span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#afbb7adea32a06980998cc6741a1b7568">Init</a>() {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">return</span> LSM6DS3::InitAccel();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span></div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#af1a619ff85271f0185100c6916a75c01">   87</a></span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#af1a619ff85271f0185100c6916a75c01">Init</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6f">Scale</a> scale) {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">return</span> LSM6DS3::InitAccel((<a class="code hl_enumeration" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7eb">LSM6DS3::ScaleAccel</a>) scale);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
+</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span></div>
+<div class="foldopen" id="foldopen00099" data-start="{" data-end="}">
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#aac73de9cff6556b2ad5c24f62ddbf87a">   99</a></span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#aac73de9cff6556b2ad5c24f62ddbf87a">Init</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6f">Scale</a> scale, <a class="code hl_enumeration" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5">DataRate</a> dataRate) {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">return</span> LSM6DS3::InitAccel((<a class="code hl_enumeration" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7eb">LSM6DS3::ScaleAccel</a>) scale, (<a class="code hl_enumeration" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85">LSM6DS3::DataRateAccel</a>) dataRate);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
+</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span></div>
+<div class="foldopen" id="foldopen00112" data-start="{" data-end="}">
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a86484382a4649941f5db6ebf6ea92fd9">  112</a></span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#a86484382a4649941f5db6ebf6ea92fd9">Init</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6f">Scale</a> scale, <a class="code hl_enumeration" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5">DataRate</a> dataRate, <a class="code hl_enumeration" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835">FilterBandwidth</a> filter) {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">return</span> LSM6DS3::InitAccel((<a class="code hl_enumeration" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7eb">LSM6DS3::ScaleAccel</a>) scale, (<a class="code hl_enumeration" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85">LSM6DS3::DataRateAccel</a>) dataRate, (<a class="code hl_enumeration" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5">LSM6DS3::FilterBandwidthAccel</a>) filter);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
+</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span></div>
+<div class="foldopen" id="foldopen00121" data-start="{" data-end="}">
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a8e0db01696e2fbabf983b8c0c3f137be">  121</a></span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#a8e0db01696e2fbabf983b8c0c3f137be">SetScale</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6f">Scale</a> scale = <a class="code hl_enumvalue" href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6faf865b46a57087bb80188ad48a807ad22">twoG</a>) {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="keywordflow">return</span> LSM6DS3::SetScaleAccel((<a class="code hl_enumeration" href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7eb">LSM6DS3::ScaleAccel</a>) scale);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    }</div>
+</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span></div>
+<div class="foldopen" id="foldopen00130" data-start="{" data-end="}">
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a5909f06fd75f0a3af65e2d92d87adc64">  130</a></span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#a5909f06fd75f0a3af65e2d92d87adc64">SetFilter</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835">FilterBandwidth</a> filter) {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordflow">return</span> LSM6DS3::SetFilterAccel((<a class="code hl_enumeration" href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5">LSM6DS3::FilterBandwidthAccel</a>) filter);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    }</div>
+</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span></div>
+<div class="foldopen" id="foldopen00139" data-start="{" data-end="}">
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a6177c6571c4469a84180f3ae054e1e36">  139</a></span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#a6177c6571c4469a84180f3ae054e1e36">SetDataRate</a>(<a class="code hl_enumeration" href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5">DataRate</a> datarate) {</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordflow">return</span> LSM6DS3::SetDataRateAccel((<a class="code hl_enumeration" href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85">LSM6DS3::DataRateAccel</a>) datarate);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
+</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span></div>
+<div class="foldopen" id="foldopen00147" data-start="{" data-end="}">
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a2d15ff52aa1461d542cd471a7052ddc7">  147</a></span>    ISL_StatusTypeDef <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#a2d15ff52aa1461d542cd471a7052ddc7">end</a>() {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordflow">return</span> LSM6DS3::DeinitAccel();</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    }</div>
+</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span></div>
+<div class="foldopen" id="foldopen00156" data-start="{" data-end="}">
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#af411108897b7bc80ba06910016c36754">  156</a></span>    int16_t <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#af411108897b7bc80ba06910016c36754">RawX</a>() {</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        <span class="keywordflow">return</span> LSM6DS3::RawAX();</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    }</div>
+</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span></div>
+<div class="foldopen" id="foldopen00165" data-start="{" data-end="}">
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#af8788daec748c71d7b0dc79ec6eab07e">  165</a></span>    int16_t <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#af8788daec748c71d7b0dc79ec6eab07e">RawY</a>() {</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordflow">return</span> LSM6DS3::RawAY();</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    }</div>
+</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    </div>
+<div class="foldopen" id="foldopen00174" data-start="{" data-end="}">
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a5c64be636f093c40a55c2a9cebb88177">  174</a></span>    int16_t <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#a5c64be636f093c40a55c2a9cebb88177">RawZ</a>() {</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keywordflow">return</span> LSM6DS3::RawAZ();</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    }</div>
+</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span></div>
+<div class="foldopen" id="foldopen00183" data-start="{" data-end="}">
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a84948c4c0ac9ea54eb4d8ac69528ede8">  183</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#a84948c4c0ac9ea54eb4d8ac69528ede8">X</a>() {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordflow">return</span> LSM6DS3::AX();</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
+</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    </div>
+<div class="foldopen" id="foldopen00192" data-start="{" data-end="}">
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#ae3959d1a5999f4156ec6d662cbc14a46">  192</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#ae3959d1a5999f4156ec6d662cbc14a46">Y</a>() {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keywordflow">return</span> LSM6DS3::AY();</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    }</div>
+</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    </div>
+<div class="foldopen" id="foldopen00201" data-start="{" data-end="}">
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a4e8f12605a751c1638e11eeb3c69bf21">  201</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#a4e8f12605a751c1638e11eeb3c69bf21">Z</a>() {</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="keywordflow">return</span> LSM6DS3::AZ();</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    }</div>
+</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span></div>
+<div class="foldopen" id="foldopen00210" data-start="{" data-end="}">
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="classIntroSatLib_1_1AccelerometerV2.html#a18ae0f243bfcf304aaef06255df0590a">  210</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#a18ae0f243bfcf304aaef06255df0590a">Temp</a>() {</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        <span class="keywordflow">return</span> LSM6DS3::Temp();</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    }</div>
+</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    ISL_StatusTypeDef Disable()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordflow">return</span> LSM6DS3::DisableAccel();</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    }</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    ISL_StatusTypeDef Enable()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        <span class="keywordflow">return</span> LSM6DS3::EnableAccel();</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    }</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <a class="code hl_function" href="classIntroSatLib_1_1AccelerometerV2.html#a031832b8660450992dc1e50169d59705">~AccelerometerV2</a>() {};</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>};</div>
+</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>} <span class="comment">/* namespace IntroSatLib */</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="preprocessor">#endif </span><span class="comment">/* ACCELEROMETER_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a031832b8660450992dc1e50169d59705"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a031832b8660450992dc1e50169d59705">IntroSatLib::AccelerometerV2::AccelerometerV2</a></div><div class="ttdeci">AccelerometerV2(interfaces::I2C i2c, uint8_t address=BASE_ADDRESS)</div><div class="ttdoc">Конструктор объекта акселлерометра.</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:68</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a18ae0f243bfcf304aaef06255df0590a"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a18ae0f243bfcf304aaef06255df0590a">IntroSatLib::AccelerometerV2::Temp</a></div><div class="ttdeci">float Temp()</div><div class="ttdoc">Получение значения температуры акселлерометра</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:210</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a2d15ff52aa1461d542cd471a7052ddc7"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a2d15ff52aa1461d542cd471a7052ddc7">IntroSatLib::AccelerometerV2::end</a></div><div class="ttdeci">ISL_StatusTypeDef end()</div><div class="ttdoc">Отключение акселлерометра - переход в режим экономии энергии</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:147</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a4e8f12605a751c1638e11eeb3c69bf21"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a4e8f12605a751c1638e11eeb3c69bf21">IntroSatLib::AccelerometerV2::Z</a></div><div class="ttdeci">float Z()</div><div class="ttdoc">Получение значения ускорения по оси Z.</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:201</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a5909f06fd75f0a3af65e2d92d87adc64"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a5909f06fd75f0a3af65e2d92d87adc64">IntroSatLib::AccelerometerV2::SetFilter</a></div><div class="ttdeci">ISL_StatusTypeDef SetFilter(FilterBandwidth filter)</div><div class="ttdoc">Установка ширины окна фильтра</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:130</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a5c64be636f093c40a55c2a9cebb88177"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a5c64be636f093c40a55c2a9cebb88177">IntroSatLib::AccelerometerV2::RawZ</a></div><div class="ttdeci">int16_t RawZ()</div><div class="ttdoc">Получение необработанного значения ускорения по оси Z.</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:174</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a6177c6571c4469a84180f3ae054e1e36"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a6177c6571c4469a84180f3ae054e1e36">IntroSatLib::AccelerometerV2::SetDataRate</a></div><div class="ttdeci">ISL_StatusTypeDef SetDataRate(DataRate datarate)</div><div class="ttdoc">Установка скорости обновления данных</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:139</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a84948c4c0ac9ea54eb4d8ac69528ede8"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a84948c4c0ac9ea54eb4d8ac69528ede8">IntroSatLib::AccelerometerV2::X</a></div><div class="ttdeci">float X()</div><div class="ttdoc">Получение значения ускорения по оси X.</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:183</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a86484382a4649941f5db6ebf6ea92fd9"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a86484382a4649941f5db6ebf6ea92fd9">IntroSatLib::AccelerometerV2::Init</a></div><div class="ttdeci">ISL_StatusTypeDef Init(Scale scale, DataRate dataRate, FilterBandwidth filter)</div><div class="ttdoc">Инициализация акселлерометра с заданными диапазоном измерения, шириной окна фильтра и скоростью обнов...</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:112</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a8e0db01696e2fbabf983b8c0c3f137be"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a8e0db01696e2fbabf983b8c0c3f137be">IntroSatLib::AccelerometerV2::SetScale</a></div><div class="ttdeci">ISL_StatusTypeDef SetScale(Scale scale=twoG)</div><div class="ttdoc">Установка диапазона измерения</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:121</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a8f5b23f444406679eaa0275e13870835"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835">IntroSatLib::AccelerometerV2::FilterBandwidth</a></div><div class="ttdeci">FilterBandwidth</div><div class="ttdoc">Частота внутреннего фильтра измерения ускорения</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:30</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a8f5b23f444406679eaa0275e13870835a2e5bec24269ac51d9cb73ee5fcc2f82d"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835a2e5bec24269ac51d9cb73ee5fcc2f82d">IntroSatLib::AccelerometerV2::F400H</a></div><div class="ttdeci">@ F400H</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:31</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a8f5b23f444406679eaa0275e13870835a5ad7490d75f72eeaa09ac3a7e765b17a"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835a5ad7490d75f72eeaa09ac3a7e765b17a">IntroSatLib::AccelerometerV2::F050H</a></div><div class="ttdeci">@ F050H</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:34</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a8f5b23f444406679eaa0275e13870835a96ebe41795a6728552a8a0be56598e08"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835a96ebe41795a6728552a8a0be56598e08">IntroSatLib::AccelerometerV2::F100H</a></div><div class="ttdeci">@ F100H</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:33</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_a8f5b23f444406679eaa0275e13870835ab68b35f970d9237adcabb0977dd6f2c9"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#a8f5b23f444406679eaa0275e13870835ab68b35f970d9237adcabb0977dd6f2c9">IntroSatLib::AccelerometerV2::F200H</a></div><div class="ttdeci">@ F200H</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:32</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_aa4558f57b486ed9a7fa260fc6e694e6f"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6f">IntroSatLib::AccelerometerV2::Scale</a></div><div class="ttdeci">Scale</div><div class="ttdoc">Диапазон измерения ускорения</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:18</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_aa4558f57b486ed9a7fa260fc6e694e6fa296d1cfd7d54d5ddbe71fa8b772a4d4e"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6fa296d1cfd7d54d5ddbe71fa8b772a4d4e">IntroSatLib::AccelerometerV2::fourG</a></div><div class="ttdeci">@ fourG</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:20</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_aa4558f57b486ed9a7fa260fc6e694e6fa4a84557e082d519a336ad86e72f7a2b3"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6fa4a84557e082d519a336ad86e72f7a2b3">IntroSatLib::AccelerometerV2::eightG</a></div><div class="ttdeci">@ eightG</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:21</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_aa4558f57b486ed9a7fa260fc6e694e6fa8de6d2cbae99ba3b936ea8a75ac468ae"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6fa8de6d2cbae99ba3b936ea8a75ac468ae">IntroSatLib::AccelerometerV2::sixteenG</a></div><div class="ttdeci">@ sixteenG</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:22</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_aa4558f57b486ed9a7fa260fc6e694e6faf865b46a57087bb80188ad48a807ad22"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#aa4558f57b486ed9a7fa260fc6e694e6faf865b46a57087bb80188ad48a807ad22">IntroSatLib::AccelerometerV2::twoG</a></div><div class="ttdeci">@ twoG</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:19</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_aac73de9cff6556b2ad5c24f62ddbf87a"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#aac73de9cff6556b2ad5c24f62ddbf87a">IntroSatLib::AccelerometerV2::Init</a></div><div class="ttdeci">ISL_StatusTypeDef Init(Scale scale, DataRate dataRate)</div><div class="ttdoc">Инициализация акселлерометра с заданными диапазоном измерения и шириной окна фильтра</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:99</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_ac68bd3301131ff6d889fffa70b4672f5"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5">IntroSatLib::AccelerometerV2::DataRate</a></div><div class="ttdeci">DataRate</div><div class="ttdoc">Скорость обновления данных</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:46</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_ac68bd3301131ff6d889fffa70b4672f5a1e40aa01d9cd66c448358a04114f0ba6"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a1e40aa01d9cd66c448358a04114f0ba6">IntroSatLib::AccelerometerV2::DR52H</a></div><div class="ttdeci">@ DR52H</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:49</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_ac68bd3301131ff6d889fffa70b4672f5a413292da15452a8b0be826d6d453c7bc"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a413292da15452a8b0be826d6d453c7bc">IntroSatLib::AccelerometerV2::DR3_33KH</a></div><div class="ttdeci">@ DR3_33KH</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:55</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_ac68bd3301131ff6d889fffa70b4672f5a5cf7ab40bece0f88779bd0c77572f1d3"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a5cf7ab40bece0f88779bd0c77572f1d3">IntroSatLib::AccelerometerV2::DR6_66KH</a></div><div class="ttdeci">@ DR6_66KH</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:56</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_ac68bd3301131ff6d889fffa70b4672f5a6c76cb64f3d128e888f3585e6551aba5"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a6c76cb64f3d128e888f3585e6551aba5">IntroSatLib::AccelerometerV2::DR12_5H</a></div><div class="ttdeci">@ DR12_5H</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:47</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_ac68bd3301131ff6d889fffa70b4672f5a8703e148a292eccf6d084927a7f55e3b"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a8703e148a292eccf6d084927a7f55e3b">IntroSatLib::AccelerometerV2::DR26H</a></div><div class="ttdeci">@ DR26H</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:48</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_ac68bd3301131ff6d889fffa70b4672f5a9e2899af69a7dae7bd19ca4fcf86318a"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5a9e2899af69a7dae7bd19ca4fcf86318a">IntroSatLib::AccelerometerV2::DR416H</a></div><div class="ttdeci">@ DR416H</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:52</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_ac68bd3301131ff6d889fffa70b4672f5aa193b0081c6f95911e16987c68766de1"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5aa193b0081c6f95911e16987c68766de1">IntroSatLib::AccelerometerV2::DR833H</a></div><div class="ttdeci">@ DR833H</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:53</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_ac68bd3301131ff6d889fffa70b4672f5ac12117c58700047677b1b1d36baa1405"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5ac12117c58700047677b1b1d36baa1405">IntroSatLib::AccelerometerV2::DR208H</a></div><div class="ttdeci">@ DR208H</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:51</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_ac68bd3301131ff6d889fffa70b4672f5ac6396ef9eb3fc0f1ead5d007b5561fab"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5ac6396ef9eb3fc0f1ead5d007b5561fab">IntroSatLib::AccelerometerV2::DR1_66KH</a></div><div class="ttdeci">@ DR1_66KH</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:54</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_ac68bd3301131ff6d889fffa70b4672f5ac85241d7e0e33c88baaa8e440b2de113"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#ac68bd3301131ff6d889fffa70b4672f5ac85241d7e0e33c88baaa8e440b2de113">IntroSatLib::AccelerometerV2::DR104H</a></div><div class="ttdeci">@ DR104H</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:50</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_ae3959d1a5999f4156ec6d662cbc14a46"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#ae3959d1a5999f4156ec6d662cbc14a46">IntroSatLib::AccelerometerV2::Y</a></div><div class="ttdeci">float Y()</div><div class="ttdoc">Получение значения ускорения по оси Y.</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:192</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_af1a619ff85271f0185100c6916a75c01"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#af1a619ff85271f0185100c6916a75c01">IntroSatLib::AccelerometerV2::Init</a></div><div class="ttdeci">ISL_StatusTypeDef Init(Scale scale)</div><div class="ttdoc">Инициализация акселлерометра с заданным диапазоном измерения</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:87</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_af411108897b7bc80ba06910016c36754"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#af411108897b7bc80ba06910016c36754">IntroSatLib::AccelerometerV2::RawX</a></div><div class="ttdeci">int16_t RawX()</div><div class="ttdoc">Получение необработанного значения ускорения по оси X.</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:156</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_af8788daec748c71d7b0dc79ec6eab07e"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#af8788daec748c71d7b0dc79ec6eab07e">IntroSatLib::AccelerometerV2::RawY</a></div><div class="ttdeci">int16_t RawY()</div><div class="ttdoc">Получение необработанного значения ускорения по оси Y.</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:165</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1AccelerometerV2_html_afbb7adea32a06980998cc6741a1b7568"><div class="ttname"><a href="classIntroSatLib_1_1AccelerometerV2.html#afbb7adea32a06980998cc6741a1b7568">IntroSatLib::AccelerometerV2::Init</a></div><div class="ttdeci">ISL_StatusTypeDef Init()</div><div class="ttdoc">Инициализация акселлерометра с параметрами по умолчанию: Scale::fourG, FilterBandwidth::F400H,...</div><div class="ttdef"><b>Определения</b> AccelerometerV2.h:76</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1LSM6DS3_html_a4dcf8b8da54453c456fbb4b167121f85"><div class="ttname"><a href="classIntroSatLib_1_1LSM6DS3.html#a4dcf8b8da54453c456fbb4b167121f85">IntroSatLib::LSM6DS3::DataRateAccel</a></div><div class="ttdeci">DataRateAccel</div><div class="ttdef"><b>Определения</b> LSM6DS3.h:31</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1LSM6DS3_html_aa605f4ded776235eaa66f26f8119e9b5"><div class="ttname"><a href="classIntroSatLib_1_1LSM6DS3.html#aa605f4ded776235eaa66f26f8119e9b5">IntroSatLib::LSM6DS3::FilterBandwidthAccel</a></div><div class="ttdeci">FilterBandwidthAccel</div><div class="ttdef"><b>Определения</b> LSM6DS3.h:60</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1LSM6DS3_html_ae4ea0ae6d78bac39cf7c34d46042b7eb"><div class="ttname"><a href="classIntroSatLib_1_1LSM6DS3.html#ae4ea0ae6d78bac39cf7c34d46042b7eb">IntroSatLib::LSM6DS3::ScaleAccel</a></div><div class="ttdeci">ScaleAccel</div><div class="ttdef"><b>Определения</b> LSM6DS3.h:52</div></div>
+<div class="ttc" id="aclassIntroSatLib_1_1interfaces_1_1I2C_html"><div class="ttname"><a href="classIntroSatLib_1_1interfaces_1_1I2C.html">IntroSatLib::interfaces::I2C</a></div><div class="ttdef"><b>Определения</b> I2C.h:90</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>src</b></li><li class="navelem"><b>AccelerometerV2.h</b></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>
