@@ -2,6 +2,7 @@
 #define BASE_MEMORYDRIVER_H_
 
 #include "stdint.h"
+#include "IntroSatLib_def.h"
 
 namespace IntroSatLib
 {
