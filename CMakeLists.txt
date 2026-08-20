@@ -46,11 +46,13 @@ if(NOT INTROSATLIB_BACKEND IN_LIST _introsatlib_supported_backends)
 	)
 endif()
 
+message(STATUS "IntroSatLib backend: ${INTROSATLIB_BACKEND}")
+
 if(
 	INTROSATLIB_PLATFORM_TARGET STREQUAL ""
 	AND INTROSATLIB_BACKEND STREQUAL "STM32_HAL"
 	AND TARGET stm32cubemx
-)
+	)
 	set(INTROSATLIB_PLATFORM_TARGET stm32cubemx)
 endif()
 

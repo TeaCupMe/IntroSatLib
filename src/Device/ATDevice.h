@@ -192,7 +192,11 @@ public:
         ptr += cmd_len;
 
         RETURN_STATUS_IF_NOT_OK_SILENT(ATCommandEquals(&ptr, &end, num_args));
+#if __cplusplus >= 201703L
+        if constexpr (sizeof...(args) > 0) {
+#else
         if (num_args > 0) {
+#endif
             const char* params[] = { reinterpret_cast<const char*>(args)... };
             for (uint8_t i = 0; i < num_args; i++) {
                 if (i > 0) 
