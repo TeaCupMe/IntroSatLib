@@ -16,7 +16,8 @@ enum CMD {
 	GET_EXTENDED_POWER_CHANNEL_INFO = 0x80,
 	GET_TEMP_INT16 = 0x90,
 	GET_TEMP_FLOAT = 0xA0,
-	GET_HEATER_INFO = 0xB0
+	GET_HEATER_INFO = 0xB0,
+	SAVE_CONFIG = 0xC0
 };
 
 constexpr uint8_t ACK = 0x5A;	// sPM answers with ACK if the command was parsed and processed correctly;]

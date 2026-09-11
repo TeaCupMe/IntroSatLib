@@ -1,6 +1,7 @@
 #ifndef MODULES_PLATFORM_PSM_TYPES_H_
 #define MODULES_PLATFORM_PSM_TYPES_H_
 #include <stdint.h>
+#include <stddef.h>
 namespace platform::psm::types {
 
 // Heater
@@ -76,6 +77,8 @@ enum class PowerChannel: uint8_t {
 	Payload5v,
 	Qty
 };
+
+static constexpr size_t powerChannelCount{static_cast<size_t>(PowerChannel::Qty)};
 
 } /* namespace platform::psm::types */
 
