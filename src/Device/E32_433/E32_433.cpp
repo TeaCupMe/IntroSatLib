@@ -21,20 +21,24 @@ namespace IntroSatLib {
 
         RETURN_STATUS_IF_NOT_OK_SILENT(SetMode(mode));
         
-        return ISL_OK;  
+        return ISL_OK;
     }
 
     ISL_StatusTypeDef E32_433::SetMode(Mode mode)
     {
         if (!IsReady()) return ISL_BUSY;
 
+        if (currentMode == mode) return ISL_OK;
+
         RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1));
         if (pins.M0.isValid() && pins.M1.isValid())
         {
             pins.M0.write((uint8_t)mode & 0b1);
             pins.M1.write((uint8_t)mode & 0b10);
-            RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(0));
-            RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1));
+            if (currentMode == Mode::Sleep || mode == Mode::Sleep)
+			{
+            	waitForReady(10);
+			}
             currentMode = mode;
             return ISL_OK;
         }
@@ -54,6 +58,32 @@ namespace IntroSatLib {
             return ISL_OK;
         }
         return ISL_ERROR;
+    }
+
+    ISL_StatusTypeDef E32_433::waitForReady(uint16_t afterAuxTime)
+    {
+    	uint32_t startTime;
+    	if (pins.AUX.isValid())
+    	{
+    		startTime = system::GetTick();
+    		while(system::GetTick() - afterAuxTime < startTime)
+    		{
+    			if(pins.AUX.read() == 0)
+    			{
+    				WaitAUX(1);
+    				startTime = system::GetTick();
+    			}
+    		}
+    		return ISL_OK;
+    	}
+    	return ISL_ERROR;
+
+//		while (HAL_GetTick() - afterAuxTime < startTime) {
+//			if (HAL_GPIO_ReadPin(AUX_Port, AUX_Pin) == GPIO_PIN_RESET) {
+//				waitForHighAUX();
+//				startTime = HAL_GetTick();
+//			}
+//		}
     }
 
 
@@ -104,8 +134,10 @@ namespace IntroSatLib {
     {
         if (currentMode != Mode::Sleep) return ISL_ERROR;
 
-        RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1, timeout));
+//        RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1, timeout));
+        RETURN_STATUS_IF_NOT_OK_SILENT(waitForReady(2));
         FlushRX();
+//        RETURN_STATUS_IF_NOT_OK_SILENT(waitForReady(10));
 
         uint8_t message[3] = {
             (uint8_t)CommandHead::GetParameters,
