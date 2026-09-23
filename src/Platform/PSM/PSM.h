@@ -4,7 +4,7 @@
 #include "Device/UARTDevice.h"
 #include "Platform/PSM/Commands.h"
 #include "Platform/PSM/Types.h"
-#include <cstdint>
+#include <stdint.h>
 
 namespace IntroSatLib {
 
