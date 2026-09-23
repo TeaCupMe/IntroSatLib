@@ -5,7 +5,7 @@
 #if defined(ISL_UART_ENABLED)
 
 #include "Platform/PSM/PSM.h"
-#include <cstring>
+#include <string.h>
 
 namespace IntroSatLib {
 
