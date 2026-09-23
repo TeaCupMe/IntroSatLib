@@ -8,19 +8,11 @@
 #ifndef INTROSAT_PLATFORM_PSM_H_
 #define INTROSAT_PLATFORM_PSM_H_
 
-#include "Modules/Platform/PSM/Types.h"
-#include "Modules/Platform/PSM/Commands.h"
-
+#include "Platform/PSM/Types.h"
+#include "Platform/PSM/Commands.h"
+#include "Platform/PSM/PSM.h"
 
 using namespace platform::psm::types;
 using namespace platform::psm::commands;
-
-namespace IntroSatLib {
-
-
-
-} /* namespace IntroSatLib */
-
-
 
 #endif /* INTROSAT_PLATFORM_PSM_H_ */
