@@ -1,0 +1,65 @@
+name: Publish Doxygen documentation
+
+on:
+  push:
+    tags: 
+      - "v*"
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          ref: "gh-pages"
+          path: ./pages
+
+      - name: Create doc/ directory if not exists
+        run: |
+          mkdir -p ./pages/doc
+
+      - name: Remove outdated directory listing from root
+        run: |
+          rm -f ./pages/doc/index.html
+      
+      - name: Remove outdated docs for current ref
+        run: |
+          rm -f -r ./pages/doc/${{ github.ref_name }}
+
+      - run: |
+          echo "OUTPUT_DIRECTORY=./pages/doc/${{ github.ref_name }}" >> ./doxygen/doxygen.conf
+          echo "PROJECT_NUMBER=${{ github.ref_name }}" >> ./doxygen/doxygen.conf  
+
+      - name: Install Doxygen
+        uses: ssciwr/doxygen-install@v2
+        with:
+          version: "1.16.1"
+      
+      - name: Install GraphViz
+        run: sudo apt-get install graphviz
+      
+      - name: Generate Doxygen files
+        run: doxygen ./doxygen/doxygen.conf
+
+      - name: Upload generated docs as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'IntroSatLib-docs-${{github.ref_name}}'
+          path: './pages/doc/${{ github.ref_name }}'
+          
+
+      - name: Generate Directory Listings
+        uses: jayanta525/github-pages-directory-listing@v4.0.0
+        with:
+          FOLDER: pages/doc # Directory to generate index for
+      
+      - name: Deploy Doxygen files to GH Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./pages/doc
+          destination_dir: ./doc

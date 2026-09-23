@@ -1,33 +1,61 @@
-# [IntroSatLib]()
+# IntroSatLib
 
-Библиотека для взаимодействия с компонентами спутника
-
-## Required hardware and software product
-
-- Библиотека подходит для [ArduinoIDE](https://www.arduino.cc/en/software) и [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
-- Библиотека подходит только для контроллеров
-  - STM32F1XX
-  - STM32F103C8T6
+Это библиотека для работы с продуктами компании Образование Будущего - образовательными конструкторами спутников:
+- IntroSat
+- IntroSat.Pico
+- IntroSat.Platform
 
 ## Оглавление
 
-- [Установка](#installation)
-- [Использование](#using)
-- [Документация](#documentation)
+- [Установка](#установка)
+- [Использование](#использование)
+- [Полезные ссылки](#полезные-ссылки)
 
-## Installation
+## Установка 
 
-- **ArduinoIDE:** скачайте библиотеку в *.zip* формате. Через менеджер библиотек *("Скетч -> Подключить библиотеку -> Добавить .ZIP библиотеку...")* выберете скачанный *.zip* файл. Библиотека подключена ;)
-- **STM32CubeIDE:**
+### ArduinoIDE
+В [**ArduinoIDE**](https://www.arduino.cc/en/software) библиотеку можно установить одни из двух спобов:
 
-## Using
+#### Способ 1. Установка через Менеджер Бибилиотек
+Шаг 1. Запустите Arduino IDE.
 
-- **ArduinoIDE:** базовое использование библиотеки
+Шаг 2. Откройте **Менеджер Библиотек**
+
+> [!IMPORTANT] 
+> В Arduino IDE 2.x **Менеджер Библиотек** можно открыть через боковую панель.
+> В Arduino IDE 1.x **Менеджер Библиотек** можно открыть только через меню `Инструменты` -> `Управление Библиотеками`
+
+Шаг 3. В поле поиска введите `IntroSatLib`
+
+Шаг 4. Нажмите **Установка**
+
+#### Способ 2. Установка из архива
+Шаг 1. Скачайте библиотеку в `.zip` формате. 
+ 
+Шаг 2. Запустите Arduino IDE.
+
+Шаг 3. В меню `Скетч` -> `Подключить библиотеку` -> `Добавить .ZIP библиотеку...` выберете скачанный `.zip` файл.
+
+### STM32CubeIDE
+Шаг 1. Скачайте библиотеку в `.zip` формате и разархивируйте. 
+
+Шаг 2. Переместите папку `IntroSatLib/` в корневую папку проекта STM32CubeIDE (рядом с файлами `**.ioc`, `.cproject`).
+
+Шаг 3. Откройте раздел настройек проекта `Properties -> C/C++ General -> Paths and Symbols`
+
+Шаг 4. Во вкладке `Includes` добавьте папку `IntroSatLib/src/` через кнопку `Add...`. Не забудьте поставить галочки `Add to all languages` и `Add to all configurations`.
+
+Шаг 5. Во вкладке `Source Locations` добавьте папку `IntroSatLib/src/` через кнопку `Add...`
+
+## Использование
+
+**ArduinoIDE:** базовое использование библиотеки
 
 ```cpp
     /** Подключение библиотек */
     #include <Wire.h>
-    #include <Accelerometer.h>
+    #include <IntroSatLib.h>
+    #include <AccelerometerV2.h>
 
     /*
      * Включение пространства имён библиотеки спутника
@@ -35,8 +63,8 @@
     */
     using namespace IntroSatLib;
 
-    /** Создание класса акселерометра*/
-    Accelerometer accel(Wire);
+    /** Создание класса акселерометра */
+    AccelerometerV2 accel(Wire);
 
     void setup() {
         Serial.begin(9600); // Включения Serial для вывода данных
@@ -57,348 +85,16 @@
     }
 ```
 
-## Documentation
+## Полезные ссылки
 
-- [**Accelerometer**](#accelerometer)
-  - [**Methods**](#methods)
-    - [*void* Init(*Scale* sensitivity, *FilterBandwidth* filter)](#void-initscale-sensitivity-filterbandwidth-filter)
-    - [*void* SetScale(*Scale* sensitivity)](#void-setscalescalescale-sensitivity)
-    - [*void* SetFilter(*FilterBandwidth* filter)](#void-setfilterfilterbandwidthfilterbandwidth-filter)
-    - [*float* X()](#float-x)
-    - [*float* Y()](#float-y)
-    - [*float* Z()](#float-z)
-    - [*int16_t* RawX()](#int16t-rawx)
-    - [*int16_t* RawY()](#int16t-rawy)
-    - [*int16_t* RawZ()](#int16t-rawz)
-  - [**Enums**](#enums)
-    - [Scale](#scale)
-    - [FilterBandwidth](#filterbandwidth)
-- [**Gyroscope**](#gyroscope)
-  - [**Methods**](#methods-1)
-    - [*void* Init(*Scale* sensitivity, *FilterBandwidth* filter)]()
-    - [*void* SetScale(*Scale* sensitivity)]()
-    - [*void* SetFilter(*FilterBandwidth* filter)]()
-    - [*float* X()](#float-x-1)
-    - [*float* Y()](#float-y-1)
-    - [*float* Z()](#float-z-1)
-    - [*int16_t* RawX()](#int16t-rawx-1)
-    - [*int16_t* RawY()](#int16t-rawy-1)
-    - [*int16_t* RawZ()](#int16t-rawz-1)
-  - Enums
-    - [Scale]()
-    - [FilterBandwidth]()
-- [**FlyWheel**](#flywheel)
-  - [**Methods**](#methods-2)
-
-- ### Accelerometer
-
- Класс позволяющий получать данные из акселерометра
- Находится в пространстве ***IntroSatLib***
- *Этой строчкой подключается*
-
- ```cpp
- using namespace IntroSatLib;
- ```
-
- Параметры:
-
-- *hi2c* = I2C интерфейс
-- *address* = необязательный параметр, стандартное значение *0x68*. Адрес акселерометра
- ***Accelerometer* Accelerometer(*I2C_HandleTypeDef* \*hi2c, *uint8_t* address)** *(STM32CubeIDE)*
- *или*
- ***Accelerometer* Accelerometer(*TwoWire* &hi2c, *uint8_t* address)** *(ArduinoIDE)*
-Создание объекта класса
-
- Для [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
-
- ```cpp
- Accelerometer accel = Accelerometer(&hi2c1, 0x68);
- // или
- Accelerometer accel = Accelerometer(&hi2c1);
- ```
-
- Для [ArduinoIDE](https://www.arduino.cc/en/software)
-
- ```cpp
- Accelerometer accel = Accelerometer(Wire, 0x68);
- // или
- Accelerometer accel = Accelerometer(Wire);
- ```
-
-- #### Methods
-
-- ##### *void* Init(*[Scale](#scale)* sensitivity, *[FilterBandwidth](#filterbandwidth)* filter)
-
-   Инициализация акселерометра, нужна для выставления базовых настроек
-   Оба параметра не являются обязательными
-   Стандартные значения:
-      - sensitivity = *Accelerometer::Scale::twoG*
-      - filter =  *Accelerometer::FilterBandwidth::F0021*
-
-   Зачем нужны? ;)
-      - *sensitivity* устанавливает чувствительность акселерометра
-      - *filter* устанавливает аппаратный фильтр в акселерометре
-
-   ```cpp
-   accel.Init(Accelerometer::Scale::sixteenG, Accelerometer::FilterBandwidth::F0005);
-   ```
-
-   или
-
-   ```cpp
-   accel.Init(Accelerometer::Scale::sixteenG);
-   ```
-
-   или
-
-   ```cpp
-   accel.Init();
-   ```
-
-- ##### *void* SetScale(*[Scale](#scale)* sensitivity)
-
-   Устанавливает чувствительность акселерометра
-   Зачем нужны? ;)
-      - *sensitivity* чувствительность акселерометра
-
-   ```cpp
-   accel.SetScale(Accelerometer::Scale::sixteenG);
-   ```
-
-- ##### *void* SetFilter(*[FilterBandwidth](#filterbandwidth)* filter)
-
-   Устанавливает внутренний фильтр акселерометра
-   Зачем нужны? ;)
-      - *filter* частота внутреннего фильтра акселерометра
-
-   ```cpp
-   accel.SetFilter(Accelerometer::FilterBandwidth::F0005);
-   ```
-
-- ##### *float* X()
-
-   Получение данных из акселерометра по оси *x* в долях от *g*, то есть если ускорение по оси *x* равно $10м\cdot с^{2}$, то *accel.X() == 1*
-
-   ```cpp
-   float x = accel.X();
-   ```
-
-- ##### *float* Y()
-
-   Получение данных из акселерометра по оси *y* в долях от *g*, то есть если ускорение по оси *y* равно $10м\cdot с^{2}$, то *accel.Y() == 1*
-
-   ```cpp
-   float x = accel.Y();
-   ```
-
-- ##### *float* Z()
-
-   Получение данных из акселерометра по оси *z* в долях от *g*, то есть если ускорение по оси *z* равно $10м\cdot с^{2}$, то *accel.Z() == 1*
-
-   ```cpp
-   float x = accel.Z();
-   ```
-
-- ##### *int16_t* RawX()
-
-   Получение сырых данных из акселерометра по оси *x*. Данные никак не преобразуются.
-
-   ```cpp
-   int16_t x = accel.RawX();
-   ```
-
-- ##### *int16_t* RawY()
-
-   Получение сырых данных из акселерометра по оси *y*. Данные никак не преобразуются.
-
-   ```cpp
-   int16_t x = accel.RawY();
-   ```
-
-- ##### *int16_t* RawZ()
-
-   Получение сырых данных из акселерометра по оси *z*. Данные никак не преобразуются.
-
-   ```cpp
-   int16_t x = accel.RawZ();
-   ```
-
-- #### Enums
-  - ##### Scale
-
-   Перечисление нужно для указания разрешения работы акселерометра в человеко понятно виде
-   *Обозначение переменной для хранения элемента перечисления*
-
-   ```cpp
-   Accelerometer::Scale scale = Accelerometer::Scale::twoG;
-   ```
-
-   Значения в перечислении
-   ***twoG*** — диапазон работы в *$\plusmn$2g*
-   ***fourG*** — диапазон работы в *$\plusmn$4g*
-   ***eightG*** — диапазон работы в *$\plusmn$8g*
-   ***sixteenG*** — диапазон работы в *$\plusmn$16g*
-
-   ```cpp
-   enum
-   {
-    twoG = 0, 
-    fourG = 1,
-    eightG = 2,
-    sixteenG = 3,
-   }
-   ```
-
-- ##### FilterBandwidth
-
-   Перечисление нужно для указания разрешения работы акселерометра в человеко понятно виде
-   *Обозначение переменной для хранения элемента перечисления*
-
-   ```cpp
-   Accelerometer::FilterBandwidth filter = Accelerometer::FilterBandwidth::F0010;
-   ```
-
-   Значения в перечислении
-
-   ```cpp
-   enum
-   {
-    F0218 = 0,
-    F0218b = 1,
-    F0099 = 2,
-    F0045 = 3,
-    F0021 = 4,
-    F0010 = 5,
-    F0005 = 6,
-    F0420 = 7
-    F1046 = 8,
-   }
-   ```
-
-- ### Gyroscope
-
- Класс позволяющий получать данные из гироскопа
-
-- #### Methods
-
-- ##### *float* X()
-
-   Получение данных из гироскопа по оси *x* в *град/с*
-
-   ```cpp
-   float x = gyro.X();
-   ```
-
-- ##### *float* Y()
-
-   Получение данных из гироскопа по оси *y* в *град/с*
-
-   ```cpp
-   float x = gyro.Y();
-   ```
-
-- ##### *float* Z()
-
-   Получение данных из гироскопа по оси *z* в *град/с*
-
-   ```cpp
-   float x = gyro.Z();
-   ```
-
-- ##### *int16_t* RawX()
-
-   Получение сырых данных из гироскопа по оси *x*. Данные никак не преобразуются.
-
-   ```cpp
-   int16_t x = gyro.RawX();
-   ```
-
-- ##### *int16_t* RawY()
-
-   Получение сырых данных из гироскопа по оси *y*. Данные никак не преобразуются.
-
-   ```cpp
-   int16_t x = gyro.RawY();
-   ```
-
-- ##### *int16_t* RawZ()
-
-   Получение сырых данных из гироскопа по оси *z*. Данные никак не преобразуются.
-
-   ```cpp
-   int16_t x = gyro.RawZ();
-   ```
-- ### FlyWheel
-
- Класс позволяющий управлять скоростью и направлением вращения маховика
- Находится в пространстве ***IntroSatLib***
- *Этой строчкой подключается*
-
- ```cpp
- using namespace IntroSatLib;
- ```
+Наш [канал в Telegram](https://t.me/introsat_news) поможет не пропустить обновления.
  
- Создание объекта класса
- 
- ***FlyWheel* FlyWheel(*I2C_HandleTypeDef* \*hi2c, *uint8_t* address)** *(STM32CubeIDE)*
- *или*
- ***FlyWheel* FlyWheel(*TwoWire* &hi2c, *uint8_t* address)** *(ArduinoIDE)*
+Если у вас возникли вопросы или сложности при работе с IntroSat, ответы можно найти в нашем [F.A.Q.](https://docs.google.com/document/d/15KqFrMlc6Jzxut_zMf_pXNx5r5JTjqfKEvCHWx99rEc/edit#heading=h.demjj79bt080)
 
- Параметры:
+Остались вопросы? Напишите нашему [боту в Telegram](https://t.me/introsatBot)! Укажите в обращении модуль конструктора, при работе с которым возникли проблемы, и версии платы (написаны на самих платах), и мы обязательно вам поможем.
 
-- *hi2c* = I2C интерфейс
-- *address* = необязательный параметр, стандартное значение *0x38*. Адрес платы маховика
 
- Для [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
-
- ```cpp
- FlyWheel motor = FlyWheel(&hi2c1, 0x38);
- // или
- FlyWheel motor = FlyWheel(&hi2c1);
- ```
-
- Для [ArduinoIDE](https://www.arduino.cc/en/software)
-
- ```cpp
- FlyWheel motor = FlyWheel(Wire, 0x38);
- // или
- FlyWheel motor = FlyWheel(Wire);
- ```
-- #### Methods
-
-- ##### *void* Init()
-
-   Инициализация платы маховика, нужна для выставления базовых настроек.
-  
-   ```cpp
-   motor.Init();
-   ```
-   
-- ##### *int16_t* NeedSpeed(*int16_t* needSpeed)
-
-  Метод задает скорость вращения маховика. Знак переменной *needSpeed* определяет направение вращения:
-  
-  "+" - вращение против часовой стрелки;
-  "-" - вращение по часовой стрелки.
-  
-   ```cpp
-   motor.NeedSpeed(needSpeed);
-   ```
-
-- ##### *int16_t* CurrentSpeed()
-
-  Метод позволяет считать текущую скорость вращения маховика. Знак полученного числа будет определять текущее направление вращения маховика:
-
-  "+" - вращение против часовой стрелки;
-  "-" - вращение по часовой стрелки.
-  
-   ```cpp
-   motor.CurrentSpeed();
-   ```
-> ## Полезные ссылки
->
-> Наш [канал в Telegram](https://t.me/introsat_news) поможет не пропустить обновления.
-> 
-> Если у вас возникли вопросы или сложности при работе с IntroSat, ответы можно найти в нашем [F.A.Q.](https://docs.google.com/document/d/15KqFrMlc6Jzxut_zMf_pXNx5r5JTjqfKEvCHWx99rEc/edit#heading=h.demjj79bt080)
->
-> Остались вопросы? Напишите нашему [боту в Telegram](https://t.me/introsatBot)! Укажите в обращении модуль конструктора, при работе с которым возникли проблемы, и версии платы (написаны на самих платах), и мы обязательно вам поможем.
+<p align="center">
+ <img width=70% alt="IntroSat Logo" src="https://github.com/user-attachments/assets/966f7746-2764-4479-848c-38e5ab825ff4"/>
+ <!-- <img width=20% alt="Education of the Future" src="https://github.com/user-attachments/assets/1c33d94c-cfc8-4a9b-a658-43fcf6d78393"/> -->
+</p>
