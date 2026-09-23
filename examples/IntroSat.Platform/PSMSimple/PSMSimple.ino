@@ -58,8 +58,8 @@ void setup() {
 	psm.SetPowerMode(PSM::PowerMode::Normal);
 
 	/* OC preset 9 = 1 А; UV preset 2 = 90% от номинала 5 В */
-	psm.SetOvercurrent(PSM::PowerChannel::Payload5v, 9);
-	psm.SetUndervoltage(PSM::PowerChannel::Payload5v, 2);
+	psm.SetOvercurrent(PSM::PowerChannel::Payload5v, PSM::OCPreset::_1000mA);
+	psm.SetUndervoltage(PSM::PowerChannel::Payload5v, PSM::UVPreset::_90);
 	psm.EnableChannel(PSM::PowerChannel::Payload5v);
 }
 
