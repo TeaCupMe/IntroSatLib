@@ -58,7 +58,7 @@ ISL_StatusTypeDef PSM::GetChannelInfo(PowerChannel channel, ChannelInfo& info)
 	RETURN_STATUS_IF_NOT_OK_SILENT(SelectChannel(channel));
 	uint8_t raw[sizeof(ChannelInfo)];
 	RETURN_STATUS_IF_NOT_OK_SILENT(transactPayload(makeCmd(Cmd::GetChannelInfo), raw, sizeof(raw)));
-	std::memcpy(&info, raw, sizeof(info));
+	memcpy(&info, raw, sizeof(info));
 	return ISL_OK;
 }
 
@@ -67,7 +67,7 @@ ISL_StatusTypeDef PSM::GetExtendedChannelInfo(PowerChannel channel, ExtendedChan
 	RETURN_STATUS_IF_NOT_OK_SILENT(SelectChannel(channel));
 	uint8_t raw[sizeof(ExtendedChannelInfo)];
 	RETURN_STATUS_IF_NOT_OK_SILENT(transactPayload(makeCmd(Cmd::GetExtChannelInfo), raw, sizeof(raw)));
-	std::memcpy(&info, raw, sizeof(info));
+	memcpy(&info, raw, sizeof(info));
 	return ISL_OK;
 }
 
@@ -98,7 +98,7 @@ ISL_StatusTypeDef PSM::GetHeaterInfo(HeaterInfo& info)
 {
 	uint8_t raw[sizeof(HeaterInfo)];
 	RETURN_STATUS_IF_NOT_OK_SILENT(transactPayload(makeCmd(Cmd::GetHeaterInfo), raw, sizeof(raw)));
-	std::memcpy(&info, raw, sizeof(info));
+	memcpy(&info, raw, sizeof(info));
 	return ISL_OK;
 }
 
