@@ -127,6 +127,30 @@ private:
 	ISL_StatusTypeDef selectThen(PowerChannel channel, Cmd cmd, uint8_t arg = 0);
 };
 
+static const char* channelName(PSM::PowerChannel channel)
+{
+	switch (channel) {
+		case PSM::PowerChannel::Battery:        return "Battery";
+		case PSM::PowerChannel::PayloadBattery: return "PayloadBattery";
+		case PSM::PowerChannel::Main3v3:        return "Main3v3";
+		case PSM::PowerChannel::Payload3v3:     return "Payload3v3";
+		case PSM::PowerChannel::Main5v:         return "Main5v";
+		case PSM::PowerChannel::Payload5v:      return "Payload5v";
+		default:                                return "?";
+	}
+}
+
+static const char* channelStateName(PSM::ChannelState state)
+{
+	switch (state) {
+		case PSM::ChannelState::Off:             return "Off";
+		case PSM::ChannelState::On:              return "On";
+		case PSM::ChannelState::OffOvercurrent:  return "OffOC";
+		case PSM::ChannelState::OffUndervoltage: return "OffUV";
+		default:                                 return "?";
+	}
+}
+
 } /* namespace IntroSatLib */
 
 #endif /* INTROSAT_PLATFORM_PSM_DRIVER_H_ */

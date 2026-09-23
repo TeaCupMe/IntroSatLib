@@ -1,58 +1,32 @@
 /* Подключение библиотек */
-#include <IS_Bluetooth.h>
+#include <ISL_Bootloader.h>
 #include "Platform/PSM.h"
+
+#include "HardwareSerial.h"
+#include "Platform/PSM/Types.h"
 
 /* Подключение пространства имён библиотеки,
 чтобы постоянно не писать IntroSatLib:: */
 using namespace IntroSatLib;
 
+/* Создаём объект для работы с аппаратным UART */
+HardwareSerial psmSerial(PA3, PA2);
+
 /* UART платы питания pl_psm 1.x: 115200 8N1
    TX хоста -> PA10 (USART1_RX) PSM
    RX хоста -> PA9  (USART1_TX) PSM
    общий GND */
-PSM psm(Serial1);
-
-static const char* channelName(PSM::PowerChannel channel)
-{
-	switch (channel) {
-		case PSM::PowerChannel::Battery:        return "Battery";
-		case PSM::PowerChannel::PayloadBattery: return "PayloadBattery";
-		case PSM::PowerChannel::Main3v3:        return "Main3v3";
-		case PSM::PowerChannel::Payload3v3:     return "Payload3v3";
-		case PSM::PowerChannel::Main5v:         return "Main5v";
-		case PSM::PowerChannel::Payload5v:      return "Payload5v";
-		default:                                return "?";
-	}
-}
-
-static const char* channelStateName(PSM::ChannelState state)
-{
-	switch (state) {
-		case PSM::ChannelState::Off:             return "Off";
-		case PSM::ChannelState::On:              return "On";
-		case PSM::ChannelState::OffOvercurrent:  return "OffOC";
-		case PSM::ChannelState::OffUndervoltage: return "OffUV";
-		default:                                 return "?";
-	}
-}
-
-static void checkBootloader()
-{
-	if (Serial.available() && Serial.read() == 'b') {
-		enter_bootloader();
-	}
-}
+PSM psm(psmSerial);
 
 void setup() {
 	Serial.begin(115200);
-	Serial1.begin(115200);
+	psmSerial.begin(115200);
 
 	Serial.println("Инициализация платы питания PSM");
 	while (psm.Init()) {
 		Serial.print(".");
 		delay(200);
 	}
-	Serial.println("\nPSM на связи");
 
 	/* Normal: включение/выключение каналов по UART */
 	psm.SetPowerMode(PSM::PowerMode::Normal);
@@ -64,7 +38,29 @@ void setup() {
 }
 
 void loop() {
-	checkBootloader();
+	char command = 0;
+	if (Serial.available())
+	{
+		command = Serial.read();
+	}
+
+	if (command == 'b') {
+		EnterBootloader();
+	} 
+	else if (command == '3')
+	{
+		ChannelInfo channelInfo;
+		psm.GetChannelInfo(PSM::PowerChannel::Payload3v3, channelInfo);
+		if   (channelInfo.state == ChannelState::On) psm.DisableChannel(PowerChannel::Payload3v3);
+		else  psm.DisableChannel(PowerChannel::Payload3v3);
+	} 
+	else if (command == '5')
+	{
+		ChannelInfo channelInfo;
+		psm.GetChannelInfo(PSM::PowerChannel::Payload5v, channelInfo);
+		if   (channelInfo.state == ChannelState::On) psm.DisableChannel(PowerChannel::Payload5v);
+		else  psm.DisableChannel(PowerChannel::Payload5v);
+	} 
 
 	for (uint8_t i = 0; i < static_cast<uint8_t>(PSM::PowerChannel::Qty); ++i) {
 		const auto channel = static_cast<PSM::PowerChannel>(i);
