@@ -28,6 +28,9 @@ public:
 	{
 		return Read(addr, (uint8_t*)t, sizeof(T));
 	}
+
+	virtual void enableWrite() = 0;
+	virtual void disableWrite() = 0;
 };
 
 }
