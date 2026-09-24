@@ -171,6 +171,7 @@ jobs:
             "- examples/IntroSat.Platform"
           platforms: |
             - name: STMicroelectronics:stm32
+              version: 2.12.0
               source-url: https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
           cli-compile-flags: |
             - --warnings="default"
