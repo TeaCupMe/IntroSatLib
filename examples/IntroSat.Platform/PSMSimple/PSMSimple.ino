@@ -10,7 +10,7 @@
 using namespace IntroSatLib;
 
 /* Создаём объект для работы с аппаратным UART */
-HardwareSerial psmSerial(PA10, PA9); // RX, TX
+HardwareSerial psmSerial(PA1, PA0); // RX, TX
 
 /* UART платы питания pl_psm 1.x: 115200 8N1
    TX хоста -> PA10 (USART1_RX) PSM
