@@ -38,8 +38,6 @@ public:
 	using HeaterState = platform::psm::types::HeaterState;
 	using HeaterInfo = platform::psm::types::HeaterInfo;
 
-	static constexpr uint16_t ackTimeoutMs = 200;
-
 	enum class OCPreset: uint8_t
 	{
 		Off,
@@ -125,6 +123,7 @@ private:
 	ISL_StatusTypeDef transactAck(uint8_t command);
 	ISL_StatusTypeDef transactPayload(uint8_t command, uint8_t* buf, uint16_t length);
 	ISL_StatusTypeDef selectThen(PowerChannel channel, Cmd cmd, uint8_t arg = 0);
+	static constexpr uint16_t ackTimeoutMs = 200;
 };
 
 static const char* channelName(PSM::PowerChannel channel)
