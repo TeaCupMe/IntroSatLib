@@ -32,7 +32,7 @@ void IntroSatLib::system::DelayMicroseconds(uint32_t microseconds) {
 		return;
 	}
 	
-#ifdef defined(DWT_BASE) && !defined(DWT_DELAY_DISABLED)
+#if defined(DWT_BASE) && !defined(DWT_DELAY_DISABLED)
 	uint32_t start = DWT->CYCCNT;
 	// Number of cycles to wait for
 	uint32_t cycles = microseconds * (HAL_RCC_GetHCLKFreq() / 1000000);
