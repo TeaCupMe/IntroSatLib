@@ -5,6 +5,7 @@
 #include "Adapter/GPIO.h"
 #include "Device/I2CDevice.h"
 #include "Device/Base/BaseMemoryDriver.h"
+#include "IntroSatLib_def.h"
 
 namespace IntroSatLib
 {
@@ -25,12 +26,12 @@ public:
 		memorySize = MEMORY_SIZE;
 	}
 
-	ISL_StatusTypeDef Init(bool readOnly_ = false)
+	ISL_StatusTypeDef Init() override
 	{
-		readOnly = readOnly_;
-		wcPin.set();
-		return I2CDevice::Init();
+		return Init(false);
 	}
+
+	ISL_StatusTypeDef Init(bool readOnly_);
 
 	ISL_StatusTypeDef Read(uint32_t addr, uint8_t* data, uint16_t len) override;
 	ISL_StatusTypeDef Write(uint32_t addr, uint8_t* data, uint16_t len) override;
