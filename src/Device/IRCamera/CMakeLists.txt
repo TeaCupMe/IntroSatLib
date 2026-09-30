@@ -1,0 +1,2 @@
+introsatlib_add_static_component(IntroSatLib_IRCamera IRCamera IRCamera.cpp)
+target_link_libraries(IntroSatLib_IRCamera PUBLIC IntroSatLib::Device)
