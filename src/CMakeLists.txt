@@ -76,6 +76,7 @@ target_compile_definitions(
 target_link_libraries(IntroSatLib_Core PUBLIC IntroSatLib::Platform)
 
 add_subdirectory(Device)
+add_subdirectory(Platform)
 
 introsatlib_add_static_component(
 	IntroSatLib_Facade
@@ -93,6 +94,7 @@ target_link_libraries(
 	INTERFACE
 		IntroSatLib::Facade
 		${INTROSATLIB_DEVICE_TARGETS}
+		IntroSatLib::PSM
 		IntroSatLib::Device
 		IntroSatLib::Core
 )
