@@ -1,0 +1,9 @@
+<map id="IntroSatLib::UARTDevice" name="IntroSatLib::UARTDevice">
+<area shape="rect" id="Node000001" title="Базовый класс для устройств, использующих UART интерфейс" alt="" coords="75,79,255,104"/>
+<area shape="rect" id="Node000003" href="$classIntroSatLib_1_1E32__433.html" title="Класс для управления LoRa модулем E32&#45;433." alt="" coords="5,152,160,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="143,115,98,154,94,150,140,111"/>
+<area shape="rect" id="Node000004" href="$classIntroSatLib_1_1PSM.html" title=" " alt="" coords="184,152,312,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="191,111,236,150,233,154,187,115"/>
+<area shape="rect" id="Node000002" href="$classIntroSatLib_1_1Device.html" title=" " alt="" coords="93,5,238,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,44,168,79,163,79,163,44"/>
+</map>

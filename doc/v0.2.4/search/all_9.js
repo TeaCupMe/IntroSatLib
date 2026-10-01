@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['g12_0',['G12',['../classIntroSatLib_1_1MagnetometerV2.html#a7311d6621be5feb447ff382ec400e20aaf5c2b19081768d56b3027249ee2bfd9e',1,'IntroSatLib::MagnetometerV2']]],
+  ['g16_1',['G16',['../classIntroSatLib_1_1MagnetometerV2.html#a7311d6621be5feb447ff382ec400e20aaa2b72be2415ce192541e6caa08f14eef',1,'IntroSatLib::MagnetometerV2']]],
+  ['g4_2',['G4',['../classIntroSatLib_1_1MagnetometerV2.html#a7311d6621be5feb447ff382ec400e20aac199186658563d6b475808b9692baf22',1,'IntroSatLib::MagnetometerV2']]],
+  ['g8_3',['G8',['../classIntroSatLib_1_1MagnetometerV2.html#a7311d6621be5feb447ff382ec400e20aa91237f835ba96db2fca6e21e75b9be1a',1,'IntroSatLib::MagnetometerV2']]],
+  ['getcin_4',['GetCIN',['../classIntroSatLib_1_1Pico_1_1PowerModule.html#a74f6b8613c44c1aea1d5232abc99d71d',1,'IntroSatLib::Pico::PowerModule']]],
+  ['getcout_5',['GetCOUT',['../classIntroSatLib_1_1Pico_1_1PowerModule.html#ae061ad5c2a0290a87f1a4e91f5898c03',1,'IntroSatLib::Pico::PowerModule']]],
+  ['getdata_6',['GetData',['../classIntroSatLib_1_1ISLIRReceiver.html#a920c1c74f7f441158705f52126851088',1,'IntroSatLib::ISLIRReceiver::GetData()'],['../classIntroSatLib_1_1ISLIRTransceiver.html#aee0229a5da5d1b7eb420e2b51b7f738f',1,'IntroSatLib::ISLIRTransceiver::GetData()']]],
+  ['getlight_7',['GetLight',['../classIntroSatLib_1_1LightSensor.html#ab2b377d11f98459a57c5ac1080f60150',1,'IntroSatLib::LightSensor']]],
+  ['getmodechange_8',['GetModeChange',['../classIntroSatLib_1_1FSC__BT986.html#acf77578cc66da1ad3b06a295c8559984',1,'IntroSatLib::FSC_BT986']]],
+  ['getmodulationfrequence_9',['GetModulationFrequence',['../classIntroSatLib_1_1ISLIRTransceiver.html#a8fd0d792edaa4e9c41e244c66305bcc7',1,'IntroSatLib::ISLIRTransceiver::GetModulationFrequence()'],['../classIntroSatLib_1_1ISLIRTransmitter.html#a82313d9b9c0b5a7130b00111d4b48997',1,'IntroSatLib::ISLIRTransmitter::GetModulationFrequence()']]],
+  ['getpixel_10',['getPixel',['../classIntroSatLib_1_1IRCamera.html#a440c56a2f0f37442887191e6ae823d72',1,'IntroSatLib::IRCamera']]],
+  ['getpixelraw_11',['getPixelRaw',['../classIntroSatLib_1_1IRCamera.html#a35dc23801eb348de678b74b3cf5d94b0',1,'IntroSatLib::IRCamera']]],
+  ['getquaternion_12',['GetQuaternion',['../classIntroSatLib_1_1GyroscopeV2.html#a88e863335a2f0e2dd7848d3a5ca02fbf',1,'IntroSatLib::GyroscopeV2']]],
+  ['getrawvalue_13',['GetRawValue',['../classIntroSatLib_1_1BaseADC.html#a737362dd64dbc59e7f35cd52ed19f4eb',1,'IntroSatLib::BaseADC']]],
+  ['getregisteri2c_14',['GetRegisterI2C',['../classIntroSatLib_1_1I2CDevice.html#a130dbf430e1bc9da54c2ccb7efa72984',1,'IntroSatLib::I2CDevice']]],
+  ['getvalue_15',['GetValue',['../classIntroSatLib_1_1BaseADC.html#abe967c207879f0016728d6360efefde0',1,'IntroSatLib::BaseADC']]],
+  ['getvbat_16',['GetVBAT',['../classIntroSatLib_1_1Pico_1_1PowerModule.html#a4ef320af9ce3b05b7dd179a62f9e4288',1,'IntroSatLib::Pico::PowerModule']]],
+  ['getvin_17',['GetVIN',['../classIntroSatLib_1_1Pico_1_1PowerModule.html#a39aa15a521507d6b56c6a0495b826c86',1,'IntroSatLib::Pico::PowerModule']]],
+  ['getvout_18',['GetVOUT',['../classIntroSatLib_1_1Pico_1_1PowerModule.html#a27c6aae9bb7635e0eb9e0049ebc3e643',1,'IntroSatLib::Pico::PowerModule']]],
+  ['gpio_19',['GPIO',['../classIntroSatLib_1_1interfaces_1_1GPIO.html',1,'IntroSatLib::interfaces']]],
+  ['gpio_5fhandle_5ftype_20',['GPIO_HANDLE_TYPE',['../structIntroSatLib_1_1interfaces_1_1GPIO__HANDLE__TYPE.html',1,'IntroSatLib::interfaces']]],
+  ['gyroscope_21',['Gyroscope',['../classIntroSatLib_1_1Gyroscope.html',1,'IntroSatLib']]],
+  ['gyroscopev2_22',['GyroscopeV2',['../classIntroSatLib_1_1GyroscopeV2.html',1,'IntroSatLib::GyroscopeV2'],['../classIntroSatLib_1_1GyroscopeV2.html#aa8cfb2c43fd11a399bad4d7dbf12a394',1,'IntroSatLib::GyroscopeV2::GyroscopeV2()']]]
+];

@@ -1,0 +1,7 @@
+<map id="IntroSatLib::BaseADC" name="IntroSatLib::BaseADC">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,165,104"/>
+<area shape="rect" id="Node000003" href="$classIntroSatLib_1_1ADS7830.html" title="Класс для работы с 8&#45;канальным 8&#45;битным АЦП ADS7830 по интерфейсу I2C." alt="" coords="6,152,165,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="88,118,88,152,83,152,83,118"/>
+<area shape="rect" id="Node000002" href="$classIntroSatLib_1_1Device.html" title=" " alt="" coords="13,5,158,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,44,88,79,83,79,83,44"/>
+</map>

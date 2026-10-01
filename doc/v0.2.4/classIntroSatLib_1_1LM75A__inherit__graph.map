@@ -1,0 +1,9 @@
+<map id="IntroSatLib::LM75A" name="IntroSatLib::LM75A">
+<area shape="rect" id="Node000001" title=" " alt="" coords="147,167,291,192"/>
+<area shape="rect" id="Node000002" href="$classIntroSatLib_1_1BaseTemperatureSensor.html" title=" " alt="" coords="5,79,220,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,125,205,164,202,168,148,129"/>
+<area shape="rect" id="Node000003" href="$classIntroSatLib_1_1I2CDevice.html" title=" " alt="" coords="244,86,411,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="302,122,237,169,234,164,299,117"/>
+<area shape="rect" id="Node000004" href="$classIntroSatLib_1_1Device.html" title=" " alt="" coords="255,5,400,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="330,44,330,86,325,86,325,44"/>
+</map>
