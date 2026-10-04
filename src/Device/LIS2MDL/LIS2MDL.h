@@ -15,10 +15,10 @@ namespace IntroSatLib {
 
 
 /**
-* @class LIS2MDL
-*
-* \ @brief LIS2MDL
-* \ Этот класс отвечает за взаимодействие с магнитометром LIS2MDL через шину I2C
+* \~english @brief LIS2MDL
+* \~russian @brief LIS2MDL
+* \~english @brief This class is responsible for communicating with the LIS2MDL magnetometer via the I2C bus.
+* \~russian @brief Этот класс отвечает за взаимодействие с магнитометром LIS2MDL через шину I2C
 */
 
 class LIS2MDL : public BaseMagnetometer, protected I2CDevice {
@@ -116,68 +116,93 @@ public:
 	};
 
     /**
-    * @brief Создание объекта класса LIS2MDL.
-    * @param i2c Интерфейс I2C, используемый для взаимодействия с магнитометром.
+    * \~english @brief Create an instance of the LIS2MDL class.
+    * \~russian @brief Создание объекта класса LIS2MDL.
+    * \~english @param i2c The I2C interface to use for communication with the magnetometer. Wire in Arduino IDE, I2C_HandleTypeDef in STM32CubeIDE.
+    * \~russian @param i2c Интерфейс I2C, используемый для взаимодействия с магнитометром. Wire в Arduino IDE, I2C_HandleTypeDef в STM32CubeIDE.
     */
 	LIS2MDL(interfaces::I2C i2c);
 
     /**
-    * @brief Инициализация с выставлением значений по умолчанию в регистры.
-    * @return Статус выполнения метода ISL
+    * \~english @brief Initialize the LIS2MDL sensor.
+    * \~russian @brief Инициализация с выставлением значений по умолчанию в регистры.
+    * \~english @return The status of the initialization. ISL_OK if successful.
+    * \~russian @return Статус выполнения метода ISL. ISL_OK при успешной инициализации.
     */
 	ISL_StatusTypeDef Init();
 
     /**
-    * @brief Получить сырое значение по оси X
-    * @return Сырое значение по оси X
+    * \~english @brief Get the raw value along the X-axis.
+    * \~russian @brief Получить сырое значение по оси X
+    * \~english @return The raw value along the X-axis.
+    * \~russian @return Сырое значение по оси X
     */
 	int16_t RawMX() override;
     /**
-    * @brief Получить сырое значение по оси Y
-    * @return Сырое значение по оси Y
+    * \~english @brief Get the raw value along the Y-axis.
+    * \~russian @brief Получить сырое значение по оси Y
+    * \~english @return The raw value along the Y-axis.
+    * \~russian @return Сырое значение по оси Y
     */
 	int16_t RawMY() override;
     /**
-    * @brief Получить сырое значение по оси Z
-    * @return Сырое значение по оси Z
+    * \~english @brief Get the raw value along the Z-axis.
+    * \~russian @brief Получить сырое значение по оси Z
+    * \~english @return The raw value along the Z-axis.
+    * \~russian @return Сырое значение по оси Z
     */
 	int16_t RawMZ() override;
 
     /**
-    * @brief Получить значение по оси X в Гауссах
-    * @return Значение по оси X в Гауссах
+    * \~english @brief Get the value along the X-axis in Gauss.
+    * \~russian @brief Получить значение по оси X в Гауссах
+    * \~english @return The value along the X-axis in Gauss.
+    * \~russian @return Значение по оси X в Гауссах
     */
 	float MX() override;
     /**
-    * @brief Получить значение по оси Y в Гауссах
-    * @return Значение по оси Y в Гауссах
+    * \~english @brief Get the value along the Y-axis in Gauss.
+    * \~russian @brief Получить значение по оси Y в Гауссах
+    * \~english @return The value along the Y-axis in Gauss.
+    * \~russian @return Значение по оси Y в Гауссах
     */
 	float MY() override;
     /**
-    * @brief Получить значение по оси Z в Гауссах
-    * @return Значение по оси Z в Гауссах
+    * \~english @brief Get the value along the Z-axis in Gauss.
+    * \~russian @brief Получить значение по оси Z в Гауссах
+    * \~english @return The value along the Z-axis in Gauss.
+    * \~russian @return Значение по оси Z в Гауссах
     */
 	float MZ() override;
 
     /**
-    * @brief Записать сырое значение смещения нуля для показаний по оси X 
-    * @return Статус выполнения метода ISL
+    * \~english @brief Set the raw offset for the X-axis.
+    * \~russian @brief Установить сырое значение смещения нуля для показаний по оси X
+    * \~english @param offsetX The raw offset for the X-axis.
+    * \~russian @param offsetX Сырое значение смещения нуля для показаний по оси X
+    * \~english @return The status of the operation. ISL_OK if successful, ISL_ERROR otherwise.
+    * \~russian @return Статус выполнения метода ISL
     */
 	ISL_StatusTypeDef SetOffsetRawX(int16_t offsetX);
     /**
-    * @brief Записать сырое значение смещения нуля для показаний по оси Y 
-    * @return Статус выполнения метода ISL
+    * \~english @brief Set the raw offset for the Y-axis.
+    * \~russian @brief Установить сырое значение смещения нуля для показаний по оси Y
+    * \~english @param offsetY The raw offset for the Y-axis.
+    * \~russian @param offsetY Сырое значение смещения нуля для показаний по оси Y
+    * \~english @return The status of the operation. ISL_OK if successful, ISL_ERROR otherwise.
+    * \~russian @return Статус выполнения метода ISL
     */
 	ISL_StatusTypeDef SetOffsetRawY(int16_t offsetY);
     /**
-    * @brief Записать сырое значение смещения нуля для показаний по оси Z 
-    * @return Статус выполнения метода ISL
+    * \~english @brief Set the raw offset for the Z-axis.
+    * \~russian @brief Установить сырое значение смещения нуля для показаний по оси Z
+    * \~english @param offsetZ The raw offset for the Z-axis.
+    * \~russian @param offsetZ Сырое значение смещения нуля для показаний по оси Z
+    * \~english @return The status of the operation. ISL_OK if successful, ISL_ERROR otherwise.
+    * \~russian @return Статус выполнения метода ISL
     */
 	ISL_StatusTypeDef SetOffsetRawZ(int16_t offsetZ);
 
-    /**
-    * @brief Деструктор класса LIS2MDL
-    */
 	~LIS2MDL();
 };
 
