@@ -224,25 +224,6 @@ public:
 		return static_cast<uint8_t>(channel) < static_cast<uint8_t>(PowerChannel::Qty);
 	}
 
-	/**
-	 * \~english @brief Check if a channel supports undervoltage protection.
-	 * \~russian @brief Проверить, поддерживает ли канал защиту от недонапряжения.
-	 * 
-	 * \~english @param channel - The power channel to check.
-	 * \~russian @param channel - Канал питания для проверки.
-	 * \~english @return true - If the channel supports undervoltage protection.
-	 * \~russian @return true - Если канал поддерживает защиту от недонапряжения.
-	 * \~english @return false - If the channel does not support undervoltage protection.
-	 * \~russian @return false - Если канал не поддерживает защиту от недонапряжения.
-	 */
-	static constexpr bool channelSupportsUv(PowerChannel channel)
-	{
-		return channel == PowerChannel::Main3v3 ||
-			channel == PowerChannel::Payload3v3 ||
-			channel == PowerChannel::Main5v ||
-			channel == PowerChannel::Payload5v;
-	}
-
 private:
 	/**
 	 * \~english @brief Check if a channel supports undervoltage protection.
@@ -263,7 +244,6 @@ private:
 			channel == PowerChannel::Payload5v;
 	}
 
-private:
 	/**
 	 * \~russian @brief Выбрать канал питания для дальнейшей работы.
 	 * \~english @brief Select a power channel.
