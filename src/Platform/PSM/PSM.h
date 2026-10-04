@@ -104,6 +104,15 @@ public:
 	ISL_StatusTypeDef Init() override;
 
 	/**
+	 * \~english @brief Ping the PSM device to check if it is responsive.
+	 * \~russian @brief Проверка связи с устройством PSM.
+	 * 
+	 * \~english @return * ISL_StatusTypeDef - Status of the ping operation.
+	 * \~russian @return * ISL_StatusTypeDef - Статус операции проверки связи.
+	 */
+	ISL_StatusTypeDef Ping();
+
+	/**
 	 * \~english @brief Set the Power Mode of the PSM device.
 	 * \~russian @brief Установить режим питания устройства PSM.
 	 * 
