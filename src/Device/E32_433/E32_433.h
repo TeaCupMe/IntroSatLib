@@ -314,6 +314,8 @@ public:
      */
     ISL_StatusTypeDef SetMode(Mode mode);
 
+    Mode GetMode() {return currentMode;}
+
     /**
      * \~russian @brief Чтение настроек в массив байт
      * \~russian @param rxbuff Буфер для приема настроек (6 байт)
