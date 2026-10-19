@@ -399,12 +399,10 @@ CC1101::Status CC1101::setFEC(bool enable) {
   return STATUS_OK;
 }
 
-int8_t CC1101::getRSSI() {
-  if (this->rssi >= 128) {
-    return (((int8_t)this->rssi - 256) / 2) - 74;
-  } else {
-    return ((int8_t)this->rssi / 2) - 74;
-  }
+int16_t CC1101::getRSSI() {
+    int16_t rssi_dec = this->rssi;          // 0…255, беззнаковое
+    if (rssi_dec >= 128) rssi_dec -= 256;   // → −128…127, как в datasheet
+    return (rssi_dec / 2) - 74;
 }
 
 uint8_t CC1101::getLQI() {
@@ -488,70 +486,114 @@ CC1101::Status CC1101::transmit(uint8_t *data, size_t length, uint8_t addr) {
   return ret;
 }
 
-CC1101::Status CC1101::receive(uint8_t *data, size_t length, uint16_t *read, uint8_t addr) {
+CC1101::Status CC1101::receive(uint8_t *data, size_t length, uint16_t *read,
+                               uint8_t addr, uint16_t timeout_ms) {
   if (length > 255) {
     return STATUS_LENGTH_TOO_BIG;
   }
 
-  uint8_t bytesInFifo, bytesRead = 0, curPktLen = 0;
-  Status ret = STATUS_OK;
+  const uint32_t deadline = system::GetTick() + timeout_ms;
+
+  // ---- ЛОКАЛЬНЫЕ ПЕРЕМЕННЫЕ: должны быть здесь ----
+  uint8_t bytesInFifo = 0;
+  uint8_t bytesRead   = 0;
+  uint8_t curPktLen   = 0;
+  Status  ret         = STATUS_OK;
+  // ------------------------------------------------
+
+  // Если предыдущая сессия оставила overflow — лечимся до начала.
+  if ((readReg(CC1101_REG_RXBYTES) & 0x80) ||
+      (readRegField(CC1101_REG_MARCSTATE, 4, 0) == 0x11)) {
+      if (!resetRxPath(timeout_ms)) {
+          return STATUS_TIMEOUT;
+      }
+  }
 
   writeReg(CC1101_REG_ADDR, addr);
 
-  setState(STATE_IDLE);
-  flushRxBuffer();
-  setState(STATE_RX);
-
-  switch (pktLenMode) {
-    case PKT_LEN_MODE_FIXED:
-      curPktLen = this->pktLen;
-    break;
-    case PKT_LEN_MODE_VARIABLE:
-      waitForBytesInFifo();
-      curPktLen = readReg(CC1101_REG_FIFO);
-      bytesRead++;
-    break;
+  if (!resetRxPath(timeout_ms)) {
+      // Serial.println("RX path reset failed");
+      return STATUS_TIMEOUT;
   }
 
-  uint8_t dataRead = 0, dataLength = curPktLen;
+  switch (pktLenMode) {
+      case PKT_LEN_MODE_FIXED:
+          curPktLen = this->pktLen;
+          break;
+
+      case PKT_LEN_MODE_VARIABLE:
+          if (waitForBytesInFifo(deadline) == 0) {
+              flushRxBuffer();
+              setState(STATE_IDLE);
+              // Serial.println("Here0");
+              return STATUS_TIMEOUT;
+          }
+          curPktLen = readReg(CC1101_REG_FIFO);
+          bytesRead++;
+          break;
+  }
+
+  uint8_t dataRead   = 0;
+  uint8_t dataLength = curPktLen;
 
   if (addrFilterMode != ADDR_FILTER_MODE_NONE) {
-    waitForBytesInFifo();
-    (void)readReg(CC1101_REG_FIFO);
-    bytesRead++;
-    dataLength--;
+      if (waitForBytesInFifo(deadline) == 0) {
+          flushRxBuffer();
+          setState(STATE_IDLE);
+          return STATUS_TIMEOUT;
+      }
+      (void)readReg(CC1101_REG_FIFO);
+      bytesRead++;
+      dataLength--;
   }
 
   if (dataLength > length) {
-    setState(STATE_IDLE);
-    return STATUS_LENGTH_TOO_SMALL;
-  }
-
-  /*
-    For packet lengths less than 64 bytes it is recommended to wait until
-    the complete packet has been received before reading it out of the RX FIFO.
-  */
-  if (dataLength <= (uint8_t)(CC1101_FIFO_SIZE - bytesRead)) {
-    do {
-    	system::Delay(1);
-//      delayMicroseconds(15);
-//      yield();
-      bytesInFifo = waitForBytesInFifo();
-    } while (bytesInFifo < dataLength);
-  }
-
-  while (dataRead < dataLength) {
-    bytesInFifo = waitForBytesInFifo();
-    uint8_t bytesToRead = min((uint8_t)(dataLength - dataRead), bytesInFifo);
-    readRegBurst(CC1101_REG_FIFO, data + dataRead, bytesToRead);
-    bytesRead += bytesToRead;
-    dataRead += bytesToRead;
-
-    if (currentState == STATE_RXFIFO_OVERFLOW) {
-      ret = STATUS_RXFIFO_OVERFLOW;
       flushRxBuffer();
+      setState(STATE_IDLE);
+      return STATUS_LENGTH_TOO_SMALL;
+  }
+
+  if (dataLength <= (uint8_t)(CC1101_FIFO_SIZE - bytesRead)) {
+      do {
+          bytesInFifo = readReg(CC1101_REG_RXBYTES) & 0x7F;
+
+          if ((readReg(CC1101_REG_RXBYTES) & 0x80) ||
+              (int32_t)(system::GetTick() - deadline) >= 0) {
+              flushRxBuffer();
+              setState(STATE_IDLE);
+              return STATUS_TIMEOUT;
+          }
+          system::Delay(1);
+      } while (bytesInFifo < dataLength);
+  }
+
+  // Чтение данных из FIFO
+  while (dataRead < dataLength) {
+    if (currentState == STATE_RXFIFO_OVERFLOW) {
+      flushRxBuffer();
+      setState(STATE_IDLE);
+      ret = STATUS_RXFIFO_OVERFLOW;
       break;
     }
+
+    bytesInFifo = readRegField(CC1101_REG_RXBYTES, 6, 0);
+
+    if (bytesInFifo > 0) {
+      uint8_t bytesToRead = min((uint8_t)(dataLength - dataRead), bytesInFifo);
+      readRegBurst(CC1101_REG_FIFO, data + dataRead, bytesToRead);
+      dataRead += bytesToRead;
+      continue;
+    }
+
+    // FIFO пуст — ждём, но не дольше дедлайна
+    if ((int32_t)(system::GetTick() - deadline) >= 0) {
+      flushRxBuffer();
+      setState(STATE_IDLE);
+      ret = STATUS_TIMEOUT;
+      break;
+    }
+
+    system::Delay(1);
   }
 
   while (getState() != STATE_IDLE) {
@@ -560,9 +602,15 @@ CC1101::Status CC1101::receive(uint8_t *data, size_t length, uint16_t *read, uin
       flushRxBuffer();
       break;
     }
+
+    if ((int32_t)(system::GetTick() - deadline) >= 0) {
+      // Принудительно переводим чип в IDLE, чтобы не залипнуть
+      setState(STATE_IDLE);
+      ret = STATUS_TIMEOUT;
+      break;
+    }
+
     system::Delay(1);
-//    delayMicroseconds(50);
-//    yield();
   }
 
   if (ret != STATUS_OK) {
@@ -587,16 +635,47 @@ CC1101::Status CC1101::receive(uint8_t *data, size_t length, uint16_t *read, uin
   return ret;
 }
 
-uint8_t CC1101::waitForBytesInFifo() {
-  uint8_t bytesInFifo = readRegField(CC1101_REG_RXBYTES, 6, 0);
-  while (bytesInFifo == 0) {
-    system::Delay(1);
-//    delayMicroseconds(15);
-//    yield();
-    bytesInFifo = readRegField(CC1101_REG_RXBYTES, 6, 0);
-  }
-  return bytesInFifo;
+uint8_t CC1101::waitForBytesInFifo(uint32_t deadline) {
+    while (true) {
+        uint8_t raw = readReg(CC1101_REG_RXBYTES);
+        if (raw & 0x80) { // RXFIFO_OVERFLOW
+            // Не ждём, сразу выходим, чтобы вызывающий код сбросил overflow
+            return 0; 
+        }
+        uint8_t n = raw & 0x7F;
+        if (n > 0) return n;
+
+        if ((int32_t)(system::GetTick() - deadline) >= 0) {
+            return 0; // таймаут
+        }
+        system::Delay(1);
+    }
 }
+
+bool CC1101::resetRxPath(uint32_t timeout_ms) {
+    const uint32_t dl = system::GetTick() + timeout_ms;
+
+    setState(STATE_IDLE);                       // SIDLE
+
+    // ждём MARCSTATE == IDLE (0x01)
+    while (readRegField(CC1101_REG_MARCSTATE, 4, 0) != 0x01) {
+        if ((int32_t)(system::GetTick() - dl) >= 0) return false;
+        system::Delay(1);
+    }
+
+    flushRxBuffer();                            // SFRX
+    system::Delay(1);
+
+    setState(STATE_RX);                         // SRX
+
+    // ждём MARCSTATE == RX (0x0D)
+    while (readRegField(CC1101_REG_MARCSTATE, 4, 0) != 0x0D) {
+        if ((int32_t)(system::GetTick() - dl) >= 0) return false;
+        system::Delay(1);
+    }
+    return true;
+}
+
 
 void CC1101::receiveCallback(void (*func)(void)) {
   /*

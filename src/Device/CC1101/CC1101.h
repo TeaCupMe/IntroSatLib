@@ -114,6 +114,7 @@ private:
 		CC1101_REG_TEST0 = 0x2E,        // Various test settings
 		CC1101_REG_PARTNUM =       0x30,
 		CC1101_REG_VERSION =       0x31,
+		CC1101_REG_MARCSTATE = 0x35,
 		CC1101_REG_TXBYTES =      0x3a,
 		CC1101_REG_RXBYTES =      0x3b,
 		CC1101_REG_PATABLE =      0x3e,
@@ -156,7 +157,8 @@ public:
 		STATUS_LENGTH_TOO_BIG,
 		STATUS_CRC_MISMATCH,
 		STATUS_TXFIFO_UNDERFLOW,
-		STATUS_RXFIFO_OVERFLOW
+		STATUS_RXFIFO_OVERFLOW,
+		STATUS_TIMEOUT
 	};
 
 	enum State {
@@ -247,17 +249,25 @@ public:
 
 	Status transmit(uint8_t *data, size_t length, uint8_t addr = 0);
 	Status receive(uint8_t *data, size_t length, uint16_t *read = nullptr,
-			uint8_t addr = 0);
-	int8_t getRSSI();
+			uint8_t addr = 0, uint16_t timeout_ms = 1000);
+	int16_t getRSSI();
 	uint8_t getLQI();
 
 	void receiveCallback(void (*func)(void));
 
 private:
+	inline bool rxOverflow() {
+		return (readReg(CC1101_REG_RXBYTES) & 0x80) != 0;
+	}
+	inline uint8_t rxBytes() {
+		return readReg(CC1101_REG_RXBYTES) & 0x7F;   // NUM_RXBYTES = 7 бит!
+	}
+	bool resetRxPath(uint32_t timeout_ms);
+
 	void chipSelect();
 	void chipDeselect();
 	void waitReady();
-	uint8_t waitForBytesInFifo();
+	uint8_t waitForBytesInFifo(uint32_t timeout_ms = 100);
 
 	uint8_t readRegField(uint8_t addr, uint8_t hi, uint8_t lo);
 	uint8_t readReg(uint8_t addr);
