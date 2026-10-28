@@ -145,7 +145,7 @@ namespace IntroSatLib {
             (uint8_t)CommandHead::GetParameters
         };
         RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(message, 3, timeout));
-        RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1, timeout));
+//        RETURN_STATUS_IF_NOT_OK_SILENT(WaitAUX(1, timeout));
         RETURN_STATUS_IF_NOT_OK_SILENT(ReadUART(rxbuff, 6, timeout));
         if (rxbuff[0] == (uint8_t)CommandHead::SetParametersSave)
         {
