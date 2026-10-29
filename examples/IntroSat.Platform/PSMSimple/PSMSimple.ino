@@ -52,14 +52,14 @@ void loop() {
 		ChannelInfo channelInfo;
 		psm.GetChannelInfo(PSM::PowerChannel::Payload3v3, channelInfo);
 		if   (channelInfo.state == ChannelState::On) psm.DisableChannel(PowerChannel::Payload3v3);
-		else  psm.DisableChannel(PowerChannel::Payload3v3);
+		else  psm.EnableChannel(PowerChannel::Payload3v3);
 	} 
 	else if (command == '5')
 	{
 		ChannelInfo channelInfo;
 		psm.GetChannelInfo(PSM::PowerChannel::Payload5v, channelInfo);
 		if   (channelInfo.state == ChannelState::On) psm.DisableChannel(PowerChannel::Payload5v);
-		else  psm.DisableChannel(PowerChannel::Payload5v);
+		else  psm.EnableChannel(PowerChannel::Payload5v);
 	} 
 
 	for (uint8_t i = 0; i < static_cast<uint8_t>(PSM::PowerChannel::Qty); ++i) {
