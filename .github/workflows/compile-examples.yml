@@ -29,7 +29,7 @@ on:
 jobs:
   build-legacy-codes:
     name: Build Legacy codes in Arduino IDE (F103C8, F103CB)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         fqbn:
@@ -68,7 +68,7 @@ jobs:
 
   build-examples-introsat:
     name: Build IntroSat examples for Arduino IDE (F103C8)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build-legacy-codes
     strategy:
       matrix:
@@ -109,7 +109,7 @@ jobs:
   build-examples-mik32:
     continue-on-error: true
     name: Build IntroSat examples for Arduino IDE (MIK32_Amur)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build-legacy-codes
     strategy:
       matrix:
@@ -150,7 +150,7 @@ jobs:
 
   build-examples-introsat-platform:
     name: Build IntroSat.Platform examples for Arduino IDE (H750VBx)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build-legacy-codes
     strategy:
       matrix:
@@ -190,7 +190,7 @@ jobs:
 
   build-examples-introsat-pico:
     name: Build IntroSat.Pico examples for Arduino IDE (ATMega328PB)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build-legacy-codes
     strategy:
       matrix:
@@ -231,7 +231,7 @@ jobs:
 
   list-examples-cubeide:
     name: List available examples for CubeIDE
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       folders: ${{ steps.list_examples.outputs.folders }}
     steps:
@@ -249,7 +249,7 @@ jobs:
 
   build-examples-cubeide:
     name: Build available examples for CubeIDE
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: list-examples-cubeide
     strategy:
       matrix:
@@ -279,7 +279,7 @@ jobs:
           path: ${{matrix.folder}}/Debug/*.elf
 
   generate-docs:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: 
       - build-examples-introsat
       - build-examples-introsat-pico
