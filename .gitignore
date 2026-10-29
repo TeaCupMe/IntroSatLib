@@ -25,8 +25,24 @@
 *.la
 *.a
 *.lib
+/build/
 
 # Executables
 *.exe
 *.out
 *.app
+
+# folder with local tools
+tools/*
+
+# IDEs
+.vscode/
+
+# documentation
+doxygen/*
+!doxygen/doxygen.conf
+!doxygen/header.html
+!doxygen/logo.svg
+!doxygen/js
+!doxygen/styles
+

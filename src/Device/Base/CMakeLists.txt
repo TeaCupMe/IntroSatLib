@@ -1,0 +1,2 @@
+introsatlib_add_interface_component(IntroSatLib_Base Base)
+target_link_libraries(IntroSatLib_Base INTERFACE IntroSatLib::Core)

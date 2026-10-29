@@ -1,0 +1,2 @@
+introsatlib_add_static_component(IntroSatLib_E32_433 E32_433 E32_433.cpp)
+target_link_libraries(IntroSatLib_E32_433 PUBLIC IntroSatLib::Device)
