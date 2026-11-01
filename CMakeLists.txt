@@ -25,8 +25,13 @@ set(
 )
 option(INTROSATLIB_BUILD_DOCS "Add the Doxygen documentation target" OFF)
 option(
+<<<<<<< HEAD
 	INTROSATLIB_BUILD_TESTS
 	"Build host unit tests with recording Adapter fakes (Catch2)"
+=======
+	INTROSATLIB_BUILD_HEADLESS
+	"Build host TCP/ISP-lite demos (no Cube/Arduino platform required)"
+>>>>>>> e2c5803 (feat(headless): TCP ISP-lite MVP with LM75A sim and demo)
 	OFF
 )
 if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
@@ -40,6 +45,17 @@ option(
 	${_introsatlib_install_default}
 )
 unset(_introsatlib_install_default)
+
+# Headless-only: skip firmware library when no platform is provided.
+if(
+	INTROSATLIB_BUILD_HEADLESS
+	AND INTROSATLIB_PLATFORM_TARGET STREQUAL ""
+	AND NOT TARGET stm32cubemx
+)
+	message(STATUS "IntroSatLib: headless demos only (no platform target)")
+	add_subdirectory(headless)
+	return()
+endif()
 
 string(TOUPPER "${INTROSATLIB_BACKEND}" INTROSATLIB_BACKEND)
 set(_introsatlib_supported_backends ARDUINO STM32_HAL)
@@ -110,7 +126,12 @@ if(INTROSATLIB_PLATFORM_TARGET STREQUAL "")
 		"The ${INTROSATLIB_BACKEND} backend requires a platform target. "
 		"Set INTROSATLIB_PLATFORM_TARGET to a target created by the parent "
 		"firmware project. STM32_HAL automatically uses 'stm32cubemx' when "
+<<<<<<< HEAD
 		"that target exists. For host unit tests, set INTROSATLIB_BUILD_TESTS=ON."
+=======
+		"that target exists. Or set INTROSATLIB_BUILD_HEADLESS=ON for "
+		"host TCP/ISP-lite demos without a platform."
+>>>>>>> e2c5803 (feat(headless): TCP ISP-lite MVP with LM75A sim and demo)
 	)
 endif()
 if(NOT TARGET "${INTROSATLIB_PLATFORM_TARGET}")
@@ -129,9 +150,14 @@ set_property(
 
 add_subdirectory(src)
 
+<<<<<<< HEAD
 if(INTROSATLIB_BUILD_TESTS)
 	enable_testing()
 	add_subdirectory(tests)
+=======
+if(INTROSATLIB_BUILD_HEADLESS)
+	add_subdirectory(headless)
+>>>>>>> e2c5803 (feat(headless): TCP ISP-lite MVP with LM75A sim and demo)
 endif()
 
 if(INTROSATLIB_BUILD_DOCS)
