@@ -1,9 +1,10 @@
 # IntroSatLib host unit tests
 
-Phase 1 driver unit tests: real drivers + `I2CDevice`, recording fakes at the
-`interfaces::{I2C,SPI,GPIO,UART}` / `system::*` Adapter seam (Catch2 v3).
+DI MVP: real drivers + `I2CDevice` with abstract `interfaces::I2CBus`,
+`FakeI2CBus` injected by reference (Catch2 v3). Host stubs still compile
+production Adapter headers; link fakes remain for `system::*` (e.g. Delay).
 
-See `docs/driver-unit-test-plan.md` in the project store for the approved plan.
+See project-store docs `di-virtual-adapters-design.md` and `driver-unit-test-plan.md`.
 
 ## Configure and run
 

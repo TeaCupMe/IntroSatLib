@@ -14,9 +14,23 @@
 #include "Adapter/System.h"
 #include "Device/I2CDevice.h"
 
+#include <utility>
+
 namespace IntroSatLib {
 
-LSM6DS3::LSM6DS3(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address)
+LSM6DS3::LSM6DS3(interfaces::I2CBus& bus, uint8_t address): I2CDevice(bus, address)
+{
+}
+
+LSM6DS3::LSM6DS3(interfaces::I2C i2c, uint8_t address): I2CDevice(std::move(i2c), address)
+{
+}
+
+LSM6DS3::LSM6DS3(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi2c, address)
+{
+}
+
+LSM6DS3::LSM6DS3(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
 

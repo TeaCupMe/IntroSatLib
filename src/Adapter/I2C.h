@@ -3,6 +3,7 @@
 
 // Include general Library definitions
 #include "IntroSatLib_def.h"
+#include "Adapter/I2CBus.h"
 
 
 #ifdef ARDUINO
@@ -87,7 +88,7 @@ for(uint8_t i = 0; i < Nbytes; i++) { \
 namespace IntroSatLib {
 namespace interfaces {
 
-class I2C final {
+class I2C final : public I2CBus {
 	enum class I2CSpeed
 	{
 		Standard = 0,
@@ -149,7 +150,7 @@ public:
 	 * @returns 0, если устройство доступно
 	 * @returns 1, если с устройством произошла ошибка
 	 */
-	ISL_StatusTypeDef isReady(uint8_t deviceAddress, uint8_t waitIsReady = 0);
+	ISL_StatusTypeDef isReady(uint8_t deviceAddress, uint8_t waitIsReady = 0) override;
 
 	/**
 	 * @brief Отправка запроса на чтение Nbytes байт с устройства
@@ -158,7 +159,7 @@ public:
 	 * @param[in] Nbytes Количество байт  для чтения
 	 * @return Статус выполнения чтения
 	 */
-	ISL_StatusTypeDef read(uint8_t deviceAddress, uint8_t* data, uint8_t nBytes);
+	ISL_StatusTypeDef read(uint8_t deviceAddress, uint8_t* data, uint8_t nBytes) override;
 
 	/**
 	 * @brief Отправка запроса на чтение Nbytes байт из регистра Register устройства
@@ -168,7 +169,7 @@ public:
 	 * @param[in] Nbytes Количество байт для чтения
 	 * @return HAL_StatusTypeDef
 	 */
-	ISL_StatusTypeDef readMem(uint8_t deviceAddress, uint8_t reg, uint8_t* data, uint8_t nBytes);
+	ISL_StatusTypeDef readMem(uint8_t deviceAddress, uint8_t reg, uint8_t* data, uint8_t nBytes) override;
 
 	/**
 	 * @brief Отправка запроса на запись NBytes байт на устройство
@@ -177,7 +178,7 @@ public:
 	 * @param Nbytes Количество байт для записи
 	 * @return HAL_StatusTypeDef
 	 */
-	ISL_StatusTypeDef write(uint8_t deviceAddress, uint8_t* data, uint8_t nBytes);
+	ISL_StatusTypeDef write(uint8_t deviceAddress, uint8_t* data, uint8_t nBytes) override;
 
 	/**
 	 * @brief Отправка запроса на запись NBytes байт в регистр Register устройства
@@ -187,8 +188,8 @@ public:
 	 * @param Nbytes Количество байт для записи
 	 * @return HAL_StatusTypeDef
 	 */
-	ISL_StatusTypeDef writeMem(uint8_t deviceAddress, uint8_t reg, uint8_t* data, uint8_t nBytes);
-	~I2C();
+	ISL_StatusTypeDef writeMem(uint8_t deviceAddress, uint8_t reg, uint8_t* data, uint8_t nBytes) override;
+	~I2C() override;
 };
 
 } /* namespace intefaces */

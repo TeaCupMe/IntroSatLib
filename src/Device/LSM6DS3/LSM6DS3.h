@@ -133,7 +133,10 @@ private:
 	float _cutZ = 5.0f;
 
 public:
+	LSM6DS3(interfaces::I2CBus& bus, uint8_t address = BASE_ADDRESS);
 	LSM6DS3(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
+	LSM6DS3(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address = BASE_ADDRESS);
+	LSM6DS3(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address = BASE_ADDRESS);
 
 
 	ISL_StatusTypeDef InitGyro();
