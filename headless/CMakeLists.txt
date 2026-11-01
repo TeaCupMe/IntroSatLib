@@ -20,6 +20,7 @@ target_include_directories(
 	PUBLIC
 		"${CMAKE_CURRENT_SOURCE_DIR}/isp"
 		"${CMAKE_CURRENT_SOURCE_DIR}/tcp"
+		"${CMAKE_CURRENT_SOURCE_DIR}/log"
 		"${CMAKE_CURRENT_SOURCE_DIR}/../src"
 )
 

@@ -40,3 +40,7 @@ Expected client output:
 ```text
 OK raw=0x1900 temp_c=25
 ```
+
+### Logging (optional)
+
+Default is quiet. Use `-v` / `-vv` or `INTROSATLIB_HEADLESS_LOG=info|debug` for stderr lines (`isl[demo] INFO connect …`). Design: project doc `headless-logging.md`.

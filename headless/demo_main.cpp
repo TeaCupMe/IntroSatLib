@@ -1,3 +1,4 @@
+#include "HeadlessLog.h"
 #include "TcpI2CBus.h"
 
 #include <cstdint>
@@ -51,15 +52,23 @@ private:
 
 void usage(const char* argv0) {
 	std::cerr << "Usage: " << argv0
-		  << " [--host HOST] [--port PORT] [--addr HEX]\n";
+		  << " [--host HOST] [--port PORT] [--addr HEX]\n"
+		  << "        [-v|-vv|--verbose] [--log-level off|error|info|debug]\n"
+		  << "  Env: INTROSATLIB_HEADLESS_LOG=off|error|info|debug\n";
 }
 
 } // namespace
 
 int main(int argc, char** argv) {
+	using IntroSatLib::headless::LogLevel;
+	using IntroSatLib::headless::logInit;
+	using IntroSatLib::headless::logMsg;
+
 	std::string host = "127.0.0.1";
 	uint16_t port = kDefaultPort;
 	uint8_t addr = kLm75aAddr;
+	LogLevel cliLevel = LogLevel::Off;
+	bool cliLogSet = false;
 
 	for (int i = 1; i < argc; ++i) {
 		const std::string arg = argv[i];
@@ -69,6 +78,15 @@ int main(int argc, char** argv) {
 			port = static_cast<uint16_t>(std::stoi(argv[++i]));
 		} else if (arg == "--addr" && i + 1 < argc) {
 			addr = static_cast<uint8_t>(std::stoul(argv[++i], nullptr, 0));
+		} else if (arg == "-v" || arg == "--verbose") {
+			cliLevel = LogLevel::Info;
+			cliLogSet = true;
+		} else if (arg == "-vv") {
+			cliLevel = LogLevel::Debug;
+			cliLogSet = true;
+		} else if (arg == "--log-level" && i + 1 < argc) {
+			cliLevel = IntroSatLib::headless::parseLogLevel(argv[++i]);
+			cliLogSet = true;
 		} else if (arg == "--help" || arg == "-h") {
 			usage(argv[0]);
 			return 0;
@@ -78,11 +96,17 @@ int main(int argc, char** argv) {
 		}
 	}
 
+	logInit("demo", cliLevel, cliLogSet);
+
 	IntroSatLib::headless::TcpI2CBus bus(host, port);
 	if (!bus.connect()) {
+		logMsg(LogLevel::Error, "connect",
+		       "host=" + host + " port=" + std::to_string(port) + " ok=0");
 		std::cerr << "demo: connect to " << host << ":" << port << " failed\n";
 		return 1;
 	}
+	logMsg(LogLevel::Info, "connect",
+	       "host=" + host + " port=" + std::to_string(port) + " ok=1");
 
 	ThinLm75aClient sensor(bus, addr);
 	const ISL_StatusTypeDef ready = sensor.init();

@@ -1,7 +1,9 @@
+#include "HeadlessLog.h"
 #include "IspLite.h"
 #include "TcpIspServer.h"
 
 #include <cstdint>
+#include <cstdio>
 #include <cstring>
 #include <iostream>
 #include <string>
@@ -96,14 +98,22 @@ struct Lm75aSim {
 
 void usage(const char* argv0) {
 	std::cerr << "Usage: " << argv0 << " [--port PORT] [--addr HEX]\n"
-		  << "  Default port " << kDefaultPort << ", addr 0x48\n";
+		  << "        [-v|-vv|--verbose] [--log-level off|error|info|debug]\n"
+		  << "  Default port " << kDefaultPort << ", addr 0x48\n"
+		  << "  Env: INTROSATLIB_HEADLESS_LOG=off|error|info|debug\n";
 }
 
 } // namespace
 
 int main(int argc, char** argv) {
+	using IntroSatLib::headless::LogLevel;
+	using IntroSatLib::headless::logInit;
+	using IntroSatLib::headless::logMsg;
+
 	uint16_t port = kDefaultPort;
 	uint8_t addr = kDefaultAddr;
+	LogLevel cliLevel = LogLevel::Off;
+	bool cliLogSet = false;
 
 	for (int i = 1; i < argc; ++i) {
 		const std::string arg = argv[i];
@@ -111,6 +121,15 @@ int main(int argc, char** argv) {
 			port = static_cast<uint16_t>(std::stoi(argv[++i]));
 		} else if (arg == "--addr" && i + 1 < argc) {
 			addr = static_cast<uint8_t>(std::stoul(argv[++i], nullptr, 0));
+		} else if (arg == "-v" || arg == "--verbose") {
+			cliLevel = LogLevel::Info;
+			cliLogSet = true;
+		} else if (arg == "-vv") {
+			cliLevel = LogLevel::Debug;
+			cliLogSet = true;
+		} else if (arg == "--log-level" && i + 1 < argc) {
+			cliLevel = IntroSatLib::headless::parseLogLevel(argv[++i]);
+			cliLogSet = true;
 		} else if (arg == "--help" || arg == "-h") {
 			usage(argv[0]);
 			return 0;
@@ -120,22 +139,35 @@ int main(int argc, char** argv) {
 		}
 	}
 
+	logInit("sim", cliLevel, cliLogSet);
+
 	Lm75aSim sim;
 	sim.addr = addr;
 
 	IntroSatLib::headless::TcpIspServer server(port);
 	if (!server.listen()) {
+		logMsg(LogLevel::Error, "listen",
+		       "bind=127.0.0.1:" + std::to_string(port) + " ok=0");
 		std::cerr << "sim_lm75a: failed to listen on 127.0.0.1:" << port << "\n";
 		return 1;
 	}
+	logMsg(LogLevel::Info, "listen",
+	       "bind=127.0.0.1:" + std::to_string(port) + " addr=0x" +
+		       ([&] {
+			       char buf[8];
+			       std::snprintf(buf, sizeof(buf), "%02x", addr);
+			       return std::string(buf);
+		       })());
 	std::cout << "introsatlib_sim_lm75a listening on 127.0.0.1:" << port
 		  << " addr=0x" << std::hex << static_cast<int>(addr) << std::dec
 		  << " (temp raw=0x1900 ≈ 25.0 C)\n";
 
 	if (!server.serveOne([&](const auto& req) { return sim.handle(req); })) {
+		logMsg(LogLevel::Error, "serve", "ok=0");
 		std::cerr << "sim_lm75a: accept/serve failed\n";
 		return 1;
 	}
+	logMsg(LogLevel::Info, "disconnect", "client=gone");
 	std::cout << "sim_lm75a: client disconnected\n";
 	return 0;
 }
