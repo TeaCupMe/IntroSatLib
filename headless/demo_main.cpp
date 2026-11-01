@@ -12,7 +12,7 @@ constexpr uint16_t kDefaultPort = 17375;
 
 /**
  * Thin LM75A-shaped client over I2CBus (same register map as IntroSatLib::LM75A).
- * When DI lands LM75A(I2CBus&), this demo can switch to the real driver.
+ * Can switch to real LM75A(I2CBus&) once that overload is used in this demo.
  */
 class ThinLm75aClient {
 public:

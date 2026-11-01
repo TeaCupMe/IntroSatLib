@@ -5,7 +5,7 @@ Host-only demo: virtual I2C over localhost TCP. No Cube/Arduino.
 - **`introsatlib_sim_lm75a`** — fake LM75A register map (temp ≈ 25 °C)
 - **`introsatlib_headless_demo`** — `TcpI2CBus` (`I2CBus`) + thin LM75A client (`readMem`)
 
-`I2CBus` here is a **local stub** under `headless/stub/` matching the DI design signatures. It is not the library Adapter seam — rebase onto the Driver test MVP branch when that lands `src/Adapter/I2CBus.h`.
+Uses the real library seam `src/Adapter/I2CBus.h` (from the Driver test / DI MVP). `TcpI2CBus` implements that interface; demos stay under `headless/` only.
 
 ## Build
 

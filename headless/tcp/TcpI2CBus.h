@@ -1,7 +1,7 @@
 #ifndef HEADLESS_TCP_TCPI2CBUS_H_
 #define HEADLESS_TCP_TCPI2CBUS_H_
 
-#include "I2CBus.h"
+#include "Adapter/I2CBus.h"
 #include "IspLite.h"
 #include <cstdint>
 #include <string>

@@ -18,7 +18,6 @@ target_compile_features(introsatlib_headless_tcp PUBLIC cxx_std_17)
 target_include_directories(
 	introsatlib_headless_tcp
 	PUBLIC
-		"${CMAKE_CURRENT_SOURCE_DIR}/stub"
 		"${CMAKE_CURRENT_SOURCE_DIR}/isp"
 		"${CMAKE_CURRENT_SOURCE_DIR}/tcp"
 		"${CMAKE_CURRENT_SOURCE_DIR}/../src"
