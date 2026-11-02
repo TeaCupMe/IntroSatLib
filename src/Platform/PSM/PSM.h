@@ -98,8 +98,8 @@ public:
 	 * \~english @brief Initialize the PSM device.
 	 * \~russian @brief Инициализация устройства PSM.
 	 * 
-	 * \~english @return * ISL_StatusTypeDef - Status of the initialization operation.
-	 * \~russian @return * ISL_StatusTypeDef - Статус операции инициализации.
+	 * \~english @return * ISL_StatusTypeDef - Status of the operation.
+	 * \~russian @return * ISL_StatusTypeDef - Статус операции.
 	 */
 	ISL_StatusTypeDef Init() override;
 
@@ -107,8 +107,8 @@ public:
 	 * \~english @brief Ping the PSM device to check if it is responsive.
 	 * \~russian @brief Проверка связи с устройством PSM.
 	 * 
-	 * \~english @return * ISL_StatusTypeDef - Status of the ping operation.
-	 * \~russian @return * ISL_StatusTypeDef - Статус операции проверки связи.
+	 * \~english @return * ISL_StatusTypeDef - Status of the operation.
+	 * \~russian @return * ISL_StatusTypeDef - Статус операции.
 	 */
 	ISL_StatusTypeDef Ping();
 
@@ -118,8 +118,8 @@ public:
 	 * 
 	 * \~english @param mode - The desired Power Mode to set.
 	 * \~russian @param mode - Желаемый режим питания для установки.
-	 * \~english @return * ISL_StatusTypeDef 
-	 * \~russian @return * ISL_StatusTypeDef 
+	 * \~english @return * ISL_StatusTypeDef  - Status of the operation.
+	 * \~russian @return * ISL_StatusTypeDef - Статус операции.
 	 */
 	ISL_StatusTypeDef SetPowerMode(PowerMode mode);
 
@@ -127,8 +127,8 @@ public:
 	 * \~english @brief Save the configuration of the PSM device.
 	 * \~russian @brief Сохранить конфигурацию устройства PSM.
 	 * 
-	 * \~english @return * ISL_StatusTypeDef - Status of the save operation.
-	 * \~russian @return * ISL_StatusTypeDef - Статус операции сохранения.
+	 * \~english @return * ISL_StatusTypeDef - Status of the operation.
+	 * \~russian @return * ISL_StatusTypeDef - Статус операции.
 	 */
 	ISL_StatusTypeDef SaveConfig();
 
@@ -187,26 +187,29 @@ public:
 	 * \~english @param channel - The power channel to set the preset for.
 	 * \~russian @param channel - Канал питания для установки предустановленного значения.
 	 * \~english @param preset - The overcurrent preset to set.
-	 * \~russian @param preset - Предустановленное значение перегрузки для установки.
+	 * \~russian @param preset - Значение тока для установки.
 	 * \~english @return * ISL_StatusTypeDef - Status of the operation.
 	 * \~russian @return * ISL_StatusTypeDef - Статус операции.
 	 */
 	ISL_StatusTypeDef SetOvercurrent(PowerChannel channel, OCPreset preset);
 	/**
 	 * \~english @brief Set the undervoltage preset for a power channel.
-	 * \~russian @brief Установить предустановленное значение недонапряжения для канала питания.
+	 * \~russian @brief Установить значение отключения по низкому напряжению для канала питания.
 	 * 
 	 * \~english @param channel - The power channel to set the preset for.
-	 * \~russian @param channel - Канал питания для установки предустановленного значения.
+	 * \~russian @param channel - Канал питания для установки значения.
 	 * \~english @param preset - The undervoltage preset to set.
-	 * \~russian @param preset - Предустановленное значение недонапряжения для установки.
+	 * \~russian @param preset - Значение напряжения для установки.
 	 * \~english @return * ISL_StatusTypeDef - Status of the operation.
 	 * \~russian @return * ISL_StatusTypeDef - Статус операции.
 	 */
 	ISL_StatusTypeDef SetUndervoltage(PowerChannel channel, UVPreset preset);
-
+/// @cond
 	ISL_StatusTypeDef SetHeaterMode(HeaterMode mode);
 	ISL_StatusTypeDef GetHeaterInfo(HeaterInfo& info);
+/// @endcond
+
+private:
 
 	/**
 	 * \~english @brief Check if a channel is a valid power channel.
@@ -223,18 +226,16 @@ public:
 	{
 		return static_cast<uint8_t>(channel) < static_cast<uint8_t>(PowerChannel::Qty);
 	}
-
-private:
 	/**
 	 * \~english @brief Check if a channel supports undervoltage protection.
-	 * \~russian @brief Проверить, поддерживает ли канал защиту от недонапряжения.
+	 * \~russian @brief Проверить, поддерживает ли канал защиту от пониженного напряжения.
 	 * 
 	 * \~english @param channel - The power channel to check.
 	 * \~russian @param channel - Канал питания для проверки.
 	 * \~english @return true - If the channel supports undervoltage protection.
-	 * \~russian @return true - Если канал поддерживает защиту от недонапряжения.
+	 * \~russian @return true - Если канал поддерживает защиту от пониженного напряжения.
 	 * \~english @return false - If the channel does not support undervoltage protection.
-	 * \~russian @return false - Если канал не поддерживает защиту от недонапряжения.
+	 * \~russian @return false - Если канал не поддерживает защиту от пониженного напряжения.
 	 */
 	static constexpr bool channelSupportsUv(PowerChannel channel)
 	{

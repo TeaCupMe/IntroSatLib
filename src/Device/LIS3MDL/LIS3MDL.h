@@ -60,7 +60,7 @@ public:
 
 	/**
 	 * \~english @brief Construct a new LIS3MDL object
-	 * \~russian @brief Создание новый объект LIS3MDL
+	 * \~russian @brief Создание объекта LIS3MDL
 	 * 
 	 * \~english @param i2c - The I2C interface to use. Wire in Arduino IDE, I2C_HandleTypeDef in STM32CubeIDE
 	 * \~russian @param i2c - объект интерфейса I2C - Wire в Arduino IDE, I2C_HandleTypeDef в STM32CubeIDE

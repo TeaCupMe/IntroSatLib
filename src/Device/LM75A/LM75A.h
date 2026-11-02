@@ -29,6 +29,7 @@ private:
 		};
 
 	static const uint8_t BASE_ADDRESS = 0x48;
+	uint8_t GetConfig();
 
 public:
 	/**
@@ -80,10 +81,10 @@ public:
 	 * \~russian @return float - Температура в градусах Цельсия
 	 */
 	float GetTemperature() override;
-	uint8_t GetConfig();
 
+/// @cond
 	void PowerDown(bool shutdown);
-
+/// @endcond
 };
 
 
