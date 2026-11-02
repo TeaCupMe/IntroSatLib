@@ -1,7 +1,7 @@
 #ifndef I2CDEVICE_H_
 #define I2CDEVICE_H_
 
-#include "../Adapter/I2C.h"
+#include "../Adapter/I2C/I2CAdapter.h"
 #include "Device.h"
 
 namespace IntroSatLib {
@@ -9,11 +9,15 @@ namespace IntroSatLib {
 class I2CDevice: public Device 	{
 
 private:
-	interfaces::I2C _i2c;
+	/** Non-owning bus pointer (FakeI2C, pooled I2CAdapter, or other I2C). */
+	interfaces::I2C* _bus = nullptr;
 
 protected:
 
 	uint8_t _address;
+
+	interfaces::I2C& bus() { return *_bus; }
+	const interfaces::I2C& bus() const { return *_bus; }
 
 	ISL_StatusTypeDef IsReady();
 
@@ -83,19 +87,17 @@ protected:
 
 public:
 	/**
-	 * @brief Создание объекта @b @ref I2CDevice
-	 *
-	 * @param hi2c объект @b I2C_HandleTypeDef в STM32CubeIDE или @b Wire в Arduino IDE
-	 * @param address адрес устройства на шине I2C
+	 * @brief DI / tests: non-owning reference to any I2C implementation.
 	 */
-	I2CDevice(interfaces::I2C i2c, uint8_t address);
+	I2CDevice(interfaces::I2C& bus, uint8_t address);
 
 	/**
-	 * @brief Создание объекта @ref BaseDevice как копии другого объекта @ref BaseDevice
-	 * @note Только в Arduino IDE
-	 *
-	 * @param address адрес устройства на шине I2C
+	 * @brief Platform handle / Wire — looks up shared pooled I2CAdapter.
+	 * @note `Driver(hi2c)` / `Driver(Wire)` still work via this overload.
 	 */
+	I2CDevice(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address);
+	I2CDevice(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address);
+
 	I2CDevice(const I2CDevice& other);
 	I2CDevice(I2CDevice&& other);
 	I2CDevice& operator=(const I2CDevice& other);

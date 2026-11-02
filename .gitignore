@@ -46,3 +46,4 @@ doxygen/*
 !doxygen/js
 !doxygen/styles
 
+build-host/

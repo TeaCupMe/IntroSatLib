@@ -1,6 +1,6 @@
 #define ISL_INTERNAL
 
-#include "Adapter/I2C.h"
+#include "Adapter/I2C/I2CAdapter.h"
 #include "Adapter/System.h"
 
 #ifdef ISL_I2C_ENABLED
@@ -10,7 +10,15 @@
 
 namespace IntroSatLib {
 
-IRCamera::IRCamera(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address)
+IRCamera::IRCamera(interfaces::I2C& bus, uint8_t address): I2CDevice(bus, address)
+{
+}
+
+IRCamera::IRCamera(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi2c, address)
+{
+}
+
+IRCamera::IRCamera(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
 

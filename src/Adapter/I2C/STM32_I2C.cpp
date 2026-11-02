@@ -1,6 +1,6 @@
 
 #define ISL_INTERNAL
-#include "Adapter/I2C.h"
+#include "Adapter/I2C/I2CAdapter.h"
 
 #if defined(HAL_I2C_MODULE_ENABLED) && !defined(ARDUINO)
 
@@ -10,52 +10,40 @@
 
 
 
-IntroSatLib::interfaces::I2C::I2C(I2C_HANDLE_TYPE *hi2c): _hi2c(hi2c)
+IntroSatLib::interfaces::I2CAdapter::I2CAdapter(I2C_HANDLE_TYPE *hi2c): _hi2c(hi2c)
 {
 }
 
-IntroSatLib::interfaces::I2C::I2C(I2C_HANDLE_TYPE *hi2c, I2CSpeed speed): _hi2c(hi2c), _speed(speed)
+IntroSatLib::interfaces::I2CAdapter::I2CAdapter(I2C_HANDLE_TYPE *hi2c, I2CSpeed speed): _hi2c(hi2c), _speed(speed)
 {
 }
 
 //#ifdef ARDUINO
-//IntroSatLib::interfaces::I2C::I2C(TwoWire &hi2c): _hi2c(hi2c.getHandle())
+//IntroSatLib::interfaces::I2CAdapter::I2CAdapter(TwoWire &hi2c): _hi2c(hi2c.getHandle())
 //{
 //}
 //
-//IntroSatLib::interfaces::I2C::I2C(TwoWire &hi2c, I2CSpeed speed): _hi2c(hi2c.getHandle()), _speed(speed)
+//IntroSatLib::interfaces::I2CAdapter::I2CAdapter(TwoWire &hi2c, I2CSpeed speed): _hi2c(hi2c.getHandle()), _speed(speed)
 //{
 //}
 //#endif
 
 // TODO Move to Header
-IntroSatLib::interfaces::I2C::I2C(const I2C& other)
+IntroSatLib::interfaces::I2CAdapter::I2CAdapter(const I2CAdapter& other)
 {
 	_hi2c = other._hi2c;
 	_speed = other._speed;
 }
 
 // TODO Move to Header
-IntroSatLib::interfaces::I2C::I2C(I2C&& other)
+IntroSatLib::interfaces::I2CAdapter::I2CAdapter(I2CAdapter&& other)
 {
 	_hi2c = other._hi2c;
 	_speed = other._speed;
 }
 
 // TODO Move to Header
-IntroSatLib::interfaces::I2C& IntroSatLib::interfaces::I2C::operator=(const I2C& other)
-{
-	if (this == &other)
-	{
-		return *this;
-	}
-	_hi2c = other._hi2c;
-	_speed = other._speed;
-	return *this;
-}
-
-// TODO Move to Header
-IntroSatLib::interfaces::I2C& IntroSatLib::interfaces::I2C::operator=(I2C&& other)
+IntroSatLib::interfaces::I2CAdapter& IntroSatLib::interfaces::I2CAdapter::operator=(const I2CAdapter& other)
 {
 	if (this == &other)
 	{
@@ -67,7 +55,19 @@ IntroSatLib::interfaces::I2C& IntroSatLib::interfaces::I2C::operator=(I2C&& othe
 }
 
 // TODO Move to Header
-ISL_StatusTypeDef IntroSatLib::interfaces::I2C::isReady(uint8_t deviceAddress, uint8_t waitIsReady)
+IntroSatLib::interfaces::I2CAdapter& IntroSatLib::interfaces::I2CAdapter::operator=(I2CAdapter&& other)
+{
+	if (this == &other)
+	{
+		return *this;
+	}
+	_hi2c = other._hi2c;
+	_speed = other._speed;
+	return *this;
+}
+
+// TODO Move to Header
+ISL_StatusTypeDef IntroSatLib::interfaces::I2CAdapter::isReady(uint8_t deviceAddress, uint8_t waitIsReady)
 {
 	ASSERT_I2C_HAVE();
 	while(true)
@@ -78,7 +78,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::isReady(uint8_t deviceAddress, u
 	}
 }
 
-ISL_StatusTypeDef IntroSatLib::interfaces::I2C::innerIsReady(uint8_t deviceAddress)
+ISL_StatusTypeDef IntroSatLib::interfaces::I2CAdapter::innerIsReady(uint8_t deviceAddress)
 {
 	LOG_I2C_ADDRESS();
 	logText(": ");
@@ -90,7 +90,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::innerIsReady(uint8_t deviceAddre
 }
 
 
-ISL_StatusTypeDef IntroSatLib::interfaces::I2C::read(uint8_t deviceAddress, uint8_t* data, uint8_t nBytes)
+ISL_StatusTypeDef IntroSatLib::interfaces::I2CAdapter::read(uint8_t deviceAddress, uint8_t* data, uint8_t nBytes)
 {
 	ASSERT_I2C_HAVE();
 	LOG_I2C_ADDRESS();
@@ -109,7 +109,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::read(uint8_t deviceAddress, uint
 
 }
 
-ISL_StatusTypeDef IntroSatLib::interfaces::I2C::readMem(uint8_t deviceAddress, uint8_t reg, uint8_t* data, uint8_t nBytes)
+ISL_StatusTypeDef IntroSatLib::interfaces::I2CAdapter::readMem(uint8_t deviceAddress, uint8_t reg, uint8_t* data, uint8_t nBytes)
 {
 	ASSERT_I2C_HAVE();
 	LOG_I2C_ADDRESS();
@@ -137,7 +137,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::readMem(uint8_t deviceAddress, u
 	return status;
 }
 
-ISL_StatusTypeDef IntroSatLib::interfaces::I2C::write(uint8_t deviceAddress, uint8_t* data, uint8_t nBytes)
+ISL_StatusTypeDef IntroSatLib::interfaces::I2CAdapter::write(uint8_t deviceAddress, uint8_t* data, uint8_t nBytes)
 {
 	ASSERT_I2C_HAVE();
 	LOG_I2C_ADDRESS();
@@ -157,7 +157,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::write(uint8_t deviceAddress, uin
 	return status;
 }
 
-ISL_StatusTypeDef IntroSatLib::interfaces::I2C::writeMem(uint8_t deviceAddress, uint8_t reg, uint8_t* data, uint8_t nBytes)
+ISL_StatusTypeDef IntroSatLib::interfaces::I2CAdapter::writeMem(uint8_t deviceAddress, uint8_t reg, uint8_t* data, uint8_t nBytes)
 {
 	ASSERT_I2C_HAVE();
 	LOG_I2C_ADDRESS();
@@ -187,7 +187,7 @@ ISL_StatusTypeDef IntroSatLib::interfaces::I2C::writeMem(uint8_t deviceAddress, 
 
 
 // TODO Move to Header
-IntroSatLib::interfaces::I2C::~I2C()
+IntroSatLib::interfaces::I2CAdapter::~I2CAdapter()
 {
 }
 

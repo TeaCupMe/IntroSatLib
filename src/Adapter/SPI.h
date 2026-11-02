@@ -59,6 +59,7 @@
 #if __has_include(<array>)
 #define STL_AVAILABLE
 #include <array>
+#include <cstddef>
 #endif
 
 namespace IntroSatLib {

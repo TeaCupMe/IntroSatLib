@@ -1,11 +1,13 @@
 #ifndef DEVICE_M24C02_H_
 #define DEVICE_M24C02_H_
 
-#include "Adapter/I2C.h"
+#include "Adapter/I2C/I2CAdapter.h"
 #include "Adapter/GPIO.h"
 #include "Device/I2CDevice.h"
 #include "Device/Base/BaseMemoryDriver.h"
 #include "IntroSatLib_def.h"
+
+#include <cstddef>
 
 namespace IntroSatLib
 {
@@ -19,8 +21,22 @@ private:
 	bool readOnly{false};
 
 public:
-	M24C02(interfaces::I2C i2c_, interfaces::GPIO_HANDLE_TYPE wc, uint8_t address = BASE_ADDRESS):
-		I2CDevice(i2c_, address),
+	M24C02(interfaces::I2C& bus, interfaces::GPIO_HANDLE_TYPE wc, uint8_t address = BASE_ADDRESS):
+		I2CDevice(bus, address),
+		wcPin(wc)
+	{
+		memorySize = MEMORY_SIZE;
+	}
+
+	M24C02(interfaces::I2C_HANDLE_TYPE& hi2c, interfaces::GPIO_HANDLE_TYPE wc, uint8_t address = BASE_ADDRESS):
+		I2CDevice(hi2c, address),
+		wcPin(wc)
+	{
+		memorySize = MEMORY_SIZE;
+	}
+
+	M24C02(interfaces::I2C_HANDLE_TYPE* hi2c, interfaces::GPIO_HANDLE_TYPE wc, uint8_t address = BASE_ADDRESS):
+		I2CDevice(hi2c, address),
 		wcPin(wc)
 	{
 		memorySize = MEMORY_SIZE;

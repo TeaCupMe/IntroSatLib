@@ -1,23 +1,40 @@
 set(INTROSATLIB_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
+get_filename_component(INTROSATLIB_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." ABSOLUTE)
 
-if(INTROSATLIB_BACKEND STREQUAL "ARDUINO")
+if(INTROSATLIB_USE_TEST_ADAPTER_FAKES)
+	set(_introsatlib_fakes_dir "${INTROSATLIB_ROOT_DIR}/tests/fakes")
+	set(
+		INTROSATLIB_ADAPTER_SOURCES
+		"${_introsatlib_fakes_dir}/CallLog.cpp"
+		"${_introsatlib_fakes_dir}/FakeGPIO.cpp"
+		"${_introsatlib_fakes_dir}/FakeI2C.cpp"
+		"${_introsatlib_fakes_dir}/FakeLogger.cpp"
+		"${_introsatlib_fakes_dir}/FakeSPI.cpp"
+		"${_introsatlib_fakes_dir}/FakeSystem.cpp"
+		"${_introsatlib_fakes_dir}/FakeUART.cpp"
+		Adapter/I2C/I2CAdapterPool.cpp
+	)
+	set(INTROSATLIB_BACKEND_DEFINITION USE_HAL_DRIVER)
+elseif(INTROSATLIB_BACKEND STREQUAL "ARDUINO")
 	set(
 		INTROSATLIB_ADAPTER_SOURCES
 		Adapter/ARDUINO/ARDUINO_GPIO.cpp
-		Adapter/ARDUINO/ARDUINO_I2C.cpp
+		Adapter/I2C/ARDUINO_I2C.cpp
 		Adapter/ARDUINO/ARDUINO_SPI.cpp
 		Adapter/ARDUINO/ARDUINO_System.cpp
 		Adapter/ARDUINO/ARDUINO_UART.cpp
+		Adapter/I2C/I2CAdapterPool.cpp
 	)
 	set(INTROSATLIB_BACKEND_DEFINITION ARDUINO)
 else()
 	set(
 		INTROSATLIB_ADAPTER_SOURCES
 		Adapter/STM32/STM32_GPIO.cpp
-		Adapter/STM32/STM32_I2C.cpp
+		Adapter/I2C/STM32_I2C.cpp
 		Adapter/STM32/STM32_SPI.cpp
 		Adapter/STM32/STM32_System.cpp
 		Adapter/STM32/STM32_UART.cpp
+		Adapter/I2C/I2CAdapterPool.cpp
 	)
 	set(INTROSATLIB_BACKEND_DEFINITION USE_HAL_DRIVER)
 endif()
@@ -74,6 +91,13 @@ target_compile_definitions(
 	PUBLIC "${INTROSATLIB_BACKEND_DEFINITION}"
 )
 target_link_libraries(IntroSatLib_Core PUBLIC IntroSatLib::Platform)
+if(INTROSATLIB_USE_TEST_ADAPTER_FAKES)
+	target_include_directories(
+		IntroSatLib_Core
+		PUBLIC
+			"$<BUILD_INTERFACE:${INTROSATLIB_ROOT_DIR}/tests/fakes>"
+	)
+endif()
 
 add_subdirectory(Device)
 add_subdirectory(Platform)

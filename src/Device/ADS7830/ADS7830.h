@@ -5,7 +5,7 @@
 #include "Device/Base/BaseADC.h"
 
 #include "Adapter/System.h"
-#include "Adapter/I2C.h"
+#include "Adapter/I2C/I2CAdapter.h"
 
 #include "stdint.h"
 
@@ -127,7 +127,9 @@ public:
      * \~russian @param address адрес АЦП на шине I2C
      * \~english @param address ADC address on the I2C bus
      */
-    ADS7830(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
+    ADS7830(interfaces::I2C& bus, uint8_t address = BASE_ADDRESS);
+	ADS7830(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address = BASE_ADDRESS);
+	ADS7830(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address = BASE_ADDRESS);
     
     /**
      * \~russian @brief Инициализация АЦП с внутренним опорным напряжением

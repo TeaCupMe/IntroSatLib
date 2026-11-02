@@ -64,7 +64,9 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес ИК-камеры на шине I2C
 	 */
-	IRCamera(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
+	IRCamera(interfaces::I2C& bus, uint8_t address = BASE_ADDRESS);
+	IRCamera(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address = BASE_ADDRESS);
+	IRCamera(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address = BASE_ADDRESS);
 
 	/**
 	 * @brief Создание объекта ИК-камеры как копии другого объекта ИК-камеры

@@ -1,6 +1,6 @@
 #define ISL_INTERNAL
 
-#include "Adapter/I2C.h"
+#include "Adapter/I2C/I2CAdapter.h"
 
 #ifdef ISL_I2C_ENABLED
 
@@ -8,9 +8,16 @@
 
 namespace IntroSatLib {
 
-MotorFlyWheel::MotorFlyWheel(interfaces::I2C i2c, uint8_t address): BaseFlyWheel(i2c, address)
+MotorFlyWheel::MotorFlyWheel(interfaces::I2C& bus, uint8_t address): BaseFlyWheel(bus, address)
 {
-	_channel = 1;
+}
+
+MotorFlyWheel::MotorFlyWheel(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): BaseFlyWheel(hi2c, address)
+{
+}
+
+MotorFlyWheel::MotorFlyWheel(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): BaseFlyWheel(hi2c, address)
+{
 }
 
 MotorFlyWheel::MotorFlyWheel(const MotorFlyWheel &other): BaseFlyWheel(other)

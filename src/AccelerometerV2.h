@@ -65,7 +65,9 @@ public:
 	 * @param i2c объект(или указатель на объект) @b I2C_HandleTypeDef или @b TwoWire
 	 * @param address адрес акселлерометра на шине I2C
 	 */
-    AccelerometerV2(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS): LSM6DS3(i2c, address) {};
+        AccelerometerV2(interfaces::I2C& bus, uint8_t address = BASE_ADDRESS): LSM6DS3(bus, address) {}
+    AccelerometerV2(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address = BASE_ADDRESS): LSM6DS3(hi2c, address) {}
+    AccelerometerV2(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address = BASE_ADDRESS): LSM6DS3(hi2c, address) {}
 
 	/**
 	 * @brief Инициализация акселлерометра с параметрами по умолчанию: @ref Scale::fourG, @ref FilterBandwidth::F400H, @ref DataRate::DR6_66KH.

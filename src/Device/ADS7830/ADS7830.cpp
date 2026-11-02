@@ -1,16 +1,25 @@
 #define ISL_INTERNAL
 
-#include "Adapter/I2C.h"
+#include "Adapter/I2C/I2CAdapter.h"
 
 #ifdef ISL_I2C_ENABLED
 
 #include "ADS7830.h"
-#include "Adapter/I2C.h"
+#include "Adapter/I2C/I2CAdapter.h"
 #include "Device/I2CDevice.h"
 #include "stdint.h"
 
 namespace IntroSatLib {
-IntroSatLib::ADS7830::ADS7830(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address), BaseADC(channelCount) {
+IntroSatLib::ADS7830::ADS7830(interfaces::I2C& bus, uint8_t address): I2CDevice(bus, address), BaseADC(channelCount)
+{
+}
+
+ADS7830::ADS7830(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi2c, address), BaseADC(channelCount)
+{
+}
+
+ADS7830::ADS7830(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): I2CDevice(hi2c, address), BaseADC(channelCount)
+{
 }
 
 ISL_StatusTypeDef ADS7830::RequestConversion(Channel channel = Channel::CH0) {
