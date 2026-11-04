@@ -11,7 +11,7 @@
 	#include "Wire.h"
 	#define ISL_I2C_ENABLED
 	namespace IntroSatLib {
-	namespace interfaces {
+	namespace adapters {
 	using I2C_HANDLE_TYPE = TwoWire;
 	} /* namespace interfaces */
 	} /* namespace IntroSatLib */
@@ -86,7 +86,7 @@ for(uint8_t i = 0; i < Nbytes; i++) { \
 
 
 namespace IntroSatLib {
-namespace interfaces {
+namespace adapters {
 
 /**
  * Library-internal platform Adapter (Arduino Wire / STM32 HAL).
@@ -208,7 +208,7 @@ public:
 	~I2CAdapter() override;
 };
 
-} /* namespace interfaces */
+} /* namespace adapters */
 } /* namespace IntroSatLib */
 #endif /* ISL_I2C_ENABLED */
 #endif /* ADAPTER_I2C_I2CADAPTER_H_ */

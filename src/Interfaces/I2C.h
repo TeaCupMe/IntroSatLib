@@ -20,19 +20,17 @@ public:
 
 	virtual ISL_StatusTypeDef read(uint8_t deviceAddress, uint8_t* data, uint8_t nBytes) = 0;
 
-	virtual ISL_StatusTypeDef readMem(
-		uint8_t deviceAddress,
-		uint8_t reg,
-		uint8_t* data,
-		uint8_t nBytes) = 0;
+	virtual ISL_StatusTypeDef readMem(uint8_t deviceAddress,
+									  uint8_t reg,
+									  uint8_t* data,
+									  uint8_t nBytes) = 0;
 
 	virtual ISL_StatusTypeDef write(uint8_t deviceAddress, uint8_t* data, uint8_t nBytes) = 0;
 
-	virtual ISL_StatusTypeDef writeMem(
-		uint8_t deviceAddress,
-		uint8_t reg,
-		uint8_t* data,
-		uint8_t nBytes) = 0;
+	virtual ISL_StatusTypeDef writeMem(uint8_t deviceAddress,
+									   uint8_t reg,
+									   uint8_t* data,
+									   uint8_t nBytes) = 0;
 };
 
 } /* namespace interfaces */

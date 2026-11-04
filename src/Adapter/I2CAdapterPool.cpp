@@ -11,7 +11,7 @@
 #include <cstddef>
 
 namespace IntroSatLib {
-namespace interfaces {
+namespace adapters {
 
 struct I2CAdapter::Pool {
 	static constexpr std::size_t kSize = 8;
@@ -41,7 +41,6 @@ struct I2CAdapter::Pool {
 			}
 		}
 
-		/* Pool exhausted: reassign slot 0 for the new handle (last resort). */
 		slots[0].adapter = I2CAdapter(hi2c);
 		slots[0].handle = hi2c;
 		slots[0].used = true;
@@ -61,7 +60,7 @@ I2C& I2CAdapter::from(I2C_HANDLE_TYPE& hi2c)
 	return from(&hi2c);
 }
 
-} /* namespace interfaces */
+} /* namespace adapters */
 } /* namespace IntroSatLib */
 
 #endif /* ISL_I2C_ENABLED */
