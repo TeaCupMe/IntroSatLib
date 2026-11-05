@@ -7,7 +7,6 @@ namespace IntroSatLib {
 namespace test {
 namespace {
 
-ISL_StatusTypeDef g_isReadyStatus = ISL_StatusTypeDef::ISL_OK;
 uint32_t g_tick = 0;
 uint8_t g_gpioLevel = 0;
 bool g_gpioValid = true;
@@ -18,12 +17,6 @@ std::vector<BusCall>& CallLog::mutableCalls()
 {
 	static std::vector<BusCall> calls;
 	return calls;
-}
-
-std::deque<std::vector<uint8_t>>& CallLog::readQueue()
-{
-	static std::deque<std::vector<uint8_t>> queue;
-	return queue;
 }
 
 std::deque<std::vector<uint8_t>>& CallLog::spiInQueue()
@@ -41,10 +34,8 @@ std::deque<uint8_t>& CallLog::uartRxQueue()
 void CallLog::reset()
 {
 	mutableCalls().clear();
-	readQueue().clear();
 	spiInQueue().clear();
 	uartRxQueue().clear();
-	g_isReadyStatus = ISL_StatusTypeDef::ISL_OK;
 	g_tick = 0;
 	g_gpioLevel = 0;
 	g_gpioValid = true;
@@ -58,38 +49,6 @@ const std::vector<BusCall>& CallLog::calls()
 void CallLog::record(BusCall call)
 {
 	mutableCalls().push_back(std::move(call));
-}
-
-void CallLog::setIsReadyStatus(ISL_StatusTypeDef status)
-{
-	g_isReadyStatus = status;
-}
-
-ISL_StatusTypeDef CallLog::takeIsReadyStatus()
-{
-	return g_isReadyStatus;
-}
-
-void CallLog::enqueueRead(std::vector<uint8_t> bytes)
-{
-	readQueue().push_back(std::move(bytes));
-}
-
-void CallLog::fillRead(uint8_t* dest, uint8_t nBytes)
-{
-	if (dest == nullptr || nBytes == 0) {
-		return;
-	}
-	std::fill(dest, dest + nBytes, 0);
-	if (readQueue().empty()) {
-		return;
-	}
-	std::vector<uint8_t> bytes = std::move(readQueue().front());
-	readQueue().pop_front();
-	const size_t copyCount = std::min(static_cast<size_t>(nBytes), bytes.size());
-	if (copyCount > 0) {
-		std::memcpy(dest, bytes.data(), copyCount);
-	}
 }
 
 void CallLog::setTick(uint32_t tickValue)

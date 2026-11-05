@@ -176,7 +176,7 @@ inline void requireSystemDelay(uint32_t milliseconds)
 		::IntroSatLib::test::requireI2CCalls(bus);                                       \
 	} while (0)
 
-/** Assert CallLog saw system::Delay(ms) (VIRTUAL host System stub). */
+/** Assert CallLog saw system::Delay(ms) (host FakeSystem stub). */
 #define REQUIRE_SYSTEM_DELAY(ms)                                                         \
 	do {                                                                                 \
 		::IntroSatLib::test::requireSystemDelay(static_cast<uint32_t>(ms));              \

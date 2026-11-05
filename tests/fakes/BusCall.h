@@ -1,6 +1,6 @@
 /**
  * @file BusCall.h
- * @brief One recorded adapter call for CallLog (VIRTUAL host backend).
+ * @brief One recorded host-stub call for CallLog (non-I2C peripherals).
  */
 #ifndef INTROSATLIB_TEST_BUS_CALL_H_
 #define INTROSATLIB_TEST_BUS_CALL_H_

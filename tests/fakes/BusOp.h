@@ -1,6 +1,6 @@
 /**
  * @file BusOp.h
- * @brief Operation tags recorded by the VIRTUAL host adapters via CallLog.
+ * @brief Operation tags recorded by host GPIO/SPI/UART/System stubs via CallLog.
  */
 #ifndef INTROSATLIB_TEST_BUS_OP_H_
 #define INTROSATLIB_TEST_BUS_OP_H_
@@ -11,11 +11,6 @@ namespace IntroSatLib {
 namespace test {
 
 enum class BusOp : uint8_t {
-	I2C_IsReady,
-	I2C_Read,
-	I2C_Write,
-	I2C_ReadMem,
-	I2C_WriteMem,
 	SPI_Transfer,
 	GPIO_Read,
 	GPIO_Write,

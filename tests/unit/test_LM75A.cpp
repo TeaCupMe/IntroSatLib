@@ -1,7 +1,6 @@
 #include <catch2/catch_approx.hpp>
 #include <catch2/catch_test_macros.hpp>
 
-#include "CallLog.h"
 #include "Device/LM75A/LM75A.h"
 #include "I2CCallHelpers.hpp"
 #include "MockI2C.hpp"
@@ -20,30 +19,6 @@ TEST_CASE("LM75A::Init probes device with isReady", "[LM75A]")
 
 	REQUIRE(sensor.Init() == ISL_StatusTypeDef::ISL_OK);
 	REQUIRE_I2C_CALLS(bus);
-}
-
-TEST_CASE("LM75A accepts handle via pooled I2CAdapter::from", "[LM75A]")
-{
-	IntroSatLib::test::CallLog::reset();
-	IntroSatLib::test::CallLog::setIsReadyStatus(ISL_StatusTypeDef::ISL_OK);
-
-	IntroSatLib::interfaces::I2C_HANDLE_TYPE handle{};
-	IntroSatLib::LM75A sensor(handle, 0x48);
-
-	REQUIRE(sensor.Init() == ISL_StatusTypeDef::ISL_OK);
-
-	const auto& calls = IntroSatLib::test::CallLog::calls();
-	REQUIRE(calls.size() == 1);
-	REQUIRE(calls[0].op == IntroSatLib::test::BusOp::I2C_IsReady);
-	REQUIRE(calls[0].address == 0x48);
-}
-
-TEST_CASE("I2CAdapter::from returns same pooled slot for same handle", "[I2C][pool]")
-{
-	IntroSatLib::interfaces::I2C_HANDLE_TYPE handle{};
-	IntroSatLib::interfaces::I2C& a = IntroSatLib::interfaces::I2CAdapter::from(handle);
-	IntroSatLib::interfaces::I2C& b = IntroSatLib::interfaces::I2CAdapter::from(&handle);
-	REQUIRE(&a == &b);
 }
 
 TEST_CASE("LM75A::GetRawTemperature reads TEMPERATURE via readMem", "[LM75A]")

@@ -13,9 +13,9 @@ set(
 	INTROSATLIB_BACKEND
 	"STM32_HAL"
 	CACHE STRING
-	"Platform backend: ARDUINO, STM32_HAL, or VIRTUAL (host)"
+	"Platform backend: ARDUINO or STM32_HAL"
 )
-set_property(CACHE INTROSATLIB_BACKEND PROPERTY STRINGS ARDUINO STM32_HAL VIRTUAL)
+set_property(CACHE INTROSATLIB_BACKEND PROPERTY STRINGS ARDUINO STM32_HAL)
 
 set(
 	INTROSATLIB_PLATFORM_TARGET
@@ -26,7 +26,7 @@ set(
 option(INTROSATLIB_BUILD_DOCS "Add the Doxygen documentation target" OFF)
 option(
 	INTROSATLIB_BUILD_TESTS
-	"Build host unit tests with VIRTUAL backend + Catch2"
+	"Build host unit tests with Catch2 (MockI2C DI + host adapter stubs)"
 	OFF
 )
 if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
@@ -42,28 +42,28 @@ option(
 unset(_introsatlib_install_default)
 
 string(TOUPPER "${INTROSATLIB_BACKEND}" INTROSATLIB_BACKEND)
-set(_introsatlib_supported_backends ARDUINO STM32_HAL VIRTUAL)
+set(_introsatlib_supported_backends ARDUINO STM32_HAL)
 if(NOT INTROSATLIB_BACKEND IN_LIST _introsatlib_supported_backends)
 	message(
 		FATAL_ERROR
 		"Unsupported INTROSATLIB_BACKEND='${INTROSATLIB_BACKEND}'. "
-		"Expected one of: ARDUINO, STM32_HAL, VIRTUAL."
+		"Expected one of: ARDUINO, STM32_HAL."
 	)
 endif()
 
 message(STATUS "IntroSatLib backend: ${INTROSATLIB_BACKEND}")
 
 if(INTROSATLIB_BUILD_TESTS)
-	# Host unit tests use the VIRTUAL backend (CallLog + VIRTUAL_I2CAdapter)
-	# with STM32-shaped HAL stubs. A real Cube/Arduino platform is not required.
-	if(NOT INTROSATLIB_BACKEND STREQUAL "VIRTUAL")
+	# Host unit tests: STM32-shaped HAL stubs + recording stubs for non-I2C
+	# adapters. Driver I2C tests inject MockI2C (no I2C platform backend).
+	if(NOT INTROSATLIB_BACKEND STREQUAL "STM32_HAL")
 		message(
 			STATUS
-			"INTROSATLIB_BUILD_TESTS forces INTROSATLIB_BACKEND=VIRTUAL "
-			"(host CallLog adapters + STM32-shaped stubs)."
+			"INTROSATLIB_BUILD_TESTS forces INTROSATLIB_BACKEND=STM32_HAL "
+			"(host stubs are STM32-shaped)."
 		)
-		set(INTROSATLIB_BACKEND "VIRTUAL" CACHE STRING
-			"Platform backend: ARDUINO, STM32_HAL, or VIRTUAL (host)" FORCE)
+		set(INTROSATLIB_BACKEND "STM32_HAL" CACHE STRING
+			"Platform backend: ARDUINO or STM32_HAL" FORCE)
 	endif()
 	if(INTROSATLIB_PLATFORM_TARGET STREQUAL "")
 		set(
@@ -93,37 +93,7 @@ if(INTROSATLIB_BUILD_TESTS)
 				"${CMAKE_CURRENT_SOURCE_DIR}/tests/stubs/stm32"
 		)
 	endif()
-endif()
-
-if(INTROSATLIB_BACKEND STREQUAL "VIRTUAL" AND INTROSATLIB_PLATFORM_TARGET STREQUAL "")
-	# Allow VIRTUAL without BUILD_TESTS if the caller still supplies stubs later;
-	# otherwise create the same test platform as BUILD_TESTS.
-	set(
-		INTROSATLIB_PLATFORM_TARGET
-		"introsatlib_test_platform"
-		CACHE STRING
-		"Existing CMake target that provides the selected platform framework"
-		FORCE
-	)
-	if(NOT TARGET "${INTROSATLIB_PLATFORM_TARGET}")
-		add_library("${INTROSATLIB_PLATFORM_TARGET}" INTERFACE)
-		target_compile_definitions(
-			"${INTROSATLIB_PLATFORM_TARGET}"
-			INTERFACE
-				USE_HAL_DRIVER
-				STM32F401xC
-				HAL_MODULE_ENABLED
-				HAL_I2C_MODULE_ENABLED
-				HAL_SPI_MODULE_ENABLED
-				HAL_GPIO_MODULE_ENABLED
-				HAL_UART_MODULE_ENABLED
-		)
-		target_include_directories(
-			"${INTROSATLIB_PLATFORM_TARGET}"
-			INTERFACE
-				"${CMAKE_CURRENT_SOURCE_DIR}/tests/stubs/stm32"
-		)
-	endif()
+	set(INTROSATLIB_USE_TEST_ADAPTER_FAKES ON)
 endif()
 
 if(
@@ -140,8 +110,7 @@ if(INTROSATLIB_PLATFORM_TARGET STREQUAL "")
 		"The ${INTROSATLIB_BACKEND} backend requires a platform target. "
 		"Set INTROSATLIB_PLATFORM_TARGET to a target created by the parent "
 		"firmware project. STM32_HAL automatically uses 'stm32cubemx' when "
-		"that target exists. For host unit tests, set INTROSATLIB_BUILD_TESTS=ON "
-		"(forces INTROSATLIB_BACKEND=VIRTUAL)."
+		"that target exists. For host unit tests, set INTROSATLIB_BUILD_TESTS=ON."
 	)
 endif()
 if(NOT TARGET "${INTROSATLIB_PLATFORM_TARGET}")
