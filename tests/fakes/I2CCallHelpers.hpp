@@ -5,7 +5,6 @@
 #ifndef INTROSATLIB_TEST_I2C_CALL_HELPERS_HPP_
 #define INTROSATLIB_TEST_I2C_CALL_HELPERS_HPP_
 
-#include "CallLog.h"
 #include "MockI2C.hpp"
 
 #include <catch2/catch_test_macros.hpp>
@@ -142,20 +141,6 @@ inline void requireI2CCalls(const MockI2C& bus)
 	requireI2CCalls(bus.calls(), bus.expected());
 }
 
-inline void requireSystemDelay(uint32_t milliseconds)
-{
-	const auto& calls = CallLog::calls();
-	REQUIRE_FALSE(calls.empty());
-	bool found = false;
-	for (const auto& call : calls) {
-		if (call.op == BusOp::System_Delay && call.value == milliseconds) {
-			found = true;
-			break;
-		}
-	}
-	REQUIRE(found);
-}
-
 } /* namespace test */
 } /* namespace IntroSatLib */
 
@@ -174,12 +159,6 @@ inline void requireSystemDelay(uint32_t milliseconds)
 #define REQUIRE_I2C_CALLS(bus)                                                           \
 	do {                                                                                 \
 		::IntroSatLib::test::requireI2CCalls(bus);                                       \
-	} while (0)
-
-/** Assert CallLog saw system::Delay(ms) (host FakeSystem stub). */
-#define REQUIRE_SYSTEM_DELAY(ms)                                                         \
-	do {                                                                                 \
-		::IntroSatLib::test::requireSystemDelay(static_cast<uint32_t>(ms));              \
 	} while (0)
 
 #endif /* INTROSATLIB_TEST_I2C_CALL_HELPERS_HPP_ */

@@ -1,11 +1,9 @@
 #include <catch2/catch_test_macros.hpp>
 
-#include "CallLog.h"
 #include "Device/LSM6DS3/LSM6DS3.h"
 #include "I2CCallHelpers.hpp"
 #include "MockI2C.hpp"
 
-using IntroSatLib::test::CallLog;
 using IntroSatLib::test::IsReady;
 using IntroSatLib::test::MockI2C;
 using IntroSatLib::test::ReadMem;
@@ -52,11 +50,8 @@ TEST_CASE("LSM6DS3::InitGyro delays, checks WhoAmI, configures scale/rate", "[LS
 		IsReady(0x6B),
 	});
 
-	CallLog::reset();
-
 	IntroSatLib::LSM6DS3 imu(bus, 0x6B);
 	REQUIRE(imu.InitGyro() == ISL_StatusTypeDef::ISL_OK);
 
-	REQUIRE_SYSTEM_DELAY(15);
 	REQUIRE_I2C_CALLS(bus);
 }

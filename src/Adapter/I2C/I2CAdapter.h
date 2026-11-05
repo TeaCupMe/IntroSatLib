@@ -26,6 +26,17 @@
 		//  AVR-series outside Arduino IDE
 		#error "Bare AVR outside of Arduino IDE is not yet supported"
 
+	#elif defined(INTROSATLIB_HOST_UNIT_TESTS)
+	/***** Host unit tests (MockI2C DI) ******/
+		// No HAL / Wire: enable the I2C API surface for driver headers.
+		// Handle type is opaque; handle ctors are omitted in .cpp under this flag.
+		#define ISL_I2C_ENABLED
+		namespace IntroSatLib {
+		namespace interfaces {
+		struct I2C_HANDLE_TYPE;
+		} /* namespace interfaces */
+		} /* namespace IntroSatLib */
+
 	#elif defined(USE_HAL_DRIVER) // TODO Change to more reusable symbol
 	/*****  STM32 and stm32duino ******/
 		#include "Adapter/STM32/stm32xxyy_hal.h"

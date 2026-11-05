@@ -21,6 +21,10 @@
 		//  AVR-series in Arduino IDE
 		#error "AVR not yet supported"
 
+	#elif defined(INTROSATLIB_HOST_UNIT_TESTS)
+	/***** Host unit tests ******/
+		// No HAL: system::* provided by tests/fakes/HostSystem.cpp
+
 	#elif defined(USE_HAL_DRIVER) // TODO Change to more reusable symbol
 	/*****  STM32 and stm32duino ******/
 

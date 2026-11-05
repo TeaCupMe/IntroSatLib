@@ -1,21 +1,14 @@
 set(INTROSATLIB_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 get_filename_component(INTROSATLIB_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." ABSOLUTE)
 
-if(INTROSATLIB_USE_TEST_ADAPTER_FAKES)
-	# Host tests: MockI2C DI only — no I2CAdapter*.cpp / pool. Non-I2C host
-	# stubs remain for full-Core link (Delay, etc.). Handle ctors omitted via
-	# INTROSATLIB_HOST_UNIT_TESTS in driver sources.
-	set(_introsatlib_fakes_dir "${INTROSATLIB_ROOT_DIR}/tests/fakes")
+if(INTROSATLIB_HOST_UNIT_TEST_BUILD)
+	# MockI2C DI tests: no I2CAdapter*.cpp / pool / GPIO/SPI/UART fakes.
+	# HostSystem provides no-op system::* (e.g. Delay in InitGyro).
 	set(
 		INTROSATLIB_ADAPTER_SOURCES
-		"${_introsatlib_fakes_dir}/CallLog.cpp"
-		"${_introsatlib_fakes_dir}/FakeGPIO.cpp"
-		"${_introsatlib_fakes_dir}/FakeLogger.cpp"
-		"${_introsatlib_fakes_dir}/FakeSPI.cpp"
-		"${_introsatlib_fakes_dir}/FakeSystem.cpp"
-		"${_introsatlib_fakes_dir}/FakeUART.cpp"
+		"${INTROSATLIB_ROOT_DIR}/tests/fakes/HostSystem.cpp"
 	)
-	set(INTROSATLIB_BACKEND_DEFINITION USE_HAL_DRIVER)
+	set(INTROSATLIB_BACKEND_DEFINITION "")
 elseif(INTROSATLIB_BACKEND STREQUAL "ARDUINO")
 	set(
 		INTROSATLIB_ADAPTER_SOURCES
@@ -87,12 +80,14 @@ introsatlib_add_static_component(
 	Logger.cpp
 	${INTROSATLIB_ADAPTER_SOURCES}
 )
-target_compile_definitions(
-	IntroSatLib_Core
-	PUBLIC "${INTROSATLIB_BACKEND_DEFINITION}"
-)
+if(INTROSATLIB_BACKEND_DEFINITION)
+	target_compile_definitions(
+		IntroSatLib_Core
+		PUBLIC "${INTROSATLIB_BACKEND_DEFINITION}"
+	)
+endif()
 target_link_libraries(IntroSatLib_Core PUBLIC IntroSatLib::Platform)
-if(INTROSATLIB_USE_TEST_ADAPTER_FAKES)
+if(INTROSATLIB_HOST_UNIT_TEST_BUILD)
 	target_compile_definitions(
 		IntroSatLib_Core
 		PUBLIC INTROSATLIB_HOST_UNIT_TESTS
