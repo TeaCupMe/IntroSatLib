@@ -20,6 +20,7 @@ LSM6DS3::LSM6DS3(interfaces::I2C& bus, uint8_t address): I2CDevice(bus, address)
 {
 }
 
+#ifndef INTROSATLIB_HOST_UNIT_TESTS
 LSM6DS3::LSM6DS3(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
@@ -27,6 +28,7 @@ LSM6DS3::LSM6DS3(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(
 LSM6DS3::LSM6DS3(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
+#endif /* INTROSATLIB_HOST_UNIT_TESTS */
 
 ISL_StatusTypeDef LSM6DS3::WhoAmI() {
 	uint8_t iAm;

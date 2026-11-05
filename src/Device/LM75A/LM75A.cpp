@@ -27,9 +27,11 @@ void LM75A::PowerDown(bool shutdown) {
 
 LM75A::LM75A(interfaces::I2C& bus, uint8_t address): I2CDevice(bus, address) { }
 
+#ifndef INTROSATLIB_HOST_UNIT_TESTS
 LM75A::LM75A(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi2c, address) { }
 
 LM75A::LM75A(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): I2CDevice(hi2c, address) { }
+#endif /* INTROSATLIB_HOST_UNIT_TESTS */
 
 int16_t LM75A::GetRawTemperature() {
 	uint8_t raw[2];

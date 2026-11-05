@@ -2,14 +2,14 @@ set(INTROSATLIB_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 get_filename_component(INTROSATLIB_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." ABSOLUTE)
 
 if(INTROSATLIB_USE_TEST_ADAPTER_FAKES)
-	# Host tests: MockI2C for DI drivers; non-I2C recording stubs + minimal
-	# I2CAdapter link stub (not a platform backend; handle/pool untested).
+	# Host tests: MockI2C DI only — no I2CAdapter*.cpp / pool. Non-I2C host
+	# stubs remain for full-Core link (Delay, etc.). Handle ctors omitted via
+	# INTROSATLIB_HOST_UNIT_TESTS in driver sources.
 	set(_introsatlib_fakes_dir "${INTROSATLIB_ROOT_DIR}/tests/fakes")
 	set(
 		INTROSATLIB_ADAPTER_SOURCES
 		"${_introsatlib_fakes_dir}/CallLog.cpp"
 		"${_introsatlib_fakes_dir}/FakeGPIO.cpp"
-		"${_introsatlib_fakes_dir}/I2CAdapterHostStub.cpp"
 		"${_introsatlib_fakes_dir}/FakeLogger.cpp"
 		"${_introsatlib_fakes_dir}/FakeSPI.cpp"
 		"${_introsatlib_fakes_dir}/FakeSystem.cpp"
@@ -93,6 +93,10 @@ target_compile_definitions(
 )
 target_link_libraries(IntroSatLib_Core PUBLIC IntroSatLib::Platform)
 if(INTROSATLIB_USE_TEST_ADAPTER_FAKES)
+	target_compile_definitions(
+		IntroSatLib_Core
+		PUBLIC INTROSATLIB_HOST_UNIT_TESTS
+	)
 	target_include_directories(
 		IntroSatLib_Core
 		PUBLIC

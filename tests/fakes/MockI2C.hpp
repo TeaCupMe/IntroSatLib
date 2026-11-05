@@ -6,7 +6,7 @@
  * expect(), record actual calls while serving programmed responses, then assert
  * with REQUIRE_I2C_CALLS(bus). No mid-call failure.
  *
- * Host builds may link I2CAdapterHostStub.cpp for unused handle symbols only.
+ * Host unit tests omit I2CAdapter*.cpp; inject this MockI2C by reference.
  */
 #ifndef INTROSATLIB_TEST_MOCK_I2C_HPP_
 #define INTROSATLIB_TEST_MOCK_I2C_HPP_
