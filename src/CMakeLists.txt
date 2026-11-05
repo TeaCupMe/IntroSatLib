@@ -1,9 +1,8 @@
 set(INTROSATLIB_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 get_filename_component(INTROSATLIB_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." ABSOLUTE)
 
-if(INTROSATLIB_HOST_UNIT_TEST_BUILD)
-	# MockI2C DI tests: no I2CAdapter*.cpp / pool / GPIO/SPI/UART fakes.
-	# HostSystem provides no-op system::* (e.g. Delay in InitGyro).
+if(INTROSATLIB_BUILD_TESTS)
+	# Host MockI2C DI: no I2CAdapter*.cpp / pool. HostSystem = no-op system::*.
 	set(
 		INTROSATLIB_ADAPTER_SOURCES
 		"${INTROSATLIB_ROOT_DIR}/tests/fakes/HostSystem.cpp"
@@ -87,7 +86,7 @@ if(INTROSATLIB_BACKEND_DEFINITION)
 	)
 endif()
 target_link_libraries(IntroSatLib_Core PUBLIC IntroSatLib::Platform)
-if(INTROSATLIB_HOST_UNIT_TEST_BUILD)
+if(INTROSATLIB_BUILD_TESTS)
 	target_compile_definitions(
 		IntroSatLib_Core
 		PUBLIC INTROSATLIB_HOST_UNIT_TESTS

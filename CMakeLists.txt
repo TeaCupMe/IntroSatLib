@@ -9,29 +9,20 @@ project(
 
 include(GNUInstallDirs)
 
-set(
-	INTROSATLIB_BACKEND
-	"STM32_HAL"
-	CACHE STRING
-	"Platform backend: ARDUINO or STM32_HAL"
-)
-set_property(CACHE INTROSATLIB_BACKEND PROPERTY STRINGS ARDUINO STM32_HAL)
-
-set(
-	INTROSATLIB_PLATFORM_TARGET
-	""
-	CACHE STRING
-	"Existing CMake target that provides the selected platform framework"
-)
 option(INTROSATLIB_BUILD_DOCS "Add the Doxygen documentation target" OFF)
 option(
 	INTROSATLIB_BUILD_TESTS
-	"Build host unit tests with Catch2 (MockI2C DI)"
+	"Build host unit tests with Catch2 (MockI2C DI); skips firmware platform"
 	OFF
 )
+
 if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
 	set(_introsatlib_install_default ON)
 else()
+	set(_introsatlib_install_default OFF)
+endif()
+# Host-test configures do not need install rules by default.
+if(INTROSATLIB_BUILD_TESTS AND CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
 	set(_introsatlib_install_default OFF)
 endif()
 option(
@@ -41,72 +32,84 @@ option(
 )
 unset(_introsatlib_install_default)
 
-string(TOUPPER "${INTROSATLIB_BACKEND}" INTROSATLIB_BACKEND)
-set(_introsatlib_supported_backends ARDUINO STM32_HAL)
-if(NOT INTROSATLIB_BACKEND IN_LIST _introsatlib_supported_backends)
-	message(
-		FATAL_ERROR
-		"Unsupported INTROSATLIB_BACKEND='${INTROSATLIB_BACKEND}'. "
-		"Expected one of: ARDUINO, STM32_HAL."
-	)
-endif()
-
-message(STATUS "IntroSatLib backend: ${INTROSATLIB_BACKEND}")
-
+# ---------------------------------------------------------------------------
+# Host unit tests (MockI2C) — single flag INTROSATLIB_BUILD_TESTS
+# ---------------------------------------------------------------------------
 if(INTROSATLIB_BUILD_TESTS)
-	# Host MockI2C tests: no firmware backend / HAL stubs. Drivers take I2C&;
-	# INTROSATLIB_HOST_UNIT_TESTS selects host branches in Adapter headers.
+	message(STATUS "IntroSatLib: host unit tests (MockI2C); firmware BACKEND/PLATFORM unused")
+
+	add_library(IntroSatLib_HostPlatform INTERFACE)
+	add_library(IntroSatLib::Platform ALIAS IntroSatLib_HostPlatform)
+
+	add_subdirectory(src)
+
+	enable_testing()
+	add_subdirectory(tests)
+
+# ---------------------------------------------------------------------------
+# Firmware / library consumer path
+# ---------------------------------------------------------------------------
+else()
+	set(
+		INTROSATLIB_BACKEND
+		"STM32_HAL"
+		CACHE STRING
+		"Platform backend: ARDUINO or STM32_HAL"
+	)
+	set_property(CACHE INTROSATLIB_BACKEND PROPERTY STRINGS ARDUINO STM32_HAL)
+
+	set(
+		INTROSATLIB_PLATFORM_TARGET
+		""
+		CACHE STRING
+		"Existing CMake target that provides the selected platform framework"
+	)
+
+	string(TOUPPER "${INTROSATLIB_BACKEND}" INTROSATLIB_BACKEND)
+	set(_introsatlib_supported_backends ARDUINO STM32_HAL)
+	if(NOT INTROSATLIB_BACKEND IN_LIST _introsatlib_supported_backends)
+		message(
+			FATAL_ERROR
+			"Unsupported INTROSATLIB_BACKEND='${INTROSATLIB_BACKEND}'. "
+			"Expected one of: ARDUINO, STM32_HAL."
+		)
+	endif()
+
+	message(STATUS "IntroSatLib backend: ${INTROSATLIB_BACKEND}")
+
+	if(
+		INTROSATLIB_PLATFORM_TARGET STREQUAL ""
+		AND INTROSATLIB_BACKEND STREQUAL "STM32_HAL"
+		AND TARGET stm32cubemx
+		)
+		set(INTROSATLIB_PLATFORM_TARGET stm32cubemx)
+	endif()
+
 	if(INTROSATLIB_PLATFORM_TARGET STREQUAL "")
-		set(
-			INTROSATLIB_PLATFORM_TARGET
-			"introsatlib_test_platform"
-			CACHE STRING
-			"Existing CMake target that provides the selected platform framework"
-			FORCE
+		message(
+			FATAL_ERROR
+			"The ${INTROSATLIB_BACKEND} backend requires a platform target. "
+			"Set INTROSATLIB_PLATFORM_TARGET to a target created by the parent "
+			"firmware project. STM32_HAL automatically uses 'stm32cubemx' when "
+			"that target exists. For host unit tests, set INTROSATLIB_BUILD_TESTS=ON "
+			"or use cmake --preset host-tests."
 		)
 	endif()
 	if(NOT TARGET "${INTROSATLIB_PLATFORM_TARGET}")
-		add_library("${INTROSATLIB_PLATFORM_TARGET}" INTERFACE)
+		message(
+			FATAL_ERROR
+			"Platform target '${INTROSATLIB_PLATFORM_TARGET}' does not exist. "
+			"Create it before adding IntroSatLib."
+		)
 	endif()
-	set(INTROSATLIB_HOST_UNIT_TEST_BUILD ON)
-endif()
 
-if(
-	INTROSATLIB_PLATFORM_TARGET STREQUAL ""
-	AND INTROSATLIB_BACKEND STREQUAL "STM32_HAL"
-	AND TARGET stm32cubemx
+	add_library(IntroSatLib::Platform INTERFACE IMPORTED)
+	set_property(
+		TARGET IntroSatLib::Platform
+		PROPERTY INTERFACE_LINK_LIBRARIES "${INTROSATLIB_PLATFORM_TARGET}"
 	)
-	set(INTROSATLIB_PLATFORM_TARGET stm32cubemx)
-endif()
 
-if(INTROSATLIB_PLATFORM_TARGET STREQUAL "")
-	message(
-		FATAL_ERROR
-		"The ${INTROSATLIB_BACKEND} backend requires a platform target. "
-		"Set INTROSATLIB_PLATFORM_TARGET to a target created by the parent "
-		"firmware project. STM32_HAL automatically uses 'stm32cubemx' when "
-		"that target exists. For host unit tests, set INTROSATLIB_BUILD_TESTS=ON."
-	)
-endif()
-if(NOT TARGET "${INTROSATLIB_PLATFORM_TARGET}")
-	message(
-		FATAL_ERROR
-		"Platform target '${INTROSATLIB_PLATFORM_TARGET}' does not exist. "
-		"Create it before adding IntroSatLib."
-	)
-endif()
-
-add_library(IntroSatLib::Platform INTERFACE IMPORTED)
-set_property(
-	TARGET IntroSatLib::Platform
-	PROPERTY INTERFACE_LINK_LIBRARIES "${INTROSATLIB_PLATFORM_TARGET}"
-)
-
-add_subdirectory(src)
-
-if(INTROSATLIB_BUILD_TESTS)
-	enable_testing()
-	add_subdirectory(tests)
+	add_subdirectory(src)
 endif()
 
 if(INTROSATLIB_BUILD_DOCS)

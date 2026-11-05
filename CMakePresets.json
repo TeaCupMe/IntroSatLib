@@ -1,0 +1,38 @@
+{
+	"version": 6,
+	"cmakeMinimumRequired": {
+		"major": 3,
+		"minor": 20,
+		"patch": 0
+	},
+	"configurePresets": [
+		{
+			"name": "host-tests",
+			"displayName": "Host unit tests (MockI2C)",
+			"description": "Catch2 + MockI2C DI; no firmware platform or HAL",
+			"generator": "Unix Makefiles",
+			"binaryDir": "${sourceDir}/build/host-tests",
+			"cacheVariables": {
+				"INTROSATLIB_BUILD_TESTS": "ON",
+				"INTROSATLIB_ENABLE_INSTALL": "OFF",
+				"CMAKE_CXX_COMPILER": "g++"
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "host-tests",
+			"configurePreset": "host-tests",
+			"targets": ["introsatlib_unit_tests"]
+		}
+	],
+	"testPresets": [
+		{
+			"name": "host-tests",
+			"configurePreset": "host-tests",
+			"output": {
+				"outputOnFailure": true
+			}
+		}
+	]
+}
