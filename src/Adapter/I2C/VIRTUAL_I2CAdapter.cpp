@@ -1,9 +1,9 @@
 /**
- * @file FakeI2C.cpp
- * @brief Link-time recording fake for interfaces::I2CAdapter (host unit tests).
+ * @file VIRTUAL_I2CAdapter.cpp
+ * @brief Third I2C backend: host/VIRTUAL implementation of I2CAdapter via CallLog.
  *
- * Replaces the platform Adapter implementation via CallLog. Distinct from the
- * DI MockI2C in MockI2C.hpp used by driver unit tests.
+ * Selected with INTROSATLIB_BACKEND=VIRTUAL (host unit tests). Distinct from
+ * DI MockI2C in tests/fakes/MockI2C.hpp, which drivers inject by reference.
  */
 #define ISL_INTERNAL
 #include "Adapter/I2C/I2CAdapter.h"

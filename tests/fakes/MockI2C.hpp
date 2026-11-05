@@ -6,7 +6,7 @@
  * expect(), record actual calls while serving programmed responses, then assert
  * with REQUIRE_I2C_CALLS(bus). No mid-call failure.
  *
- * Link-time FakeI2C.cpp (I2CAdapter + CallLog) is a separate host layer.
+ * VIRTUAL_I2CAdapter.cpp (I2CAdapter + CallLog) is the third host backend.
  */
 #ifndef INTROSATLIB_TEST_MOCK_I2C_HPP_
 #define INTROSATLIB_TEST_MOCK_I2C_HPP_

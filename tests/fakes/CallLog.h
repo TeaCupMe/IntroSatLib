@@ -1,10 +1,14 @@
 /**
  * @file CallLog.h
- * @brief Shared recording journal for fake Adapter implementations.
+ * @brief Shared recording journal for the VIRTUAL host backend adapters.
+ *
+ * Used by VIRTUAL_I2CAdapter and the remaining host GPIO/SPI/UART/System
+ * stubs. Distinct from DI MockI2C (driver unit-test bus).
  */
 #ifndef INTROSATLIB_TEST_CALLLOG_H_
 #define INTROSATLIB_TEST_CALLLOG_H_
 
+#include "BusCall.h"
 #include "IntroSatLib_def.h"
 
 #include <cstdint>
@@ -14,40 +18,9 @@
 namespace IntroSatLib {
 namespace test {
 
-enum class BusOp : uint8_t {
-	I2C_IsReady,
-	I2C_Read,
-	I2C_Write,
-	I2C_ReadMem,
-	I2C_WriteMem,
-	SPI_Transfer,
-	GPIO_Read,
-	GPIO_Write,
-	GPIO_IsValid,
-	GPIO_Tone,
-	GPIO_NoTone,
-	System_GetTick,
-	System_GetMicros,
-	System_Delay,
-	System_DelayMicroseconds,
-	UART_Available,
-	UART_Receive,
-	UART_Transmit,
-	UART_TransmitAsync,
-};
-
-struct BusCall {
-	BusOp op{};
-	uint8_t address = 0;
-	uint8_t reg = 0;
-	uint8_t nBytes = 0;
-	uint32_t value = 0;
-	std::vector<uint8_t> data;
-};
-
 /**
  * Thread-hostile global call journal for single-threaded Catch2 runs.
- * Fake adapters record here; tests reset/program responses before acting.
+ * VIRTUAL adapters record here; tests reset/program responses before acting.
  */
 class CallLog {
 public:

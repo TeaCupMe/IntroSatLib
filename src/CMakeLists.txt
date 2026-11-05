@@ -1,17 +1,19 @@
 set(INTROSATLIB_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 get_filename_component(INTROSATLIB_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." ABSOLUTE)
 
-if(INTROSATLIB_USE_TEST_ADAPTER_FAKES)
-	set(_introsatlib_fakes_dir "${INTROSATLIB_ROOT_DIR}/tests/fakes")
+if(INTROSATLIB_BACKEND STREQUAL "VIRTUAL")
+	# Third backend: VIRTUAL_I2CAdapter + CallLog; other peripherals still use
+	# host recording stubs under tests/fakes until they get VIRTUAL_* ports.
+	set(_introsatlib_host_dir "${INTROSATLIB_ROOT_DIR}/tests/fakes")
 	set(
 		INTROSATLIB_ADAPTER_SOURCES
-		"${_introsatlib_fakes_dir}/CallLog.cpp"
-		"${_introsatlib_fakes_dir}/FakeGPIO.cpp"
-		"${_introsatlib_fakes_dir}/FakeI2C.cpp"
-		"${_introsatlib_fakes_dir}/FakeLogger.cpp"
-		"${_introsatlib_fakes_dir}/FakeSPI.cpp"
-		"${_introsatlib_fakes_dir}/FakeSystem.cpp"
-		"${_introsatlib_fakes_dir}/FakeUART.cpp"
+		"${_introsatlib_host_dir}/CallLog.cpp"
+		"${_introsatlib_host_dir}/FakeGPIO.cpp"
+		Adapter/I2C/VIRTUAL_I2CAdapter.cpp
+		"${_introsatlib_host_dir}/FakeLogger.cpp"
+		"${_introsatlib_host_dir}/FakeSPI.cpp"
+		"${_introsatlib_host_dir}/FakeSystem.cpp"
+		"${_introsatlib_host_dir}/FakeUART.cpp"
 		Adapter/I2C/I2CAdapterPool.cpp
 	)
 	set(INTROSATLIB_BACKEND_DEFINITION USE_HAL_DRIVER)
@@ -91,7 +93,7 @@ target_compile_definitions(
 	PUBLIC "${INTROSATLIB_BACKEND_DEFINITION}"
 )
 target_link_libraries(IntroSatLib_Core PUBLIC IntroSatLib::Platform)
-if(INTROSATLIB_USE_TEST_ADAPTER_FAKES)
+if(INTROSATLIB_BACKEND STREQUAL "VIRTUAL")
 	target_include_directories(
 		IntroSatLib_Core
 		PUBLIC
