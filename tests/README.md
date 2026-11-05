@@ -2,12 +2,15 @@
 
 DI MVP with a single public bus type `interfaces::I2C` (virtual API).
 Platform backends use library-internal `interfaces::I2CAdapter`.
-Tests inject `FakeI2C` by reference (Catch2 v3) and assert sequences with
-`REQUIRE_I2C_CALLS` / `REQUIRE_SYSTEM_DELAY` from `I2CCallHelpers.hpp`.
+Tests inject `MockI2C` by reference (Catch2 v3): program the scenario with
+`bus.expect({...})` (ops + `.respond(...)` / `.status(...)`), then assert with
+`REQUIRE_I2C_CALLS(bus)` / `REQUIRE_SYSTEM_DELAY` from `I2CCallHelpers.hpp`.
 Host stubs still compile production Adapter headers; link fakes remain for
-`system::*` (e.g. Delay) and full-Core host builds.
+`system::*` (e.g. Delay) and full-Core host builds (`FakeI2C.cpp` replaces
+`I2CAdapter` + `CallLog` — separate from DI `MockI2C`).
 
-See project-store docs `test-harness-slimdown.md`, `di-virtual-adapters-design.md`.
+See project-store docs `mock-i2c-expect-queue.md`, `test-harness-slimdown.md`,
+`di-virtual-adapters-design.md`.
 
 ## Configure and run
 

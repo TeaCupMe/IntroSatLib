@@ -3,23 +3,23 @@
 
 #include "CallLog.h"
 #include "Device/LM75A/LM75A.h"
-#include "FakeI2C.hpp"
 #include "I2CCallHelpers.hpp"
+#include "MockI2C.hpp"
 
-using IntroSatLib::test::FakeI2C;
 using IntroSatLib::test::IsReady;
+using IntroSatLib::test::MockI2C;
 using IntroSatLib::test::ReadMem;
 
 TEST_CASE("LM75A::Init probes device with isReady", "[LM75A]")
 {
-	FakeI2C bus;
-	bus.setIsReadyStatus(ISL_StatusTypeDef::ISL_OK);
+	MockI2C bus;
+	bus.expect({
+		IsReady(0x48),
+	});
 	IntroSatLib::LM75A sensor(bus, 0x48);
 
 	REQUIRE(sensor.Init() == ISL_StatusTypeDef::ISL_OK);
-	REQUIRE_I2C_CALLS(bus, {
-		IsReady(0x48),
-	});
+	REQUIRE_I2C_CALLS(bus);
 }
 
 TEST_CASE("LM75A accepts handle via pooled I2CAdapter::from", "[LM75A]")
@@ -48,36 +48,36 @@ TEST_CASE("I2CAdapter::from returns same pooled slot for same handle", "[I2C][po
 
 TEST_CASE("LM75A::GetRawTemperature reads TEMPERATURE via readMem", "[LM75A]")
 {
-	FakeI2C bus;
-	bus.enqueueRead({0x19, 0x00});
+	MockI2C bus;
+	bus.expect({
+		ReadMem(0x48, 0x00, 2).respond({0x19, 0x00}),
+	});
 	IntroSatLib::LM75A sensor(bus, 0x48);
 
 	REQUIRE(sensor.GetRawTemperature() == static_cast<int16_t>(0x1900));
-	REQUIRE_I2C_CALLS(bus, {
-		ReadMem(0x48, 0x00, 2),
-	});
+	REQUIRE_I2C_CALLS(bus);
 }
 
 TEST_CASE("LM75A::GetTemperature scales raw / 256", "[LM75A]")
 {
-	FakeI2C bus;
-	bus.enqueueRead({0x19, 0x00});
+	MockI2C bus;
+	bus.expect({
+		ReadMem(0x48, 0x00, 2).respond({0x19, 0x00}),
+	});
 	IntroSatLib::LM75A sensor(bus);
 
 	REQUIRE(sensor.GetTemperature() == Catch::Approx(25.0f).margin(0.001f));
-	REQUIRE_I2C_CALLS(bus, {
-		ReadMem(0x48, 0x00, 2),
-	});
+	REQUIRE_I2C_CALLS(bus);
 }
 
 TEST_CASE("LM75A::GetConfig reads CONFIGURATION register", "[LM75A]")
 {
-	FakeI2C bus;
-	bus.enqueueRead({0x42});
+	MockI2C bus;
+	bus.expect({
+		ReadMem(0x49, 0x01, 1).respond({0x42}),
+	});
 	IntroSatLib::LM75A sensor(bus, 0x49);
 
 	REQUIRE(sensor.GetConfig() == 0x42);
-	REQUIRE_I2C_CALLS(bus, {
-		ReadMem(0x49, 0x01, 1),
-	});
+	REQUIRE_I2C_CALLS(bus);
 }

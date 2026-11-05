@@ -9,7 +9,7 @@ namespace IntroSatLib {
 class I2CDevice: public Device 	{
 
 private:
-	/** Non-owning bus pointer (FakeI2C, pooled I2CAdapter, or other I2C). */
+	/** Non-owning bus pointer (MockI2C, pooled I2CAdapter, or other I2C). */
 	interfaces::I2C* _bus = nullptr;
 
 protected:

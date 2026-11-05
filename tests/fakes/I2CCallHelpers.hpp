@@ -1,12 +1,12 @@
 /**
  * @file I2CCallHelpers.hpp
- * @brief Compact Catch2 assertions for FakeI2C call sequences.
+ * @brief Compact Catch2 assertions for MockI2C call sequences.
  */
 #ifndef INTROSATLIB_TEST_I2C_CALL_HELPERS_HPP_
 #define INTROSATLIB_TEST_I2C_CALL_HELPERS_HPP_
 
 #include "CallLog.h"
-#include "FakeI2C.hpp"
+#include "MockI2C.hpp"
 
 #include <catch2/catch_test_macros.hpp>
 
@@ -18,18 +18,6 @@
 
 namespace IntroSatLib {
 namespace test {
-
-struct ExpectedI2CCall {
-	I2COp op{};
-	uint8_t address = 0;
-	uint8_t reg = 0;
-	uint8_t nBytes = 0;
-	std::vector<uint8_t> data{};
-	bool matchAddress = true;
-	bool matchReg = false;
-	bool matchNBytes = false;
-	bool matchData = false;
-};
 
 inline ExpectedI2CCall IsReady(uint8_t address)
 {
@@ -149,6 +137,11 @@ inline void requireI2CCalls(
 	}
 }
 
+inline void requireI2CCalls(const MockI2C& bus)
+{
+	requireI2CCalls(bus.calls(), bus.expected());
+}
+
 inline void requireSystemDelay(uint32_t milliseconds)
 {
 	const auto& calls = CallLog::calls();
@@ -167,20 +160,20 @@ inline void requireSystemDelay(uint32_t milliseconds)
 } /* namespace IntroSatLib */
 
 /**
- * Assert FakeI2C recorded exactly the expected call sequence.
+ * Assert MockI2C recorded calls match the sequence programmed via bus.expect(...).
  *
  * Example:
- *   REQUIRE_I2C_CALLS(bus, {
+ *   bus.expect({
  *       IsReady(0x48),
- *       ReadMem(0x48, 0x00, 2),
+ *       ReadMem(0x48, 0x00, 2).respond({0x19, 0x00}),
  *       WriteMem(0x6B, 0x11, {0x04}),
  *   });
+ *   // ... exercise driver ...
+ *   REQUIRE_I2C_CALLS(bus);
  */
-#define REQUIRE_I2C_CALLS(bus, ...)                                                      \
+#define REQUIRE_I2C_CALLS(bus)                                                           \
 	do {                                                                                 \
-		::IntroSatLib::test::requireI2CCalls(                                            \
-			(bus).calls(),                                                               \
-			std::vector<::IntroSatLib::test::ExpectedI2CCall> __VA_ARGS__);              \
+		::IntroSatLib::test::requireI2CCalls(bus);                                       \
 	} while (0)
 
 /** Assert CallLog saw system::Delay(ms) (link FakeSystem path). */
