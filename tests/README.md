@@ -12,6 +12,24 @@ REQUIRE_I2C_CALLS(bus);
 headers): no `I2CAdapter*.cpp` / pool, no HAL stub; `HostSystem.cpp` provides
 no-op `system::*`. Firmware `BACKEND` / `PLATFORM_TARGET` are unused.
 
+### MockI2C call logging (optional)
+
+Silent by default. Enable full per-call logs (addr / reg / n / payload / status)
+via IntroSatLib Logger → stderr:
+
+```cpp
+bus.setLogging(true);
+```
+
+or:
+
+```bash
+export INTROSATLIB_MOCK_I2C_LOG=1
+ctest --preset host-tests
+```
+
+Example line: `MockI2C[1] ReadMem addr=0x6B reg=0x0F n=1 data=[0x69] -> OK`
+
 ## Configure and run (preset)
 
 ```bash

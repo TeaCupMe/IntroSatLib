@@ -13,6 +13,9 @@ add_executable(
 	unit/test_I2CDevice.cpp
 	unit/test_LM75A.cpp
 	unit/test_LSM6DS3.cpp
+	# Strong LOGGER → stderr so MockI2C logText path is visible when logging on.
+	# Must not live only in libIntroSatLib_Core.a (weak LOGGER in Logger.cpp wins).
+	fakes/HostLogger.cpp
 )
 
 target_compile_features(introsatlib_unit_tests PRIVATE cxx_std_17)
