@@ -9,19 +9,21 @@
  * Optional full call logging (silent by default):
  *   bus.setLogging(true);
  *   // or: export INTROSATLIB_MOCK_I2C_LOG=1
- * Logs go through IntroSatLib Logger (HostLogger → stderr on host tests).
+ * Pretty lines via HostLog (timestamp, DEBUG level, [MockI2C] metadata, color).
  */
 #ifndef INTROSATLIB_TEST_MOCK_I2C_HPP_
 #define INTROSATLIB_TEST_MOCK_I2C_HPP_
 
 #include "Adapter/I2C/I2C.h"
-#include "Logger.h"
+#include "HostLog.hpp"
 
 #include <algorithm>
 #include <cstdint>
+#include <cstdio>
 #include <cstdlib>
 #include <cstring>
 #include <initializer_list>
+#include <string>
 #include <utility>
 #include <vector>
 
@@ -94,6 +96,10 @@ public:
 		_calls.clear();
 	}
 
+	/** Optional label shown in log metadata (default "bus"). */
+	void setBusName(const char* name) { _busName = name != nullptr ? name : "bus"; }
+	const std::string& busName() const { return _busName; }
+
 	/** Enable/disable per-call logging (default off unless env set). */
 	void setLogging(bool enabled) { _logging = enabled; }
 	bool logging() const { return _logging; }
@@ -115,15 +121,17 @@ public:
 	const std::vector<ExpectedI2CCall>& expected() const { return _expected; }
 	const std::vector<I2CCall>& calls() const { return _calls; }
 
-	/** Log the full recorded sequence (uses Logger; no-op if logging off). */
+	/** Log the full recorded sequence (HostLog DEBUG; no-op if logging off). */
 	void dumpCalls() const
 	{
 		if (!_logging) {
 			return;
 		}
-		logText("MockI2C dump: ");
-		logNumber(static_cast<uint8_t>(_calls.size()));
-		logText(" call(s)\n");
+		HostLog::info(
+			"MockI2C",
+			"dump bus=%s calls=%zu",
+			_busName.c_str(),
+			_calls.size());
 		for (size_t i = 0; i < _calls.size(); ++i) {
 			const ISL_StatusTypeDef status =
 				(i < _expected.size()) ? _expected[i].returnStatus : ISL_StatusTypeDef::ISL_OK;
@@ -242,6 +250,22 @@ private:
 		return "?";
 	}
 
+	static const char* statusName(ISL_StatusTypeDef status)
+	{
+		switch (status) {
+		case ISL_StatusTypeDef::ISL_OK:
+			return "OK";
+		case ISL_StatusTypeDef::ISL_ERROR:
+			return "ERROR";
+		case ISL_StatusTypeDef::ISL_BUSY:
+			return "BUSY";
+		case ISL_StatusTypeDef::ISL_TIMEOUT:
+			return "TIMEOUT";
+		default:
+			return "UNKNOWN";
+		}
+	}
+
 	static std::vector<uint8_t> capture(const uint8_t* data, uint8_t nBytes)
 	{
 		if (data == nullptr || nBytes == 0) {
@@ -274,41 +298,76 @@ private:
 		}
 	}
 
+	static std::string formatBytes(const std::vector<uint8_t>& bytes)
+	{
+		std::string out = "[";
+		char hex[8];
+		for (size_t i = 0; i < bytes.size(); ++i) {
+			if (i != 0) {
+				out += ',';
+			}
+			std::snprintf(hex, sizeof(hex), "0x%02X", bytes[i]);
+			out += hex;
+		}
+		out += ']';
+		return out;
+	}
+
 	void logOne(size_t idx, const I2CCall& call, ISL_StatusTypeDef status) const
 	{
 		if (!_logging) {
 			return;
 		}
-		logText("MockI2C[");
-		logNumber(static_cast<uint8_t>(idx));
-		logText("] ");
-		logText(opName(call.op));
-		logText(" addr=");
-		logHEX(call.address);
-		if (call.op == I2COp::ReadMem || call.op == I2COp::WriteMem) {
-			logText(" reg=");
-			logHEX(call.reg);
+
+		char message[512];
+		if (call.op == I2COp::IsReady) {
+			std::snprintf(
+				message,
+				sizeof(message),
+				"bus=%s idx=%zu op=%s addr=0x%02X -> %s",
+				_busName.c_str(),
+				idx,
+				opName(call.op),
+				call.address,
+				statusName(status));
+		} else if (call.op == I2COp::ReadMem || call.op == I2COp::WriteMem) {
+			const std::string data = formatBytes(call.data);
+			std::snprintf(
+				message,
+				sizeof(message),
+				"bus=%s idx=%zu op=%s addr=0x%02X reg=0x%02X n=%u data=%s -> %s",
+				_busName.c_str(),
+				idx,
+				opName(call.op),
+				call.address,
+				call.reg,
+				call.nBytes,
+				data.c_str(),
+				statusName(status));
+		} else {
+			const std::string data = formatBytes(call.data);
+			std::snprintf(
+				message,
+				sizeof(message),
+				"bus=%s idx=%zu op=%s addr=0x%02X n=%u data=%s -> %s",
+				_busName.c_str(),
+				idx,
+				opName(call.op),
+				call.address,
+				call.nBytes,
+				data.c_str(),
+				statusName(status));
 		}
-		if (call.op != I2COp::IsReady) {
-			logText(" n=");
-			logNumber(call.nBytes);
-			logText(" data=[");
-			for (size_t i = 0; i < call.data.size(); ++i) {
-				if (i != 0) {
-					logText(",");
-				}
-				logHEX(call.data[i]);
-			}
-			logText("]");
-		}
-		logText(" -> ");
-		logStatus(status);
-		logText("\n");
+
+		const LogLevel level =
+			(status == ISL_StatusTypeDef::ISL_OK) ? LogLevel::Debug : LogLevel::Warn;
+		HostLog::log(level, "MockI2C", "%s", message);
 	}
 
 	std::vector<ExpectedI2CCall> _expected;
 	std::vector<I2CCall> _calls;
 	bool _logging = false;
+	std::string _busName = "bus";
 };
 
 } /* namespace test */

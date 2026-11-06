@@ -14,10 +14,11 @@ no-op `system::*`. Firmware `BACKEND` / `PLATFORM_TARGET` are unused.
 
 ### MockI2C call logging (optional)
 
-Silent by default. Enable full per-call logs (addr / reg / n / payload / status)
-via IntroSatLib Logger → stderr:
+Silent by default. Enable full per-call logs via **HostLog** (timestamp, level,
+`[MockI2C]` tag, bus metadata, ANSI color on TTY):
 
 ```cpp
+bus.setBusName("imu");
 bus.setLogging(true);
 ```
 
@@ -25,10 +26,12 @@ or:
 
 ```bash
 export INTROSATLIB_MOCK_I2C_LOG=1
+# optional: INTROSATLIB_LOG_LEVEL=DEBUG|INFO|WARN|ERROR
+# optional: NO_COLOR=1 or INTROSATLIB_LOG_COLOR=always
 ctest --preset host-tests
 ```
 
-Example line: `MockI2C[1] ReadMem addr=0x6B reg=0x0F n=1 data=[0x69] -> OK`
+Example: `14:02:11.042 DEBUG [MockI2C] bus=imu idx=1 op=ReadMem addr=0x6B reg=0x0F n=1 data=[0x69] -> OK`
 
 ## Configure and run (preset)
 
