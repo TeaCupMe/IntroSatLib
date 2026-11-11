@@ -60,30 +60,35 @@ namespace IntroSatLib {
         return ISL_ERROR;
     }
 
-    ISL_StatusTypeDef E32_433::waitForReady(uint16_t afterAuxTime)
+    ISL_StatusTypeDef E32_433::waitForReady(uint16_t afterAuxTime, uint16_t timeout)
     {
-    	uint32_t startTime;
-    	if (pins.AUX.isValid())
-    	{
-    		startTime = system::GetTick();
-    		while(system::GetTick() - afterAuxTime < startTime)
-    		{
-    			if(pins.AUX.read() == 0)
-    			{
-    				WaitAUX(1);
-    				startTime = system::GetTick();
-    			}
-    		}
-    		return ISL_OK;
-    	}
-    	return ISL_ERROR;
+    	if (!pins.AUX.isValid())
+			return ISL_ERROR;
 
-//		while (HAL_GetTick() - afterAuxTime < startTime) {
-//			if (HAL_GPIO_ReadPin(AUX_Port, AUX_Pin) == GPIO_PIN_RESET) {
-//				waitForHighAUX();
-//				startTime = HAL_GetTick();
-//			}
-//		}
+		const uint32_t overallStart = system::GetTick();  // момент входа, не сбрасывается
+		uint32_t auxHighStart = overallStart;             // начало окна стабильности AUX
+
+		uint32_t now = system::GetTick();
+		while (now - overallStart < timeout)
+		{
+			now = system::GetTick();       // один снимок тика на итерацию
+
+			// 1) AUX стабильно HIGH уже afterAuxTime мс → готовы
+			if (now - auxHighStart >= afterAuxTime)
+				return ISL_OK;
+
+			// 2) Общий таймаут истёк → выходим с ошибкой
+//			if (now - overallStart >= timeout)
+//				return ISL_TIMEOUT;
+
+			// 3) AUX дёрнулся вниз → перезапускаем окно стабильности
+			if (pins.AUX.read() == 0)
+			{
+				WaitAUX(1);
+				auxHighStart = system::GetTick();
+			}
+		}
+		return ISL_TIMEOUT;
     }
 
 
@@ -218,7 +223,7 @@ namespace IntroSatLib {
         data[5] = settings.option;
 
         RETURN_STATUS_IF_NOT_OK_SILENT(WriteUART(data, 6, timeout));
-        
+//        WaitAUX(1, 100);
         RETURN_STATUS_IF_NOT_OK_SILENT(ReadUART(data, 6, timeout));
         if (data[0] == (uint8_t)CommandHead::SetParametersSave)
         {

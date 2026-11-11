@@ -245,7 +245,7 @@ private:
      */
     ISL_StatusTypeDef WaitAUX(uint8_t level, uint16_t timeout=defaultTimeout);
 
-    ISL_StatusTypeDef waitForReady(uint16_t afterAuxTime);
+    ISL_StatusTypeDef waitForReady(uint16_t afterAuxTime, uint16_t timeout=defaultTimeout);
 
 protected:
 
