@@ -1,25 +1,23 @@
+#define ISL_INTERNAL
+
+#include "Adapter/I2C.h"
+
+#ifdef ISL_I2C_ENABLED
+
 #include "LightSensor.h"
+#include "Device/I2CDevice.h"
 
 namespace IntroSatLib {
 
-#ifndef ARDUINO
-LightSensor::LightSensor(I2C_HandleTypeDef *hi2c, uint8_t address): BaseDevice(hi2c, address)
-{
-}
-#else
-LightSensor::LightSensor(TwoWire &hi2c, uint8_t address): BaseDevice(hi2c, address)
-{
-}
-LightSensor::LightSensor(uint8_t address): BaseDevice(address)
-{
-}
-#endif
-
-LightSensor::LightSensor(const LightSensor &other): BaseDevice(other)
+LightSensor::LightSensor(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address)
 {
 }
 
-LightSensor::LightSensor(LightSensor &&other): BaseDevice(other)
+LightSensor::LightSensor(const LightSensor &other): I2CDevice(other)
+{
+}
+
+LightSensor::LightSensor(LightSensor &&other): I2CDevice(other)
 {
 }
 
@@ -27,7 +25,7 @@ LightSensor& LightSensor::operator=(const LightSensor &other)
 {
 	if (this != &other)
 	{
-		this->BaseDevice::operator =(other);
+		this->I2CDevice::operator =(other);
 	}
 	return *this;
 }
@@ -36,24 +34,29 @@ LightSensor& LightSensor::operator=(LightSensor &&other)
 {
 	if (this != &other)
 	{
-		this->BaseDevice::operator =(other);
+		this->I2CDevice::operator =(other);
 	}
 	return *this;
 }
-
-uint8_t LightSensor::Init()
+// TODO Возвращать не просто 0, а результат проверки наличия датчика
+ISL_StatusTypeDef LightSensor::Init()
 {
-	return 0;
+	// return IsReady();
+	uint8_t buf[2];
+	WriteI2C(buf, 1);
+	return ReadI2C(buf, 2);
 }
 
 int16_t LightSensor::GetLight()
 {
 	static uint8_t buf[2];
-	_i2c.write(buf, 1);
-	_i2c.read(buf, 2);
+	WriteI2C(buf, 1);
+	ReadI2C(buf, 2);
 	return buf[1] << 8 | buf[0];
 }
 
 LightSensor::~LightSensor() { }
 
 } /* namespace IntroSatLib */
+
+#endif /* ISL_I2C_ENABLED */

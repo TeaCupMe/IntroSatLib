@@ -1,0 +1,133 @@
+/* (c) Axel Naumann, CERN; 2020-03-02 */
+/* Adapted from https://www.w3schools.com/howto/howto_css_dropdown.asp */
+.dropbtn {
+  margin-left: 30px;
+  margin-right: 10px;
+  border: 1px solid var(--separator-color) !important;
+  border: 0px;
+  color: var(--header-foreground);
+  background-color: transparent;
+  /* var(--toc-background-color); */
+  /* padding: 9px 16px 9px 16px; */
+  font-size: 14px;
+  min-width: 150px;
+  border-radius: var(--border-radius-small);
+  font-family: var(--font-family);
+  font-weight: 500;
+  transition: background-color 0.3s ease-in-out;
+  padding: var(--spacing-small);
+  padding-top: 9px;
+  padding-bottom: 9px;
+  
+}
+.dropbtn:after{
+  content: '';
+  border: 4px solid transparent;
+  border-top: 2px solid var(--header-foreground);
+  border-left: 2px solid var(--header-foreground);
+  border-right: 2px solid var(--toc-background-color);
+  border-bottom: 2px solid var(--toc-background-color);
+  padding-top: 5px;
+  padding-left: 5px;
+  margin-left: 12px;
+  margin-bottom: 7px;
+  display: inline-block;
+  vertical-align: bottom;
+  rotate: -135deg;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 10000;
+  border-bottom-left-radius: var(--border-radius-small);
+  border-bottom-right-radius: var(--border-radius-small);
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  margin-left: 30px;
+  background-color: var(--page-background-color);
+  /* width: fill; */
+  min-width: calc(148px - 2*var(--spacing-small));
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  z-index: 1;
+
+  
+  border-bottom-left-radius: var(--border-radius-small);
+  border-bottom-right-radius: var(--border-radius-small);
+   transition: display 0.5s ease-in-out;
+  padding: var(--spacing-small);
+}
+
+.dropdown:hover  .dropbtn {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  /* transition: background-color 0.3s; */
+  /* background-color: var(--menu-focus-backround); */
+  border-top: 1px solid var(--separator-color);
+  border-left: 1px solid var(--separator-color);
+  border-right: 1px solid var(--separator-color);
+  
+}
+
+.dropdown:hover .dropdown-content {
+  /* border: 1px solid var(--separator-color); */
+  border-bottom: 1px solid var(--separator-color);
+  border-left: 1px solid var(--separator-color);
+  border-right: 1px solid var(--separator-color);
+}
+
+/* Links inside the dropdown */.dropdown-content a {
+  /* color: black !important; */
+  padding: 4px 16px;
+  text-decoration: none;
+  display: block;
+  
+}
+
+a.verslink {
+  border-radius: var(--border-radius-small);
+  color: var(--primary-color) !important;
+  /* margin: 6px; */
+  /* transition: background-color 0.3s ease-in-out; */
+  /* transition: color 0.3s ease-in-out; */
+}
+
+a.verslink:hover {
+  color: var(--primary-lightest-color) !important;
+  font-weight: 550;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a.verslink:hover {
+  background-color: var(--menu-focus-background);
+  /* border: 2px solid var(--primary-dark-color); */
+  color: var(--primary-dark-color);
+  
+  
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+/* .dropdown:hover .dropbtn {
+   /* color: black; */
+   /* background-color:  var(--menu-focus-background); */
+/* } */ 
+
+.dropbtn:hover {
+   /* text-shadow: 2px 2px white ; */
+  font-weight: 550;
+  text-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+  background-color:  var(--menu-focus-background) !important;
+}
+

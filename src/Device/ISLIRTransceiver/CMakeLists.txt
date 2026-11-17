@@ -1,0 +1,12 @@
+introsatlib_add_static_component(
+	IntroSatLib_ISLIRTransceiver
+	ISLIRTransceiver
+	ISLIRTransceiver.cpp
+)
+target_link_libraries(
+	IntroSatLib_ISLIRTransceiver
+	PUBLIC
+		IntroSatLib::Device
+		IntroSatLib::ISLIRReceiver
+		IntroSatLib::ISLIRTransmitter
+)

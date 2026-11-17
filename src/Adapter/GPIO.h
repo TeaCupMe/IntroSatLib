@@ -1,0 +1,104 @@
+#ifndef ADAPTER_GPIO_H_
+#define ADAPTER_GPIO_H_
+
+#include "IntroSatLib_def.h"
+#include "Adapter/System.h"
+#ifdef ARDUINO
+/*********************************/
+/********** Arduino IDE **********/
+/*********************************/
+	#include "Arduino.h"
+	#define ISL_GPIO_ENABLED
+	namespace IntroSatLib::interfaces {using GPIO_HANDLE_TYPE = uint8_t;}
+
+#else
+/*********************************/
+/************ Native *************/
+/*********************************/
+	#if defined(AVR)
+	/************** AVR  **************/
+		//  This is not yet supported, but it is here for future reference.
+		//  AVR-series outside Arduino IDE
+		#error "Bare AVR outside of Arduino IDE is not yet supported"
+
+	#elif defined(USE_HAL_DRIVER) // TODO Change to more reusable symbol
+	/************  STM32 **************/
+
+		// Include HAL for supported STM32 platforms
+		#include "./STM32/stm32xxyy_hal.h"
+
+		#ifndef HAL_MODULE_ENABLED
+			#error "HAL configuration incorrect"
+		#endif
+
+		#ifdef HAL_GPIO_MODULE_ENABLED
+			// define STM32-specific handle type for GPIO
+			#define ISL_GPIO_ENABLED
+			namespace IntroSatLib::interfaces {
+				struct GPIO_HANDLE_TYPE {
+					GPIO_TypeDef* port = nullptr;
+					uint16_t pin = 0;
+				};
+
+			}
+
+		#elif !defined(ISL_INTERNAL)
+			#error "GPIO not enabled as part of HAL"
+		#endif
+
+
+	// #elif defined(AMUR)
+	/************** AMUR *************/
+		// #error "AMUR not yet supported"
+
+	#else
+	/************ UNKNOWN ************/
+		#ifndef ISL_INTERNAL
+			#error Unsupported system: neither AVR/ARDUINO nor USE_HAL_DRIVER defined. Please check your platform macros.  \
+			 		Currently supported systems are: stm32 with HAL, stm32duino. AVR planned for future support.
+		#endif
+	#endif
+#endif /* ARDUINO */
+
+
+#ifdef ISL_GPIO_ENABLED
+
+namespace IntroSatLib {
+namespace interfaces {
+
+class GPIO final {
+private:
+	GPIO_HANDLE_TYPE _pin;
+public:
+	GPIO(GPIO_HANDLE_TYPE pin);
+	GPIO() {}
+
+	uint8_t read() const;
+
+	void write(uint8_t state) const;
+
+	void reset() const { write(0); }
+	void set() const { write(1); }
+
+	ISL_StatusTypeDef wait(bool state, uint16_t timeout = 0xFFFF) const {
+		uint32_t startTime = ::IntroSatLib::system::GetTick();
+		while(read() != state)
+		{
+			if ((system::GetTick() - startTime) > timeout) { return ISL_StatusTypeDef::ISL_TIMEOUT; }
+		}
+		return ISL_StatusTypeDef::ISL_OK;
+	};
+
+	ISL_StatusTypeDef waitReset(uint16_t timeout = 0xFFFF) const { return wait(0, timeout); }
+	ISL_StatusTypeDef waitSet(uint16_t timeout = 0xFFFF) const { return wait(1, timeout); }
+	void tone( uint16_t frequency);
+	void noTone();
+	bool isValid() const;
+};
+
+} /* namespace intefaces */
+} /* namespace IntroSatLib */
+
+
+#endif /* ISL_GPIO_ENABLED */
+#endif /* ADAPTER_GPIO_H_ */

@@ -1,0 +1,25 @@
+#define ISL_INTERNAL
+#include "Adapter/System.h"
+
+#ifdef ARDUINO
+#include "Arduino.h"
+
+uint32_t IntroSatLib::system::GetTick() {
+	return millis();
+}
+
+void IntroSatLib::system::Delay(uint32_t milliseconds) {
+	delay(milliseconds);
+}
+
+uint32_t IntroSatLib::system::GetMicros() {
+	return micros();
+}
+
+void IntroSatLib::system::DelayMicroseconds(uint32_t microseconds) {
+	delayMicroseconds(microseconds);
+}
+
+#endif /* ARDUINO */
+
+
