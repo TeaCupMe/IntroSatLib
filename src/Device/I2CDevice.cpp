@@ -86,6 +86,7 @@ I2CDevice::I2CDevice(interfaces::I2C& bus, uint8_t address)
 {
 }
 
+#ifndef INTROSATLIB_HOST_UNIT_TESTS
 I2CDevice::I2CDevice(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address)
 	: _bus(&interfaces::I2CAdapter::from(hi2c)), _address(address)
 {
@@ -95,6 +96,7 @@ I2CDevice::I2CDevice(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address)
 	: _bus(&interfaces::I2CAdapter::from(hi2c)), _address(address)
 {
 }
+#endif /* INTROSATLIB_HOST_UNIT_TESTS */
 
 ISL_StatusTypeDef I2CDevice::Init()
 {

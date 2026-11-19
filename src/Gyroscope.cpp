@@ -14,6 +14,7 @@ Gyroscope::Gyroscope(interfaces::I2C& bus, uint8_t address): I2CDevice(bus, addr
 {
 }
 
+#ifndef INTROSATLIB_HOST_UNIT_TESTS
 Gyroscope::Gyroscope(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
@@ -21,6 +22,7 @@ Gyroscope::Gyroscope(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDev
 Gyroscope::Gyroscope(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
+#endif /* INTROSATLIB_HOST_UNIT_TESTS */
 	
 Gyroscope::Gyroscope(const Gyroscope &other): I2CDevice(other)
 {

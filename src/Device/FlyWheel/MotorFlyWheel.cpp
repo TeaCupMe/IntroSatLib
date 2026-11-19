@@ -12,6 +12,7 @@ MotorFlyWheel::MotorFlyWheel(interfaces::I2C& bus, uint8_t address): BaseFlyWhee
 {
 }
 
+#ifndef INTROSATLIB_HOST_UNIT_TESTS
 MotorFlyWheel::MotorFlyWheel(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): BaseFlyWheel(hi2c, address)
 {
 }
@@ -19,6 +20,7 @@ MotorFlyWheel::MotorFlyWheel(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address)
 MotorFlyWheel::MotorFlyWheel(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): BaseFlyWheel(hi2c, address)
 {
 }
+#endif /* INTROSATLIB_HOST_UNIT_TESTS */
 
 MotorFlyWheel::MotorFlyWheel(const MotorFlyWheel &other): BaseFlyWheel(other)
 {

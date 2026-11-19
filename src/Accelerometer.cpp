@@ -13,6 +13,7 @@ Accelerometer::Accelerometer(interfaces::I2C& bus, uint8_t address): I2CDevice(b
 {
 }
 
+#ifndef INTROSATLIB_HOST_UNIT_TESTS
 Accelerometer::Accelerometer(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
@@ -20,6 +21,7 @@ Accelerometer::Accelerometer(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address)
 Accelerometer::Accelerometer(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
+#endif /* INTROSATLIB_HOST_UNIT_TESTS */
 
 Accelerometer::Accelerometer(const Accelerometer& other): I2CDevice(other)
 {

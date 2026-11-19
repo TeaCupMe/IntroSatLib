@@ -1,6 +1,14 @@
 set(INTROSATLIB_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
+get_filename_component(INTROSATLIB_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." ABSOLUTE)
 
-if(INTROSATLIB_BACKEND STREQUAL "ARDUINO")
+if(INTROSATLIB_BUILD_TESTS)
+	# Host MockI2C DI: no I2CAdapter*.cpp / pool. HostSystem = no-op system::*.
+	set(
+		INTROSATLIB_ADAPTER_SOURCES
+		"${INTROSATLIB_ROOT_DIR}/tests/fakes/HostSystem.cpp"
+	)
+	set(INTROSATLIB_BACKEND_DEFINITION "")
+elseif(INTROSATLIB_BACKEND STREQUAL "ARDUINO")
 	set(
 		INTROSATLIB_ADAPTER_SOURCES
 		Adapter/ARDUINO/ARDUINO_GPIO.cpp
@@ -71,11 +79,24 @@ introsatlib_add_static_component(
 	Logger.cpp
 	${INTROSATLIB_ADAPTER_SOURCES}
 )
-target_compile_definitions(
-	IntroSatLib_Core
-	PUBLIC "${INTROSATLIB_BACKEND_DEFINITION}"
-)
+if(INTROSATLIB_BACKEND_DEFINITION)
+	target_compile_definitions(
+		IntroSatLib_Core
+		PUBLIC "${INTROSATLIB_BACKEND_DEFINITION}"
+	)
+endif()
 target_link_libraries(IntroSatLib_Core PUBLIC IntroSatLib::Platform)
+if(INTROSATLIB_BUILD_TESTS)
+	target_compile_definitions(
+		IntroSatLib_Core
+		PUBLIC INTROSATLIB_HOST_UNIT_TESTS
+	)
+	target_include_directories(
+		IntroSatLib_Core
+		PUBLIC
+			"$<BUILD_INTERFACE:${INTROSATLIB_ROOT_DIR}/tests/fakes>"
+	)
+endif()
 
 add_subdirectory(Device)
 add_subdirectory(Platform)
