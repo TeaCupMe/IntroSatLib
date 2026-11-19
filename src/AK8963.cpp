@@ -15,6 +15,7 @@ AK8963::AK8963(interfaces::I2C& bus, uint8_t address): I2CDevice(bus, address)
 {
 }
 
+#ifndef INTROSATLIB_HOST_UNIT_TESTS
 AK8963::AK8963(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
@@ -22,6 +23,7 @@ AK8963::AK8963(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi
 AK8963::AK8963(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
+#endif /* INTROSATLIB_HOST_UNIT_TESTS */
 
 AK8963::AK8963(const AK8963& other): I2CDevice(other)
 {

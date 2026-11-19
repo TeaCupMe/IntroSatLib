@@ -1,0 +1,68 @@
+{
+	"version": 6,
+	"cmakeMinimumRequired": {
+		"major": 3,
+		"minor": 20,
+		"patch": 0
+	},
+	"configurePresets": [
+		{
+			"name": "host-tests",
+			"displayName": "Host unit tests (GoogleTest + gMock)",
+			"description": "GoogleTest + gMock driver tests and Arduino adapter checks; no firmware platform or HAL required. On Windows with MSYS2 use host-tests-mingw if PATH has conflicting MinGW DLLs.",
+			"generator": "Ninja",
+			"binaryDir": "${sourceDir}/build/host-tests",
+			"cacheVariables": {
+				"INTROSATLIB_BUILD_TESTS": "ON",
+				"INTROSATLIB_ENABLE_INSTALL": "OFF"
+			}
+		},
+		{
+			"name": "host-tests-mingw",
+			"displayName": "Host unit tests (MSYS2 MinGW)",
+			"description": "Windows/MSYS2: prepends mingw64 bin so STM32CubeProgrammer/KiCad MinGW DLLs cannot shadow g++/cc1plus.",
+			"inherits": "host-tests",
+			"generator": "MinGW Makefiles",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Windows"
+			},
+			"environment": {
+				"PATH": "C:/msys64/mingw64/bin;$penv{PATH}"
+			},
+			"cacheVariables": {
+				"CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/g++.exe",
+				"CMAKE_MAKE_PROGRAM": "C:/msys64/mingw64/bin/mingw32-make.exe"
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "host-tests",
+			"configurePreset": "host-tests",
+			"targets": ["introsatlib_unit_tests"]
+		},
+		{
+			"name": "host-tests-mingw",
+			"configurePreset": "host-tests-mingw",
+			"targets": ["introsatlib_unit_tests"]
+		}
+	],
+	"testPresets": [
+		{
+			"name": "host-tests",
+			"configurePreset": "host-tests",
+			"output": {
+				"outputOnFailure": true
+			}
+		},
+		{
+			"name": "host-tests-mingw",
+			"configurePreset": "host-tests-mingw",
+			"output": {
+				"outputOnFailure": true
+			}
+		}
+	]
+}

@@ -21,6 +21,7 @@ LIS2MDL::LIS2MDL(interfaces::I2C& bus): I2CDevice(bus, BASE_ADDRESS)
 {
 }
 
+#ifndef INTROSATLIB_HOST_UNIT_TESTS
 LIS2MDL::LIS2MDL(interfaces::I2C_HANDLE_TYPE& hi2c): I2CDevice(hi2c, BASE_ADDRESS)
 {
 }
@@ -28,6 +29,7 @@ LIS2MDL::LIS2MDL(interfaces::I2C_HANDLE_TYPE& hi2c): I2CDevice(hi2c, BASE_ADDRES
 LIS2MDL::LIS2MDL(interfaces::I2C_HANDLE_TYPE* hi2c): I2CDevice(hi2c, BASE_ADDRESS)
 {
 }
+#endif /* INTROSATLIB_HOST_UNIT_TESTS */
 
 ISL_StatusTypeDef LIS2MDL::Init()
 {

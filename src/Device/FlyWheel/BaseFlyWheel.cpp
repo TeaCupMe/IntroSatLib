@@ -13,6 +13,7 @@ BaseFlyWheel::BaseFlyWheel(interfaces::I2C& bus, uint8_t address): I2CDevice(bus
 {
 }
 
+#ifndef INTROSATLIB_HOST_UNIT_TESTS
 BaseFlyWheel::BaseFlyWheel(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
@@ -20,6 +21,7 @@ BaseFlyWheel::BaseFlyWheel(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): 
 BaseFlyWheel::BaseFlyWheel(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
+#endif /* INTROSATLIB_HOST_UNIT_TESTS */
 
 
 ISL_StatusTypeDef BaseFlyWheel::Init()

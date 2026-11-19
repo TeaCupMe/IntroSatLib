@@ -12,6 +12,7 @@ CoilFlyWheel::CoilFlyWheel(interfaces::I2C& bus, uint8_t address): BaseFlyWheel(
 {
 }
 
+#ifndef INTROSATLIB_HOST_UNIT_TESTS
 CoilFlyWheel::CoilFlyWheel(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): BaseFlyWheel(hi2c, address)
 {
 }
@@ -19,6 +20,7 @@ CoilFlyWheel::CoilFlyWheel(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): 
 CoilFlyWheel::CoilFlyWheel(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): BaseFlyWheel(hi2c, address)
 {
 }
+#endif /* INTROSATLIB_HOST_UNIT_TESTS */
 
 CoilFlyWheel::CoilFlyWheel(const CoilFlyWheel &other): BaseFlyWheel(other)
 {

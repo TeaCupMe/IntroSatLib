@@ -20,6 +20,7 @@ MS5611::MS5611(interfaces::I2C& bus, uint8_t address): I2CDevice(bus, address)
 {
 }
 
+#ifndef INTROSATLIB_HOST_UNIT_TESTS
 MS5611::MS5611(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
@@ -27,6 +28,7 @@ MS5611::MS5611(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi
 MS5611::MS5611(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
+#endif /* INTROSATLIB_HOST_UNIT_TESTS */
 
 ISL_StatusTypeDef MS5611::Init(OSR osr) {
 	RETURN_STATUS_IF_NOT_OK_SILENT(IsReady())

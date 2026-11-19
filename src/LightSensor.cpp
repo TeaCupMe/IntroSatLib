@@ -13,6 +13,7 @@ LightSensor::LightSensor(interfaces::I2C& bus, uint8_t address): I2CDevice(bus, 
 {
 }
 
+#ifndef INTROSATLIB_HOST_UNIT_TESTS
 LightSensor::LightSensor(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
@@ -20,6 +21,7 @@ LightSensor::LightSensor(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2
 LightSensor::LightSensor(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
+#endif /* INTROSATLIB_HOST_UNIT_TESTS */
 
 LightSensor::LightSensor(const LightSensor &other): I2CDevice(other)
 {
