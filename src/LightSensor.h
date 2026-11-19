@@ -20,7 +20,9 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес датчика освещённости на шине I2C
 	 */
-	LightSensor(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
+	LightSensor(interfaces::I2C& bus, uint8_t address = BASE_ADDRESS);
+	LightSensor(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address = BASE_ADDRESS);
+	LightSensor(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address = BASE_ADDRESS);
 
 	/**
 	 * @brief Создание объекта датчика освещённости как копии другого объекта датчика освещённости

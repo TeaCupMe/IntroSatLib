@@ -50,7 +50,9 @@ public:
 		G16
 	};
 
-	LIS3MDL(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
+	LIS3MDL(interfaces::I2C& bus, uint8_t address = BASE_ADDRESS);
+	LIS3MDL(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address = BASE_ADDRESS);
+	LIS3MDL(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address = BASE_ADDRESS);
 
 	ISL_StatusTypeDef Init(Scale scale);
 	ISL_StatusTypeDef Init() override {

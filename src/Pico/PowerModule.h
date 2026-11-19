@@ -1,7 +1,7 @@
 #ifndef PICO_POWERMODULE_H_
 #define PICO_POWERMODULE_H_
 
-#include "Adapter/I2C.h"
+#include "Adapter/I2C/I2CAdapter.h"
 #include "Device/ADS7830/ADS7830.h"
 
 namespace IntroSatLib::Pico {
@@ -39,8 +39,9 @@ public:
      * \~russian @param i2c объект I2C, например \c Wire или \c Wire1
      * \~english @param i2c I2C object, for example \c Wire or \c Wire1
      */
-    PowerModule(interfaces::I2C i2c) : adc(i2c) 
-    {}
+    PowerModule(interfaces::I2C& bus) : adc(bus) {}
+    PowerModule(interfaces::I2C_HANDLE_TYPE& hi2c) : adc(hi2c) {}
+    PowerModule(interfaces::I2C_HANDLE_TYPE* hi2c) : adc(hi2c) {}
 
     /**
      * \~russian @brief Инициализация платы питания IntroSat.Pico

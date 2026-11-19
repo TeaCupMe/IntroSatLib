@@ -1,7 +1,7 @@
 #ifndef I2CSCANNER_H_
 #define I2CSCANNER_H_
 
-#include "Adapter/I2C.h"
+#include "Adapter/I2C/I2CAdapter.h"
 #include "Adapter/UART.h"
 #include "stdio.h"
 #include "string.h"
@@ -21,7 +21,43 @@ namespace IntroSatLib {
 
 class I2CScanner final {
 public:
-    static void scanI2CFull(interfaces::I2C i2c, interfaces::UART uart) {
+	static void scanI2CFull(interfaces::I2C_HANDLE_TYPE& hi2c, interfaces::UART uart) {
+		scanI2CFull(interfaces::I2CAdapter::from(hi2c), uart);
+	}
+
+	static void scanI2CFull(interfaces::I2C_HANDLE_TYPE* hi2c, interfaces::UART uart) {
+		scanI2CFull(interfaces::I2CAdapter::from(hi2c), uart);
+	}
+
+	static void scanI2C(interfaces::I2C_HANDLE_TYPE& hi2c, interfaces::UART uart) {
+		scanI2C(interfaces::I2CAdapter::from(hi2c), uart);
+	}
+
+	static void scanI2C(interfaces::I2C_HANDLE_TYPE* hi2c, interfaces::UART uart) {
+		scanI2C(interfaces::I2CAdapter::from(hi2c), uart);
+	}
+
+	static void scanDeviceRegisters(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t addr,
+		uint8_t firstRegister, uint8_t nRegisters, interfaces::UART uart) {
+		scanDeviceRegisters(interfaces::I2CAdapter::from(hi2c), addr, firstRegister, nRegisters, uart);
+	}
+
+	static void scanDeviceRegisters(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t addr,
+		uint8_t firstRegister, uint8_t nRegisters, interfaces::UART uart) {
+		scanDeviceRegisters(interfaces::I2CAdapter::from(hi2c), addr, firstRegister, nRegisters, uart);
+	}
+
+	static void scanDeviceRegistersBatch(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t addr,
+		uint8_t firstRegister, uint8_t nRegisters, interfaces::UART uart) {
+		scanDeviceRegistersBatch(interfaces::I2CAdapter::from(hi2c), addr, firstRegister, nRegisters, uart);
+	}
+
+	static void scanDeviceRegistersBatch(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t addr,
+		uint8_t firstRegister, uint8_t nRegisters, interfaces::UART uart) {
+		scanDeviceRegistersBatch(interfaces::I2CAdapter::from(hi2c), addr, firstRegister, nRegisters, uart);
+	}
+
+    static void scanI2CFull(interfaces::I2C& i2c, interfaces::UART uart) {
 		for (int i = 1; i<127; i++) {
 			char tx_buf[30] = {0};
 			sprintf(tx_buf, "Device at 0x%X: ", i);
@@ -48,7 +84,7 @@ public:
 		}
 	}
 	
-	static void scanI2C(interfaces::I2C i2c, interfaces::UART uart) {
+	static void scanI2C(interfaces::I2C& i2c, interfaces::UART uart) {
 		for (int i = 1; i < 127; i++) {
 			char tx_buf[30] = { 0 };
 			ISL_StatusTypeDef status = i2c.isReady(i);
@@ -59,7 +95,7 @@ public:
 		}
 	}
 
-	static void scanDeviceRegisters(interfaces::I2C i2c, uint8_t addr, uint8_t firstRegister, uint8_t nRegisters, interfaces::UART uart) {
+	static void scanDeviceRegisters(interfaces::I2C& i2c, uint8_t addr, uint8_t firstRegister, uint8_t nRegisters, interfaces::UART uart) {
 		char str[100];
 		sprintf(str, "Scanning registers of device at 0x%0X. From 0x%0X to 0x%0X\n\r", addr, firstRegister, firstRegister+nRegisters);
 		printTextToUART(uart, str);
@@ -85,7 +121,7 @@ public:
 		printTextToUART(uart, "Register scan Finished!\n\r");
 	}
 
-	static void scanDeviceRegistersBatch(interfaces::I2C i2c, uint8_t addr, uint8_t firstRegister, uint8_t nRegisters, interfaces::UART uart) {
+	static void scanDeviceRegistersBatch(interfaces::I2C& i2c, uint8_t addr, uint8_t firstRegister, uint8_t nRegisters, interfaces::UART uart) {
 			char str[100];
 			sprintf(str, "Batch scanning registers of device at 0x%02X. From 0x%2X to 0x%02X\n\r", addr, firstRegister, firstRegister+nRegisters);
 			printTextToUART(uart, str);

@@ -65,7 +65,9 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес акселлерометра на шине I2C
 	 */
-	Accelerometer(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
+	Accelerometer(interfaces::I2C& bus, uint8_t address = BASE_ADDRESS);
+	Accelerometer(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address = BASE_ADDRESS);
+	Accelerometer(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address = BASE_ADDRESS);
 
 	/**
 	 * @brief Конструктор объекта акселлерометра как копии другого объекта акселлерометра
