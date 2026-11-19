@@ -8,13 +8,13 @@
 
 #ifdef ISL_I2C_ENABLED
 
-#include <cstddef>
+#include <stddef.h>
 
 namespace IntroSatLib {
 namespace interfaces {
 
 struct I2CAdapter::Pool {
-	static constexpr std::size_t kSize = 8;
+	static constexpr size_t kSize = 8;
 
 	struct Slot {
 		I2C_HANDLE_TYPE* handle = nullptr;
@@ -31,13 +31,13 @@ struct I2CAdapter::Pool {
 			return unavailable;
 		}
 
-		for (std::size_t i = 0; i < kSize; ++i) {
+		for (size_t i = 0; i < kSize; ++i) {
 			if (slots[i].used && slots[i].handle == hi2c) {
 				return slots[i].adapter;
 			}
 		}
 
-		for (std::size_t i = 0; i < kSize; ++i) {
+		for (size_t i = 0; i < kSize; ++i) {
 			if (!slots[i].used) {
 				slots[i].adapter = I2CAdapter(hi2c);
 				slots[i].handle = hi2c;

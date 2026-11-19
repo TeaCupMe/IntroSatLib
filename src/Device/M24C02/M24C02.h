@@ -7,7 +7,7 @@
 #include "Device/Base/BaseMemoryDriver.h"
 #include "IntroSatLib_def.h"
 
-#include <cstddef>
+#include <stddef.h>
 
 namespace IntroSatLib
 {
