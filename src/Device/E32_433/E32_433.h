@@ -245,6 +245,8 @@ private:
      */
     ISL_StatusTypeDef WaitAUX(uint8_t level, uint16_t timeout=defaultTimeout);
 
+    ISL_StatusTypeDef waitForReady(uint16_t afterAuxTime);
+
 protected:
 
     static constexpr uint16_t defaultTimeout = 1000;  /**< \~russian Таймаут по умолчанию в мс */
@@ -313,6 +315,8 @@ public:
      * \~russian @return Статус выполнения операции
      */
     ISL_StatusTypeDef SetMode(Mode mode);
+
+    Mode GetMode() {return currentMode;}
 
     /**
      * \~russian @brief Чтение настроек в массив байт
