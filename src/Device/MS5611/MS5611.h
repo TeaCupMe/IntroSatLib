@@ -86,7 +86,9 @@ private:
 public:
 
 
-	MS5611(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
+	MS5611(interfaces::I2C& bus, uint8_t address = BASE_ADDRESS);
+	MS5611(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address = BASE_ADDRESS);
+	MS5611(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address = BASE_ADDRESS);
 
 #ifdef DEBUG
 	void GetPROM(uint16_t* buffer);

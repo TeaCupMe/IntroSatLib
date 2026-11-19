@@ -14,7 +14,9 @@ public:
 	 * @param hi2c объект @b I2C_HandleTypeDef
 	 * @param address адрес маховика на шине I2C
 	 */
-	MotorFlyWheel(interfaces::I2C i2c, uint8_t address = BASE_ADDRESS);
+	MotorFlyWheel(interfaces::I2C& bus, uint8_t address = BASE_ADDRESS);
+	MotorFlyWheel(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address = BASE_ADDRESS);
+	MotorFlyWheel(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address = BASE_ADDRESS);
 
 	/**
 	 * @brief Создание объекта маховика как копии другого объекта маховика

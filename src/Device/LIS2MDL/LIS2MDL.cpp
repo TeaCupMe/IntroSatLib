@@ -6,7 +6,7 @@
  */
 #define ISL_INTERNAL
 
-#include "Adapter/I2C.h"
+#include "Adapter/I2C/I2CAdapter.h"
 
 #ifdef ISL_I2C_ENABLED
 
@@ -17,7 +17,15 @@
 namespace IntroSatLib {
 
 
-LIS2MDL::LIS2MDL(interfaces::I2C i2c): I2CDevice(i2c, BASE_ADDRESS)
+LIS2MDL::LIS2MDL(interfaces::I2C& bus): I2CDevice(bus, BASE_ADDRESS)
+{
+}
+
+LIS2MDL::LIS2MDL(interfaces::I2C_HANDLE_TYPE& hi2c): I2CDevice(hi2c, BASE_ADDRESS)
+{
+}
+
+LIS2MDL::LIS2MDL(interfaces::I2C_HANDLE_TYPE* hi2c): I2CDevice(hi2c, BASE_ADDRESS)
 {
 }
 

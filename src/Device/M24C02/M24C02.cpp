@@ -2,7 +2,7 @@
 #include "IntroSatLib_def.h"
 #define ISL_INTERNAL
 
-#include "Adapter/I2C.h"
+#include "Adapter/I2C/I2CAdapter.h"
 #include "Adapter/GPIO.h"
 #include "Adapter/System.h"
 

@@ -1,6 +1,6 @@
 #define ISL_INTERNAL
 
-#include "Adapter/I2C.h"
+#include "Adapter/I2C/I2CAdapter.h"
 
 #ifdef ISL_I2C_ENABLED
 
@@ -9,7 +9,15 @@
 
 namespace IntroSatLib {
 
-LightSensor::LightSensor(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address)
+LightSensor::LightSensor(interfaces::I2C& bus, uint8_t address): I2CDevice(bus, address)
+{
+}
+
+LightSensor::LightSensor(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi2c, address)
+{
+}
+
+LightSensor::LightSensor(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): I2CDevice(hi2c, address)
 {
 }
 

@@ -119,7 +119,9 @@ public:
     * @brief Создание объекта класса LIS2MDL.
     * @param i2c Интерфейс I2C, используемый для взаимодействия с магнитометром.
     */
-	LIS2MDL(interfaces::I2C i2c);
+	LIS2MDL(interfaces::I2C& bus);
+	LIS2MDL(interfaces::I2C_HANDLE_TYPE& hi2c);
+	LIS2MDL(interfaces::I2C_HANDLE_TYPE* hi2c);
 
     /**
     * @brief Инициализация с выставлением значений по умолчанию в регистры.

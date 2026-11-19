@@ -6,7 +6,7 @@
  */
 #define ISL_INTERNAL
 
-#include "Adapter/I2C.h"
+#include "Adapter/I2C/I2CAdapter.h"
 
 #ifdef ISL_I2C_ENABLED
 
@@ -25,7 +25,11 @@ void LM75A::PowerDown(bool shutdown) {
 	//TODO implement
 }
 
-LM75A::LM75A(interfaces::I2C i2c, uint8_t address): I2CDevice(i2c, address) { }
+LM75A::LM75A(interfaces::I2C& bus, uint8_t address): I2CDevice(bus, address) { }
+
+LM75A::LM75A(interfaces::I2C_HANDLE_TYPE& hi2c, uint8_t address): I2CDevice(hi2c, address) { }
+
+LM75A::LM75A(interfaces::I2C_HANDLE_TYPE* hi2c, uint8_t address): I2CDevice(hi2c, address) { }
 
 int16_t LM75A::GetRawTemperature() {
 	uint8_t raw[2];
