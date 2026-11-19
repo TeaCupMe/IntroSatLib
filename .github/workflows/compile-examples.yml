@@ -265,7 +265,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: IntroSatLib
-
+      
+      - name: Remove tests from IntroSatLib
+        run: |
+          rm -rf ./IntroSatLib/tests
+      
       - name: Build example
         uses: xanderhendriks/action-build-stm32cubeide@v16.0
         with:
